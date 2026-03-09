@@ -5,6 +5,7 @@ maturity: complete
 tags:
   - conversation-design
 description: Klinkt jouw Google Assistant ook zo buiten adem? SSML helpt!
+pruning: "This was written in the era of Dialogflow and Google Assistant. SSML is still relevant for voice interfaces, but the landscape has shifted dramatically since then. Today, I'd add a section on how LLM-based voice interfaces handle prosody differently."
 draft: false
 ---
 
