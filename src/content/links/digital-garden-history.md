@@ -1,12 +1,13 @@
 ---
 title: The History of Digital Gardens
+url: https://maggieappleton.com/garden-history
 date: 2026-02-28
-maturity: developing
+updated: 2026-03-09
+maturity: solid
 tags:
   - digital-gardens
   - web-history
 description: A comprehensive overview of the digital garden concept and its evolution.
-url: https://maggieappleton.com/garden-history
 ---
 
 A thorough exploration of where the digital garden concept came from and how it has evolved over the years. Traces the lineage from early hypertext systems through wikis to the current wave of personal knowledge gardens.
