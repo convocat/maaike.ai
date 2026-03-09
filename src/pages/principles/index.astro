@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+
+const principles = sortByDate(
+  (await getCollection('principles')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(principles);
+---
+
+<PageLayout title={`${settings.principlesTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.principlesTitle}</h1>
+  <p class="section-description">{settings.principlesDescription}</p>
+
+  {tags.length > 0 && <FilterBar tags={tags} />}
+
+  <ContentGrid>
+    {principles.map((principle) => (
+      <ContentCard
+        title={principle.data.title}
+        href={`/principles/${principle.id}`}
+        date={principle.data.date}
+        updated={principle.data.updated}
+        maturity={principle.data.maturity}
+        tags={principle.data.tags}
+        description={principle.data.description}
+        collection="principles"
+      />
+    ))}
+  </ContentGrid>
+
+  {principles.length === 0 && (
+    <p class="empty-state">No design principles yet. Add one via the CMS.</p>
+  )}
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

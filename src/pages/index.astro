@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import NotePreview from '../components/NotePreview.astro';
-import LinkCard from '../components/LinkCard.astro';
+import MaturityBadge from '../components/MaturityBadge.astro';
 import { sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
 
@@ -16,10 +16,28 @@ const articles = sortByDate(
 const links = sortByDate(
   (await getCollection('links')).filter((e) => !e.data.draft)
 );
+const videos = sortByDate(
+  (await getCollection('videos')).filter((e) => !e.data.draft)
+);
 
 const recentArticles = articles.slice(0, 4);
 const recentNotes = notes.slice(0, 6);
-const recentLinks = links.slice(0, 4);
+const recentLinks = links.slice(0, 6);
+const recentVideos = videos.slice(0, 4);
+
+function getYouTubeId(url: string): string | null {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,
+    /(?:youtu\.be\/)([^?]+)/,
+    /(?:youtube\.com\/embed\/)([^?]+)/,
+    /(?:youtube\.com\/shorts\/)([^?]+)/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
 
 ---
 
@@ -74,33 +92,61 @@ const recentLinks = links.slice(0, 4);
     </div>
   </section>
 
-  <!-- Links: full width below -->
-  <section class="home-links">
-    <div class="section-header">
-      <h2>Links</h2>
-      <a href="/links" class="view-all">View all &rarr;</a>
-    </div>
-    <div class="links-grid">
-      {recentLinks.map((link) => (
-        <LinkCard
-          title={link.data.title}
-          href={`/links/${link.id}`}
-          url={link.data.url}
-          date={link.data.date}
-          maturity={link.data.maturity}
-          tags={link.data.tags}
-          description={link.data.description}
-        />
-      ))}
-    </div>
-  </section>
+  <div class="home-bottom">
+    <section class="home-links">
+      <div class="section-header">
+        <h2>Links</h2>
+        <a href="/links" class="view-all">View all &rarr;</a>
+      </div>
+      <ul class="links-list">
+        {recentLinks.map((link) => {
+          const domain = new URL(link.data.url).hostname.replace('www.', '');
+          const formattedDate = new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' }).format(link.data.date);
+          return (
+            <li class="link-item">
+              <a href={`/links/${link.id}`} class="link-item-link">
+                <MaturityBadge maturity={link.data.maturity} />
+                <span class="link-item-title">{link.data.title}</span>
+                <span class="link-item-domain">{domain}</span>
+              </a>
+              <time datetime={link.data.date.toISOString()}>{formattedDate}</time>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="home-videos">
+      <div class="section-header">
+        <h2>Videos</h2>
+        <a href="/videos" class="view-all">View all &rarr;</a>
+      </div>
+      {recentVideos.length > 0 ? (
+        <div class="videos-mini-grid">
+          {recentVideos.map((video) => {
+            const videoId = getYouTubeId(video.data.url);
+            const thumb = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : null;
+            return (
+              <a href={`/videos/${video.id}`} class="video-mini">
+                {thumb && <img src={thumb} alt="" class="video-mini-thumb" loading="lazy" />}
+                <span class="video-mini-title">{video.data.title}</span>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <p class="empty-state">No videos yet.</p>
+      )}
+    </section>
+  </div>
 </PageLayout>
 
 <style is:global>
   /* Hero */
   .hero {
+    margin-block-start: calc(-1 * var(--space-xl)); /* pull up into main's top padding */
     margin-block-end: var(--space-xl);
-    padding-block: var(--space-md) var(--space-sm);
+    padding-block: 0 var(--space-sm);
   }
   .hero-logo {
     display: block;
@@ -172,13 +218,103 @@ const recentLinks = links.slice(0, 4);
     gap: var(--space-md);
   }
 
-  /* Links full-width */
-  .home-links {
+  /* Bottom two-column: Links + Videos */
+  .home-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
     margin-block-end: var(--space-2xl);
   }
-  .links-grid {
+  @media (max-width: 768px) {
+    .home-bottom {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Compact links list */
+  .links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .link-item:last-child {
+    border-bottom: none;
+  }
+  .link-item-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    min-width: 0;
+  }
+  .link-item-link:hover .link-item-title {
+    color: var(--color-accent);
+  }
+  .link-item-title {
+    font-weight: 500;
+    color: var(--color-heading);
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .link-item-domain {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+  .link-item time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+
+  /* Video mini grid */
+  .videos-mini-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+  .video-mini {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .video-mini:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+  }
+  .video-mini-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  .video-mini-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-heading);
+    padding: var(--space-sm);
+    line-height: 1.3;
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
   }
 </style>
