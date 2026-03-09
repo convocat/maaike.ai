@@ -7,7 +7,7 @@ import path from 'node:path';
 // Build a slug-to-path map for wiki links to resolve across collections
 function buildPermalinkMap() {
   const contentDir = path.resolve('src/content');
-  const collections = ['notes', 'articles', 'links'];
+  const collections = ['field-notes', 'sparks', 'articles', 'weblinks'];
   const slugMap = new Map();
 
   for (const collection of collections) {
@@ -41,7 +41,7 @@ export default defineConfig({
           permalinks,
           pageResolver: (name) => [name.replace(/ /g, '-').toLowerCase()],
           hrefTemplate: (permalink) => {
-            return permalinkMap.get(permalink) || `/notes/${permalink}`;
+            return permalinkMap.get(permalink) || `/field-notes/${permalink}`;
           },
           wikiLinkClassName: 'wiki-link',
           newClassName: 'wiki-link--new',

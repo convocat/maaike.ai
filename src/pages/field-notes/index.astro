@@ -7,29 +7,29 @@ import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
 
-const notes = sortByDate(
-  (await getCollection('notes')).filter((e) => !e.data.draft)
+const fieldNotes = sortByDate(
+  (await getCollection('fieldNotes')).filter((e) => !e.data.draft)
 );
-const tags = getUniqueTags(notes);
+const tags = getUniqueTags(fieldNotes);
 ---
 
-<PageLayout title={`${settings.notesTitle} — ${settings.siteTitle}`}>
-  <h1>{settings.notesTitle}</h1>
-  <p class="section-description">{settings.notesDescription}</p>
+<PageLayout title={`${settings.fieldNotesTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.fieldNotesTitle}</h1>
+  <p class="section-description">{settings.fieldNotesDescription}</p>
 
   <FilterBar tags={tags} />
 
   <ContentGrid>
-    {notes.map((note) => (
+    {fieldNotes.map((note) => (
       <ContentCard
         title={note.data.title}
-        href={`/notes/${note.id}`}
+        href={`/field-notes/${note.id}`}
         date={note.data.date}
         updated={note.data.updated}
         maturity={note.data.maturity}
         tags={note.data.tags}
         description={note.data.description}
-        collection="notes"
+        collection="field-notes"
       />
     ))}
   </ContentGrid>

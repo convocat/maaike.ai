@@ -29,10 +29,12 @@ collections:
           - { name: logo, label: Logo, widget: image, required: false }
           - { name: articlesTitle, label: Articles Page Title, widget: string }
           - { name: articlesDescription, label: Articles Description, widget: string }
-          - { name: notesTitle, label: Notes Page Title, widget: string }
-          - { name: notesDescription, label: Notes Description, widget: string }
-          - { name: linksTitle, label: Links Page Title, widget: string }
-          - { name: linksDescription, label: Links Description, widget: string }
+          - { name: fieldNotesTitle, label: Field Notes Page Title, widget: string }
+          - { name: fieldNotesDescription, label: Field Notes Description, widget: string }
+          - { name: sparksTitle, label: Sparks Page Title, widget: string }
+          - { name: sparksDescription, label: Sparks Description, widget: string }
+          - { name: weblinksTitle, label: Weblinks Page Title, widget: string }
+          - { name: weblinksDescription, label: Weblinks Description, widget: string }
           - { name: videosTitle, label: Videos Page Title, widget: string }
           - { name: videosDescription, label: Videos Description, widget: string }
           - { name: libraryTitle, label: Library Page Title, widget: string }
@@ -75,10 +77,10 @@ collections:
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
 
-  - name: notes
-    label: Notes
-    icon: edit_note
-    folder: src/content/notes
+  - name: field-notes
+    label: Field Notes
+    icon: description
+    folder: src/content/field-notes
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — {{maturity}}"
@@ -100,10 +102,35 @@ collections:
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
 
-  - name: links
-    label: Links
+  - name: sparks
+    label: Sparks
+    icon: electric_bolt
+    folder: src/content/sparks
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
+        multiple: true
+        required: false
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: weblinks
+    label: Weblinks
     icon: link
-    folder: src/content/links
+    folder: src/content/weblinks
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — {{maturity}}"
