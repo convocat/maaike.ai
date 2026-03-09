@@ -1,6 +1,6 @@
 ---
 interface Props {
-  maturity?: 'draft' | 'developing' | 'solid' | 'complete';
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
 }
 
 const { maturity } = Astro.props;
@@ -12,10 +12,10 @@ const config: Record<string, { icon: string; label: string }> = {
   complete:   { icon: '\u{1F333}', label: 'Tree' },
 };
 
-const entry = maturity ? config[maturity] : null;
+const { icon, label } = config[maturity];
 ---
 
-{entry && <span class="maturity-icon" role="img" aria-label={entry.label} title={entry.label}>{entry.icon}</span>}
+<span class="maturity-icon" role="img" aria-label={label} title={label}>{icon}</span>
 
 <style>
   .maturity-icon {
