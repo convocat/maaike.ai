@@ -5,6 +5,6 @@ maturity: draft
 tags:
   []
 description: ""
-url: "https://www.linkedin.com/posts/were-acquiring-promptfoo-an-ai-security-share-7436818516613394432-scvj?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs&utm_campaign=share_via"
+url: "https://www.linkedin.com/posts/were-acquiring-promptfoo-an-ai-security-share-7436818516613394432-scvj?utm_source=share&utm_medium=member_android&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs"
 ---
 
