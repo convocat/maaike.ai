@@ -102,8 +102,8 @@ const recentLinks = links.slice(0, 4);
 <style is:global>
   /* Hero */
   .hero {
-    margin-block-end: var(--space-3xl);
-    padding-block: var(--space-2xl) var(--space-xl);
+    margin-block-end: var(--space-xl);
+    padding-block: var(--space-md) var(--space-sm);
     max-width: var(--content-width);
   }
   .hero-logo {
@@ -111,7 +111,7 @@ const recentLinks = links.slice(0, 4);
     height: auto;
     max-height: 18rem;
     width: auto;
-    margin-block-end: var(--space-md);
+    margin-block-end: -1.5rem; /* pull tagline up into logo's bottom whitespace */
     margin-inline-start: -1rem; /* compensate for whitespace in logo image */
   }
   .hero h1 {
@@ -122,6 +122,7 @@ const recentLinks = links.slice(0, 4);
     color: var(--color-text-muted);
     line-height: 1.7;
     max-width: 38rem;
+    padding-inline-start: 3rem; /* align with the M in the logo */
   }
 
   /* Gradient accent line */
