@@ -1,11 +1,11 @@
 {
   "siteTitle": "Maai & AI",
   "siteTagline": "A collection of notes and articles at various stages of development.",
-  "logo": "",
+  "logo": "/images/maaiai.png",
   "articlesTitle": "Articles",
-  "articlesDescription": "Polished, published writing.",
+  "articlesDescription": "Polished, published writing...eventually",
   "notesTitle": "Notes",
-  "notesDescription": "Developing concepts, working things out.",
+  "notesDescription": "Ideas, quick thoughts, jottings",
   "linksTitle": "Links",
   "linksDescription": "Commentary on external content."
 }
