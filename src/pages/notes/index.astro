@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { sortByDate } from '../../utils/collections';
+
+const notes = sortByDate(
+  (await getCollection('notes')).filter((e) => !e.data.draft)
+);
+---
+
+<PageLayout title="Notes — Maai & AI">
+  <h1>Notes</h1>
+  <p class="section-description">Developing concepts, working things out.</p>
+
+  <ContentGrid>
+    {notes.map((note) => (
+      <ContentCard
+        title={note.data.title}
+        href={`/notes/${note.id}`}
+        date={note.data.date}
+        updated={note.data.updated}
+        maturity={note.data.maturity}
+        tags={note.data.tags}
+        description={note.data.description}
+        collection="notes"
+      />
+    ))}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+</style>

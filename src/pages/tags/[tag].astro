@@ -1,0 +1,49 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { getAllContent, sortByDate, getUniqueTags } from '../../utils/collections';
+
+export async function getStaticPaths() {
+  const allContent = await getAllContent();
+  const tags = getUniqueTags(allContent);
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      entries: sortByDate(allContent.filter((e) => e.data.tags.includes(tag))),
+    },
+  }));
+}
+
+const { tag, entries } = Astro.props;
+---
+
+<PageLayout title={`Tagged: ${tag} — Maai & AI`}>
+  <h1>Tagged: {tag}</h1>
+  <p class="section-description">{entries.length} {entries.length === 1 ? 'entry' : 'entries'}</p>
+
+  <ContentGrid>
+    {entries.map((entry) => (
+      <ContentCard
+        title={entry.data.title}
+        href={`/${entry.collection}/${entry.id}`}
+        date={entry.data.date}
+        updated={entry.data.updated}
+        maturity={entry.data.maturity}
+        tags={entry.data.tags}
+        description={entry.data.description}
+        collection={entry.collection}
+      />
+    ))}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+</style>

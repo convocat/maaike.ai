@@ -1,0 +1,26 @@
+---
+interface Props {
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+}
+
+const { maturity } = Astro.props;
+
+const config: Record<string, { icon: string; label: string }> = {
+  draft:      { icon: '\u{1F331}', label: 'Seedling' },
+  developing: { icon: '\u{1F33F}', label: 'Sprout' },
+  solid:      { icon: '\u{1FAB4}', label: 'Plant' },
+  complete:   { icon: '\u{1F333}', label: 'Tree' },
+};
+
+const { icon, label } = config[maturity];
+---
+
+<span class="maturity-icon" role="img" aria-label={label} title={label}>{icon}</span>
+
+<style>
+  .maturity-icon {
+    font-size: 0.85em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+</style>

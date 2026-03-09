@@ -1,0 +1,139 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+
+const navLinks = [
+  { href: '/notes', label: 'Notes' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/links', label: 'Links' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="site-title">Maai &amp; AI</a>
+
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a href={href} class:list={[{ active: currentPath.startsWith(href) }]}>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <DarkModeToggle />
+  </div>
+</header>
+
+<script>
+  function setupMenu() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-nav');
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav?.classList.toggle('open');
+    });
+  }
+
+  setupMenu();
+  document.addEventListener('astro:after-swap', setupMenu);
+</script>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-md);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+  }
+
+  .site-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .site-title:hover {
+    color: var(--color-accent);
+  }
+
+  .site-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: var(--space-lg);
+  }
+
+  .site-nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+  }
+  .site-nav a:hover,
+  .site-nav a.active {
+    color: var(--color-accent);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: var(--space-xs);
+  }
+
+  @media (max-width: 640px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md);
+      z-index: 100;
+    }
+
+    .site-nav.open {
+      display: block;
+    }
+
+    .site-nav ul {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .header-inner {
+      position: relative;
+    }
+  }
+</style>

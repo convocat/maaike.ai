@@ -1,0 +1,119 @@
+---
+import MaturityBadge from './MaturityBadge.astro';
+
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  tags: string[];
+  description?: string;
+  collection: string;
+}
+
+const { title, href, date, maturity, tags, description, collection } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+---
+
+<article class="featured-card">
+  <a href={href} class="featured-card-link">
+    <div class="featured-card-meta">
+      <MaturityBadge maturity={maturity} />
+      <span class="featured-card-collection">{collection}</span>
+    </div>
+    <h2 class="featured-card-title">{title}</h2>
+    {description && <p class="featured-card-description">{description}</p>}
+    <div class="featured-card-bottom">
+      <time datetime={date.toISOString()}>{formattedDate}</time>
+      {tags.length > 0 && (
+        <ul class="featured-card-tags">
+          {tags.map((tag) => (
+            <li class="featured-card-tag">{tag}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </a>
+</article>
+
+<style is:global>
+  .featured-card {
+    background: var(--color-bg-card);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: var(--space-xl) var(--space-2xl);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .featured-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--color-shadow);
+  }
+
+  .featured-card-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .featured-card-collection {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+  }
+
+  .featured-card-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-heading);
+    line-height: 1.25;
+  }
+
+  .featured-card-description {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 42rem;
+  }
+
+  .featured-card-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-start: var(--space-sm);
+  }
+
+  .featured-card-bottom time {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .featured-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .featured-card-tag {
+    font-size: 0.75rem;
+    padding: 0.1em 0.5em;
+    border-radius: 1em;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+  }
+</style>
