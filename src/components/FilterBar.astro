@@ -45,10 +45,10 @@ const stages = [
 </div>
 
 <script>
-  {
+  (() => {
     const bar = document.getElementById('filter-bar');
     const grid = document.getElementById('content-grid');
-    if (!bar || !grid) throw new Error('FilterBar: missing elements');
+    if (!bar || !grid) return;
 
     const cards = () => [...grid.querySelectorAll<HTMLElement>('.card')];
     const activeMaturity = new Set<string>();
@@ -142,7 +142,7 @@ const stages = [
         applySort();
       });
     });
-  }
+  })();
 </script>
 
 <style>

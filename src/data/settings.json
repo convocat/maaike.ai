@@ -7,5 +7,7 @@
   "notesTitle": "Notes",
   "notesDescription": "Ideas, quick thoughts, jottings",
   "linksTitle": "Links",
-  "linksDescription": "Commentary on external content."
+  "linksDescription": "Commentary on external content.",
+  "videosTitle": "Videos",
+  "videosDescription": "Talks, tutorials, and recordings."
 }
