@@ -32,13 +32,8 @@ const links = defineCollection({
 
 const videos = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/videos' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
+  schema: baseSchema.extend({
     url: z.string().url(),
-    tags: z.array(z.string()).default([]),
-    description: z.string().optional(),
-    draft: z.boolean().default(false),
   }),
 });
 

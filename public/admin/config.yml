@@ -127,10 +127,13 @@ collections:
     folder: src/content/videos
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
     fields:
       - { name: title, label: Title, widget: string }
       - { name: url, label: YouTube URL, widget: string, type: url }
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
       - name: tags
         label: Tags
         widget: relation
