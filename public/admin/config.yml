@@ -16,6 +16,24 @@ media_libraries:
       - pexels
 
 collections:
+  - name: settings
+    label: Site Settings
+    icon: settings
+    files:
+      - name: general
+        label: General
+        file: src/data/settings.json
+        fields:
+          - { name: siteTitle, label: Site Title, widget: string }
+          - { name: siteTagline, label: Tagline, widget: string }
+          - { name: logo, label: Logo, widget: image, required: false }
+          - { name: articlesTitle, label: Articles Page Title, widget: string }
+          - { name: articlesDescription, label: Articles Description, widget: string }
+          - { name: notesTitle, label: Notes Page Title, widget: string }
+          - { name: notesDescription, label: Notes Description, widget: string }
+          - { name: linksTitle, label: Links Page Title, widget: string }
+          - { name: linksDescription, label: Links Description, widget: string }
+
   - name: tags
     label: Tags
     icon: sell
