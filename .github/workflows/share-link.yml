@@ -29,7 +29,17 @@ jobs:
 
           # Auto-fetch title from URL if not provided
           if [ -z "$TITLE" ]; then
-            TITLE=$(curl -sL "$URL" | grep -oP '(?<=<title>).*?(?=</title>)' | head -1 | sed 's/&amp;/\&/g; s/&lt;/</g; s/&gt;/>/g; s/&quot;/"/g; s/&#39;/'"'"'/g')
+            PAGE=$(curl -sL -A "Mozilla/5.0" "$URL")
+            # Try og:title first (works better for LinkedIn, Twitter, etc.)
+            TITLE=$(echo "$PAGE" | grep -oP '(?<=og:title"[^"]*content=")[^"]*' | head -1)
+            # Fall back to <title> tag
+            if [ -z "$TITLE" ]; then
+              TITLE=$(echo "$PAGE" | tr '\n' ' ' | grep -oP '(?<=<title[^>]*>)[^<]*' | head -1)
+            fi
+            # Clean up HTML entities
+            TITLE=$(echo "$TITLE" | sed 's/&amp;/\&/g; s/&lt;/</g; s/&gt;/>/g; s/&quot;/"/g; s/&#39;/'"'"'/g')
+            # Strip generic suffixes like " | LinkedIn" or " - YouTube"
+            TITLE=$(echo "$TITLE" | sed 's/ [|·–-] *LinkedIn$//; s/ [|·–-] *YouTube$//; s/ [|·–-] *X$//; s/ [|·–-] *Twitter$//')
           fi
 
           # Fallback: use domain name if title still empty
