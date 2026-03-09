@@ -8,5 +8,16 @@
 </head>
 <body>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <script>
+    // Auto-refresh when returning to this tab after 2+ minutes away
+    let hiddenAt = null;
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        hiddenAt = Date.now();
+      } else if (hiddenAt && Date.now() - hiddenAt > 2 * 60 * 1000) {
+        location.reload();
+      }
+    });
+  </script>
 </body>
 </html>

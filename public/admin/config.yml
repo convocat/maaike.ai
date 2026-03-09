@@ -17,7 +17,12 @@ collections:
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
-      - { name: tags, label: Tags, widget: list, default: [] }
+      - name: tags
+        label: Tags
+        widget: select
+        multiple: true
+        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
+        default: []
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
@@ -32,7 +37,12 @@ collections:
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
-      - { name: tags, label: Tags, widget: list, default: [] }
+      - name: tags
+        label: Tags
+        widget: select
+        multiple: true
+        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
+        default: []
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
@@ -48,7 +58,12 @@ collections:
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
-      - { name: tags, label: Tags, widget: list, default: [] }
+      - name: tags
+        label: Tags
+        widget: select
+        multiple: true
+        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
+        default: []
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }

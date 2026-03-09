@@ -1,10 +1,11 @@
 @echo off
-cd /d "C:\Users\MaaikeGroenewege\Documents\Pythonprojecten\digital-garden"
+cd /d "%~dp0"
 
 echo.
 echo  Publishing to maaike.ai...
 echo.
 
+git pull --rebase
 git add -A
 git diff --cached --quiet
 if %errorlevel%==0 (
