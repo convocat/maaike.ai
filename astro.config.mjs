@@ -3,10 +3,13 @@ import { defineConfig } from 'astro/config';
 import remarkWikiLink from 'remark-wiki-link';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Build a slug-to-path map for wiki links to resolve across collections
 function buildPermalinkMap() {
-  const contentDir = path.resolve('src/content');
+  const contentDir = path.join(__dirname, 'src', 'content');
   const collections = ['field-notes', 'sparks', 'articles', 'weblinks', 'videos', 'library', 'principles'];
   const slugMap = new Map();
 
@@ -29,7 +32,6 @@ function buildPermalinkMap() {
 
 const permalinkMap = buildPermalinkMap();
 const permalinks = [...permalinkMap.keys()];
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://maaike.ai',
@@ -43,6 +45,7 @@ export default defineConfig({
           hrefTemplate: (permalink) => {
             return permalinkMap.get(permalink) || `/field-notes/${permalink}`;
           },
+          aliasDivider: '|',
           wikiLinkClassName: 'wiki-link',
           newClassName: 'wiki-link--new',
         },

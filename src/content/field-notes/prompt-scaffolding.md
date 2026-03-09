@@ -12,6 +12,6 @@ What if prompts were built up in layers, like scaffolding around a building? Eac
 
 The base layer is the raw question. The next layer adds context. Then comes the format specification. Then examples.
 
-This connects to [[conversational-grounding]] — the idea that effective communication builds shared understanding step by step.
+This connects to [[conversational-grounding]] — the idea that effective communication builds shared understanding step by step. And it creates interesting dynamics when you consider [[ai-feedback-loops]].
 
 Could this be formalised into a reusable pattern? (See [[prompt-design-patterns]].)
