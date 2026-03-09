@@ -23,7 +23,9 @@ const notes = defineCollection({
 
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/articles' }),
-  schema: baseSchema,
+  schema: baseSchema.extend({
+    pruning: z.string().optional(),
+  }),
 });
 
 const links = defineCollection({
