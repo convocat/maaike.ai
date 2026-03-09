@@ -8,7 +8,7 @@ description: "5 checks to keep your content on track — and your clients happy.
 draft: false
 ---
 
-Earlier on, I talked about how to embrace client or colleague feedback for what it is: extremely useful input for improving the quality of your content.
+Earlier on, I talked about [[youre-not-married-to-your-texts|how to embrace client or colleague feedback]] for what it is: extremely useful input for improving the quality of your content.
 
 In this article, I share a handy 5-point checklist that I use for exploring feedback that I receive. If possible, I schedule a meeting with the feedback-giver, and make sure I have plenty of time to really understand both the person on the other side, and the topic at hand.
 

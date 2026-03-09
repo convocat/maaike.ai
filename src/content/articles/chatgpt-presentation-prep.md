@@ -32,7 +32,7 @@ So I stayed in bed a bit longer. And tried something else.
 4. I let ChatGPT give its feedback. It wasn't any good, to be honest, but I guess that was just the kind of reality check I needed.
 5. I did another 2 rounds of exactly 20 minutes.
 
-With each round, my story got more coherent and clear. And by the end of round three, not only did I have a clear story in my head, I also had full transcriptions of each round, allowing me to copy paste ideas from earlier rounds for a quick refinement.
+With each round, my story got more coherent and clear — a textbook example of an [[ai-feedback-loops|AI feedback loop]] in action. And by the end of round three, not only did I have a clear story in my head, I also had full transcriptions of each round, allowing me to copy paste ideas from earlier rounds for a quick refinement.
 
 ## Real power: fit the process to how my head works
 

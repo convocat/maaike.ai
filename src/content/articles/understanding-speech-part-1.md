@@ -56,4 +56,4 @@ When I studied English, way back in time, one of my tutors said that you really 
 
 English uses a three-steps-down sentence melody. Dutch moves in a smaller range than English, so we tend to sound a bit monotonous in English speaking ears.
 
-To be continued in part 2, which covers backchannelling, discourse markers, and deixis.
+To be continued in [[understanding-speech-part-2|part 2]], which covers backchannelling, discourse markers, and deixis.

@@ -17,7 +17,7 @@ I'm preparing a workshop where I want to show how far image generation has advan
 
 ## Prompt: ultrarealistic photograph of a pair of folded hands
 
-What's good to realise, is that DALL-E 3 takes the original prompt and augments it. It basically rewrites my prompt, adding adjectives, extra instructions and more. This results in a very pretty picture, but also introduces the risk of completely missing the point, and, quite often, propagating bias (more on that in a future article).
+What's good to realise, is that DALL-E 3 takes the original prompt and augments it. It basically rewrites my prompt, adding adjectives, extra instructions and more. This results in a very pretty picture, but also introduces the risk of completely missing the point, and, quite often, propagating bias (more on that in [[de-biassing-dall-e]]).
 
 **DALL-E 3's augmented prompt:** *An ultra-realistic photograph of a pair of folded hands, showcasing the intricate details of the skin, nails, and wrinkles. The lighting should highlight the contours and textures of the hands, giving it a lifelike appearance.*
 

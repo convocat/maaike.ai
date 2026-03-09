@@ -25,4 +25,4 @@ Bit of a weird comparison, but for me, chasing truth in a LLM feels like having 
 
 ![Set of timpani](/images/articles/bye-bye-alpaca/timpani.png)
 
-Knowledge as a missing fundamental…I know, but hey, it's Sunday :-)
+Knowledge as a missing fundamental…I know, but hey, it's Sunday :-) *(I revisited this idea later in [[llm-hallucinations-knowledge-as-missing-fundamental|a follow-up post]].)*

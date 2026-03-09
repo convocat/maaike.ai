@@ -8,7 +8,7 @@ description: "Want to know what you can do to make your voice action sound more 
 draft: false
 ---
 
-Want to know what you can do to make your voice action sound more speech-like? Let's continue with part 2 of my speech primer for conversation designers, in which I discuss backchannelling, discourse markers, and deixis.
+Want to know what you can do to make your voice action sound more speech-like? Let's continue with part 2 of my [[understanding-speech-part-1|speech primer]] for conversation designers, in which I discuss backchannelling, discourse markers, and deixis.
 
 ## Incomplete sentences and backchannelling
 

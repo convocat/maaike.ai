@@ -9,7 +9,7 @@ description: Will we ever solve hallucinations in LLMs?
 draft: false
 ---
 
-*(I posted this on LinkedIn quite a while ago. But the question keeps returning. And I should play timpani more often.)*
+*(I posted this on LinkedIn quite a while ago — see [[bye-bye-alpaca-knowledge-as-the-missing-fundamental|the original post]]. But the question keeps returning. And I should play timpani more often.)*
 
 I'm really curious: can we ever 'solve' hallucinations if we don't change the underlying concept of operations of an LLM? I don't think so, to be honest. In most of my test runs with LLMs, I found that, as soon as an LLM runs short of data, it starts to confabulate stuff, rather than saying that it doesn't know.
 
