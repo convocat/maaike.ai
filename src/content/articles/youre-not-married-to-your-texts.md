@@ -47,3 +47,5 @@ Another helpful thought is to realize that the success of your work is not solel
 You know? People will always have feedback on your texts. They will always think something of it. Because that's what texts are for :-) So the entire world may be critical about your product. But only you can influence how that affects you as a person.
 
 So, be kind to yourself. Be realistic, both in what you may still need to learn, but, even more importantly, in what you already know how to do, and the expertise and experience you already gained. Because that's the easiest part to forget.
+
+*(For a practical follow-up, see [[how-to-create-your-own-content-quality-audit|my content quality audit checklist]].)*

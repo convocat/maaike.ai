@@ -93,4 +93,4 @@ If there's anything that this little experiment shows, is that debiasing data an
 
 It's important to realise that that's not caused by bias in the data. But by bias in the rewritten prompt. This is not diversifying or debiasing. This is gender and culture stereotyping at its very best (or worst).
 
-Good thing is: we can prompt Dall-e into rewriting the prompt in a less stereotypical way. More on that in my next article.
+Good thing is: we can prompt Dall-e into rewriting the prompt in a less stereotypical way. More on that in [[fingers-crossed-is-a-figure-of-speech-dall-e|my next article]].

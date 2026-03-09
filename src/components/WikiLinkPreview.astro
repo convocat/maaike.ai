@@ -1,0 +1,132 @@
+---
+import { getAllContent } from '../utils/collections';
+
+const allContent = await getAllContent();
+
+const previewMap: Record<string, { title: string; description: string; collection: string }> = {};
+for (const entry of allContent) {
+  previewMap[entry.id] = {
+    title: entry.data.title,
+    description: entry.data.description || '',
+    collection: entry.collection,
+  };
+}
+---
+
+<script is:inline define:vars={{ previewMap }}>
+if (!window.__wikiPreviewInit) {
+  window.__wikiPreviewInit = true;
+
+  var DELAY = 200;
+  var hoverTimeout = null;
+  var popover = null;
+  var activeLink = null;
+
+  var collectionLabels = {
+    'field-notes': 'Field Note',
+    sparks: 'Spark',
+    articles: 'Article',
+    weblinks: 'Weblink',
+    videos: 'Video',
+    library: 'Library',
+    principles: 'Principle',
+  };
+
+  function getSlugFromHref(href) {
+    var parts = href.replace(/^\//, '').split('/');
+    return parts.length >= 2 ? parts[parts.length - 1] : null;
+  }
+
+  function createPopover() {
+    if (popover && document.body.contains(popover)) return popover;
+    popover = document.createElement('div');
+    popover.className = 'wiki-link-preview';
+    popover.setAttribute('role', 'tooltip');
+    document.body.appendChild(popover);
+    return popover;
+  }
+
+  function showPreview(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+
+    var slug = getSlugFromHref(href);
+    if (!slug || !previewMap[slug]) return;
+
+    var data = previewMap[slug];
+    var label = collectionLabels[data.collection] || data.collection;
+    var el = createPopover();
+
+    el.innerHTML =
+      '<span class="wiki-link-preview__collection">' + label + '</span>' +
+      '<strong class="wiki-link-preview__title">' + data.title + '</strong>' +
+      (data.description
+        ? '<span class="wiki-link-preview__desc">' + data.description + '</span>'
+        : '');
+
+    el.style.display = 'block';
+    position(el, link);
+    requestAnimationFrame(function () { el.classList.add('is-visible'); });
+  }
+
+  function position(el, anchor) {
+    var rect = anchor.getBoundingClientRect();
+    var elRect = el.getBoundingClientRect();
+
+    var top = rect.top - elRect.height - 8 + window.scrollY;
+    var left = rect.left + rect.width / 2 - elRect.width / 2 + window.scrollX;
+
+    var pad = 12;
+    var maxLeft = window.scrollX + window.innerWidth - elRect.width - pad;
+    left = Math.max(window.scrollX + pad, Math.min(left, maxLeft));
+
+    if (rect.top - elRect.height - 8 < 0) {
+      top = rect.bottom + 8 + window.scrollY;
+    }
+
+    el.style.top = top + 'px';
+    el.style.left = left + 'px';
+  }
+
+  function hidePreview() {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = null;
+    }
+    if (popover) {
+      popover.classList.remove('is-visible');
+      popover.style.display = 'none';
+    }
+    activeLink = null;
+  }
+
+  document.addEventListener('mouseover', function (e) {
+    var link = e.target.closest('.wiki-link');
+    if (!link || link.classList.contains('wiki-link--new')) {
+      if (activeLink) {
+        hidePreview();
+      }
+      return;
+    }
+    if (link === activeLink) return;
+    hidePreview();
+    activeLink = link;
+    hoverTimeout = setTimeout(function () { showPreview(link); }, DELAY);
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    var link = e.target.closest('.wiki-link');
+    if (!link) return;
+    var related = e.relatedTarget;
+    if (related && related.closest && related.closest('.wiki-link') === link) return;
+    hidePreview();
+  });
+
+  document.addEventListener('astro:after-swap', function () {
+    hidePreview();
+    if (popover && !document.body.contains(popover)) {
+      popover = null;
+    }
+  });
+}
+</script>

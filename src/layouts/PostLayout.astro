@@ -2,6 +2,7 @@
 import PageLayout from './PageLayout.astro';
 import TagList from '../components/TagList.astro';
 import BackLinks from '../components/BackLinks.astro';
+import WikiLinkPreview from '../components/WikiLinkPreview.astro';
 
 interface Props {
   title: string;
@@ -80,6 +81,7 @@ const formattedUpdated = updated
       <BackLinks currentSlug={slug} />
     </footer>
   </article>
+  <WikiLinkPreview />
 </PageLayout>
 
 <style>
