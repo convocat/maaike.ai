@@ -1,0 +1,3 @@
+---
+title: systems-thinking
+---
