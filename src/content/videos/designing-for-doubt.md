@@ -2,7 +2,10 @@
 title: Designing for doubt
 url: https://youtu.be/-0N0kH98xM4
 date: 2025-11-12
-tags: []
+tags:
+  - conversation-design
+  - epistemic-humility
+  - philosophy
 description: Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that’s not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?
 draft: false
 ---
