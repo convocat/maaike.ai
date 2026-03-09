@@ -1,0 +1,217 @@
+---
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+
+const stages = [
+  { key: 'draft', emoji: '🌱', label: 'Seedling' },
+  { key: 'developing', emoji: '🌿', label: 'Sprout' },
+  { key: 'solid', emoji: '🪴', label: 'Plant' },
+  { key: 'complete', emoji: '🌳', label: 'Tree' },
+];
+---
+
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-row">
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      {stages.map((s) => (
+        <button
+          class="filter-btn maturity-btn"
+          data-filter={s.key}
+          aria-pressed="false"
+          title={s.label}
+        >
+          {s.emoji}
+        </button>
+      ))}
+    </div>
+    <div class="sort-group">
+      <span class="sort-label">Sort:</span>
+      <button class="sort-btn active" data-sort="date">Planted ↓</button>
+      <button class="sort-btn" data-sort="updated">Last tended</button>
+    </div>
+  </div>
+
+  {tags.length > 0 && (
+    <div class="filter-row tag-row">
+      {tags.map((tag) => (
+        <button class="tag-chip" data-tag={tag} aria-pressed="false">{tag}</button>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.getElementById('filter-bar');
+    const grid = document.getElementById('content-grid');
+    if (!bar || !grid) return;
+
+    const cards = () => [...grid.querySelectorAll<HTMLElement>('.card')];
+    const activeMaturity = new Set<string>();
+    const activeTags = new Set<string>();
+    let currentSort = 'date';
+
+    const allBtn = bar.querySelector<HTMLButtonElement>('[data-filter="all"]')!;
+    const maturityBtns = bar.querySelectorAll<HTMLButtonElement>('.maturity-btn');
+    const sortBtns = bar.querySelectorAll<HTMLButtonElement>('.sort-btn');
+    const tagChips = bar.querySelectorAll<HTMLButtonElement>('.tag-chip');
+
+    function applyFilters() {
+      for (const card of cards()) {
+        const m = card.dataset.maturity ?? '';
+        const t = (card.dataset.tags ?? '').split(',').filter(Boolean);
+
+        const matchesMaturity = activeMaturity.size === 0 || activeMaturity.has(m);
+        const matchesTags = activeTags.size === 0 || t.some((tag) => activeTags.has(tag));
+
+        card.style.display = matchesMaturity && matchesTags ? '' : 'none';
+      }
+    }
+
+    function applySort() {
+      const sorted = cards().sort((a, b) => {
+        const key = currentSort === 'updated' ? 'updated' : 'date';
+        const da = new Date(a.dataset[key] ?? '').getTime();
+        const db = new Date(b.dataset[key] ?? '').getTime();
+        return db - da;
+      });
+      for (const card of sorted) grid.appendChild(card);
+    }
+
+    function syncAllBtn() {
+      const isAll = activeMaturity.size === 0;
+      allBtn.classList.toggle('active', isAll);
+      allBtn.setAttribute('aria-pressed', String(isAll));
+    }
+
+    // Maturity filter
+    allBtn.addEventListener('click', () => {
+      activeMaturity.clear();
+      maturityBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      syncAllBtn();
+      applyFilters();
+    });
+
+    maturityBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.filter!;
+        if (activeMaturity.has(key)) {
+          activeMaturity.delete(key);
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        } else {
+          activeMaturity.add(key);
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        }
+        syncAllBtn();
+        applyFilters();
+      });
+    });
+
+    // Tag filter
+    tagChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const tag = chip.dataset.tag!;
+        if (activeTags.has(tag)) {
+          activeTags.delete(tag);
+          chip.classList.remove('active');
+          chip.setAttribute('aria-pressed', 'false');
+        } else {
+          activeTags.add(tag);
+          chip.classList.add('active');
+          chip.setAttribute('aria-pressed', 'true');
+        }
+        applyFilters();
+      });
+    });
+
+    // Sort
+    sortBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentSort = btn.dataset.sort!;
+        sortBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        applySort();
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-xl);
+  }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .filter-row:first-child {
+    justify-content: space-between;
+  }
+
+  .filter-group,
+  .sort-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .sort-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-inline-end: 0.15rem;
+  }
+
+  .filter-btn,
+  .sort-btn,
+  .tag-chip {
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    border-radius: 1.5em;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    padding: 0.3em 0.75em;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .maturity-btn {
+    font-size: 1.1rem;
+    padding: 0.15em 0.45em;
+    line-height: 1;
+  }
+
+  .filter-btn:hover,
+  .sort-btn:hover,
+  .tag-chip:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .filter-btn.active,
+  .sort-btn.active,
+  .tag-chip.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .tag-row {
+    gap: var(--space-xs);
+  }
+</style>

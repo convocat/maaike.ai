@@ -3,16 +3,20 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import ContentGrid from '../../components/ContentGrid.astro';
 import ContentCard from '../../components/ContentCard.astro';
-import { sortByDate } from '../../utils/collections';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
 
 const notes = sortByDate(
   (await getCollection('notes')).filter((e) => !e.data.draft)
 );
+const tags = getUniqueTags(notes);
 ---
 
 <PageLayout title="Notes — Maai & AI">
   <h1>Notes</h1>
   <p class="section-description">Developing concepts, working things out.</p>
+
+  <FilterBar tags={tags} />
 
   <ContentGrid>
     {notes.map((note) => (
