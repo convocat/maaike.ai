@@ -25,7 +25,10 @@ const recentLinks = links.slice(0, 4);
 
 <PageLayout title={settings.siteTitle}>
   <div class="hero">
-    <h1>{settings.siteTitle}</h1>
+    {settings.logo
+      ? <img src={settings.logo} alt={settings.siteTitle} class="hero-logo" />
+      : <h1>{settings.siteTitle}</h1>
+    }
     <p>{settings.siteTagline}</p>
   </div>
 
@@ -102,6 +105,14 @@ const recentLinks = links.slice(0, 4);
     margin-block-end: var(--space-3xl);
     padding-block: var(--space-2xl) var(--space-xl);
     max-width: var(--content-width);
+  }
+  .hero-logo {
+    display: block;
+    height: auto;
+    max-height: 18rem;
+    width: auto;
+    margin-block-end: var(--space-md);
+    margin-inline-start: -1rem; /* compensate for whitespace in logo image */
   }
   .hero h1 {
     margin-block-end: var(--space-md);
