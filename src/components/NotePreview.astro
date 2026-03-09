@@ -1,0 +1,78 @@
+---
+import MaturityBadge from './MaturityBadge.astro';
+
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  updated?: Date;
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  description?: string;
+}
+
+const { title, href, date, updated, maturity, description } = Astro.props;
+
+const displayDate = updated ?? date;
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  month: 'short',
+  day: 'numeric',
+}).format(displayDate);
+---
+
+<a href={href} class="note-preview">
+  <div class="note-preview-top">
+    <MaturityBadge maturity={maturity} />
+    <time datetime={displayDate.toISOString()}>{formattedDate}</time>
+  </div>
+  <h3 class="note-preview-title">{title}</h3>
+  {description && <p class="note-preview-desc">{description}</p>}
+</a>
+
+<style is:global>
+  .note-preview {
+    display: block;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .note-preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    border-color: transparent;
+  }
+
+  .note-preview-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-xs);
+  }
+
+  .note-preview-top time {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .note-preview-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .note-preview-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin-block-start: var(--space-xs);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

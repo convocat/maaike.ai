@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
 import ContentCard from '../components/ContentCard.astro';
-import CompactItem from '../components/CompactItem.astro';
+import NotePreview from '../components/NotePreview.astro';
 import LinkCard from '../components/LinkCard.astro';
 import { sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
@@ -18,7 +18,7 @@ const links = sortByDate(
 );
 
 const recentArticles = articles.slice(0, 4);
-const recentNotes = notes.slice(0, 8);
+const recentNotes = notes.slice(0, 6);
 const recentLinks = links.slice(0, 4);
 
 ---
@@ -34,48 +34,45 @@ const recentLinks = links.slice(0, 4);
 
   <hr class="hero-line" aria-hidden="true" />
 
-  <div class="home-grid">
-    <!-- Left: Articles 2x2 -->
-    <section class="home-articles">
-      <div class="section-header">
-        <h2>Articles</h2>
-        <a href="/articles" class="view-all">View all &rarr;</a>
-      </div>
-      <div class="articles-grid">
-        {recentArticles.map((article) => (
-          <ContentCard
-            title={article.data.title}
-            href={`/articles/${article.id}`}
-            date={article.data.date}
-            updated={article.data.updated}
-            maturity={article.data.maturity}
-            tags={article.data.tags}
-            description={article.data.description}
-            collection="articles"
-          />
-        ))}
-      </div>
-    </section>
+  <section class="home-articles">
+    <div class="section-header">
+      <h2>Articles</h2>
+      <a href="/articles" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="articles-grid">
+      {recentArticles.map((article) => (
+        <ContentCard
+          title={article.data.title}
+          href={`/articles/${article.id}`}
+          date={article.data.date}
+          updated={article.data.updated}
+          maturity={article.data.maturity}
+          tags={article.data.tags}
+          description={article.data.description}
+          collection="articles"
+        />
+      ))}
+    </div>
+  </section>
 
-    <!-- Right: Notes sidebar -->
-    <section class="home-notes">
-      <div class="section-header">
-        <h2>Notes</h2>
-        <a href="/notes" class="view-all">View all &rarr;</a>
-      </div>
-      <ul class="compact-list">
-        {recentNotes.map((note) => (
-          <CompactItem
-            title={note.data.title}
-            href={`/notes/${note.id}`}
-            date={note.data.date}
-            updated={note.data.updated}
-            maturity={note.data.maturity}
-          />
-        ))}
-      </ul>
-    </section>
-  </div>
+  <section class="home-notes">
+    <div class="section-header">
+      <h2>Notes</h2>
+      <a href="/notes" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="notes-grid">
+      {recentNotes.map((note) => (
+        <NotePreview
+          title={note.data.title}
+          href={`/notes/${note.id}`}
+          date={note.data.date}
+          updated={note.data.updated}
+          maturity={note.data.maturity}
+          description={note.data.description}
+        />
+      ))}
+    </div>
+  </section>
 
   <!-- Links: full width below -->
   <section class="home-links">
@@ -104,7 +101,6 @@ const recentLinks = links.slice(0, 4);
   .hero {
     margin-block-end: var(--space-xl);
     padding-block: var(--space-md) var(--space-sm);
-    max-width: var(--content-width);
   }
   .hero-logo {
     display: block;
@@ -121,7 +117,6 @@ const recentLinks = links.slice(0, 4);
     font-size: 1.25rem;
     color: var(--color-text-muted);
     line-height: 1.7;
-    max-width: 38rem;
     padding-inline-start: 3rem; /* align with the M in the logo */
   }
 
@@ -135,19 +130,10 @@ const recentLinks = links.slice(0, 4);
     opacity: 0.5;
   }
 
-  /* Main grid: articles left, notes sidebar right */
-  .home-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-2xl);
-    align-items: start;
+  /* Section spacing */
+  .home-articles,
+  .home-notes {
     margin-block-end: var(--space-3xl);
-  }
-
-  @media (max-width: 768px) {
-    .home-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   /* Section headers */
@@ -179,11 +165,11 @@ const recentLinks = links.slice(0, 4);
     }
   }
 
-  /* Compact list */
-  .compact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  /* Notes grid */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
   }
 
   /* Links full-width */
