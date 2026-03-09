@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://sveltiacms.app/schema/config.v2.json
+
 backend:
   name: github
   repo: convocat/maaike.ai
@@ -5,10 +7,18 @@ backend:
 
 media_folder: public/images
 public_folder: /images
+omit_empty_optional_fields: true
+
+media_libraries:
+  stock_assets:
+    providers:
+      - unsplash
+      - pexels
 
 collections:
   - name: tags
     label: Tags
+    icon: sell
     folder: src/content/tags
     create: true
     slug: "{{slug}}"
@@ -17,9 +27,11 @@ collections:
 
   - name: articles
     label: Articles
+    icon: article
     folder: src/content/articles
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
     fields:
       - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
@@ -40,9 +52,11 @@ collections:
 
   - name: notes
     label: Notes
+    icon: edit_note
     folder: src/content/notes
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
     fields:
       - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
@@ -63,12 +77,14 @@ collections:
 
   - name: links
     label: Links
+    icon: link
     folder: src/content/links
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
     fields:
       - { name: title, label: Title, widget: string }
-      - { name: url, label: URL, widget: string }
+      - { name: url, label: URL, widget: string, type: url }
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
