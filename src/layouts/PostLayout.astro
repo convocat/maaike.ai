@@ -12,9 +12,10 @@ interface Props {
   description?: string;
   collection: string;
   slug: string;
+  url?: string;
 }
 
-const { title, date, updated, maturity, tags, description, collection, slug } = Astro.props;
+const { title, date, updated, maturity, tags, description, collection, slug, url } = Astro.props;
 
 const stages = [
   { key: 'draft', emoji: '🌱', label: 'Seedling' },
@@ -45,6 +46,11 @@ const formattedUpdated = updated
     <header class="post-header">
       {tags.length > 0 && <TagList tags={tags} />}
       <h1>{title}</h1>
+      {url && (
+        <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
+          {new URL(url).hostname.replace('www.', '')} ↗
+        </a>
+      )}
       <div class="post-meta-line">
         <time datetime={date.toISOString()}>{formattedDate}</time>
         {formattedUpdated && (
@@ -92,6 +98,18 @@ const formattedUpdated = updated
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     line-height: 1.2;
     margin-block: var(--space-md) var(--space-md);
+  }
+
+  .external-link {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-block-end: var(--space-sm);
+  }
+
+  .external-link:hover {
+    text-decoration: underline;
   }
 
   .post-meta-line {
