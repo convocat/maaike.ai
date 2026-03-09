@@ -13,7 +13,7 @@ LLMs are impossible to shut up. They always have the last word, not unlike when 
 
 From a design perspective, I'm wondering a lot about where negative space lives in an LLM. Because human conversation lives in the unspoken, as much as the spoken. So I'm asking myself, what does it mean to design for negative space when a machine is trained to avoid it?
 
-This is what I'm researching in my personal pet project 'Designing for doubt'. What if we move away from sleek and easy interaction, and instead introduce meaningful friction as a designed invitation for reflection? What if we design constraint into an LLM's interaction model? A model that asks you what you think, and tells you that it's not going to fill that in for you? That is silence-informed?
+This is what I'm researching in my personal pet project '[[designing-for-doubt]]'. What if we move away from sleek and easy interaction, and instead introduce meaningful friction as a designed invitation for reflection? What if we design constraint into an LLM's interaction model? A model that asks you what you think, and tells you that it's not going to fill that in for you? That is silence-informed?
 
 I love music, and especially singing and percussion. Both in language and music, silence has meaning. Connection and cohesion happen through leaving space. It's the negative space that co-shapes and connects the meaning of what's there. Making room for each other, for something or someone to appear. Making room is a deliberate act, not something that just happens by accident.
 

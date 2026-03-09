@@ -13,7 +13,7 @@ I stumbled across this really insightful article by Mitchell Hashimoto the other
 
 ## A brief summary
 
-Hashimoto starts out by making an important point: what most people seem to call prompt engineering nowadays, he calls 'blind prompting': a "crude trial-and-error approach, paired with minimal or no testing and very surface level knowledge of prompting". He uses the rest of his article to argue that prompt engineering is a real and experiment-driven skill, one that's important to master when we want to get real value out of LLMs.
+Hashimoto starts out by making an important point: what most people seem to call prompt engineering nowadays, he calls 'blind prompting': a "crude trial-and-error approach, paired with minimal or no testing and very surface level knowledge of prompting". He uses the rest of his article to argue that prompt engineering is a real and experiment-driven skill, one that's important to master when we want to get real value out of LLMs. *(I later extended this thinking in [[context-engineering-lets-call-it-design]].)*
 
 The real difference between blind prompting and prompt engineering is one that will probably sound familiar to us: it's a matter of being able to design prompts that are reliable, repeatable, reusable and robust. Rather than leaving things to chance or creativity, engineering is about prompts that can be tested & verified.
 

@@ -45,4 +45,4 @@ ChatGPT, as an LLM, cannot have any concerns, it literally can't care about trut
 
 And here of course, it's where it gets interesting. Because I don't believe LLMs will go away. So it's up to us, humans, designers, to start designing technology that can keep us caring about truth.
 
-This might sound very abstract, but it can start with a very concrete thought experiment: what kind of interaction model might allow for the conversational advantages of LLMs, while at the same time supporting us in exploring information, checking facts and tracking sources? What interaction model might support us in recognising true from false? In staying naturally curious?
+This might sound very abstract, but it can start with a very concrete thought experiment: what kind of interaction model might allow for the conversational advantages of LLMs, while at the same time supporting us in exploring information, checking facts and tracking sources? What interaction model might support us in recognising true from false? In staying naturally curious? This is what I explore in [[designing-for-doubt]].

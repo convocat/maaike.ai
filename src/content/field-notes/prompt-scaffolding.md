@@ -14,4 +14,4 @@ The base layer is the raw question. The next layer adds context. Then comes the 
 
 This connects to [[conversational-grounding]] — the idea that effective communication builds shared understanding step by step.
 
-Could this be formalised into a reusable pattern?
+Could this be formalised into a reusable pattern? (See [[prompt-design-patterns]].)
