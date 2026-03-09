@@ -7,6 +7,14 @@ media_folder: public/images
 public_folder: /images
 
 collections:
+  - name: tags
+    label: Tags
+    folder: src/content/tags
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Tag Name, widget: string }
+
   - name: articles
     label: Articles
     folder: src/content/articles
@@ -19,10 +27,13 @@ collections:
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
       - name: tags
         label: Tags
-        widget: select
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
         multiple: true
-        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
-        default: []
+        required: false
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
@@ -39,10 +50,13 @@ collections:
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
       - name: tags
         label: Tags
-        widget: select
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
         multiple: true
-        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
-        default: []
+        required: false
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
@@ -60,10 +74,13 @@ collections:
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
       - name: tags
         label: Tags
-        widget: select
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
         multiple: true
-        options: [ai, communication, crm, digital-gardens, evaluation, human-behavior, llm, patterns, prompting, systems-thinking, web-history, writing]
-        default: []
+        required: false
       - { name: description, label: Description, widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
