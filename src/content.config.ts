@@ -16,8 +16,13 @@ const baseSchema = z.object({
   draft: z.boolean().default(false),
 });
 
-const notes = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/content/notes' }),
+const fieldNotes = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/field-notes' }),
+  schema: baseSchema,
+});
+
+const sparks = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/sparks' }),
   schema: baseSchema,
 });
 
@@ -28,8 +33,8 @@ const articles = defineCollection({
   }),
 });
 
-const links = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/content/links' }),
+const weblinks = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/weblinks' }),
   schema: baseSchema.extend({
     url: z.string().url(),
   }),
@@ -56,4 +61,4 @@ const principles = defineCollection({
   schema: baseSchema,
 });
 
-export const collections = { notes, articles, links, videos, library, principles };
+export const collections = { fieldNotes, sparks, articles, weblinks, videos, library, principles };

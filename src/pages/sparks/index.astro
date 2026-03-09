@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+
+const sparks = sortByDate(
+  (await getCollection('sparks')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(sparks);
+---
+
+<PageLayout title={`${settings.sparksTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.sparksTitle}</h1>
+  <p class="section-description">{settings.sparksDescription}</p>
+
+  <FilterBar tags={tags} />
+
+  <ContentGrid>
+    {sparks.length > 0 ? (
+      sparks.map((spark) => (
+        <ContentCard
+          title={spark.data.title}
+          href={`/sparks/${spark.id}`}
+          date={spark.data.date}
+          updated={spark.data.updated}
+          maturity={spark.data.maturity}
+          tags={spark.data.tags}
+          description={spark.data.description}
+          collection="sparks"
+        />
+      ))
+    ) : (
+      <p class="empty-state">No sparks yet — fleeting ideas will appear here.</p>
+    )}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

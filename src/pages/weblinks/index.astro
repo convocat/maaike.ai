@@ -7,28 +7,28 @@ import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
 
-const links = sortByDate(
-  (await getCollection('links')).filter((e) => !e.data.draft)
+const weblinks = sortByDate(
+  (await getCollection('weblinks')).filter((e) => !e.data.draft)
 );
-const tags = getUniqueTags(links);
+const tags = getUniqueTags(weblinks);
 ---
 
-<PageLayout title={`${settings.linksTitle} — ${settings.siteTitle}`}>
-  <h1>{settings.linksTitle}</h1>
-  <p class="section-description">{settings.linksDescription}</p>
+<PageLayout title={`${settings.weblinksTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.weblinksTitle}</h1>
+  <p class="section-description">{settings.weblinksDescription}</p>
 
   <FilterBar tags={tags} />
 
   <ContentGrid>
-    {links.map((link) => (
+    {weblinks.map((link) => (
       <ContentCard
         title={link.data.title}
-        href={`/links/${link.id}`}
+        href={`/weblinks/${link.id}`}
         date={link.data.date}
         maturity={link.data.maturity}
         tags={link.data.tags}
         description={link.data.description}
-        collection="links"
+        collection="weblinks"
       />
     ))}
   </ContentGrid>

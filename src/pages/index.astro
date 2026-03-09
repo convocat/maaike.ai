@@ -7,22 +7,26 @@ import MaturityBadge from '../components/MaturityBadge.astro';
 import { sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
 
-const notes = sortByDate(
-  (await getCollection('notes')).filter((e) => !e.data.draft)
+const fieldNotes = sortByDate(
+  (await getCollection('fieldNotes')).filter((e) => !e.data.draft)
+);
+const sparks = sortByDate(
+  (await getCollection('sparks')).filter((e) => !e.data.draft)
 );
 const articles = sortByDate(
   (await getCollection('articles')).filter((e) => !e.data.draft)
 );
-const links = sortByDate(
-  (await getCollection('links')).filter((e) => !e.data.draft)
+const weblinks = sortByDate(
+  (await getCollection('weblinks')).filter((e) => !e.data.draft)
 );
 const videos = sortByDate(
   (await getCollection('videos')).filter((e) => !e.data.draft)
 );
 
 const recentArticles = articles.slice(0, 4);
-const recentNotes = notes.slice(0, 6);
-const recentLinks = links.slice(0, 6);
+const recentFieldNotes = fieldNotes.slice(0, 6);
+const recentSparks = sparks.slice(0, 6);
+const recentWeblinks = weblinks.slice(0, 6);
 const recentVideos = videos.slice(0, 4);
 
 function getYouTubeId(url: string): string | null {
@@ -73,16 +77,16 @@ function getYouTubeId(url: string): string | null {
     </div>
   </section>
 
-  <section class="home-notes">
+  <section class="home-field-notes">
     <div class="section-header">
-      <h2>Notes</h2>
-      <a href="/notes" class="view-all">View all &rarr;</a>
+      <h2>Field Notes</h2>
+      <a href="/field-notes" class="view-all">View all &rarr;</a>
     </div>
     <div class="notes-grid">
-      {recentNotes.map((note) => (
+      {recentFieldNotes.map((note) => (
         <NotePreview
           title={note.data.title}
-          href={`/notes/${note.id}`}
+          href={`/field-notes/${note.id}`}
           date={note.data.date}
           updated={note.data.updated}
           maturity={note.data.maturity}
@@ -92,19 +96,42 @@ function getYouTubeId(url: string): string | null {
     </div>
   </section>
 
+  <section class="home-sparks">
+    <div class="section-header">
+      <h2>Sparks</h2>
+      <a href="/sparks" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="notes-grid">
+      {recentSparks.length > 0 ? (
+        recentSparks.map((spark) => (
+          <NotePreview
+            title={spark.data.title}
+            href={`/sparks/${spark.id}`}
+            date={spark.data.date}
+            updated={spark.data.updated}
+            maturity={spark.data.maturity}
+            description={spark.data.description}
+          />
+        ))
+      ) : (
+        <p class="empty-state">No sparks yet — fleeting ideas will appear here.</p>
+      )}
+    </div>
+  </section>
+
   <div class="home-bottom">
-    <section class="home-links">
+    <section class="home-weblinks">
       <div class="section-header">
-        <h2>Links</h2>
-        <a href="/links" class="view-all">View all &rarr;</a>
+        <h2>Weblinks</h2>
+        <a href="/weblinks" class="view-all">View all &rarr;</a>
       </div>
       <ul class="links-list">
-        {recentLinks.map((link) => {
+        {recentWeblinks.map((link) => {
           const domain = new URL(link.data.url).hostname.replace('www.', '');
           const formattedDate = new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' }).format(link.data.date);
           return (
             <li class="link-item">
-              <a href={`/links/${link.id}`} class="link-item-link">
+              <a href={`/weblinks/${link.id}`} class="link-item-link">
                 <MaturityBadge maturity={link.data.maturity} />
                 <span class="link-item-title">{link.data.title}</span>
                 <span class="link-item-domain">{domain}</span>
@@ -178,7 +205,8 @@ function getYouTubeId(url: string): string | null {
 
   /* Section spacing */
   .home-articles,
-  .home-notes {
+  .home-field-notes,
+  .home-sparks {
     margin-block-end: var(--space-3xl);
   }
 
@@ -218,7 +246,7 @@ function getYouTubeId(url: string): string | null {
     gap: var(--space-md);
   }
 
-  /* Bottom two-column: Links + Videos */
+  /* Bottom two-column: Weblinks + Videos */
   .home-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr;
