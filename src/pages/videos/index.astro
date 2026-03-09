@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import VideoCard from '../../components/VideoCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+
+const videos = sortByDate(
+  (await getCollection('videos')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(videos);
+---
+
+<PageLayout title={`${settings.videosTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.videosTitle}</h1>
+  <p class="section-description">{settings.videosDescription}</p>
+
+  {tags.length > 0 && <FilterBar tags={tags} />}
+
+  <ContentGrid>
+    {videos.map((video) => (
+      <VideoCard
+        title={video.data.title}
+        href={`/videos/${video.id}`}
+        url={video.data.url}
+        date={video.data.date}
+        tags={video.data.tags}
+        description={video.data.description}
+      />
+    ))}
+  </ContentGrid>
+
+  {videos.length === 0 && (
+    <p class="empty-state">No videos yet. Add one via the CMS or share a YouTube link.</p>
+  )}
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

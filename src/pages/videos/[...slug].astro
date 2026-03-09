@@ -1,0 +1,146 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import BackLinks from '../../components/BackLinks.astro';
+
+export async function getStaticPaths() {
+  const videos = await getCollection('videos');
+  return videos.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+// Extract YouTube video ID
+function getYouTubeId(url: string): string | null {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,
+    /(?:youtu\.be\/)([^?]+)/,
+    /(?:youtube\.com\/embed\/)([^?]+)/,
+    /(?:youtube\.com\/shorts\/)([^?]+)/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+const videoId = getYouTubeId(entry.data.url);
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(entry.data.date);
+---
+
+<PageLayout title={`${entry.data.title} — Videos`}>
+  <article class="video-detail">
+    <div class="video-tags">
+      {entry.data.tags.map((tag: string) => (
+        <a href={`/tags/${tag}`} class="tag-link">{tag}</a>
+      ))}
+    </div>
+
+    <h1>{entry.data.title}</h1>
+
+    <time datetime={entry.data.date.toISOString()}>{formattedDate}</time>
+
+    {videoId && (
+      <div class="video-embed">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+          title={entry.data.title}
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+
+    {!videoId && (
+      <a href={entry.data.url} class="video-external" target="_blank" rel="noopener noreferrer">
+        Watch video ↗
+      </a>
+    )}
+
+    <div class="video-body">
+      <Content />
+    </div>
+
+    <BackLinks collection="videos" slug={entry.id} />
+  </article>
+</PageLayout>
+
+<style>
+  .video-detail {
+    max-width: var(--content-width);
+  }
+
+  .video-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-block-end: var(--space-sm);
+  }
+
+  .tag-link {
+    font-size: 0.8rem;
+    padding: 0.15em 0.6em;
+    border-radius: 1em;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    text-decoration: none;
+  }
+  .tag-link:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  h1 {
+    margin-block-end: var(--space-xs);
+  }
+
+  time {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+
+  .video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    margin-block-end: var(--space-xl);
+  }
+  .video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+  }
+
+  .video-external {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-block-end: var(--space-xl);
+  }
+  .video-external:hover {
+    text-decoration: underline;
+  }
+
+  .video-body {
+    line-height: 1.75;
+  }
+</style>
