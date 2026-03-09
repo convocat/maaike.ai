@@ -1,0 +1,74 @@
+name: Share Link
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL to share'
+        required: true
+      title:
+        description: 'Title'
+        required: true
+      tags:
+        description: 'Tags (comma-separated)'
+        required: false
+        default: ''
+
+jobs:
+  create-link:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create link post
+        run: |
+          # Generate slug from title
+          SLUG=$(echo "${{ github.event.inputs.title }}" \
+            | tr '[:upper:]' '[:lower:]' \
+            | sed 's/[^a-z0-9]/-/g' \
+            | sed 's/--*/-/g' \
+            | sed 's/^-//;s/-$//')
+
+          DATE=$(date +%Y-%m-%d)
+          FILE="src/content/links/${SLUG}.md"
+
+          # Build tags block
+          TAGS_INPUT="${{ github.event.inputs.tags }}"
+          TAGS_BLOCK=""
+          if [ -n "$TAGS_INPUT" ]; then
+            IFS=',' read -ra TAG_ARRAY <<< "$TAGS_INPUT"
+            for tag in "${TAG_ARRAY[@]}"; do
+              TRIMMED=$(echo "$tag" | xargs)
+              TAGS_BLOCK="${TAGS_BLOCK}  - ${TRIMMED}"$'\n'
+            done
+          fi
+
+          # Write the markdown file
+          {
+            echo "---"
+            echo "title: \"${{ github.event.inputs.title }}\""
+            echo "date: ${DATE}"
+            echo "maturity: draft"
+            echo "tags:"
+            if [ -n "$TAGS_BLOCK" ]; then
+              printf "%s" "$TAGS_BLOCK"
+            else
+              echo "  []"
+            fi
+            echo "description: \"\""
+            echo "url: \"${{ github.event.inputs.url }}\""
+            echo "---"
+            echo ""
+          } > "$FILE"
+
+          echo "Created: $FILE"
+          cat "$FILE"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/links/
+          git commit -m "Add link: ${{ github.event.inputs.title }}"
+          git push
