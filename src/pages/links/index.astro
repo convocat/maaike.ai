@@ -3,16 +3,20 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import ContentGrid from '../../components/ContentGrid.astro';
 import ContentCard from '../../components/ContentCard.astro';
-import { sortByDate } from '../../utils/collections';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
 
 const links = sortByDate(
   (await getCollection('links')).filter((e) => !e.data.draft)
 );
+const tags = getUniqueTags(links);
 ---
 
 <PageLayout title="Links — Maai & AI">
   <h1>Links</h1>
   <p class="section-description">Commentary on external content.</p>
+
+  <FilterBar tags={tags} />
 
   <ContentGrid>
     {links.map((link) => (

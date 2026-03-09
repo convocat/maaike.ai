@@ -22,7 +22,13 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
 }).format(displayDate);
 ---
 
-<article class="card">
+<article
+  class="card"
+  data-maturity={maturity}
+  data-tags={tags.join(',')}
+  data-date={date.toISOString()}
+  data-updated={(updated ?? date).toISOString()}
+>
   <a href={href} class="card-link">
     <div class="card-top">
       <MaturityBadge maturity={maturity} />
