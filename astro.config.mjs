@@ -7,7 +7,7 @@ import path from 'node:path';
 // Build a slug-to-path map for wiki links to resolve across collections
 function buildPermalinkMap() {
   const contentDir = path.resolve('src/content');
-  const collections = ['field-notes', 'sparks', 'articles', 'weblinks'];
+  const collections = ['field-notes', 'sparks', 'articles', 'weblinks', 'videos', 'library', 'principles'];
   const slugMap = new Map();
 
   for (const collection of collections) {
