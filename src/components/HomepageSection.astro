@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  viewAllHref?: string;
+}
+
+const { title, viewAllHref } = Astro.props;
+---
+
+<section class="homepage-section">
+  <div class="section-header">
+    <h2>{title}</h2>
+    {viewAllHref && <a href={viewAllHref} class="view-all">View all &rarr;</a>}
+  </div>
+  <slot />
+</section>
+
+<style>
+  .homepage-section {
+    margin-block-end: var(--space-3xl);
+    padding-block-end: var(--space-2xl);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-block-end: var(--space-xl);
+  }
+
+  .view-all {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+</style>

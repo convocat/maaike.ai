@@ -1,0 +1,98 @@
+---
+import MaturityBadge from './MaturityBadge.astro';
+
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  updated?: Date;
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  tags?: string[];
+}
+
+const { title, href, date, updated, maturity, tags } = Astro.props;
+
+const displayDate = updated ?? date;
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  month: 'short',
+  day: 'numeric',
+}).format(displayDate);
+---
+
+<li class="compact-item">
+  <a href={href} class="compact-item-link">
+    <MaturityBadge maturity={maturity} />
+    <span class="compact-item-title">{title}</span>
+    {tags && tags.length > 0 && (
+      <span class="compact-item-tags">
+        {tags.slice(0, 2).map((tag) => (
+          <span class="compact-item-tag">{tag}</span>
+        ))}
+      </span>
+    )}
+  </a>
+  <time datetime={displayDate.toISOString()}>{formattedDate}</time>
+</li>
+
+<style is:global>
+  .compact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+    list-style: none;
+  }
+  .compact-item:last-child {
+    border-bottom: none;
+  }
+
+  .compact-item-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    min-width: 0;
+  }
+  .compact-item-link:hover .compact-item-title {
+    color: var(--color-accent);
+  }
+
+  .compact-item-title {
+    font-weight: 500;
+    color: var(--color-heading);
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .compact-item-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .compact-item-tags {
+      display: none;
+    }
+  }
+
+  .compact-item-tag {
+    font-size: 0.7rem;
+    padding: 0.05em 0.4em;
+    border-radius: 1em;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+  }
+
+  .compact-item time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+</style>

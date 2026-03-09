@@ -1,0 +1,51 @@
+---
+import { getBacklinks } from '../utils/backlinks';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const backlinks = await getBacklinks(currentSlug);
+---
+
+{backlinks.length > 0 && (
+  <div class="backlinks">
+    <h3>Linked from</h3>
+    <ul>
+      {backlinks.map(({ title, href }) => (
+        <li><a href={href}>{title}</a></li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<style>
+  .backlinks h3 {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-sm);
+  }
+
+  .backlinks ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .backlinks a {
+    font-size: 0.9rem;
+    padding: 0.2em 0.6em;
+    border-radius: var(--card-radius);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .backlinks a:hover {
+    border-color: var(--color-accent);
+  }
+</style>

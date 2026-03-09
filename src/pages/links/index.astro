@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { sortByDate } from '../../utils/collections';
+
+const links = sortByDate(
+  (await getCollection('links')).filter((e) => !e.data.draft)
+);
+---
+
+<PageLayout title="Links — Maai & AI">
+  <h1>Links</h1>
+  <p class="section-description">Commentary on external content.</p>
+
+  <ContentGrid>
+    {links.map((link) => (
+      <ContentCard
+        title={link.data.title}
+        href={`/links/${link.id}`}
+        date={link.data.date}
+        maturity={link.data.maturity}
+        tags={link.data.tags}
+        description={link.data.description}
+        collection="links"
+      />
+    ))}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+</style>

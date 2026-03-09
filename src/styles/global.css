@@ -1,0 +1,114 @@
+@import './fonts.css';
+@import './tokens.css';
+@import './utilities.css';
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+:where(a) {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+:where(a):hover {
+  color: var(--color-accent-hover);
+}
+
+/* Prose (rendered Markdown) */
+.prose {
+  max-width: var(--content-width);
+}
+.prose p {
+  margin-block: var(--space-md);
+}
+.prose h2 {
+  margin-block-start: var(--space-2xl);
+  margin-block-end: var(--space-sm);
+}
+.prose h3 {
+  margin-block-start: var(--space-xl);
+  margin-block-end: var(--space-sm);
+}
+.prose ul, .prose ol {
+  padding-inline-start: var(--space-lg);
+  margin-block: var(--space-md);
+}
+.prose li {
+  margin-block: var(--space-xs);
+}
+.prose blockquote {
+  border-inline-start: 3px solid var(--color-accent);
+  padding-inline-start: var(--space-md);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-block: var(--space-md);
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-tag-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+.prose pre {
+  padding: var(--space-md);
+  border-radius: var(--card-radius);
+  overflow-x: auto;
+  margin-block: var(--space-md);
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+.prose img {
+  border-radius: var(--card-radius);
+  margin-block: var(--space-md);
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-2xl);
+}
+
+/* Wiki link styles */
+.wiki-link {
+  color: var(--color-accent-2);
+  text-decoration-style: dotted;
+}
+.wiki-link:hover {
+  color: var(--color-accent-2-hover);
+}
+.wiki-link--new {
+  color: var(--color-text-muted);
+  text-decoration-style: dashed;
+  cursor: help;
+}

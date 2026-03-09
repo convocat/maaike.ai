@@ -1,0 +1,45 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="About — Maai & AI">
+  <div class="about">
+    <h1>About</h1>
+    <div class="prose">
+      <p>
+        This is a digital garden — a collection of ideas, notes, and articles at
+        various stages of development. Unlike a traditional blog, content here
+        grows and evolves over time.
+      </p>
+
+      <h2>How this garden works</h2>
+      <p>
+        Each piece of writing has a maturity indicator showing how developed it is:
+      </p>
+      <ul>
+        <li>🌱 <strong>Seedling</strong> — a spark, just getting started</li>
+        <li>🌿 <strong>Sprout</strong> — taking shape, being worked out</li>
+        <li>🪴 <strong>Plant</strong> — well-formed, clear argument</li>
+        <li>🌳 <strong>Tree</strong> — finished, stable</li>
+      </ul>
+
+      <h2>Content types</h2>
+      <ul>
+        <li><strong>Notes</strong> — thoughts, concepts, and ideas being worked out</li>
+        <li><strong>Articles</strong> — polished, published writing</li>
+        <li><strong>Links</strong> — commentary on external content</li>
+      </ul>
+    </div>
+  </div>
+</PageLayout>
+
+<style>
+  .about {
+    max-width: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .about h1 {
+    margin-block-end: var(--space-xl);
+  }
+</style>

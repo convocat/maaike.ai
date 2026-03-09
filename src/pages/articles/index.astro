@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { sortByDate } from '../../utils/collections';
+
+const articles = sortByDate(
+  (await getCollection('articles')).filter((e) => !e.data.draft)
+);
+---
+
+<PageLayout title="Articles — Maai & AI">
+  <h1>Articles</h1>
+  <p class="section-description">Polished, published writing.</p>
+
+  <ContentGrid>
+    {articles.map((article) => (
+      <ContentCard
+        title={article.data.title}
+        href={`/articles/${article.id}`}
+        date={article.data.date}
+        updated={article.data.updated}
+        maturity={article.data.maturity}
+        tags={article.data.tags}
+        description={article.data.description}
+        collection="articles"
+      />
+    ))}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+</style>

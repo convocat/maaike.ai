@@ -1,0 +1,67 @@
+:root,
+[data-theme="light"] {
+  /* Colors */
+  --color-bg: #FFFFFF;
+  --color-bg-card: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-heading: #111111;
+  --color-accent: #D6006C;
+  --color-accent-hover: #B0005A;
+  --color-accent-2: #0D7C66;
+  --color-accent-2-hover: #095C4B;
+  --color-tag-bg: #F5E6F0;
+  --color-tag-text: #5A2D4A;
+  --color-border: #E5E5E5;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+
+  /* Maturity colors */
+  --color-maturity-draft: #F0E6F0;
+  --color-maturity-developing: #E6E0F5;
+  --color-maturity-solid: #E0EAF5;
+  --color-maturity-complete: #D6006C;
+
+  /* Typography */
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Roboto', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Sizes */
+  --max-width: 65rem;
+  --content-width: 42rem;
+  --card-radius: 0.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+[data-theme="dark"] {
+  --color-bg: #111111;
+  --color-bg-card: #1A1A1A;
+  --color-text: #E8E8E8;
+  --color-text-muted: #A0A0A0;
+  --color-heading: #F5F5F5;
+  --color-accent: #FF4DA6;
+  --color-accent-hover: #FF80C0;
+  --color-accent-2: #2DD4A8;
+  --color-accent-2-hover: #5EEBC4;
+  --color-tag-bg: #2A1A25;
+  --color-tag-text: #E0B0D0;
+  --color-border: #2A2A2A;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+
+  --color-maturity-draft: #2A1A25;
+  --color-maturity-developing: #1F1A2E;
+  --color-maturity-solid: #1A1F2E;
+  --color-maturity-complete: #FF4DA6;
+}

@@ -1,0 +1,110 @@
+---
+import MaturityBadge from './MaturityBadge.astro';
+
+interface Props {
+  title: string;
+  href: string;
+  url: string;
+  date: Date;
+  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  tags: string[];
+  description?: string;
+}
+
+const { title, href, url, date, maturity, tags, description } = Astro.props;
+
+const hostname = new URL(url).hostname.replace('www.', '');
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(date);
+---
+
+<article class="link-card">
+  <div class="link-card-top">
+    <MaturityBadge maturity={maturity} />
+    <a href={url} class="link-card-hostname" target="_blank" rel="noopener noreferrer">
+      <svg class="link-card-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+        <polyline points="15 3 21 3 21 9" />
+        <line x1="10" y1="14" x2="21" y2="3" />
+      </svg>
+      {hostname}
+    </a>
+  </div>
+  <a href={href} class="link-card-link">
+    <h3 class="link-card-title">{title}</h3>
+    {description && <p class="link-card-description">{description}</p>}
+    <time datetime={date.toISOString()}>{formattedDate}</time>
+  </a>
+</article>
+
+<style is:global>
+  .link-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: var(--space-lg);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--color-shadow);
+    border-color: transparent;
+  }
+
+  .link-card-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link-card-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .link-card-hostname {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.8rem;
+    color: var(--color-accent-2);
+    text-decoration: none;
+  }
+  .link-card-hostname:hover {
+    color: var(--color-accent-2-hover);
+  }
+
+  .link-card-icon {
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .link-card-title {
+    font-size: 1.05rem;
+    color: var(--color-heading);
+    line-height: 1.3;
+  }
+
+  .link-card-description {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .link-card time {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-block-start: var(--space-xs);
+  }
+</style>
