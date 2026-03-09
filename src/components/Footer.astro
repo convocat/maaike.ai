@@ -1,10 +1,11 @@
 ---
+import settings from '../data/settings.json';
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>&copy; {year} Maai &amp; AI</p>
+    <p>&copy; {year} {settings.siteTitle}</p>
   </div>
 </footer>
 

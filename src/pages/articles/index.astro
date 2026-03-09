@@ -5,6 +5,7 @@ import ContentGrid from '../../components/ContentGrid.astro';
 import ContentCard from '../../components/ContentCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
 
 const articles = sortByDate(
   (await getCollection('articles')).filter((e) => !e.data.draft)
@@ -12,9 +13,9 @@ const articles = sortByDate(
 const tags = getUniqueTags(articles);
 ---
 
-<PageLayout title="Articles — Maai & AI">
-  <h1>Articles</h1>
-  <p class="section-description">Polished, published writing.</p>
+<PageLayout title={`${settings.articlesTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.articlesTitle}</h1>
+  <p class="section-description">{settings.articlesDescription}</p>
 
   <FilterBar tags={tags} />
 

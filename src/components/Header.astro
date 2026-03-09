@@ -1,5 +1,6 @@
 ---
 import DarkModeToggle from './DarkModeToggle.astro';
+import settings from '../data/settings.json';
 
 const navLinks = [
   { href: '/notes', label: 'Notes' },
@@ -13,7 +14,10 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="site-title">Maai &amp; AI</a>
+    <a href="/" class="site-title">
+      {settings.logo && <img src={settings.logo} alt="" class="site-logo" />}
+      {settings.siteTitle}
+    </a>
 
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,12 +72,20 @@ const currentPath = Astro.url.pathname;
   }
 
   .site-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-heading);
     text-decoration: none;
     white-space: nowrap;
+  }
+
+  .site-logo {
+    height: 28px;
+    width: auto;
   }
   .site-title:hover {
     color: var(--color-accent);

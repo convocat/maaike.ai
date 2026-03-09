@@ -5,6 +5,7 @@ import ContentCard from '../components/ContentCard.astro';
 import CompactItem from '../components/CompactItem.astro';
 import LinkCard from '../components/LinkCard.astro';
 import { sortByDate } from '../utils/collections';
+import settings from '../data/settings.json';
 
 const notes = sortByDate(
   (await getCollection('notes')).filter((e) => !e.data.draft)
@@ -22,10 +23,10 @@ const recentLinks = links.slice(0, 4);
 
 ---
 
-<PageLayout title="Maai & AI">
+<PageLayout title={settings.siteTitle}>
   <div class="hero">
-    <h1>Maai & AI</h1>
-    <p>A collection of notes and articles at various stages of development.</p>
+    <h1>{settings.siteTitle}</h1>
+    <p>{settings.siteTagline}</p>
   </div>
 
   <hr class="hero-line" aria-hidden="true" />
