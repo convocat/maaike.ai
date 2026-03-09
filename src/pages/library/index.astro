@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import BookCard from '../../components/BookCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+
+const books = sortByDate(
+  (await getCollection('library')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(books);
+
+const reading = books.filter((b) => b.data.status === 'reading');
+const read = books.filter((b) => b.data.status === 'read');
+const toRead = books.filter((b) => b.data.status === 'to-read');
+---
+
+<PageLayout title={`${settings.libraryTitle} — ${settings.siteTitle}`}>
+  <h1>{settings.libraryTitle}</h1>
+  <p class="section-description">{settings.libraryDescription}</p>
+
+  {tags.length > 0 && <FilterBar tags={tags} />}
+
+  {reading.length > 0 && (
+    <section class="book-section">
+      <h2>Currently reading</h2>
+      <ContentGrid>
+        {reading.map((book) => (
+          <BookCard
+            title={book.data.title}
+            href={`/library/${book.id}`}
+            author={book.data.author}
+            cover={book.data.cover}
+            status={book.data.status}
+            maturity={book.data.maturity}
+            tags={book.data.tags}
+            description={book.data.description}
+          />
+        ))}
+      </ContentGrid>
+    </section>
+  )}
+
+  {read.length > 0 && (
+    <section class="book-section">
+      <h2>Read</h2>
+      <ContentGrid>
+        {read.map((book) => (
+          <BookCard
+            title={book.data.title}
+            href={`/library/${book.id}`}
+            author={book.data.author}
+            cover={book.data.cover}
+            status={book.data.status}
+            maturity={book.data.maturity}
+            tags={book.data.tags}
+            description={book.data.description}
+          />
+        ))}
+      </ContentGrid>
+    </section>
+  )}
+
+  {toRead.length > 0 && (
+    <section class="book-section">
+      <h2>To read</h2>
+      <ContentGrid>
+        {toRead.map((book) => (
+          <BookCard
+            title={book.data.title}
+            href={`/library/${book.id}`}
+            author={book.data.author}
+            cover={book.data.cover}
+            status={book.data.status}
+            maturity={book.data.maturity}
+            tags={book.data.tags}
+            description={book.data.description}
+          />
+        ))}
+      </ContentGrid>
+    </section>
+  )}
+
+  {books.length === 0 && (
+    <p class="empty-state">No books yet. Add one via the CMS.</p>
+  )}
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .book-section {
+    margin-block-end: var(--space-2xl);
+  }
+  .book-section h2 {
+    font-size: 1.2rem;
+    margin-block-end: var(--space-md);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

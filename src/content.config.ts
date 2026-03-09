@@ -6,7 +6,10 @@ const maturityEnum = z.enum(['draft', 'developing', 'solid', 'complete']);
 const baseSchema = z.object({
   title: z.string(),
   date: z.coerce.date(),
-  updated: z.coerce.date().optional(),
+  updated: z.preprocess(
+    (val) => (val === '' || val === null ? undefined : val),
+    z.coerce.date().optional(),
+  ),
   maturity: maturityEnum.default('draft'),
   tags: z.array(z.string()).default([]),
   description: z.string().optional(),
@@ -37,4 +40,18 @@ const videos = defineCollection({
   }),
 });
 
-export const collections = { notes, articles, links, videos };
+const library = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/library' }),
+  schema: baseSchema.extend({
+    author: z.string(),
+    cover: z.string().optional(),
+    status: z.enum(['reading', 'read', 'to-read']).default('to-read'),
+  }),
+});
+
+const principles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/principles' }),
+  schema: baseSchema,
+});
+
+export const collections = { notes, articles, links, videos, library, principles };

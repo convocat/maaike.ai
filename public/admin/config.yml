@@ -35,6 +35,10 @@ collections:
           - { name: linksDescription, label: Links Description, widget: string }
           - { name: videosTitle, label: Videos Page Title, widget: string }
           - { name: videosDescription, label: Videos Description, widget: string }
+          - { name: libraryTitle, label: Library Page Title, widget: string }
+          - { name: libraryDescription, label: Library Description, widget: string }
+          - { name: principlesTitle, label: Principles Page Title, widget: string }
+          - { name: principlesDescription, label: Principles Description, widget: string }
 
   - name: tags
     label: Tags
@@ -131,6 +135,59 @@ collections:
     fields:
       - { name: title, label: Title, widget: string }
       - { name: url, label: YouTube URL, widget: string, type: url }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
+        multiple: true
+        required: false
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: library
+    label: Library
+    icon: menu_book
+    folder: src/content/library
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{author}} — {{status}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: author, label: Author, widget: string }
+      - { name: cover, label: Cover Image, widget: image, required: false }
+      - { name: status, label: Reading Status, widget: select, options: [reading, read, to-read], default: to-read }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
+        multiple: true
+        required: false
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: principles
+    label: Design Principles
+    icon: lightbulb
+    folder: src/content/principles
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
+    fields:
+      - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }

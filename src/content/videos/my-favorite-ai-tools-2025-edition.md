@@ -2,7 +2,7 @@
 title: My favorite AI tools - 2025 edition
 url: https://youtu.be/HRAZ8wXcqJs
 date: 2025-11-02
-updated: ''
+updated:
 maturity: solid
 tags:
   - prompt-design

@@ -9,5 +9,9 @@
   "linksTitle": "Links",
   "linksDescription": "Commentary on external content.",
   "videosTitle": "Videos",
-  "videosDescription": "Talks, tutorials, and recordings."
+  "videosDescription": "Talks, tutorials, and recordings.",
+  "libraryTitle": "Library",
+  "libraryDescription": "Books I've read, am reading, or want to read.",
+  "principlesTitle": "Design Principles",
+  "principlesDescription": "Patterns and principles for designing human-AI interactions."
 }

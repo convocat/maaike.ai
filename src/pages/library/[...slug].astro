@@ -1,0 +1,73 @@
+---
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const books = await getCollection('library');
+  return books.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const statusLabel: Record<string, string> = {
+  'reading': 'Currently reading',
+  'read': 'Read',
+  'to-read': 'To read',
+};
+---
+
+<PostLayout
+  title={entry.data.title}
+  date={entry.data.date}
+  updated={entry.data.updated}
+  maturity={entry.data.maturity}
+  tags={entry.data.tags}
+  description={entry.data.description}
+  collection="library"
+  slug={entry.id}
+>
+  <div class="book-header">
+    {entry.data.cover && (
+      <img src={entry.data.cover} alt="" class="book-detail-cover" />
+    )}
+    <div class="book-header-info">
+      <p class="book-author">by {entry.data.author}</p>
+      <span class="book-reading-status">{statusLabel[entry.data.status]}</span>
+    </div>
+  </div>
+  <Content />
+</PostLayout>
+
+<style>
+  .book-header {
+    display: flex;
+    gap: var(--space-lg);
+    margin-block-end: var(--space-xl);
+  }
+  .book-detail-cover {
+    width: 120px;
+    height: auto;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px var(--color-shadow);
+    flex-shrink: 0;
+  }
+  .book-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .book-author {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .book-reading-status {
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+</style>
