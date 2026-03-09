@@ -24,5 +24,49 @@ const { Content } = await render(entry);
   collection="articles"
   slug={entry.id}
 >
+  {entry.data.pruning && (
+    <aside class="pruning-box">
+      <div class="pruning-header">
+        <span class="pruning-icon">✂️</span>
+        <span class="pruning-label">Pruning</span>
+      </div>
+      <p>{entry.data.pruning}</p>
+    </aside>
+  )}
   <Content />
 </PostLayout>
+
+<style>
+  .pruning-box {
+    background: var(--color-pruning-bg, #f0fdf4);
+    border-left: 3px solid var(--color-accent-2, #7c9a5e);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: var(--space-md) var(--space-lg);
+    margin-block-end: var(--space-xl);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  :root[data-theme="dark"] .pruning-box {
+    background: rgba(34, 84, 61, 0.15);
+  }
+  .pruning-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-block-end: var(--space-xs);
+  }
+  .pruning-icon {
+    font-size: 1rem;
+  }
+  .pruning-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-2, #7c9a5e);
+  }
+  .pruning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+</style>

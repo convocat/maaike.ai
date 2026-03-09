@@ -61,6 +61,7 @@ collections:
       - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
       - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
+      - { name: pruning, label: "🌿 Pruning", widget: text, required: false, hint: "A reflection on this older piece — what would you add, change, or prune?" }
       - name: tags
         label: Tags
         widget: relation
