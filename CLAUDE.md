@@ -107,3 +107,4 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 - The site aesthetic is warm and personal, not corporate
 - Maaike works in Dutch and English; site content is English
 - **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
+- **Sentence case for titles**. Only capitalize the first word (and proper nouns/acronyms)

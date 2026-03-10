@@ -1,5 +1,5 @@
 ---
-title: Project Memory for Persistent Context
+title: Project memory for persistent context
 date: 2026-03-10
 maturity: draft
 tags:
