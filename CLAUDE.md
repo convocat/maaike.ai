@@ -1,4 +1,4 @@
-# Maai & AI — Digital Garden
+# Maai & AI:Digital Garden
 
 Personal digital garden for Maaike, deployed at **maaike.ai**. Built with Astro 5, static output, GitHub Pages.
 
@@ -21,12 +21,12 @@ Astro static site with 7 content collections, wiki-style cross-linking, and dual
 | Collection | Slug | Extra fields |
 |---|---|---|
 | Articles | `articles` | `pruning` (optional) |
-| Field Notes | `field-notes` | — |
-| Sparks | `sparks` | — |
+| Field Notes | `field-notes` |:|
+| Sparks | `sparks` |:|
 | Weblinks | `weblinks` | `url` (required) |
 | Videos | `videos` | `url` (required) |
 | Library | `library` | `author`, `cover`, `status` (reading/read/to-read) |
-| Principles | `principles` | — |
+| Principles | `principles` |:|
 
 All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`.
 
@@ -49,20 +49,20 @@ Content files are Markdown with YAML frontmatter. Draft items (`draft: true`) ar
 ### Key directories
 
 ```
-src/components/    — Astro components
-src/content/       — Markdown content per collection
-src/data/          — settings.json (site titles, descriptions)
-src/layouts/       — BaseLayout, PageLayout, PostLayout
-src/pages/         — Route files ([...slug].astro per collection)
-src/styles/        — tokens.css (design tokens), global.css, fonts.css, utilities.css
-src/utils/         — collections.ts, backlinks.ts
+src/components/   :Astro components
+src/content/      :Markdown content per collection
+src/data/         :settings.json (site titles, descriptions)
+src/layouts/      :BaseLayout, PageLayout, PostLayout
+src/pages/        :Route files ([...slug].astro per collection)
+src/styles/       :tokens.css (design tokens), global.css, fonts.css, utilities.css
+src/utils/        :collections.ts, backlinks.ts
 ```
 
 ## Design system
 
 ### Colors (src/styles/tokens.css)
 
-- **Primary accent: `#D6006C` (hot pink)** — This is Maaike's company color. Do not change it.
+- **Primary accent: `#D6006C` (hot pink)**:This is Maaike's company color. Do not change it.
 - Secondary accent: `#0D7C66` (teal), dark mode: `#2DD4A8`
 - Dark mode accent: `#FF4DA6` (bright pink variant of company color)
 - Background: white (`#FFFFFF`) / dark (`#111111`)
@@ -102,7 +102,8 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 
 ## Preferences
 
-- Keep the hot pink (`#D6006C`) — it's the company brand color
+- Keep the hot pink (`#D6006C`). It's the company brand color
 - Icons should feel hand-drawn and organic, not polished or geometric
 - The site aesthetic is warm and personal, not corporate
 - Maaike works in Dutch and English; site content is English
+- **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
