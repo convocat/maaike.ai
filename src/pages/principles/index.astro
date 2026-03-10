@@ -6,6 +6,7 @@ import ContentCard from '../../components/ContentCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
+import CollectionIcon from '../../components/CollectionIcon.astro';
 
 const principles = sortByDate(
   (await getCollection('principles')).filter((e) => !e.data.draft)
@@ -14,7 +15,7 @@ const tags = getUniqueTags(principles);
 ---
 
 <PageLayout title={`${settings.principlesTitle} — ${settings.siteTitle}`}>
-  <h1>{settings.principlesTitle}</h1>
+  <h1><CollectionIcon collection="principles" size={28} /> {settings.principlesTitle}</h1>
   <p class="section-description">{settings.principlesDescription}</p>
 
   {tags.length > 0 && <FilterBar tags={tags} />}
@@ -40,7 +41,7 @@ const tags = getUniqueTags(principles);
 </PageLayout>
 
 <style>
-  h1 { margin-block-end: var(--space-xs); }
+  h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
   .section-description {
     color: var(--color-text-muted);
     margin-block-end: var(--space-xl);
