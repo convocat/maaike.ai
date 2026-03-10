@@ -1,15 +1,14 @@
 ---
-title: "CLAUDE.md: Project Memory for AI Assistants"
+title: Project Memory for Persistent Context
 date: 2026-03-10
 maturity: draft
 tags:
   - ai-tools
   - claude-code
   - developer-experience
-description: A markdown file in your repo root that gives Claude Code persistent project context.
+description: How a CLAUDE.md file gives your AI coding assistant persistent project context.
+ai: co-created
 ---
-
-*Co-created with Claude.*
 
 ## What
 
