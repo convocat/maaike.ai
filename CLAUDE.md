@@ -28,7 +28,7 @@ Astro static site with 7 content collections, wiki-style cross-linking, and dual
 | Library | `library` | `author`, `cover`, `status` (reading/read/to-read) |
 | Principles | `principles` | - |
 
-All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`.
+All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`, `ai`.
 
 Content files are Markdown with YAML frontmatter. Draft items (`draft: true`) are filtered out at build time.
 
@@ -81,6 +81,15 @@ Hand-drawn SVG icons per collection with earthy pastel stroke colors and a feTur
 - Post detail headers (as collection label)
 
 Icon stroke palette (light): articles=#9e7c6b, field-notes=#7a9a7e, sparks=#c4956a, weblinks=#a08872, videos=#8e7a8a, library=#7d7068, principles=#7a8a6e.
+
+### AI transparency indicator
+
+Optional `ai` frontmatter field on any content. Renders a styled aside box above the post content (in PostLayout). Four levels:
+- `none`: fully written by Maaike, no AI
+- `assisted`: her ideas/structure, AI helped refine
+- `co-created`: written by AI based on her ideas and direction
+- `generated`: fully AI-generated, reviewed by her
+- No field: no box shown
 
 ### Spacing tokens
 
