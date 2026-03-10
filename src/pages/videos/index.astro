@@ -6,6 +6,7 @@ import VideoCard from '../../components/VideoCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
+import CollectionIcon from '../../components/CollectionIcon.astro';
 
 const videos = sortByDate(
   (await getCollection('videos')).filter((e) => !e.data.draft)
@@ -14,7 +15,7 @@ const tags = getUniqueTags(videos);
 ---
 
 <PageLayout title={`${settings.videosTitle} — ${settings.siteTitle}`}>
-  <h1>{settings.videosTitle}</h1>
+  <h1><CollectionIcon collection="videos" size={28} /> {settings.videosTitle}</h1>
   <p class="section-description">{settings.videosDescription}</p>
 
   {tags.length > 0 && <FilterBar tags={tags} />}
@@ -38,7 +39,7 @@ const tags = getUniqueTags(videos);
 </PageLayout>
 
 <style>
-  h1 { margin-block-end: var(--space-xs); }
+  h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
   .section-description {
     color: var(--color-text-muted);
     margin-block-end: var(--space-xl);

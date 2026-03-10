@@ -3,6 +3,7 @@ import PageLayout from './PageLayout.astro';
 import TagList from '../components/TagList.astro';
 import BackLinks from '../components/BackLinks.astro';
 import WikiLinkPreview from '../components/WikiLinkPreview.astro';
+import CollectionIcon from '../components/CollectionIcon.astro';
 
 interface Props {
   title: string;
@@ -46,6 +47,10 @@ const formattedUpdated = updated
   <article class="post">
     <header class="post-header">
       {tags.length > 0 && <TagList tags={tags} />}
+      <div class="post-collection-label">
+        <CollectionIcon collection={collection} size={16} />
+        <span>{collection.replace(/-/g, ' ')}</span>
+      </div>
       <h1>{title}</h1>
       {url && (
         <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
@@ -94,6 +99,17 @@ const formattedUpdated = updated
     margin-block-end: var(--space-3xl);
     padding-block-end: var(--space-xl);
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-collection-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+    margin-block-start: var(--space-sm);
   }
 
   .post-header h1 {

@@ -6,6 +6,7 @@ import BookCard from '../../components/BookCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
+import CollectionIcon from '../../components/CollectionIcon.astro';
 
 const books = sortByDate(
   (await getCollection('library')).filter((e) => !e.data.draft)
@@ -18,7 +19,7 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
 ---
 
 <PageLayout title={`${settings.libraryTitle} — ${settings.siteTitle}`}>
-  <h1>{settings.libraryTitle}</h1>
+  <h1><CollectionIcon collection="library" size={28} /> {settings.libraryTitle}</h1>
   <p class="section-description">{settings.libraryDescription}</p>
 
   {tags.length > 0 && <FilterBar tags={tags} />}
@@ -89,7 +90,7 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
 </PageLayout>
 
 <style>
-  h1 { margin-block-end: var(--space-xs); }
+  h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
   .section-description {
     color: var(--color-text-muted);
     margin-block-end: var(--space-xl);
