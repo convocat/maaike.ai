@@ -14,7 +14,7 @@ const baseSchema = z.object({
   tags: z.array(z.string()).default([]),
   description: z.string().optional(),
   draft: z.boolean().default(false),
-  ai: z.enum(['assisted', 'co-created', 'generated']).optional(),
+  ai: z.enum(['none', 'assisted', 'co-created', 'generated']).optional(),
 });
 
 const fieldNotes = defineCollection({
