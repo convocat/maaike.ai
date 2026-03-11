@@ -8,6 +8,7 @@ tags:
   - digital-gardens
   - web-history
 description: A comprehensive overview of the digital garden concept and its evolution.
+ai: generated
 ---
 
 A thorough exploration of where the digital garden concept came from and how it has evolved over the years. Traces the lineage from early hypertext systems through wikis to the current wave of personal knowledge gardens.
