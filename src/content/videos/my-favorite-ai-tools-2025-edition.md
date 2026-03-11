@@ -9,6 +9,7 @@ tags:
   - design
 description: An update on my favorite AI-tools...a never ending overview
 draft: false
+ai: "100% Maai"
 ---
 
 An update on my favorite AI-tools...a never ending overview

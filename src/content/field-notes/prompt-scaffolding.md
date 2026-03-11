@@ -6,6 +6,7 @@ tags:
   - llm
   - prompting
 description: An early thought about structuring prompts in stages.
+ai: generated
 ---
 
 What if prompts were built up in layers, like scaffolding around a building? Each layer adds more context, more constraints, more direction.

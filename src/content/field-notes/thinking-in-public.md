@@ -7,6 +7,7 @@ tags:
   - writing
   - digital-gardens
 description: The practice of sharing unfinished thoughts openly.
+ai: generated
 ---
 
 There's value in sharing ideas before they're fully formed. It invites collaboration, surfaces blind spots, and creates accountability to develop thoughts further.

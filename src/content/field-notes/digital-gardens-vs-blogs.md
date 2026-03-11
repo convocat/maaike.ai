@@ -7,6 +7,7 @@ tags:
   - writing
   - digital-gardens
 description: What makes a digital garden different from a traditional blog?
+ai: generated
 ---
 
 A blog is chronological. A garden is topological.
