@@ -55,7 +55,7 @@ jobs:
             | sed 's/^-//;s/-$//')
 
           DATE=$(date +%Y-%m-%d)
-          FILE="src/content/links/${SLUG}.md"
+          FILE="src/content/weblinks/${SLUG}.md"
 
           # Build tags block
           TAGS_INPUT="${{ github.event.inputs.tags }}"
@@ -93,6 +93,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/content/links/
+          git add src/content/weblinks/
           git commit -m "Add link: $TITLE"
           git push
