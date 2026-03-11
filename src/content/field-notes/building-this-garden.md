@@ -45,3 +45,7 @@ ai: generated
 - **Dark mode logo**: CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode
 - **AI transparency labels**: Renamed "none" to "100% Maai", set AI status on all posts
 - **Content cleanup**: Deleted 4 posts, reformatted changelog to date headers with bullet lists
+- **Content creation skill**: `/new-post` command opens Typora directly with blank template, metadata added after writing
+- **Typora theme**: Custom "Maaike Garden" theme matching site design (Lora, Roboto, hot pink accent, collapsible frontmatter)
+- **Auto-tag skill**: `/auto-tag` scans content base to suggest tags and wiki-links for any post
+- **Release notes skill**: `/update-release-notes` generates changelog entries from git commits
