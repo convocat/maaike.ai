@@ -1,9 +1,9 @@
 ---
 import PageLayout from './PageLayout.astro';
 import TagList from '../components/TagList.astro';
-import BackLinks from '../components/BackLinks.astro';
 import WikiLinkPreview from '../components/WikiLinkPreview.astro';
 import CollectionIcon from '../components/CollectionIcon.astro';
+import PostSidebar from '../components/PostSidebar.astro';
 
 interface Props {
   title: string;
@@ -52,65 +52,94 @@ const formattedUpdated = updated
 ---
 
 <PageLayout title={title} description={description}>
-  <article class="post">
-    <header class="post-header">
-      {tags.length > 0 && <TagList tags={tags} />}
-      <div class="post-collection-label">
-        <CollectionIcon collection={collection} size={16} />
-        <span>{collection.replace(/-/g, ' ')}</span>
-      </div>
-      <h1>{title}</h1>
-      {url && (
-        <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
-          {new URL(url).hostname.replace('www.', '')} ↗
-        </a>
-      )}
-      <div class="post-meta-line">
-        <time datetime={date.toISOString()}>{formattedDate}</time>
-        {formattedUpdated && (
-          <>
-            <span class="post-meta-sep">&middot;</span>
-            <span class="post-updated">Updated {formattedUpdated}</span>
-          </>
-        )}
-      </div>
-      <div class="maturity-track" role="img" aria-label={`Maturity: ${stages[currentIndex].label}`}>
-        {stages.map((stage, i) => (
-          <div class:list={['maturity-step', { 'is-reached': i <= currentIndex, 'is-current': i === currentIndex }]}>
-            <span class="maturity-step-emoji">{stage.emoji}</span>
-            {i < stages.length - 1 && (
-              <span class:list={['maturity-step-line', { 'is-filled': i < currentIndex }]} aria-hidden="true" />
-            )}
-          </div>
-        ))}
-      </div>
-    </header>
-
-    {ai && aiLabels[ai] && (
-      <aside class="ai-box">
-        <div class="ai-header">
-          <span class="ai-icon">🤖</span>
-          <span class="ai-label">{aiLabels[ai].label}</span>
+  <div class="post-with-sidebar">
+    <article class="post">
+      <header class="post-header">
+        {tags.length > 0 && <TagList tags={tags} />}
+        <div class="post-collection-label">
+          <CollectionIcon collection={collection} size={16} />
+          <span>{collection.replace(/-/g, ' ')}</span>
         </div>
-        <p>{aiLabels[ai].description}</p>
-      </aside>
-    )}
+        <h1>{title}</h1>
+        {url && (
+          <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
+            {new URL(url).hostname.replace('www.', '')} ↗
+          </a>
+        )}
+        <div class="post-meta-line">
+          <time datetime={date.toISOString()}>{formattedDate}</time>
+          {formattedUpdated && (
+            <>
+              <span class="post-meta-sep">&middot;</span>
+              <span class="post-updated">Updated {formattedUpdated}</span>
+            </>
+          )}
+        </div>
+        <div class="maturity-track" role="img" aria-label={`Maturity: ${stages[currentIndex].label}`}>
+          {stages.map((stage, i) => (
+            <div class:list={['maturity-step', { 'is-reached': i <= currentIndex, 'is-current': i === currentIndex }]}>
+              <span class="maturity-step-emoji">{stage.emoji}</span>
+              {i < stages.length - 1 && (
+                <span class:list={['maturity-step-line', { 'is-filled': i < currentIndex }]} aria-hidden="true" />
+              )}
+            </div>
+          ))}
+        </div>
+      </header>
 
-    <div class="prose">
-      <slot />
-    </div>
+      {ai && aiLabels[ai] && (
+        <aside class="ai-box">
+          <div class="ai-header">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-label">{aiLabels[ai].label}</span>
+          </div>
+          <p>{aiLabels[ai].description}</p>
+        </aside>
+      )}
 
-    <footer class="post-footer">
-      <BackLinks currentSlug={slug} />
-    </footer>
-  </article>
+      <div class="prose">
+        <slot />
+      </div>
+
+      <footer class="post-footer">
+      </footer>
+    </article>
+
+    <aside class="post-sidebar">
+      <PostSidebar slug={slug} tags={tags} collection={collection} title={title} />
+    </aside>
+  </div>
   <WikiLinkPreview />
 </PageLayout>
 
 <style>
-  .post {
-    max-width: var(--content-width);
+  .post-with-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, var(--content-width)) 1fr;
+    gap: var(--space-2xl);
+    max-width: var(--max-width);
     margin-inline: auto;
+  }
+
+  .post {
+    min-width: 0;
+  }
+
+  .post-sidebar {
+    padding-block-start: var(--space-3xl);
+  }
+
+  @media (max-width: 68rem) {
+    .post-with-sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .post-sidebar {
+      padding-block-start: 0;
+      margin-block-start: var(--space-xl);
+      padding-block-start: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
   }
 
   .post-header {

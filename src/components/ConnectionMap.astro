@@ -1,0 +1,233 @@
+---
+interface Connection {
+  title: string;
+  href: string;
+  collection: string;
+}
+
+interface Props {
+  currentTitle: string;
+  currentCollection: string;
+  connections: Connection[];
+}
+
+const { currentTitle, currentCollection, connections } = Astro.props;
+
+if (connections.length === 0) return;
+
+// Color palette per collection (matches CollectionIcon light mode)
+const collectionColors: Record<string, string> = {
+  articles: '#9e7c6b',
+  'field-notes': '#7a9a7e',
+  sparks: '#c4956a',
+  weblinks: '#a08872',
+  videos: '#8e7a8a',
+  library: '#7d7068',
+  principles: '#7a8a6e',
+};
+
+const darkCollectionColors: Record<string, string> = {
+  articles: '#c4a38f',
+  'field-notes': '#a3c4a7',
+  sparks: '#ddb892',
+  weblinks: '#c4ad98',
+  videos: '#b5a3b2',
+  library: '#a89e96',
+  principles: '#a3b498',
+};
+
+const size = 200;
+const cx = size / 2;
+const cy = size / 2;
+const centerR = 8;
+const nodeR = 5;
+const orbitR = 70;
+
+// Limit to 10 nodes max
+const nodes = connections.slice(0, 10);
+
+// Calculate positions evenly around the circle
+const nodePositions = nodes.map((conn, i) => {
+  const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
+  return {
+    ...conn,
+    x: cx + orbitR * Math.cos(angle),
+    y: cy + orbitR * Math.sin(angle),
+    color: collectionColors[conn.collection] || '#999',
+    darkColor: darkCollectionColors[conn.collection] || '#bbb',
+    delay: (i * 0.4).toFixed(1),
+  };
+});
+
+const centerColor = collectionColors[currentCollection] || '#999';
+const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
+---
+
+<div class="connection-map-wrapper">
+  <svg
+    class="connection-map"
+    viewBox={`0 0 ${size} ${size}`}
+    width={size}
+    height={size}
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label={`Connection map for ${currentTitle}`}
+    filter="url(#sketchy)"
+  >
+    {/* Lines from center to each node */}
+    {nodePositions.map((node, i) => (
+      <line
+        class={`map-line map-line--${node.collection}`}
+        x1={cx}
+        y1={cy}
+        x2={node.x}
+        y2={node.y}
+        stroke-width="1"
+        stroke-linecap="round"
+        style={`animation-delay: ${node.delay}s`}
+      />
+    ))}
+
+    {/* Outer nodes */}
+    {nodePositions.map((node, i) => (
+      <a href={node.href} class="map-node-link">
+        <g class={`map-node map-node--${node.collection}`} style={`animation-delay: ${node.delay}s`}>
+          <circle
+            cx={node.x}
+            cy={node.y}
+            r={nodeR}
+            stroke-width="1.5"
+          />
+          <title>{node.title}</title>
+        </g>
+      </a>
+    ))}
+
+    {/* Center node (current post) */}
+    <g class={`map-center map-center--${currentCollection}`}>
+      <circle
+        cx={cx}
+        cy={cy}
+        r={centerR}
+        stroke-width="2"
+      />
+      <title>{currentTitle}</title>
+    </g>
+  </svg>
+</div>
+
+<style is:global>
+  .connection-map-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .connection-map {
+    overflow: visible;
+    display: block;
+  }
+
+  /* Line colors per collection */
+  .map-line { stroke: var(--color-border); opacity: 0.5; }
+  .map-line--articles { stroke: #9e7c6b; }
+  .map-line--field-notes { stroke: #7a9a7e; }
+  .map-line--sparks { stroke: #c4956a; }
+  .map-line--weblinks { stroke: #a08872; }
+  .map-line--videos { stroke: #8e7a8a; }
+  .map-line--library { stroke: #7d7068; }
+  .map-line--principles { stroke: #7a8a6e; }
+
+  /* Node stroke + fill */
+  .map-node circle, .map-center circle { fill: var(--color-bg); }
+  .map-node--articles circle { stroke: #9e7c6b; }
+  .map-node--field-notes circle { stroke: #7a9a7e; }
+  .map-node--sparks circle { stroke: #c4956a; }
+  .map-node--weblinks circle { stroke: #a08872; }
+  .map-node--videos circle { stroke: #8e7a8a; }
+  .map-node--library circle { stroke: #7d7068; }
+  .map-node--principles circle { stroke: #7a8a6e; }
+
+  .map-center--articles circle { stroke: #9e7c6b; fill: #9e7c6b20; }
+  .map-center--field-notes circle { stroke: #7a9a7e; fill: #7a9a7e20; }
+  .map-center--sparks circle { stroke: #c4956a; fill: #c4956a20; }
+  .map-center--weblinks circle { stroke: #a08872; fill: #a0887220; }
+  .map-center--videos circle { stroke: #8e7a8a; fill: #8e7a8a20; }
+  .map-center--library circle { stroke: #7d7068; fill: #7d706820; }
+  .map-center--principles circle { stroke: #7a8a6e; fill: #7a8a6e20; }
+
+  /* Dark mode */
+  :root[data-theme="dark"] .map-node circle, :root[data-theme="dark"] .map-center circle { fill: var(--color-bg); }
+  :root[data-theme="dark"] .map-line--articles { stroke: #c4a38f; }
+  :root[data-theme="dark"] .map-line--field-notes { stroke: #a3c4a7; }
+  :root[data-theme="dark"] .map-line--sparks { stroke: #ddb892; }
+  :root[data-theme="dark"] .map-line--weblinks { stroke: #c4ad98; }
+  :root[data-theme="dark"] .map-line--videos { stroke: #b5a3b2; }
+  :root[data-theme="dark"] .map-line--library { stroke: #a89e96; }
+  :root[data-theme="dark"] .map-line--principles { stroke: #a3b498; }
+
+  :root[data-theme="dark"] .map-node--articles circle { stroke: #c4a38f; }
+  :root[data-theme="dark"] .map-node--field-notes circle { stroke: #a3c4a7; }
+  :root[data-theme="dark"] .map-node--sparks circle { stroke: #ddb892; }
+  :root[data-theme="dark"] .map-node--weblinks circle { stroke: #c4ad98; }
+  :root[data-theme="dark"] .map-node--videos circle { stroke: #b5a3b2; }
+  :root[data-theme="dark"] .map-node--library circle { stroke: #a89e96; }
+  :root[data-theme="dark"] .map-node--principles circle { stroke: #a3b498; }
+
+  :root[data-theme="dark"] .map-center--articles circle { stroke: #c4a38f; fill: #c4a38f20; }
+  :root[data-theme="dark"] .map-center--field-notes circle { stroke: #a3c4a7; fill: #a3c4a720; }
+  :root[data-theme="dark"] .map-center--sparks circle { stroke: #ddb892; fill: #ddb89220; }
+  :root[data-theme="dark"] .map-center--weblinks circle { stroke: #c4ad98; fill: #c4ad9820; }
+  :root[data-theme="dark"] .map-center--videos circle { stroke: #b5a3b2; fill: #b5a3b220; }
+  :root[data-theme="dark"] .map-center--library circle { stroke: #a89e96; fill: #a89e9620; }
+  :root[data-theme="dark"] .map-center--principles circle { stroke: #a3b498; fill: #a3b49820; }
+
+  /* Animations */
+  @keyframes pulse {
+    0%, 100% { transform-origin: center; transform: scale(1); }
+    50% { transform-origin: center; transform: scale(1.05); }
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+  }
+
+  @keyframes flowLine {
+    0% { stroke-dashoffset: 12; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  .map-center {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .map-node {
+    animation: drift 3.5s ease-in-out infinite;
+    cursor: pointer;
+  }
+
+  .map-line {
+    stroke-dasharray: 4 2;
+    animation: flowLine 4s linear infinite;
+  }
+
+  /* Hover effects */
+  .map-node-link:hover .map-node circle {
+    transform-origin: center;
+    transform: scale(1.3);
+    transition: transform 0.2s ease;
+  }
+
+  .map-node-link:hover ~ .map-line {
+    opacity: 0.8;
+  }
+
+  /* Accessibility: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .map-center,
+    .map-node,
+    .map-line {
+      animation: none;
+    }
+  }
+</style>
