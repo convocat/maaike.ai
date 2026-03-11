@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Facebook's AI chatbot might just be saying what you want it to say…"
 draft: false
+ai: "100% Maai"
 ---
 
 Interesting Tweet last week: Blender, Facebook's much-hyped AI chatbot, is reported to have turned rogue and start spewing anti-semitic responses.

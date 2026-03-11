@@ -6,6 +6,7 @@ tags:
   - prompt-design
 description: Stress-free preparation...could it really work?
 draft: false
+ai: "100% Maai"
 ---
 
 OK, I'm pretty skeptical when it comes to using generative AI (I believe that's quite a healthy attitude when you work with the technology on a daily basis, and possibly also a result of that same activity), but there's one use case where ChatGPT not only saves me time, but a lot of stress and frustration. And that's when I need to prepare a presentation.

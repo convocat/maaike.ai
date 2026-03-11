@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "As a conversation designer, should I know how to code? Some pros and cons."
 draft: false
+ai: "100% Maai"
 ---
 
 I get a lot of questions from aspiring conversation designers. This time: should convo designers know code? Here are some arguments for and against!

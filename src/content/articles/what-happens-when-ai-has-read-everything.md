@@ -6,6 +6,7 @@ tags:
   - ai-ethics
 description: "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!"
 draft: false
+ai: "100% Maai"
 ---
 
 Are you a writer scared that you might soon be without a job? Fear not, according to an article in the Atlantic, it seems like we may need more books now than ever. According to a research team led by Pablo Villalobos, as soon as 2023, we may already run out of high-quality language data, and somewhere between 2030 and 2070, we'll be likely to have run out of vision data.

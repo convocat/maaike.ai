@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level."
 draft: false
+ai: "100% Maai"
 ---
 
 So you've been a conversation designer for a while, and you feel pretty comfortable in your role. But you also love learning. So now that you've got all your convo design courses nailed, completed all the challenges on VUI-challenge and finished re-reading Pearl, Evanhoe & Deibel and Cohen, Giangola & Balogh for the umptieth time, where do you go next?

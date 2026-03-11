@@ -6,6 +6,7 @@ tags:
   - prompt-design
 description: "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us."
 draft: false
+ai: "100% Maai"
 ---
 
 Dear convofriends! It's finally happening :-) Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us. The real us.

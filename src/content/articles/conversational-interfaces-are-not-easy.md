@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Usability challenges of writing with AI: let people write!"
 draft: false
+ai: "100% Maai"
 ---
 
 Here's a little bit of fun and a small Sunday afternoon rant on trying to write with AI :-) TLDR: it takes forever before I have Jasper.ai writing me something that even remotely resembles what I have in my head, and by the time I do, I might as well have written the entire thing myself, because, hey, they're not my words.

@@ -12,28 +12,34 @@ ai: generated
 
 ## Changelog
 
-| Date | Feature | Details |
-|---|---|---|
-| 9 Mar | Initial setup | Astro 5, static output, GitHub Pages deployment |
-| 9 Mar | Content collections | 7 collections: articles, field notes, sparks, weblinks, videos, library, principles |
-| 9 Mar | CMS | Sveltia CMS admin panel |
-| 9 Mar | Publishing workflow | `publish.bat` for local push, GitHub Actions for phone link sharing |
-| 9 Mar | Content import | 40+ Substack articles (2020-2025) imported in batches |
-| 9 Mar | Tags system | Dynamic tag collection, tag pages, relation widgets in CMS |
-| 9 Mar | Filtering and sorting | Interactive filter bar on collection index pages |
-| 9 Mar | Homepage redesign | Full-width hero, note preview cards, video thumbnails |
-| 9 Mar | Videos collection | YouTube embed support, thumbnail grid on homepage |
-| 9 Mar | Library + Principles | Two new collections with custom fields (author, status, cover) |
-| 9 Mar | Pruning reflections | Optional retrospective notes on older articles |
-| 9 Mar | Collection renaming | notes to field-notes, links to weblinks, added sparks |
-| 9 Mar | Wiki links | `[[double bracket]]` cross-linking across all collections |
-| 9 Mar | Backlinks | Computed incoming links shown on each post |
-| 10 Mar | Wiki link previews | Hover cards showing title + description |
-| 10 Mar | Hand-drawn icons | SVG collection icons with feTurbulence wobble filter |
-| 10 Mar | Sparks content | First three sparks planted |
-| 10 Mar | CLAUDE.md | Project memory file for persistent AI assistant context |
-| 10 Mar | AI transparency | Four-level indicator (none, assisted, co-created, generated) |
-| 10 Mar | Style rules | Sentence case titles, no em-dashes |
-| 11 Mar | Post sidebar | Tags, backlinks, and related posts in a sticky sidebar on desktop |
-| 11 Mar | Sidebar refinement | Removed connection map graph, kept clean text lists, pushed sidebar to far right |
-| 11 Mar | Dark mode logo | CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode |
+### 9 March
+
+- **Initial setup**: Astro 5, static output, GitHub Pages deployment
+- **Content collections**: 7 collections (articles, field notes, sparks, weblinks, videos, library, principles)
+- **CMS**: Sveltia CMS admin panel
+- **Publishing workflow**: `publish.bat` for local push, GitHub Actions for phone link sharing
+- **Content import**: 40+ Substack articles (2020-2025) imported in batches
+- **Tags system**: Dynamic tag collection, tag pages, relation widgets in CMS
+- **Filtering and sorting**: Interactive filter bar on collection index pages
+- **Homepage redesign**: Full-width hero, note preview cards, video thumbnails
+- **Videos collection**: YouTube embed support, thumbnail grid on homepage
+- **Library + Principles**: Two new collections with custom fields (author, status, cover)
+- **Pruning reflections**: Optional retrospective notes on older articles
+- **Collection renaming**: notes to field-notes, links to weblinks, added sparks
+- **Wiki links**: `[[double bracket]]` cross-linking across all collections
+- **Backlinks**: Computed incoming links shown on each post
+
+### 10 March
+
+- **Wiki link previews**: Hover cards showing title + description
+- **Hand-drawn icons**: SVG collection icons with feTurbulence wobble filter
+- **Sparks content**: First three sparks planted
+- **CLAUDE.md**: Project memory file for persistent AI assistant context
+- **AI transparency**: Four-level indicator (100% Maai, assisted, co-created, generated)
+- **Style rules**: Sentence case titles, no em-dashes
+
+### 11 March
+
+- **Post sidebar**: Tags, backlinks, and related posts in a sticky sidebar on desktop
+- **Sidebar refinement**: Removed connection map graph, kept clean text lists
+- **Dark mode logo**: CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode

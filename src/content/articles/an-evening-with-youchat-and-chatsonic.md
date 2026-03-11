@@ -7,6 +7,7 @@ tags:
   - ai-ethics
 description: "Both can access the internet and retrieve recent information. Let's take them for a test drive."
 draft: false
+ai: "100% Maai"
 ---
 
 With the hype on ChatGPT hardly over, January 2023 saw 2 new GPT3.5 models: YouChat and Chatsonic. Both can access the internet and retrieve recent information, a feature that ChatGPT is still lacking. This means that, in theory, these models could be Google killers. Let's take them for a test drive and see how well they do.

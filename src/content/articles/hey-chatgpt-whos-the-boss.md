@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think."
 draft: false
+ai: "100% Maai"
 ---
 
 Something interesting has happened this week. How can ChatGPT return that Elon Musk is Twitter's CEO when that happened long after its training cut-off date?

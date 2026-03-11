@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!"
 draft: false
+ai: "100% Maai"
 ---
 
 From today onwards, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!

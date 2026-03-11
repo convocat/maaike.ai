@@ -7,6 +7,7 @@ tags:
   - conversation-design
 description: "Blind prompting vs. prompt engineering — and what it means for conversation designers."
 draft: false
+ai: "100% Maai"
 ---
 
 I stumbled across this really insightful article by Mitchell Hashimoto the other day, and I think this is such an eye-opener for all us conversation designers who wonder where to go next in this LLM hype! This article is a great intro into what sets aside prompt designers (or engineers as Hashimoto calls them) from the incidental prompter. Keyword: conscious, deliberate and verifiable design choices that are experiment based. Sounds familiar? That's no coincidence, it's what we do all the time!

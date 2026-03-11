@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation."
 draft: false
+ai: "100% Maai"
 ---
 
 With voice assistants on the rise, you probably have heard of SSML as a way to make your voice assistant sound less robotic and more humanlike. To use SSML effectively, it really helps if you're familiar with some of the core concepts of speech. So I've put together a primer of voice and speech terms. Here's part 1, more to follow soon.

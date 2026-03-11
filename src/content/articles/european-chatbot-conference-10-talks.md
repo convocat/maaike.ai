@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "My personal highlights from the European Chatbot and Conversational AI summit."
 draft: false
+ai: "100% Maai"
 ---
 
 I hope you enjoyed the European Chatbot and Conversational AI summit as much as I did! Here's my list of which talks I'm going to rewatch.

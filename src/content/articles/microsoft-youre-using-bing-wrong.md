@@ -7,6 +7,7 @@ tags:
   - ai-ethics
 description: "You built a conversational interface and then expected people to use it just for search?"
 draft: false
+ai: "100% Maai"
 ---
 
 OK, the title is a bit clickbaity, but yes, in their blog, Microsoft explains that they didn't expect people to use Bing Chat "a tool for more general discovery of the world, and for social entertainment".

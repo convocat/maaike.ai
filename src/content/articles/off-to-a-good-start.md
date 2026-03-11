@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: An onboarding checklist for conversation designers.
 draft: false
+ai: "100% Maai"
 ---
 
 So there you are, ready for that new CxD job, ready to start that exciting contracting gig, or finally securing that coveted CxD position in your company's conversational team. Congratulations!

@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT."
 draft: false
+ai: "100% Maai"
 ---
 
 If you've been online in the CxD community over the last few days, you've probably heard people talking about ChatGPT, OpenAI's newest Large Language Model. It's the youngest branch on the GPT family that brought us GPT-3 and BlenderBot, and I must say, it's really impressive. Almost too impressive even?

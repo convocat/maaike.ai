@@ -7,6 +7,7 @@ tags:
   - epistemic-humility
 description: Will we ever solve hallucinations in LLMs?
 draft: false
+ai: "100% Maai"
 ---
 
 *(I posted this on LinkedIn quite a while ago — see [[bye-bye-alpaca-knowledge-as-the-missing-fundamental|the original post]]. But the question keeps returning. And I should play timpani more often.)*

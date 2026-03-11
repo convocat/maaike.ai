@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended."
 draft: false
+ai: "100% Maai"
 ---
 
 Last @voicelunch with Brian Roemmele was without a doubt the best voicelunch I never attended. Fortunately, @afirstenberg tweeted notes & quotes, so I could still make some sketchnotes.

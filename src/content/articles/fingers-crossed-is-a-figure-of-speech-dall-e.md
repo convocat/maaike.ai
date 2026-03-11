@@ -7,6 +7,7 @@ tags:
   - ai-ethics
 description: DALL-E 3 is still digitally challenged.
 draft: false
+ai: "100% Maai"
 ---
 
 With the introduction of DALL-E 3 in the ChatGPT, hopes were high. This most capable image generation engine to date would be able to create reliable, accurate and crisp images that are not only more visually striking but also crisper in detail. It was supposed to reliably render intricate details, including text, hands, and faces.

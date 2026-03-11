@@ -7,6 +7,7 @@ tags:
   - ai-ethics
 description: "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids."
 draft: false
+ai: "100% Maai"
 ---
 
 One thing that strikes me in the general communication on ChatGPT, is that surprisingly few people mention the fact that it's, in the end, one big word-string-generator on steroids (or a Stochastic Parrot, as Timnit Gebru and Emily Bender called it in their 2021 paper outlining the risks of LLMs). Much like the autocomplete on your phone, ChatGPT will take a word and calculate which next word is likely to fit best. It does so based on an incredibly huge set of training data.

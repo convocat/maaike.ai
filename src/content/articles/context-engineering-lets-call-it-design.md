@@ -7,6 +7,7 @@ tags:
   - conversation-design
 description: So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.
 draft: false
+ai: "100% Maai"
 ---
 
 So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already. Why? Because it's not engineering. It's design.

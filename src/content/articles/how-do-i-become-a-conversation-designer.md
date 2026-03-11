@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!"
 draft: false
+ai: "100% Maai"
 ---
 
 Conversation design is a career on the rise! And I sure notice that in my inbox: I get a lot of questions on how to break into this great profession. As much as I'd love to answer all of your messages personally, there's only so many hours in a day. So instead, I collected some of the most frequently asked questions and put them here for you.

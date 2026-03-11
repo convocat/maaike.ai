@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Wow, that went down fast!"
 draft: false
+ai: "100% Maai"
 ---
 
 You don't have to be a machine learning model to discover a pattern here…Stanford Alpaca apparently has joined the ranks of Tay, Galactica, and Sydney/Venom. Alpaca was announced last week as a model that fine-tunes Meta's LLaMA AI using OpenAI's text-davinci-003 at an incredibly low price of $600, and needing only a few hours.
