@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "5 checks to keep your content on track — and your clients happy."
 draft: false
+ai: "100% Maai"
 ---
 
 Earlier on, I talked about [[youre-not-married-to-your-texts|how to embrace client or colleague feedback]] for what it is: extremely useful input for improving the quality of your content.

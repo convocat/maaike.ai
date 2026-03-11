@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?"
 draft: false
+ai: "100% Maai"
 ---
 
 Conversation design is een vak met toekomst! En dat merk ik aan mijn inbox. Ik krijg steeds vaker berichtjes van mensen die meer willen weten over dit prachtvak. Helaas heb ik niet de tijd om iedereen persoonlijk te woord te staan. Vandaar dat ik de meest gestelde vragen hier voor je op een rijtje heb gezet.

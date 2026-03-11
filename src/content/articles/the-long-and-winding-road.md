@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Looking back at 2 years of freelance work as a conversation designer and community builder."
 draft: false
+ai: "100% Maai"
 ---
 
 This week, it's been 2 years since I went to the Chamber of Commerce and registered Convocat as my own freelance company. 2 years…and what a ride it has been so far! While I usually share my learnings and insights into conversation design with you, starting Convocat also meant starting a career as an entrepreneur. I'd like to take some time to reflect and ponder a bit on that part of my journey.

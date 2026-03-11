@@ -6,6 +6,7 @@ tags:
   - prompt-design
 description: Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.
 draft: false
+ai: "100% Maai"
 ---
 
 Intuitively, you'd think that a summary presupposes the existence of a piece of content that needs to be summarized. The Dutch word for summary, 'samenvatting', reflects that quite beautifully: samen (together) + vatten (grasp/contain): you bring together the key concepts of your original text. You go from large to small.

@@ -7,6 +7,7 @@ tags:
   - prompting
   - patterns
 description: A catalogue of reusable patterns for structuring prompts effectively.
+ai: "100% Maai"
 ---
 
 After working with language models extensively, several recurring patterns emerge. These aren't rigid templates — they're flexible patterns that can be adapted to different contexts.

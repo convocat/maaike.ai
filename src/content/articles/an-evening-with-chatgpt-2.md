@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?"
 draft: false
+ai: "100% Maai"
 ---
 
 In my first encounters with ChatGPT, I had a look at that convo design classic: the welcome message. So now that we've passed that first hurdle, let's do what I always do when I test drive a new platform: build the official 'hello world' of conversation design, aka the Pizza Bot!

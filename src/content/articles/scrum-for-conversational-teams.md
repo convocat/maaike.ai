@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams."
 draft: false
+ai: "100% Maai"
 ---
 
 If, like me, you work for corporate clients a lot, chances are that you'll be part of a chatbot scrum team. And that you'll work in sprints: fixed periods of time in which the team commits to finishing a pre-planned package of work.

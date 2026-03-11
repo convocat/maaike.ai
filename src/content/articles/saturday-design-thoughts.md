@@ -7,6 +7,7 @@ tags:
   - philosophy
 description: Designing for negative space
 draft: false
+ai: "100% Maai"
 ---
 
 LLMs are impossible to shut up. They always have the last word, not unlike when you were on the phone with your crush and kept telling each other 'I'm really hanging up now'. They're trained to fill, to complete. No questions asked, just spit out something as soon as you can, even if it doesn't know the real question yet. They're basically allergic to silence.

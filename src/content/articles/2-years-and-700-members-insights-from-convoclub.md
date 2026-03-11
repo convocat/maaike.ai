@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "The top 5 challenges that conversation designers face, based on 300 real answers."
 draft: false
+ai: "100% Maai"
 ---
 
 I'm really proud to announce that we just welcomed our 700th member into our Convoclub community!

@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering."
 draft: false
+ai: "100% Maai"
 ---
 
 Ik zie op social media steeds meer berichten voorbijkomen over hoe online vergaderen ons uitput. Als oorzaak wordt dan vaak gekeken naar communicatie, zoals het gebrek aan lichaamstaal, het elkaar niet in de ogen kunnen kijken, en verwarrende signalen. Of naar imperfecties in de bedrijfscultuur, zoals onderling wantrouwen dat online genadeloos boven komt drijven. Dat put je uit.

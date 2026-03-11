@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!"
 draft: false
+ai: "100% Maai"
 ---
 
 Samen met Brielle Nickoloff ben ik vorige maand gestart met een nieuwe editie van Voicelunch: eentje speciaal voor taalkundigen, conversation designers en iedereen die iets heeft met taal! We hebben inmiddels twee voicelunches achter de rug, waaronder de inmiddels beruchte 'vloek & scheldbot'-editie :-) En binnenkort staan fonetiek, intonatie en SSML op het programma.

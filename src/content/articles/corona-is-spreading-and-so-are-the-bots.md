@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "How to build Coronabots responsibly — if you want to build one at all."
 draft: false
+ai: "100% Maai"
 ---
 
 Now that Corona has large parts of the world firmly in its grip, more and more Corona chatbots are appearing. While these attempts are in itself laudable, effective use of chatbots as crisis communication tools might benefit from less bots, not more. Instead, focus on a solid content strategy, sustained maintenance and clear ownership.

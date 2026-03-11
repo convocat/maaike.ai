@@ -7,6 +7,7 @@ tags:
   - prompt-design
 description: "Can ChatGPT take over some of my work as a conversation designer? Can it create an intent model for me?"
 draft: false
+ai: "100% Maai"
 ---
 
 In my previous articles I had a look at some core CxD components, and showed how you can let ChatGPT think it's a pretty good pizzabot. In this third installment, let's explore whether it can help me with NLP tasks, like, I don't know, creating an intent model from scratch. After all, it's an LLM, so some of this should sound familiar.

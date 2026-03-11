@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Relax, it's not about you :-) How to handle feedback on your content without losing your mind."
 draft: false
+ai: "100% Maai"
 ---
 
 So you've spent hours crafting that one article. Shed blood, sweat and tears designing that one perfect conversational flow. You hand it over to your editor, your peer reviewer or your client…and they smash it to pieces.

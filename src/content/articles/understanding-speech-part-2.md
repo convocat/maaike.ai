@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis."
 draft: false
+ai: "100% Maai"
 ---
 
 Want to know what you can do to make your voice action sound more speech-like? Let's continue with part 2 of my [[understanding-speech-part-1|speech primer]] for conversation designers, in which I discuss backchannelling, discourse markers, and deixis.

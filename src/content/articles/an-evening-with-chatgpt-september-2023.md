@@ -7,6 +7,7 @@ tags:
   - conversation-design
 description: Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?
 draft: false
+ai: "100% Maai"
 ---
 
 So much is happening with ChatGPT this month that I thought it would be interesting (and way faster) to record some sessions with ChatGPT and me again! In this first recording, I have a look at the new browse feature. Or at least, that's what I planned. Until I stumbled upon this little toggle.

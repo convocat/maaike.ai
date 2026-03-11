@@ -7,6 +7,7 @@ tags:
   - ai
   - writing
 description: Reflections on what changes when AI becomes part of the writing process.
+ai: "100% Maai"
 ---
 
 Writing with AI is not the same as having AI write for you. The distinction matters.

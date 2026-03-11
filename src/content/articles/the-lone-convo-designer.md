@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!"
 draft: false
+ai: "100% Maai"
 ---
 
 When I just started working as a tech writer (a long, long time ago), I often found myself wondering how to do things. How to find a way in which my activities made most sense. And most of all…whether I did things right.

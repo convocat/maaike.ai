@@ -6,6 +6,7 @@ tags:
   - ai-ethics
 description: My favorite resources for building a curious and critical frame of mind.
 draft: false
+ai: "100% Maai"
 ---
 
 The ChatGPT hype is still in full swing, or so it seems, with rumors of OpenAI monetizing ChatGPT, Microsoft announcing that it will include OpenAI's technology in its Azure ecosystem and possibly even Office, and Google profiling itself as the keeper of ethical and moral standards in AI.

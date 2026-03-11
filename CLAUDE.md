@@ -85,7 +85,7 @@ Icon stroke palette (light): articles=#9e7c6b, field-notes=#7a9a7e, sparks=#c495
 ### AI transparency indicator
 
 Optional `ai` frontmatter field on any content. Renders a styled aside box above the post content (in PostLayout). Four levels:
-- `none`: fully written by Maaike, no AI
+- `100% Maai`: fully written by Maaike, no AI
 - `assisted`: her ideas/structure, AI helped refine
 - `co-created`: written by AI based on her ideas and direction
 - `generated`: fully AI-generated, reviewed by her

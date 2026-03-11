@@ -7,6 +7,7 @@ tags:
   - conversation-design
 description: "There's a prompt for that! A quick tutorial for designing conversational system prompts."
 draft: false
+ai: "100% Maai"
 ---
 
 Would you like to make ChatGPT more conversational? You can prompt for that! Here's a quick tutorial for designing conversational system prompts.

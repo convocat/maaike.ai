@@ -6,6 +6,7 @@ tags:
   - conversation-design
 description: "The original woman in voice. On international women's day, a tribute to the first named composer in history."
 draft: false
+ai: "100% Maai"
 ---
 
 On international women's day, I'd like to point you to a composer of some of the most beautiful music for voice: Hildegard von Bingen. She lived in the 12th century, an era in which it was perfectly normal to send off a young girl to a monastery to spend her life there (and that's when you were lucky). Boys didn't have much of a career choice either; childhood hadn't been invented yet.

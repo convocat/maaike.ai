@@ -7,6 +7,7 @@ tags:
   - content-design
 description: So if it's not a case of LLM hallucination, what did happen?
 draft: false
+ai: "100% Maai"
 ---
 
 The Air Canada chatbot mishap happened on 11 November 2022. That's two weeks before the release of ChatGPT. This is not an LLM bot gone haywire and making stuff up. In all likelihood, this was a traditional, NLU-based bot, where conversational AI is used for question recognition and where humans write the actual answers.

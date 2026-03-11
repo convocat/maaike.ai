@@ -7,6 +7,7 @@ tags:
   - ai-ethics
 description: Do we really want US moderators to rewrite Dall-e's prompts?
 draft: false
+ai: "100% Maai"
 ---
 
 *[This article is an elaborated version my first post in a series that I published on LinkedIn]*
