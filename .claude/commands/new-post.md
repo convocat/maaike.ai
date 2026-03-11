@@ -84,14 +84,19 @@ If tags are empty, use `tags: []`. If description is empty, omit it.
 
 Display the full file content (frontmatter + empty body) in chat. Ask the user to confirm before writing the file. The user may want to tweak things or add initial body text.
 
-## Step 7: Write, commit, push
+## Step 7: Write and open in Typora
 
 Only after the user approves:
 1. Write the .md file to disk
-2. `git add` the specific file
-3. `git commit` with message: `Add <collection-type>: <title>`
-4. `git push`
-5. Confirm to the user with the file path
+2. Install the Typora theme if not already present:
+   - Source: `.claude/typora/maaike-garden.css` (in this project)
+   - Destination: `$APPDATA/Typora/themes/maaike-garden.css`
+   - Copy command: `cp ".claude/typora/maaike-garden.css" "$APPDATA/Typora/themes/maaike-garden.css"`
+   - Only copy if the destination is missing or outdated (compare with `diff`)
+3. Open the file in Typora: `"/c/Program Files/Typora/Typora.exe" "<file-path>" &`
+4. Confirm to the user with the file path and that Typora is open
+5. Remind the user to select the "Maaike Garden" theme in Typora (Themes menu) if it's their first time
+6. Ask if they want to commit and push now, or do that later (after writing in Typora)
 
 ## Conventions
 
