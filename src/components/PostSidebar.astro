@@ -46,7 +46,7 @@ const relatedPosts = await getRelatedPosts(slug, tags, collection);
         {relatedPosts.map(({ title: rpTitle, href, collection: coll }) => (
           <li>
             <a href={href}>
-              <CollectionIcon collection={coll} size={12} />
+              <CollectionIcon collection={coll} size={14} />
               <span>{rpTitle}</span>
             </a>
           </li>
@@ -62,15 +62,15 @@ const relatedPosts = await getRelatedPosts(slug, tags, collection);
     top: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    font-size: 0.78rem;
+    gap: var(--space-lg);
+    font-size: 0.85rem;
   }
 
   .sidebar-heading {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: var(--color-text-muted);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     margin-block-end: var(--space-xs);
   }
@@ -86,8 +86,8 @@ const relatedPosts = await getRelatedPosts(slug, tags, collection);
 
   .sidebar-tag {
     display: inline-block;
-    font-size: 0.68rem;
-    padding: 0.12em 0.5em;
+    font-size: 0.75rem;
+    padding: 0.15em 0.55em;
     border-radius: 1em;
     background: var(--color-tag-bg);
     color: var(--color-tag-text);
@@ -106,7 +106,7 @@ const relatedPosts = await getRelatedPosts(slug, tags, collection);
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.3em;
+    gap: var(--space-xs);
   }
 
   .sidebar-links a {
@@ -116,7 +116,7 @@ const relatedPosts = await getRelatedPosts(slug, tags, collection);
     text-decoration: none;
     color: var(--color-text-muted);
     transition: color var(--transition-fast);
-    line-height: 1.35;
+    line-height: 1.4;
   }
 
   .sidebar-links a:hover {

@@ -7,7 +7,7 @@ tags:
   - ai-tools
   - developer-experience
 description: A changelog of features and decisions made while building this digital garden.
-ai: assisted
+ai: generated
 ---
 
 ## Changelog
@@ -36,3 +36,4 @@ ai: assisted
 | 10 Mar | Style rules | Sentence case titles, no em-dashes |
 | 11 Mar | Post sidebar | Tags, backlinks, and related posts in a sticky sidebar on desktop |
 | 11 Mar | Sidebar refinement | Removed connection map graph, kept clean text lists, pushed sidebar to far right |
+| 11 Mar | Dark mode logo | CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode |
