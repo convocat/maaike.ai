@@ -34,5 +34,5 @@ ai: assisted
 | 10 Mar | CLAUDE.md | Project memory file for persistent AI assistant context |
 | 10 Mar | AI transparency | Four-level indicator (none, assisted, co-created, generated) |
 | 10 Mar | Style rules | Sentence case titles, no em-dashes |
-| 11 Mar | Post sidebar | Connection map, tags, backlinks, and related posts in sidebar |
-| 11 Mar | Connection map | SVG radial graph with post titles, collection colors, animations |
+| 11 Mar | Post sidebar | Tags, backlinks, and related posts in a sticky sidebar on desktop |
+| 11 Mar | Sidebar refinement | Removed connection map graph, kept clean text lists, pushed sidebar to far right |
