@@ -63,6 +63,7 @@ Build the YAML frontmatter based on collection type:
 title: "<title>"
 date: <YYYY-MM-DD today>
 maturity: <chosen maturity>
+draft: true
 tags:
   - <tag1>
   - <tag2>
