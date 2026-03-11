@@ -115,8 +115,8 @@ const formattedUpdated = updated
 <style>
   .post-with-sidebar {
     display: grid;
-    grid-template-columns: minmax(0, var(--content-width)) auto;
-    justify-content: space-between;
+    grid-template-columns: 1fr 14rem;
+    gap: var(--space-xl);
     max-width: var(--max-width);
     margin-inline: auto;
   }
@@ -126,9 +126,8 @@ const formattedUpdated = updated
   }
 
   .post-sidebar {
-    width: 10rem;
     padding-block-start: var(--space-3xl);
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   @media (max-width: 68rem) {

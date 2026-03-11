@@ -184,6 +184,10 @@ function getYouTubeId(url: string): string | null {
     margin-block-end: -1.5rem; /* pull tagline up into logo's bottom whitespace */
     margin-inline-start: -1rem; /* compensate for whitespace in logo image */
   }
+  [data-theme="dark"] .hero-logo {
+    filter: invert(1) grayscale(1);
+    mix-blend-mode: lighten;
+  }
   .hero h1 {
     margin-block-end: var(--space-md);
   }
