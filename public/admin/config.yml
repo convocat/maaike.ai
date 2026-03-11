@@ -185,7 +185,7 @@ collections:
     folder: src/content/library
     create: true
     slug: "{{slug}}"
-    summary: "{{title}} — {{author}} — {{status}}"
+    summary: "{{title}} — {{author}}"
     fields:
       - { name: title, label: Title, widget: string }
       - { name: author, label: Author, widget: string }

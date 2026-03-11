@@ -41,17 +41,17 @@ function truncate(str: string, max: number): string {
   return str.length > max ? str.slice(0, max - 1).trimEnd() + '…' : str;
 }
 
-const viewW = 400;
-const viewH = 380;
+const viewW = 280;
+const viewH = 270;
 const cx = viewW / 2;
-const cy = 170;
-const centerR = 10;
-const nodeR = 6;
-const orbitR = 105;
-const labelOffset = 14; // distance from node center to label
+const cy = 120;
+const centerR = 8;
+const nodeR = 5;
+const orbitR = 72;
+const labelOffset = 10; // distance from node center to label
 
-// Limit to 8 nodes max (more readable with labels)
-const nodes = connections.slice(0, 8);
+// Limit to 6 nodes max (compact sidebar)
+const nodes = connections.slice(0, 6);
 
 // Calculate positions evenly around the circle
 const nodePositions = nodes.map((conn, i) => {
@@ -77,7 +77,7 @@ const nodePositions = nodes.map((conn, i) => {
     labelX, labelY,
     textAnchor,
     dy,
-    truncatedTitle: truncate(conn.title, 28),
+    truncatedTitle: truncate(conn.title, 20),
     color: collectionColors[conn.collection] || '#999',
     darkColor: darkCollectionColors[conn.collection] || '#bbb',
     delay: (i * 0.4).toFixed(1),
@@ -87,7 +87,7 @@ const nodePositions = nodes.map((conn, i) => {
 
 const centerColor = collectionColors[currentCollection] || '#999';
 const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
-const centerTitle = truncate(currentTitle, 30);
+const centerTitle = truncate(currentTitle, 22);
 ---
 
 <div class="connection-map-wrapper">
@@ -165,14 +165,14 @@ const centerTitle = truncate(currentTitle, 30);
     overflow: visible;
     display: block;
     width: 100%;
-    max-width: 400px;
+    max-width: 280px;
     height: auto;
   }
 
   /* Labels */
   .map-label {
     font-family: var(--font-body, 'Roboto', sans-serif);
-    font-size: 9.5px;
+    font-size: 8px;
     fill: var(--color-text-muted, #777);
     pointer-events: none;
     transition: fill 0.2s ease;
@@ -180,7 +180,7 @@ const centerTitle = truncate(currentTitle, 30);
 
   .map-center-label {
     font-family: var(--font-heading, 'Lora', serif);
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
     fill: var(--color-text, #333);
     pointer-events: none;
