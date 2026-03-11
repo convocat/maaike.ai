@@ -43,3 +43,5 @@ ai: generated
 - **Post sidebar**: Tags, backlinks, and related posts in a sticky sidebar on desktop
 - **Sidebar refinement**: Removed connection map graph, kept clean text lists
 - **Dark mode logo**: CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode
+- **AI transparency labels**: Renamed "none" to "100% Maai", set AI status on all posts
+- **Content cleanup**: Deleted 4 posts, reformatted changelog to date headers with bullet lists
