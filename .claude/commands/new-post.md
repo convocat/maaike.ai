@@ -1,116 +1,87 @@
 # New post
 
-Create a new content post for the digital garden. Walk the user through each step using AskUserQuestion, then generate the file.
+Create a new content post. Writing first, metadata later.
 
-## Step 1: Collection and title
+## Step 1: Open Typora immediately
 
-Ask two questions in a single AskUserQuestion call:
+No questions. Just do this:
+
+1. Create a temporary file at `src/content/articles/new-draft.md` with minimal frontmatter and a writing template:
+   ```markdown
+   ---
+   draft: true
+   ---
+
+   # Title
+
+   Start writing here...
+   ```
+   If `new-draft.md` already exists, use `new-draft-2.md`, `new-draft-3.md`, etc.
+
+2. Install the Typora theme if needed:
+   - Compare `.claude/typora/maaike-garden.css` with `$APPDATA/Typora/themes/maaike-garden.css`
+   - Copy if missing or outdated: `cp ".claude/typora/maaike-garden.css" "$APPDATA/Typora/themes/maaike-garden.css"`
+
+3. Open in Typora: `"/c/Program Files/Typora/Typora.exe" "<file-path>" &`
+
+4. Tell the user: "Typora is open. Write your post, then come back here when you're done."
+
+## Step 2: User returns after writing
+
+When the user comes back, read the file they wrote. Extract the title from the first `# Heading` in the body.
+
+Then ask metadata questions in a single AskUserQuestion call:
 
 1. **Which collection?** (single select)
-   - Articles — long-form pieces
-   - Field notes — observations, logs, changelogs
-   - Sparks — short ideas, seeds, questions
-   - Weblinks — external links with commentary (requires URL)
-   - Videos — video links with commentary (requires URL)
-   - Library — books (requires author)
-   - Principles — guiding beliefs
+   - Articles
+   - Field notes
+   - Sparks
+   - Weblinks / Videos (requires URL)
 
-2. **What's the title?** (free text, "Other" option only)
-   - Remind the user: sentence case (only capitalize first word + proper nouns)
+2. **Maturity and AI status** (single select each)
+   - Maturity: Draft, Developing, Solid, Complete
+   - AI: 100% Maai, Assisted, Co-created, Generated
 
-## Step 2: Collection-specific fields
+If they chose Weblinks/Videos, ask for the URL in a follow-up question.
 
-Only ask if the collection requires extra fields:
+## Step 3: Build frontmatter and finalize
 
-- **Weblinks or Videos**: ask for the URL
-- **Library**: ask for author name, and reading status (to-read, reading, read)
-
-Skip this step for articles, field-notes, sparks, and principles.
-
-## Step 3: Maturity and AI status
-
-Ask two questions in a single AskUserQuestion call:
-
-1. **Maturity level?** (single select, default first)
-   - 🌱 Draft — just planted
-   - 🌿 Developing — growing, still rough
-   - 🪴 Solid — well-shaped, mostly done
-   - 🌳 Complete — fully grown
-
-2. **AI status?** (single select)
-   - 100% Maai — fully written by Maaike
-   - Assisted — her ideas, AI helped refine
-   - Co-created — AI wrote it based on her direction
-   - Generated — fully AI-generated, reviewed by her
-
-## Step 4: Tags and description (optional)
-
-Ask whether the user wants to add tags and/or a description now, or skip and add later. If they want to add them, ask for:
-- Tags (comma-separated)
-- Description (one sentence)
-
-## Step 5: Generate the file
-
-Build the file path:
-- Slug: take the title, lowercase it, replace non-alphanumeric characters with hyphens, trim leading/trailing hyphens
-- Path: `src/content/<collection>/<slug>.md`
-
-Build the YAML frontmatter based on collection type:
-
-**Base fields (all collections):**
+Build the full YAML frontmatter:
 ```yaml
 ---
-title: "<title>"
+title: "<title from heading>"
 date: <YYYY-MM-DD today>
-maturity: <chosen maturity>
+maturity: <chosen>
 draft: true
-tags:
-  - <tag1>
-  - <tag2>
-description: "<description>"
-ai: "<ai status>"
+tags: []
+ai: "<chosen>"
 ---
 ```
 
-**Extra fields by collection:**
-- articles: `pruning` (omit, it's optional and rarely used)
+Extra fields by collection:
 - weblinks: add `url: "<url>"` after title
 - videos: add `url: "<url>"` after title
 - library: add `author: "<author>"` and `status: "<status>"` after title
-- field-notes, sparks, principles: no extra fields
 
-If tags are empty, use `tags: []`. If description is empty, omit it.
+Replace the minimal frontmatter in the file with the full version. Keep all body content intact.
 
-**Body template**: After the frontmatter, prepopulate the file with:
-```markdown
-# <title>
+Rename the file:
+- Slug: title lowercased, non-alphanumeric replaced with hyphens, trimmed
+- Move to correct collection: `src/content/<collection>/<slug>.md`
+- If a file with that slug already exists, warn and ask for alternative
 
-Start writing here...
-```
-The heading uses the post title so Typora renders it in Lora (heading font). The placeholder body text gives the user a starting point.
+## Step 4: Auto-tag
 
-## Step 6: Show before committing
+Automatically run the `/auto-tag` skill on the new post. This will scan the content base and suggest tags and wiki-links.
 
-Display the full file content (frontmatter + empty body) in chat. Ask the user to confirm before writing the file. The user may want to tweak things or add initial body text.
+## Step 5: Commit
 
-## Step 7: Write and open in Typora
-
-Only after the user approves:
-1. Write the .md file to disk
-2. Install the Typora theme if not already present:
-   - Source: `.claude/typora/maaike-garden.css` (in this project)
-   - Destination: `$APPDATA/Typora/themes/maaike-garden.css`
-   - Copy command: `cp ".claude/typora/maaike-garden.css" "$APPDATA/Typora/themes/maaike-garden.css"`
-   - Only copy if the destination is missing or outdated (compare with `diff`)
-3. Open the file in Typora: `"/c/Program Files/Typora/Typora.exe" "<file-path>" &`
-4. Confirm to the user with the file path and that Typora is open
-5. Remind the user to select the "Maaike Garden" theme in Typora (Themes menu) if it's their first time
-6. Ask if they want to commit and push now, or do that later (after writing in Typora)
+After auto-tag is done, ask if the user wants to commit and push.
+- Commit message: `Add <collection>: <title>`
 
 ## Conventions
 
-- Never use em-dashes (—) in any content
+- Never use em-dashes
 - Sentence case for titles
 - Content language is English
 - Date is always today in YYYY-MM-DD format
-- If a file with that slug already exists, warn the user and ask for a different title
