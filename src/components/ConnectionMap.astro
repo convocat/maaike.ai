@@ -36,46 +36,70 @@ const darkCollectionColors: Record<string, string> = {
   principles: '#a3b498',
 };
 
-const size = 200;
-const cx = size / 2;
-const cy = size / 2;
-const centerR = 8;
-const nodeR = 5;
-const orbitR = 70;
+// Truncate long titles
+function truncate(str: string, max: number): string {
+  return str.length > max ? str.slice(0, max - 1).trimEnd() + '…' : str;
+}
 
-// Limit to 10 nodes max
-const nodes = connections.slice(0, 10);
+const viewW = 400;
+const viewH = 380;
+const cx = viewW / 2;
+const cy = 170;
+const centerR = 10;
+const nodeR = 6;
+const orbitR = 105;
+const labelOffset = 14; // distance from node center to label
+
+// Limit to 8 nodes max (more readable with labels)
+const nodes = connections.slice(0, 8);
 
 // Calculate positions evenly around the circle
 const nodePositions = nodes.map((conn, i) => {
   const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
+  const x = cx + orbitR * Math.cos(angle);
+  const y = cy + orbitR * Math.sin(angle);
+
+  // Determine text position: push label outward from center
+  const labelX = cx + (orbitR + labelOffset) * Math.cos(angle);
+  const labelY = cy + (orbitR + labelOffset) * Math.sin(angle);
+
+  // Text anchor depends on which side of center the node is
+  const isRight = angle > -Math.PI / 2 && angle < Math.PI / 2;
+  const isBottom = angle > 0 && angle < Math.PI;
+  const textAnchor = Math.abs(Math.cos(angle)) < 0.15 ? 'middle' : (isRight ? 'start' : 'end');
+
+  // Vertical offset for top/bottom nodes
+  const dy = Math.abs(Math.sin(angle)) > 0.9 ? (isBottom ? '1em' : '-0.3em') : '0.35em';
+
   return {
     ...conn,
-    x: cx + orbitR * Math.cos(angle),
-    y: cy + orbitR * Math.sin(angle),
+    x, y,
+    labelX, labelY,
+    textAnchor,
+    dy,
+    truncatedTitle: truncate(conn.title, 28),
     color: collectionColors[conn.collection] || '#999',
     darkColor: darkCollectionColors[conn.collection] || '#bbb',
     delay: (i * 0.4).toFixed(1),
+    angle,
   };
 });
 
 const centerColor = collectionColors[currentCollection] || '#999';
 const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
+const centerTitle = truncate(currentTitle, 30);
 ---
 
 <div class="connection-map-wrapper">
   <svg
     class="connection-map"
-    viewBox={`0 0 ${size} ${size}`}
-    width={size}
-    height={size}
+    viewBox={`0 0 ${viewW} ${viewH}`}
     xmlns="http://www.w3.org/2000/svg"
     role="img"
     aria-label={`Connection map for ${currentTitle}`}
-    filter="url(#sketchy)"
   >
     {/* Lines from center to each node */}
-    {nodePositions.map((node, i) => (
+    {nodePositions.map((node) => (
       <line
         class={`map-line map-line--${node.collection}`}
         x1={cx}
@@ -88,8 +112,8 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
       />
     ))}
 
-    {/* Outer nodes */}
-    {nodePositions.map((node, i) => (
+    {/* Outer nodes with labels */}
+    {nodePositions.map((node) => (
       <a href={node.href} class="map-node-link">
         <g class={`map-node map-node--${node.collection}`} style={`animation-delay: ${node.delay}s`}>
           <circle
@@ -98,7 +122,15 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
             r={nodeR}
             stroke-width="1.5"
           />
-          <title>{node.title}</title>
+          <text
+            class={`map-label map-label--${node.collection}`}
+            x={node.labelX}
+            y={node.labelY}
+            text-anchor={node.textAnchor}
+            dy={node.dy}
+          >
+            {node.truncatedTitle}
+          </text>
         </g>
       </a>
     ))}
@@ -111,7 +143,14 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
         r={centerR}
         stroke-width="2"
       />
-      <title>{currentTitle}</title>
+      <text
+        class={`map-center-label map-center-label--${currentCollection}`}
+        x={cx}
+        y={cy + centerR + 14}
+        text-anchor="middle"
+      >
+        {centerTitle}
+      </text>
     </g>
   </svg>
 </div>
@@ -125,7 +164,30 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
   .connection-map {
     overflow: visible;
     display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
   }
+
+  /* Labels */
+  .map-label {
+    font-family: var(--font-body, 'Roboto', sans-serif);
+    font-size: 9.5px;
+    fill: var(--color-text-muted, #777);
+    pointer-events: none;
+    transition: fill 0.2s ease;
+  }
+
+  .map-center-label {
+    font-family: var(--font-heading, 'Lora', serif);
+    font-size: 11px;
+    font-weight: 600;
+    fill: var(--color-text, #333);
+    pointer-events: none;
+  }
+
+  /* Label colors on hover (inherit node collection color) */
+  .map-node-link:hover .map-label { fill: var(--color-text, #333); }
 
   /* Line colors per collection */
   .map-line { stroke: var(--color-border); opacity: 0.5; }
@@ -181,6 +243,9 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
   :root[data-theme="dark"] .map-center--library circle { stroke: #a89e96; fill: #a89e9620; }
   :root[data-theme="dark"] .map-center--principles circle { stroke: #a3b498; fill: #a3b49820; }
 
+  :root[data-theme="dark"] .map-label { fill: var(--color-text-muted, #aaa); }
+  :root[data-theme="dark"] .map-center-label { fill: var(--color-text, #eee); }
+
   /* Animations */
   @keyframes pulse {
     0%, 100% { transform-origin: center; transform: scale(1); }
@@ -218,8 +283,8 @@ const centerDarkColor = darkCollectionColors[currentCollection] || '#bbb';
     transition: transform 0.2s ease;
   }
 
-  .map-node-link:hover ~ .map-line {
-    opacity: 0.8;
+  .map-node-link:hover .map-label {
+    font-weight: 600;
   }
 
   /* Accessibility: reduce motion */
