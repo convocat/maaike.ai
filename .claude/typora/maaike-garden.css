@@ -1,0 +1,200 @@
+/*
+ * Maaike Garden — Typora theme matching maaike.ai
+ * Fonts: Lora (headings), Roboto (body), JetBrains Mono (code)
+ * Accent: #D6006C (hot pink)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --side-bar-bg-color: #FAFAFA;
+    --control-text-color: #6B6B6B;
+    --active-file-bg-color: #F5E6F0;
+    --active-file-text-color: #1A1A1A;
+    --active-file-border-color: #D6006C;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, sans-serif;
+    color: #1A1A1A;
+    background-color: #FFFFFF;
+    line-height: 1.7;
+}
+
+#write {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-bottom: 6rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    color: #111111;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.375rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h4, h5, h6 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: #D6006C;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: #B0005A;
+}
+
+/* Paragraphs */
+p {
+    margin: 1rem 0;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+li {
+    margin: 0.25rem 0;
+}
+
+/* Blockquote — pink left border like the website */
+blockquote {
+    border-left: 3px solid #D6006C;
+    padding-left: 1rem;
+    color: #6B6B6B;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+/* Inline code */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    background: #F5E6F0;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+/* Code blocks */
+pre {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    border-top: 1px solid #E5E5E5;
+    margin: 3rem 0;
+}
+
+/* Images */
+img {
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #E5E5E5;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+th {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    background: #FAFAFA;
+}
+
+/* YAML frontmatter */
+pre.md-meta-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: #6B6B6B;
+}
+
+/* Selection */
+::selection {
+    background: #F5E6F0;
+    color: #1A1A1A;
+}
+
+/* Sidebar */
+.file-list-item.active {
+    border-left: 3px solid #D6006C;
+}
+
+.sidebar-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #A0A0A0 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) img {
+    opacity: 0.5;
+}
+
+/* Source code mode */
+.cm-s-inner {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Task lists */
+.task-list-item input[type="checkbox"] {
+    accent-color: #D6006C;
+}
