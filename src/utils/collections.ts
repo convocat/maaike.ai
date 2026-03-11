@@ -31,3 +31,47 @@ export function sortByDate<T extends { data: { date: Date } }>(entries: T[]): T[
 export function getUniqueTags(entries: { data: { tags: string[] } }[]): string[] {
   return [...new Set(entries.flatMap((e) => e.data.tags))].sort();
 }
+
+export interface RelatedPost {
+  title: string;
+  href: string;
+  collection: string;
+  sharedTagCount: number;
+}
+
+export async function getRelatedPosts(
+  currentSlug: string,
+  currentTags: string[],
+  currentCollection: string,
+  limit: number = 5,
+): Promise<RelatedPost[]> {
+  const allContent = await getAllContent();
+
+  return allContent
+    .filter((entry) => entry.id !== currentSlug)
+    .map((entry) => {
+      const sharedTags = entry.data.tags.filter((t: string) => currentTags.includes(t));
+      const sameCollection = entry.collection === currentCollection ? 1 : 0;
+      return {
+        title: entry.data.title,
+        href: `/${entry.collection}/${entry.id}`,
+        collection: entry.collection,
+        sharedTagCount: sharedTags.length,
+        sameCollection,
+        date: entry.data.date,
+      };
+    })
+    .filter((entry) => entry.sharedTagCount > 0 || entry.sameCollection)
+    .sort((a, b) => {
+      if (b.sharedTagCount !== a.sharedTagCount) return b.sharedTagCount - a.sharedTagCount;
+      if (b.sameCollection !== a.sameCollection) return b.sameCollection - a.sameCollection;
+      return b.date.getTime() - a.date.getTime();
+    })
+    .slice(0, limit)
+    .map(({ title, href, collection, sharedTagCount }) => ({
+      title,
+      href,
+      collection,
+      sharedTagCount,
+    }));
+}

@@ -1,0 +1,172 @@
+---
+import { getBacklinks } from '../utils/backlinks';
+import { getRelatedPosts } from '../utils/collections';
+import CollectionIcon from './CollectionIcon.astro';
+import ConnectionMap from './ConnectionMap.astro';
+
+interface Props {
+  slug: string;
+  tags: string[];
+  collection: string;
+  title: string;
+}
+
+const { slug, tags, collection, title } = Astro.props;
+
+const backlinks = await getBacklinks(slug);
+const relatedPosts = await getRelatedPosts(slug, tags, collection);
+
+// Combine backlinks + related for the connection map (deduplicate by href)
+const seen = new Set<string>();
+const mapConnections: { title: string; href: string; collection: string }[] = [];
+
+for (const bl of backlinks) {
+  if (!seen.has(bl.href)) {
+    seen.add(bl.href);
+    // Infer collection from href pattern (/collection/slug)
+    const parts = bl.href.split('/').filter(Boolean);
+    mapConnections.push({ title: bl.title, href: bl.href, collection: parts[0] || collection });
+  }
+}
+
+for (const rp of relatedPosts) {
+  if (!seen.has(rp.href)) {
+    seen.add(rp.href);
+    mapConnections.push({ title: rp.title, href: rp.href, collection: rp.collection });
+  }
+}
+---
+
+<div class="sidebar-content">
+  {mapConnections.length > 0 && (
+    <section class="sidebar-section">
+      <ConnectionMap
+        currentTitle={title}
+        currentCollection={collection}
+        connections={mapConnections}
+      />
+    </section>
+  )}
+
+  {tags.length > 0 && (
+    <section class="sidebar-section">
+      <h3 class="sidebar-heading">Tags</h3>
+      <ul class="sidebar-tags">
+        {tags.map((tag) => (
+          <li><a href={`/tags/${tag}`} class="sidebar-tag">{tag}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {backlinks.length > 0 && (
+    <section class="sidebar-section">
+      <h3 class="sidebar-heading">Linked from</h3>
+      <ul class="sidebar-links">
+        {backlinks.map(({ title: blTitle, href }) => (
+          <li><a href={href}>{blTitle}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {relatedPosts.length > 0 && (
+    <section class="sidebar-section">
+      <h3 class="sidebar-heading">Related</h3>
+      <ul class="sidebar-links">
+        {relatedPosts.map(({ title: rpTitle, href, collection: coll }) => (
+          <li>
+            <a href={href}>
+              <CollectionIcon collection={coll} size={14} />
+              <span>{rpTitle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</div>
+
+<style>
+  .sidebar-content {
+    position: sticky;
+    top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    font-size: 0.88rem;
+  }
+
+  .sidebar-heading {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+    margin-block-end: var(--space-sm);
+  }
+
+  .sidebar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    padding: 0.15em 0.55em;
+    border-radius: 1em;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    text-decoration: none;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .sidebar-tag:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.3em 0.5em;
+    border-radius: var(--card-radius);
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-bg-card);
+    border: 1px solid transparent;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+    line-height: 1.3;
+  }
+
+  .sidebar-links a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 68rem) {
+    .sidebar-content {
+      position: static;
+    }
+
+    .sidebar-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+  }
+</style>
