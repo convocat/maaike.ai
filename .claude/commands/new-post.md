@@ -81,6 +81,14 @@ ai: "<ai status>"
 
 If tags are empty, use `tags: []`. If description is empty, omit it.
 
+**Body template**: After the frontmatter, prepopulate the file with:
+```markdown
+# <title>
+
+Start writing here...
+```
+The heading uses the post title so Typora renders it in Lora (heading font). The placeholder body text gives the user a starting point.
+
 ## Step 6: Show before committing
 
 Display the full file content (frontmatter + empty body) in chat. Ask the user to confirm before writing the file. The user may want to tweak things or add initial body text.
