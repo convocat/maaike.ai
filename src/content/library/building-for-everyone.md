@@ -1,7 +1,7 @@
 ---
 title: "Building for everyone"
 author: "Annie Jean-Baptiste"
-cover: "https://covers.openlibrary.org/b/id/8111812-M.jpg"
+cover: "/images/library/building-for-everyone.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

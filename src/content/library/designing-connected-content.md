@@ -1,7 +1,7 @@
 ---
 title: "Designing Connected Content"
 author: "Mike Atherton & Carrie Hane"
-cover: "https://covers.openlibrary.org/b/id/13738474-M.jpg"
+cover: "/images/library/designing-connected-content.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

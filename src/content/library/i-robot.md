@@ -1,7 +1,7 @@
 ---
 title: "I, robot"
 author: "Isaac Asimov"
-cover: "https://covers.openlibrary.org/b/id/6517784-M.jpg"
+cover: "/images/library/i-robot.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

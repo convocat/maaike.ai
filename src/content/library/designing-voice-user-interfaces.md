@@ -1,7 +1,7 @@
 ---
 title: "Designing Voice User Interfaces"
 author: "Cathy Pearl"
-cover: "https://covers.openlibrary.org/b/id/8512337-M.jpg"
+cover: "/images/library/designing-voice-user-interfaces.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

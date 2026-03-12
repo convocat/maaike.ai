@@ -1,7 +1,7 @@
 ---
 title: "Voicebot and Chatbot Design"
 author: "Rachel Batish"
-cover: "https://covers.openlibrary.org/b/id/13941622-M.jpg"
+cover: "/images/library/voicebot-and-chatbot-design.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

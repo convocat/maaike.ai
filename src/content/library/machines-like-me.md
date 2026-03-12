@@ -1,7 +1,7 @@
 ---
 title: "Machines like me"
 author: "Ian McEwan"
-cover: "https://covers.openlibrary.org/b/id/10541630-M.jpg"
+cover: "/images/library/machines-like-me.jpg"
 date: 2026-03-12
 status: reading
 maturity: draft
