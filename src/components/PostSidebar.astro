@@ -1,7 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBacklinks } from '../utils/backlinks';
 import { getRelatedPosts } from '../utils/collections';
+import { getSuggestedBooks } from '../utils/recommender';
 import CollectionIcon from './CollectionIcon.astro';
 
 interface Props {
@@ -15,25 +15,7 @@ const { slug, tags, collection, title } = Astro.props;
 
 const backlinks = await getBacklinks(slug);
 const relatedPosts = await getRelatedPosts(slug, tags, collection);
-
-// Suggested reading: library books matching post tags
-const allBooks = await getCollection('library', ({ data }) => !data.draft);
-const suggestedBooks = tags.length > 0
-  ? allBooks
-      .map((book) => {
-        const shared = book.data.tags?.filter((t: string) => tags.includes(t)).length ?? 0;
-        return { book, shared };
-      })
-      .filter(({ shared }) => shared > 0)
-      .sort((a, b) => b.shared - a.shared)
-      .slice(0, 3)
-      .map(({ book }) => ({
-        title: book.data.title,
-        author: book.data.author,
-        href: `/library/${book.id}`,
-        cover: book.data.cover,
-      }))
-  : [];
+const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
 ---
 
 <div class="sidebar-content">

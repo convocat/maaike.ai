@@ -9,3 +9,5 @@ tags:
   - linguistics
 ai: assisted
 ---
+
+The first in a new series on conversation analysis, the study of talk in interaction. This volume looks at the ways in which turns-at-talk are ordered to make actions take place in conversation.

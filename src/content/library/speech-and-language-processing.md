@@ -10,3 +10,7 @@ tags:
   - linguistics
 ai: assisted
 ---
+
+"This book offers a unified vision of speech and language processing, presenting state-of-the-art algorithms and techniques for both speech and text-based processing of natural language.
+
+This comprehensive work covers both statistical and symbolic approaches to language processing; it shows how they can be applied to important tasks such as speech recognition, spelling and grammar correction, information extraction, search engines, machine translation, and the creation of spoken-language dialog agents."--BOOK JACKET.

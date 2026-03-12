@@ -9,3 +9,5 @@ tags:
   - psychology
 ai: assisted
 ---
+
+Concentrates upon overcoming mental attitudes that adversely affect tennis performance, including learning to relax, effectively concentrating, and discarding bad habits.

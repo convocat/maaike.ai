@@ -66,3 +66,6 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Articles shelf**: Library page includes weblinks as a separate Articles section
 - **LinkedIn sharing skill**: `/share-linkedin` generates LinkedIn-ready text from any post
 - **DNS fix**: Changed www CNAME to point to convocat.github.io for proper SSL provisioning
+- **Book blurbs**: 18 books enriched with official descriptions from Open Library
+- **Smarter book recommendations**: Content-based recommender using keyword similarity, tag synonyms, and blurb matching instead of simple tag overlap
+- **Backlinks fix**: Wiki links with pipe syntax (`[[slug|display text]]`) now correctly generate backlinks

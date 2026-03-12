@@ -10,3 +10,7 @@ tags:
   - linguistics
 ai: assisted
 ---
+
+The most widely used textbook of its kind for courses in advanced composition and writing, Classical Rhetoric for the Modern Student discusses the three vital components of classical rhetoric - argument, arrangement, and style - bringing these elements to life and demonstrating their effective application in yesterday's and today's writing.
+
+Presenting its subject in five parts, the text provides grounding in the elements and applications of classical rhetoric; the strategies and tactics of argumentation; the effective presentation and organization of discourses; the development of power, grace, and felicity in expression; and the history of rhetorical principles. Numerous examples of classic and contemporary rhetoric, from paragraphs to complete essays, appear throughout the book, many followed by detailed analyses.

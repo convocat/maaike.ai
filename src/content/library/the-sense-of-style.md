@@ -10,3 +10,5 @@ tags:
   - linguistics
 ai: assisted
 ---
+
+A guide to writing English informed by recent scholarship (linguistics, cognative science, and such like).

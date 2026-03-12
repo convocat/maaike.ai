@@ -31,7 +31,7 @@ async function buildBacklinkMap() {
     const body = entry.body ?? '';
     let match;
     while ((match = wikiLinkRegex.exec(body)) !== null) {
-      const targetSlug = match[1].replace(/ /g, '-').toLowerCase();
+      const targetSlug = match[1].split('|')[0].replace(/ /g, '-').toLowerCase();
       const backlink: Backlink = {
         title: entry.data.title,
         href: `/${entry.collection}/${entry.id}`,
