@@ -60,3 +60,4 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Cross-linking**: Added backlinks from 6 existing posts to the new article
 - **SSL fix**: Updated GitHub Pages custom domain to www.maaike.ai, triggered new cert for both domains
 - **Build fix**: Added required frontmatter to draft file that was blocking all deployments
+- **Notion library import**: Migrated 59 books from Notion to the library collection, with reading status and topic tags
