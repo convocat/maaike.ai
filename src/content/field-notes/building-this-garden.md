@@ -61,3 +61,8 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **SSL fix**: Updated GitHub Pages custom domain to www.maaike.ai, triggered new cert for both domains
 - **Build fix**: Added required frontmatter to draft file that was blocking all deployments
 - **Notion library import**: Migrated 59 books from Notion to the library collection, with reading status and topic tags
+- **Book covers**: 45 covers fetched from Open Library and stored locally
+- **Suggested reading sidebar**: Posts show up to 3 matching library books based on shared tags
+- **Articles shelf**: Library page includes weblinks as a separate Articles section
+- **LinkedIn sharing skill**: `/share-linkedin` generates LinkedIn-ready text from any post
+- **DNS fix**: Changed www CNAME to point to convocat.github.io for proper SSL provisioning
