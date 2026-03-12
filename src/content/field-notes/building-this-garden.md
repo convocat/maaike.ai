@@ -1,6 +1,6 @@
 ---
 title: Building this garden
-date: 2026-03-11
+date: 2026-03-12
 maturity: developing
 tags:
   - digital-gardens
@@ -9,6 +9,8 @@ tags:
 description: A changelog of features and decisions made while building this digital garden.
 ai: generated
 ---
+
+For the story behind why this garden exists, read [[a-digital-garden-as-central-space|the origin story]].
 
 ## Changelog
 
@@ -49,3 +51,12 @@ ai: generated
 - **Typora theme**: Custom "Maaike Garden" theme matching site design (Lora, Roboto, hot pink accent, collapsible frontmatter)
 - **Auto-tag skill**: `/auto-tag` scans content base to suggest tags and wiki-links for any post
 - **Release notes skill**: `/update-release-notes` generates changelog entries from git commits
+
+### 12 March
+
+- **First original article**: Published "A digital garden as central space for my thoughts and writing" with inline link processing and local image hosting
+- **New sparks**: "The disappearance of authentic voice online" and "Writing as a conversation with yourself"
+- **New tags**: `personal-web`, `non-linear-thinking`, `role-of-ai` for more specific topic tagging
+- **Cross-linking**: Added backlinks from 6 existing posts to the new article
+- **SSL fix**: Updated GitHub Pages custom domain to www.maaike.ai, triggered new cert for both domains
+- **Build fix**: Added required frontmatter to draft file that was blocking all deployments
