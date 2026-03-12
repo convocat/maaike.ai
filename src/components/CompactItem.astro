@@ -12,11 +12,10 @@ interface Props {
 
 const { title, href, date, updated, maturity, tags } = Astro.props;
 
+const dateFmt = new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' });
 const displayDate = updated ?? date;
-const formattedDate = new Intl.DateTimeFormat('en-GB', {
-  month: 'short',
-  day: 'numeric',
-}).format(displayDate);
+const dateLabel = updated ? 'Tended' : 'Planted';
+const formattedDate = dateFmt.format(displayDate);
 ---
 
 <li class="compact-item">
@@ -31,7 +30,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
       </span>
     )}
   </a>
-  <time datetime={displayDate.toISOString()}>{formattedDate}</time>
+  <time datetime={displayDate.toISOString()}><span class="compact-date-label">{dateLabel}</span> {formattedDate}</time>
 </li>
 
 <style is:global>
@@ -94,5 +93,14 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
     white-space: nowrap;
     flex-shrink: 0;
     margin-inline-start: auto;
+  }
+
+  .compact-date-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.6;
+    margin-inline-end: 0.3em;
   }
 </style>
