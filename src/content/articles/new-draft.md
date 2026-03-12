@@ -1,5 +1,10 @@
 ---
+title: "A digital garden as central space for my thoughts and writing"
+date: 2026-03-11
+maturity: draft
 draft: true
+tags: []
+ai: "100% Maai"
 ---
 
 # A digital garden as central space for my thoughts and writing
