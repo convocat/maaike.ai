@@ -1,0 +1,11 @@
+---
+title: "Voice content and usability"
+author: "Preston So"
+date: 2026-03-12
+status: read
+maturity: draft
+tags:
+  - voice
+  - content-strategy
+ai: assisted
+---

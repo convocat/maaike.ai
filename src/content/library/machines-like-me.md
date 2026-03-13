@@ -1,0 +1,16 @@
+---
+title: "Machines like me"
+author: "Ian McEwan"
+cover: "/images/library/machines-like-me.jpg"
+date: 2026-03-12
+status: reading
+maturity: draft
+tags:
+  - ai
+  - fiction
+ai: assisted
+---
+
+Machines Like Me is the 15th novel by the English author Ian McEwan. The novel published in 2019 by Jonathan Cape.
+
+The novel is set in the 1980s in an alternative history timeline in which the UK lost the Falklands War, Alan Turing is still alive, and the Internet, social media, and self-driving cars already exist. The story revolves around an android named Adam and its/his relationship with its/his owners, Charlie and Miranda, which involves the formation of a love triangle.

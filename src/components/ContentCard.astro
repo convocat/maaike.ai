@@ -14,12 +14,9 @@ interface Props {
 
 const { title, href, date, updated, maturity, tags, description, collection } = Astro.props;
 
-const displayDate = updated ?? date;
-const formattedDate = new Intl.DateTimeFormat('en-GB', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-}).format(displayDate);
+const dateFmt = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+const formattedDate = dateFmt.format(date);
+const formattedUpdated = updated ? dateFmt.format(updated) : null;
 ---
 
 <article
@@ -38,7 +35,12 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
     {description && <p class="card-description">{description}</p>}
   </a>
   <div class="card-bottom">
-    <time datetime={displayDate.toISOString()}>{formattedDate}</time>
+    <div class="card-dates">
+      <time datetime={date.toISOString()}><span class="card-date-label">Planted</span> {formattedDate}</time>
+      {formattedUpdated && (
+        <time datetime={updated!.toISOString()} class="card-tended"><span class="card-date-label">Tended</span> {formattedUpdated}</time>
+      )}
+    </div>
     {tags.length > 0 && (
       <ul class="card-tags">
         {tags.slice(0, 3).map((tag) => (
@@ -112,9 +114,24 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
     border-top: 1px solid var(--color-border);
   }
 
+  .card-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
   .card-bottom time {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--color-text-muted);
+  }
+
+  .card-date-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.6;
+    margin-inline-end: 0.3em;
   }
 
   .card-tags {

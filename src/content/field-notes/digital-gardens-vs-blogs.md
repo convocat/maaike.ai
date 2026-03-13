@@ -10,7 +10,7 @@ description: What makes a digital garden different from a traditional blog?
 ai: generated
 ---
 
-A blog is chronological. A garden is topological.
+A blog is chronological. [[a-digital-garden-as-central-space|A garden is topological]].
 
 Blogs are streams — new posts push old ones down. Gardens are networks — ideas connect to other ideas regardless of when they were planted.
 
