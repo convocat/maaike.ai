@@ -1,10 +1,23 @@
-# Maai & AI: a digital garden
+# 🌱 Maai & AI: a digital garden
 
 > **[maaike.ai](https://maaike.ai)**
 
+---
+
+### About AI in this project
+
+I build and write this garden with AI as one of my tools. I mark every piece of content with a transparency indicator so you can see exactly how much of it is mine and how much AI contributed. This README uses the same system:
+
+![100% Maai](https://img.shields.io/badge/100%25_Maai-D6006C?style=flat-square) fully written by Maaike, no AI
+![AI-assisted](https://img.shields.io/badge/AI--assisted-0D7C66?style=flat-square) my ideas and structure, AI helped refine
+![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square) written by AI based on my ideas and direction
+![AI-generated](https://img.shields.io/badge/AI--generated-E5E5E5?style=flat-square&labelColor=E5E5E5) fully AI-generated, reviewed by Maaike
+
+---
+
 ## Why this exists
 
-> *100% Maai: fully written by Maaike, no AI*
+> ![100% Maai](https://img.shields.io/badge/100%25_Maai-D6006C?style=flat-square)
 
 One thing that I really miss doing lately, is writing longer pieces that require a bit of thinking, mulling and reordering. I typically resort to videos nowadays, and Claude is a pretty mean writing assistant for factual, functional texts. But I really miss sitting in front of a screen that doesn't talk back, doesn't distract and just offers me space for my own head.
 
@@ -20,7 +33,7 @@ I've always longed for a way to express that in writing:
 
 ## What's in the garden
 
-> *Co-created: written by AI based on Maaike's ideas and direction*
+> ![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square)
 
 The garden organises content into seven collections:
 
@@ -42,13 +55,13 @@ Posts link to each other using `[[wiki links]]`, with backlinks computed automat
 
 ## How it's built
 
-> *Co-created: written by AI based on Maaike's ideas and direction*
+> ![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square)
 
 Static site built with [Astro](https://astro.build/), deployed on GitHub Pages. Content is Markdown with YAML frontmatter, so it's easy to write in any editor. No CMS required, though [Sveltia CMS](https://github.com/sveltia/sveltia-cms) is available for a visual editing experience.
 
 Design choices: warm serif headings (Lora), clean sans-serif body text (Roboto), hand-drawn SVG collection icons with a sketchy wobble filter, and a light/dark theme. The primary accent color is `#D6006C`, because hot pink is non-negotiable.
 
-Every post can carry an **AI transparency indicator** showing how much AI was involved in writing it: from "100% Maai" (no AI at all) to "generated" (fully AI-generated, reviewed by Maaike). Because transparency about this matters.
+Every post carries an **AI transparency indicator**, the same system you see used in this README. Because transparency about this matters.
 
 ## Running locally
 
