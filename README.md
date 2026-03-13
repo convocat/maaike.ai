@@ -31,6 +31,14 @@ I've always longed for a way to express that in writing:
 - Serendipity as an organising principle
 - *Ambachtelijk* is the Dutch word for "artisanal". It's what I always enjoyed in writing and blogging pre-algorithm: the sense that you're crafting something.
 
+## What is a digital garden?
+
+> ![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square)
+
+A blog is chronological: new posts push old ones down. A digital garden is topological: ideas connect to other ideas regardless of when they were planted.
+
+Gardens embrace imperfection. You can publish a half-formed thought and come back to develop it later. That's why every post here has a visible maturity level: readers know when something is a seedling versus a finished argument. Ideas grow over time, through revision and connection, not just through publishing more.
+
 ## What's in the garden
 
 > ![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square)
