@@ -8,9 +8,9 @@
 
 I build and write this garden with AI as one of my tools. I mark every piece of content with a transparency indicator so you can see exactly how much of it is mine and how much AI contributed. This README uses the same system:
 
-![100% Maai](https://img.shields.io/badge/100%25_Maai-D6006C?style=flat-square) fully written by Maaike, no AI
-![AI-assisted](https://img.shields.io/badge/AI--assisted-0D7C66?style=flat-square) my ideas and structure, AI helped refine
-![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square) written by AI based on my ideas and direction
+![100% Maai](https://img.shields.io/badge/100%25_Maai-D6006C?style=flat-square) fully written by Maaike, no AI<br>
+![AI-assisted](https://img.shields.io/badge/AI--assisted-0D7C66?style=flat-square) my ideas and structure, AI helped refine<br>
+![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square) written by AI based on my ideas and direction<br>
 ![AI-generated](https://img.shields.io/badge/AI--generated-E5E5E5?style=flat-square&labelColor=E5E5E5) fully AI-generated, reviewed by Maaike
 
 ---
