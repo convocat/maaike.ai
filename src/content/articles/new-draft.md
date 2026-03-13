@@ -1,5 +1,13 @@
 ---
+title: A digital garden as central space for my thoughts and writing
+date: 2026-03-12
+maturity: draft
+tags:
+  - digital-gardens
+  - writing
+description: Why I started this garden, and what I hope it becomes.
 draft: true
+ai: 100% Maai
 ---
 
 # A digital garden as central space for my thoughts and writing
