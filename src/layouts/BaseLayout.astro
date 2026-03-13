@@ -10,7 +10,7 @@ interface Props {
 
 const { title, description = 'A personal digital garden', ogImage } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://www.maaike.ai').href;
-const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : 'https://www.maaike.ai/images/maaiai.png';
+const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : 'https://www.maaike.ai/images/og-default.png';
 ---
 
 <!doctype html>
