@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import sitemap from '@astrojs/sitemap';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Build a slug-to-path map for wiki links to resolve across collections
@@ -35,6 +37,7 @@ const permalinks = [...permalinkMap.keys()];
 // https://astro.build/config
 export default defineConfig({
   site: 'https://maaike.ai',
+
   markdown: {
     remarkPlugins: [
       [
@@ -52,4 +55,6 @@ export default defineConfig({
       ],
     ],
   },
+
+  integrations: [sitemap()]
 });

@@ -5,6 +5,7 @@ maturity: draft
 tags:
   - ai
   - writing
+description: What's the right metaphor for AI's role in my writing process?
 ai: 100% Maai
 ---
 

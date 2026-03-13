@@ -1,0 +1,47 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Page not found — Maai & AI">
+  <div class="not-found">
+    <span class="not-found-emoji">🌱</span>
+    <h1>Nothing planted here yet</h1>
+    <p>This page doesn't exist, or it hasn't grown enough to be visible.</p>
+    <a href="/" class="not-found-link">Back to the garden</a>
+  </div>
+</PageLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-md);
+    max-width: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .not-found-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-block-end: var(--space-lg);
+  }
+
+  .not-found h1 {
+    font-size: 1.8rem;
+    margin-block-end: var(--space-md);
+  }
+
+  .not-found p {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+
+  .not-found-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .not-found-link:hover {
+    text-decoration: underline;
+  }
+</style>

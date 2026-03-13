@@ -10,6 +10,7 @@
     "new": "node scripts/new-content.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.1",
     "astro": "^5.17.1",
     "remark-wiki-link": "^2.0.1"
   }

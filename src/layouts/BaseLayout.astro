@@ -5,9 +5,12 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'A personal digital garden' } = Astro.props;
+const { title, description = 'A personal digital garden', ogImage } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://www.maaike.ai').href;
+const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : 'https://www.maaike.ai/images/maaiai.png';
 ---
 
 <!doctype html>
@@ -19,7 +22,22 @@ const { title, description = 'A personal digital garden' } = Astro.props;
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; frame-ancestors 'none';" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:site_name" content="Maai & AI" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
 
     <!-- Dark mode: prevent FOUC -->
     <script is:inline>
