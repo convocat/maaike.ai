@@ -111,9 +111,11 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 
 ## Preferences
 
+- **Commit author**: No Co-Authored-By line. Maaike is the sole author.
 - Keep the hot pink (`#D6006C`). It's the company brand color
 - Icons should feel hand-drawn and organic, not polished or geometric
 - The site aesthetic is warm and personal, not corporate
 - Maaike works in Dutch and English; site content is English
 - **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
 - **Sentence case for titles**. Only capitalize the first word (and proper nouns/acronyms)
+- **AI language rules**: Refer to yourself as "Claude", not "AI" or "I". Never use "write" for Claude's output, use "generate". Only Maaike writes. Claude generates.
