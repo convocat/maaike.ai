@@ -20,6 +20,8 @@ interface Props {
 
 const { title, date, updated, maturity, tags, description, collection, slug, url, ai } = Astro.props;
 
+const ogImage = `/images/og-${collection}.png`;
+
 const aiLabels: Record<string, { label: string; description: string }> = {
   '100% Maai': { label: '100% Maai', description: 'Fully written by me.' },
   assisted: { label: 'AI-assisted', description: 'My ideas and structure, AI helped refine.' },
@@ -51,7 +53,7 @@ const formattedUpdated = updated
   : null;
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={title} description={description} ogImage={ogImage}>
   <div class="post-with-sidebar">
     <article class="post">
       <header class="post-header">

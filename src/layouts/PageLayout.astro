@@ -7,12 +7,13 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <SketchyFilter />
   <Header />
   <main class="container">
