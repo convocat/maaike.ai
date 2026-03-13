@@ -39,6 +39,8 @@ A blog is chronological: new posts push old ones down. A digital garden is topol
 
 Gardens embrace imperfection. You can publish a half-formed thought and come back to develop it later. That's why every post here has a visible maturity level: readers know when something is a seedling versus a finished argument. Ideas grow over time, through revision and connection, not just through publishing more.
 
+Read more: [A digital garden as central space for my thoughts and writing](https://www.maaike.ai/articles/a-digital-garden-as-central-space/)
+
 ## What's in the garden
 
 > ![Co-created with AI](https://img.shields.io/badge/Co--created_with_AI-6B6B6B?style=flat-square)
