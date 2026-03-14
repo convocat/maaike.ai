@@ -1,7 +1,7 @@
 ---
 title: Knowledge graph for the garden
 date: 2026-03-14
-maturity: draft
+maturity: developing
 tags:
   - project
   - digital-gardens

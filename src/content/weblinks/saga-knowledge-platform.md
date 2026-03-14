@@ -1,7 +1,7 @@
 ---
 title: "Saga: a platform for continuous construction and serving of knowledge at scale"
 date: 2026-03-14
-maturity: draft
+maturity: solid
 tags:
   - knowledge-graph
   - ai
