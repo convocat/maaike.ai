@@ -43,8 +43,8 @@ The [[saga-knowledge-platform|Saga platform]] (SIGMOD 2022) builds knowledge gra
 - What's the simplest pipeline that gives useful results at garden scale?
 - Can this run at build time (Astro) or does it need a separate process?
 - How to handle the review step: present candidates for manual approval vs. auto-linking?
-- What embedding model works well for short-form content with mixed topics?
-- How to balance serendipity (surprising connections) with relevance?
+- ~~What embedding model works well for short-form content with mixed topics?~~ Answered: bge-m3, a non-generative BERT-family encoder. Selected for score discrimination, multilingual support, thin-content robustness, and focused encoder architecture (not an LLM). See [[embedding-models-for-the-garden|model selection criteria]].
+- How to balance serendipity (surprising connections) with relevance? Partially answered: 0.55 cosine similarity threshold yields 2,771 candidates across 157 items. Most high-scoring pairs are obvious (same-series items, book pairs on the same topic). The interesting cross-collection candidates are buried in noise. Needs filtering or a higher threshold.
 
 ## Rough architecture
 

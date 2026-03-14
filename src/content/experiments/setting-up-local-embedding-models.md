@@ -93,7 +93,7 @@ We ran each model twice on 10 garden items across five collections (4 articles, 
 - **Run 1**: body text only
 - **Run 2**: title + description + tags prepended to body text
 
-The items ranged from 43 words (a three-sentence seed) to 1797 words (a full article). The code and full results are in the repository at `scripts/embedding-experiment.py` and `scripts/embedding-results.txt`. A Jupyter notebook version is available at `scripts/embedding-experiment.ipynb`.
+The items ranged from 43 words (a three-sentence seed) to 1797 words (a full article). The code and full results are in the repository at `scripts/embedding-experiment.py` and `scripts/embedding-results.txt`.
 
 ### Key findings
 
@@ -131,7 +131,27 @@ For the garden's embedding pipeline: **always include metadata**. Prepend title,
 
 ## What happened next
 
-Based on the results here, bge-m3 was selected for the full-scale run (see [[embedding-models-for-the-garden|model selection criteria]]). The full-scale run embedded all 157 garden items and compared the results against existing wiki-links: 43 out of 44 resolved links were confirmed by embedding similarity. Results and script are at `scripts/full-scale-embeddings.py` and `scripts/full-scale-results.txt`.
+Based on the results here, bge-m3 was selected for the full-scale run. The key reason, beyond its discrimination and multilingual strengths: bge-m3 is a pure BERT-family encoder, not an LLM repurposed for embeddings. For a pure similarity task, a focused encoder is the better architectural fit. See [[embedding-models-for-the-garden|model selection criteria]] for the full reasoning.
+
+The full-scale run embedded all 157 non-draft garden items (metadata-enriched) and compared the results against 50 existing wiki-links:
+
+| Metric | Value |
+|---|---|
+| Items embedded | 157 |
+| Total pairs | 12,246 |
+| Similarity range | 0.27 - 0.94 |
+| Median similarity | 0.49 |
+| Mean similarity | 0.50 |
+| Wiki-links resolved | 44 of 50 |
+| Confirmed by embeddings | 43 (98%) |
+| Surprising misses | 1 |
+| Candidate discoveries (>= 0.55) | 2,771 |
+
+The one surprising miss was "The disappearance of authentic voice online" -> "A digital garden as central space" (0.55, barely below threshold), which makes sense given the seed is only 43 words.
+
+The 2,771 candidates at the 0.55 threshold are too many. The top-scoring pairs are mostly obvious: same-series items (SSML lessons, ChatGPT evenings), near-duplicate books (both editions of "Conversational UX design"), and Dutch/English versions of the same article. The interesting cross-collection candidates exist but are buried in noise. Next step is threshold tuning and filtering.
+
+Script and full results: `scripts/full-scale-embeddings.py` and `scripts/full-scale-results.txt`. Saved embeddings for reuse: `scripts/embeddings-bge-m3.json`.
 
 Remaining:
 - Test graph-context enrichment: prepend wiki-linked titles to each item before embedding
