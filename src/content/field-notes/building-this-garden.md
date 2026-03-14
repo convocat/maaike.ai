@@ -1,5 +1,5 @@
 ---
-title: Building this garden
+title: "Building this garden: change log"
 date: 2026-03-12
 maturity: developing
 tags:
