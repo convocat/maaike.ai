@@ -52,7 +52,7 @@ The [[saga-knowledge-platform|Saga platform]] (SIGMOD 2022) builds knowledge gra
 Content items (markdown)
     ↓
 1. Extract key phrases + entities per item
-2. Compute embeddings (sentence-transformers)
+2. Compute embeddings (bge-m3 via Ollama)
 3. Block by shared tags/entities
 4. Within blocks: cosine similarity on embeddings
 5. Threshold → auto-links (high confidence) + candidates (review)

@@ -15,8 +15,8 @@ Things I want to build, explore, or fix. A scratchpad that grows with the garden
 ## Up next
 
 - **Conversational garden guide**: A chatbot-style UI for exploring the garden, without generative AI. Decision trees, smart linking, serendipity by design. See [[knowledge-gardens-and-serendipity]].
-- **LinkedIn integration**: Connect the garden to LinkedIn for cross-posting. Requires LinkedIn developer access (application pending).
 
 ## Done
 
+- **LinkedIn integration**: Connected to LinkedIn for cross-posting via developer API.
 - See [[building-this-garden]] for the full changelog.

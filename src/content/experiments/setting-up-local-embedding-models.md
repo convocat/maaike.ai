@@ -129,11 +129,12 @@ Apple's Saga platform computes entity embeddings using name + description + type
 
 For the garden's embedding pipeline: **always include metadata**. Prepend title, description, and tags to the body text before embedding. The cost is negligible (a few extra tokens) and the quality improvement for short items is substantial.
 
-## Next steps
+## What happened next
 
+Based on the results here, bge-m3 was selected for the full-scale run (see [[embedding-models-for-the-garden|model selection criteria]]). The full-scale run embedded all 157 garden items and compared the results against existing wiki-links: 43 out of 44 resolved links were confirmed by embedding similarity. Results and script are at `scripts/full-scale-embeddings.py` and `scripts/full-scale-results.txt`.
+
+Remaining:
 - Test graph-context enrichment: prepend wiki-linked titles to each item before embedding
-- Run on all ~176 garden items, not just 10
-- Compare results to existing manual wiki-links: how many does the model rediscover?
-- Test Dutch content handling across the three models
+- Test Dutch content handling specifically (implicit in the full run, but not measured separately)
 
 See the [[embedding-models-for-the-garden|embedding model survey]] for background on how these models work and how they compare.
