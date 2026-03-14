@@ -69,7 +69,7 @@ Periodic enrichment job:
 
 ## Status
 
-- [ ] Read and annotate both Saga papers
+- [x] Read and annotate both Saga papers ([[reading-notes-saga-knowledge-graph|reading notes]])
 - [ ] Survey embedding models suitable for short mixed-topic content
 - [ ] Prototype: extract key phrases from 10 garden items
 - [ ] Prototype: compute embeddings and find non-obvious connections
