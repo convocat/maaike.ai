@@ -74,6 +74,7 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 
 - **Sparks renamed to Seeds**: Collection renamed across the entire codebase to better fit the garden metaphor. New hand-drawn seed icon
 - **LinkedIn integration**: Connected LinkedIn developer app with OAuth, created `post-to-linkedin.mjs` script for direct API posting
-- **Share section in sidebar**: LinkedIn share button and copy-link button added to post sidebar, below suggested reading
+- **Share and tags in post footer**: LinkedIn share button, copy-link button, and tags moved from sidebar to a dedicated post footer section
+- **Sidebar as garden path**: Sidebar stripped down to navigation only: "Linked from" (backlinks), "Related" posts, and "Suggested reading", all with collection icons
 - **`/share-linkedin` skill updated**: Now offers direct API posting in addition to clipboard copy
 - **New seeds**: "Garden to do list" (living roadmap) and "Chatbots without AI" (conversational garden guide without LLMs)
