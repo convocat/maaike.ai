@@ -83,3 +83,8 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Projects page**: Cross-collection view showing all content tagged `project`. Added to header nav. No new collection needed: any content tagged `project` becomes a project hub
 - **Saga reading notes**: Detailed field note summarizing both Apple Saga papers (SIGMOD 2022 + 2023), with PDFs stored locally
 - **Project files in sidebar**: Project hub pages show "Project files" instead of "Linked from", listing all content that wiki-links back to the hub. Seeds can link forward to projects they inspired
+- **Embedding model survey**: Field note covering five eras of text embedding, comparison of three local models (nomic-embed-text, bge-m3, embeddinggemma), and model selection criteria for the garden's dataset
+- **Local embedding setup**: Experiment documenting Ollama installation and three-model comparison on 10 garden items (body text vs metadata-enriched)
+- **Full-scale embedding run**: bge-m3 on all 157 garden items, confirming 43/44 existing wiki-links and surfacing 2,771 candidate connections
+- **New seeds**: "Dutch-aware quantization" (language-specific model compression) and "Embeddings for knowledge gardens: a research gap" (PKM embedding research gap)
+- **Crew Resource Management**: Moved from field notes to seeds
