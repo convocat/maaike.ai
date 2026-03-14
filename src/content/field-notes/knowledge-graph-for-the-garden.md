@@ -70,7 +70,8 @@ Periodic enrichment job:
 ## Status
 
 - [x] Read and annotate both Saga papers ([[reading-notes-saga-knowledge-graph|reading notes]])
-- [ ] Survey embedding models suitable for short mixed-topic content
+- [x] Survey embedding models suitable for short mixed-topic content ([[embedding-models-for-the-garden|survey]])
+- [x] Set up candidate models locally via Ollama (nomic-embed-text, bge-m3, embeddinggemma)
 - [ ] Prototype: extract key phrases from 10 garden items
 - [ ] Prototype: compute embeddings and find non-obvious connections
 - [ ] Design the review UI for link candidates

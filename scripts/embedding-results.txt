@@ -1,0 +1,387 @@
+Reading 10 garden items...
+  Read 10 items
+
+  WORD COUNTS:
+    An evening with ChatGPT                            body:   646 | with meta:   669
+    De-biassing Dall-e                                 body:  1797 | with meta:  1814
+    A digital garden as central space                  body:  1249 | with meta:  1289
+    Context engineering? Let's call it design          body:   453 | with meta:   485
+    Knowledge gardens and serendipity                  body:   192 | with meta:   218
+    The disappearance of authentic voice online        body:    43 | with meta:    66
+    Chatbots without AI                                body:   225 | with meta:   249
+    Alone together (Sherry Turkle)                     body:   142 | with meta:   151
+    Designing for doubt                                body:   138 | with meta:   232
+    Reading notes: Saga knowledge graph                body:  1116 | with meta:  1147
+
+================================================================================
+MODEL: nomic-embed-text
+================================================================================
+
+--- RUN 1: Body text only ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (646 words -> 768 dims)
+    De-biassing Dall-e (1797 words -> 768 dims)
+    A digital garden as central space (1249 words -> 768 dims)
+    Context engineering? Let's call it design (453 words -> 768 dims)
+    Knowledge gardens and serendipity (192 words -> 768 dims)
+    The disappearance of authentic voice online (43 words -> 768 dims)
+    Chatbots without AI (225 words -> 768 dims)
+    Alone together (Sherry Turkle) (142 words -> 768 dims)
+    Designing for doubt (138 words -> 768 dims)
+    Reading notes: Saga knowledge graph (1116 words -> 768 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.7198   0.6927   0.6295   0.6817   0.6287   0.6868   0.6837   0.7460   0.6556
+      Dall-e   0.7198       --   0.6217   0.6050   0.5783   0.5817   0.5694   0.5539   0.6190   0.6258
+      Garden   0.6927   0.6217       --   0.6354   0.7370   0.7035   0.6673   0.6427   0.6596   0.6233
+     Context   0.6295   0.6050   0.6354       --   0.6515   0.5615   0.6127   0.5512   0.6674   0.6089
+    Serendip   0.6817   0.5783   0.7370   0.6515       --   0.5911   0.7868   0.6987   0.6639   0.7586
+       Voice   0.6287   0.5817   0.7035   0.5615   0.5911       --   0.5705   0.5990   0.6861   0.5364
+      NoBots   0.6868   0.5694   0.6673   0.6127   0.7868   0.5705       --   0.6415   0.7147   0.6349
+       Alone   0.6837   0.5539   0.6427   0.5512   0.6987   0.5990   0.6415       --   0.6781   0.6008
+       Doubt   0.7460   0.6190   0.6596   0.6674   0.6639   0.6861   0.7147   0.6781       --   0.6016
+        Saga   0.6556   0.6258   0.6233   0.6089   0.7586   0.5364   0.6349   0.6008   0.6016       --
+
+  TOP 10 most similar:
+    0.7868  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.7586  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.7460  An evening with ChatGPT  <->  Designing for doubt
+    0.7370  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.7198  An evening with ChatGPT  <->  De-biassing Dall-e
+    0.7147  Chatbots without AI  <->  Designing for doubt
+    0.7035  A digital garden as central space  <->  The disappearance of authentic voice online
+    0.6987  Knowledge gardens and serendipity  <->  Alone together (Sherry Turkle)
+    0.6927  An evening with ChatGPT  <->  A digital garden as central space
+    0.6868  An evening with ChatGPT  <->  Chatbots without AI
+
+  BOTTOM 5 least similar:
+    0.5694  De-biassing Dall-e  <->  Chatbots without AI
+    0.5615  Context engineering? Let's call it design  <->  The disappearance of authentic voice online
+    0.5539  De-biassing Dall-e  <->  Alone together (Sherry Turkle)
+    0.5512  Context engineering? Let's call it design  <->  Alone together (Sherry Turkle)
+    0.5364  The disappearance of authentic voice online  <->  Reading notes: Saga knowledge graph
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.7460)
+    De-biassing Dall-e                                 -> An evening with ChatGPT (0.7198)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.7370)
+    Context engineering? Let's call it design          -> Designing for doubt (0.6674)
+    Knowledge gardens and serendipity                  -> Chatbots without AI (0.7868)
+    The disappearance of authentic voice online        -> A digital garden as central space (0.7035)
+    Chatbots without AI                                -> Knowledge gardens and serendipity (0.7868)
+    Alone together (Sherry Turkle)                     -> Knowledge gardens and serendipity (0.6987)
+    Designing for doubt                                -> An evening with ChatGPT (0.7460)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.7586)
+
+--- RUN 2: With metadata (title + description + tags) ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (669 words -> 768 dims)
+    De-biassing Dall-e (1814 words -> 768 dims)
+    A digital garden as central space (1289 words -> 768 dims)
+    Context engineering? Let's call it design (485 words -> 768 dims)
+    Knowledge gardens and serendipity (218 words -> 768 dims)
+    The disappearance of authentic voice online (66 words -> 768 dims)
+    Chatbots without AI (249 words -> 768 dims)
+    Alone together (Sherry Turkle) (151 words -> 768 dims)
+    Designing for doubt (232 words -> 768 dims)
+    Reading notes: Saga knowledge graph (1147 words -> 768 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.6895   0.6725   0.7034   0.6481   0.6538   0.6876   0.6996   0.7983   0.6162
+      Dall-e   0.6895       --   0.6159   0.6422   0.5892   0.6487   0.6141   0.6175   0.7221   0.6200
+      Garden   0.6725   0.6159       --   0.6466   0.8513   0.7043   0.7810   0.7202   0.7086   0.7041
+     Context   0.7034   0.6422   0.6466       --   0.6403   0.5737   0.6495   0.6045   0.7184   0.6164
+    Serendip   0.6481   0.5892   0.8513   0.6403       --   0.6088   0.8314   0.7401   0.6921   0.7721
+       Voice   0.6538   0.6487   0.7043   0.5737   0.6088       --   0.6453   0.6863   0.7595   0.5719
+      NoBots   0.6876   0.6141   0.7810   0.6495   0.8314   0.6453       --   0.7114   0.7527   0.6867
+       Alone   0.6996   0.6175   0.7202   0.6045   0.7401   0.6863   0.7114       --   0.7380   0.6654
+       Doubt   0.7983   0.7221   0.7086   0.7184   0.6921   0.7595   0.7527   0.7380       --   0.6557
+        Saga   0.6162   0.6200   0.7041   0.6164   0.7721   0.5719   0.6867   0.6654   0.6557       --
+
+  TOP 10 most similar:
+    0.8513  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.8314  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.7983  An evening with ChatGPT  <->  Designing for doubt
+    0.7810  A digital garden as central space  <->  Chatbots without AI
+    0.7721  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.7595  The disappearance of authentic voice online  <->  Designing for doubt
+    0.7527  Chatbots without AI  <->  Designing for doubt
+    0.7401  Knowledge gardens and serendipity  <->  Alone together (Sherry Turkle)
+    0.7380  Alone together (Sherry Turkle)  <->  Designing for doubt
+    0.7221  De-biassing Dall-e  <->  Designing for doubt
+
+  BOTTOM 5 least similar:
+    0.6088  Knowledge gardens and serendipity  <->  The disappearance of authentic voice online
+    0.6045  Context engineering? Let's call it design  <->  Alone together (Sherry Turkle)
+    0.5892  De-biassing Dall-e  <->  Knowledge gardens and serendipity
+    0.5737  Context engineering? Let's call it design  <->  The disappearance of authentic voice online
+    0.5719  The disappearance of authentic voice online  <->  Reading notes: Saga knowledge graph
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.7983)
+    De-biassing Dall-e                                 -> Designing for doubt (0.7221)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.8513)
+    Context engineering? Let's call it design          -> Designing for doubt (0.7184)
+    Knowledge gardens and serendipity                  -> A digital garden as central space (0.8513)
+    The disappearance of authentic voice online        -> Designing for doubt (0.7595)
+    Chatbots without AI                                -> Knowledge gardens and serendipity (0.8314)
+    Alone together (Sherry Turkle)                     -> Knowledge gardens and serendipity (0.7401)
+    Designing for doubt                                -> An evening with ChatGPT (0.7983)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.7721)
+
+================================================================================
+MODEL: bge-m3
+================================================================================
+
+--- RUN 1: Body text only ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (646 words -> 1024 dims)
+    De-biassing Dall-e (1797 words -> 1024 dims)
+    A digital garden as central space (1249 words -> 1024 dims)
+    Context engineering? Let's call it design (453 words -> 1024 dims)
+    Knowledge gardens and serendipity (192 words -> 1024 dims)
+    The disappearance of authentic voice online (43 words -> 1024 dims)
+    Chatbots without AI (225 words -> 1024 dims)
+    Alone together (Sherry Turkle) (142 words -> 1024 dims)
+    Designing for doubt (138 words -> 1024 dims)
+    Reading notes: Saga knowledge graph (1116 words -> 1024 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.5839   0.5480   0.6433   0.4989   0.4907   0.5939   0.4645   0.6981   0.5332
+      Dall-e   0.5839       --   0.5604   0.5792   0.4502   0.4903   0.4745   0.4375   0.5421   0.4345
+      Garden   0.5480   0.5604       --   0.5644   0.6371   0.5640   0.5980   0.5152   0.5546   0.5672
+     Context   0.6433   0.5792   0.5644       --   0.5477   0.4658   0.5642   0.4486   0.5754   0.5393
+    Serendip   0.4989   0.4502   0.6371   0.5477       --   0.4769   0.6938   0.5544   0.5535   0.6185
+       Voice   0.4907   0.4903   0.5640   0.4658   0.4769       --   0.5009   0.5090   0.5795   0.3897
+      NoBots   0.5939   0.4745   0.5980   0.5642   0.6938   0.5009       --   0.4873   0.6538   0.5362
+       Alone   0.4645   0.4375   0.5152   0.4486   0.5544   0.5090   0.4873       --   0.5227   0.4610
+       Doubt   0.6981   0.5421   0.5546   0.5754   0.5535   0.5795   0.6538   0.5227       --   0.4868
+        Saga   0.5332   0.4345   0.5672   0.5393   0.6185   0.3897   0.5362   0.4610   0.4868       --
+
+  TOP 10 most similar:
+    0.6981  An evening with ChatGPT  <->  Designing for doubt
+    0.6938  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.6538  Chatbots without AI  <->  Designing for doubt
+    0.6433  An evening with ChatGPT  <->  Context engineering? Let's call it design
+    0.6371  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.6185  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.5980  A digital garden as central space  <->  Chatbots without AI
+    0.5939  An evening with ChatGPT  <->  Chatbots without AI
+    0.5839  An evening with ChatGPT  <->  De-biassing Dall-e
+    0.5795  The disappearance of authentic voice online  <->  Designing for doubt
+
+  BOTTOM 5 least similar:
+    0.4502  De-biassing Dall-e  <->  Knowledge gardens and serendipity
+    0.4486  Context engineering? Let's call it design  <->  Alone together (Sherry Turkle)
+    0.4375  De-biassing Dall-e  <->  Alone together (Sherry Turkle)
+    0.4345  De-biassing Dall-e  <->  Reading notes: Saga knowledge graph
+    0.3897  The disappearance of authentic voice online  <->  Reading notes: Saga knowledge graph
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.6981)
+    De-biassing Dall-e                                 -> An evening with ChatGPT (0.5839)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.6371)
+    Context engineering? Let's call it design          -> An evening with ChatGPT (0.6433)
+    Knowledge gardens and serendipity                  -> Chatbots without AI (0.6938)
+    The disappearance of authentic voice online        -> Designing for doubt (0.5795)
+    Chatbots without AI                                -> Knowledge gardens and serendipity (0.6938)
+    Alone together (Sherry Turkle)                     -> Knowledge gardens and serendipity (0.5544)
+    Designing for doubt                                -> An evening with ChatGPT (0.6981)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.6185)
+
+--- RUN 2: With metadata (title + description + tags) ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (669 words -> 1024 dims)
+    De-biassing Dall-e (1814 words -> 1024 dims)
+    A digital garden as central space (1289 words -> 1024 dims)
+    Context engineering? Let's call it design (485 words -> 1024 dims)
+    Knowledge gardens and serendipity (218 words -> 1024 dims)
+    The disappearance of authentic voice online (66 words -> 1024 dims)
+    Chatbots without AI (249 words -> 1024 dims)
+    Alone together (Sherry Turkle) (151 words -> 1024 dims)
+    Designing for doubt (232 words -> 1024 dims)
+    Reading notes: Saga knowledge graph (1147 words -> 1024 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.6253   0.5483   0.6799   0.5282   0.4848   0.6360   0.4969   0.7285   0.5404
+      Dall-e   0.6253       --   0.5760   0.6074   0.5059   0.4712   0.5329   0.4609   0.5808   0.4714
+      Garden   0.5483   0.5760       --   0.5831   0.6895   0.5488   0.6554   0.5412   0.5834   0.6011
+     Context   0.6799   0.6074   0.5831       --   0.5585   0.4278   0.5884   0.4772   0.5995   0.5329
+    Serendip   0.5282   0.5059   0.6895   0.5585       --   0.4941   0.7279   0.5910   0.6013   0.6145
+       Voice   0.4848   0.4712   0.5488   0.4278   0.4941       --   0.5410   0.5934   0.5754   0.4093
+      NoBots   0.6360   0.5329   0.6554   0.5884   0.7279   0.5410       --   0.5292   0.6978   0.5641
+       Alone   0.4969   0.4609   0.5412   0.4772   0.5910   0.5934   0.5292       --   0.5746   0.4819
+       Doubt   0.7285   0.5808   0.5834   0.5995   0.6013   0.5754   0.6978   0.5746       --   0.5237
+        Saga   0.5404   0.4714   0.6011   0.5329   0.6145   0.4093   0.5641   0.4819   0.5237       --
+
+  TOP 10 most similar:
+    0.7285  An evening with ChatGPT  <->  Designing for doubt
+    0.7279  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.6978  Chatbots without AI  <->  Designing for doubt
+    0.6895  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.6799  An evening with ChatGPT  <->  Context engineering? Let's call it design
+    0.6554  A digital garden as central space  <->  Chatbots without AI
+    0.6360  An evening with ChatGPT  <->  Chatbots without AI
+    0.6253  An evening with ChatGPT  <->  De-biassing Dall-e
+    0.6145  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.6074  De-biassing Dall-e  <->  Context engineering? Let's call it design
+
+  BOTTOM 5 least similar:
+    0.4714  De-biassing Dall-e  <->  Reading notes: Saga knowledge graph
+    0.4712  De-biassing Dall-e  <->  The disappearance of authentic voice online
+    0.4609  De-biassing Dall-e  <->  Alone together (Sherry Turkle)
+    0.4278  Context engineering? Let's call it design  <->  The disappearance of authentic voice online
+    0.4093  The disappearance of authentic voice online  <->  Reading notes: Saga knowledge graph
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.7285)
+    De-biassing Dall-e                                 -> An evening with ChatGPT (0.6253)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.6895)
+    Context engineering? Let's call it design          -> An evening with ChatGPT (0.6799)
+    Knowledge gardens and serendipity                  -> Chatbots without AI (0.7279)
+    The disappearance of authentic voice online        -> Alone together (Sherry Turkle) (0.5934)
+    Chatbots without AI                                -> Knowledge gardens and serendipity (0.7279)
+    Alone together (Sherry Turkle)                     -> The disappearance of authentic voice online (0.5934)
+    Designing for doubt                                -> An evening with ChatGPT (0.7285)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.6145)
+
+================================================================================
+MODEL: embeddinggemma:300m
+================================================================================
+
+--- RUN 1: Body text only ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (646 words -> 768 dims)
+    De-biassing Dall-e (1797 words -> 768 dims)
+    A digital garden as central space (1249 words -> 768 dims)
+    Context engineering? Let's call it design (453 words -> 768 dims)
+    Knowledge gardens and serendipity (192 words -> 768 dims)
+    The disappearance of authentic voice online (43 words -> 768 dims)
+    Chatbots without AI (225 words -> 768 dims)
+    Alone together (Sherry Turkle) (142 words -> 768 dims)
+    Designing for doubt (138 words -> 768 dims)
+    Reading notes: Saga knowledge graph (1116 words -> 768 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.4816   0.4088   0.5241   0.3063   0.4101   0.5744   0.1821   0.6303   0.3694
+      Dall-e   0.4816       --   0.3426   0.4407   0.2545   0.3353   0.4014   0.1541   0.3753   0.3123
+      Garden   0.4088   0.3426       --   0.3977   0.5957   0.4753   0.5042   0.2694   0.3937   0.4942
+     Context   0.5241   0.4407   0.3977       --   0.3874   0.4381   0.5619   0.1680   0.5289   0.3957
+    Serendip   0.3063   0.2545   0.5957   0.3874       --   0.3723   0.5920   0.3322   0.3493   0.5763
+       Voice   0.4101   0.3353   0.4753   0.4381   0.3723       --   0.5274   0.2775   0.4777   0.2621
+      NoBots   0.5744   0.4014   0.5042   0.5619   0.5920   0.5274       --   0.2521   0.6141   0.4973
+       Alone   0.1821   0.1541   0.2694   0.1680   0.3322   0.2775   0.2521       --   0.2709   0.1759
+       Doubt   0.6303   0.3753   0.3937   0.5289   0.3493   0.4777   0.6141   0.2709       --   0.3173
+        Saga   0.3694   0.3123   0.4942   0.3957   0.5763   0.2621   0.4973   0.1759   0.3173       --
+
+  TOP 10 most similar:
+    0.6303  An evening with ChatGPT  <->  Designing for doubt
+    0.6141  Chatbots without AI  <->  Designing for doubt
+    0.5957  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.5920  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.5763  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.5744  An evening with ChatGPT  <->  Chatbots without AI
+    0.5619  Context engineering? Let's call it design  <->  Chatbots without AI
+    0.5289  Context engineering? Let's call it design  <->  Designing for doubt
+    0.5274  The disappearance of authentic voice online  <->  Chatbots without AI
+    0.5241  An evening with ChatGPT  <->  Context engineering? Let's call it design
+
+  BOTTOM 5 least similar:
+    0.2521  Chatbots without AI  <->  Alone together (Sherry Turkle)
+    0.1821  An evening with ChatGPT  <->  Alone together (Sherry Turkle)
+    0.1759  Alone together (Sherry Turkle)  <->  Reading notes: Saga knowledge graph
+    0.1680  Context engineering? Let's call it design  <->  Alone together (Sherry Turkle)
+    0.1541  De-biassing Dall-e  <->  Alone together (Sherry Turkle)
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.6303)
+    De-biassing Dall-e                                 -> An evening with ChatGPT (0.4816)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.5957)
+    Context engineering? Let's call it design          -> Chatbots without AI (0.5619)
+    Knowledge gardens and serendipity                  -> A digital garden as central space (0.5957)
+    The disappearance of authentic voice online        -> Chatbots without AI (0.5274)
+    Chatbots without AI                                -> Designing for doubt (0.6141)
+    Alone together (Sherry Turkle)                     -> Knowledge gardens and serendipity (0.3322)
+    Designing for doubt                                -> An evening with ChatGPT (0.6303)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.5763)
+
+--- RUN 2: With metadata (title + description + tags) ---
+
+  Embedding 10 items...
+    An evening with ChatGPT (669 words -> 768 dims)
+    De-biassing Dall-e (1814 words -> 768 dims)
+    A digital garden as central space (1289 words -> 768 dims)
+    Context engineering? Let's call it design (485 words -> 768 dims)
+    Knowledge gardens and serendipity (218 words -> 768 dims)
+    The disappearance of authentic voice online (66 words -> 768 dims)
+    Chatbots without AI (249 words -> 768 dims)
+    Alone together (Sherry Turkle) (151 words -> 768 dims)
+    Designing for doubt (232 words -> 768 dims)
+    Reading notes: Saga knowledge graph (1147 words -> 768 dims)
+
+  SIMILARITY MATRIX:
+
+              ChatGPT   Dall-e   Garden  Context Serendip    Voice   NoBots    Alone    Doubt     Saga
+             -------- -------- -------- -------- -------- -------- -------- -------- -------- --------
+     ChatGPT       --   0.5206   0.3956   0.6616   0.3450   0.4602   0.5867   0.3303   0.6710   0.4237
+      Dall-e   0.5206       --   0.3217   0.5197   0.2749   0.4258   0.4213   0.2522   0.4545   0.3489
+      Garden   0.3956   0.3217       --   0.3826   0.5997   0.4738   0.5580   0.3228   0.3956   0.4974
+     Context   0.6616   0.5197   0.3826       --   0.3868   0.4431   0.5749   0.2828   0.5955   0.4160
+    Serendip   0.3450   0.2749   0.5997   0.3868       --   0.4546   0.6443   0.4392   0.4127   0.5728
+       Voice   0.4602   0.4258   0.4738   0.4431   0.4546       --   0.5624   0.4645   0.5411   0.3436
+      NoBots   0.5867   0.4213   0.5580   0.5749   0.6443   0.5624       --   0.4103   0.6616   0.4902
+       Alone   0.3303   0.2522   0.3228   0.2828   0.4392   0.4645   0.4103       --   0.3837   0.3133
+       Doubt   0.6710   0.4545   0.3956   0.5955   0.4127   0.5411   0.6616   0.3837       --   0.3817
+        Saga   0.4237   0.3489   0.4974   0.4160   0.5728   0.3436   0.4902   0.3133   0.3817       --
+
+  TOP 10 most similar:
+    0.6710  An evening with ChatGPT  <->  Designing for doubt
+    0.6616  An evening with ChatGPT  <->  Context engineering? Let's call it design
+    0.6616  Chatbots without AI  <->  Designing for doubt
+    0.6443  Knowledge gardens and serendipity  <->  Chatbots without AI
+    0.5997  A digital garden as central space  <->  Knowledge gardens and serendipity
+    0.5955  Context engineering? Let's call it design  <->  Designing for doubt
+    0.5867  An evening with ChatGPT  <->  Chatbots without AI
+    0.5749  Context engineering? Let's call it design  <->  Chatbots without AI
+    0.5728  Knowledge gardens and serendipity  <->  Reading notes: Saga knowledge graph
+    0.5624  The disappearance of authentic voice online  <->  Chatbots without AI
+
+  BOTTOM 5 least similar:
+    0.3217  De-biassing Dall-e  <->  A digital garden as central space
+    0.3133  Alone together (Sherry Turkle)  <->  Reading notes: Saga knowledge graph
+    0.2828  Context engineering? Let's call it design  <->  Alone together (Sherry Turkle)
+    0.2749  De-biassing Dall-e  <->  Knowledge gardens and serendipity
+    0.2522  De-biassing Dall-e  <->  Alone together (Sherry Turkle)
+
+  CLOSEST MATCH per item:
+    An evening with ChatGPT                            -> Designing for doubt (0.6710)
+    De-biassing Dall-e                                 -> An evening with ChatGPT (0.5206)
+    A digital garden as central space                  -> Knowledge gardens and serendipity (0.5997)
+    Context engineering? Let's call it design          -> An evening with ChatGPT (0.6616)
+    Knowledge gardens and serendipity                  -> Chatbots without AI (0.6443)
+    The disappearance of authentic voice online        -> Chatbots without AI (0.5624)
+    Chatbots without AI                                -> Designing for doubt (0.6616)
+    Alone together (Sherry Turkle)                     -> The disappearance of authentic voice online (0.4645)
+    Designing for doubt                                -> An evening with ChatGPT (0.6710)
+    Reading notes: Saga knowledge graph                -> Knowledge gardens and serendipity (0.5728)
+
