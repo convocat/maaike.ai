@@ -1,0 +1,1263 @@
+Scanning all garden content...
+Found 157 non-draft items across 8 collections
+
+  articles: 46 items
+  field-notes: 8 items
+  seeds: 13 items
+  weblinks: 3 items
+  videos: 27 items
+  library: 59 items
+  experiments: 1 items
+
+  Total wiki-links found: 50
+
+Embedding 157 items with bge-m3...
+  10/157 done
+  20/157 done
+  30/157 done
+  40/157 done
+  50/157 done
+  60/157 done
+  70/157 done
+  80/157 done
+  90/157 done
+  100/157 done
+  110/157 done
+  120/157 done
+  130/157 done
+  140/157 done
+  150/157 done
+  157/157 done
+
+Embeddings saved to embeddings-bge-m3.json
+
+================================================================================
+TOP 5 SUGGESTIONS PER ITEM
+================================================================================
+
+  2 years and 700 members: insights from Convoclub [articles]
+    0.7352  Convoclub: Clubhouse for conversation designers!
+    0.7040  How do I become a conversation designer?
+    0.6975  Convo question: Should I learn programming?
+    0.6932  The lone convo designer: a checklist for a team-of-one
+    0.6866  Hoe word ik conversation designer?
+
+  7 new skills to learn for conversation designers in 2022 [articles]
+    0.6915  How do I become a conversation designer?
+    0.6900  Convo question: Should I learn programming?
+    0.6876  Hoe word ik conversation designer?
+    0.6759  2 years and 700 members: insights from Convoclub
+    0.6753  The lone convo designer: a checklist for a team-of-one
+
+  A digital garden as central space for my thoughts and writing [articles]
+    0.7282  Building this garden: change log [linked]
+    0.7102  The History of Digital Gardens [linked]
+    0.7035  Principles behind this garden
+    0.6907  Digital Gardens vs Blogs
+    0.6895  Knowledge gardens and serendipity
+
+  Air Canada's bot mishap pre-dates ChatGPT [articles]
+    0.6776  Scrum for conversational teams: sprints
+    0.6658  Designing for doubt
+    0.6632  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.6570  Hey ChatGPT, who's the boss?
+    0.6544  Corona is spreading…and so are the bots
+
+  An evening with ChatGPT (2) [articles]
+    0.8293  An evening with ChatGPT (3)
+    0.7702  An evening with ChatGPT
+    0.7512  Designing for doubt
+    0.7030  Why ChatGPT is bullshit (and why we should design for that)
+    0.6962  How to make ChatGPT more conversational
+
+  An evening with ChatGPT (3) [articles]
+    0.8293  An evening with ChatGPT (2)
+    0.7846  An evening with ChatGPT
+    0.7317  Why ChatGPT is bullshit (and why we should design for that)
+    0.7263  Designing for doubt
+    0.7225  My favorite ChatGPT use case: presentation prep!
+
+  An evening with ChatGPT - the september 2023 edition [articles]
+    0.7127  Stay calm and keep thinking for yourself
+    0.7127  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.6910  Why ChatGPT is bullshit (and why we should design for that)
+    0.6878  An evening with ChatGPT
+    0.6691  Designing for doubt
+
+  An evening with ChatGPT [articles]
+    0.7846  An evening with ChatGPT (3)
+    0.7702  An evening with ChatGPT (2)
+    0.7285  Designing for doubt
+    0.7147  My favorite ChatGPT use case: presentation prep!
+    0.7133  Why ChatGPT is bullshit (and why we should design for that)
+
+  An evening with YouChat and Chatsonic — with a bit of a twist [articles]
+    0.7759  Why ChatGPT is bullshit (and why we should design for that)
+    0.7203  An evening with ChatGPT (3)
+    0.7173  Designing for doubt
+    0.7141  Hey ChatGPT, who's the boss?
+    0.7127  An evening with ChatGPT - the september 2023 edition
+
+  Blender turned rogue? [articles]
+    0.6759  Microsoft: "you're using Bing wrong! You're not supposed to talk with it!"
+    0.6305  An evening with ChatGPT
+    0.6287  Designing for doubt
+    0.6280  How do I become a conversation designer?
+    0.6204  Why ChatGPT is bullshit (and why we should design for that)
+
+  Bye bye Alpaca...knowledge as the missing fundamental? [articles]
+    0.7568  The issue with LLM hallucinations: knowledge as a missing fundamental [linked]
+    0.6127  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.6071  What happens when AI has read everything?
+    0.5980  Setting up local embedding models
+    0.5858  Why ChatGPT is bullshit (and why we should design for that)
+
+  My favorite ChatGPT use case: presentation prep! [articles]
+    0.7790  Conversational interfaces are not easy
+    0.7264  Why ChatGPT is bullshit (and why we should design for that)
+    0.7225  An evening with ChatGPT (3)
+    0.7147  An evening with ChatGPT
+    0.7073  Stay calm and keep thinking for yourself
+
+  Context engineering? Let's call it design [articles]
+    0.6820  Prompt Scaffolding
+    0.6799  An evening with ChatGPT
+    0.6793  Putting the design in prompt design [linked]
+    0.6639  An evening with ChatGPT (2)
+    0.6604  Convo question: Should I learn programming?
+
+  Conversational interfaces are not easy [articles]
+    0.7790  My favorite ChatGPT use case: presentation prep!
+    0.7241  Why ChatGPT is bullshit (and why we should design for that)
+    0.7035  What happens when AI has read everything?
+    0.6958  Stay calm and keep thinking for yourself
+    0.6922  An evening with ChatGPT (3)
+
+  Convo question: Should I learn programming? [articles]
+    0.7120  Hoe word ik conversation designer?
+    0.7103  How do I become a conversation designer?
+    0.7040  The lone convo designer: a checklist for a team-of-one
+    0.6975  2 years and 700 members: insights from Convoclub
+    0.6900  7 new skills to learn for conversation designers in 2022
+
+  Convoclub: Clubhouse for conversation designers! [articles]
+    0.7352  2 years and 700 members: insights from Convoclub
+    0.7163  Hoe word ik conversation designer?
+    0.7107  How do I become a conversation designer?
+    0.6790  Nieuwe editie voicelunch: language & linguistics!
+    0.6771  Saturday design thoughts
+
+  Corona is spreading…and so are the bots [articles]
+    0.7113  How do I become a conversation designer?
+    0.6679  Hoe word ik conversation designer?
+    0.6664  How to create your own content quality audit
+    0.6636  The lone convo designer: a checklist for a team-of-one
+    0.6544  Air Canada's bot mishap pre-dates ChatGPT
+
+  De-biassing Dall-e [articles]
+    0.7607  Online prompt workshop: de-biasing Dall-e
+    0.7481  Fingers crossed is a figure of speech, DALL-E! [linked]
+    0.6253  An evening with ChatGPT
+    0.6203  Conversational interfaces are not easy
+    0.6097  An evening with ChatGPT (3)
+
+  European chatbot conference: 10 talks that I'm going to rewatch [articles]
+    0.6751  Stay calm and keep thinking for yourself
+    0.6680  Hoe word ik conversation designer?
+    0.6647  Designing for doubt
+    0.6624  How do I become a conversation designer?
+    0.6399  Voicebot and Chatbot Design
+
+  Fingers crossed is a figure of speech, DALL-E! [articles]
+    0.7481  De-biassing Dall-e [linked]
+    0.6787  Online prompt workshop: de-biasing Dall-e
+    0.6251  An evening with ChatGPT (3)
+    0.6245  An evening with ChatGPT
+    0.6026  An evening with ChatGPT (2)
+
+  Hey ChatGPT, who's the boss? [articles]
+    0.7141  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.7066  Why ChatGPT is bullshit (and why we should design for that)
+    0.6910  Designing for doubt
+    0.6822  An evening with ChatGPT (3)
+    0.6768  An evening with ChatGPT
+
+  Hildegard von Bingen [articles]
+    0.5198  Invisible Women
+    0.5029  Microsoft: "you're using Bing wrong! You're not supposed to talk with it!"
+    0.4966  The long and winding road
+    0.4897  Understanding speech — part 1
+    0.4699  Writing as a conversation with yourself
+
+  Hoe word ik conversation designer? [articles]
+    0.9337  How do I become a conversation designer?
+    0.7347  The lone convo designer: a checklist for a team-of-one
+    0.7163  Convoclub: Clubhouse for conversation designers!
+    0.7138  Designing for doubt
+    0.7120  Convo question: Should I learn programming?
+
+  How do I become a conversation designer? [articles]
+    0.9337  Hoe word ik conversation designer?
+    0.7643  The lone convo designer: a checklist for a team-of-one
+    0.7182  Designing for doubt
+    0.7113  Corona is spreading…and so are the bots
+    0.7107  Convoclub: Clubhouse for conversation designers!
+
+  How to create your own content quality audit [articles]
+    0.7519  You're not married to your texts [linked]
+    0.7471  The lone convo designer: a checklist for a team-of-one
+    0.6795  Scrum for conversational teams: sprints
+    0.6783  2 years and 700 members: insights from Convoclub
+    0.6777  Off to a good start
+
+  How to make ChatGPT more conversational [articles]
+    0.7706  Prompt tutorials for conversation designers
+    0.7033  An evening with ChatGPT (3)
+    0.6962  An evening with ChatGPT (2)
+    0.6789  Designing for doubt
+    0.6663  How do I become a conversation designer?
+
+  The issue with LLM hallucinations: knowledge as a missing fundamental [articles]
+    0.7568  Bye bye Alpaca...knowledge as the missing fundamental? [linked]
+    0.5801  Saturday design thoughts
+    0.5649  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.5624  Prompt Scaffolding
+    0.5558  Prompt thought: summaries
+
+  Microsoft: "you're using Bing wrong! You're not supposed to talk with it!" [articles]
+    0.7148  Designing for doubt
+    0.7145  Why ChatGPT is bullshit (and why we should design for that)
+    0.6863  Stay calm and keep thinking for yourself
+    0.6862  An evening with ChatGPT (3)
+    0.6860  An evening with ChatGPT
+
+  Nieuwe editie voicelunch: language & linguistics! [articles]
+    0.6989  Visual notes: Brian Roemmele @voicelunch
+    0.6790  Convoclub: Clubhouse for conversation designers!
+    0.6491  Hoe word ik conversation designer?
+    0.6421  How do I become a conversation designer?
+    0.6086  European chatbot conference: 10 talks that I'm going to rewatch
+
+  Off to a good start [articles]
+    0.7349  The lone convo designer: a checklist for a team-of-one
+    0.6893  How do I become a conversation designer?
+    0.6777  How to create your own content quality audit
+    0.6736  2 years and 700 members: insights from Convoclub
+    0.6614  Hoe word ik conversation designer?
+
+  Online prompt workshop: de-biasing Dall-e [articles]
+    0.7607  De-biassing Dall-e
+    0.6787  Fingers crossed is a figure of speech, DALL-E!
+    0.6343  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.5900  Lunchbreak with Claude
+    0.5897  Putting the design in prompt design
+
+  Online uitgeput? Pak een kruk [articles]
+    0.6107  You're not married to your texts
+    0.6036  Off to a good start
+    0.5864  Scrum for conversational teams: sprints
+    0.5813  The long and winding road
+    0.5693  Saturday design thoughts
+
+  Onthaast je voice action met SSML [articles]
+    0.7237  Understanding speech — part 1
+    0.6251  Quickstart SSML: les 4 'SSML invoeren in Dialogflow'
+    0.6164  Understanding speech — Part 2
+    0.6087  Quickstart SSML: les 1 'Intonatie'
+    0.5930  Quickstart SSML: les 3 'De basiselementen'
+
+  Prompt thought: summaries [articles]
+    0.6636  Prompt Scaffolding
+    0.6401  Putting the design in prompt design
+    0.6334  Conversational interfaces are not easy
+    0.6305  Context engineering? Let's call it design
+    0.6078  De-biassing Dall-e
+
+  Putting the design in prompt design [articles]
+    0.6983  An evening with ChatGPT (3)
+    0.6793  Context engineering? Let's call it design [linked]
+    0.6649  An evening with ChatGPT (2)
+    0.6628  Prompt Scaffolding
+    0.6505  Saturday design thoughts
+
+  Saturday design thoughts [articles]
+    0.6880  Why ChatGPT is bullshit (and why we should design for that)
+    0.6797  Designing for doubt [linked]
+    0.6771  Convoclub: Clubhouse for conversation designers!
+    0.6550  How do I become a conversation designer?
+    0.6538  Microsoft: "you're using Bing wrong! You're not supposed to talk with it!"
+
+  Scrum for conversational teams: sprints [articles]
+    0.6795  How to create your own content quality audit
+    0.6776  Air Canada's bot mishap pre-dates ChatGPT
+    0.6726  Conversational interfaces are not easy
+    0.6561  My favorite ChatGPT use case: presentation prep!
+    0.6530  How do I become a conversation designer?
+
+  Stay calm and keep thinking for yourself [articles]
+    0.7677  Why ChatGPT is bullshit (and why we should design for that)
+    0.7127  An evening with ChatGPT - the september 2023 edition
+    0.7073  My favorite ChatGPT use case: presentation prep!
+    0.7045  Designing for doubt
+    0.7032  An evening with ChatGPT
+
+  The lone convo designer: a checklist for a team-of-one [articles]
+    0.7643  How do I become a conversation designer?
+    0.7471  How to create your own content quality audit
+    0.7349  Off to a good start
+    0.7347  Hoe word ik conversation designer?
+    0.7040  Convo question: Should I learn programming?
+
+  The long and winding road [articles]
+    0.6643  The lone convo designer: a checklist for a team-of-one
+    0.6631  2 years and 700 members: insights from Convoclub
+    0.6586  How do I become a conversation designer?
+    0.6548  Off to a good start
+    0.6394  Saturday design thoughts
+
+  Understanding speech — part 1 [articles]
+    0.7237  Onthaast je voice action met SSML
+    0.7118  Understanding speech — Part 2 [linked]
+    0.6553  Conversational interfaces are not easy
+    0.6468  How do I become a conversation designer?
+    0.6352  Context engineering? Let's call it design
+
+  Understanding speech — Part 2 [articles]
+    0.7118  Understanding speech — part 1 [linked]
+    0.6412  Hoe word ik conversation designer?
+    0.6381  How do I become a conversation designer?
+    0.6300  Conversational interfaces are not easy
+    0.6245  European chatbot conference: 10 talks that I'm going to rewatch
+
+  Visual notes: Brian Roemmele @voicelunch [articles]
+    0.6989  Nieuwe editie voicelunch: language & linguistics!
+    0.6073  Convoclub: Clubhouse for conversation designers!
+    0.5754  European chatbot conference: 10 talks that I'm going to rewatch
+    0.5726  Saturday design thoughts
+    0.5523  Lunchbreak with Claude
+
+  What happens when AI has read everything? [articles]
+    0.7035  Conversational interfaces are not easy
+    0.6950  Why ChatGPT is bullshit (and why we should design for that)
+    0.6867  Stay calm and keep thinking for yourself
+    0.6707  Artificial Intelligence: A guide for thinking humans
+    0.6331  An evening with YouChat and Chatsonic — with a bit of a twist
+
+  Why ChatGPT is bullshit (and why we should design for that) [articles]
+    0.7759  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.7677  Stay calm and keep thinking for yourself
+    0.7619  Designing for doubt [linked]
+    0.7317  An evening with ChatGPT (3)
+    0.7264  My favorite ChatGPT use case: presentation prep!
+
+  You're not married to your texts [articles]
+    0.7519  How to create your own content quality audit [linked]
+    0.6724  The lone convo designer: a checklist for a team-of-one
+    0.6472  Conversational interfaces are not easy
+    0.6358  Scrum for conversational teams: sprints
+    0.6334  Corona is spreading…and so are the bots
+
+  Building this garden: change log [field-notes]
+    0.7282  A digital garden as central space for my thoughts and writing [linked]
+    0.7223  Knowledge graph for the garden
+    0.7201  Garden to do list
+    0.6848  Reading notes: Apple's Saga knowledge graph
+    0.6503  Principles behind this garden
+
+  Project memory for persistent context [field-notes]
+    0.6459  Context engineering? Let's call it design
+    0.5949  A digital garden as central space for my thoughts and writing
+    0.5920  Stay calm and keep thinking for yourself
+    0.5919  An evening with ChatGPT
+    0.5889  Sunday afternoon with Claude: let's build an interactive tutorial
+
+  Digital Gardens vs Blogs [field-notes]
+    0.7504  The History of Digital Gardens
+    0.7500  Thinking in Public [linked]
+    0.6907  A digital garden as central space for my thoughts and writing [linked]
+    0.6900  Principles behind this garden
+    0.6769  Garden to do list
+
+  Embedding models: a survey for the garden [field-notes]
+    0.7550  Knowledge graph for the garden [linked]
+    0.7474  Embeddings for knowledge gardens: a research gap
+    0.7454  Setting up local embedding models [linked]
+    0.7070  Reading notes: Apple's Saga knowledge graph
+    0.6393  Dutch-aware quantization
+
+  Knowledge graph for the garden [field-notes]
+    0.8430  Reading notes: Apple's Saga knowledge graph [linked]
+    0.7650  Saga: a platform for continuous construction and serving of knowledge at scale [linked]
+    0.7612  Embeddings for knowledge gardens: a research gap
+    0.7550  Embedding models: a survey for the garden [linked]
+    0.7312  Setting up local embedding models
+
+  Prompt Scaffolding [field-notes]
+    0.6820  Context engineering? Let's call it design
+    0.6820  Types of prompting
+    0.6653  How to make ChatGPT more conversational
+    0.6636  Prompt thought: summaries
+    0.6628  Putting the design in prompt design
+
+  Reading notes: Apple's Saga knowledge graph [field-notes]
+    0.8430  Knowledge graph for the garden [linked]
+    0.8319  Saga: a platform for continuous construction and serving of knowledge at scale [linked]
+    0.7070  Embedding models: a survey for the garden
+    0.6938  Setting up local embedding models
+    0.6848  Building this garden: change log
+
+  Thinking in Public [field-notes]
+    0.7500  Digital Gardens vs Blogs [linked]
+    0.7429  Principles behind this garden
+    0.7026  The History of Digital Gardens
+    0.6901  Knowledge gardens and serendipity
+    0.6685  A digital garden as central space for my thoughts and writing [linked]
+
+  AI as writing partner [seeds]
+    0.6988  AI transparency in content
+    0.6796  Style guide for AI
+    0.6511  Writing as a conversation with yourself
+    0.6380  Generative AI: new roles, skills & tools for content professionals
+    0.6377  It's better to be a good machine than a bad person
+
+  AI transparency in content [seeds]
+    0.6988  AI as writing partner
+    0.6863  Style guide for AI
+    0.6701  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.6645  Principles behind this garden
+    0.6557  Generative AI: new roles, skills & tools for content professionals
+
+  Chatbots without AI [seeds]
+    0.7307  Garden to do list
+    0.7279  Knowledge gardens and serendipity [linked]
+    0.6978  Designing for doubt
+    0.6733  Knowledge graph for the garden
+    0.6634  How do I become a conversation designer?
+
+  Crew Resource Management [seeds]
+    0.6154  Content strategy at work
+    0.6131  How people learn
+    0.5994  Human factors and voice interaction systems
+    0.5965  Organising knowledge
+    0.5779  LLMs: how they work in a nutshell and some of their risks
+
+  Dutch-aware quantization [seeds]
+    0.6393  Embedding models: a survey for the garden
+    0.6294  Why ChatGPT is bullshit (and why we should design for that)
+    0.6294  Setting up local embedding models
+    0.5997  Embeddings for knowledge gardens: a research gap
+    0.5992  Knowledge graph for the garden [linked]
+
+  Embeddings for knowledge gardens: a research gap [seeds]
+    0.7612  Knowledge graph for the garden [linked]
+    0.7474  Embedding models: a survey for the garden
+    0.6890  Setting up local embedding models
+    0.6868  Knowledge gardens and serendipity [linked]
+    0.6828  Reading notes: Apple's Saga knowledge graph
+
+  Garden to do list [seeds]
+    0.7382  How to build a digital garden
+    0.7307  Chatbots without AI
+    0.7201  Building this garden: change log [linked]
+    0.7106  Knowledge gardens and serendipity [linked]
+    0.7024  Principles behind this garden
+
+  How to build a digital garden [seeds]
+    0.7569  The History of Digital Gardens
+    0.7382  Garden to do list
+    0.7189  Principles behind this garden
+    0.6666  A digital garden as central space for my thoughts and writing
+    0.6590  Digital Gardens vs Blogs
+
+  Knowledge gardens and serendipity [seeds]
+    0.7279  Chatbots without AI
+    0.7106  Garden to do list
+    0.7060  Principles behind this garden
+    0.7047  Knowledge graph for the garden [linked]
+    0.6991  The History of Digital Gardens
+
+  Principles behind this garden [seeds]
+    0.7429  Thinking in Public
+    0.7289  The History of Digital Gardens
+    0.7189  How to build a digital garden
+    0.7060  Knowledge gardens and serendipity
+    0.7035  A digital garden as central space for my thoughts and writing [linked]
+
+  Style guide for AI [seeds]
+    0.6863  AI transparency in content
+    0.6796  AI as writing partner
+    0.6657  Generative AI: new roles, skills & tools for content professionals
+    0.6573  Conversational interfaces are not easy
+    0.6215  Sunday afternoon with Claude: let's build an interactive tutorial
+
+  The disappearance of authentic voice online [seeds]
+    0.6056  What happens when AI has read everything?
+    0.5934  Alone together
+    0.5910  Conversational interfaces are not easy
+    0.5887  Style guide for AI
+    0.5837  AI transparency in content
+
+  Writing as a conversation with yourself [seeds]
+    0.6625  Principles behind this garden
+    0.6550  Thinking in Public
+    0.6511  AI as writing partner
+    0.6231  Digital Gardens vs Blogs
+    0.6194  Saturday design thoughts
+
+  The History of Digital Gardens [weblinks]
+    0.7569  How to build a digital garden
+    0.7504  Digital Gardens vs Blogs
+    0.7289  Principles behind this garden
+    0.7102  A digital garden as central space for my thoughts and writing
+    0.7026  Thinking in Public
+
+  Saga: a platform for continuous construction and serving of knowledge at scale [weblinks]
+    0.8319  Reading notes: Apple's Saga knowledge graph
+    0.7650  Knowledge graph for the garden
+    0.6370  Building this garden: change log
+    0.6156  Knowledge gardens and serendipity
+    0.6037  Embeddings for knowledge gardens: a research gap
+
+  www.linkedin.com [weblinks]
+    0.6092  Entitled
+    0.5820  How people learn
+    0.5778  You Look Like a Thing and I Love You
+    0.5756  Organising knowledge
+    0.5681  Content strategy at work
+
+  A little Sunday afternoon rant [videos]
+    0.7102  LinkedIn AI buttons: a little rant
+    0.6600  An evening with Perplexity AI
+    0.6453  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.5926  Strawberries! (And how 1 model gets it right)
+    0.5911  It's better to be a good machine than a bad person
+
+  An evening with Copilot for Powerpoint: please bring Clippie back! [videos]
+    0.7019  An evening with Perplexity AI
+    0.6692  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.6591  Lunchbreak with Claude
+    0.6382  Kudos to Chevrolet!
+    0.6344  Prompt tutorials for conversation designers
+
+  An evening with Perplexity AI [videos]
+    0.7019  An evening with Copilot for Powerpoint: please bring Clippie back!
+    0.6866  Types of AI
+    0.6600  A little Sunday afternoon rant
+    0.6519  Lunchbreak with Claude
+    0.6467  Strawberries! (And how 1 model gets it right)
+
+  Bard violates Grice's maxims...again [videos]
+    0.5723  It's better to be a good machine than a bad person
+    0.5697  An evening with Perplexity AI
+    0.5627  Style guide for AI
+    0.5615  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.5586  Designing for doubt
+
+  Content driven interaction in 4 steps [videos]
+    0.7131  Prompt tutorials for conversation designers
+    0.6812  Van technisch schrijver naar conversation designer
+    0.6702  Modeling conversational agents, an intro to the Natural Conversation Framework
+    0.6687  Generative AI: new roles, skills & tools for content professionals
+    0.6532  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  Designing for doubt [videos]
+    0.7619  Why ChatGPT is bullshit (and why we should design for that) [linked]
+    0.7512  An evening with ChatGPT (2)
+    0.7285  An evening with ChatGPT
+    0.7263  An evening with ChatGPT (3)
+    0.7182  How do I become a conversation designer?
+
+  Types of prompting [videos]
+    0.7921  Types of AI
+    0.7278  Prompt tutorials for conversation designers
+    0.6861  My favorite AI tools - 2025 edition
+    0.6820  Prompt Scaffolding
+    0.6784  Lunchbreak with Claude
+
+  Types of AI [videos]
+    0.7921  Types of prompting
+    0.6866  An evening with Perplexity AI
+    0.6816  LLMs: how they work in a nutshell and some of their risks
+    0.6489  It's better to be a good machine than a bad person
+    0.6442  I joined NotebookLM as a podcast guest!
+
+  LLMs: how they work in a nutshell and some of their risks [videos]
+    0.6816  Types of AI
+    0.6474  I joined NotebookLM as a podcast guest!
+    0.6394  Types of prompting
+    0.6170  It's better to be a good machine than a bad person
+    0.6078  What happens when AI has read everything?
+
+  Generative AI: new roles, skills & tools for content professionals [videos]
+    0.7381  Tech skills for conversation designers
+    0.6970  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.6848  Modeling conversational agents, an intro to the Natural Conversation Framework
+    0.6824  Van technisch schrijver naar conversation designer
+    0.6795  Prompt tutorials for conversation designers
+
+  Kudos to Chevrolet! [videos]
+    0.6688  Voicebot and Chatbot Design
+    0.6534  Conversations with things
+    0.6528  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.6430  Prompt tutorials for conversation designers
+    0.6392  Modeling conversational agents, an intro to the Natural Conversation Framework
+
+  LinkedIn AI buttons: a little rant [videos]
+    0.7102  A little Sunday afternoon rant
+    0.6386  My favorite AI tools - 2025 edition
+    0.6234  AI transparency in content
+    0.6198  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.6156  Garden to do list
+
+  Lunchbreak with Claude: explore research papers with Claude artefacts [videos]
+    0.9073  Lunchbreak with Claude
+    0.7563  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.6228  An evening with Copilot for Powerpoint: please bring Clippie back!
+    0.6035  Prompt tutorials for conversation designers
+    0.6028  An evening with Perplexity AI
+
+  Lunchbreak with Claude [videos]
+    0.9073  Lunchbreak with Claude: explore research papers with Claude artefacts
+    0.8033  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.6784  Types of prompting
+    0.6643  Prompt tutorials for conversation designers
+    0.6591  An evening with Copilot for Powerpoint: please bring Clippie back!
+
+  Modeling conversational agents, an intro to the Natural Conversation Framework [videos]
+    0.6943  Prompt tutorials for conversation designers
+    0.6940  Studies in conversational UX design
+    0.6848  Generative AI: new roles, skills & tools for content professionals
+    0.6843  Tech skills for conversation designers
+    0.6840  Van technisch schrijver naar conversation designer
+
+  My favorite AI tools - 2025 edition [videos]
+    0.6861  Types of prompting
+    0.6851  Prompt tutorials for conversation designers
+    0.6705  Generative AI: new roles, skills & tools for content professionals
+    0.6466  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.6398  AI transparency in content
+
+  I joined NotebookLM as a podcast guest! [videos]
+    0.6474  LLMs: how they work in a nutshell and some of their risks
+    0.6442  Types of AI
+    0.6277  Types of prompting
+    0.6196  An evening with Perplexity AI
+    0.6082  Lunchbreak with Claude
+
+  Prompt tutorials for conversation designers [videos]
+    0.7706  How to make ChatGPT more conversational
+    0.7395  Van technisch schrijver naar conversation designer
+    0.7281  Sunday afternoon with Claude: let's build an interactive tutorial
+    0.7278  Types of prompting
+    0.7131  Content driven interaction in 4 steps
+
+  Quickstart SSML: les 1 'Intonatie' [videos]
+    0.8521  Quickstart SSML: les 2 'De SSML-simulator'
+    0.8411  Quickstart SSML: les 4 'SSML invoeren in Dialogflow'
+    0.8396  Quickstart SSML: les 3 'De basiselementen'
+    0.8187  Quickstart SSML: les 5 'Moeilijke woorden'
+    0.6823  Prompt tutorials for conversation designers
+
+  Quickstart SSML: les 2 'De SSML-simulator' [videos]
+    0.8521  Quickstart SSML: les 1 'Intonatie'
+    0.8368  Quickstart SSML: les 3 'De basiselementen'
+    0.8268  Quickstart SSML: les 4 'SSML invoeren in Dialogflow'
+    0.8157  Quickstart SSML: les 5 'Moeilijke woorden'
+    0.7002  Prompt tutorials for conversation designers
+
+  Quickstart SSML: les 3 'De basiselementen' [videos]
+    0.8396  Quickstart SSML: les 1 'Intonatie'
+    0.8368  Quickstart SSML: les 2 'De SSML-simulator'
+    0.8245  Quickstart SSML: les 4 'SSML invoeren in Dialogflow'
+    0.8076  Quickstart SSML: les 5 'Moeilijke woorden'
+    0.6569  Prompt tutorials for conversation designers
+
+  Quickstart SSML: les 4 'SSML invoeren in Dialogflow' [videos]
+    0.8411  Quickstart SSML: les 1 'Intonatie'
+    0.8268  Quickstart SSML: les 2 'De SSML-simulator'
+    0.8245  Quickstart SSML: les 3 'De basiselementen'
+    0.8098  Quickstart SSML: les 5 'Moeilijke woorden'
+    0.6506  Prompt tutorials for conversation designers
+
+  Quickstart SSML: les 5 'Moeilijke woorden' [videos]
+    0.8187  Quickstart SSML: les 1 'Intonatie'
+    0.8157  Quickstart SSML: les 2 'De SSML-simulator'
+    0.8098  Quickstart SSML: les 4 'SSML invoeren in Dialogflow'
+    0.8076  Quickstart SSML: les 3 'De basiselementen'
+    0.6812  Prompt tutorials for conversation designers
+
+  Strawberries! (And how 1 model gets it right) [videos]
+    0.6467  An evening with Perplexity AI
+    0.6382  Types of AI
+    0.6140  It's better to be a good machine than a bad person
+    0.6081  Lunchbreak with Claude
+    0.6054  Types of prompting
+
+  Sunday afternoon with Claude: let's build an interactive tutorial [videos]
+    0.8033  Lunchbreak with Claude
+    0.7563  Lunchbreak with Claude: explore research papers with Claude artefacts
+    0.7281  Prompt tutorials for conversation designers
+    0.6763  Types of prompting
+    0.6701  AI transparency in content
+
+  Taking Deepseek for a testdrive: so what's the status of Taiwan? [videos]
+    0.5982  Types of AI
+    0.5744  An evening with Perplexity AI
+    0.5651  I joined NotebookLM as a podcast guest!
+    0.5639  It's better to be a good machine than a bad person
+    0.5554  Rebooting AI
+
+  Van technisch schrijver naar conversation designer [videos]
+    0.7395  Prompt tutorials for conversation designers
+    0.7080  Tech skills for conversation designers
+    0.7013  How do I become a conversation designer?
+    0.6939  Hoe word ik conversation designer?
+    0.6840  Modeling conversational agents, an intro to the Natural Conversation Framework
+
+  Alone together [library]
+    0.5934  The disappearance of authentic voice online
+    0.5910  Knowledge gardens and serendipity
+    0.5807  AI as writing partner
+    0.5801  Hello world
+    0.5798  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  Ambiguity in natural language [library]
+    0.6813  Language acquisition
+    0.6581  Natural Language Processing with Python and spaCy
+    0.6194  Natural language processing with Python
+    0.6183  Speech and language processing
+    0.6062  Talk
+
+  Artificial Intelligence: A guide for thinking humans [library]
+    0.6707  What happens when AI has read everything?
+    0.6634  Hello world
+    0.6400  Stay calm and keep thinking for yourself
+    0.6046  Slant
+    0.5995  AI as writing partner
+
+  Because Internet [library]
+    0.6093  What happens when AI has read everything?
+    0.6027  Why ChatGPT is bullshit (and why we should design for that)
+    0.6015  An evening with YouChat and Chatsonic — with a bit of a twist
+    0.5901  Conversational interfaces are not easy
+    0.5807  Hey ChatGPT, who's the boss?
+
+  Building for everyone [library]
+    0.7689  Inclusive Design for a Digital World
+    0.7450  Designing Across Senses
+    0.6257  How people learn
+    0.5996  Conversations with things
+    0.5959  Microcopy
+
+  Chatbot marketing mastery [library]
+    0.7909  Voicebot and Chatbot Design
+    0.7607  Developing enterprise chatbots
+    0.7535  Conversational AI
+    0.7237  How to talk to robots
+    0.7231  Talk
+
+  Classical Rhetoric for the Modern Student [library]
+    0.5989  The sense of style
+    0.5968  e-Learning and the Science of Instruction
+    0.5632  Discourse, consciousness and time
+    0.5392  Language acquisition
+    0.5351  Voice content and usability
+
+  Consciousness and Robot Sentience [library]
+    0.6925  It's better to be a good machine than a bad person
+    0.6769  I, robot
+    0.6536  Conversational AI
+    0.6491  How to talk to robots
+    0.6441  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  Content strategy at work [library]
+    0.7553  Organising knowledge
+    0.7472  Designing Connected Content
+    0.7205  Voice content and usability
+    0.7124  The accidental Taxonomist
+    0.6649  Strategic Writing for UX
+
+  Conversational AI [library]
+    0.7805  Talk
+    0.7657  Conversational UX design
+    0.7535  Chatbot marketing mastery
+    0.7474  Conversations with things
+    0.7466  Tech skills for conversation designers
+
+  Conversational UX design [library]
+    0.9400  Studies in conversational UX design
+    0.7657  Conversational AI
+    0.7648  Conversations with things
+    0.7550  Voicebot and Chatbot Design
+    0.7504  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  Conversations with things [library]
+    0.7850  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.7767  Voicebot and Chatbot Design
+    0.7704  Talk
+    0.7648  Conversational UX design
+    0.7474  Conversational AI
+
+  The Definitive Guide to Conversational AI with Dialogflow [library]
+    0.7455  Conversational AI
+    0.7361  Developing enterprise chatbots
+    0.7159  Conversational UX design
+    0.7099  Tech skills for conversation designers
+    0.6947  Conversations with things
+
+  Designing Across Senses [library]
+    0.7569  Inclusive Design for a Digital World
+    0.7450  Building for everyone
+    0.6559  Designing Connected Content
+    0.6441  Instructional story design
+    0.6411  How people learn
+
+  Designing Connected Content [library]
+    0.7472  Content strategy at work
+    0.7176  Organising knowledge
+    0.6957  The accidental Taxonomist
+    0.6748  Voice content and usability
+    0.6705  Conversations with things
+
+  Designing Voice User Interfaces [library]
+    0.8095  Voice user interface design
+    0.7635  Voicebot and Chatbot Design
+    0.7196  Human factors and voice interaction systems
+    0.7108  Studies in conversational UX design
+    0.7073  Conversational UX design
+
+  Developing enterprise chatbots [library]
+    0.7607  Chatbot marketing mastery
+    0.7441  Voicebot and Chatbot Design
+    0.7361  The Definitive Guide to Conversational AI with Dialogflow
+    0.7043  Conversational AI
+    0.7038  How to talk to robots
+
+  Discourse, consciousness and time [library]
+    0.6909  Talk
+    0.6594  Conversational AI
+    0.6521  Language acquisition
+    0.6416  Human factors and voice interaction systems
+    0.6352  Voice content and usability
+
+  e-Learning and the Science of Instruction [library]
+    0.6496  How people learn
+    0.6300  The Design of Everyday Things
+    0.6105  Instructional story design
+    0.5968  Classical Rhetoric for the Modern Student
+    0.5939  Studies in conversational UX design
+
+  Entitled [library]
+    0.6582  The Smart wife
+    0.6539  I'd blush if I could
+    0.6375  You Look Like a Thing and I Love You
+    0.6276  How people learn
+    0.6224  Content strategy at work
+
+  Gamestorming [library]
+    0.5735  The Design of Everyday Things
+    0.5690  Hello world
+    0.5615  Speech and language processing
+    0.5615  Conversations with things
+    0.5570  Content strategy at work
+
+  Hello world [library]
+    0.6634  Artificial Intelligence: A guide for thinking humans
+    0.6417  It's better to be a good machine than a bad person
+    0.6122  Slant
+    0.6098  AI transparency in content
+    0.6069  Hey Cyba: The inner workings of a virtual personal assistant
+
+  Hey Cyba: The inner workings of a virtual personal assistant [library]
+    0.7323  Human factors and voice interaction systems
+    0.7154  Chatbot marketing mastery
+    0.7109  Conversational AI
+    0.6871  Conversations with things
+    0.6829  How to talk to robots
+
+  How people learn [library]
+    0.7262  Human factors and voice interaction systems
+    0.7066  Instructional story design
+    0.6719  Chatbot marketing mastery
+    0.6606  Conversations with things
+    0.6585  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  How to talk to robots [library]
+    0.7600  Talk
+    0.7534  Voicebot and Chatbot Design
+    0.7416  Conversational AI
+    0.7278  Conversations with things
+    0.7237  Chatbot marketing mastery
+
+  Human factors and voice interaction systems [library]
+    0.7323  Hey Cyba: The inner workings of a virtual personal assistant
+    0.7262  How people learn
+    0.7196  Designing Voice User Interfaces
+    0.7169  Voice content and usability
+    0.7120  Voice user interface design
+
+  I, robot [library]
+    0.6827  It's better to be a good machine than a bad person
+    0.6769  Consciousness and Robot Sentience
+    0.6680  How to talk to robots
+    0.6432  Conversational AI
+    0.6400  Talk
+
+  I'd blush if I could [library]
+    0.6539  Entitled
+    0.6396  The Smart wife
+    0.6225  Talk
+    0.6170  I, robot
+    0.6096  You Look Like a Thing and I Love You
+
+  Inclusive Design for a Digital World [library]
+    0.7689  Building for everyone
+    0.7569  Designing Across Senses
+    0.6757  Designing Voice User Interfaces
+    0.6646  Instructional story design
+    0.6583  Designing Connected Content
+
+  Instructional story design [library]
+    0.7066  How people learn
+    0.6780  Strategic Writing for UX
+    0.6646  Inclusive Design for a Digital World
+    0.6637  Designing Connected Content
+    0.6612  Prompt tutorials for conversation designers
+
+  Invisible Women [library]
+    0.6038  Hello world
+    0.5845  Thinking fast and slow
+    0.5823  How people learn
+    0.5784  Entitled
+    0.5762  The Design of Everyday Things
+
+  It's better to be a good machine than a bad person [library]
+    0.6925  Consciousness and Robot Sentience
+    0.6827  I, robot
+    0.6489  Types of AI
+    0.6485  Conversational AI
+    0.6417  Hello world
+
+  Language acquisition [library]
+    0.6813  Ambiguity in natural language
+    0.6585  How people learn
+    0.6536  Speech and language processing
+    0.6521  Discourse, consciousness and time
+    0.6485  The sense of style
+
+  Machines like me [library]
+    0.5791  You Look Like a Thing and I Love You
+    0.5758  Slant
+    0.5604  I, robot
+    0.5596  What happens when AI has read everything?
+    0.5583  Alone together
+
+  Microcopy [library]
+    0.6207  Inclusive Design for a Digital World
+    0.6131  Designing Voice User Interfaces
+    0.6130  How people learn
+    0.5979  Entitled
+    0.5959  Building for everyone
+
+  My Robot Gets Me: How Social Design Can Make New Products More Human [library]
+    0.7850  Conversations with things
+    0.7504  Conversational UX design
+    0.7446  Voicebot and Chatbot Design
+    0.7370  Studies in conversational UX design
+    0.7320  Tech skills for conversation designers
+
+  Natural language processing with Python [library]
+    0.7583  Natural Language Processing with Python and spaCy
+    0.7183  Speech and language processing
+    0.6219  The sense of style
+    0.6200  The Definitive Guide to Conversational AI with Dialogflow
+    0.6194  Ambiguity in natural language
+
+  Natural Language Processing with Python and spaCy [library]
+    0.7583  Natural language processing with Python
+    0.6890  Speech and language processing
+    0.6864  The Definitive Guide to Conversational AI with Dialogflow
+    0.6841  Developing enterprise chatbots
+    0.6581  Ambiguity in natural language
+
+  Online invloed [library]
+    0.6206  Designing Connected Content
+    0.6178  Instructional story design
+    0.6165  Inclusive Design for a Digital World
+    0.6127  How people learn
+    0.5978  Conversational UX design
+
+  Organising knowledge [library]
+    0.7553  Content strategy at work
+    0.7190  The accidental Taxonomist
+    0.7176  Designing Connected Content
+    0.6700  Voice content and usability
+    0.6372  How people learn
+
+  Rebooting AI [library]
+    0.6645  Conversational AI
+    0.6547  Talk
+    0.6383  Conversational UX design
+    0.6366  I, robot
+    0.6364  How to talk to robots
+
+  Robots, zombies and us [library]
+    0.6280  Consciousness and Robot Sentience
+    0.5718  It's better to be a good machine than a bad person
+    0.5675  Thinking fast and slow
+    0.5643  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.5621  Artificial Intelligence: A guide for thinking humans
+
+  Sequence Organization in Interaction [library]
+    0.6323  Talk
+    0.6177  Modeling conversational agents, an intro to the Natural Conversation Framework
+    0.6062  Studies in conversational UX design
+    0.6023  Discourse, consciousness and time
+    0.5996  Content driven interaction in 4 steps
+
+  Slant [library]
+    0.6122  Hello world
+    0.6046  Artificial Intelligence: A guide for thinking humans
+    0.5758  Machines like me
+    0.5728  I, robot
+    0.5724  What happens when AI has read everything?
+
+  Speech and language processing [library]
+    0.7183  Natural language processing with Python
+    0.6890  Natural Language Processing with Python and spaCy
+    0.6536  Language acquisition
+    0.6493  Developing enterprise chatbots
+    0.6485  The Definitive Guide to Conversational AI with Dialogflow
+
+  Strategic Writing for UX [library]
+    0.6780  Instructional story design
+    0.6666  Designing Connected Content
+    0.6649  Content strategy at work
+    0.6599  Studies in conversational UX design
+    0.6592  Designing Voice User Interfaces
+
+  Studies in conversational UX design [library]
+    0.9400  Conversational UX design
+    0.7441  Conversations with things
+    0.7433  Voicebot and Chatbot Design
+    0.7408  Conversational AI
+    0.7370  My Robot Gets Me: How Social Design Can Make New Products More Human
+
+  Talk [library]
+    0.7805  Conversational AI
+    0.7704  Conversations with things
+    0.7600  How to talk to robots
+    0.7495  Voicebot and Chatbot Design
+    0.7270  Tech skills for conversation designers
+
+  Tech skills for conversation designers [library]
+    0.7466  Conversational AI
+    0.7381  Generative AI: new roles, skills & tools for content professionals
+    0.7367  Conversations with things
+    0.7320  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.7298  Voicebot and Chatbot Design
+
+  The accidental Taxonomist [library]
+    0.7190  Organising knowledge
+    0.7124  Content strategy at work
+    0.6957  Designing Connected Content
+    0.6415  Voice content and usability
+    0.6083  Generative AI: new roles, skills & tools for content professionals
+
+  The Design of Everyday Things [library]
+    0.6351  How people learn
+    0.6300  e-Learning and the Science of Instruction
+    0.6163  My Robot Gets Me: How Social Design Can Make New Products More Human
+    0.6113  Thinking fast and slow
+    0.6090  Conversations with things
+
+  The Inner Game of Tennis [library]
+    0.6349  How people learn
+    0.5934  Content strategy at work
+    0.5832  Strategic Writing for UX
+    0.5714  Discourse, consciousness and time
+    0.5668  Organising knowledge
+
+  The sense of style [library]
+    0.6485  Language acquisition
+    0.6292  How people learn
+    0.6227  Instructional story design
+    0.6219  Natural language processing with Python
+    0.6193  Discourse, consciousness and time
+
+  The Smart wife [library]
+    0.6582  Entitled
+    0.6444  You Look Like a Thing and I Love You
+    0.6396  I'd blush if I could
+    0.6329  Conversational AI
+    0.6321  Consciousness and Robot Sentience
+
+  Thinking fast and slow [library]
+    0.6113  The Design of Everyday Things
+    0.5905  Artificial Intelligence: A guide for thinking humans
+    0.5845  Invisible Women
+    0.5756  How people learn
+    0.5675  Robots, zombies and us
+
+  Voice content and usability [library]
+    0.7205  Content strategy at work
+    0.7169  Human factors and voice interaction systems
+    0.6974  Voice user interface design
+    0.6927  Designing Voice User Interfaces
+    0.6748  Designing Connected Content
+
+  Voice user interface design [library]
+    0.8095  Designing Voice User Interfaces
+    0.7186  Voicebot and Chatbot Design
+    0.7152  Studies in conversational UX design
+    0.7120  Human factors and voice interaction systems
+    0.7116  Conversational UX design
+
+  Voicebot and Chatbot Design [library]
+    0.7909  Chatbot marketing mastery
+    0.7767  Conversations with things
+    0.7635  Designing Voice User Interfaces
+    0.7550  Conversational UX design
+    0.7534  How to talk to robots
+
+  You Look Like a Thing and I Love You [library]
+    0.6640  Conversations with things
+    0.6561  Talk
+    0.6444  The Smart wife
+    0.6389  It's better to be a good machine than a bad person
+    0.6375  Entitled
+
+  Setting up local embedding models [experiments]
+    0.7454  Embedding models: a survey for the garden [linked]
+    0.7312  Knowledge graph for the garden [linked]
+    0.6938  Reading notes: Apple's Saga knowledge graph
+    0.6890  Embeddings for knowledge gardens: a research gap
+    0.6330  Building this garden: change log
+
+
+================================================================================
+WIKI-LINK COMPARISON
+================================================================================
+
+  CONFIRMED (43 links with similarity >= 0.55):
+
+    0.8430  Knowledge graph for the garden  ->  Reading notes: Apple's Saga knowledge graph
+    0.8430  Reading notes: Apple's Saga knowledge graph  ->  Knowledge graph for the garden
+    0.8319  Reading notes: Apple's Saga knowledge graph  ->  Saga: a platform for continuous construction and serving of knowledge at scale
+    0.7650  Knowledge graph for the garden  ->  Saga: a platform for continuous construction and serving of knowledge at scale
+    0.7619  Why ChatGPT is bullshit (and why we should design for that)  ->  Designing for doubt
+    0.7619  Designing for doubt  ->  Why ChatGPT is bullshit (and why we should design for that)
+    0.7612  Embeddings for knowledge gardens: a research gap  ->  Knowledge graph for the garden
+    0.7568  Bye bye Alpaca...knowledge as the missing fundamental?  ->  The issue with LLM hallucinations: knowledge as a missing fundamental
+    0.7568  The issue with LLM hallucinations: knowledge as a missing fundamental  ->  Bye bye Alpaca...knowledge as the missing fundamental?
+    0.7550  Embedding models: a survey for the garden  ->  Knowledge graph for the garden
+    0.7550  Knowledge graph for the garden  ->  Embedding models: a survey for the garden
+    0.7519  How to create your own content quality audit  ->  You're not married to your texts
+    0.7519  You're not married to your texts  ->  How to create your own content quality audit
+    0.7500  Digital Gardens vs Blogs  ->  Thinking in Public
+    0.7500  Thinking in Public  ->  Digital Gardens vs Blogs
+    0.7481  De-biassing Dall-e  ->  Fingers crossed is a figure of speech, DALL-E!
+    0.7481  Fingers crossed is a figure of speech, DALL-E!  ->  De-biassing Dall-e
+    0.7454  Embedding models: a survey for the garden  ->  Setting up local embedding models
+    0.7454  Setting up local embedding models  ->  Embedding models: a survey for the garden
+    0.7312  Setting up local embedding models  ->  Knowledge graph for the garden
+    0.7282  A digital garden as central space for my thoughts and writing  ->  Building this garden: change log
+    0.7282  Building this garden: change log  ->  A digital garden as central space for my thoughts and writing
+    0.7279  Chatbots without AI  ->  Knowledge gardens and serendipity
+    0.7201  Garden to do list  ->  Building this garden: change log
+    0.7118  Understanding speech — part 1  ->  Understanding speech — Part 2
+    0.7118  Understanding speech — Part 2  ->  Understanding speech — part 1
+    0.7106  Garden to do list  ->  Knowledge gardens and serendipity
+    0.7102  A digital garden as central space for my thoughts and writing  ->  The History of Digital Gardens
+    0.7047  Knowledge gardens and serendipity  ->  Knowledge graph for the garden
+    0.7035  Principles behind this garden  ->  A digital garden as central space for my thoughts and writing
+    0.6907  Digital Gardens vs Blogs  ->  A digital garden as central space for my thoughts and writing
+    0.6868  Embeddings for knowledge gardens: a research gap  ->  Knowledge gardens and serendipity
+    0.6829  Knowledge graph for the garden  ->  Garden to do list
+    0.6797  Saturday design thoughts  ->  Designing for doubt
+    0.6797  Designing for doubt  ->  Saturday design thoughts
+    0.6793  Context engineering? Let's call it design  ->  Putting the design in prompt design
+    0.6793  Putting the design in prompt design  ->  Context engineering? Let's call it design
+    0.6733  Knowledge graph for the garden  ->  Chatbots without AI
+    0.6685  A digital garden as central space for my thoughts and writing  ->  Thinking in Public
+    0.6685  Thinking in Public  ->  A digital garden as central space for my thoughts and writing
+    0.5992  Dutch-aware quantization  ->  Knowledge graph for the garden
+    0.5958  Writing as a conversation with yourself  ->  A digital garden as central space for my thoughts and writing
+    0.5832  A digital garden as central space for my thoughts and writing  ->  AI as writing partner
+
+  SURPRISING MISSES (1 links with similarity < 0.55):
+
+    0.5488  The disappearance of authentic voice online  ->  A digital garden as central space for my thoughts and writing
+
+================================================================================
+CANDIDATE DISCOVERIES (similarity >= 0.55, no wiki-link)
+================================================================================
+
+  Found 2771 candidate pairs
+
+    0.9400  Conversational UX design [library]  <->  Studies in conversational UX design [library]
+    0.9337  Hoe word ik conversation designer? [articles]  <->  How do I become a conversation designer? [articles]
+    0.9073  Lunchbreak with Claude: explore research papers with Claude artefacts [videos]  <->  Lunchbreak with Claude [videos]
+    0.8521  Quickstart SSML: les 1 'Intonatie' [videos]  <->  Quickstart SSML: les 2 'De SSML-simulator' [videos]
+    0.8411  Quickstart SSML: les 1 'Intonatie' [videos]  <->  Quickstart SSML: les 4 'SSML invoeren in Dialogflow' [videos]
+    0.8396  Quickstart SSML: les 1 'Intonatie' [videos]  <->  Quickstart SSML: les 3 'De basiselementen' [videos]
+    0.8368  Quickstart SSML: les 2 'De SSML-simulator' [videos]  <->  Quickstart SSML: les 3 'De basiselementen' [videos]
+    0.8293  An evening with ChatGPT (2) [articles]  <->  An evening with ChatGPT (3) [articles]
+    0.8268  Quickstart SSML: les 2 'De SSML-simulator' [videos]  <->  Quickstart SSML: les 4 'SSML invoeren in Dialogflow' [videos]
+    0.8245  Quickstart SSML: les 3 'De basiselementen' [videos]  <->  Quickstart SSML: les 4 'SSML invoeren in Dialogflow' [videos]
+    0.8187  Quickstart SSML: les 1 'Intonatie' [videos]  <->  Quickstart SSML: les 5 'Moeilijke woorden' [videos]
+    0.8157  Quickstart SSML: les 2 'De SSML-simulator' [videos]  <->  Quickstart SSML: les 5 'Moeilijke woorden' [videos]
+    0.8098  Quickstart SSML: les 4 'SSML invoeren in Dialogflow' [videos]  <->  Quickstart SSML: les 5 'Moeilijke woorden' [videos]
+    0.8095  Designing Voice User Interfaces [library]  <->  Voice user interface design [library]
+    0.8076  Quickstart SSML: les 3 'De basiselementen' [videos]  <->  Quickstart SSML: les 5 'Moeilijke woorden' [videos]
+    0.8033  Lunchbreak with Claude [videos]  <->  Sunday afternoon with Claude: let's build an interactive tutorial [videos]
+    0.7921  Types of prompting [videos]  <->  Types of AI [videos]
+    0.7909  Chatbot marketing mastery [library]  <->  Voicebot and Chatbot Design [library]
+    0.7850  Conversations with things [library]  <->  My Robot Gets Me: How Social Design Can Make New Products More Human [library]
+    0.7846  An evening with ChatGPT (3) [articles]  <->  An evening with ChatGPT [articles]
+    0.7805  Conversational AI [library]  <->  Talk [library]
+    0.7790  My favorite ChatGPT use case: presentation prep! [articles]  <->  Conversational interfaces are not easy [articles]
+    0.7767  Conversations with things [library]  <->  Voicebot and Chatbot Design [library]
+    0.7759  An evening with YouChat and Chatsonic — with a bit of a twist [articles]  <->  Why ChatGPT is bullshit (and why we should design for that) [articles]
+    0.7706  How to make ChatGPT more conversational [articles]  <->  Prompt tutorials for conversation designers [videos]
+    0.7704  Conversations with things [library]  <->  Talk [library]
+    0.7702  An evening with ChatGPT (2) [articles]  <->  An evening with ChatGPT [articles]
+    0.7689  Building for everyone [library]  <->  Inclusive Design for a Digital World [library]
+    0.7677  Stay calm and keep thinking for yourself [articles]  <->  Why ChatGPT is bullshit (and why we should design for that) [articles]
+    0.7657  Conversational AI [library]  <->  Conversational UX design [library]
+    0.7648  Conversational UX design [library]  <->  Conversations with things [library]
+    0.7643  How do I become a conversation designer? [articles]  <->  The lone convo designer: a checklist for a team-of-one [articles]
+    0.7635  Designing Voice User Interfaces [library]  <->  Voicebot and Chatbot Design [library]
+    0.7607  De-biassing Dall-e [articles]  <->  Online prompt workshop: de-biasing Dall-e [articles]
+    0.7607  Chatbot marketing mastery [library]  <->  Developing enterprise chatbots [library]
+    0.7600  How to talk to robots [library]  <->  Talk [library]
+    0.7583  Natural language processing with Python [library]  <->  Natural Language Processing with Python and spaCy [library]
+    0.7569  How to build a digital garden [seeds]  <->  The History of Digital Gardens [weblinks]
+    0.7569  Designing Across Senses [library]  <->  Inclusive Design for a Digital World [library]
+    0.7563  Lunchbreak with Claude: explore research papers with Claude artefacts [videos]  <->  Sunday afternoon with Claude: let's build an interactive tutorial [videos]
+    0.7553  Content strategy at work [library]  <->  Organising knowledge [library]
+    0.7550  Conversational UX design [library]  <->  Voicebot and Chatbot Design [library]
+    0.7535  Chatbot marketing mastery [library]  <->  Conversational AI [library]
+    0.7534  How to talk to robots [library]  <->  Voicebot and Chatbot Design [library]
+    0.7512  An evening with ChatGPT (2) [articles]  <->  Designing for doubt [videos]
+    0.7504  Conversational UX design [library]  <->  My Robot Gets Me: How Social Design Can Make New Products More Human [library]
+    0.7504  Digital Gardens vs Blogs [field-notes]  <->  The History of Digital Gardens [weblinks]
+    0.7495  Talk [library]  <->  Voicebot and Chatbot Design [library]
+    0.7474  Conversational AI [library]  <->  Conversations with things [library]
+    0.7474  Embedding models: a survey for the garden [field-notes]  <->  Embeddings for knowledge gardens: a research gap [seeds]
+
+    ... and 2721 more
+
+================================================================================
+SUMMARY
+================================================================================
+  Items: 157
+  Total pairs: 12246
+  Similarity range: 0.2654 - 0.9400
+  Median similarity: 0.4915
+  Mean similarity: 0.4990
+  Wiki-links resolved: 44 of 50
+  Confirmed by embeddings: 43
+  Surprising misses: 1
+  Candidate discoveries: 2771
+

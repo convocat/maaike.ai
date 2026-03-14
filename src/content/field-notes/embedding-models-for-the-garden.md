@@ -133,6 +133,28 @@ Knowledge graphs and embeddings:
 - Sardina et al., "[A survey on knowledge graph structure and knowledge graph embeddings](https://arxiv.org/abs/2412.10092)" (2024)
 - "[Combining embedding-based and semantic-based models for recommendations](https://arxiv.org/abs/2401.04474)" (2024)
 
+## Choosing a model for your dataset
+
+The experiment comparing all three models on 10 garden items ([[setting-up-local-embedding-models|full results]]) showed they agree on the strongest and weakest connections. The differences are in how they distribute similarity scores, and that distribution matters more than raw quality.
+
+Four questions to ask:
+
+**1. How discriminating do you need?**
+nomic-embed-text scores everything between 0.54 and 0.85: a narrow band where most items look somewhat related. bge-m3 spreads from 0.39 to 0.73: related pairs score clearly higher than unrelated ones. embeddinggemma goes widest (0.15 to 0.67). If you need to set a threshold for "related enough to suggest," wider spread makes that easier.
+
+**2. What languages are in your content?**
+All three claim 100+ languages, but claims and quality differ. If your content is mixed-language (this garden has both English and Dutch), you want a model trained with strong multilingual data. bge-m3 was specifically designed for multilingual retrieval. nomic and embeddinggemma support Dutch but it's not their focus.
+
+**3. How robust is it to thin content?**
+A personal knowledge base has items ranging from 43 words (a quick thought) to 1800 words (a full essay). embeddinggemma struggled with the shortest items and publisher blurbs, scoring them near zero against everything. bge-m3 and nomic handled short content better, likely because they're less sensitive to writing style and more focused on semantic content.
+
+**4. Does it need to be a generative model?**
+embeddinggemma is based on Gemma, a generative LLM distilled down for embeddings. nomic uses a custom BERT variant. bge-m3 is a pure BERT-family encoder: it only reads, never generates. For an embedding-only task like semantic linking, a non-generative encoder is a better fit. It's architecturally focused on understanding text, not predicting next tokens. Less overhead, more predictable behavior, and no risk of the model "thinking" in a generative direction that doesn't serve the task.
+
+This isn't a universal rule. For tasks where you need to generate text alongside embeddings (like retrieval-augmented generation with inline citations), an LLM-based embedding model can make sense because its representations are closer to what the generator expects. But for pure similarity search on a static corpus, where the only question is "how related are these two texts?", a focused encoder is the right tool. The MTEB benchmarks confirm this: the best LLM-based embeddings and the best encoder-based embeddings perform nearly identically on retrieval tasks. The difference is efficiency and predictability, not raw quality.
+
+For this garden, **bge-m3** won on all four: clearest discrimination, strongest multilingual support, reliable handling of short items, and a focused encoder architecture. The cost is size (1.2 GB vs 274 MB for nomic) and slightly slower inference. At build-time scale, that cost is irrelevant.
+
 ## Status
 
-This survey answers the "what embedding model?" question from the [[knowledge-graph-for-the-garden|project tracker]]. Three candidate models are now [[setting-up-local-embedding-models|set up locally via Ollama]]. Next step: feed garden content into each model and compare results.
+This survey answers the "what embedding model?" question from the [[knowledge-graph-for-the-garden|project tracker]]. Three candidate models are now [[setting-up-local-embedding-models|set up locally via Ollama]]. bge-m3 was selected for the full-scale run based on the criteria above.
