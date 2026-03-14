@@ -5,6 +5,7 @@ import WikiLinkPreview from '../components/WikiLinkPreview.astro';
 import CollectionIcon from '../components/CollectionIcon.astro';
 import PostSidebar from '../components/PostSidebar.astro';
 
+
 interface Props {
   title: string;
   date: Date;
@@ -21,6 +22,7 @@ interface Props {
 const { title, date, updated, maturity, tags, description, collection, slug, url, ai } = Astro.props;
 
 const ogImage = `/images/og-${collection}.png`;
+const postUrl = `https://maaike.ai/${collection}/${slug}/`;
 
 const aiLabels: Record<string, { label: string; description: string }> = {
   '100% Maai': { label: '100% Maai', description: 'Fully written by me.' },
@@ -108,7 +110,7 @@ const formattedUpdated = updated
     </article>
 
     <aside class="post-sidebar">
-      <PostSidebar slug={slug} tags={tags} collection={collection} title={title} />
+      <PostSidebar slug={slug} tags={tags} collection={collection} title={title} postUrl={postUrl} />
     </aside>
   </div>
   <WikiLinkPreview />

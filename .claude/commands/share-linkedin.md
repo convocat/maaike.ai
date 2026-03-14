@@ -37,18 +37,22 @@ Display the generated LinkedIn text to the user. They may want to:
 
 Iterate until they're happy.
 
-## Step 4: Copy to clipboard
+## Step 4: Post or copy
 
-Copy the final text to the clipboard using:
-```
-echo "<text>" | clip
-```
+Ask: "Post directly to LinkedIn, or copy to clipboard?"
 
-Tell the user: "Copied to clipboard. Paste it into LinkedIn when ready."
+**Option A: Post directly**
+1. Write the final text to a temp file
+2. Run: `node scripts/post-to-linkedin.mjs <temp-file>`
+3. Show the result (post URL) to the user
+4. Delete the temp file
 
-## Step 5: Record the share (optional)
+**Option B: Copy to clipboard**
+Copy the final text using `echo "<text>" | clip` and tell the user.
 
-Ask if they want to add a `linkedin_url` field to the post's frontmatter after they publish on LinkedIn. If yes, ask for the LinkedIn post URL and add it:
+## Step 5: Record the share
+
+After posting (or after the user confirms they posted manually), add a `linkedin_url` field to the post's frontmatter:
 ```yaml
 linkedin_url: "https://www.linkedin.com/posts/..."
 ```

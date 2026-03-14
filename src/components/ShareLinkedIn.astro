@@ -1,0 +1,72 @@
+---
+interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+---
+
+<a
+  href={shareUrl}
+  class="share-linkedin"
+  target="_blank"
+  rel="noopener noreferrer"
+  title={`Share "${title}" on LinkedIn`}
+  aria-label={`Share "${title}" on LinkedIn`}
+>
+  <svg
+    class="share-linkedin-icon"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#sketchy)"
+    aria-hidden="true"
+  >
+    <rect x="3" y="3" width="18" height="18" rx="2.5" />
+    <line x1="8" y1="11" x2="8" y2="17" stroke-width="2.2" />
+    <line x1="12" y1="17" x2="12" y2="13" stroke-width="2.2" />
+    <path d="M12 13 C12 11, 13.5 10.5, 15 11 C16.2 11.5, 16 12.5, 16 13 L16 17" stroke-width="2.2" />
+    <circle cx="8" cy="8" r="1.4" class="linkedin-dot" />
+  </svg>
+  <span class="share-linkedin-label">Share</span>
+</a>
+
+<style>
+  .share-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.4rem;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .share-linkedin:hover {
+    color: var(--color-accent);
+    background: var(--color-tag-bg);
+  }
+
+  .share-linkedin-icon {
+    stroke: currentColor;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .linkedin-dot {
+    fill: currentColor;
+  }
+
+  .share-linkedin-label {
+    line-height: 1;
+  }
+</style>

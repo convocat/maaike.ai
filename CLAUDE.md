@@ -22,7 +22,7 @@ Astro static site with 7 content collections, wiki-style cross-linking, and dual
 |---|---|---|
 | Articles | `articles` | `pruning` (optional) |
 | Field Notes | `field-notes` | - |
-| Sparks | `sparks` | - |
+| Seeds | `seeds` | - |
 | Weblinks | `weblinks` | `url` (required) |
 | Videos | `videos` | `url` (required) |
 | Library | `library` | `author`, `cover`, `status` (reading/read/to-read) |
@@ -80,7 +80,7 @@ Hand-drawn SVG icons per collection with earthy pastel stroke colors and a feTur
 - Collection index page headings
 - Post detail headers (as collection label)
 
-Icon stroke palette (light): articles=#9e7c6b, field-notes=#7a9a7e, sparks=#c4956a, weblinks=#a08872, videos=#8e7a8a, library=#7d7068, principles=#7a8a6e.
+Icon stroke palette (light): articles=#9e7c6b, field-notes=#7a9a7e, seeds=#c4956a, weblinks=#a08872, videos=#8e7a8a, library=#7d7068, principles=#7a8a6e.
 
 ### AI transparency indicator
 
@@ -119,4 +119,4 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 - **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
 - **Sentence case for titles**. Only capitalize the first word (and proper nouns/acronyms)
 - **AI language rules**: Refer to yourself as "Claude", not "AI" or "I". Never use "write" for Claude's output, use "generate". Only Maaike writes. Claude generates.
-- **ALWAYS let Maaike review content before writing it to a file**. Show her the draft first and wait for approval. This applies to all content: sparks, articles, field notes, descriptions, blurbs, anything that will be published on the site. Never write content directly without her sign-off.
+- **ALWAYS let Maaike review content before writing it to a file**. Show her the draft first and wait for approval. This applies to all content: seeds, articles, field notes, descriptions, blurbs, anything that will be published on the site. Never write content directly without her sign-off.

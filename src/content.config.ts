@@ -22,8 +22,8 @@ const fieldNotes = defineCollection({
   schema: baseSchema,
 });
 
-const sparks = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/content/sparks' }),
+const seeds = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/seeds' }),
   schema: baseSchema,
 });
 
@@ -62,4 +62,4 @@ const principles = defineCollection({
   schema: baseSchema,
 });
 
-export const collections = { fieldNotes, sparks, articles, weblinks, videos, library, principles };
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, principles };

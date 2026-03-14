@@ -31,8 +31,8 @@ collections:
           - { name: articlesDescription, label: Articles Description, widget: string }
           - { name: fieldNotesTitle, label: Field Notes Page Title, widget: string }
           - { name: fieldNotesDescription, label: Field Notes Description, widget: string }
-          - { name: sparksTitle, label: Sparks Page Title, widget: string }
-          - { name: sparksDescription, label: Sparks Description, widget: string }
+          - { name: seedsTitle, label: Seeds Page Title, widget: string }
+          - { name: seedsDescription, label: Seeds Description, widget: string }
           - { name: weblinksTitle, label: Weblinks Page Title, widget: string }
           - { name: weblinksDescription, label: Weblinks Description, widget: string }
           - { name: videosTitle, label: Videos Page Title, widget: string }
@@ -102,10 +102,10 @@ collections:
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
 
-  - name: sparks
-    label: Sparks
-    icon: electric_bolt
-    folder: src/content/sparks
+  - name: seeds
+    label: Seeds
+    icon: grass
+    folder: src/content/seeds
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — {{maturity}}"

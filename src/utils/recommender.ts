@@ -134,7 +134,7 @@ export async function getSuggestedBooks(
   const collectionMap: Record<string, string> = {
     'field-notes': 'fieldNotes',
     'articles': 'articles',
-    'sparks': 'sparks',
+    'seeds': 'seeds',
     'weblinks': 'weblinks',
     'videos': 'videos',
     'principles': 'principles',

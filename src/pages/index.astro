@@ -11,8 +11,8 @@ import settings from '../data/settings.json';
 const fieldNotes = sortByDate(
   (await getCollection('fieldNotes')).filter((e) => !e.data.draft)
 );
-const sparks = sortByDate(
-  (await getCollection('sparks')).filter((e) => !e.data.draft)
+const seeds = sortByDate(
+  (await getCollection('seeds')).filter((e) => !e.data.draft)
 );
 const articles = sortByDate(
   (await getCollection('articles')).filter((e) => !e.data.draft)
@@ -26,7 +26,7 @@ const videos = sortByDate(
 
 const recentArticles = articles.slice(0, 4);
 const recentFieldNotes = fieldNotes.slice(0, 6);
-const recentSparks = sparks.slice(0, 6);
+const recentSeeds = seeds.slice(0, 6);
 const recentWeblinks = weblinks.slice(0, 6);
 const recentVideos = videos.slice(0, 4);
 
@@ -97,25 +97,25 @@ function getYouTubeId(url: string): string | null {
     </div>
   </section>
 
-  <section class="home-sparks">
+  <section class="home-seeds">
     <div class="section-header">
-      <h2><CollectionIcon collection="sparks" size={20} /> Sparks</h2>
-      <a href="/sparks" class="view-all">View all &rarr;</a>
+      <h2><CollectionIcon collection="seeds" size={20} /> Seeds</h2>
+      <a href="/seeds" class="view-all">View all &rarr;</a>
     </div>
     <div class="notes-grid">
-      {recentSparks.length > 0 ? (
-        recentSparks.map((spark) => (
+      {recentSeeds.length > 0 ? (
+        recentSeeds.map((seed) => (
           <NotePreview
-            title={spark.data.title}
-            href={`/sparks/${spark.id}`}
-            date={spark.data.date}
-            updated={spark.data.updated}
-            maturity={spark.data.maturity}
-            description={spark.data.description}
+            title={seed.data.title}
+            href={`/seeds/${seed.id}`}
+            date={seed.data.date}
+            updated={seed.data.updated}
+            maturity={seed.data.maturity}
+            description={seed.data.description}
           />
         ))
       ) : (
-        <p class="empty-state">No sparks yet — fleeting ideas will appear here.</p>
+        <p class="empty-state">No seeds yet — ideas waiting to germinate will appear here.</p>
       )}
     </div>
   </section>
@@ -212,7 +212,7 @@ function getYouTubeId(url: string): string | null {
   /* Section spacing */
   .home-articles,
   .home-field-notes,
-  .home-sparks {
+  .home-seeds {
     margin-block-end: var(--space-3xl);
   }
 

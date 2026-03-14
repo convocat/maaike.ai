@@ -3,8 +3,8 @@ import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 
 export async function getStaticPaths() {
-  const sparks = await getCollection('sparks');
-  return sparks.map((entry) => ({
+  const seeds = await getCollection('seeds');
+  return seeds.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
   }));
@@ -21,7 +21,7 @@ const { Content } = await render(entry);
   maturity={entry.data.maturity}
   tags={entry.data.tags}
   description={entry.data.description}
-  collection="sparks"
+  collection="seeds"
   slug={entry.id}
   ai={entry.data.ai}
 >

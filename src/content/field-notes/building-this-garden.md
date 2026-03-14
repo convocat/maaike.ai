@@ -69,3 +69,11 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Book blurbs**: 18 books enriched with official descriptions from Open Library
 - **Smarter book recommendations**: Content-based recommender using keyword similarity, tag synonyms, and blurb matching instead of simple tag overlap
 - **Backlinks fix**: Wiki links with pipe syntax (`[[slug|display text]]`) now correctly generate backlinks
+
+### 14 March
+
+- **Sparks renamed to Seeds**: Collection renamed across the entire codebase to better fit the garden metaphor. New hand-drawn seed icon
+- **LinkedIn integration**: Connected LinkedIn developer app with OAuth, created `post-to-linkedin.mjs` script for direct API posting
+- **Share section in sidebar**: LinkedIn share button and copy-link button added to post sidebar, below suggested reading
+- **`/share-linkedin` skill updated**: Now offers direct API posting in addition to clipboard copy
+- **New seeds**: "Garden to do list" (living roadmap) and "Chatbots without AI" (conversational garden guide without LLMs)

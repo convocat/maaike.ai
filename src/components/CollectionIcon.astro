@@ -23,8 +23,10 @@ const icons: Record<string, string> = {
     <circle cx="10" cy="19" r="0.7" />
     <circle cx="13" cy="18.5" r="0.5" />
     <circle cx="11.5" cy="15.5" r="0.4" />`,
-  sparks: `
-    <path d="M12 2 C12.5 8, 13 11, 22 12 C13 13, 12.5 16, 12 22 C11.5 16, 11 13, 2 12 C11 11, 11.5 8, 12 2 Z" />`,
+  seeds: `
+    <path d="M12 22 C12 22, 12 16, 12 14" />
+    <path d="M12 14 C8 14, 5 10, 7 6 C9 2, 12 2, 12 2 C12 2, 15 2, 17 6 C19 10, 16 14, 12 14 Z" />
+    <path d="M12 6 C12 6, 10 9, 12 14" />`,
   weblinks: `
     <path d="M2 12 L22 3 L16 21 L12 14 Z" />
     <line x1="22" y1="3" x2="12" y2="14" />`,
@@ -84,7 +86,7 @@ const svgContent = icons[collection];
   /* Light mode stroke colors */
   .collection-icon--articles { stroke: #9e7c6b; }
   .collection-icon--field-notes { stroke: #7a9a7e; }
-  .collection-icon--sparks { stroke: #c4956a; }
+  .collection-icon--seeds { stroke: #c4956a; }
   .collection-icon--weblinks { stroke: #a08872; }
   .collection-icon--videos { stroke: #8e7a8a; }
   .collection-icon--library { stroke: #7d7068; }
@@ -97,7 +99,7 @@ const svgContent = icons[collection];
   /* Dark mode — brighter variants for contrast */
   :root[data-theme="dark"] .collection-icon--articles { stroke: #c4a38f; }
   :root[data-theme="dark"] .collection-icon--field-notes { stroke: #a3c4a7; }
-  :root[data-theme="dark"] .collection-icon--sparks { stroke: #ddb892; }
+  :root[data-theme="dark"] .collection-icon--seeds { stroke: #ddb892; }
   :root[data-theme="dark"] .collection-icon--weblinks { stroke: #c4ad98; }
   :root[data-theme="dark"] .collection-icon--videos { stroke: #b5a3b2; }
   :root[data-theme="dark"] .collection-icon--library { stroke: #a89e96; }

@@ -10,16 +10,16 @@ let backlinkMap: Map<string, Backlink[]> | null = null;
 async function buildBacklinkMap() {
   if (backlinkMap) return backlinkMap;
 
-  const [fieldNotes, sparks, articles, weblinks] = await Promise.all([
+  const [fieldNotes, seeds, articles, weblinks] = await Promise.all([
     getCollection('fieldNotes'),
-    getCollection('sparks'),
+    getCollection('seeds'),
     getCollection('articles'),
     getCollection('weblinks'),
   ]);
 
   const allEntries = [
     ...fieldNotes.map((e) => ({ ...e, collection: 'field-notes' })),
-    ...sparks.map((e) => ({ ...e, collection: 'sparks' })),
+    ...seeds.map((e) => ({ ...e, collection: 'seeds' })),
     ...articles.map((e) => ({ ...e, collection: 'articles' })),
     ...weblinks.map((e) => ({ ...e, collection: 'weblinks' })),
   ];

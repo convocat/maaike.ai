@@ -19,7 +19,7 @@ if (connections.length === 0) return;
 const collectionColors: Record<string, string> = {
   articles: '#9e7c6b',
   'field-notes': '#7a9a7e',
-  sparks: '#c4956a',
+  seeds: '#c4956a',
   weblinks: '#a08872',
   videos: '#8e7a8a',
   library: '#7d7068',
@@ -29,7 +29,7 @@ const collectionColors: Record<string, string> = {
 const darkCollectionColors: Record<string, string> = {
   articles: '#c4a38f',
   'field-notes': '#a3c4a7',
-  sparks: '#ddb892',
+  seeds: '#ddb892',
   weblinks: '#c4ad98',
   videos: '#b5a3b2',
   library: '#a89e96',
@@ -193,7 +193,7 @@ const centerTitle = truncate(currentTitle, 22);
   .map-line { stroke: var(--color-border); opacity: 0.5; }
   .map-line--articles { stroke: #9e7c6b; }
   .map-line--field-notes { stroke: #7a9a7e; }
-  .map-line--sparks { stroke: #c4956a; }
+  .map-line--seeds { stroke: #c4956a; }
   .map-line--weblinks { stroke: #a08872; }
   .map-line--videos { stroke: #8e7a8a; }
   .map-line--library { stroke: #7d7068; }
@@ -203,7 +203,7 @@ const centerTitle = truncate(currentTitle, 22);
   .map-node circle, .map-center circle { fill: var(--color-bg); }
   .map-node--articles circle { stroke: #9e7c6b; }
   .map-node--field-notes circle { stroke: #7a9a7e; }
-  .map-node--sparks circle { stroke: #c4956a; }
+  .map-node--seeds circle { stroke: #c4956a; }
   .map-node--weblinks circle { stroke: #a08872; }
   .map-node--videos circle { stroke: #8e7a8a; }
   .map-node--library circle { stroke: #7d7068; }
@@ -211,7 +211,7 @@ const centerTitle = truncate(currentTitle, 22);
 
   .map-center--articles circle { stroke: #9e7c6b; fill: #9e7c6b20; }
   .map-center--field-notes circle { stroke: #7a9a7e; fill: #7a9a7e20; }
-  .map-center--sparks circle { stroke: #c4956a; fill: #c4956a20; }
+  .map-center--seeds circle { stroke: #c4956a; fill: #c4956a20; }
   .map-center--weblinks circle { stroke: #a08872; fill: #a0887220; }
   .map-center--videos circle { stroke: #8e7a8a; fill: #8e7a8a20; }
   .map-center--library circle { stroke: #7d7068; fill: #7d706820; }
@@ -221,7 +221,7 @@ const centerTitle = truncate(currentTitle, 22);
   :root[data-theme="dark"] .map-node circle, :root[data-theme="dark"] .map-center circle { fill: var(--color-bg); }
   :root[data-theme="dark"] .map-line--articles { stroke: #c4a38f; }
   :root[data-theme="dark"] .map-line--field-notes { stroke: #a3c4a7; }
-  :root[data-theme="dark"] .map-line--sparks { stroke: #ddb892; }
+  :root[data-theme="dark"] .map-line--seeds { stroke: #ddb892; }
   :root[data-theme="dark"] .map-line--weblinks { stroke: #c4ad98; }
   :root[data-theme="dark"] .map-line--videos { stroke: #b5a3b2; }
   :root[data-theme="dark"] .map-line--library { stroke: #a89e96; }
@@ -229,7 +229,7 @@ const centerTitle = truncate(currentTitle, 22);
 
   :root[data-theme="dark"] .map-node--articles circle { stroke: #c4a38f; }
   :root[data-theme="dark"] .map-node--field-notes circle { stroke: #a3c4a7; }
-  :root[data-theme="dark"] .map-node--sparks circle { stroke: #ddb892; }
+  :root[data-theme="dark"] .map-node--seeds circle { stroke: #ddb892; }
   :root[data-theme="dark"] .map-node--weblinks circle { stroke: #c4ad98; }
   :root[data-theme="dark"] .map-node--videos circle { stroke: #b5a3b2; }
   :root[data-theme="dark"] .map-node--library circle { stroke: #a89e96; }
@@ -237,7 +237,7 @@ const centerTitle = truncate(currentTitle, 22);
 
   :root[data-theme="dark"] .map-center--articles circle { stroke: #c4a38f; fill: #c4a38f20; }
   :root[data-theme="dark"] .map-center--field-notes circle { stroke: #a3c4a7; fill: #a3c4a720; }
-  :root[data-theme="dark"] .map-center--sparks circle { stroke: #ddb892; fill: #ddb89220; }
+  :root[data-theme="dark"] .map-center--seeds circle { stroke: #ddb892; fill: #ddb89220; }
   :root[data-theme="dark"] .map-center--weblinks circle { stroke: #c4ad98; fill: #c4ad9820; }
   :root[data-theme="dark"] .map-center--videos circle { stroke: #b5a3b2; fill: #b5a3b220; }
   :root[data-theme="dark"] .map-center--library circle { stroke: #a89e96; fill: #a89e9620; }

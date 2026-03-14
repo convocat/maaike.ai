@@ -8,34 +8,34 @@ import { sortByDate, getUniqueTags } from '../../utils/collections';
 import settings from '../../data/settings.json';
 import CollectionIcon from '../../components/CollectionIcon.astro';
 
-const sparks = sortByDate(
-  (await getCollection('sparks')).filter((e) => !e.data.draft)
+const seeds = sortByDate(
+  (await getCollection('seeds')).filter((e) => !e.data.draft)
 );
-const tags = getUniqueTags(sparks);
+const tags = getUniqueTags(seeds);
 ---
 
-<PageLayout title={`${settings.sparksTitle} — ${settings.siteTitle}`}>
-  <h1><CollectionIcon collection="sparks" size={28} /> {settings.sparksTitle}</h1>
-  <p class="section-description">{settings.sparksDescription}</p>
+<PageLayout title={`${settings.seedsTitle} — ${settings.siteTitle}`}>
+  <h1><CollectionIcon collection="seeds" size={28} /> {settings.seedsTitle}</h1>
+  <p class="section-description">{settings.seedsDescription}</p>
 
   <FilterBar tags={tags} />
 
   <ContentGrid>
-    {sparks.length > 0 ? (
-      sparks.map((spark) => (
+    {seeds.length > 0 ? (
+      seeds.map((seed) => (
         <ContentCard
-          title={spark.data.title}
-          href={`/sparks/${spark.id}`}
-          date={spark.data.date}
-          updated={spark.data.updated}
-          maturity={spark.data.maturity}
-          tags={spark.data.tags}
-          description={spark.data.description}
-          collection="sparks"
+          title={seed.data.title}
+          href={`/seeds/${seed.id}`}
+          date={seed.data.date}
+          updated={seed.data.updated}
+          maturity={seed.data.maturity}
+          tags={seed.data.tags}
+          description={seed.data.description}
+          collection="seeds"
         />
       ))
     ) : (
-      <p class="empty-state">No sparks yet — fleeting ideas will appear here.</p>
+      <p class="empty-state">No seeds yet — ideas waiting to germinate will appear here.</p>
     )}
   </ContentGrid>
 </PageLayout>
