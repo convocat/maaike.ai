@@ -3,8 +3,6 @@ import { getBacklinks } from '../utils/backlinks';
 import { getRelatedPosts } from '../utils/collections';
 import { getSuggestedBooks } from '../utils/recommender';
 import CollectionIcon from './CollectionIcon.astro';
-import ShareLinkedIn from './ShareLinkedIn.astro';
-
 interface Props {
   slug: string;
   tags: string[];
@@ -21,23 +19,17 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
 ---
 
 <div class="sidebar-content">
-  {tags.length > 0 && (
-    <section class="sidebar-section">
-      <h3 class="sidebar-heading">Tags</h3>
-      <ul class="sidebar-tags">
-        {tags.map((tag) => (
-          <li><a href={`/tags/${tag}`} class="sidebar-tag">{tag}</a></li>
-        ))}
-      </ul>
-    </section>
-  )}
-
   {backlinks.length > 0 && (
     <section class="sidebar-section">
       <h3 class="sidebar-heading">Linked from</h3>
       <ul class="sidebar-links">
-        {backlinks.map(({ title: blTitle, href }) => (
-          <li><a href={href}>{blTitle}</a></li>
+        {backlinks.map(({ title: blTitle, href, collection: coll }) => (
+          <li>
+            <a href={href}>
+              <CollectionIcon collection={coll} size={14} />
+              <span>{blTitle}</span>
+            </a>
+          </li>
         ))}
       </ul>
     </section>
@@ -82,42 +74,8 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
     </section>
   )}
 
-  <section class="sidebar-section">
-    <h3 class="sidebar-heading">Share</h3>
-    <div class="sidebar-share">
-      <ShareLinkedIn url={postUrl} title={title} />
-      <button class="share-generic" data-url={postUrl} data-title={title} aria-label="Copy link or share">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketchy)" aria-hidden="true">
-          <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7" />
-          <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" />
-        </svg>
-        <span>Copy link</span>
-      </button>
-    </div>
-  </section>
-</div>
 
-<script>
-  document.querySelectorAll('.share-generic').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const url = btn.getAttribute('data-url') || '';
-      const title = btn.getAttribute('data-title') || '';
-      if (navigator.share) {
-        try {
-          await navigator.share({ title, url });
-        } catch {}
-      } else {
-        await navigator.clipboard.writeText(url);
-        const label = btn.querySelector('span');
-        if (label) {
-          const original = label.textContent;
-          label.textContent = 'Copied!';
-          setTimeout(() => { label.textContent = original; }, 2000);
-        }
-      }
-    });
-  });
-</script>
+</div>
 
 <style>
   .sidebar-content {
@@ -136,31 +94,6 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
     letter-spacing: 0.03em;
     text-transform: uppercase;
     margin-block-end: var(--space-xs);
-  }
-
-  .sidebar-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    padding: 0.15em 0.55em;
-    border-radius: 1em;
-    background: var(--color-tag-bg);
-    color: var(--color-tag-text);
-    text-decoration: none;
-    transition: background var(--transition-fast), color var(--transition-fast);
-  }
-
-  .sidebar-tag:hover {
-    background: var(--color-accent);
-    color: #fff;
   }
 
   .sidebar-links {
@@ -246,33 +179,6 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
     opacity: 0.7;
   }
 
-  .sidebar-share {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .share-generic {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
-    letter-spacing: 0.02em;
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.4rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-family: inherit;
-    transition: color 0.2s, background 0.2s;
-  }
-
-  .share-generic:hover {
-    color: var(--color-accent);
-    background: var(--color-tag-bg);
-  }
-
   @media (max-width: 68rem) {
     .sidebar-content {
       position: static;
@@ -284,8 +190,5 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
       gap: var(--space-sm);
     }
 
-    .sidebar-share {
-      flex-direction: row;
-    }
   }
 </style>
