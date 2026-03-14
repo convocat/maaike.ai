@@ -137,6 +137,7 @@ export async function getSuggestedBooks(
     'seeds': 'seeds',
     'weblinks': 'weblinks',
     'videos': 'videos',
+    'experiments': 'experiments',
     'principles': 'principles',
   };
 

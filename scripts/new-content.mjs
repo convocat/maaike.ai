@@ -5,19 +5,20 @@ import path from 'node:path';
 const [,, collection, ...titleParts] = process.argv;
 const title = titleParts.join(' ');
 
-const validCollections = ['field-note', 'seed', 'article', 'weblink'];
+const validCollections = ['field-note', 'seed', 'article', 'weblink', 'experiment'];
 if (!validCollections.includes(collection) || !title) {
-  console.error('Usage: npm run new <field-note|seed|article|weblink> <Title of Content>');
+  console.error('Usage: npm run new <field-note|seed|article|weblink|experiment> <Title of Content>');
   console.error('');
   console.error('Examples:');
   console.error('  npm run new field-note My New Idea');
   console.error('  npm run new seed A Quick Thought');
   console.error('  npm run new article Writing Better Prompts');
   console.error('  npm run new weblink Interesting Paper on Attention');
+  console.error('  npm run new experiment Embedding Garden Content');
   process.exit(1);
 }
 
-const folderMap = { 'field-note': 'field-notes', seed: 'seeds', article: 'articles', weblink: 'weblinks' };
+const folderMap = { 'field-note': 'field-notes', seed: 'seeds', article: 'articles', weblink: 'weblinks', experiment: 'experiments' };
 const folder = folderMap[collection];
 const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const date = new Date().toISOString().split('T')[0];

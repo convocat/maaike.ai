@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+import CollectionIcon from '../../components/CollectionIcon.astro';
+
+const experiments = sortByDate(
+  (await getCollection('experiments')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(experiments);
+---
+
+<PageLayout title={`${settings.experimentsTitle} — ${settings.siteTitle}`}>
+  <h1><CollectionIcon collection="experiments" size={28} /> {settings.experimentsTitle}</h1>
+  <p class="section-description">{settings.experimentsDescription}</p>
+
+  <FilterBar tags={tags} />
+
+  <ContentGrid>
+    {experiments.length > 0 ? (
+      experiments.map((experiment) => (
+        <ContentCard
+          title={experiment.data.title}
+          href={`/experiments/${experiment.id}`}
+          date={experiment.data.date}
+          updated={experiment.data.updated}
+          maturity={experiment.data.maturity}
+          tags={experiment.data.tags}
+          description={experiment.data.description}
+          collection="experiments"
+        />
+      ))
+    ) : (
+      <p class="empty-state">No experiments yet — hands-on explorations will appear here.</p>
+    )}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

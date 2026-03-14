@@ -78,3 +78,5 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Sidebar as garden path**: Sidebar stripped down to navigation only: "Linked from" (backlinks), "Related" posts, and "Suggested reading", all with collection icons
 - **`/share-linkedin` skill updated**: Now offers direct API posting in addition to clipboard copy
 - **New seeds**: "Garden to do list" (living roadmap) and "Chatbots without AI" (conversational garden guide without LLMs)
+- **Experiments collection**: New content type for hands-on, reproducible explorations. Beaker icon (#6a8e96), full routing, CMS, and nav integration
+- **Knowledge graph research**: New field note tracking research into automatic semantic backlinks, garden world model, and external content discovery. Inspired by Apple's Saga platform

@@ -207,6 +207,31 @@ collections:
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
 
+  - name: experiments
+    label: Experiments
+    icon: science
+    folder: src/content/experiments
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{maturity}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { name: updated, label: Last Updated, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { name: maturity, label: Maturity, widget: select, options: [draft, developing, solid, complete], default: draft }
+      - name: tags
+        label: Tags
+        widget: relation
+        collection: tags
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
+        multiple: true
+        required: false
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
   - name: principles
     label: Design Principles
     icon: lightbulb

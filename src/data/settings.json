@@ -5,7 +5,7 @@
   "articlesTitle": "Articles",
   "articlesDescription": "Polished, published writing...eventually",
   "fieldNotesTitle": "Field Notes",
-  "fieldNotesDescription": "Projects, experiments and real-life AI.",
+  "fieldNotesDescription": "Observations and reflections from working with AI.",
   "seedsTitle": "Seeds",
   "seedsDescription": "Ideas waiting to germinate.",
   "weblinksTitle": "Weblinks",
@@ -14,6 +14,8 @@
   "videosDescription": "Talks, tutorials, and recordings.",
   "libraryTitle": "Library",
   "libraryDescription": "Books I've read, am reading, or want to read.",
+  "experimentsTitle": "Experiments",
+  "experimentsDescription": "Hands-on explorations you can try yourself.",
   "principlesTitle": "Design Principles",
   "principlesDescription": "Patterns and principles for designing human-AI interactions."
 }
