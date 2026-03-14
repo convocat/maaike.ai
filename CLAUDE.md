@@ -117,3 +117,4 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 - Maaike works in Dutch and English; site content is English
 - **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
 - **Sentence case for titles**. Only capitalize the first word (and proper nouns/acronyms)
+- **ALWAYS let Maaike review content before writing it to a file**. Show her the draft first and wait for approval. This applies to all content: sparks, articles, field notes, descriptions, blurbs, anything that will be published on the site. Never write content directly without her sign-off.
