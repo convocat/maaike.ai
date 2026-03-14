@@ -21,6 +21,7 @@ interface Props {
 
 const { title, date, updated, maturity, tags, description, collection, slug, url, ai } = Astro.props;
 
+const isProject = tags.includes('project');
 const ogImage = `/images/og-${collection}.png`;
 const postUrl = `https://maaike.ai/${collection}/${slug}/`;
 
@@ -62,6 +63,7 @@ const formattedUpdated = updated
         <div class="post-collection-label">
           <CollectionIcon collection={collection} size={16} />
           <span>{collection.replace(/-/g, ' ')}</span>
+          {isProject && <span class="project-badge">Project</span>}
         </div>
         <h1>{title}</h1>
         {url && (
@@ -201,6 +203,19 @@ const formattedUpdated = updated
     color: var(--color-text-muted);
     letter-spacing: 0.03em;
     margin-block-start: var(--space-sm);
+  }
+
+  .project-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.4rem;
+    margin-inline-start: var(--space-xs);
   }
 
   .post-header h1 {

@@ -36,7 +36,7 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
     </section>
   )}
 
-  {relatedPosts.length > 0 && (
+  {!isProject && relatedPosts.length > 0 && (
     <section class="sidebar-section">
       <h3 class="sidebar-heading">Related</h3>
       <ul class="sidebar-links">
