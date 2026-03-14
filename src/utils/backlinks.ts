@@ -56,3 +56,4 @@ export async function getBacklinks(slug: string): Promise<Backlink[]> {
   const map = await buildBacklinkMap();
   return map.get(slug) ?? [];
 }
+

@@ -24,3 +24,5 @@ Ideas to explore:
 - The beauty of a completely flat content collection: smart linking and ontologising instead of hierarchy
 - Automating the daily iteration of linking and connecting: right now it's manual
 - Who is this garden for? And does that matter?
+
+This seed grew into a project: [[knowledge-graph-for-the-garden]].

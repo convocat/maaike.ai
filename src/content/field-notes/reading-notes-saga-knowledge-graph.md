@@ -3,7 +3,6 @@ title: "Reading notes: Apple's Saga knowledge graph"
 date: 2026-03-14
 maturity: draft
 tags:
-  - project
   - knowledge-graph
   - ai
 description: Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.
