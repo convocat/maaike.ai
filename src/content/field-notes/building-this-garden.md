@@ -80,3 +80,4 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **New seeds**: "Garden to do list" (living roadmap) and "Chatbots without AI" (conversational garden guide without LLMs)
 - **Experiments collection**: New content type for hands-on, reproducible explorations. Beaker icon (#6a8e96), full routing, CMS, and nav integration
 - **Knowledge graph research**: New field note tracking research into automatic semantic backlinks, garden world model, and external content discovery. Inspired by Apple's Saga platform
+- **Projects page**: Cross-collection view showing all content tagged `project`. Added to header nav. No new collection needed: any content tagged `project` becomes a project hub

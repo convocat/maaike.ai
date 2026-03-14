@@ -1,0 +1,47 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { getAllContent, sortByDate } from '../../utils/collections';
+
+const allContent = await getAllContent();
+const projects = sortByDate(
+  allContent.filter((e) => e.data.tags.includes('project'))
+);
+---
+
+<PageLayout title="Projects — Maai & AI">
+  <h1>Projects</h1>
+  <p class="section-description">Longer explorations that bring together field notes, experiments, and seeds.</p>
+
+  <ContentGrid>
+    {projects.length > 0 ? (
+      projects.map((project) => (
+        <ContentCard
+          title={project.data.title}
+          href={`/${project.collection}/${project.id}`}
+          date={project.data.date}
+          updated={project.data.updated}
+          maturity={project.data.maturity}
+          tags={project.data.tags}
+          description={project.data.description}
+          collection={project.collection}
+        />
+      ))
+    ) : (
+      <p class="empty-state">No projects yet.</p>
+    )}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
