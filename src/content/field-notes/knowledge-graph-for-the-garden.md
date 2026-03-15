@@ -74,6 +74,7 @@ Periodic enrichment job:
 - [x] Set up models locally + compare on 10 items ([[setting-up-local-embedding-models|experiment]])
 - [x] Full-scale embedding run on 157 items ([[setting-up-local-embedding-models|experiment]])
 - [x] Analyze threshold and filtering strategies ([[tuning-the-similarity-threshold|write-up]])
+- [x] Research key phrase extraction methods ([[key-phrase-extraction-for-the-garden|write-up]])
 - [ ] Prototype: extract key phrases from 10 garden items
 - [ ] Design review UI for link candidates
 

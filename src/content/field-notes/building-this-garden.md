@@ -88,3 +88,10 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Full-scale embedding run**: bge-m3 on all 157 garden items, confirming 43/44 existing wiki-links and surfacing 2,771 candidate connections
 - **New seeds**: "Dutch-aware quantization" (language-specific model compression) and "Embeddings for knowledge gardens: a research gap" (PKM embedding research gap)
 - **Crew Resource Management**: Moved from field notes to seeds
+
+### 15 March
+
+- **Key phrase extraction write-up**: Field note covering four eras of extraction methods (statistical, graph-based, embedding-based, LLM-based), relationship to embeddings, the short-text problem, and recommended approach for the garden
+- **Observation box**: New `.observation` CSS component (teal accent) for personal meta-notes, added to both garden and Typora theme
+- **Backlinks fix**: Deduplicated backlinks and sorted by date for chronological project file ordering
+- **Experiment reorganization**: Moved analysis out of experiments into field notes, added full inline code to experiment files
