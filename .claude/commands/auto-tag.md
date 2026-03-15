@@ -17,7 +17,7 @@ Read the content base to understand what's available:
 
 1. **All existing tags**: Glob `src/content/tags/*.md` and extract all tag slugs. These are the canonical tags.
 
-2. **All post titles and slugs**: For each collection (articles, field-notes, seeds, weblinks, videos, library, principles), glob `src/content/<collection>/*.md` and extract `title` from frontmatter. Build a map of title-to-slug for wiki-link candidates.
+2. **All post titles and slugs**: For each collection (articles, field-notes, seeds, weblinks, videos, library, experiments), glob `src/content/<collection>/*.md` and extract `title` from frontmatter. Build a map of title-to-slug for wiki-link candidates.
 
 3. **Current post's tags**: Note which tags the post already has (if any).
 

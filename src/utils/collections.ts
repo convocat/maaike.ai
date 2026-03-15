@@ -1,9 +1,9 @@
 import { getCollection } from 'astro:content';
 
-type CollectionName = 'fieldNotes' | 'seeds' | 'articles' | 'weblinks' | 'videos' | 'library' | 'experiments' | 'principles';
+type CollectionName = 'fieldNotes' | 'seeds' | 'articles' | 'weblinks' | 'videos' | 'library' | 'experiments';
 
 export async function getAllContent() {
-  const [fieldNotes, seeds, articles, weblinks, videos, library, experiments, principles] = await Promise.all([
+  const [fieldNotes, seeds, articles, weblinks, videos, library, experiments] = await Promise.all([
     getCollection('fieldNotes'),
     getCollection('seeds'),
     getCollection('articles'),
@@ -11,7 +11,6 @@ export async function getAllContent() {
     getCollection('videos'),
     getCollection('library'),
     getCollection('experiments'),
-    getCollection('principles'),
   ]);
 
   return [
@@ -22,7 +21,6 @@ export async function getAllContent() {
     ...videos.map((e) => ({ ...e, collection: 'videos' as const })),
     ...library.map((e) => ({ ...e, collection: 'library' as const })),
     ...experiments.map((e) => ({ ...e, collection: 'experiments' as const })),
-    ...principles.map((e) => ({ ...e, collection: 'principles' as const })),
   ].filter((e) => !e.data.draft);
 }
 

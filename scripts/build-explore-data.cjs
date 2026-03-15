@@ -18,7 +18,7 @@ const OUTPUT_FILE = path.join(ROOT, 'public', 'explore-data.json');
 
 const COLLECTIONS = [
   'articles', 'field-notes', 'seeds', 'weblinks',
-  'videos', 'library', 'experiments', 'principles'
+  'videos', 'library', 'experiments'
 ];
 
 // ---------------------------------------------------------------------------

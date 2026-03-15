@@ -1025,15 +1025,15 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   // Constants
   // ----------------------------------------------------------------
 
+  // WCAG AA compliant: ≥3:1 contrast on white (#FFF) / dark (#111)
   const COLLECTION_COLORS = {
-    articles:       { light: '#9e7c6b', dark: '#c4a38f' },
-    'field-notes':  { light: '#7a9a7e', dark: '#a3c4a7' },
-    seeds:          { light: '#c4956a', dark: '#ddb892' },
-    weblinks:       { light: '#a08872', dark: '#c4ad98' },
-    videos:         { light: '#8e7a8a', dark: '#b5a3b2' },
-    library:        { light: '#7d7068', dark: '#a89e96' },
-    experiments:    { light: '#6a8e96', dark: '#92b8c0' },
-    principles:     { light: '#7a8a6e', dark: '#a3b498' },
+    articles:       { light: '#7A5A48', dark: '#D4A88E' },
+    'field-notes':  { light: '#4A7A50', dark: '#8ECF94' },
+    seeds:          { light: '#A07030', dark: '#E8C07A' },
+    weblinks:       { light: '#7A6048', dark: '#D4B89E' },
+    videos:         { light: '#6E4E68', dark: '#C9A8C4' },
+    library:        { light: '#5A4E44', dark: '#BDB0A6' },
+    experiments:    { light: '#3A7080', dark: '#7ECCD6' },
   };
 
   const MATURITY_RADIUS = { draft: 5, developing: 8, solid: 11, complete: 14 };
@@ -1047,7 +1047,6 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     videos: 'Videos',
     library: 'Library',
     experiments: 'Experiments',
-    principles: 'Principles',
   };
 
   // ----------------------------------------------------------------

@@ -23,7 +23,6 @@ const collectionColors: Record<string, string> = {
   weblinks: '#a08872',
   videos: '#8e7a8a',
   library: '#7d7068',
-  principles: '#7a8a6e',
 };
 
 const darkCollectionColors: Record<string, string> = {
@@ -33,7 +32,6 @@ const darkCollectionColors: Record<string, string> = {
   weblinks: '#c4ad98',
   videos: '#b5a3b2',
   library: '#a89e96',
-  principles: '#a3b498',
 };
 
 // Truncate long titles
@@ -197,7 +195,6 @@ const centerTitle = truncate(currentTitle, 22);
   .map-line--weblinks { stroke: #a08872; }
   .map-line--videos { stroke: #8e7a8a; }
   .map-line--library { stroke: #7d7068; }
-  .map-line--principles { stroke: #7a8a6e; }
 
   /* Node stroke + fill */
   .map-node circle, .map-center circle { fill: var(--color-bg); }
@@ -207,7 +204,6 @@ const centerTitle = truncate(currentTitle, 22);
   .map-node--weblinks circle { stroke: #a08872; }
   .map-node--videos circle { stroke: #8e7a8a; }
   .map-node--library circle { stroke: #7d7068; }
-  .map-node--principles circle { stroke: #7a8a6e; }
 
   .map-center--articles circle { stroke: #9e7c6b; fill: #9e7c6b20; }
   .map-center--field-notes circle { stroke: #7a9a7e; fill: #7a9a7e20; }
@@ -215,7 +211,6 @@ const centerTitle = truncate(currentTitle, 22);
   .map-center--weblinks circle { stroke: #a08872; fill: #a0887220; }
   .map-center--videos circle { stroke: #8e7a8a; fill: #8e7a8a20; }
   .map-center--library circle { stroke: #7d7068; fill: #7d706820; }
-  .map-center--principles circle { stroke: #7a8a6e; fill: #7a8a6e20; }
 
   /* Dark mode */
   :root[data-theme="dark"] .map-node circle, :root[data-theme="dark"] .map-center circle { fill: var(--color-bg); }
@@ -225,7 +220,6 @@ const centerTitle = truncate(currentTitle, 22);
   :root[data-theme="dark"] .map-line--weblinks { stroke: #c4ad98; }
   :root[data-theme="dark"] .map-line--videos { stroke: #b5a3b2; }
   :root[data-theme="dark"] .map-line--library { stroke: #a89e96; }
-  :root[data-theme="dark"] .map-line--principles { stroke: #a3b498; }
 
   :root[data-theme="dark"] .map-node--articles circle { stroke: #c4a38f; }
   :root[data-theme="dark"] .map-node--field-notes circle { stroke: #a3c4a7; }
@@ -233,7 +227,6 @@ const centerTitle = truncate(currentTitle, 22);
   :root[data-theme="dark"] .map-node--weblinks circle { stroke: #c4ad98; }
   :root[data-theme="dark"] .map-node--videos circle { stroke: #b5a3b2; }
   :root[data-theme="dark"] .map-node--library circle { stroke: #a89e96; }
-  :root[data-theme="dark"] .map-node--principles circle { stroke: #a3b498; }
 
   :root[data-theme="dark"] .map-center--articles circle { stroke: #c4a38f; fill: #c4a38f20; }
   :root[data-theme="dark"] .map-center--field-notes circle { stroke: #a3c4a7; fill: #a3c4a720; }
@@ -241,7 +234,6 @@ const centerTitle = truncate(currentTitle, 22);
   :root[data-theme="dark"] .map-center--weblinks circle { stroke: #c4ad98; fill: #c4ad9820; }
   :root[data-theme="dark"] .map-center--videos circle { stroke: #b5a3b2; fill: #b5a3b220; }
   :root[data-theme="dark"] .map-center--library circle { stroke: #a89e96; fill: #a89e9620; }
-  :root[data-theme="dark"] .map-center--principles circle { stroke: #a3b498; fill: #a3b49820; }
 
   :root[data-theme="dark"] .map-label { fill: var(--color-text-muted, #aaa); }
   :root[data-theme="dark"] .map-center-label { fill: var(--color-text, #eee); }

@@ -62,9 +62,4 @@ const experiments = defineCollection({
   schema: baseSchema,
 });
 
-const principles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/content/principles' }),
-  schema: baseSchema,
-});
-
-export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, principles };
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments };

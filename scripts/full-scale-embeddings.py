@@ -30,7 +30,7 @@ OUTPUT_DIR = GARDEN / "scripts"
 
 COLLECTIONS = [
     "articles", "field-notes", "seeds", "weblinks",
-    "videos", "library", "experiments", "principles",
+    "videos", "library", "experiments",
 ]
 
 

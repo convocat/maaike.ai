@@ -15,7 +15,5 @@
   "libraryTitle": "Library",
   "libraryDescription": "Books I've read, am reading, or want to read.",
   "experimentsTitle": "Experiments",
-  "experimentsDescription": "Hands-on explorations you can try yourself.",
-  "principlesTitle": "Design Principles",
-  "principlesDescription": "Patterns and principles for designing human-AI interactions."
+  "experimentsDescription": "Hands-on explorations you can try yourself."
 }

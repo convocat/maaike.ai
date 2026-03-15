@@ -16,7 +16,7 @@ CONTENT_DIR = "src/content"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "gemma3:4b"
 ALL_COLLECTIONS = ["field-notes", "articles", "seeds", "experiments",
-                   "weblinks", "videos", "library", "principles"]
+                   "weblinks", "videos", "library"]
 
 # --- Helpers ---
 

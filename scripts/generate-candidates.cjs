@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONTENT_DIR = 'src/content';
-const COLLECTIONS = ['articles', 'field-notes', 'seeds', 'experiments', 'weblinks', 'videos', 'library', 'principles'];
+const COLLECTIONS = ['articles', 'field-notes', 'seeds', 'experiments', 'weblinks', 'videos', 'library'];
 
 // --- Parse args ---
 

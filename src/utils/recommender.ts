@@ -138,7 +138,6 @@ export async function getSuggestedBooks(
     'weblinks': 'weblinks',
     'videos': 'videos',
     'experiments': 'experiments',
-    'principles': 'principles',
   };
 
   const astroCollection = collectionMap[collection] || collection;

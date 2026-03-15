@@ -23,7 +23,7 @@ A 2D map where every item is positioned by semantic similarity. Items that are a
 **Visual language:**
 - Items rendered as Rough.js circles (hand-drawn, matching the garden's sketchy icon style and feTurbulence wobble filter)
 - Size reflects maturity: seeds are small, solid articles are larger
-- Color follows the existing collection palette (#9e7c6b for articles, #7a9a7e for field notes, #c4956a for seeds, etc.)
+- Color follows the existing collection palette (WCAG AA compliant: #7A5A48 for articles, #4A7A50 for field notes, #A07030 for seeds, etc.)
 - Hover shows title + description in a tooltip
 - Click navigates to the item
 - Pan and zoom via mouse/touch
