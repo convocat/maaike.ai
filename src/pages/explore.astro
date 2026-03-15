@@ -54,7 +54,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
     <!-- Legend (bottom-left, collapsible) -->
     <div id="legend" class="collapsed">
-      <button id="legend-toggle" aria-label="Toggle legend">Legend</button>
+      <button id="legend-toggle" aria-label="Toggle legend">Legend <span id="legend-toggle-arrow">&#9650;</span></button>
       <div id="legend-content">
         <div class="legend-section">
           <h3>Collections</h3>
@@ -74,25 +74,34 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
     <!-- Wander button (bottom-right) -->
     <button id="wander-btn" aria-label="Wander to a random item">
-      <canvas id="wander-canvas" width="40" height="40"></canvas>
-      <span>Wander</span>
+      <svg id="wander-icon" width="60" height="44" class="wander-canvas"></svg>
+      <div class="wander-btn-text">
+        <span class="wander-btn-label">Wander</span>
+        <span class="wander-btn-sub">Discover something new</span>
+      </div>
     </button>
 
     <!-- Wander card (bottom-right, shown when wandering) -->
     <div id="wander-card" class="hidden">
-      <div class="wander-card-header">
-        <h3 id="wander-title"></h3>
+      <div class="wander-card-top">
+        <span class="wander-card-top-label">While you are here...</span>
         <button id="wander-close" aria-label="Close wander card">&times;</button>
       </div>
-      <p id="wander-collection" class="wander-collection"></p>
-      <p id="wander-description"></p>
+      <div class="wander-card-body">
+        <div class="wander-collection">
+          <span class="wander-collection-dot" id="wander-collection-dot"></span>
+          <span class="wander-collection-name" id="wander-collection-name"></span>
+        </div>
+        <h3 id="wander-title"></h3>
+        <p id="wander-description"></p>
+        <a id="wander-visit" href="#" class="wander-readmore">Read more &rarr;</a>
+      </div>
       <div id="wander-nearby">
-        <h4>Nearby</h4>
+        <h4>Nearby in the garden</h4>
         <ul id="wander-nearby-list"></ul>
       </div>
-      <div class="wander-card-actions">
-        <a id="wander-visit" href="#" class="wander-visit-btn">Visit</a>
-        <button id="wander-again" class="wander-again-btn">Wander again</button>
+      <div class="wander-card-footer">
+        <button id="wander-again" class="wander-again-btn">&#x2194; Wander somewhere else</button>
       </div>
     </div>
 
@@ -101,12 +110,11 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       <div class="tooltip-collection">
         <span class="tooltip-dot"></span>
         <span class="tooltip-collection-name"></span>
+        <span class="tooltip-maturity-label"></span>
       </div>
       <div class="tooltip-title"></div>
-      <div class="tooltip-maturity-bar">
-        <span class="tooltip-maturity-fill"></span>
-      </div>
       <div class="tooltip-description"></div>
+      <div class="tooltip-maturity-bar"></div>
     </div>
 
     <!-- Trail sidebar (left, slides in) -->
@@ -194,36 +202,43 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     top: var(--space-lg);
     right: var(--space-lg);
     display: flex;
-    gap: 2px;
-    background: var(--color-border);
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: color-mix(in srgb, var(--color-bg-card) 95%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
-    padding: 2px;
+    box-shadow: 0 4px 12px var(--color-shadow);
     z-index: 10;
   }
 
   .mode-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
+    gap: 8px;
+    padding: 8px 16px;
     border: none;
     border-radius: calc(var(--card-radius) - 2px);
-    background: var(--color-bg-card);
+    background: transparent;
     color: var(--color-text);
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: background var(--transition-fast), color var(--transition-fast);
+    transition: all var(--transition-fast);
     white-space: nowrap;
   }
 
   .mode-btn:hover {
-    background: var(--color-bg);
+    background: color-mix(in srgb, var(--color-text-muted) 10%, transparent);
   }
 
   .mode-btn.active {
     background: var(--color-accent);
     color: #fff;
+    box-shadow: 0 2px 6px color-mix(in srgb, var(--color-accent) 30%, transparent);
   }
 
   .mode-btn.active:hover {
@@ -242,33 +257,51 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     bottom: var(--space-lg);
     left: var(--space-lg);
     z-index: 10;
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-card) 95%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
+    box-shadow: 0 4px 12px var(--color-shadow);
     overflow: hidden;
     transition: all var(--transition-base);
   }
 
   #legend-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding: 8px 16px;
+    padding: 10px 14px;
     border: none;
     background: transparent;
     color: var(--color-text);
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 0.8125rem;
+    font-weight: 500;
     cursor: pointer;
     text-align: left;
+    transition: background var(--transition-fast);
   }
 
   #legend-toggle:hover {
-    background: var(--color-bg);
+    background: color-mix(in srgb, var(--color-text-muted) 8%, transparent);
+  }
+
+  #legend-toggle-arrow {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    transition: transform var(--transition-fast);
+  }
+
+  #legend:not(.collapsed) #legend-toggle-arrow {
+    transform: rotate(180deg);
   }
 
   #legend-content {
     display: none;
-    padding: 0 16px 12px;
+    padding: 0 14px 14px;
+    border-top: 1px solid var(--color-border);
   }
 
   #legend:not(.collapsed) #legend-content {
@@ -277,18 +310,18 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
   .legend-section h3 {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin: 8px 0 6px;
+    margin: 10px 0 8px;
   }
 
   #legend-collections {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
   }
 
   .legend-collection-item {
@@ -296,8 +329,9 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     align-items: center;
     gap: 8px;
     font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: var(--color-text);
+    text-transform: capitalize;
   }
 
   .legend-color-dot {
@@ -309,23 +343,24 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
   .legend-maturity {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    align-items: flex-end;
+    gap: 16px;
   }
 
   .maturity-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     font-family: var(--font-body);
-    font-size: 0.8125rem;
-    color: var(--color-text);
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
   }
 
   .maturity-dot {
     border-radius: 50%;
     background: var(--color-text-muted);
-    opacity: 0.4;
     display: inline-block;
     flex-shrink: 0;
   }
@@ -340,24 +375,49 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     z-index: 10;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border: 1px solid var(--color-border);
+    gap: 12px;
+    padding: 12px 20px;
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
     background: var(--color-bg-card);
     color: var(--color-text);
-    font-family: var(--font-body);
-    font-size: 0.875rem;
     cursor: pointer;
-    transition: border-color var(--transition-fast);
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 12px var(--color-shadow);
   }
 
   #wander-btn:hover {
     border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 5%, var(--color-bg-card));
+  }
+
+  #wander-btn.active {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-card));
+    color: var(--color-accent);
   }
 
   #wander-canvas {
     display: block;
+    flex-shrink: 0;
+  }
+
+  .wander-btn-text {
+    text-align: left;
+  }
+
+  .wander-btn-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .wander-btn-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
   }
 
   /* ----------------------------------------------------------------
@@ -365,67 +425,128 @@ import SketchyFilter from '../components/SketchyFilter.astro';
      ---------------------------------------------------------------- */
   #wander-card {
     position: absolute;
-    bottom: calc(var(--space-lg) + 60px);
+    bottom: calc(var(--space-lg) + 80px);
     right: var(--space-lg);
     z-index: 15;
-    width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
+    width: 320px;
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
-    padding: 16px;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    overflow: hidden;
+    animation: slideUp 300ms ease-out;
   }
 
-  .wander-card-header {
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .wander-card-top {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-text-muted) 5%, transparent);
   }
 
-  #wander-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    color: var(--color-heading);
-    margin: 0;
-    line-height: 1.3;
+  .wander-card-top-label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
   }
 
   #wander-close {
     border: none;
     background: transparent;
     color: var(--color-text-muted);
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     cursor: pointer;
-    padding: 0;
+    padding: 4px;
     line-height: 1;
+    border-radius: 4px;
+    transition: background var(--transition-fast);
+  }
+
+  #wander-close:hover {
+    background: color-mix(in srgb, var(--color-text-muted) 10%, transparent);
+  }
+
+  .wander-card-body {
+    padding: 16px;
   }
 
   .wander-collection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .wander-collection-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .wander-collection-name {
     font-family: var(--font-body);
     font-size: 0.75rem;
     color: var(--color-text-muted);
-    margin: 4px 0 8px;
     text-transform: capitalize;
+  }
+
+  #wander-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0 0 8px;
+    line-height: 1.3;
   }
 
   #wander-description {
     font-family: var(--font-body);
-    font-size: 0.8125rem;
-    color: var(--color-text);
-    margin: 0 0 12px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0 0 16px;
     line-height: 1.5;
+  }
+
+  .wander-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-bottom: 16px;
+  }
+
+  .wander-readmore:hover {
+    text-decoration: underline;
+  }
+
+  #wander-nearby {
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--color-border);
   }
 
   #wander-nearby h4 {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin: 0 0 6px;
+    margin: 12px 0 8px;
   }
 
   #wander-nearby-list {
@@ -435,56 +556,60 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   #wander-nearby-list li {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    color: var(--color-text);
-    padding: 3px 0;
+    padding: 4px 0;
   }
 
-  #wander-nearby-list a {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-
-  #wander-nearby-list a:hover {
-    text-decoration: underline;
-  }
-
-  .wander-card-actions {
+  #wander-nearby-list button {
     display: flex;
+    align-items: center;
     gap: 8px;
-    margin-top: 12px;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 4px 0;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-align: left;
+    transition: color var(--transition-fast);
   }
 
-  .wander-visit-btn {
-    flex: 1;
-    display: block;
-    text-align: center;
-    padding: 8px 12px;
-    border-radius: calc(var(--card-radius) - 2px);
-    background: var(--color-accent);
-    color: #fff;
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
+  #wander-nearby-list button:hover {
+    color: var(--color-accent-2);
+  }
+
+  #wander-nearby-list .nearby-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .wander-card-footer {
+    padding: 0 16px 16px;
   }
 
   .wander-again-btn {
-    flex: 1;
-    padding: 8px 12px;
-    border-radius: calc(var(--card-radius) - 2px);
-    background: var(--color-bg);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--card-radius);
+    background: color-mix(in srgb, var(--color-text-muted) 8%, transparent);
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 0.8125rem;
-    border: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
     cursor: pointer;
+    transition: background var(--transition-fast);
   }
 
   .wander-again-btn:hover {
-    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-text-muted) 15%, transparent);
   }
 
   /* ----------------------------------------------------------------
@@ -495,23 +620,29 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     z-index: 100;
     pointer-events: none;
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
-    padding: 12px;
-    width: 240px;
-    box-shadow: 0 4px 12px var(--color-shadow);
+    padding: 16px;
+    width: 280px;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    animation: tooltipIn 150ms ease-out;
+  }
+
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
   }
 
   .tooltip-collection {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 4px;
+    gap: 8px;
+    margin-bottom: 8px;
   }
 
   .tooltip-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -519,44 +650,52 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   .tooltip-collection-name {
     font-family: var(--font-body);
     font-size: 0.6875rem;
+    font-weight: 600;
     color: var(--color-text-muted);
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tooltip-maturity-label {
+    margin-left: auto;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--color-text-muted);
   }
 
   .tooltip-title {
     font-family: var(--font-heading);
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
     color: var(--color-heading);
     line-height: 1.3;
-    margin-bottom: 6px;
-  }
-
-  .tooltip-maturity-bar {
-    width: 100%;
-    height: 3px;
-    background: var(--color-border);
-    border-radius: 2px;
     margin-bottom: 8px;
-    overflow: hidden;
-  }
-
-  .tooltip-maturity-fill {
-    display: block;
-    height: 100%;
-    border-radius: 2px;
-    background: var(--color-accent);
-    transition: width var(--transition-fast);
   }
 
   .tooltip-description {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .tooltip-maturity-bar {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+  }
+
+  .tooltip-maturity-segment {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    transition: background var(--transition-fast);
   }
 
   /* ----------------------------------------------------------------
@@ -569,12 +708,13 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     width: 320px;
     height: 100%;
     background: var(--color-bg-card);
-    border-right: 1px solid var(--color-border);
+    border-right: 2px solid var(--color-border);
+    box-shadow: 4px 0 16px var(--color-shadow);
     z-index: 20;
     overflow-y: auto;
     padding: var(--space-lg);
     transform: translateX(-100%);
-    transition: transform var(--transition-base);
+    transition: transform 300ms ease-in-out;
   }
 
   #trail-sidebar:not(.hidden) {
@@ -582,8 +722,12 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   #trail-sidebar h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--font-heading);
     font-size: 1.25rem;
+    font-weight: 600;
     color: var(--color-heading);
     margin: 0 0 var(--space-md);
   }
@@ -1187,11 +1331,27 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     circle.parentNode.appendChild(ring);
 
     // Populate tooltip
+    const maturityLabels = { draft: 'Seedling', developing: 'Growing', solid: 'Flourishing', complete: 'Mature' };
+    const stages = ['draft', 'developing', 'solid', 'complete'];
+    const stageIdx = stages.indexOf(item.maturity);
+
     tooltip.querySelector('.tooltip-dot').style.background = getCollectionColor(item.collection);
     tooltip.querySelector('.tooltip-collection-name').textContent = COLLECTION_LABELS[item.collection] || item.collection;
+    tooltip.querySelector('.tooltip-maturity-label').textContent = maturityLabels[item.maturity] || '';
     tooltip.querySelector('.tooltip-title').textContent = item.title;
-    tooltip.querySelector('.tooltip-maturity-fill').style.width = (MATURITY_PROGRESS[item.maturity] * 100) + '%';
     tooltip.querySelector('.tooltip-description').textContent = item.description || '';
+
+    // Build segmented maturity bar
+    const matBar = tooltip.querySelector('.tooltip-maturity-bar');
+    matBar.innerHTML = '';
+    for (let i = 0; i < 4; i++) {
+      const seg = document.createElement('span');
+      seg.className = 'tooltip-maturity-segment';
+      seg.style.background = i <= stageIdx ? getCollectionColor(item.collection) : 'var(--color-border)';
+      seg.style.opacity = i <= stageIdx ? '1' : '0.3';
+      matBar.appendChild(seg);
+    }
+
     tooltip.classList.remove('hidden');
 
     moveTooltip(e);
@@ -1203,8 +1363,8 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     let y = e.clientY + pad;
 
     // Keep on screen
-    const tw = 240;
-    const th = tooltip.offsetHeight || 120;
+    const tw = 280;
+    const th = tooltip.offsetHeight || 160;
     if (x + tw > window.innerWidth) x = e.clientX - tw - pad;
     if (y + th > window.innerHeight) y = e.clientY - th - pad;
 
@@ -1242,16 +1402,24 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   function drawWanderSignpost() {
-    const canvas = document.getElementById('wander-canvas');
-    if (!canvas || typeof rough === 'undefined') return;
-    const rc = rough.canvas(canvas);
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, 40, 40);
-    const stroke = isDark() ? '#E8E8E8' : '#1A1A1A';
-    // Simple signpost
-    rc.line(20, 8, 20, 36, { stroke, strokeWidth: 1.2, roughness: 1.2 });
-    rc.rectangle(8, 10, 24, 8, { stroke, strokeWidth: 1, roughness: 1.5, fill: getCollectionColor('field-notes', 0.3), fillStyle: 'solid' });
-    rc.rectangle(12, 20, 20, 7, { stroke, strokeWidth: 1, roughness: 1.5, fill: getCollectionColor('seeds', 0.3), fillStyle: 'solid' });
+    const svgEl = document.getElementById('wander-icon');
+    if (!svgEl || typeof rough === 'undefined') return;
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    const rc = rough.svg(svgEl);
+    const isActive = currentMode === 'wander';
+    const stroke = isActive ? getAccentColor() : (isDark() ? '#a89e96' : '#7d7068');
+    const fill = isActive ? 'rgba(214, 0, 108, 0.2)' : 'rgba(125, 112, 104, 0.1)';
+    // Signpost shape
+    const signpost = rc.path('M 30 10 L 50 10 L 48 18 L 30 18 Z', {
+      stroke, strokeWidth: 1.5, roughness: 1.5, fill, fillStyle: 'solid',
+    });
+    svgEl.appendChild(signpost);
+    // Pole
+    const pole = rc.line(32, 18, 32, 40, { stroke, strokeWidth: 2, roughness: 1.5 });
+    svgEl.appendChild(pole);
+    // Ground
+    const ground = rc.line(25, 40, 40, 40, { stroke, strokeWidth: 1.5, roughness: 2 });
+    svgEl.appendChild(ground);
   }
 
   function doWander() {
@@ -1320,8 +1488,9 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   function showWanderCard(item) {
+    document.getElementById('wander-collection-dot').style.background = getCollectionColor(item.collection);
+    document.getElementById('wander-collection-name').textContent = COLLECTION_LABELS[item.collection] || item.collection;
     document.getElementById('wander-title').textContent = item.title;
-    document.getElementById('wander-collection').textContent = (COLLECTION_LABELS[item.collection] || item.collection) + ' · ' + item.maturity;
     document.getElementById('wander-description').textContent = item.description || '';
     document.getElementById('wander-visit').href = item.url;
 
@@ -1331,15 +1500,24 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     const nearby = findNearbyItems(item, 4);
     for (const n of nearby) {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${n.url}">${n.title}</a>`;
+      const btn = document.createElement('button');
+      btn.innerHTML = `<span class="nearby-dot" style="background:${getCollectionColor(n.collection)}"></span> ${n.title}`;
+      btn.addEventListener('click', () => { window.location.href = n.url; });
+      li.appendChild(btn);
       list.appendChild(li);
     }
+
+    // Update wander button active state
+    document.getElementById('wander-btn').classList.add('active');
+    drawWanderSignpost();
 
     wanderCard.classList.remove('hidden');
   }
 
   function hideWanderCard() {
     wanderCard.classList.add('hidden');
+    document.getElementById('wander-btn').classList.remove('active');
+    drawWanderSignpost();
   }
 
   // ----------------------------------------------------------------
