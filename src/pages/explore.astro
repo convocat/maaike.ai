@@ -21,6 +21,17 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       <p class="explore-subtitle" id="item-count"></p>
     </div>
 
+    <!-- Paths button (below title, top-left) -->
+    <button id="paths-btn" aria-label="Garden Paths">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19c2-2 4-6 8-6s6 4 8 6"/>
+        <path d="M4 12c2-2 4-6 8-6s6 4 8 6"/>
+        <circle cx="4" cy="19" r="1.5" fill="currentColor"/>
+        <circle cx="20" cy="19" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>Paths</span>
+    </button>
+
     <!-- Mode switcher (top-right) -->
     <div id="mode-switcher">
       <button class="mode-btn active" data-mode="map" aria-label="Map view">
@@ -204,6 +215,36 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     font-size: 0.875rem;
     color: var(--color-text-muted);
     margin: 4px 0 12px;
+  }
+
+  #paths-btn {
+    position: absolute;
+    top: calc(var(--space-lg) + 70px);
+    left: var(--space-lg);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: color-mix(in srgb, var(--color-bg-card) 95%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--color-border);
+    border-radius: var(--card-radius);
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    transition: all var(--transition-fast);
+  }
+  #paths-btn:hover {
+    background: color-mix(in srgb, var(--color-text-muted) 10%, transparent);
+    border-color: var(--color-accent);
+  }
+  #paths-btn svg {
+    flex-shrink: 0;
   }
 
 /* ----------------------------------------------------------------
@@ -1230,6 +1271,14 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     document.getElementById('trail-close').addEventListener('click', () => {
       currentMode = 'map';
       buttons.forEach(b => b.classList.toggle('active', b.dataset.mode === 'map'));
+      onModeChange();
+    });
+
+    // Standalone Paths button (top-left pill)
+    document.getElementById('paths-btn').addEventListener('click', () => {
+      if (currentMode === 'paths') return;
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.mode === 'paths'));
+      currentMode = 'paths';
       onModeChange();
     });
   }
