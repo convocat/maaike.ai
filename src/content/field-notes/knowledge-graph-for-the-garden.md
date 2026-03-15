@@ -69,15 +69,13 @@ Periodic enrichment job:
 
 ## Status
 
-- [x] Read and annotate both Saga papers ([[reading-notes-saga-knowledge-graph|reading notes]])
-- [x] Survey embedding models suitable for short mixed-topic content ([[embedding-models-for-the-garden|survey]])
-- [x] Set up candidate models locally via Ollama (nomic-embed-text, bge-m3, embeddinggemma)
-- [x] Compare three models on 10 items, select bge-m3 ([[embedding-models-for-the-garden|model selection criteria]])
-- [x] Full-scale embedding run on all 157 items with wiki-link comparison (43/44 confirmed, 2771 candidates at 0.55 threshold)
-- [x] Analyze similarity distribution and research threshold/filtering strategies ([[tuning-the-similarity-threshold|write-up]])
+- [x] Read and annotate Saga papers ([[reading-notes-saga-knowledge-graph|reading notes]])
+- [x] Survey embedding models ([[embedding-models-for-the-garden|model survey]])
+- [x] Set up models locally + compare on 10 items ([[setting-up-local-embedding-models|experiment]])
+- [x] Full-scale embedding run on 157 items ([[setting-up-local-embedding-models|experiment]])
+- [x] Analyze threshold and filtering strategies ([[tuning-the-similarity-threshold|write-up]])
 - [ ] Prototype: extract key phrases from 10 garden items
-- [ ] Prototype: compute embeddings and find non-obvious connections
-- [ ] Design the review UI for link candidates
+- [ ] Design review UI for link candidates
 
 ## Related
 
