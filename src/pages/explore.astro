@@ -152,7 +152,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   </div>
 </BaseLayout>
 
-<style>
+<style is:global>
   /* ----------------------------------------------------------------
      Explore page layout
      ---------------------------------------------------------------- */
@@ -470,7 +470,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     justify-content: space-between;
     padding: 12px 16px;
     border-bottom: 1px solid var(--color-border);
-    background: color-mix(in srgb, var(--color-text-muted) 5%, transparent);
+    background: color-mix(in srgb, var(--color-border) 30%, var(--color-bg-card));
   }
 
   .wander-card-top-label {
@@ -602,8 +602,11 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   #wander-nearby-list .nearby-dot {
-    width: 6px;
-    height: 6px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
