@@ -95,3 +95,5 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Observation box**: New `.observation` CSS component (teal accent) for personal meta-notes, added to both garden and Typora theme
 - **Backlinks fix**: Deduplicated backlinks and sorted by date for chronological project file ordering
 - **Experiment reorganization**: Moved analysis out of experiments into field notes, added full inline code to experiment files
+- **Full-scale key phrase extraction**: LLM-based extraction (gemma3:4b) on all 92 garden items. 705 unique phrases, 35% item overlap, short-text padding confirmed as main quality issue
+- **Field-notes icon**: Redesigned from flask to clipboard with checklist, distinguishable from experiments beaker at small sizes

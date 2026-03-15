@@ -76,6 +76,7 @@ Periodic enrichment job:
 - [x] Analyze threshold and filtering strategies ([[tuning-the-similarity-threshold|write-up]])
 - [x] Research key phrase extraction methods ([[key-phrase-extraction-for-the-garden|write-up]])
 - [x] Prototype: extract key phrases from 10 garden items ([[key-phrase-extraction-prototype|experiment]])
+- [x] Full-scale key phrase extraction on 92 items ([[full-scale-key-phrase-extraction|analysis]])
 - [ ] Design review UI for link candidates
 
 ## Related

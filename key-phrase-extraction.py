@@ -1,17 +1,22 @@
 """
-Key phrase extraction prototype: LLM vs YAKE on 10 garden items.
+Key phrase extraction: LLM vs YAKE on all garden items.
 Run from the digital-garden project root:
     python key-phrase-extraction.py
+    python key-phrase-extraction.py --sample 10   # prototype on 10 items
 """
 
 import json
 import os
 import re
+import sys
+import time
 import requests
 
 CONTENT_DIR = "src/content"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "gemma3:4b"
+ALL_COLLECTIONS = ["field-notes", "articles", "seeds", "experiments",
+                   "weblinks", "videos", "library", "principles"]
 
 # --- Helpers ---
 
@@ -38,10 +43,10 @@ def load_markdown(path):
     return title, text
 
 
-def pick_items(n=10):
-    """Pick n items across collections, preferring variety."""
+def load_all_items():
+    """Load all markdown items across all collections."""
     items = []
-    for collection in ["field-notes", "articles", "seeds", "experiments", "weblinks"]:
+    for collection in ALL_COLLECTIONS:
         folder = os.path.join(CONTENT_DIR, collection)
         if not os.path.isdir(folder):
             continue
@@ -52,15 +57,18 @@ def pick_items(n=10):
                 if len(body) > 50:  # skip very short items
                     items.append({
                         "path": path,
+                        "slug": fname.replace(".md", ""),
                         "collection": collection,
                         "title": title,
                         "body": body,
                     })
-    # Take a spread: pick every nth item
+    return items
+
+
+def pick_sample(items, n=10):
+    """Pick n items spread across the full list."""
     step = max(1, len(items) // n)
-    selected = items[::step][:n]
-    print(f"Selected {len(selected)} items from {len(items)} total\n")
-    return selected
+    return items[::step][:n]
 
 
 # --- LLM extraction ---
@@ -120,50 +128,63 @@ def extract_keyphrases_yake(body, max_phrases=8):
 # --- Main ---
 
 def main():
-    items = pick_items(10)
+    sample_n = None
+    if "--sample" in sys.argv:
+        idx = sys.argv.index("--sample")
+        sample_n = int(sys.argv[idx + 1]) if idx + 1 < len(sys.argv) else 10
+
+    all_items = load_all_items()
+    items = pick_sample(all_items, sample_n) if sample_n else all_items
+    total = len(items)
+
+    print(f"Processing {total} items from {len(all_items)} total")
+    print(f"Model: {MODEL} | Temperature: 0.1 | Max phrases: 8\n")
 
     results = []
-    for item in items:
-        print(f"Processing: {item['title']}")
-        print(f"  Collection: {item['collection']}")
-        print(f"  Words: {len(item['body'].split())}")
+    start_total = time.time()
+
+    for i, item in enumerate(items, 1):
+        start_item = time.time()
+        print(f"[{i}/{total}] {item['title']}")
+        print(f"  Collection: {item['collection']} | Words: {len(item['body'].split())}")
 
         llm_phrases = extract_keyphrases_llm(item["title"], item["body"])
-        yake_phrases = extract_keyphrases_yake(item["body"])
+        llm_time = time.time() - start_item
 
-        print(f"  LLM phrases:  {llm_phrases}")
-        print(f"  YAKE phrases: {yake_phrases}")
-
-        # Find overlap
-        llm_set = set(llm_phrases)
-        yake_set = set(yake_phrases)
-        overlap = llm_set & yake_set
-        if overlap:
-            print(f"  Overlap: {overlap}")
+        print(f"  LLM ({llm_time:.1f}s): {llm_phrases}")
         print()
 
         results.append({
             "title": item["title"],
+            "slug": item["slug"],
             "collection": item["collection"],
             "word_count": len(item["body"].split()),
             "llm_phrases": llm_phrases,
-            "yake_phrases": yake_phrases,
-            "overlap": list(overlap),
+            "llm_time_seconds": round(llm_time, 1),
         })
 
+    elapsed = time.time() - start_total
+
     # Save results
+    output = {
+        "model": MODEL,
+        "temperature": 0.1,
+        "max_phrases": 8,
+        "total_items": total,
+        "total_time_seconds": round(elapsed, 1),
+        "avg_time_per_item": round(elapsed / total, 1),
+        "items": results,
+    }
     with open("keyphrase-results.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        json.dump(output, f, indent=2, ensure_ascii=False)
     print(f"Results saved to keyphrase-results.json")
 
     # Summary stats
-    avg_llm = sum(len(r["llm_phrases"]) for r in results) / len(results)
-    avg_yake = sum(len(r["yake_phrases"]) for r in results) / len(results)
-    avg_overlap = sum(len(r["overlap"]) for r in results) / len(results)
-    print(f"\nSummary:")
-    print(f"  Avg LLM phrases:  {avg_llm:.1f}")
-    print(f"  Avg YAKE phrases: {avg_yake:.1f}")
-    print(f"  Avg overlap:      {avg_overlap:.1f}")
+    avg_llm = sum(len(r["llm_phrases"]) for r in results) / total
+    avg_time = sum(r["llm_time_seconds"] for r in results) / total
+    print(f"\nSummary ({total} items in {elapsed:.0f}s):")
+    print(f"  Avg LLM phrases:    {avg_llm:.1f}")
+    print(f"  Avg LLM time/item:  {avg_time:.1f}s")
 
 
 if __name__ == "__main__":
