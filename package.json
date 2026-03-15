@@ -13,5 +13,8 @@
     "@astrojs/sitemap": "^3.7.1",
     "astro": "^5.17.1",
     "remark-wiki-link": "^2.0.1"
+  },
+  "devDependencies": {
+    "umap-js": "^1.4.0"
   }
 }

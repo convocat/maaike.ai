@@ -1,0 +1,2585 @@
+{
+  "items": [
+    {
+      "slug": "2-years-and-700-members-insights-from-convoclub",
+      "title": "2 years and 700 members: insights from Convoclub",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
+      "url": "/articles/2-years-and-700-members-insights-from-convoclub",
+      "x": 0.298,
+      "y": 0.0693,
+      "keyphrases": [
+        "conversation designers",
+        "knowledge gaps",
+        "immature tools",
+        "stakeholder alignment",
+        "complex conversations"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "7-new-skills-for-conversation-designers-2022",
+      "title": "7 new skills to learn for conversation designers in 2022",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level.",
+      "url": "/articles/7-new-skills-for-conversation-designers-2022",
+      "x": 0.3183,
+      "y": 0.0673,
+      "keyphrases": [
+        "nlu",
+        "entities",
+        "ontologies",
+        "conversational teams",
+        "open source"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "a-digital-garden-as-central-space",
+      "title": "A digital garden as central space for my thoughts and writing",
+      "collection": "articles",
+      "maturity": "solid",
+      "description": "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet.",
+      "url": "/articles/a-digital-garden-as-central-space",
+      "x": 0.8673,
+      "y": 0.2526,
+      "keyphrases": [
+        "digital garden",
+        "non-linear thinking",
+        "personal knowledge system",
+        "evolving ideas",
+        "linked associations"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "air-canadas-bot-mishap-pre-dates-chatgpt",
+      "title": "Air Canada's bot mishap pre-dates ChatGPT",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "So if it's not a case of LLM hallucination, what did happen?",
+      "url": "/articles/air-canadas-bot-mishap-pre-dates-chatgpt",
+      "x": 0.5107,
+      "y": 0.1312,
+      "keyphrases": [
+        "chatbot mishap",
+        "nlu-based bot",
+        "conversational ai",
+        "content lifecycle",
+        "single sourcing"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "an-evening-with-chatgpt-2",
+      "title": "An evening with ChatGPT (2)",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
+      "url": "/articles/an-evening-with-chatgpt-2",
+      "x": 0.5258,
+      "y": 0.2516,
+      "keyphrases": [
+        "conversation design",
+        "hello world",
+        "slot filling",
+        "pizza ordering",
+        "interactive simulation"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "an-evening-with-chatgpt-3",
+      "title": "An evening with ChatGPT (3)",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Can ChatGPT take over some of my work as a conversation designer? Can it create an intent model for me?",
+      "url": "/articles/an-evening-with-chatgpt-3",
+      "x": 0.4802,
+      "y": 0.2658,
+      "keyphrases": [
+        "intent model",
+        "nlp tasks",
+        "pizza bot",
+        "training phrases",
+        "prepositional phrases"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "an-evening-with-chatgpt-september-2023",
+      "title": "An evening with ChatGPT - the september 2023 edition",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?",
+      "url": "/articles/an-evening-with-chatgpt-september-2023",
+      "x": 0.559,
+      "y": 0.207,
+      "keyphrases": [
+        "chatgpt sessions",
+        "new browse feature",
+        "training data",
+        "data collection",
+        "llm interactions"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "an-evening-with-chatgpt",
+      "title": "An evening with ChatGPT",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT.",
+      "url": "/articles/an-evening-with-chatgpt",
+      "x": 0.5007,
+      "y": 0.2401,
+      "keyphrases": [
+        "large language model",
+        "contextual understanding",
+        "bot persona",
+        "coreference recognition",
+        "logic inferences"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "an-evening-with-youchat-and-chatsonic",
+      "title": "An evening with YouChat and Chatsonic — with a bit of a twist",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Both can access the internet and retrieve recent information. Let's take them for a test drive.",
+      "url": "/articles/an-evening-with-youchat-and-chatsonic",
+      "x": 0.547,
+      "y": 0.2098,
+      "keyphrases": [
+        "youchat and chatsonic models",
+        "internet access and information retrieval",
+        "semantic ambiguity and context",
+        "llm date understanding",
+        "stochastic parrot behavior"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "blender-turned-rogue",
+      "title": "Blender turned rogue?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Facebook's AI chatbot might just be saying what you want it to say…",
+      "url": "/articles/blender-turned-rogue",
+      "x": 0.463,
+      "y": 0.21,
+      "keyphrases": [
+        "ai chatbot",
+        "anti-semitic responses",
+        "misogynism",
+        "lack internal coherence",
+        "ethical validation rules"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "title": "Bye bye Alpaca...knowledge as the missing fundamental?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Wow, that went down fast!",
+      "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "x": 0.6306,
+      "y": 0.2321,
+      "keyphrases": [
+        "hallucinations in llms",
+        "missing fundamental concept",
+        "tuning llm models",
+        "approximation of truth",
+        "low price models"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "chatgpt-presentation-prep",
+      "title": "My favorite ChatGPT use case: presentation prep!",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Stress-free preparation...could it really work?",
+      "url": "/articles/chatgpt-presentation-prep",
+      "x": 0.5167,
+      "y": 0.2284,
+      "keyphrases": [
+        "presentation prep",
+        "generative ai use",
+        "procrastination paralysis",
+        "ai feedback loop",
+        "voice mode input"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "context-engineering-lets-call-it-design",
+      "title": "Context engineering? Let's call it design",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.",
+      "url": "/articles/context-engineering-lets-call-it-design",
+      "x": 0.4622,
+      "y": 0.3116,
+      "keyphrases": [
+        "context engineering",
+        "design approach",
+        "information architecture",
+        "semantic building blocks",
+        "system prompts"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "conversational-interfaces-are-not-easy",
+      "title": "Conversational interfaces are not easy",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Usability challenges of writing with AI: let people write!",
+      "url": "/articles/conversational-interfaces-are-not-easy",
+      "x": 0.5673,
+      "y": 0.2557,
+      "keyphrases": [
+        "conversational interfaces",
+        "review-regenerate-repeat",
+        "articulation barrier",
+        "accordion editing",
+        "apple picking"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "convo-question-should-i-learn-programming",
+      "title": "Convo question: Should I learn programming?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "As a conversation designer, should I know how to code? Some pros and cons.",
+      "url": "/articles/convo-question-should-i-learn-programming",
+      "x": 0.3102,
+      "y": 0.0751,
+      "keyphrases": [
+        "conversation design",
+        "code logic",
+        "json, html, css",
+        "nlu and language",
+        "data analysis"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "convoclub-clubhouse",
+      "title": "Convoclub: Clubhouse for conversation designers!",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!",
+      "url": "/articles/convoclub-clubhouse",
+      "x": 0.3048,
+      "y": 0.1078,
+      "keyphrases": [
+        "conversation designers",
+        "clubhouse community",
+        "social audio space",
+        "weekly rooms",
+        "casual chats"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "corona-is-spreading-and-so-are-the-bots",
+      "title": "Corona is spreading…and so are the bots",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "How to build Coronabots responsibly — if you want to build one at all.",
+      "url": "/articles/corona-is-spreading-and-so-are-the-bots",
+      "x": 0.4314,
+      "y": 0.1053,
+      "keyphrases": [
+        "corona chatbots",
+        "crisis communication tools",
+        "reliable information",
+        "content strategy",
+        "official government bodies"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "de-biassing-dall-e",
+      "title": "De-biassing Dall-e",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
+      "url": "/articles/de-biassing-dall-e",
+      "x": 0.3221,
+      "y": 0.2776,
+      "keyphrases": [
+        "dall-e 3 prompt rewriting",
+        "diverse image generation",
+        "ethnically diverse prompts",
+        "cultural stereotypes",
+        "bias in image generation"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "european-chatbot-conference-10-talks",
+      "title": "European chatbot conference: 10 talks that I'm going to rewatch",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
+      "url": "/articles/european-chatbot-conference-10-talks",
+      "x": 0.4039,
+      "y": 0.1536,
+      "keyphrases": [
+        "collaborative task assistants",
+        "voice challenges",
+        "conversational collaboration",
+        "data improve ai",
+        "future conversational ai"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "title": "Fingers crossed is a figure of speech, DALL-E!",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "DALL-E 3 is still digitally challenged.",
+      "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
+      "x": 0.3602,
+      "y": 0.2864,
+      "keyphrases": [
+        "image generation",
+        "augmented prompt",
+        "realistic photograph",
+        "hand details",
+        "bias propagation"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "hey-chatgpt-whos-the-boss",
+      "title": "Hey ChatGPT, who's the boss?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think.",
+      "url": "/articles/hey-chatgpt-whos-the-boss",
+      "x": 0.5377,
+      "y": 0.1737,
+      "keyphrases": [
+        "probabilistic model",
+        "chatgpt's training cut-off",
+        "access the internet",
+        "human error ai",
+        "probabilistic distribution"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "hildegard-von-bingen",
+      "title": "Hildegard von Bingen",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "The original woman in voice. On international women's day, a tribute to the first named composer in history.",
+      "url": "/articles/hildegard-von-bingen",
+      "x": 0.3717,
+      "y": 0.205,
+      "keyphrases": [
+        "hildegard von bingen",
+        "female monastery",
+        "equality of women",
+        "giving life",
+        "religious bulwarks"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "hoe-word-ik-conversation-designer",
+      "title": "Hoe word ik conversation designer?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?",
+      "url": "/articles/hoe-word-ik-conversation-designer",
+      "x": 0.3382,
+      "y": 0.106,
+      "keyphrases": [
+        "conversation design",
+        "chatbot ontwerp",
+        "gespreks patronen",
+        "bot persona",
+        "gespreks paden"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "how-do-i-become-a-conversation-designer",
+      "title": "How do I become a conversation designer?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
+      "url": "/articles/how-do-i-become-a-conversation-designer",
+      "x": 0.3636,
+      "y": 0.1019,
+      "keyphrases": [
+        "conversation interfaces",
+        "chatbot builder",
+        "user journeys",
+        "conversational flows",
+        "bot persona"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "how-to-create-your-own-content-quality-audit",
+      "title": "How to create your own content quality audit",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "5 checks to keep your content on track — and your clients happy.",
+      "url": "/articles/how-to-create-your-own-content-quality-audit",
+      "x": 0.4318,
+      "y": 0.0621,
+      "keyphrases": [
+        "content quality audit",
+        "feedback checklist",
+        "audience understanding",
+        "stakeholder expectations",
+        "quality level"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "how-to-make-chatgpt-more-conversational",
+      "title": "How to make ChatGPT more conversational",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "There's a prompt for that! A quick tutorial for designing conversational system prompts.",
+      "url": "/articles/how-to-make-chatgpt-more-conversational",
+      "x": 0.4708,
+      "y": 0.2859,
+      "keyphrases": [
+        "conversational system prompts",
+        "more conversational chatgpt",
+        "designing conversational systems",
+        "prompt for that",
+        "tutorial design"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "llm-hallucinations-knowledge-as-missing-fundamental",
+      "title": "The issue with LLM hallucinations: knowledge as a missing fundamental",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Will we ever solve hallucinations in LLMs?",
+      "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
+      "x": 0.5973,
+      "y": 0.2548,
+      "keyphrases": [
+        "llm hallucinations",
+        "missing fundamental",
+        "knowledge approximation",
+        "truth tuning",
+        "probability levels"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "microsoft-youre-using-bing-wrong",
+      "title": "Microsoft: \\\"you're using Bing wrong! You're not supposed to talk with it!\\\"",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "You built a conversational interface and then expected people to use it just for search?",
+      "url": "/articles/microsoft-youre-using-bing-wrong",
+      "x": 0.4944,
+      "y": 0.1725,
+      "keyphrases": [
+        "conversation 101",
+        "conversational interface",
+        "task-based solution",
+        "real conversation",
+        "collaborative effort"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "nieuwe-editie-voicelunch",
+      "title": "Nieuwe editie voicelunch: language & linguistics!",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!",
+      "url": "/articles/nieuwe-editie-voicelunch",
+      "x": 0.2781,
+      "y": 0.1333,
+      "keyphrases": [
+        "language & linguistics",
+        "virtual meetups",
+        "voice and conversation",
+        "community building",
+        "safe environment"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "off-to-a-good-start",
+      "title": "Off to a good start",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "An onboarding checklist for conversation designers.",
+      "url": "/articles/off-to-a-good-start",
+      "x": 0.3657,
+      "y": 0.0706,
+      "keyphrases": [
+        "onboarding checklist",
+        "remote onboarding",
+        "digital access",
+        "socialise with people",
+        "onboarding tour"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "online-prompt-workshop-de-biasing-dall-e",
+      "title": "Online prompt workshop: de-biasing Dall-e",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us.",
+      "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
+      "x": 0.3296,
+      "y": 0.2993,
+      "keyphrases": [
+        "de-bias dall-e",
+        "inclusive image generation",
+        "stereotypes in dall-e",
+        "conscious prompting",
+        "dall-e representation"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "online-uitgeput-pak-een-kruk",
+      "title": "Online uitgeput? Pak een kruk",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
+      "url": "/articles/online-uitgeput-pak-een-kruk",
+      "x": 0.4294,
+      "y": 0.079,
+      "keyphrases": [
+        "online vergaderen uitput",
+        "lichaamshouding speelt rol",
+        "zitbotjes basis",
+        "voeten op grond",
+        "hoofd drijven wervelkolom"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "onthaast-je-voice-action-met-ssml",
+      "title": "Onthaast je voice action met SSML",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Klinkt jouw Google Assistant ook zo buiten adem? SSML helpt!",
+      "url": "/articles/onthaast-je-voice-action-met-ssml",
+      "x": 0.2557,
+      "y": 0.2286,
+      "keyphrases": [
+        "voice action onthaasten",
+        "speech synthesis markup language",
+        "conversational designer",
+        "standaard stemmen",
+        "dialoogtekst"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "prompt-thought-summaries",
+      "title": "Prompt thought: summaries",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
+      "url": "/articles/prompt-thought-summaries",
+      "x": 0.4203,
+      "y": 0.3046,
+      "keyphrases": [
+        "key concepts",
+        "short definition",
+        "related concepts",
+        "keyword extraction",
+        "llm performance"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "putting-the-design-in-prompt-design",
+      "title": "Putting the design in prompt design",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Blind prompting vs. prompt engineering — and what it means for conversation designers.",
+      "url": "/articles/putting-the-design-in-prompt-design",
+      "x": 0.4445,
+      "y": 0.2783,
+      "keyphrases": [
+        "prompt design",
+        "experiment-based design",
+        "reliable prompt design",
+        "repeatable prompt design",
+        "robust prompt design"
+      ],
+      "connections": 8
+    },
+    {
+      "slug": "saturday-design-thoughts",
+      "title": "Saturday design thoughts",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Designing for negative space",
+      "url": "/articles/saturday-design-thoughts",
+      "x": 0.5478,
+      "y": 0.1543,
+      "keyphrases": [
+        "llms impossible to shut up",
+        "negative space in llm",
+        "designed invitation reflection",
+        "constraint into interaction model",
+        "silence-informed interaction"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "scrum-for-conversational-teams",
+      "title": "Scrum for conversational teams: sprints",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
+      "url": "/articles/scrum-for-conversational-teams",
+      "x": 0.4728,
+      "y": 0.0938,
+      "keyphrases": [
+        "chatbot scrum team",
+        "fixed publication windows",
+        "xml-based content",
+        "research and co-ordination",
+        "content planning review"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "stay-calm-and-keep-thinking-for-yourself",
+      "title": "Stay calm and keep thinking for yourself",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "My favorite resources for building a curious and critical frame of mind.",
+      "url": "/articles/stay-calm-and-keep-thinking-for-yourself",
+      "x": 0.57,
+      "y": 0.1975,
+      "keyphrases": [
+        "chatgpt hype",
+        "openai technology",
+        "ethical ai standards",
+        "bias algorithms",
+        "generative ai interfaces"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "the-lone-convo-designer",
+      "title": "The lone convo designer: a checklist for a team-of-one",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
+      "url": "/articles/the-lone-convo-designer",
+      "x": 0.3568,
+      "y": 0.05,
+      "keyphrases": [
+        "conversation designer",
+        "team-of-one workflow",
+        "find your allies",
+        "business sponsor",
+        "design process"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "the-long-and-winding-road",
+      "title": "The long and winding road",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
+      "url": "/articles/the-long-and-winding-road",
+      "x": 0.34,
+      "y": 0.0743,
+      "keyphrases": [
+        "conversation design",
+        "entrepreneurial journey",
+        "corporate identity",
+        "exit strategy",
+        "conversational ai"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "understanding-speech-part-1",
+      "title": "Understanding speech — part 1",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.",
+      "url": "/articles/understanding-speech-part-1",
+      "x": 0.2921,
+      "y": 0.222,
+      "keyphrases": [
+        "speech communication",
+        "voice assistant design",
+        "breath boundaries",
+        "prosodic properties",
+        "intonation patterns"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "understanding-speech-part-2",
+      "title": "Understanding speech — Part 2",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.",
+      "url": "/articles/understanding-speech-part-2",
+      "x": 0.3134,
+      "y": 0.2088,
+      "keyphrases": [
+        "speech-like action",
+        "backchannelling cues",
+        "discourse markers",
+        "deixis",
+        "front channel"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "visual-notes-brian-roemmele",
+      "title": "Visual notes: Brian Roemmele @voicelunch",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended.",
+      "url": "/articles/visual-notes-brian-roemmele",
+      "x": 0.2974,
+      "y": 0.1399,
+      "keyphrases": [
+        "sketchnotes creation",
+        "open safe space",
+        "missed voicelunch session",
+        "brian roemmele",
+        "voicelunch magic"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "what-happens-when-ai-has-read-everything",
+      "title": "What happens when AI has read everything?",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!",
+      "url": "/articles/what-happens-when-ai-has-read-everything",
+      "x": 0.6266,
+      "y": 0.3329,
+      "keyphrases": [
+        "ai data shortage",
+        "language data replenishment",
+        "synthetic training data",
+        "human data collection",
+        "llm training data"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
+      "title": "Why ChatGPT is bullshit (and why we should design for that)",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids.",
+      "url": "/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
+      "x": 0.5924,
+      "y": 0.1838,
+      "keyphrases": [
+        "word-string-generator",
+        "stochastic parrot",
+        "probabilistic concatenation",
+        "conversational talent",
+        "co-operative principle"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "youre-not-married-to-your-texts",
+      "title": "You're not married to your texts",
+      "collection": "articles",
+      "maturity": "complete",
+      "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
+      "url": "/articles/youre-not-married-to-your-texts",
+      "x": 0.4363,
+      "y": 0.0832,
+      "keyphrases": [
+        "content project system",
+        "quality parameters",
+        "detach from texts",
+        "open inquisitive mind",
+        "client feedback"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "building-this-garden",
+      "title": "Building this garden: change log",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "A changelog of features and decisions made while building this digital garden.",
+      "url": "/field-notes/building-this-garden",
+      "x": 0.8808,
+      "y": 0.2194,
+      "keyphrases": [
+        "garden metaphor",
+        "ai transparency",
+        "content import",
+        "tag system",
+        "filtering sorting"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "claude-md-project-memory",
+      "title": "Project memory for persistent context",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "How a CLAUDE.md file gives your AI coding assistant persistent project context.",
+      "url": "/field-notes/claude-md-project-memory",
+      "x": 0.487,
+      "y": 0.3251,
+      "keyphrases": [
+        "persistent context",
+        "across sessions",
+        "ai docs",
+        "setup commands",
+        "design system"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "digital-gardens-vs-blogs",
+      "title": "Digital Gardens vs Blogs",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "What makes a digital garden different from a traditional blog?",
+      "url": "/field-notes/digital-gardens-vs-blogs",
+      "x": 0.9311,
+      "y": 0.2754,
+      "keyphrases": [
+        "digital gardens",
+        "vs blogs",
+        "chronological streams",
+        "topological networks",
+        "embrace imperfection"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "embedding-models-for-the-garden",
+      "title": "Embedding models: a survey for the garden",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "A non-coder's guide to text embedding models, from word counting to semantic understanding, surveyed for use in a personal knowledge garden.",
+      "url": "/field-notes/embedding-models-for-the-garden",
+      "x": 0.8193,
+      "y": 0.1653,
+      "keyphrases": [
+        "embedding models",
+        "vector representations",
+        "text embeddings",
+        "latent semantic analysis",
+        "word2vec"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "knowledge-graph-for-the-garden",
+      "title": "Knowledge graph for the garden",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
+      "url": "/field-notes/knowledge-graph-for-the-garden",
+      "x": 0.8548,
+      "y": 0.2026,
+      "keyphrases": [
+        "knowledge graph",
+        "world model",
+        "semantic links",
+        "external content",
+        "confidence scores"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "prompt-scaffolding",
+      "title": "Prompt Scaffolding",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "An early thought about structuring prompts in stages.",
+      "url": "/field-notes/prompt-scaffolding",
+      "x": 0.4348,
+      "y": 0.3485,
+      "keyphrases": [
+        "prompt scaffolding",
+        "layered prompts",
+        "contextual addition",
+        "format specification",
+        "examples provided"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "reading-notes-saga-knowledge-graph",
+      "title": "Reading notes: Apple's Saga knowledge graph",
+      "collection": "field-notes",
+      "maturity": "solid",
+      "description": "Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.",
+      "url": "/field-notes/reading-notes-saga-knowledge-graph",
+      "x": 0.8628,
+      "y": 0.1861,
+      "keyphrases": [
+        "saga platform",
+        "knowledge graph layers",
+        "extended rdf triples",
+        "delta computation",
+        "entity linking"
+      ],
+      "connections": 9
+    },
+    {
+      "slug": "thinking-in-public",
+      "title": "Thinking in Public",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "The practice of sharing unfinished thoughts openly.",
+      "url": "/field-notes/thinking-in-public",
+      "x": 0.9267,
+      "y": 0.2843,
+      "keyphrases": [
+        "sharing ideas early",
+        "digital garden model",
+        "visibility of drafts",
+        "collaboration and feedback",
+        "accountability for thoughts"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "ai-as-writing-partner",
+      "title": "AI as writing partner",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "What's the right metaphor for AI's role in my writing process?",
+      "url": "/seeds/ai-as-writing-partner",
+      "x": 0.6212,
+      "y": 0.4493,
+      "keyphrases": [
+        "ai writing partner",
+        "serious role ai",
+        "sparring partner",
+        "thinking companion",
+        "editor assistance"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "ai-transparency-in-content",
+      "title": "AI transparency in content",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "How should I indicate when content was made with AI — and share the prompts?",
+      "url": "/seeds/ai-transparency-in-content",
+      "x": 0.5647,
+      "y": 0.4655,
+      "keyphrases": [
+        "ai transparency",
+        "content creation",
+        "ai assistance",
+        "collaboration process",
+        "actual prompts"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "chatbots-without-ai",
+      "title": "Chatbots without AI",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Can a chatbot-style UI work without generative AI, using decision trees, hyperlinking, and serendipity instead?",
+      "url": "/seeds/chatbots-without-ai",
+      "x": 0.8102,
+      "y": 0.2444,
+      "keyphrases": [
+        "conversational garden guide",
+        "deterministic chatbot design",
+        "branching dialogue paths",
+        "tag-based exploration",
+        "random walks mode"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "crew-resource-management",
+      "title": "Crew Resource Management",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "",
+      "url": "/seeds/crew-resource-management",
+      "x": 0.4351,
+      "y": 0.9194,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "dutch-aware-quantization",
+      "title": "Dutch-aware quantization",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.",
+      "url": "/seeds/dutch-aware-quantization",
+      "x": 0.7763,
+      "y": 0.1697,
+      "keyphrases": [
+        "dutch calibration data",
+        "component-level vulnerability data",
+        "language-specific calibration",
+        "quantization process",
+        "dutch embedding quality"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "embeddings-for-knowledge-gardens-research-gap",
+      "title": "Embeddings for knowledge gardens: a research gap",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Academic research on embeddings hasn't caught up with how PKM tools actually use them. There might be something worth writing here.",
+      "url": "/seeds/embeddings-for-knowledge-gardens-research-gap",
+      "x": 0.8746,
+      "y": 0.1938,
+      "keyphrases": [
+        "embedding models",
+        "knowledge graph project",
+        "digital gardens",
+        "personal knowledge management",
+        "auto-suggested links"
+      ],
+      "connections": 12
+    },
+    {
+      "slug": "garden-to-do-list",
+      "title": "Garden to do list",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "A living list of ideas and plans for this garden.",
+      "url": "/seeds/garden-to-do-list",
+      "x": 0.8702,
+      "y": 0.2568,
+      "keyphrases": [
+        "conversational garden guide",
+        "smart linking",
+        "serendipity by design",
+        "linkedin integration",
+        "knowledge gardens"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "how-to-build-a-digital-garden",
+      "title": "How to build a digital garden",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "What if I wrote a comprehensive guide on how I built this site?",
+      "url": "/seeds/how-to-build-a-digital-garden",
+      "x": 0.95,
+      "y": 0.2614,
+      "keyphrases": [
+        "digital garden",
+        "content collections",
+        "wiki links",
+        "backlinks",
+        "maturity stages"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "knowledge-gardens-and-serendipity",
+      "title": "Knowledge gardens and serendipity",
+      "collection": "seeds",
+      "maturity": "developing",
+      "description": "Should a digital garden be searchable and useful, or is there beauty in letting people explore?",
+      "url": "/seeds/knowledge-gardens-and-serendipity",
+      "x": 0.8816,
+      "y": 0.2659,
+      "keyphrases": [
+        "knowledge gardens",
+        "interconnectedness",
+        "serendipity",
+        "digital garden",
+        "flat content"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "principles-behind-this-garden",
+      "title": "Principles behind this garden",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "What design principles shaped this site — and why do they matter?",
+      "url": "/seeds/principles-behind-this-garden",
+      "x": 0.9061,
+      "y": 0.2908,
+      "keyphrases": [
+        "thinking in public",
+        "embracing imperfection",
+        "connecting ideas",
+        "making room",
+        "growth potential"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "style-guide-for-ai",
+      "title": "Style guide for AI",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Language rules for how I talk about AI in my work.",
+      "url": "/seeds/style-guide-for-ai",
+      "x": 0.5845,
+      "y": 0.4503,
+      "keyphrases": [
+        "ai doesn't write",
+        "call the ai",
+        "active voice agency",
+        "co-created meaning",
+        "directed generation"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "the-disappearance-of-authentic-voice-online",
+      "title": "The disappearance of authentic voice online",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "When did we stop caring about who actually wrote the words?",
+      "url": "/seeds/the-disappearance-of-authentic-voice-online",
+      "x": 0.651,
+      "y": 0.3627,
+      "keyphrases": [
+        "authentic voice",
+        "ai-generated content",
+        "template fitting",
+        "lost personality",
+        "real voices"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "writing-as-a-conversation-with-yourself",
+      "title": "Writing as a conversation with yourself",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "A mechanism that catches your train of thought. Something that responds in another space.",
+      "url": "/seeds/writing-as-a-conversation-with-yourself",
+      "x": 0.8766,
+      "y": 0.327,
+      "keyphrases": [
+        "conversation with self",
+        "internal thought process",
+        "catching train of thought",
+        "responding in space",
+        "quick thinking"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "digital-garden-history",
+      "title": "The History of Digital Gardens",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "A comprehensive overview of the digital garden concept and its evolution.",
+      "url": "/weblinks/digital-garden-history",
+      "x": 0.9166,
+      "y": 0.2645,
+      "keyphrases": [
+        "digital garden concept",
+        "hypertext systems",
+        "wikis evolution",
+        "personal knowledge gardens",
+        "early hypertext"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "saga-knowledge-platform",
+      "title": "Saga: a platform for continuous construction and serving of knowledge at scale",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Apple's hybrid batch-incremental knowledge graph platform. Key inspiration for building smarter connections in this garden.",
+      "url": "/weblinks/saga-knowledge-platform",
+      "x": 0.858,
+      "y": 0.2041,
+      "keyphrases": [
+        "knowledge graph platform",
+        "hybrid batch-incremental design",
+        "delta processing",
+        "extended triples metadata",
+        "blocking similarity linking"
+      ],
+      "connections": 9
+    },
+    {
+      "slug": "www-linkedin-com",
+      "title": "www.linkedin.com",
+      "collection": "weblinks",
+      "maturity": "draft",
+      "description": "",
+      "url": "/weblinks/www-linkedin-com",
+      "x": 0.5915,
+      "y": 0.8136,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "a-little-sunday-afternoon-rant",
+      "title": "A little Sunday afternoon rant",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "A little Sunday afternoon rant.",
+      "url": "/videos/a-little-sunday-afternoon-rant",
+      "x": 0.4715,
+      "y": 0.5737,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "an-evening-with-copilot-for-powerpoint",
+      "title": "An evening with Copilot for Powerpoint: please bring Clippie back!",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "An evening with Copilot for Powerpoint.",
+      "url": "/videos/an-evening-with-copilot-for-powerpoint",
+      "x": 0.4523,
+      "y": 0.5391,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "an-evening-with-perplexity-ai",
+      "title": "An evening with Perplexity AI",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "An evening with Perplexity AI.",
+      "url": "/videos/an-evening-with-perplexity-ai",
+      "x": 0.5311,
+      "y": 0.5694,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "bard-violates-grices-maxims-again",
+      "title": "Bard violates Grice's maxims...again",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Bard violates Grice's maxims, again.",
+      "url": "/videos/bard-violates-grices-maxims-again",
+      "x": 0.5404,
+      "y": 0.6171,
+      "keyphrases": [],
+      "connections": 10
+    },
+    {
+      "slug": "content-driven-interaction-in-4-steps",
+      "title": "Content driven interaction in 4 steps",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Content driven interaction in 4 steps.",
+      "url": "/videos/content-driven-interaction-in-4-steps",
+      "x": 0.2927,
+      "y": 0.6212,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "designing-for-doubt",
+      "title": "Designing for doubt",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that's not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?",
+      "url": "/videos/designing-for-doubt",
+      "x": 0.5582,
+      "y": 0.201,
+      "keyphrases": [
+        "designing for doubt",
+        "chatgpt interface",
+        "user trust",
+        "remove friction",
+        "human-like naturalness"
+      ],
+      "connections": 3
+    },
+    {
+      "slug": "episode-1-types-of-prompting",
+      "title": "Types of prompting",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Episode 1 of the Maai & AI series, on the different types of prompting.",
+      "url": "/videos/episode-1-types-of-prompting",
+      "x": 0.4732,
+      "y": 0.522,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "episode-2-types-of-ai",
+      "title": "Types of AI",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Episode 2 of the Maai & AI series, exploring the different types of AI.",
+      "url": "/videos/episode-2-types-of-ai",
+      "x": 0.5726,
+      "y": 0.5666,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "episode-3-llms-how-they-work",
+      "title": "LLMs: how they work in a nutshell and some of their risks",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Episode 3 of the Maai & AI series, on how LLMs work and some of their risks.",
+      "url": "/videos/episode-3-llms-how-they-work",
+      "x": 0.566,
+      "y": 0.5421,
+      "keyphrases": [],
+      "connections": 6
+    },
+    {
+      "slug": "generative-ai-new-roles-skills-tools",
+      "title": "Generative AI: new roles, skills & tools for content professionals",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "New roles, skills and tools for content professionals in the age of generative AI.",
+      "url": "/videos/generative-ai-new-roles-skills-tools",
+      "x": 0.3916,
+      "y": 0.6386,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "kudos-to-chevrolet",
+      "title": "Kudos to Chevrolet!",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Kudos to Chevrolet!",
+      "url": "/videos/kudos-to-chevrolet",
+      "x": 0.4035,
+      "y": 0.6602,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "linkedin-ai-buttons-a-little-rant",
+      "title": "LinkedIn AI buttons: a little rant",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "A rant about LinkedIn's AI buttons.",
+      "url": "/videos/linkedin-ai-buttons-a-little-rant",
+      "x": 0.4549,
+      "y": 0.5744,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "lunchbreak-with-claude-research-papers",
+      "title": "Lunchbreak with Claude: explore research papers with Claude artefacts",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
+      "url": "/videos/lunchbreak-with-claude-research-papers",
+      "x": 0.414,
+      "y": 0.5005,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "lunchbreak-with-claude",
+      "title": "Lunchbreak with Claude",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "A lunchbreak session with Claude.",
+      "url": "/videos/lunchbreak-with-claude",
+      "x": 0.477,
+      "y": 0.5164,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "modeling-conversational-agents-natural-conversation-framework",
+      "title": "Modeling conversational agents, an intro to the Natural Conversation Framework",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "An intro to the Natural Conversation Framework for modeling conversational agents.",
+      "url": "/videos/modeling-conversational-agents-natural-conversation-framework",
+      "x": 0.3176,
+      "y": 0.6656,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "my-favorite-ai-tools-2025-edition",
+      "title": "My favorite AI tools - 2025 edition",
+      "collection": "videos",
+      "maturity": "solid",
+      "description": "An update on my favorite AI-tools...a never ending overview",
+      "url": "/videos/my-favorite-ai-tools-2025-edition",
+      "x": 0.4012,
+      "y": 0.5453,
+      "keyphrases": [
+        "ai tools",
+        "2025 edition",
+        "ai overview",
+        "favorite tools",
+        "never ending"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "notebooklm-podcast-guest",
+      "title": "I joined NotebookLM as a podcast guest!",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Joining NotebookLM as a podcast guest.",
+      "url": "/videos/notebooklm-podcast-guest",
+      "x": 0.5606,
+      "y": 0.5438,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "prompt-tutorials-for-conversation-designers",
+      "title": "Prompt tutorials for conversation designers",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Prompt tutorials for conversation designers.",
+      "url": "/videos/prompt-tutorials-for-conversation-designers",
+      "x": 0.3146,
+      "y": 0.582,
+      "keyphrases": [],
+      "connections": 8
+    },
+    {
+      "slug": "quickstart-ssml-les-1-intonatie",
+      "title": "Quickstart SSML: les 1 'Intonatie'",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Quickstart SSML les 1: intonatie.",
+      "url": "/videos/quickstart-ssml-les-1-intonatie",
+      "x": 0.0682,
+      "y": 0.5337,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "quickstart-ssml-les-2-de-ssml-simulator",
+      "title": "Quickstart SSML: les 2 'De SSML-simulator'",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Quickstart SSML les 2: de SSML-simulator.",
+      "url": "/videos/quickstart-ssml-les-2-de-ssml-simulator",
+      "x": 0.0796,
+      "y": 0.5305,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "quickstart-ssml-les-3-ssml-de-basiselementen",
+      "title": "Quickstart SSML: les 3 'De basiselementen'",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Quickstart SSML les 3: de basiselementen.",
+      "url": "/videos/quickstart-ssml-les-3-ssml-de-basiselementen",
+      "x": 0.0502,
+      "y": 0.5264,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "quickstart-ssml-les-4-ssml-invoeren-in-dialogflow",
+      "title": "Quickstart SSML: les 4 'SSML invoeren in Dialogflow'",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Quickstart SSML les 4: SSML invoeren in Dialogflow.",
+      "url": "/videos/quickstart-ssml-les-4-ssml-invoeren-in-dialogflow",
+      "x": 0.0724,
+      "y": 0.5341,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "quickstart-ssml-les-5-moeilijke-woorden",
+      "title": "Quickstart SSML: les 5 'Moeilijke woorden'",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Quickstart SSML les 5: moeilijke woorden.",
+      "url": "/videos/quickstart-ssml-les-5-moeilijke-woorden",
+      "x": 0.05,
+      "y": 0.5458,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "strawberries-and-how-one-model-gets-it-right",
+      "title": "Strawberries! (And how 1 model gets it right)",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "The strawberry problem, and how one model gets it right.",
+      "url": "/videos/strawberries-and-how-one-model-gets-it-right",
+      "x": 0.5077,
+      "y": 0.5892,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "sunday-afternoon-with-claude-interactive-tutorial",
+      "title": "Sunday afternoon with Claude: let's build an interactive tutorial",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Building an interactive tutorial with Claude on a Sunday afternoon.",
+      "url": "/videos/sunday-afternoon-with-claude-interactive-tutorial",
+      "x": 0.4526,
+      "y": 0.4996,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "taking-deepseek-for-a-testdrive",
+      "title": "Taking Deepseek for a testdrive: so what's the status of Taiwan?",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Taking Deepseek for a testdrive.",
+      "url": "/videos/taking-deepseek-for-a-testdrive",
+      "x": 0.5732,
+      "y": 0.576,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "van-technisch-schrijver-naar-conversation-designer",
+      "title": "Van technisch schrijver naar conversation designer",
+      "collection": "videos",
+      "maturity": "complete",
+      "description": "Van technisch schrijver naar conversation designer.",
+      "url": "/videos/van-technisch-schrijver-naar-conversation-designer",
+      "x": 0.3036,
+      "y": 0.6234,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "alone-together",
+      "title": "Alone together",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/alone-together",
+      "x": 0.6921,
+      "y": 0.3874,
+      "keyphrases": [
+        "online intimacies",
+        "illusion of companionship",
+        "electronic companions",
+        "social networking tools",
+        "isolation and connectivity"
+      ],
+      "connections": 6
+    },
+    {
+      "slug": "ambiguity-in-natural-language",
+      "title": "Ambiguity in natural language",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/ambiguity-in-natural-language",
+      "x": 0.2935,
+      "y": 0.8197,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "artificial-intelligence-a-guide-for-thinking-humans",
+      "title": "Artificial Intelligence: A guide for thinking humans",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/artificial-intelligence-a-guide-for-thinking-humans",
+      "x": 0.7489,
+      "y": 0.6719,
+      "keyphrases": [
+        "artificial intelligence",
+        "turbulent history",
+        "grand hopes",
+        "emerging fears",
+        "human-level intelligence"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "because-internet",
+      "title": "Because Internet",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/because-internet",
+      "x": 0.6382,
+      "y": 0.3024,
+      "keyphrases": [
+        "internet language change",
+        "online interactions reveal",
+        "language evolution",
+        "social media laboratory",
+        "internet slang patterns"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "building-for-everyone",
+      "title": "Building for everyone",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/building-for-everyone",
+      "x": 0.6145,
+      "y": 0.9335,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "chatbot-marketing-mastery",
+      "title": "Chatbot marketing mastery",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/chatbot-marketing-mastery",
+      "x": 0.4174,
+      "y": 0.7483,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "classical-rhetoric-for-the-modern-student",
+      "title": "Classical Rhetoric for the Modern Student",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/classical-rhetoric-for-the-modern-student",
+      "x": 0.3941,
+      "y": 0.8673,
+      "keyphrases": [
+        "argument, arrangement, style",
+        "classical rhetoric",
+        "effective presentation",
+        "discourses organization",
+        "rhetorical principles"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "consciousness-and-robot-sentience",
+      "title": "Consciousness and Robot Sentience",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/consciousness-and-robot-sentience",
+      "x": 0.5831,
+      "y": 0.6832,
+      "keyphrases": [],
+      "connections": 6
+    },
+    {
+      "slug": "content-strategy-at-work",
+      "title": "Content strategy at work",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/content-strategy-at-work",
+      "x": 0.4812,
+      "y": 0.9271,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "conversational-ai",
+      "title": "Conversational AI",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/conversational-ai",
+      "x": 0.4254,
+      "y": 0.7243,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "conversational-ux-design",
+      "title": "Conversational UX design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/conversational-ux-design",
+      "x": 0.4029,
+      "y": 0.7689,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "conversations-with-things",
+      "title": "Conversations with things",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/conversations-with-things",
+      "x": 0.5032,
+      "y": 0.7428,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "definitive-guide-conversational-ai-dialogflow",
+      "title": "The Definitive Guide to Conversational AI with Dialogflow",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/definitive-guide-conversational-ai-dialogflow",
+      "x": 0.3273,
+      "y": 0.755,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "designing-across-senses",
+      "title": "Designing Across Senses",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/designing-across-senses",
+      "x": 0.6011,
+      "y": 0.9258,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "designing-connected-content",
+      "title": "Designing Connected Content",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/designing-connected-content",
+      "x": 0.5329,
+      "y": 0.9444,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "designing-voice-user-interfaces",
+      "title": "Designing Voice User Interfaces",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/designing-voice-user-interfaces",
+      "x": 0.4462,
+      "y": 0.8192,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "developing-enterprise-chatbots",
+      "title": "Developing enterprise chatbots",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/developing-enterprise-chatbots",
+      "x": 0.3397,
+      "y": 0.7594,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "discourse-consciousness-and-time",
+      "title": "Discourse, consciousness and time",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/discourse-consciousness-and-time",
+      "x": 0.4103,
+      "y": 0.8147,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "e-learning-and-the-science-of-instruction",
+      "title": "e-Learning and the Science of Instruction",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/e-learning-and-the-science-of-instruction",
+      "x": 0.5538,
+      "y": 0.848,
+      "keyphrases": [
+        "multimedia learning",
+        "design principles",
+        "e-learning educators",
+        "delivery technologies",
+        "social media"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "entitled",
+      "title": "Entitled",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/entitled",
+      "x": 0.5851,
+      "y": 0.797,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "gamestorming",
+      "title": "Gamestorming",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/gamestorming",
+      "x": 0.6758,
+      "y": 0.806,
+      "keyphrases": [
+        "break down barriers",
+        "communicate better",
+        "generate new ideas",
+        "innovative professionals",
+        "collaboration and creativity"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "hello-world",
+      "title": "Hello world",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hello-world",
+      "x": 0.7018,
+      "y": 0.6944,
+      "keyphrases": [
+        "algorithms surround us",
+        "human bias code",
+        "relatable real world",
+        "accessible explanations",
+        "underlying mathematics"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "hey-cyba",
+      "title": "Hey Cyba: The inner workings of a virtual personal assistant",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hey-cyba",
+      "x": 0.4342,
+      "y": 0.773,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "how-people-learn",
+      "title": "How people learn",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/how-people-learn",
+      "x": 0.542,
+      "y": 0.8623,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "how-to-talk-to-robots",
+      "title": "How to talk to robots",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/how-to-talk-to-robots",
+      "x": 0.4843,
+      "y": 0.7381,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "human-factors-and-voice-interaction-systems",
+      "title": "Human factors and voice interaction systems",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/human-factors-and-voice-interaction-systems",
+      "x": 0.4716,
+      "y": 0.8466,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "i-robot",
+      "title": "I, robot",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/i-robot",
+      "x": 0.575,
+      "y": 0.6968,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "id-blush-if-i-could",
+      "title": "I'd blush if I could",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/id-blush-if-i-could",
+      "x": 0.5612,
+      "y": 0.7676,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "inclusive-design-for-a-digital-world",
+      "title": "Inclusive Design for a Digital World",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/inclusive-design-for-a-digital-world",
+      "x": 0.6107,
+      "y": 0.9118,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "instructional-story-design",
+      "title": "Instructional story design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/instructional-story-design",
+      "x": 0.5555,
+      "y": 0.9039,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "invisible-women",
+      "title": "Invisible Women",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/invisible-women",
+      "x": 0.716,
+      "y": 0.7574,
+      "keyphrases": [
+        "gender bias in data",
+        "invisible women",
+        "data consequences women",
+        "one-size-fits-all approach",
+        "women’s safety needs"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "its-better-to-be-a-good-machine",
+      "title": "It's better to be a good machine than a bad person",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/its-better-to-be-a-good-machine",
+      "x": 0.5787,
+      "y": 0.6437,
+      "keyphrases": [],
+      "connections": 6
+    },
+    {
+      "slug": "language-acquisition",
+      "title": "Language acquisition",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/language-acquisition",
+      "x": 0.3304,
+      "y": 0.8408,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "machines-like-me",
+      "title": "Machines like me",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/machines-like-me",
+      "x": 0.6485,
+      "y": 0.7118,
+      "keyphrases": [
+        "alternative history timeline",
+        "lost falklands war",
+        "alan turing alive",
+        "internet social media",
+        "self-driving cars"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "microcopy",
+      "title": "Microcopy",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/microcopy",
+      "x": 0.577,
+      "y": 0.8892,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "my-robot-gets-me",
+      "title": "My Robot Gets Me: How Social Design Can Make New Products More Human",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/my-robot-gets-me",
+      "x": 0.4779,
+      "y": 0.689,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "natural-language-processing-with-python",
+      "title": "Natural language processing with Python",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/natural-language-processing-with-python",
+      "x": 0.2633,
+      "y": 0.813,
+      "keyphrases": [
+        "natural language processing",
+        "python programs",
+        "text analysis",
+        "language technologies",
+        "predictive text"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "nlp-with-python-and-spacy",
+      "title": "Natural Language Processing with Python and spaCy",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/nlp-with-python-and-spacy",
+      "x": 0.2848,
+      "y": 0.8057,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "online-invloed",
+      "title": "Online invloed",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/online-invloed",
+      "x": 0.5561,
+      "y": 0.9244,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "organising-knowledge",
+      "title": "Organising knowledge",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/organising-knowledge",
+      "x": 0.4516,
+      "y": 0.95,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "rebooting-ai",
+      "title": "Rebooting AI",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/rebooting-ai",
+      "x": 0.5349,
+      "y": 0.7027,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "robots-zombies-and-us",
+      "title": "Robots, zombies and us",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/robots-zombies-and-us",
+      "x": 0.6249,
+      "y": 0.6696,
+      "keyphrases": [
+        "robots, zombies",
+        "genuine intelligence",
+        "consciousness problems",
+        "behaviourism, turing's test",
+        "dualism, physicalism"
+      ],
+      "connections": 6
+    },
+    {
+      "slug": "sequence-organization-in-interaction",
+      "title": "Sequence Organization in Interaction",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/sequence-organization-in-interaction",
+      "x": 0.3716,
+      "y": 0.7225,
+      "keyphrases": [
+        "sequence organization",
+        "turn-at-talk ordering",
+        "conversation analysis",
+        "talk in interaction",
+        "actions in conversation"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "slant",
+      "title": "Slant",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/slant",
+      "x": 0.6875,
+      "y": 0.6914,
+      "keyphrases": [
+        "nanotechnology advancements",
+        "human body transformation",
+        "artificial intelligence reality",
+        "psychotherapy revolution",
+        "new millennium world"
+      ],
+      "connections": 2
+    },
+    {
+      "slug": "speech-and-language-processing",
+      "title": "Speech and language processing",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/speech-and-language-processing",
+      "x": 0.2945,
+      "y": 0.8026,
+      "keyphrases": [
+        "speech and language",
+        "natural language processing",
+        "speech recognition",
+        "spelling and grammar",
+        "information extraction"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "strategic-writing-for-ux",
+      "title": "Strategic Writing for UX",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/strategic-writing-for-ux",
+      "x": 0.5227,
+      "y": 0.9141,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "studies-in-conversational-ux-design",
+      "title": "Studies in conversational UX design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/studies-in-conversational-ux-design",
+      "x": 0.3741,
+      "y": 0.734,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "talk",
+      "title": "Talk",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/talk",
+      "x": 0.4545,
+      "y": 0.7523,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "tech-skills-for-conversation-designers",
+      "title": "Tech skills for conversation designers",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/tech-skills-for-conversation-designers",
+      "x": 0.3926,
+      "y": 0.6987,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-accidental-taxonomist",
+      "title": "The accidental Taxonomist",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-accidental-taxonomist",
+      "x": 0.484,
+      "y": 0.9484,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-design-of-everyday-things",
+      "title": "The Design of Everyday Things",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-design-of-everyday-things",
+      "x": 0.6878,
+      "y": 0.7952,
+      "keyphrases": [
+        "communication between object",
+        "usability engineer",
+        "pleasurable experience",
+        "intuitive guidance",
+        "design optimization"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "the-inner-game-of-tennis",
+      "title": "The Inner Game of Tennis",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-inner-game-of-tennis",
+      "x": 0.518,
+      "y": 0.8767,
+      "keyphrases": [
+        "mental attitudes",
+        "tennis performance",
+        "relaxing effectively",
+        "concentrating skills",
+        "discarding bad habits"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "the-sense-of-style",
+      "title": "The sense of style",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-sense-of-style",
+      "x": 0.3521,
+      "y": 0.8571,
+      "keyphrases": [
+        "sense of style",
+        "writing english",
+        "recent scholarship",
+        "linguistics, cognitive science",
+        "informed writing"
+      ],
+      "connections": 1
+    },
+    {
+      "slug": "the-smart-wife",
+      "title": "The Smart wife",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-smart-wife",
+      "x": 0.5912,
+      "y": 0.7489,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "thinking-fast-and-slow",
+      "title": "Thinking fast and slow",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/thinking-fast-and-slow",
+      "x": 0.7173,
+      "y": 0.7744,
+      "keyphrases": [
+        "two systems thinking",
+        "intuition cognitive biases",
+        "fast slow thinking",
+        "predicting happiness choices",
+        "corporate strategies mental glitches"
+      ],
+      "connections": 0
+    },
+    {
+      "slug": "voice-content-and-usability",
+      "title": "Voice content and usability",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/voice-content-and-usability",
+      "x": 0.4559,
+      "y": 0.8927,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "voice-user-interface-design",
+      "title": "Voice user interface design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/voice-user-interface-design",
+      "x": 0.4298,
+      "y": 0.809,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "voicebot-and-chatbot-design",
+      "title": "Voicebot and Chatbot Design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/voicebot-and-chatbot-design",
+      "x": 0.4318,
+      "y": 0.7485,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
+      "slug": "you-look-like-a-thing-and-i-love-you",
+      "title": "You Look Like a Thing and I Love You",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/you-look-like-a-thing-and-i-love-you",
+      "x": 0.5756,
+      "y": 0.7263,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "setting-up-local-embedding-models",
+      "title": "Setting up local embedding models",
+      "collection": "experiments",
+      "maturity": "developing",
+      "description": "How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.",
+      "url": "/experiments/setting-up-local-embedding-models",
+      "x": 0.8337,
+      "y": 0.1801,
+      "keyphrases": [
+        "local embedding models",
+        "ollama",
+        "embedding models",
+        "similarity matrices",
+        "json response"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "full-scale-key-phrase-extraction",
+      "title": "Full-scale key phrase extraction: results",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.",
+      "url": "/field-notes/full-scale-key-phrase-extraction",
+      "x": 0.7837,
+      "y": 0.302,
+      "keyphrases": [],
+      "connections": 10
+    },
+    {
+      "slug": "key-phrase-extraction-for-the-garden",
+      "title": "Key phrase extraction for the garden",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "What key phrase extraction is, how it evolved from word counting to LLM prompting, and which approach fits a small multilingual knowledge garden.",
+      "url": "/field-notes/key-phrase-extraction-for-the-garden",
+      "x": 0.813,
+      "y": 0.7022,
+      "keyphrases": [
+        "key phrase extraction",
+        "structured text data",
+        "human-curated phrases",
+        "machine-generated embeddings",
+        "cosine similarity threshold"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "tuning-the-similarity-threshold",
+      "title": "Tuning the similarity threshold: from 2,771 candidates to useful suggestions",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "How to go from \"everything is related to everything\" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.",
+      "url": "/field-notes/tuning-the-similarity-threshold",
+      "x": 0.5135,
+      "y": 0.6182,
+      "keyphrases": [
+        "1. cosine similarity threshold",
+        "2. per-document normalization",
+        "3. spectral thresholding",
+        "4. token blocking",
+        "5. empirical calibration"
+      ],
+      "connections": 10
+    },
+    {
+      "slug": "explore-page-design",
+      "title": "Explore page: a visual browsing UI for the garden",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
+      "url": "/seeds/explore-page-design",
+      "x": 0.2569,
+      "y": 0.4503,
+      "keyphrases": [],
+      "connections": 8
+    },
+    {
+      "slug": "key-phrase-extraction-prototype",
+      "title": "Key phrase extraction prototype",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.",
+      "url": "/experiments/key-phrase-extraction-prototype",
+      "x": 0.8743,
+      "y": 0.559,
+      "keyphrases": [
+        "garden items",
+        "key phrases",
+        "llm extraction",
+        "statistical extraction",
+        "yake"
+      ],
+      "connections": 10
+    }
+  ],
+  "clusters": [
+    {
+      "label": "digital garden",
+      "centerX": 0.8673894736842107,
+      "centerY": 0.23927368421052636,
+      "radius": 0.1375442373965456
+    },
+    {
+      "label": "conversation design",
+      "centerX": 0.3246454545454545,
+      "centerY": 0.09050000000000001,
+      "radius": 0.07587871801720082
+    },
+    {
+      "label": "contextual understanding",
+      "centerX": 0.5648199999999999,
+      "centerY": 0.2526,
+      "radius": 0.2224737811428575
+    },
+    {
+      "label": "context engineering",
+      "centerX": 0.35980769230769233,
+      "centerY": 0.3016538461538461,
+      "radius": 0.24731822157272093
+    },
+    {
+      "label": "natural language processing",
+      "centerX": 0.2707904761904762,
+      "centerY": 0.6627333333333334,
+      "radius": 0.31118417020753986
+    },
+    {
+      "label": "key phrase extraction",
+      "centerX": 0.5898058823529413,
+      "centerY": 0.6214882352941178,
+      "radius": 0.34953114716341105
+    },
+    {
+      "label": "chatbot mishap",
+      "centerX": 0.4526333333333333,
+      "centerY": 0.12118888888888886,
+      "radius": 0.10729691970312003
+    },
+    {
+      "label": "argument, arrangement, style",
+      "centerX": 0.4941114285714286,
+      "centerY": 0.8459085714285716,
+      "radius": 0.22322396987815454
+    }
+  ],
+  "trails": [
+    {
+      "id": "building-the-garden",
+      "name": "How this garden was built",
+      "description": "Follow the technical journey of building this digital garden.",
+      "items": [
+        "a-digital-garden-as-central-space",
+        "building-this-garden",
+        "claude-md-project-memory"
+      ]
+    },
+    {
+      "id": "evening-with-chatgpt",
+      "name": "Evenings with ChatGPT",
+      "description": "A series of hands-on explorations with ChatGPT over time.",
+      "items": [
+        "an-evening-with-chatgpt",
+        "an-evening-with-chatgpt-2",
+        "an-evening-with-chatgpt-3",
+        "an-evening-with-chatgpt-september-2023",
+        "an-evening-with-youchat-and-chatsonic"
+      ]
+    },
+    {
+      "id": "conversation-design",
+      "name": "Conversation design thinking",
+      "description": "Ideas and reflections on designing conversational interfaces.",
+      "items": [
+        "conversational-interfaces-are-not-easy",
+        "convo-question-should-i-learn-programming",
+        "7-new-skills-for-conversation-designers-2022",
+        "context-engineering-lets-call-it-design"
+      ]
+    }
+  ]
+}
