@@ -121,6 +121,17 @@ function loadKeyphrases() {
 // 3. UMAP projection
 // ---------------------------------------------------------------------------
 
+// Seeded PRNG (mulberry32) for deterministic UMAP + k-means
+function seededRandom(seed) {
+  let s = seed | 0;
+  return function() {
+    s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 function computeUMAP(embeddingsMatrix) {
   console.log(`Running UMAP on ${embeddingsMatrix.length} embeddings of dim ${embeddingsMatrix[0].length}...`);
   const umap = new UMAP({
@@ -128,6 +139,7 @@ function computeUMAP(embeddingsMatrix) {
     minDist: 0.1,
     nComponents: 2,
     spread: 1.0,
+    random: seededRandom(42),
   });
   const result = umap.fit(embeddingsMatrix);
   return result; // array of [x, y]
@@ -319,7 +331,7 @@ function computeClusters(items, positions, keyphraseMap) {
     const distances = clusterIndices.map(i =>
       Math.sqrt((positions[i][0] - centerX) ** 2 + (positions[i][1] - centerY) ** 2)
     ).sort((a, b) => a - b);
-    const radius = Math.max(0.04, distances[Math.floor(distances.length * 0.75)] * 1.2);
+    const radius = Math.max(0.06, distances[Math.floor(distances.length * 0.85)] * 1.4);
 
     // TF-IDF label: phrases distinctive to THIS cluster vs the whole garden
     const phraseTF = {};
@@ -338,7 +350,16 @@ function computeClusters(items, positions, keyphraseMap) {
     }).filter(s => s.tf >= 2) // must appear in 2+ cluster items
       .sort((a, b) => b.score - a.score);
 
-    const label = scored.length > 0 ? scored[0].phrase : `region ${c + 1}`;
+    // Manual overrides for clusters the algorithm can't name well
+    const LABEL_OVERRIDES = {
+      'region 1': 'AI ethics and critical perspectives',
+      'region 2': 'AI ethics and critical perspectives',
+      'region 3': 'AI ethics and critical perspectives',
+      'region 4': 'AI ethics and critical perspectives',
+      'region 5': 'AI ethics and critical perspectives',
+    };
+    const autoLabel = scored.length > 0 ? scored[0].phrase : `region ${c + 1}`;
+    const label = LABEL_OVERRIDES[autoLabel] || autoLabel;
 
     console.log(`  ${label} (${clusterItems.length} items, r=${radius.toFixed(3)})`);
     clusters.push({ label, centerX, centerY, radius });
@@ -379,12 +400,16 @@ function buildTrails(itemSlugs) {
     {
       id: 'conversation-design',
       name: 'Conversation design thinking',
-      description: 'Ideas and reflections on designing conversational interfaces.',
+      description: 'From technical writing to prompt design: the evolution of conversation design as a discipline.',
       items: [
+        'van-technisch-schrijver-naar-conversation-designer',
+        'how-do-i-become-a-conversation-designer',
         'conversational-interfaces-are-not-easy',
-        'convo-question-should-i-learn-programming',
-        '7-new-skills-for-conversation-designers-2022',
+        'modeling-conversational-agents-natural-conversation-framework',
+        'how-to-make-chatgpt-more-conversational',
+        'prompt-scaffolding',
         'context-engineering-lets-call-it-design',
+        'designing-for-doubt',
       ],
     },
   ];
