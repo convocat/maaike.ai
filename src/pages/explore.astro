@@ -589,31 +589,58 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   .trail-option {
-    padding: 12px;
-    border: 1px solid var(--color-border);
+    padding: 16px;
+    border: 2px solid var(--color-border);
     border-radius: var(--card-radius);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     cursor: pointer;
-    transition: border-color var(--transition-fast);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+    background: var(--color-bg);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
   }
 
   .trail-option:hover {
     border-color: var(--color-accent);
+    background: var(--color-bg-card);
+  }
+
+  .trail-option:hover h3 {
+    color: var(--color-accent);
+  }
+
+  .trail-option .trail-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .trail-option .trail-info {
+    flex: 1;
+    min-width: 0;
   }
 
   .trail-option h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
+    font-weight: 600;
     color: var(--color-heading);
-    margin: 0 0 4px;
+    margin: 0 0 6px;
+    transition: color var(--transition-fast);
   }
 
   .trail-option p {
     font-family: var(--font-body);
     font-size: 0.8125rem;
     color: var(--color-text-muted);
-    margin: 0;
+    margin: 0 0 8px;
     line-height: 1.4;
+  }
+
+  .trail-option .trail-stops {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
   }
 
   #trail-back {
@@ -1332,7 +1359,42 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       for (const trail of data.trails) {
         const div = document.createElement('div');
         div.className = 'trail-option';
-        div.innerHTML = `<h3>${trail.name}</h3><p>${trail.description}</p>`;
+
+        // Create rough.js path icon
+        const iconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        iconSvg.setAttribute('width', '50');
+        iconSvg.setAttribute('height', '30');
+        iconSvg.setAttribute('viewBox', '0 0 50 30');
+        iconSvg.classList.add('trail-icon');
+        div.appendChild(iconSvg);
+
+        try {
+          const rc = rough.svg(iconSvg);
+          const pathEl = rc.path('M 5 15 Q 15 5 25 15 Q 35 25 45 15', {
+            stroke: '#a08872',
+            strokeWidth: 2,
+            roughness: 1.5,
+            bowing: 1,
+          });
+          iconSvg.appendChild(pathEl);
+
+          const stops = Math.min(trail.items.length, 5);
+          for (let i = 0; i < stops; i++) {
+            const dot = rc.circle(5 + i * 10, 15, 4, {
+              fill: '#a08872',
+              fillStyle: 'solid',
+              stroke: 'none',
+              roughness: 1,
+            });
+            iconSvg.appendChild(dot);
+          }
+        } catch(e) { /* rough.js not loaded yet, skip icon */ }
+
+        const info = document.createElement('div');
+        info.className = 'trail-info';
+        info.innerHTML = `<h3>${trail.name}</h3><p>${trail.description}</p><span class="trail-stops">${trail.items.length} stops</span>`;
+        div.appendChild(info);
+
         div.addEventListener('click', () => selectTrail(trail));
         optionsEl.appendChild(div);
       }
