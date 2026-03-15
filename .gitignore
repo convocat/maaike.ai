@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Experiment data files
+keyphrase-results.json
+embeddings-*.json
