@@ -151,7 +151,84 @@ function normalizePositions(positions) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Simple k-means clustering
+// 4. Collision resolution: push overlapping dots apart
+// ---------------------------------------------------------------------------
+
+/**
+ * Iteratively resolve overlapping dots so each one sits in its own space.
+ * Works in normalized coordinate space (0..1).
+ * Uses maturity-based radii (matching the client-side MATURITY_RADIUS map)
+ * scaled to normalized space assuming a ~1200px wide SVG viewport.
+ */
+function resolveCollisions(items, iterations = 300) {
+  // The SVG viewBox matches the container pixel size (typically 800-1400px wide).
+  // Circle radii are fixed in px (5-14), so in normalized 0..1 space we need
+  // to separate by radius/viewportWidth. We use a conservative (small) reference
+  // so that dots don't overlap even on narrower viewports.
+  const MATURITY_RADIUS = { draft: 5, developing: 8, solid: 11, complete: 14 };
+  const SVG_REF = 800; // conservative: narrower viewport = more overlap risk
+  const PADDING = 4;   // px gap between dot edges
+
+  for (let iter = 0; iter < iterations; iter++) {
+    let maxOverlap = 0;
+    for (let i = 0; i < items.length; i++) {
+      for (let j = i + 1; j < items.length; j++) {
+        const a = items[i];
+        const b = items[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        const rA = ((MATURITY_RADIUS[a.maturity] || 5) + PADDING) / SVG_REF;
+        const rB = ((MATURITY_RADIUS[b.maturity] || 5) + PADDING) / SVG_REF;
+        const minDist = rA + rB;
+
+        if (dist < minDist) {
+          const overlap = minDist - dist;
+          if (overlap > maxOverlap) maxOverlap = overlap;
+
+          if (dist > 0.0001) {
+            const push = overlap / 2 + 0.001; // slight extra push
+            const nx = dx / dist;
+            const ny = dy / dist;
+            a.x += nx * push;
+            a.y += ny * push;
+            b.x -= nx * push;
+            b.y -= ny * push;
+          } else {
+            // Nearly identical positions: nudge randomly
+            const angle = Math.random() * Math.PI * 2;
+            const nudge = minDist / 2;
+            a.x += Math.cos(angle) * nudge;
+            a.y += Math.sin(angle) * nudge;
+            b.x -= Math.cos(angle) * nudge;
+            b.y -= Math.sin(angle) * nudge;
+          }
+        }
+      }
+    }
+
+    // Clamp within bounds each iteration to prevent drift
+    for (const item of items) {
+      item.x = Math.max(0.02, Math.min(0.98, item.x));
+      item.y = Math.max(0.02, Math.min(0.98, item.y));
+    }
+
+    if (maxOverlap === 0) {
+      console.log(`  Collision resolution converged after ${iter + 1} iterations`);
+      break;
+    }
+  }
+
+  // Final precision
+  for (const item of items) {
+    item.x = parseFloat(item.x.toFixed(4));
+    item.y = parseFloat(item.y.toFixed(4));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Simple k-means clustering
 // ---------------------------------------------------------------------------
 
 // k-means++ on 2D positions with deterministic seed
@@ -377,6 +454,10 @@ function main() {
   }
 
   const allItems = [...itemsWithEmbeddings, ...itemsWithout];
+
+  // Resolve dot collisions so no circles overlap
+  console.log('Resolving dot collisions...');
+  resolveCollisions(allItems);
 
   // Add keyphrases
   for (const item of allItems) {
