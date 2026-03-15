@@ -81,6 +81,9 @@ Periodic enrichment job:
 - [x] First review round: 50 approved cross-links applied to 50 files
 - [x] Explore page: interactive spatial map built on the embedding + key phrase data (spun off as [[explore-page-design|separate project]])
 - [x] Nightly rebuild pipeline: scheduled task for embeddings, key phrases, and explore data
+- [x] Chunk size analysis: content length distorts embeddings, normalized re-embedding ([[content-chunk-size-and-embeddings|write-up]])
+- [ ] Enrich thin content: video transcripts, book summaries for better embeddings
+- [ ] Re-generate link candidates with normalized embeddings
 - [ ] Auto-generate trails from project-tagged content
 - [ ] External content discovery (inline links to relevant papers/articles)
 
