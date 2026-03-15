@@ -3,13 +3,10 @@ import DarkModeToggle from './DarkModeToggle.astro';
 import settings from '../data/settings.json';
 
 const navLinks = [
-  { href: '/field-notes', label: 'Field Notes' },
-  { href: '/seeds', label: 'Seeds' },
+  { href: '/explore', label: 'Garden', accent: true },
   { href: '/articles', label: 'Articles' },
   { href: '/projects', label: 'Projects' },
-  { href: '/experiments', label: 'Experiments' },
   { href: '/library', label: 'Library' },
-  { href: '/explore', label: 'Explore' },
   { href: '/about', label: 'About' },
 ];
 
@@ -32,9 +29,9 @@ const currentPath = Astro.url.pathname;
 
     <nav class="site-nav" aria-label="Main navigation">
       <ul>
-        {navLinks.map(({ href, label }) => (
+        {navLinks.map(({ href, label, accent }) => (
           <li>
-            <a href={href} class:list={[{ active: currentPath.startsWith(href) }]}>
+            <a href={href} class:list={[{ active: currentPath.startsWith(href), 'nav-accent': accent }]}>
               {label}
             </a>
           </li>
@@ -102,6 +99,14 @@ const currentPath = Astro.url.pathname;
   .site-nav a:hover,
   .site-nav a.active {
     color: var(--color-accent);
+  }
+
+  .site-nav a.nav-accent {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .site-nav a.nav-accent:hover {
+    color: var(--color-accent-hover);
   }
 
   .menu-toggle {

@@ -1156,12 +1156,35 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   // Theme observer: redraw when dark mode toggles
   // ----------------------------------------------------------------
 
+  function refreshLegendColors() {
+    const dots = document.querySelectorAll('.legend-color-dot');
+    const keys = Object.keys(COLLECTION_LABELS);
+    dots.forEach((dot, i) => {
+      if (keys[i]) dot.style.background = getCollectionColor(keys[i]);
+    });
+  }
+
+  function refreshWanderColors() {
+    if (!wanderItem) return;
+    const dot = document.getElementById('wander-collection-dot');
+    if (dot) dot.style.background = getCollectionColor(wanderItem.collection);
+    document.querySelectorAll('#wander-nearby-list .nearby-dot').forEach(d => {
+      const slug = d.parentElement?.dataset?.slug;
+      if (slug) {
+        const n = data.items.find(i => i.slug === slug);
+        if (n) d.style.background = getCollectionColor(n.collection);
+      }
+    });
+  }
+
   function setupThemeObserver() {
     const observer = new MutationObserver(mutations => {
       for (const m of mutations) {
         if (m.attributeName === 'data-theme') {
           redraw();
           drawWanderSignpost();
+          refreshLegendColors();
+          refreshWanderColors();
         }
       }
     });
