@@ -154,90 +154,117 @@ function normalizePositions(positions) {
 // 4. Simple k-means clustering
 // ---------------------------------------------------------------------------
 
-function kMeans(points, k, maxIter = 50) {
+// k-means++ on 2D positions with deterministic seed
+function kMeans2D(points, k, maxIter = 80) {
   const n = points.length;
-  // Initialize centroids from random points
-  const indices = [];
-  while (indices.length < k) {
-    const idx = Math.floor(Math.random() * n);
-    if (!indices.includes(idx)) indices.push(idx);
-  }
-  let centroids = indices.map(i => [...points[i]]);
-  let assignments = new Array(n).fill(0);
 
+  // k-means++ init: spread initial centroids apart
+  const rng = (seed) => { let s = seed; return () => { s = (s * 16807) % 2147483647; return s / 2147483647; }; };
+  const rand = rng(42); // deterministic for reproducible clusters
+  const centroids = [points[Math.floor(rand() * n)].slice()];
+  while (centroids.length < k) {
+    const dists = points.map(p => {
+      let minD = Infinity;
+      for (const c of centroids) {
+        const d = (p[0]-c[0])**2 + (p[1]-c[1])**2;
+        if (d < minD) minD = d;
+      }
+      return minD;
+    });
+    const total = dists.reduce((a, b) => a + b, 0);
+    let r = rand() * total;
+    for (let i = 0; i < n; i++) {
+      r -= dists[i];
+      if (r <= 0) { centroids.push(points[i].slice()); break; }
+    }
+  }
+
+  let assignments = new Array(n).fill(0);
   for (let iter = 0; iter < maxIter; iter++) {
-    // Assign
     let changed = false;
     for (let i = 0; i < n; i++) {
-      let bestDist = Infinity;
-      let bestK = 0;
+      let bestDist = Infinity, bestK = 0;
       for (let c = 0; c < k; c++) {
-        const dx = points[i][0] - centroids[c][0];
-        const dy = points[i][1] - centroids[c][1];
-        const dist = dx * dx + dy * dy;
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestK = c;
-        }
+        const dist = (points[i][0]-centroids[c][0])**2 + (points[i][1]-centroids[c][1])**2;
+        if (dist < bestDist) { bestDist = dist; bestK = c; }
       }
-      if (assignments[i] !== bestK) {
-        assignments[i] = bestK;
-        changed = true;
-      }
+      if (assignments[i] !== bestK) { assignments[i] = bestK; changed = true; }
     }
     if (!changed) break;
 
-    // Update centroids
-    const sums = Array.from({ length: k }, () => [0, 0, 0]); // [sumX, sumY, count]
+    const sums = Array.from({ length: k }, () => [0, 0, 0]);
     for (let i = 0; i < n; i++) {
       sums[assignments[i]][0] += points[i][0];
       sums[assignments[i]][1] += points[i][1];
       sums[assignments[i]][2] += 1;
     }
-    centroids = sums.map(([sx, sy, cnt]) =>
-      cnt > 0 ? [sx / cnt, sy / cnt] : [Math.random(), Math.random()]
-    );
+    for (let c = 0; c < k; c++) {
+      if (sums[c][2] > 0) {
+        centroids[c] = [sums[c][0] / sums[c][2], sums[c][1] / sums[c][2]];
+      }
+    }
   }
   return { assignments, centroids };
 }
 
 function computeClusters(items, positions, keyphraseMap) {
-  const k = Math.min(8, Math.max(3, Math.floor(items.length / 12)));
-  const { assignments, centroids } = kMeans(positions, k);
+  // Cluster on 2D UMAP positions (which already encode semantic similarity)
+  // Use fewer clusters for clarity
+  const k = Math.min(5, Math.max(3, Math.floor(items.length / 30)));
+  console.log(`Clustering ${items.length} items into ${k} clusters on 2D UMAP positions...`);
+  const { assignments, centroids } = kMeans2D(positions, k);
+
+  // Build global phrase document frequency for TF-IDF scoring
+  const globalPhraseDF = {};
+  for (const item of items) {
+    const key = `${item.collection}/${item.slug}`;
+    const phrases = keyphraseMap.get(key) || [];
+    const seen = new Set();
+    for (const p of phrases) {
+      if (!seen.has(p)) { globalPhraseDF[p] = (globalPhraseDF[p] || 0) + 1; seen.add(p); }
+    }
+  }
+  const totalDocs = items.length;
 
   const clusters = [];
-  for (let c = 0; c < centroids.length; c++) {
-    const clusterItems = items.filter((_, i) => assignments[i] === c);
-    if (clusterItems.length === 0) continue;
+  for (let c = 0; c < k; c++) {
+    const clusterIndices = [];
+    for (let i = 0; i < items.length; i++) {
+      if (assignments[i] === c) clusterIndices.push(i);
+    }
+    if (clusterIndices.length < 3) continue;
 
-    // Compute radius as max distance from centroid
-    const distances = clusterItems.map((item) => {
-      const idx = items.indexOf(item);
-      const dx = positions[idx][0] - centroids[c][0];
-      const dy = positions[idx][1] - centroids[c][1];
-      return Math.sqrt(dx * dx + dy * dy);
-    });
-    const radius = Math.max(0.05, Math.max(...distances) * 1.2);
+    const clusterItems = clusterIndices.map(i => items[i]);
+    const centerX = centroids[c][0];
+    const centerY = centroids[c][1];
 
-    // Label from most common keyphrases
-    const phraseCounts = {};
+    // Radius: 75th percentile distance from center (tighter than max)
+    const distances = clusterIndices.map(i =>
+      Math.sqrt((positions[i][0] - centerX) ** 2 + (positions[i][1] - centerY) ** 2)
+    ).sort((a, b) => a - b);
+    const radius = Math.max(0.04, distances[Math.floor(distances.length * 0.75)] * 1.2);
+
+    // TF-IDF label: phrases distinctive to THIS cluster vs the whole garden
+    const phraseTF = {};
     for (const item of clusterItems) {
       const key = `${item.collection}/${item.slug}`;
       const phrases = keyphraseMap.get(key) || [];
       for (const p of phrases) {
-        phraseCounts[p] = (phraseCounts[p] || 0) + 1;
+        phraseTF[p] = (phraseTF[p] || 0) + 1;
       }
     }
-    const sortedPhrases = Object.entries(phraseCounts)
-      .sort((a, b) => b[1] - a[1]);
-    const label = sortedPhrases.length > 0 ? sortedPhrases[0][0] : `cluster ${c + 1}`;
+    const scored = Object.entries(phraseTF).map(([phrase, tf]) => {
+      const df = globalPhraseDF[phrase] || 1;
+      const idf = Math.log(totalDocs / df);
+      const clusterCoverage = tf / clusterItems.length; // what fraction of cluster has this phrase
+      return { phrase, score: clusterCoverage * idf, tf };
+    }).filter(s => s.tf >= 2) // must appear in 2+ cluster items
+      .sort((a, b) => b.score - a.score);
 
-    clusters.push({
-      label,
-      centerX: centroids[c][0],
-      centerY: centroids[c][1],
-      radius,
-    });
+    const label = scored.length > 0 ? scored[0].phrase : `region ${c + 1}`;
+
+    console.log(`  ${label} (${clusterItems.length} items, r=${radius.toFixed(3)})`);
+    clusters.push({ label, centerX, centerY, radius });
   }
   return clusters;
 }
@@ -371,7 +398,7 @@ function main() {
   // Remove tags from output (not needed on the client)
   const outputItems = allItems.map(({ tags, ...rest }) => rest);
 
-  // Clusters
+  // Clusters (on original high-dim embeddings, not 2D positions)
   console.log('Computing clusters...');
   const allPositions = allItems.map(item => [item.x, item.y]);
   const clusters = computeClusters(allItems, allPositions, keyphraseMap);
