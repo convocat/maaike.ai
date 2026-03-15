@@ -4,6 +4,7 @@ interface Backlink {
   title: string;
   href: string;
   collection: string;
+  date: Date;
 }
 
 let backlinkMap: Map<string, Backlink[]> | null = null;
@@ -32,13 +33,18 @@ async function buildBacklinkMap() {
 
   for (const entry of allEntries) {
     const body = entry.body ?? '';
+    const linkedSlugs = new Set<string>();
     let match;
     while ((match = wikiLinkRegex.exec(body)) !== null) {
       const targetSlug = match[1].split('|')[0].replace(/ /g, '-').toLowerCase();
+      if (linkedSlugs.has(targetSlug)) continue;
+      linkedSlugs.add(targetSlug);
+
       const backlink: Backlink = {
         title: entry.data.title,
         href: `/${entry.collection}/${entry.id}`,
         collection: entry.collection,
+        date: entry.data.date,
       };
 
       if (!map.has(targetSlug)) {
@@ -54,6 +60,7 @@ async function buildBacklinkMap() {
 
 export async function getBacklinks(slug: string): Promise<Backlink[]> {
   const map = await buildBacklinkMap();
-  return map.get(slug) ?? [];
+  const links = map.get(slug) ?? [];
+  return links.sort((a, b) => a.date.getTime() - b.date.getTime());
 }
 
