@@ -8,6 +8,9 @@ maturity: draft
 tags:
   - ai
   - philosophy
+  - human-computer-interaction
+  - social-psychology
+  - ethics
 ai: assisted
 ---
 

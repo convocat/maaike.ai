@@ -7,6 +7,9 @@ maturity: draft
 tags:
   - ai
   - philosophy
+  - psychology
+  - science
+  - non-fiction
 ai: assisted
 ---
 

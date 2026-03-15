@@ -7,5 +7,10 @@ status: read
 maturity: draft
 tags:
   - feminism
+  - sociology
+  - misogyny
+  - social-psychology
+  - philosophy
+  - ethics
 ai: assisted
 ---

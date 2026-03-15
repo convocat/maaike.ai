@@ -7,6 +7,7 @@ status: read
 maturity: draft
 tags:
   - conversational-ai
-  - nlp
+  - natural-language-processing
+  - computational-linguistics
 ai: assisted
 ---

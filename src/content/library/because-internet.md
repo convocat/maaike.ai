@@ -7,6 +7,10 @@ status: read
 maturity: draft
 tags:
   - linguistics
+  - sociolinguistics
+  - pragmatics
+  - discourse
+  - internet-language
 ai: assisted
 ---
 

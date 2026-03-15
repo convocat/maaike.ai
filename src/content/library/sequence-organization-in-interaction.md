@@ -7,6 +7,12 @@ status: read
 maturity: draft
 tags:
   - linguistics
+  - conversation-analysis
+  - conversational-patterns
+  - expandable-sequences
+  - turn-construction-units
+  - sociolinguistics
+  - pragmatics
 ai: assisted
 ---
 

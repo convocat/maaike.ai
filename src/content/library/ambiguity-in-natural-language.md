@@ -7,6 +7,6 @@ status: read
 maturity: draft
 tags:
   - linguistics
-  - nlp
+  - natural-language-processing
 ai: assisted
 ---

@@ -7,5 +7,9 @@ status: read
 maturity: draft
 tags:
   - content-strategy
+  - taxonomy
+  - ontology
+  - knowledge-management
+  - content-architecture
 ai: assisted
 ---

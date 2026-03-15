@@ -8,5 +8,8 @@ maturity: draft
 tags:
   - ai
   - fiction
+  - robots
+  - distopia
+  - future
 ai: assisted
 ---

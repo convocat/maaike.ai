@@ -6,8 +6,12 @@ date: 2026-03-12
 status: read
 maturity: draft
 tags:
-  - nlp
+  - natural-language-processing
   - linguistics
+  - speech-processing
+  - phonetics
+  - acoustics
+  - computational-linguistics
 ai: assisted
 ---
 

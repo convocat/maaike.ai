@@ -7,5 +7,9 @@ status: read
 maturity: draft
 tags:
   - voice
+  - voice-ux
+  - human-factors
+  - speech-processing
+  - voice-user-interfaces
 ai: assisted
 ---

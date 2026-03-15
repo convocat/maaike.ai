@@ -7,5 +7,8 @@ status: read
 maturity: draft
 tags:
   - content-strategy
+  - knowledge-management
+  - personal-knowledge-systems
+  - content-architecture
 ai: assisted
 ---
