@@ -44,7 +44,7 @@ The [[saga-knowledge-platform|Saga platform]] (SIGMOD 2022) builds knowledge gra
 - Can this run at build time (Astro) or does it need a separate process?
 - How to handle the review step: present candidates for manual approval vs. auto-linking?
 - ~~What embedding model works well for short-form content with mixed topics?~~ Answered: bge-m3, a non-generative BERT-family encoder. Selected for score discrimination, multilingual support, thin-content robustness, and focused encoder architecture (not an LLM). See [[embedding-models-for-the-garden|model selection criteria]].
-- How to balance serendipity (surprising connections) with relevance? Partially answered: 0.55 cosine similarity threshold yields 2,771 candidates across 157 items. Most high-scoring pairs are obvious (same-series items, book pairs on the same topic). The interesting cross-collection candidates are buried in noise. Needs filtering or a higher threshold.
+- How to balance serendipity (surprising connections) with relevance? Partially answered: 0.55 cosine similarity threshold yields 2,771 candidates across 157 items. Most high-scoring pairs are obvious (same-series items, book pairs on the same topic). The interesting cross-collection candidates are buried in noise. See [[tuning-the-similarity-threshold|threshold tuning analysis]] for filtering strategies and research.
 
 ## Rough architecture
 
@@ -74,6 +74,7 @@ Periodic enrichment job:
 - [x] Set up candidate models locally via Ollama (nomic-embed-text, bge-m3, embeddinggemma)
 - [x] Compare three models on 10 items, select bge-m3 ([[embedding-models-for-the-garden|model selection criteria]])
 - [x] Full-scale embedding run on all 157 items with wiki-link comparison (43/44 confirmed, 2771 candidates at 0.55 threshold)
+- [x] Analyze similarity distribution and research threshold/filtering strategies ([[tuning-the-similarity-threshold|write-up]])
 - [ ] Prototype: extract key phrases from 10 garden items
 - [ ] Prototype: compute embeddings and find non-obvious connections
 - [ ] Design the review UI for link candidates
