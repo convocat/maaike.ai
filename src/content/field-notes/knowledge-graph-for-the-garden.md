@@ -79,6 +79,9 @@ Periodic enrichment job:
 - [x] Full-scale key phrase extraction on 92 items ([[full-scale-key-phrase-extraction|analysis]])
 - [x] Design review UI for link candidates
 - [x] First review round: 50 approved cross-links applied to 50 files
+- [x] Explore page: interactive spatial map built on the embedding + key phrase data (spun off as [[explore-page-design|separate project]])
+- [x] Nightly rebuild pipeline: scheduled task for embeddings, key phrases, and explore data
+- [ ] Auto-generate trails from project-tagged content
 - [ ] External content discovery (inline links to relevant papers/articles)
 
 ## Related

@@ -1,7 +1,7 @@
 ---
 title: "Explore page: a visual browsing UI for the garden"
 date: 2026-03-15
-maturity: draft
+maturity: developing
 tags:
   - project
   - digital-gardens
@@ -87,13 +87,30 @@ The explore page should feel like looking at a hand-drawn map of an actual garde
 
 The page loads a pre-computed JSON with item metadata + 2D coordinates. No runtime ML, no server needed.
 
-## Open questions
+## Status
 
-- Should the map be full-screen or embedded within the existing page layout?
-- How to handle items that are very close in embedding space (overlapping circles)?
-- Should paths be persisted (a content type?) or ephemeral?
-- How to balance the map view with accessibility (keyboard navigation, screen readers)?
-- Should the "explore" link live in the main navigation or be a subtle toggle?
+- [x] v0 prototype: interactive layout designed in Vercel v0, then rebuilt as vanilla JS for Astro
+- [x] UMAP spatial map: 162 items projected from bge-m3 embeddings via umap-js (`scripts/build-explore-data.cjs`)
+- [x] Rough.js rendering: hand-drawn circles, connection lines, cluster labels
+- [x] Three interaction modes: Map (pan/zoom), Wander (serendipity), Paths (trails)
+- [x] Wander card with "While you are here..." neighborhood suggestions
+- [x] Trail sidebar with curated path cards
+- [x] Legend (collapsible, collection colors + maturity sizes)
+- [x] Tooltip with maturity bar and collection indicator
+- [x] WCAG AA color palette: all collection colors ≥3:1 contrast in both light and dark mode
+- [x] Design system documentation ([[design-system-and-content-guidelines|design system field note]])
+- [x] Added to main navigation
+- [ ] Auto-generated trails from project-tagged content
+- [ ] Manual trails via trails.json
+- [ ] Keyboard navigation on the map
+- [ ] Mobile layout polish
+
+## Answered questions
+
+- Full-screen layout with header, not embedded in a container
+- Overlapping circles handled by hover-to-front + tooltip offset
+- Trails stored as static data in explore-data.json (not a content type)
+- Explore link lives in the main navigation
 
 ## References
 
@@ -104,6 +121,3 @@ The page loads a pre-computed JSON with item metadata + 2D coordinates. No runti
 - Vannevar Bush, "As We May Think" (1945): trails through linked knowledge
 - [umap-js](https://github.com/PAIR-code/umap-js): client-side UMAP in JavaScript
 
-## Design tools
-
-For visual prototyping, [v0 by Vercel](https://v0.dev) can generate interactive UI components from descriptions. Useful for exploring layout and interaction ideas before committing to code.

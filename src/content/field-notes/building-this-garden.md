@@ -100,6 +100,13 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Link review UI**: Standalone tool (`tools/review-links.html`) for reviewing embedding-based link candidates with z-score filtering, keyboard navigation, and export
 - **Candidate pipeline**: Scripts to generate scored link candidates from embeddings + key phrases, and apply approved links as Related sections
 - **100 new cross-links**: First review round applied 50 approved link pairs (bidirectional) across 50 content files, all discovered by the knowledge graph pipeline
+- **Explore page**: Interactive spatial map at `/explore` with three modes (Map, Wander, Paths). UMAP projection of bge-m3 embeddings, Rough.js hand-drawn rendering, d3-zoom pan/zoom. Prototyped in v0 by Vercel, rebuilt as vanilla JS for Astro
+- **Explore data pipeline**: Build-time script (`scripts/build-explore-data.cjs`) computes UMAP positions, k-means clusters, and trail data from embeddings and key phrases
+- **Nightly explore rebuild**: Scheduled task updates embeddings, key phrases, and explore data overnight
+- **WCAG color overhaul**: All collection colors updated to meet WCAG AA (≥3:1 contrast) across explore page, collection icons, and connection map
+- **Design system documentation**: New field note documenting the full visual system: color palette, typography, all 22 components, content rules, and accessibility standards
+- **Principles removed**: Collection deleted entirely (config, pages, content, icons)
+- **Nav cleanup**: Removed Weblinks and Videos from navigation (collections still accessible), added Explore
 
 ## Related
 
