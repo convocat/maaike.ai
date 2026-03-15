@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link candidate review</title>
+<style>
+  :root {
+    --pink: #D6006C;
+    --teal: #0D7C66;
+    --bg: #fafafa;
+    --card: #ffffff;
+    --border: #e0e0e0;
+    --text: #222;
+    --muted: #777;
+    --accept: #2d8a4e;
+    --reject: #c0392b;
+    --skip: #999;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--pink);
+    margin-bottom: 0.5rem;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .controls label { color: var(--muted); }
+  .controls select, .controls input {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  .controls .stats {
+    margin-left: auto;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .controls .stats span { font-weight: 600; color: var(--text); }
+
+  main {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: opacity 0.2s;
+  }
+
+  .card.decided { opacity: 0.4; }
+  .card.decided.accepted { border-left: 3px solid var(--accept); }
+  .card.decided.rejected { border-left: 3px solid var(--reject); }
+  .card.decided.skipped { border-left: 3px solid var(--skip); }
+
+  .card.highlight {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 1px var(--pink);
+  }
+
+  .pair {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .pair .item {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .pair .arrow {
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .collection-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: #f0f0f0;
+    color: var(--muted);
+    margin-right: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta .score {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .phrases {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .phrase-tag {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    background: #e8f5e9;
+    color: var(--teal);
+    border-radius: 3px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .actions button {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--card);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.15s;
+  }
+
+  .actions button:hover { border-color: #999; }
+  .actions .btn-accept { color: var(--accept); }
+  .actions .btn-accept:hover { background: #e8f5e9; border-color: var(--accept); }
+  .actions .btn-reject { color: var(--reject); }
+  .actions .btn-reject:hover { background: #fde8e8; border-color: var(--reject); }
+  .actions .btn-skip { color: var(--skip); }
+
+  .already-linked {
+    font-size: 0.75rem;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .export-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .export-bar button {
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--pink);
+    color: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  .export-bar button:hover { opacity: 0.9; }
+  .export-bar .export-stats { font-size: 0.85rem; color: var(--muted); }
+
+  .load-zone {
+    max-width: 500px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .load-zone h2 { color: var(--pink); margin-bottom: 1rem; }
+  .load-zone p { color: var(--muted); margin-bottom: 1rem; }
+  .load-zone input[type=file] { margin: 0.5rem 0; }
+
+  .hidden { display: none; }
+
+  .keyboard-help {
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding: 0.25rem 0;
+  }
+
+  .keyboard-help kbd {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0 0.3rem;
+    font-family: monospace;
+    font-size: 0.75rem;
+  }
+
+  /* Prevent bottom bar from covering cards */
+  main { padding-bottom: 4rem; }
+</style>
+</head>
+<body>
+
+<div id="load-zone" class="load-zone">
+  <h2>Link candidate review</h2>
+  <p>Loading candidates...</p>
+</div>
+
+<header id="header" class="hidden">
+  <h1>Link candidate review</h1>
+  <div class="controls">
+    <label>Show:
+      <select id="filter-status">
+        <option value="unreviewed">Unreviewed</option>
+        <option value="all">All</option>
+        <option value="accepted">Accepted</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </label>
+    <label>Type:
+      <select id="filter-type">
+        <option value="new">New only</option>
+        <option value="all">All</option>
+        <option value="linked">Already linked</option>
+      </select>
+    </label>
+    <label>Collection:
+      <select id="filter-collection">
+        <option value="cross">Cross-collection</option>
+        <option value="all">All</option>
+        <option value="same">Same collection</option>
+      </select>
+    </label>
+    <label>Min similarity:
+      <input type="number" id="filter-sim" value="0.55" step="0.05" min="0" max="1" style="width:4rem;">
+    </label>
+    <label>Min z-score:
+      <input type="number" id="filter-zscore" value="2.0" step="0.5" min="0" max="10" style="width:4rem;">
+    </label>
+    <label>Has phrases:
+      <input type="checkbox" id="filter-phrases">
+    </label>
+    <label>Search:
+      <input type="text" id="filter-search" placeholder="title or slug..." style="width:10rem;">
+    </label>
+    <div class="stats">
+      Showing <span id="stat-showing">0</span> of <span id="stat-total">0</span>
+    </div>
+  </div>
+  <div class="keyboard-help">
+    <kbd>a</kbd> accept &nbsp; <kbd>r</kbd> reject &nbsp; <kbd>s</kbd> skip &nbsp; <kbd>↓</kbd> next &nbsp; <kbd>↑</kbd> prev
+  </div>
+</header>
+
+<main id="candidates" class="hidden"></main>
+
+<div id="export-bar" class="export-bar hidden">
+  <div class="export-stats">
+    <span id="stat-accepted">0</span> accepted &middot;
+    <span id="stat-rejected">0</span> rejected &middot;
+    <span id="stat-remaining">0</span> remaining
+  </div>
+  <button onclick="exportAccepted()">Export accepted links</button>
+  <button onclick="exportDecisions()">Save progress</button>
+  <button onclick="loadProgress()">Load progress</button>
+</div>
+
+<script>
+let data = null;
+let decisions = {}; // slug_pair -> 'accepted' | 'rejected' | 'skipped'
+let currentFocus = 0;
+let visibleCards = [];
+
+// --- Auto-load data ---
+
+fetch('/link-candidates.json')
+    .then(r => r.json())
+    .then(d => { data = d; init(); })
+    .catch(err => {
+        document.getElementById('load-zone').innerHTML =
+            '<h2>Link candidate review</h2><p style="color:#c0392b;">Could not load data. Run: <code>node tools/serve-review.cjs</code></p>';
+    });
+
+function init() {
+    document.getElementById('load-zone').classList.add('hidden');
+    document.getElementById('header').classList.remove('hidden');
+    document.getElementById('candidates').classList.remove('hidden');
+    document.getElementById('export-bar').classList.remove('hidden');
+    document.getElementById('stat-total').textContent = data.totalCandidates;
+    render();
+}
+
+// --- Pair key ---
+
+function pairKey(c) {
+    return [c.itemA.slug, c.itemB.slug].sort().join('::');
+}
+
+// --- Filtering ---
+
+function getFilteredCandidates() {
+    const status = document.getElementById('filter-status').value;
+    const type = document.getElementById('filter-type').value;
+    const coll = document.getElementById('filter-collection').value;
+    const minSim = parseFloat(document.getElementById('filter-sim').value) || 0;
+    const minZ = parseFloat(document.getElementById('filter-zscore').value) || 0;
+    const needPhrases = document.getElementById('filter-phrases').checked;
+    const search = document.getElementById('filter-search').value.toLowerCase().trim();
+
+    return data.candidates.filter(c => {
+        const key = pairKey(c);
+        const decision = decisions[key];
+
+        // Status filter
+        if (status === 'unreviewed' && decision) return false;
+        if (status === 'accepted' && decision !== 'accepted') return false;
+        if (status === 'rejected' && decision !== 'rejected') return false;
+
+        // Type filter
+        if (type === 'new' && c.alreadyLinked) return false;
+        if (type === 'linked' && !c.alreadyLinked) return false;
+
+        // Collection filter
+        if (coll === 'cross' && c.sameCollection) return false;
+        if (coll === 'same' && !c.sameCollection) return false;
+
+        // Similarity threshold
+        if (c.similarity < minSim) return false;
+
+        // Z-score threshold
+        if (c.zScore < minZ) return false;
+
+        // Phrases filter
+        if (needPhrases && c.sharedPhrases.length === 0) return false;
+
+        // Search
+        if (search) {
+            const haystack = (c.itemA.title + ' ' + c.itemB.title + ' ' + c.itemA.slug + ' ' + c.itemB.slug).toLowerCase();
+            if (!haystack.includes(search)) return false;
+        }
+
+        return true;
+    });
+}
+
+// --- Rendering ---
+
+function render() {
+    const filtered = getFilteredCandidates();
+    const container = document.getElementById('candidates');
+
+    document.getElementById('stat-showing').textContent = filtered.length;
+
+    // Cap rendering at 200 for performance
+    const toRender = filtered.slice(0, 200);
+
+    container.innerHTML = toRender.map((c, i) => {
+        const key = pairKey(c);
+        const decision = decisions[key];
+        const decClass = decision ? `decided ${decision}` : '';
+        const focusClass = i === currentFocus ? 'highlight' : '';
+
+        const phrases = c.sharedPhrases.map(p =>
+            `<span class="phrase-tag">${esc(p)}</span>`
+        ).join('');
+
+        const linkedBadge = c.alreadyLinked ? '<span class="already-linked">✓ already linked</span>' : '';
+
+        return `
+        <div class="card ${decClass} ${focusClass}" data-index="${i}" data-key="${key}">
+            <div class="pair">
+                <div class="item">
+                    <span class="collection-badge">${esc(c.itemA.collection)}</span>
+                    ${esc(c.itemA.title)}
+                </div>
+                <span class="arrow">↔</span>
+                <div class="item">
+                    <span class="collection-badge">${esc(c.itemB.collection)}</span>
+                    ${esc(c.itemB.title)}
+                </div>
+            </div>
+            <div class="meta">
+                <span class="score">similarity: <strong>${c.similarity}</strong></span>
+                <span class="score">z-score: <strong>${c.zScore}</strong></span>
+                ${linkedBadge}
+            </div>
+            ${phrases ? `<div class="phrases">${phrases}</div>` : ''}
+            <div class="actions">
+                <button class="btn-accept" onclick="decide('${key}', 'accepted')">✓ Accept</button>
+                <button class="btn-reject" onclick="decide('${key}', 'rejected')">✗ Reject</button>
+                <button class="btn-skip" onclick="decide('${key}', 'skipped')">Skip</button>
+            </div>
+        </div>`;
+    }).join('');
+
+    if (filtered.length > 200) {
+        container.innerHTML += `<div style="text-align:center;color:var(--muted);padding:1rem;">Showing first 200 of ${filtered.length}. Use filters to narrow down.</div>`;
+    }
+
+    visibleCards = container.querySelectorAll('.card');
+    updateStats();
+}
+
+function esc(s) {
+    const div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+}
+
+// --- Decisions ---
+
+function decide(key, action) {
+    if (decisions[key] === action) {
+        delete decisions[key]; // toggle off
+    } else {
+        decisions[key] = action;
+    }
+    render();
+}
+
+function updateStats() {
+    const accepted = Object.values(decisions).filter(d => d === 'accepted').length;
+    const rejected = Object.values(decisions).filter(d => d === 'rejected').length;
+    const total = data ? data.newCandidates : 0;
+    document.getElementById('stat-accepted').textContent = accepted;
+    document.getElementById('stat-rejected').textContent = rejected;
+    document.getElementById('stat-remaining').textContent = total - accepted - rejected;
+}
+
+// --- Keyboard navigation ---
+
+document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+
+    if (e.key === 'ArrowDown' || e.key === 'j') {
+        e.preventDefault();
+        currentFocus = Math.min(currentFocus + 1, visibleCards.length - 1);
+        updateFocus();
+    } else if (e.key === 'ArrowUp' || e.key === 'k') {
+        e.preventDefault();
+        currentFocus = Math.max(currentFocus - 1, 0);
+        updateFocus();
+    } else if (e.key === 'a' && visibleCards[currentFocus]) {
+        const key = visibleCards[currentFocus].dataset.key;
+        decide(key, 'accepted');
+    } else if (e.key === 'r' && visibleCards[currentFocus]) {
+        const key = visibleCards[currentFocus].dataset.key;
+        decide(key, 'rejected');
+    } else if (e.key === 's' && visibleCards[currentFocus]) {
+        const key = visibleCards[currentFocus].dataset.key;
+        decide(key, 'skipped');
+    }
+});
+
+function updateFocus() {
+    visibleCards.forEach((card, i) => {
+        card.classList.toggle('highlight', i === currentFocus);
+    });
+    if (visibleCards[currentFocus]) {
+        visibleCards[currentFocus].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+}
+
+// --- Filter listeners ---
+
+['filter-status', 'filter-type', 'filter-collection', 'filter-sim', 'filter-zscore', 'filter-phrases', 'filter-search'].forEach(id => {
+    document.getElementById(id).addEventListener('change', () => { currentFocus = 0; render(); });
+    document.getElementById(id).addEventListener('input', () => { currentFocus = 0; render(); });
+});
+
+// --- Export ---
+
+function exportAccepted() {
+    const accepted = data.candidates.filter(c => decisions[pairKey(c)] === 'accepted');
+    const links = accepted.map(c => ({
+        source: c.itemA.slug,
+        target: c.itemB.slug,
+        similarity: c.similarity,
+        sharedPhrases: c.sharedPhrases,
+        method: 'auto-suggested',
+    }));
+
+    const blob = new Blob([JSON.stringify({ exported: new Date().toISOString(), links }, null, 2)], { type: 'application/json' });
+    download(blob, 'approved-links.json');
+}
+
+function exportDecisions() {
+    const blob = new Blob([JSON.stringify({ saved: new Date().toISOString(), decisions }, null, 2)], { type: 'application/json' });
+    download(blob, 'review-progress.json');
+}
+
+function loadProgress() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            const progress = JSON.parse(ev.target.result);
+            decisions = progress.decisions || {};
+            render();
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+function download(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

@@ -57,3 +57,7 @@ And thanks to the wonderful essays of Harry Frankfurt, I can give words to that 
 A hyperlink is a reference to a document that lives on the internet. That link is a link to an anchor point: the document is either there, or it's not. But it's not just documents that are referenced in this way: people, places, entities, events, things…they're all uniquely identifiable on the internet by a hyperlink. This is the beating heart of what makes the internet and most parts of the connected digital world. And these links are our safeguard against fake news. Fake information. Fake reality. They are our anchor point to reality.
 
 So if there's a whole wave of bots entering the web sphere that happily and carelessly messes up the digital reality that has become such a major part of everybody's lives by making up fake identifiers, and then pretends to lie about it, that should be a concern. Especially because I'm not sure if we can solve this challenge by staying on the LLM path.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

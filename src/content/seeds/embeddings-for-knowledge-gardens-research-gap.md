@@ -29,3 +29,9 @@ The closest academic work is in knowledge graph embeddings (link prediction in l
 This might be worth writing about as the project progresses. The garden could be both the experiment and the documentation.
 
 See also: [[knowledge-gardens-and-serendipity]]
+
+## Related
+
+- [[embedding-models-for-the-garden|Embedding models: a survey for the garden]]
+- [[setting-up-local-embedding-models|Setting up local embedding models]]
+- [[reading-notes-saga-knowledge-graph|Reading notes: Apple's Saga knowledge graph]]

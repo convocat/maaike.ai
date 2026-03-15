@@ -9,3 +9,7 @@ description: An intro to the Natural Conversation Framework for modeling convers
 draft: false
 ai: "100% Maai"
 ---
+
+## Related
+
+- [[studies-in-conversational-ux-design|Studies in conversational UX design]]

@@ -35,3 +35,7 @@ Mocht je nog een stapje verder willen gaan, probeer dan vooral de andere Nederla
 In dit voorbeeld heb ik Female 2 gebruikt, ook weer voorzien van SSML.
 
 Niet slecht, toch? :-)
+
+## Related
+
+- [[quickstart-ssml-les-4-ssml-invoeren-in-dialogflow|Quickstart SSML: les 4 'SSML invoeren in Dialogflow']]

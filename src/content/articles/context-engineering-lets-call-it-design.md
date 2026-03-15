@@ -45,3 +45,8 @@ The big advantage of this approach: if designed well, each block and map forms a
 What's interesting, is that we've been context designing for humans for a very long time already. It's commonly known as information architecture, user-task analysis, instructional design, topic-based writing, information mapping, use case analysis, technical authoring, flow design (especially when designing for API-integration). And we've been doing this for humans for a long time already.
 
 So let's call it context design or context architecture from now on — an evolution of what I wrote about earlier in [[putting-the-design-in-prompt-design]]. So that we recognise that this is not new, and take the opportunity to invite authors and designers to the table. That way, your GenAI solution will really start to fly.
+
+## Related
+
+- [[prompt-scaffolding|Prompt Scaffolding]]
+- [[claude-md-project-memory|Project memory for persistent context]]

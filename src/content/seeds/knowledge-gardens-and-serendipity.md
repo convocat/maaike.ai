@@ -26,3 +26,10 @@ Ideas to explore:
 - Who is this garden for? And does that matter?
 
 This seed grew into a project: [[knowledge-graph-for-the-garden]].
+
+## Related
+
+- [[digital-garden-history|The History of Digital Gardens]]
+- [[thinking-in-public|Thinking in Public]]
+- [[digital-gardens-vs-blogs|Digital Gardens vs Blogs]]
+- [[a-digital-garden-as-central-space|A digital garden as central space for my thoughts and writing]]

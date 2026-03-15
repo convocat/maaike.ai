@@ -10,3 +10,7 @@ tags:
   - design
 ai: assisted
 ---
+
+## Related
+
+- [[generative-ai-new-roles-skills-tools|Generative AI: new roles, skills & tools for content professionals]]

@@ -8,3 +8,8 @@ tags:
   - conversational-ai
 ai: assisted
 ---
+
+## Related
+
+- [[generative-ai-new-roles-skills-tools|Generative AI: new roles, skills & tools for content professionals]]
+- [[van-technisch-schrijver-naar-conversation-designer|Van technisch schrijver naar conversation designer]]

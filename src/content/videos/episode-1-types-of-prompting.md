@@ -10,3 +10,7 @@ description: Episode 1 of the Maai & AI series, on the different types of prompt
 draft: false
 ai: "100% Maai"
 ---
+
+## Related
+
+- [[prompt-scaffolding|Prompt Scaffolding]]

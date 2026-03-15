@@ -20,3 +20,7 @@ Things I want to build, explore, or fix. A scratchpad that grows with the garden
 
 - **LinkedIn integration**: Connected to LinkedIn for cross-posting via developer API.
 - See [[building-this-garden]] for the full changelog.
+
+## Related
+
+- [[digital-gardens-vs-blogs|Digital Gardens vs Blogs]]

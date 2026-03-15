@@ -10,3 +10,7 @@ description: "Quickstart SSML les 4: SSML invoeren in Dialogflow."
 draft: false
 ai: "100% Maai"
 ---
+
+## Related
+
+- [[onthaast-je-voice-action-met-ssml|Onthaast je voice action met SSML]]

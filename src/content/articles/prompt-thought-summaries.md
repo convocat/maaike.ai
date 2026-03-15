@@ -24,3 +24,7 @@ Even more, I find that LLMs struggle more with reduction tasks than with constru
 Here, I basically told the model to disregard the text and start from scratch. But if that works, is there a need to include the source text in the first place? Not really. So if you're stuggling with generating accurate, rich summaries, try prompting for keyword extraction instead, and let the LLM take it from there.
 
 It totally makes sense, and at the same time sounds so counterintuitive :-)
+
+## Related
+
+- [[prompt-scaffolding|Prompt Scaffolding]]

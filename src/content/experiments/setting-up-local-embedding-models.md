@@ -528,3 +528,9 @@ def run():
 if __name__ == "__main__":
     run()
 ```
+
+## Related
+
+- [[reading-notes-saga-knowledge-graph|Reading notes: Apple's Saga knowledge graph]]
+- [[embeddings-for-knowledge-gardens-research-gap|Embeddings for knowledge gardens: a research gap]]
+- [[dutch-aware-quantization|Dutch-aware quantization]]

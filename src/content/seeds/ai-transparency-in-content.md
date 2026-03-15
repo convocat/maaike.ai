@@ -12,3 +12,7 @@ ai: generated
 ---
 
 Some of the content in this garden was written with AI assistance. I want a way to be transparent about that — not as a disclaimer, but as an invitation. Show which pieces involved AI, how the collaboration worked, and share the actual prompts. Radical transparency as a design choice.
+
+## Related
+
+- [[thinking-in-public|Thinking in Public]]

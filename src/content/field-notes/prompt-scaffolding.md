@@ -16,3 +16,11 @@ The base layer is the raw question. The next layer adds context. Then comes the 
 This connects to [[conversational-grounding]] — the idea that effective communication builds shared understanding step by step. And it creates interesting dynamics when you consider [[ai-feedback-loops]].
 
 Could this be formalised into a reusable pattern? (See [[prompt-design-patterns]].)
+
+## Related
+
+- [[episode-1-types-of-prompting|Types of prompting]]
+- [[prompt-thought-summaries|Prompt thought: summaries]]
+- [[context-engineering-lets-call-it-design|Context engineering? Let's call it design]]
+- [[putting-the-design-in-prompt-design|Putting the design in prompt design]]
+- [[how-to-make-chatgpt-more-conversational|How to make ChatGPT more conversational]]

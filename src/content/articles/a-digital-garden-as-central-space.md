@@ -66,7 +66,9 @@ So I turned to Claude Code. And here we are.
 
 ## That was four days ago...
 
-Oh, time to get to work, will keep working on this article later on. 
+Oh, time to get to work, will keep working on this article later on.
 
+## Related
 
-
+- [[knowledge-gardens-and-serendipity|Knowledge gardens and serendipity]]
+- [[how-to-build-a-digital-garden|How to build a digital garden]]

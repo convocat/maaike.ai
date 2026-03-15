@@ -15,3 +15,11 @@ A blog is chronological. [[a-digital-garden-as-central-space|A garden is topolog
 Blogs are streams — new posts push old ones down. Gardens are networks — ideas connect to other ideas regardless of when they were planted.
 
 The key difference is that gardens embrace **imperfection**. You can publish a half-formed thought and come back to develop it later — what I call [[thinking-in-public]]. A blog post feels like it should be finished.
+
+## Related
+
+- [[digital-garden-history|The History of Digital Gardens]]
+- [[principles-behind-this-garden|Principles behind this garden]]
+- [[how-to-build-a-digital-garden|How to build a digital garden]]
+- [[garden-to-do-list|Garden to do list]]
+- [[knowledge-gardens-and-serendipity|Knowledge gardens and serendipity]]

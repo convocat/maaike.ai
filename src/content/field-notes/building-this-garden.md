@@ -97,3 +97,11 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Experiment reorganization**: Moved analysis out of experiments into field notes, added full inline code to experiment files
 - **Full-scale key phrase extraction**: LLM-based extraction (gemma3:4b) on all 92 garden items. 705 unique phrases, 35% item overlap, short-text padding confirmed as main quality issue
 - **Field-notes icon**: Redesigned from flask to clipboard with checklist, distinguishable from experiments beaker at small sizes
+- **Link review UI**: Standalone tool (`tools/review-links.html`) for reviewing embedding-based link candidates with z-score filtering, keyboard navigation, and export
+- **Candidate pipeline**: Scripts to generate scored link candidates from embeddings + key phrases, and apply approved links as Related sections
+- **100 new cross-links**: First review round applied 50 approved link pairs (bidirectional) across 50 content files, all discovered by the knowledge graph pipeline
+
+## Related
+
+- [[digital-garden-history|The History of Digital Gardens]]
+- [[saga-knowledge-platform|Saga: a platform for continuous construction and serving of knowledge at scale]]

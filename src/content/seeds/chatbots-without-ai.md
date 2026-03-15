@@ -36,3 +36,7 @@ The idea: a conversational garden guide that helps visitors explore this site. I
 - Where does this live: a sidebar widget, a dedicated page, a floating bubble?
 
 See also: [[knowledge-gardens-and-serendipity]]
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

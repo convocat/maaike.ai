@@ -41,3 +41,7 @@ Continuity > convenience. Every session builds on previous decisions instead of 
 This note was written during a session where Claude had just built the CLAUDE.md for this garden, based on everything we'd worked on together across multiple conversations. Then I asked it to write about the experience.
 
 Turtles all the way down.
+
+## Related
+
+- [[context-engineering-lets-call-it-design|Context engineering? Let's call it design]]

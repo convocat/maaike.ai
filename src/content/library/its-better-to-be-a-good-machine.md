@@ -10,3 +10,7 @@ tags:
   - philosophy
 ai: assisted
 ---
+
+## Related
+
+- [[ai-as-writing-partner|AI as writing partner]]

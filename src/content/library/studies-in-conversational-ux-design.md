@@ -10,3 +10,7 @@ tags:
   - design
 ai: assisted
 ---
+
+## Related
+
+- [[modeling-conversational-agents-natural-conversation-framework|Modeling conversational agents, an intro to the Natural Conversation Framework]]

@@ -57,3 +57,7 @@ Two weeks ago, Nick Cave made the news with his blog on a ChatGPT song "written 
 It seems hard to stop this movement. Then again, we've had AI winters before. But imagine…just an idea…if LLMs benefit from books, if ML needs us to be language savvy, if we feel this is important, can't we make this a shared opportunity for both ML and humanity and increase the creation of human-written books? What if tech would re-invent itself as the mecenas of literature? With funds for authors of all genres, initiatives to get people reading again. And rankings of which books should make it into the ML canon for algorithms?
 
 I guess I'm hopelessly old-fashioned and idealistic, but one can dream.
+
+## Related
+
+- [[artificial-intelligence-a-guide-for-thinking-humans|Artificial Intelligence: A guide for thinking humans]]

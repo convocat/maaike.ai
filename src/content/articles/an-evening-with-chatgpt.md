@@ -47,3 +47,7 @@ Compared to Blenderbot, Facebook's GPT-3 implementation, this is quite remarkabl
 ## Staying in character + keeping track of context = humor?
 
 By consistently staying in character and taking everything I say for its literal meaning again and again, ChatGPT almost brings a sense of humor to the table. Unintentionally perhaps, but so much more palatable than some of the dad jokes that I come across.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

@@ -49,3 +49,7 @@ It's interesting to note that ChatGPT, contrary to Sydney/Venom, seems to uphold
 ![ChatGPT response about conversational interfaces](/images/articles/microsoft-bing-wrong/chatgpt-response.png)
 
 In that sense, ChatGPT does a much better job at keeping its part of the conversational deal. Yes, it will make errors, but it won't pretend it's something it's not. And as such, it perhaps does not take an equal role in the conversational machine, but at least its intentions are clear: it is a machine, and it will behave like one. Which makes it much easier for me to define my role in the conversation.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

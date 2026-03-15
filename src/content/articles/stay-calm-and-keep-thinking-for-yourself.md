@@ -44,3 +44,8 @@ I strongly believe that the best way to understand technology is to actively wor
 - **OpenAI's playground and intro tutorials** — a good place to start experimenting with LLM technology
 - **Cohere's blog** — consistently delivers high-quality learnings and insights in a very accessible way, even if you're a non-techie like me
 - **Machine Learning Street Talk** — a YouTube channel that really deep dives into the fundamentals of many ML topics. I go here to learn about computer science, AGI, philosophy and often simply taking in so many insights from so many great scientists.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]
+- [[artificial-intelligence-a-guide-for-thinking-humans|Artificial Intelligence: A guide for thinking humans]]

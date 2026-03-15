@@ -158,3 +158,5 @@ For the garden: proactive gap-finding is the most relevant. Profile the content 
 
 - [[knowledge-graph-for-the-garden]]
 - [[saga-knowledge-platform]]
+- [[setting-up-local-embedding-models|Setting up local embedding models]]
+- [[embeddings-for-knowledge-gardens-research-gap|Embeddings for knowledge gardens: a research gap]]

@@ -40,3 +40,7 @@ If we want AI to work well in Dutch, on local hardware, without cloud APIs, then
 - [LinkedIn post by Michiel Buisman](https://www.linkedin.com/posts/mbuisman_michielbuismangranite-40-micro-dutch-calibrated-gguf-activity-7437203711959035905-F5jK)
 - [Leesplank corpus on Hugging Face](https://huggingface.co/datasets/MichielBuisman/Leesplank-vloeiend-nl-curriculum-cp2)
 - [Dutch-calibrated Granite 4 model on Hugging Face](https://huggingface.co/MichielBuisman/granite-4.0-micro-dutch-calibrated-gguf)
+
+## Related
+
+- [[setting-up-local-embedding-models|Setting up local embedding models]]

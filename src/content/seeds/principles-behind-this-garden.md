@@ -11,3 +11,9 @@ ai: generated
 ---
 
 This garden wasn't built randomly. There are principles underneath: thinking in public, embracing imperfection, connecting ideas over time, making room for growth. I want to articulate these explicitly, building on [[a-digital-garden-as-central-space|the origin story]] — not as rules, but as a living set of beliefs about how knowledge grows when you tend to it openly.
+
+## Related
+
+- [[thinking-in-public|Thinking in Public]]
+- [[digital-garden-history|The History of Digital Gardens]]
+- [[digital-gardens-vs-blogs|Digital Gardens vs Blogs]]

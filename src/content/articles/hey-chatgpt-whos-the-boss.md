@@ -34,3 +34,7 @@ Mightn't it be that CEO, Twitter and Elon Musk simply co-occur a lot in ChatGPT'
 Could it be that a chance combination of these three words accidentally corresponded to a real life fact in 2023? The chances might be a million in one, but as my favorite author Terry Pratchett stated:
 
 > Scientists have calculated that the chances of something so patently absurd actually existing are millions to one. But magicians have calculated that million-to-one chances crop up nine times out of ten.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

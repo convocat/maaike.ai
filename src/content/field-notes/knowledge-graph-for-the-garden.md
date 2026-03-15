@@ -77,7 +77,9 @@ Periodic enrichment job:
 - [x] Research key phrase extraction methods ([[key-phrase-extraction-for-the-garden|write-up]])
 - [x] Prototype: extract key phrases from 10 garden items ([[key-phrase-extraction-prototype|experiment]])
 - [x] Full-scale key phrase extraction on 92 items ([[full-scale-key-phrase-extraction|analysis]])
-- [ ] Design review UI for link candidates
+- [x] Design review UI for link candidates
+- [x] First review round: 50 approved cross-links applied to 50 files
+- [ ] External content discovery (inline links to relevant papers/articles)
 
 ## Related
 

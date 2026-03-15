@@ -26,3 +26,4 @@ pnpm-debug.log*
 # Experiment data files
 keyphrase-results.json
 embeddings-*.json
+scripts/link-candidates.json

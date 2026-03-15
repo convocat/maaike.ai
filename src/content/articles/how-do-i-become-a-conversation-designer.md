@@ -67,3 +67,8 @@ Mind you, after spending a while in bot land, you might have seen so much code a
 - **landbot.io** — Free, easy and fun. Very suitable for clicking together a button bot or a conversational landing page.
 - **dialogflow.com** — For building voice actions on Google Assistant.
 - **voiceflow.com** — The pinnacle of user friendliness when it comes to building voice actions & skills for both Google Assistant and Alexa. Love it.
+
+## Related
+
+- [[van-technisch-schrijver-naar-conversation-designer|Van technisch schrijver naar conversation designer]]
+- [[designing-for-doubt|Designing for doubt]]

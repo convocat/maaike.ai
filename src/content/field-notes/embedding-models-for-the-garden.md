@@ -158,3 +158,7 @@ For this garden, **bge-m3** won on all four: clearest discrimination, strongest 
 ## Status
 
 This survey answers the "what embedding model?" question from the [[knowledge-graph-for-the-garden|project tracker]]. Three candidate models are now [[setting-up-local-embedding-models|set up locally via Ollama]]. bge-m3 was selected for the full-scale run based on the criteria above.
+
+## Related
+
+- [[embeddings-for-knowledge-gardens-research-gap|Embeddings for knowledge gardens: a research gap]]

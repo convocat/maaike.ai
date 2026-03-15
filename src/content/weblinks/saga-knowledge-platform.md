@@ -14,3 +14,7 @@ Apple's knowledge graph platform, published at SIGMOD 2022. The core insight is 
 Key ideas that transfer to smaller-scale knowledge systems: delta processing (only reprocess what changed), extended triples with provenance metadata, blocking + similarity for efficient linking, and confidence scoring for auto-generated links.
 
 Follow-up paper (SIGMOD 2023): [Growing and serving large open-domain knowledge graphs](https://arxiv.org/abs/2305.09464), which adds graph embeddings, fact ranking, and semantic annotation of external content.
+
+## Related
+
+- [[building-this-garden|Building this garden: change log]]

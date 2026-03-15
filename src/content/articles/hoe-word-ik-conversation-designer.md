@@ -66,3 +66,8 @@ Nee. Je komt op de meeste platformen al best ver met de standaard bot-bouwomgevi
 **Voice:**
 - **dialogflow.com** — Om voice actions te bouwen op je Google Assistant.
 - **voiceflow.com** — Heerlijk bruikbaar platform voor zowel Google Assistant als Alexa.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]
+- [[van-technisch-schrijver-naar-conversation-designer|Van technisch schrijver naar conversation designer]]

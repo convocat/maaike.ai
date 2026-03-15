@@ -39,3 +39,7 @@ That's the entire problem with ChatGPT. It can appropriate stuff really nicely, 
 - ChatGPT can generate a list of obvious and less obvious intents and entities for a non-existing, but familiar chatbot quite easily.
 - It won't give you a lot of real-life training data, nor solve some of your real-life recognition problems straight out of the bot, but it looks promising enough to keep exploring further.
 - When it comes to grammatically parsing sentences, I can't get my finger behind why ChatGPT does the things it does yet. More to explore here too!
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

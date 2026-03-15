@@ -43,3 +43,7 @@ What if my little pizza shop had a special action going on: order 1 cheese toppi
 I hope that this article has showed that ChatGPT is so much more than just a language model you can talk to. Perhaps it doesn't look like it, but in the examples above, I've actually been coding some very basic states and behaviors. Without a single line of 'code' code, all in my own words. I think this might become very powerful: to quickly create micro-methods or patterns, for instance for personalisation, that save you a lot of manual if/then conditionals and that you can incorporate in your traditional conversational applications.
 
 As excited as I am about these small use cases that are close to what we conversation designers do on a daily basis, most of the larger concerns that I have about LLMs still stand. ChatGPT too uses probabilistic models to generate its answers, which means that consistency and factual accuracy are not guaranteed.
+
+## Related
+
+- [[designing-for-doubt|Designing for doubt]]

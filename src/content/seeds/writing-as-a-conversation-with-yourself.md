@@ -10,3 +10,7 @@ ai: "100% Maai"
 ---
 
 It's kind of conversational, but it's a conversation of me with me, without necessarily expecting an answer, but with a mechanism that catches that train of thought. Something that doesn't interfere and is quick enough to keep up. A conversation that responds in another space. More on this in [[a-digital-garden-as-central-space|the origin story of this garden]].
+
+## Related
+
+- [[thinking-in-public|Thinking in Public]]
