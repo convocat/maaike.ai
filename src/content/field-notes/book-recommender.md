@@ -62,6 +62,6 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [x] User research interview ([[book-recommender-user-research|write-up]])
 - [x] Library audit, 40 books labeled ([[book-recommender-library-audit|prototype]])
 - [ ] Library audit follow-up: interview for remaining unlabeled books
-- [ ] Design the scoring algorithm from research insights
+- [x] Design the scoring algorithm ([[book-recommender-scoring-algorithm|design]])
 - [ ] Build the Python script
 - [ ] Build the HTML dashboard
