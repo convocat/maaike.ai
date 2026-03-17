@@ -51,7 +51,7 @@ I have stacks of unread books, both physical and on my e-reader. Picking the nex
 
 ### 2026-03-17: kickoff
 
-Co-researched the approach with Claude. Decided on Option A (logic-based scoring) over embeddings. Key decisions:
+Researched the approach using Claude. Decided on Option A (logic-based scoring) over embeddings. Key decisions:
 - Manual candidate input for v1 (I'll use the Claude app to read book photos and type in the data)
 - Mood categories need user research to get right
 - Relevance vs. novelty balance: needs investigation through interview
