@@ -53,53 +53,14 @@ I have stacks of unread books, both physical and on my e-reader. Picking the nex
 - Not "pick one book" but a *reading mix*: a lighter book for momentum + a denser book for longer-term reading
 - Interactive HTML dashboard with scored book cards
 
-## Research findings
-
-### User research interview (2026-03-17)
-
-Used Claude to interview me about my book selection habits.
-
-**How I pick books:**
-- Topic is the primary driver. Prizes and praise lower the barrier but aren't the reason.
-- Two interest threads: *how things connect* (systems, relationships, taxonomy, ecology) and *the craft of language* (words, storytelling, beauty of expression). Conversation design sits at the intersection.
-- Also: soul, connection, community, humor, intelligence, layers.
-
-**What goes wrong:**
-- Topic match alone isn't enough. The Overstory had perfect topic fit but failed on experience: boring narrative, couldn't connect, no momentum.
-- What makes a book work: compelling narrative, humor, intelligence, multiple layers, pulls you forward. Pratchett is the gold standard.
-
-**Reading habits:**
-- Focus is low right now. Need momentum and completion dopamine.
-- Don't want "pick one book" but a *reading mix*: something lighter to keep going, plus something denser for longer-term reading.
-- Fiction is for beauty/escape/narrative. Non-fiction is for curiosity and professional growth.
-- Read one hour per day.
-- Music is also important.
-
-### Library audit (2026-03-17)
-
-Labeled 40 books (10 physical, 30 e-books) across status, type, purpose, and "why stuck". Built an interactive HTML labeling interface.
-
-**Key patterns:**
-- **Ereader invisibility**: multiple books I didn't know were on my ereader. Discoverability is a real problem.
-- **"Should read" guilt**: some topics feel like a chore even when I think I should read about them.
-- **Density without momentum**: interesting topics but textbook feel kills the urge.
-- **Lost track**: started books that just faded away.
-- **Old sci-fi bias**: "masculine sci-fi" doesn't appeal, even when the topic is relevant.
-
-**What works:**
-- Pratchett: loved it, every time. Language + humor + philosophy + layers.
-- Art of Co-design: started and enjoying it, high contender.
-- Earth Emotions: remembered being beautiful but didn't stick.
-- Some books work as "on the side" reads (Complete Robot, Typography Beyond Borders, Microcopy).
-
 ## Project log
 
 ### 2026-03-17: kickoff
 
 Researched the approach using Claude. Decided on logic-based scoring over embeddings.
 
-- [x] User research interview
-- [x] Library audit (40 books labeled)
+- [x] User research interview ([[book-recommender-user-research|write-up]])
+- [x] Library audit, 40 books labeled ([[book-recommender-library-audit|prototype]])
 - [ ] Library audit follow-up: interview for remaining unlabeled books
 - [ ] Design the scoring algorithm from research insights
 - [ ] Build the Python script
