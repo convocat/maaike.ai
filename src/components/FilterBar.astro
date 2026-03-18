@@ -37,9 +37,12 @@ const stages = [
 
   {tags.length > 0 && (
     <div class="filter-row tag-row">
-      {tags.map((tag) => (
-        <button class="tag-chip" data-tag={tag} aria-pressed="false">{tag}</button>
+      {tags.map((tag, i) => (
+        <button class="tag-chip" data-tag={tag} aria-pressed="false" hidden={i >= 8 || undefined}>{tag}</button>
       ))}
+      {tags.length > 8 && (
+        <button class="tag-chip tag-toggle" id="tag-toggle">+{tags.length - 8} more</button>
+      )}
     </div>
   )}
 </div>
@@ -145,20 +148,18 @@ const stages = [
     });
 
     // Collapsible tag row
-    const tagRow = bar.querySelector<HTMLElement>('.tag-row');
-    const allTagChips = [...(tagRow?.querySelectorAll<HTMLElement>('.tag-chip') ?? [])];
-    const SHOW_N = 18;
-    if (tagRow && allTagChips.length > SHOW_N) {
-      allTagChips.slice(SHOW_N).forEach(t => t.hidden = true);
-      const toggle = document.createElement('button');
-      toggle.className = 'tag-chip tag-toggle';
-      toggle.textContent = `+${allTagChips.length - SHOW_N} more`;
-      tagRow.appendChild(toggle);
+    const toggle = bar.querySelector<HTMLButtonElement>('#tag-toggle');
+    const allTagChips = [...bar.querySelectorAll<HTMLElement>('.tag-chip[data-tag]')];
+    if (toggle) {
+      const SHOW_N = 8;
+      const overflowChips = allTagChips.slice(SHOW_N);
       toggle.addEventListener('click', () => {
         const expanded = toggle.dataset.expanded === 'true';
-        allTagChips.slice(SHOW_N).forEach(t => t.hidden = expanded);
+        overflowChips.forEach(t => t.hidden = expanded);
         toggle.dataset.expanded = String(!expanded);
-        toggle.textContent = expanded ? `+${allTagChips.length - SHOW_N} more` : 'show less';
+        toggle.textContent = expanded ? `+${overflowChips.length} more` : 'show less';
+        // Move toggle to end
+        toggle.parentElement?.appendChild(toggle);
       });
     }
   })();
@@ -232,5 +233,13 @@ const stages = [
 
   .tag-row {
     gap: var(--space-xs);
+  }
+
+  .tag-toggle {
+    border-style: dashed;
+    opacity: 0.7;
+  }
+  .tag-toggle:hover {
+    opacity: 1;
   }
 </style>
