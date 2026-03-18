@@ -23,6 +23,7 @@ I have stacks of unread books, both physical and on my e-reader. Picking the nex
 - **Free**: no API keys, no subscriptions
 - **Visual**: an interactive HTML dashboard (single file, like a vibe-coded prototype)
 - **Personal**: reads directly from my digital garden and library data
+- **Integrated**: reads from and writes back to the garden library. The library page is the single source of truth
 
 ## How it works
 
@@ -63,5 +64,11 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [x] Library audit, 40 books labeled ([[book-recommender-library-audit|prototype]])
 - [ ] Library audit follow-up: interview for remaining unlabeled books
 - [x] Design the scoring algorithm ([[book-recommender-scoring-algorithm|design]])
-- [ ] Build the Python script
-- [ ] Build the HTML dashboard
+- [x] Build the Python script
+- [x] Build the HTML dashboard (all 4 moods, score breakdowns, pages, reading time)
+- [ ] Add learning layer to dashboard (score tooltips, matched keywords, mood profile card, algorithm explainer)
+- [ ] Library integration ([[book-recommender-library-integration|design]]): extend library frontmatter with audit fields
+- [ ] Library integration: update recommender to read from garden library markdown files
+- [ ] Library integration: write top picks back to library frontmatter
+- [ ] Library integration: inline audit editing on library page
+- [ ] Library integration: add "get recommendations" trigger on library page

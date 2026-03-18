@@ -108,6 +108,16 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Principles removed**: Collection deleted entirely (config, pages, content, icons)
 - **Nav cleanup**: Removed Weblinks and Videos from navigation (collections still accessible), added Explore
 
+### 17 March
+
+- **Book recommender project**: New field note project hub with user research interview and library audit (40 books labeled). Logic-based scoring algorithm designed across 5 dimensions: topic match, experience prediction, mood fit, garden connection, freshness
+
+### 18 March
+
+- **Book recommender: Python script**: `recommend.py` scores all candidate books across 4 mood profiles and outputs a reading mix (main read, side read, wildcard). Reads garden tags and active projects automatically
+- **Book recommender: HTML dashboard**: Interactive single-file dashboard at `dashboard.html`. All 4 moods pre-generated, switch client-side without re-running the script. Score breakdown bars, matched garden tags, estimated pages and reading time per book
+- **Book recommender: library integration design**: New experiment outlining how the recommender will read from and write back to the garden's library collection, making it the single source of truth
+
 ## Related
 
 - [[digital-garden-history|The History of Digital Gardens]]
