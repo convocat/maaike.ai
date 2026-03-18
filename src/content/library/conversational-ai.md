@@ -2,7 +2,7 @@
 title: "Conversational AI"
 author: "Andrew Freed"
 date: 2026-03-12
-status: reading
+status: to-read
 maturity: draft
 tags:
   - conversational-ai

@@ -7,7 +7,7 @@ tags:
   - design
   - methodology
 ai: assisted
-status: reading
+status: to-read
 genre: Design / Methodology
 book_type: non-fiction
 purpose: professional

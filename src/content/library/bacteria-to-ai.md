@@ -8,7 +8,7 @@ tags:
   - cultural-theory
   - posthumanism
 ai: assisted
-status: to-read
+status: reading
 genre: Science / Cultural Theory / Posthumanism
 book_type: non-fiction
 purpose: professional

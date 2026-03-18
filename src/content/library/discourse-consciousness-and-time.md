@@ -7,7 +7,7 @@ maturity: draft
 tags:
   - linguistics
 ai: assisted
-status: reading
+status: to-read
 genre: Linguistics / Cognitive Science
 book_type: non-fiction
 purpose: professional

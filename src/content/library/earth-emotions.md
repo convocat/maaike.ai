@@ -7,7 +7,7 @@ tags:
   - ecology
   - philosophy
 ai: assisted
-status: reading
+status: to-read
 genre: Ecology / Philosophy
 book_type: non-fiction
 purpose: professional

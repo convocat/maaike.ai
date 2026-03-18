@@ -6,7 +6,7 @@ maturity: draft
 tags:
   - economics
 ai: assisted
-status: reading
+status: to-read
 genre: Economics
 book_type: non-fiction
 purpose: personal

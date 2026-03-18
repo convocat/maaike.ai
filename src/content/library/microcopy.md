@@ -7,7 +7,7 @@ tags:
   - writing
   - design
 ai: assisted
-status: reading
+status: to-read
 genre: UX Writing / Design
 book_type: non-fiction
 purpose: professional

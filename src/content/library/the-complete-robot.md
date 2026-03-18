@@ -6,7 +6,7 @@ maturity: draft
 tags:
   - science-fiction
 ai: assisted
-status: reading
+status: to-read
 genre: Science Fiction
 book_type: fiction
 purpose: professional

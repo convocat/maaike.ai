@@ -2,7 +2,7 @@
 title: "Hey Cyba: The inner workings of a virtual personal assistant"
 author: "Unknown"
 date: 2026-03-12
-status: reading
+status: to-read
 maturity: draft
 tags:
   - conversational-ai

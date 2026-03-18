@@ -6,7 +6,7 @@ maturity: draft
 tags:
   - fictie
 ai: assisted
-status: reading
+status: to-read
 genre: Fictie
 book_type: fiction
 purpose: personal
