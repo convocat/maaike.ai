@@ -118,6 +118,7 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Book recommender: HTML dashboard**: Interactive single-file dashboard at `dashboard.html`. All 4 moods pre-generated, switch client-side without re-running the script. Score breakdown bars, matched garden tags, estimated pages and reading time per book
 - **Book recommender: library integration design**: New experiment outlining how the recommender will read from and write back to the garden's library collection, making it the single source of truth
 - **Book recommender: learning layer**: Dashboard now shows a mood profile card (what the mood boosts and why), score bar tooltips on hover (dimension explanation + weight), matched interest keywords as pink pills, and a collapsible algorithm explainer
+- **Book recommender: library integration (phase 1)**: Extended library schema with audit fields (genre, book_type, purpose, reason, rating, review, recommended). Migrated 40 books into library markdown files. Recommender now reads from the library collection and writes top picks back to frontmatter
 
 ## Related
 
