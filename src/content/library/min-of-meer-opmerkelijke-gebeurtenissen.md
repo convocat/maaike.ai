@@ -1,0 +1,14 @@
+---
+title: Min of meer opmerkelijke gebeurtenissen...
+author: "Cindy Hoetmer"
+date: 2026-03-18
+maturity: draft
+tags:
+  - fictie
+ai: assisted
+status: reading
+genre: Fictie
+book_type: fiction
+purpose: personal
+reason: "Didn't like the writing style I think.It's been a while. Might be easy to finish though, for a dopamine hit. "
+---

@@ -2,10 +2,14 @@
 title: "Microcopy"
 author: "Kinneret Yifrah"
 date: 2026-03-12
-status: read
 maturity: draft
 tags:
   - writing
   - design
 ai: assisted
+status: reading
+genre: UX Writing / Design
+book_type: non-fiction
+purpose: professional
+reason: "More of a reference work. But remind me it's on my ereader though. Hm ereader discoverability is a thing here, don't you think? "
 ---

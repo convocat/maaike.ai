@@ -53,7 +53,16 @@ const library = defineCollection({
   schema: baseSchema.extend({
     author: z.string(),
     cover: z.string().optional(),
-    status: z.enum(['reading', 'read', 'to-read']).default('to-read'),
+    status: z.enum(['reading', 'read', 'to-read', 'abandoned']).default('to-read'),
+    genre: z.string().optional(),
+    book_type: z.enum(['fiction', 'non-fiction']).optional(),
+    purpose: z.enum(['personal', 'professional']).optional(),
+    reason: z.string().optional(),
+    notes: z.string().optional(),
+    rating: z.enum(['loved it', 'liked it', 'meh', 'disappointing']).optional(),
+    review: z.string().optional(),
+    recommended: z.boolean().optional(),
+    recommended_score: z.number().optional(),
   }),
 });
 
