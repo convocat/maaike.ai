@@ -1,6 +1,7 @@
 ---
 title: Shaking Hands With Death
 author: "Terry Pratchett"
+cover: "/images/library/shaking-hands-with-death.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

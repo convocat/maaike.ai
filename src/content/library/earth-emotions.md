@@ -1,6 +1,7 @@
 ---
 title: Earth Emotions
 author: "Glenn A. Albrecht"
+cover: "/images/library/earth-emotions.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

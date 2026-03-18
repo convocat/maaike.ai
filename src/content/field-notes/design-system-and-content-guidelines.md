@@ -3,6 +3,7 @@ title: "Design system and content guidelines"
 date: 2026-03-15
 maturity: developing
 tags:
+  - about
   - project
   - digital-gardens
 description: The living reference for the visual design, component library, content rules, and interaction patterns of maaike.ai.

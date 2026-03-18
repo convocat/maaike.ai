@@ -40,7 +40,14 @@ const categories = [
     📚 What to read next?
   </button>
 
-  <FilterBar tags={tags} categories={categories} />
+  <FilterBar
+    tags={tags}
+    categories={categories}
+    statusOptions={[
+      { key: 'to-read', label: 'To be read' },
+      { key: 'read', label: 'Finished reading' },
+    ]}
+  />
 
   {reading.length > 0 && (
     <section class="book-section">

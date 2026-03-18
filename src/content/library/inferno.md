@@ -1,6 +1,7 @@
 ---
 title: Inferno
 author: "Dan Brown"
+cover: "/images/library/inferno.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

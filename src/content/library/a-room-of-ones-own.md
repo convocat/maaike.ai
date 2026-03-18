@@ -1,6 +1,7 @@
 ---
 title: "A Room of One's Own"
 author: "Virginia Woolf"
+cover: "/images/library/a-room-of-ones-own.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

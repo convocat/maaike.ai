@@ -1,6 +1,7 @@
 ---
 title: Last and First Men
 author: "Olaf Stapledon"
+cover: "/images/library/last-and-first-men.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

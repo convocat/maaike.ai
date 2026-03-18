@@ -1,6 +1,7 @@
 ---
 title: "Conversational UX design"
 author: "Robert J. Moore & Raphael Arar"
+cover: "/images/library/conversational-ux-design.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

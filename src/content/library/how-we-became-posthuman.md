@@ -1,6 +1,7 @@
 ---
 title: How We Became Posthuman
 author: "N. Katherine Hayles"
+cover: "/images/library/how-we-became-posthuman.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

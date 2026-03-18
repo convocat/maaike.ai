@@ -1,6 +1,7 @@
 ---
 title: The Big Con
 author: "Mariana Mazzucato, Rosie Collington"
+cover: "/images/library/the-big-con.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

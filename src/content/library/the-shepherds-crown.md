@@ -1,6 +1,7 @@
 ---
 title: "The Shepherd's Crown"
 author: "Terry Pratchett"
+cover: "/images/library/the-shepherds-crown.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

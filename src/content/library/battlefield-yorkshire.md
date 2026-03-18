@@ -1,6 +1,7 @@
 ---
 title: Battlefield Yorkshire
 author: "David Cooke"
+cover: "/images/library/battlefield-yorkshire.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

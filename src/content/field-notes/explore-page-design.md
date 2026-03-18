@@ -3,6 +3,7 @@ title: "Explore page: a visual browsing UI for the garden"
 date: 2026-03-15
 maturity: developing
 tags:
+  - about
   - project
   - digital-gardens
   - knowledge-graph

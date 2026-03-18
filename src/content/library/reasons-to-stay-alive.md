@@ -1,6 +1,7 @@
 ---
 title: Reasons to Stay Alive
 author: "Matt Haig"
+cover: "/images/library/reasons-to-stay-alive.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

@@ -1,6 +1,7 @@
 ---
 title: The Bowery Boys
 author: "Greg Young, Tom Meyers"
+cover: "/images/library/the-bowery-boys.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

@@ -5,12 +5,18 @@ interface Category {
   tags: string[];
 }
 
+interface StatusOption {
+  key: string;
+  label: string;
+}
+
 interface Props {
   tags: string[];
   categories?: Category[];
+  statusOptions?: StatusOption[];
 }
 
-const { tags, categories } = Astro.props;
+const { tags, categories, statusOptions } = Astro.props;
 
 const stages = [
   { key: 'draft', emoji: '🌱', label: 'Seedling' },
@@ -35,11 +41,22 @@ const stages = [
         </button>
       ))}
     </div>
-    <div class="sort-group">
-      <span class="sort-label">Sort:</span>
-      <button class="sort-btn active" data-sort="date">Planted ↓</button>
-      <button class="sort-btn" data-sort="updated">Last tended</button>
-    </div>
+
+    {statusOptions && statusOptions.length > 0 ? (
+      <div class="sort-group">
+        {statusOptions.map((opt) => (
+          <button class="sort-btn status-btn" data-status={opt.key} aria-pressed="false">
+            {opt.label}
+          </button>
+        ))}
+      </div>
+    ) : (
+      <div class="sort-group">
+        <span class="sort-label">Sort:</span>
+        <button class="sort-btn active" data-sort="date">Planted ↓</button>
+        <button class="sort-btn" data-sort="updated">Last tended</button>
+      </div>
+    )}
   </div>
 
   {categories && categories.length > 0 ? (
@@ -75,20 +92,20 @@ const stages = [
 
     const cards = () => [...document.querySelectorAll<HTMLElement>('.card')];
     const activeMaturity = new Set<string>();
-    // activeCategories: map from button element to its tag set
     const activeCategories = new Map<Element, Set<string>>();
     let currentSort = 'date';
+    let activeStatus: string | null = null;
 
     const allBtn = bar.querySelector<HTMLButtonElement>('[data-filter="all"]')!;
     const maturityBtns = bar.querySelectorAll<HTMLButtonElement>('.maturity-btn');
-    const sortBtns = bar.querySelectorAll<HTMLButtonElement>('.sort-btn');
+    const sortBtns = bar.querySelectorAll<HTMLButtonElement>('.sort-btn:not(.status-btn)');
+    const statusBtns = bar.querySelectorAll<HTMLButtonElement>('.status-btn');
     const categoryBtns = bar.querySelectorAll<HTMLButtonElement>('.category-btn');
     const tagChips = bar.querySelectorAll<HTMLButtonElement>('.tag-chip[data-tag]');
 
     function getActiveTags(): Set<string> {
       const all = new Set<string>();
       activeCategories.forEach((tags) => tags.forEach((t) => all.add(t)));
-      // also include individually active tag chips
       tagChips.forEach((chip) => {
         if (chip.classList.contains('active')) all.add(chip.dataset.tag!);
       });
@@ -100,9 +117,11 @@ const stages = [
       for (const card of cards()) {
         const m = card.dataset.maturity ?? '';
         const t = (card.dataset.tags ?? '').split(',').filter(Boolean);
+        const s = card.dataset.status ?? '';
         const matchesMaturity = activeMaturity.size === 0 || activeMaturity.has(m);
         const matchesTags = activeTags.size === 0 || t.some((tag) => activeTags.has(tag));
-        card.style.display = matchesMaturity && matchesTags ? '' : 'none';
+        const matchesStatus = activeStatus === null || s === activeStatus;
+        card.style.display = matchesMaturity && matchesTags && matchesStatus ? '' : 'none';
       }
     }
 
@@ -150,6 +169,24 @@ const stages = [
           btn.setAttribute('aria-pressed', 'true');
         }
         syncAllBtn();
+        applyFilters();
+      });
+    });
+
+    statusBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.status!;
+        if (activeStatus === key) {
+          // deactivate
+          activeStatus = null;
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        } else {
+          activeStatus = key;
+          statusBtns.forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        }
         applyFilters();
       });
     });

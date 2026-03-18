@@ -1,6 +1,7 @@
 ---
 title: Het lied van ooievaar en dromedaris
 author: "Anjet Daanje"
+cover: "/images/library/het-lied-van-ooievaar-en-dromedaris.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

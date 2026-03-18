@@ -3,6 +3,7 @@ title: "Building this garden: change log"
 date: 2026-03-12
 maturity: developing
 tags:
+  - about
   - digital-gardens
   - ai-tools
   - developer-experience
@@ -122,6 +123,14 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Book recommender: vibe chips + mood removal**: Replaced mood selector with four situational vibe chips (short session, feed the work, from the pile, surprise me). Each chip is orthogonal to content preference: short session picks the best-scored short book; feed the work re-ranks by garden connection; from the pile re-ranks by freshness. Python scoring simplified to four mood-independent dimensions (topic 30%, experience 35%, garden 20%, freshness 15%)
 - **Book recommender: 2D positioning canvas**: Replaced vibe chips with a draggable 2D canvas. X axis: play/personal to learn/professional. Y axis: comfort/familiar to discover/challenge. Dot position re-ranks results in real time. Four preset chips snap to named positions. Short session stays as a separate checkbox
 - **Book recommender: library integration**: "What to read next?" link on the library page. Inline audit editor on each book's detail page, saves directly to the markdown file via a local Python server (localhost:8090)
+- **Book recommender: UI cleanup**: Removed scored books list from the dashboard. Removed public inline audit editor from book detail pages (security concern). Recommender drawer moved inside PageLayout so Astro scoped CSS applies correctly. Button redesigned as pink pill
+- **Library: auto-tagging**: All 100 library books tagged with missing metadata (book_type, purpose, reason). Reading status corrected: only "Bacteria to AI" marked as currently reading
+- **Library: metadata display**: Read-only reason, rating, and review shown on book detail pages
+- **Library: category filter**: Tag pills replaced with 8 curated category buttons (Conversation design, Conversational analysis, Content architecture, NLP/NLU & speech, Feminism/bias/ethics, Accessibility, Writing, General interest)
+- **Library: status filter**: Sort buttons replaced with "To be read" and "Finished reading" reading status filter buttons
+- **YAML safety fix**: Four library files had unquoted colon-space sequences in reason fields, breaking production builds silently. Fixed by quoting all affected values
+- **Test strategy**: Three-layer test pyramid: content validator (`scripts/validate-content.mjs`, run via `npm run validate`), build verification via GitHub Actions, and 11 Playwright E2E tests (`tests/library.spec.ts`, run via `npm test`). Pre-commit hook wired up
+- **About tag**: Five field notes about building the garden tagged with `about` for easier filtering
 
 ## Related
 

@@ -1,6 +1,7 @@
 ---
 title: Going Postal
 author: "Terry Pratchett"
+cover: "/images/library/going-postal.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

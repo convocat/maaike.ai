@@ -3,6 +3,7 @@ title: Project memory for persistent context
 date: 2026-03-10
 maturity: draft
 tags:
+  - about
   - ai-tools
   - claude-code
   - developer-experience

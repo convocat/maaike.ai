@@ -1,6 +1,7 @@
 ---
 title: "How to talk to robots"
 author: "Tabitha Goldstaub"
+cover: "/images/library/how-to-talk-to-robots.jpg"
 date: 2026-03-12
 status: read
 maturity: draft

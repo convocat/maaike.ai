@@ -3,6 +3,7 @@ title: "A test strategy for the garden"
 date: 2026-03-18
 maturity: draft
 tags:
+  - about
   - testing
   - developer-experience
   - digital-gardens

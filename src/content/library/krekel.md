@@ -1,6 +1,7 @@
 ---
 title: Krekel
 author: "Annet Schaap"
+cover: "/images/library/krekel.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

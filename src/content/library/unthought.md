@@ -1,6 +1,7 @@
 ---
 title: Unthought
 author: "N. Katherine Hayles"
+cover: "/images/library/unthought.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

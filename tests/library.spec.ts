@@ -82,24 +82,49 @@ test.describe('Library page', () => {
     expect(visibleAfter).toBe(total);
   });
 
-  test('sort by "Last tended" changes card order', async ({ page }) => {
-    // Get order before
-    const orderBefore = await page.locator('.card').evaluateAll(
-      (els) => els.map((el) => (el as HTMLElement).dataset.date)
+  test('status filter shows only to-be-read books', async ({ page }) => {
+    const toReadBtn = page.locator('.status-btn[data-status="to-read"]');
+    await toReadBtn.click();
+    await expect(toReadBtn).toHaveAttribute('aria-pressed', 'true');
+
+    const statuses = await page.locator('.card').evaluateAll(
+      (els) =>
+        els
+          .filter((el) => (el as HTMLElement).style.display !== 'none')
+          .map((el) => (el as HTMLElement).dataset.status)
     );
+    for (const s of statuses) {
+      expect(s).toBe('to-read');
+    }
+  });
 
-    await page.locator('[data-sort="updated"]').click();
+  test('status filter shows only finished books', async ({ page }) => {
+    const readBtn = page.locator('.status-btn[data-status="read"]');
+    await readBtn.click();
+    await expect(readBtn).toHaveAttribute('aria-pressed', 'true');
 
-    const orderAfter = await page.locator('.card').evaluateAll(
-      (els) => els.map((el) => (el as HTMLElement).dataset.date)
+    const statuses = await page.locator('.card').evaluateAll(
+      (els) =>
+        els
+          .filter((el) => (el as HTMLElement).style.display !== 'none')
+          .map((el) => (el as HTMLElement).dataset.status)
     );
+    for (const s of statuses) {
+      expect(s).toBe('read');
+    }
+  });
 
-    // The sort button should now be active
-    await expect(page.locator('[data-sort="updated"]')).toHaveClass(/active/);
+  test('clicking active status button again shows all books', async ({ page }) => {
+    const total = await page.locator('.card').count();
+    const toReadBtn = page.locator('.status-btn[data-status="to-read"]');
+    await toReadBtn.click();
+    await toReadBtn.click();
+    await expect(toReadBtn).toHaveAttribute('aria-pressed', 'false');
 
-    // Order may differ (not asserting exact order, just that state changed)
-    // This is a smoke test for the sort mechanism
-    expect(orderAfter).toBeDefined();
+    const visibleAfter = await page.locator('.card').evaluateAll(
+      (els) => els.filter((el) => (el as HTMLElement).style.display !== 'none').length
+    );
+    expect(visibleAfter).toBe(total);
   });
 });
 

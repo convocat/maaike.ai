@@ -1,6 +1,7 @@
 ---
 title: Kies toch niet steeds de kant van de macht
 author: "Kim van Keien, Dielwert Kuijpers"
+cover: "/images/library/kies-toch-niet-steeds-de-kant-van-de-macht.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

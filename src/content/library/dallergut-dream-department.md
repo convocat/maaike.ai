@@ -1,6 +1,7 @@
 ---
 title: DallerGut Dream Department
 author: "Sandy Joosun Lee, Miye Lee"
+cover: "/images/library/dallergut-dream-department.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

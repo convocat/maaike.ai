@@ -1,6 +1,7 @@
 ---
 title: "Carrie's War"
 author: "Nina Bawden"
+cover: "/images/library/carries-war.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

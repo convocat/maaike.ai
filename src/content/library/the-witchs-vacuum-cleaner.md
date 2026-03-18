@@ -1,6 +1,7 @@
 ---
 title: "The Witch's Vacuum Cleaner"
 author: "Terry Pratchett"
+cover: "/images/library/the-witchs-vacuum-cleaner.jpg"
 date: 2026-03-18
 maturity: draft
 tags:

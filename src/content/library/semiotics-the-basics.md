@@ -1,6 +1,7 @@
 ---
 title: "Semiotics: The Basics"
 author: "Daniel Chandler"
+cover: "/images/library/semiotics-the-basics.jpg"
 date: 2026-03-18
 maturity: draft
 tags:
