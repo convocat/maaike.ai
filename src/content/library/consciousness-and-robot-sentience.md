@@ -11,5 +11,5 @@ tags:
 ai: assisted
 book_type: non-fiction
 purpose: professional
-reason: Haikonen's take on machine consciousness is directly relevant to the questions I keep running into as a conversation designer: what does it mean for a machine to seem aware?
+reason: "Haikonen's take on machine consciousness is directly relevant to the questions I keep running into as a conversation designer: what does it mean for a machine to seem aware?"
 ---

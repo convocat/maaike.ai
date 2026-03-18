@@ -10,5 +10,5 @@ tags:
 ai: assisted
 book_type: non-fiction
 purpose: professional
-reason: UNESCO report on gender bias in AI assistants. Directly relevant to my work: the voice and persona of conversational AI reflects and reinforces cultural assumptions about gender.
+reason: "UNESCO report on gender bias in AI assistants. Directly relevant to my work: the voice and persona of conversational AI reflects and reinforces cultural assumptions about gender."
 ---
