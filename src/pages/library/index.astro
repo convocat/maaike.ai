@@ -26,7 +26,7 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
   <p class="section-description">{settings.libraryDescription}</p>
 
   <button id="recommenderBtn" class="recommender-btn">
-    What to read next?
+    📚 What to read next?
   </button>
 
   {tags.length > 0 && <FilterBar tags={tags} />}
@@ -117,19 +117,19 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
   {books.length === 0 && weblinks.length === 0 && (
     <p class="empty-state">No books or articles yet. Add one via the CMS.</p>
   )}
-</PageLayout>
 
-<!-- Recommender drawer -->
-<div id="recommenderDrawer" class="drawer" aria-hidden="true">
-  <div class="drawer-backdrop" id="drawerBackdrop"></div>
-  <div class="drawer-panel" role="dialog" aria-label="What to read next?">
-    <div class="drawer-header">
-      <span class="drawer-title">What to read next?</span>
-      <button class="drawer-close" id="drawerClose" aria-label="Close">✕</button>
+  <!-- Recommender drawer -->
+  <div id="recommenderDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="What to read next?">
+      <div class="drawer-header">
+        <span class="drawer-title">📚 What to read next?</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close">✕</button>
+      </div>
+      <iframe src="/dashboard.html?embed=1" class="drawer-iframe" title="Book recommender"></iframe>
     </div>
-    <iframe src="/dashboard.html?embed=1" class="drawer-iframe" title="Book recommender"></iframe>
   </div>
-</div>
+</PageLayout>
 
 <script>
   const btn = document.getElementById('recommenderBtn');
@@ -160,19 +160,20 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
   .recommender-btn {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: 0.4em;
     font: inherit;
-    font-size: 0.85rem;
-    color: var(--color-accent);
-    background: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-accent);
     border: none;
-    padding: 0;
+    border-radius: 1.5em;
+    padding: 0.35em 0.9em;
     cursor: pointer;
     margin-block-end: var(--space-lg);
-    text-decoration: underline dotted;
-    text-underline-offset: 3px;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
   }
-  .recommender-btn:hover { text-decoration: underline; }
+  .recommender-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
   .section-description {
     color: var(--color-text-muted);
