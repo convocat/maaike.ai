@@ -41,9 +41,163 @@ const statusLabel: Record<string, string> = {
     </div>
   </div>
   <Content />
+
+  <div class="audit-editor">
+    <button class="audit-toggle" id="auditToggle">Edit audit fields</button>
+    <form id="auditForm" class="audit-form" hidden>
+      <div class="audit-row">
+        <label>Status</label>
+        <select name="status">
+          <option value="to-read" selected={entry.data.status === 'to-read'}>To read</option>
+          <option value="reading" selected={entry.data.status === 'reading'}>Reading</option>
+          <option value="read" selected={entry.data.status === 'read'}>Read</option>
+          <option value="abandoned" selected={entry.data.status === 'abandoned'}>Abandoned</option>
+        </select>
+      </div>
+      <div class="audit-row">
+        <label>Type</label>
+        <select name="book_type">
+          <option value="">--</option>
+          <option value="fiction" selected={entry.data.book_type === 'fiction'}>Fiction</option>
+          <option value="non-fiction" selected={entry.data.book_type === 'non-fiction'}>Non-fiction</option>
+        </select>
+      </div>
+      <div class="audit-row">
+        <label>Purpose</label>
+        <select name="purpose">
+          <option value="">--</option>
+          <option value="personal" selected={entry.data.purpose === 'personal'}>Personal</option>
+          <option value="professional" selected={entry.data.purpose === 'professional'}>Professional</option>
+        </select>
+      </div>
+      <div class="audit-row">
+        <label>Reason</label>
+        <input name="reason" type="text" value={entry.data.reason || ''} />
+      </div>
+      <div class="audit-row">
+        <label>Notes</label>
+        <textarea name="notes">{entry.data.notes || ''}</textarea>
+      </div>
+      <div class="audit-row">
+        <label>Rating</label>
+        <select name="rating">
+          <option value="">--</option>
+          <option value="loved it" selected={entry.data.rating === 'loved it'}>Loved it</option>
+          <option value="liked it" selected={entry.data.rating === 'liked it'}>Liked it</option>
+          <option value="meh" selected={entry.data.rating === 'meh'}>Meh</option>
+          <option value="disappointing" selected={entry.data.rating === 'disappointing'}>Disappointing</option>
+        </select>
+      </div>
+      <div class="audit-row">
+        <label>Review</label>
+        <textarea name="review">{entry.data.review || ''}</textarea>
+      </div>
+      <div class="audit-actions">
+        <button type="submit" class="audit-save">Save to markdown</button>
+        <span class="audit-status" id="auditStatus"></span>
+      </div>
+    </form>
+  </div>
 </PostLayout>
 
+<script define:vars={{ bookId: entry.id }}>
+  document.getElementById('auditToggle').addEventListener('click', () => {
+    const form = document.getElementById('auditForm');
+    form.hidden = !form.hidden;
+  });
+  document.getElementById('auditForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = document.getElementById('auditStatus');
+    statusEl.textContent = 'Saving...';
+    const data = { id: bookId };
+    new FormData(e.target).forEach((v, k) => { if (v) data[k] = v; });
+    try {
+      const resp = await fetch('http://localhost:8090/api/update-book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await resp.json();
+      statusEl.textContent = result.ok ? 'Saved.' : `Error: ${result.error}`;
+    } catch {
+      statusEl.textContent = 'Recommender not running (localhost:8090).';
+    }
+  });
+</script>
+
 <style>
+  .audit-editor {
+    margin-block-start: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+    padding-block-start: var(--space-lg);
+  }
+  .audit-toggle {
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+  }
+  .audit-toggle:hover { color: var(--color-accent); }
+  .audit-form {
+    margin-block-start: var(--space-md);
+    display: grid;
+    gap: var(--space-sm);
+  }
+  .audit-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: baseline;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+  }
+  .audit-row label {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+  }
+  .audit-row input,
+  .audit-row select,
+  .audit-row textarea {
+    font: inherit;
+    font-size: 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-surface, #fff);
+    color: var(--color-text);
+    width: 100%;
+  }
+  .audit-row textarea {
+    resize: vertical;
+    min-height: 3.5rem;
+  }
+  .audit-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-block-start: var(--space-xs);
+  }
+  .audit-save {
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.3rem 0.85rem;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .audit-save:hover { opacity: 0.88; }
+  .audit-status {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
   .book-header {
     display: flex;
     gap: var(--space-lg);

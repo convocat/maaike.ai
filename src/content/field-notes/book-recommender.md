@@ -7,11 +7,11 @@ tags:
   - python
   - knowledge-management
   - digital-gardens
-description: A personal book recommender that matches candidates against my library, garden interests, and current mood. No AI, just logic.
+description: A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.
 ai: co-created
 ---
 
-A mini project to help me decide what to read next. The idea: take a list of book candidates, compare them against my existing library and what I'm currently writing about in the garden, and surface the best match for my mood.
+A mini project to help me decide what to read next. The idea: score all my unread books against my interests and garden context, then let situational vibe chips re-rank the results based on what I actually need right now.
 
 ## Why
 
@@ -28,27 +28,24 @@ I have stacks of unread books, both physical and on my e-reader. Picking the nex
 ## How it works
 
 **Input:**
-- Book candidates (titles + metadata, entered manually)
-- Mood selection (deep focus / light & curious / comfort zone / challenge me)
+- The garden library (all books with audit labels: status, type, purpose, ratings)
+- Vibe chip selection (optional, client-side)
 
 **Context (pulled automatically):**
-- Library collection with audit labels (status, type, purpose, ratings)
-- Garden content tags (77 unique tags across all collections)
-- Recent garden activity (what I'm currently writing about)
+- Garden content tags across all collections
+- Active garden projects (tagged `project`)
 
-**Output per book:**
-- Summary
-- Density indicator
-- Social proof (what others thought)
-- Garden connection: which projects it supports, what new ideas it opens up
-- Maaike fun factor
-- Estimated reading time (based on 1 hour/day)
+**Scoring dimensions (Python, run once):**
+1. **Topic match** (30%): keyword overlap with three interest threads: systems/ecology, language/storytelling, philosophy/depth
+2. **Experience** (35%): predicted enjoyment: loved authors, genre density, momentum signals
+3. **Garden connection** (20%): tag and project overlap with active garden work
+4. **Freshness** (15%): rediscovery bonus for forgotten or recently acquired books
 
-**Scoring dimensions:**
-1. **Relevance**: tag and subject overlap with my library and garden interests
-2. **Novelty**: does this book fill a gap in my reading, or add to an existing cluster?
-3. **Mood fit**: matches the candidate's character (dense/light, academic/narrative) to selected mood
-4. **Current focus**: bonus for books that connect to what I'm actively working on
+**Vibe chips (client-side re-ranking):**
+- **Short session**: best-scoring book under 250 pages
+- **Feed the work**: re-ranks by garden connection score
+- **From the pile**: re-ranks by freshness score
+- **Surprise me**: widens the shuffle pool to top 15
 
 **Output format:**
 - Not "pick one book" but a *reading mix*: a lighter book for momentum + a denser book for longer-term reading
@@ -65,10 +62,11 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [ ] Library audit follow-up: interview for remaining unlabeled books
 - [x] Design the scoring algorithm ([[book-recommender-scoring-algorithm|design]])
 - [x] Build the Python script
-- [x] Build the HTML dashboard (all 4 moods, score breakdowns, pages, reading time)
-- [x] Add learning layer to dashboard (score tooltips, matched keywords, mood profile card, algorithm explainer)
+- [x] Build the HTML dashboard (score breakdowns, pages, reading time, learning layer)
+- [x] Add learning layer to dashboard (score tooltips, matched keywords, algorithm explainer)
 - [x] Library integration ([[book-recommender-library-integration|design]]): extend library frontmatter with audit fields
 - [x] Library integration: update recommender to read from garden library markdown files
 - [x] Library integration: write top picks back to library frontmatter
-- [ ] Library integration: inline audit editing on library page
-- [ ] Library integration: add "get recommendations" trigger on library page
+- [x] Add vibe chips: client-side re-ranking with situational chips and a shuffle button
+- [x] Library integration: inline audit editing on library page
+- [x] Library integration: add "get recommendations" trigger on library page

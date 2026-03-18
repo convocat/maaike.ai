@@ -25,6 +25,10 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
   <h1><CollectionIcon collection="library" size={28} /> {settings.libraryTitle}</h1>
   <p class="section-description">{settings.libraryDescription}</p>
 
+  <a href="http://localhost:8090/dashboard.html" class="recommender-link" target="_blank" rel="noopener">
+    What to read next? <span class="recommender-badge">local</span>
+  </a>
+
   {tags.length > 0 && <FilterBar tags={tags} />}
 
   {reading.length > 0 && (
@@ -111,6 +115,26 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
 
 <style>
   h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
+  .recommender-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-block-end: var(--space-lg);
+  }
+  .recommender-link:hover { text-decoration: underline; }
+  .recommender-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--color-surface-raised, #f3f4f6);
+    color: var(--color-text-muted);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
   .section-description {
     color: var(--color-text-muted);
     margin-block-end: var(--space-xl);
