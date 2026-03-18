@@ -846,8 +846,6 @@ function render(data) {
       ${renderMixCard(mix.side, 'side')}
       ${renderMixCard(mix.wildcard, 'wildcard')}
     </div>
-    <div class="all-books-header">All ${sorted.length} books ranked</div>
-    ${sorted.map((b, i) => renderBookRow(b, i + 1)).join('')}
     ${renderAlgoExplainer()}
   `;
   document.getElementById('content').innerHTML = html;
