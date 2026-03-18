@@ -66,7 +66,7 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [x] Design the scoring algorithm ([[book-recommender-scoring-algorithm|design]])
 - [x] Build the Python script
 - [x] Build the HTML dashboard (all 4 moods, score breakdowns, pages, reading time)
-- [ ] Add learning layer to dashboard (score tooltips, matched keywords, mood profile card, algorithm explainer)
+- [x] Add learning layer to dashboard (score tooltips, matched keywords, mood profile card, algorithm explainer)
 - [ ] Library integration ([[book-recommender-library-integration|design]]): extend library frontmatter with audit fields
 - [ ] Library integration: update recommender to read from garden library markdown files
 - [ ] Library integration: write top picks back to library frontmatter

@@ -117,6 +117,7 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Book recommender: Python script**: `recommend.py` scores all candidate books across 4 mood profiles and outputs a reading mix (main read, side read, wildcard). Reads garden tags and active projects automatically
 - **Book recommender: HTML dashboard**: Interactive single-file dashboard at `dashboard.html`. All 4 moods pre-generated, switch client-side without re-running the script. Score breakdown bars, matched garden tags, estimated pages and reading time per book
 - **Book recommender: library integration design**: New experiment outlining how the recommender will read from and write back to the garden's library collection, making it the single source of truth
+- **Book recommender: learning layer**: Dashboard now shows a mood profile card (what the mood boosts and why), score bar tooltips on hover (dimension explanation + weight), matched interest keywords as pink pills, and a collapsible algorithm explainer
 
 ## Related
 
