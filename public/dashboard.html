@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What to read next</title>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --accent: #D6006C;
+    --accent-light: #fce4ef;
+    --teal: #0D7C66;
+    --teal-light: #e0f5f0;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --amber: #d97706;
+    --purple: #7c3aed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  /* Mix section */
+  .mix-section { margin-bottom: 2.5rem; }
+  .mix-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .mix-label.main { color: var(--accent); }
+  .mix-label.side { color: var(--teal); }
+  .mix-label.wildcard { color: var(--purple); }
+
+  .mix-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .mix-card.main { border-left: 5px solid var(--accent); }
+  .mix-card.side { border-left: 5px solid var(--teal); }
+  .mix-card.wildcard { border-left: 5px solid var(--purple); }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .card-title { font-size: 1.1rem; font-weight: 700; }
+  .card-author { font-size: 0.85rem; color: var(--muted); }
+  .card-score {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .card-why {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .meta-item { display: flex; align-items: center; gap: 0.3rem; }
+
+  /* Score breakdown */
+  .score-bars {
+    display: grid;
+    grid-template-columns: 100px 1fr 30px;
+    gap: 0.3rem 0.75rem;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+  .bar-label { color: var(--muted); text-align: right; }
+  .bar-track {
+    background: var(--border);
+    border-radius: 999px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  .bar-fill.topic { background: var(--accent); }
+  .bar-fill.experience { background: var(--teal); }
+  .bar-fill.mood { background: var(--amber); }
+  .bar-fill.garden { background: #3b82f6; }
+  .bar-fill.freshness { background: var(--purple); }
+  .bar-value { color: var(--muted); }
+
+  /* Garden tags */
+  .garden-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+  .garden-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--teal-light);
+    color: var(--teal);
+  }
+  .project-tag {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  /* All books section */
+  .all-books-header {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .book-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 80px 60px 60px 60px;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .book-row:hover { background: #f9f9f7; }
+  .book-rank {
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  .book-row-title { font-weight: 600; }
+  .book-row-author { color: var(--muted); font-size: 0.8rem; }
+  .book-row-score { font-weight: 700; color: var(--accent); text-align: right; }
+  .book-row-days { color: var(--muted); text-align: right; }
+  .book-row-status {
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
+  .status-unread { background: #dbeafe; color: #1d4ed8; }
+  .status-started { background: #fef3c7; color: var(--amber); }
+  .status-abandoned { background: #fee2e2; color: #dc2626; }
+
+  .card-details {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .detail-item { display: flex; align-items: center; gap: 0.3rem; }
+  .detail-label { font-weight: 600; }
+
+  /* Expanded book detail */
+  .book-detail {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 1rem 0 0.5rem 2.5rem;
+  }
+  .book-row.expanded .book-detail { display: block; }
+
+  .loading { text-align: center; padding: 3rem; color: var(--muted); }
+
+  /* No data */
+  .no-data {
+    text-align: center;
+    padding: 3rem;
+    color: var(--muted);
+  }
+  .no-data code {
+    background: #f3f4f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  /* Tooltips */
+  .has-tooltip {
+    position: relative;
+    cursor: help;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+  }
+  .has-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    max-width: 220px;
+    white-space: normal;
+    line-height: 1.4;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .has-tooltip:hover::after { opacity: 1; }
+
+  /* Keyword tags */
+  .keyword-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .keyword-tag {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    background: #fce4ef;
+    color: var(--accent);
+    border: 1px solid #f9a8d4;
+  }
+
+  /* 2D canvas control */
+  .canvas-section {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .canvas-container {
+    position: relative;
+    width: 148px;
+    height: 148px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    cursor: crosshair;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .canvas-axis-h {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+  .canvas-axis-v {
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .canvas-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    z-index: 2;
+    transition: box-shadow 0.1s;
+  }
+  .canvas-dot:hover { box-shadow: 0 0 0 4px var(--accent-light); }
+  .canvas-dot.dragging { cursor: grabbing; box-shadow: 0 0 0 6px var(--accent-light); }
+  .canvas-label {
+    position: absolute;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .canvas-label.top    { top: 5px;    left: 50%; transform: translateX(-50%); }
+  .canvas-label.bottom { bottom: 5px; left: 50%; transform: translateX(-50%); }
+  .canvas-label.left   { left: 5px;   top: 50%;  transform: translateY(-50%) rotate(-90deg); }
+  .canvas-label.right  { right: 5px;  top: 50%;  transform: translateY(-50%) rotate(90deg); }
+
+  .canvas-side {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .canvas-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .canvas-preset {
+    padding: 0.3rem 0.75rem;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: white;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .canvas-preset:hover { border-color: var(--accent); color: var(--accent); }
+  .canvas-preset.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .canvas-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .shuffle-btn {
+    padding: 0.35rem 0.85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: white;
+    font-size: 0.78rem;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--muted);
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .shuffle-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .short-session-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .short-session-label input { cursor: pointer; accent-color: var(--accent); }
+  .canvas-hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Algorithm explainer */
+  .algo-explainer {
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .algo-explainer summary {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    background: var(--card);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .algo-explainer summary::before {
+    content: '▶';
+    font-size: 0.6rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  .algo-explainer[open] summary::before { transform: rotate(90deg); }
+  .algo-explainer-body {
+    padding: 1.25rem;
+    background: #fafaf8;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .algo-explainer-body h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 1rem 0 0.35rem;
+  }
+  .algo-explainer-body h4:first-child { margin-top: 0; }
+  .algo-dim {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0.5rem;
+    align-items: baseline;
+  }
+  .algo-dim-label {
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+  .algo-dim-weight {
+    font-size: 0.7rem;
+    color: var(--muted);
+    display: inline-block;
+    margin-left: 0.3rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>What to read next</h1>
+<p class="subtitle">Pick a vibe, get a reading mix.</p>
+
+<div class="canvas-section">
+  <div class="canvas-container" id="canvasContainer">
+    <div class="canvas-axis-h"></div>
+    <div class="canvas-axis-v"></div>
+    <div class="canvas-label top">discover</div>
+    <div class="canvas-label bottom">comfort</div>
+    <div class="canvas-label left">play</div>
+    <div class="canvas-label right">learn</div>
+    <div class="canvas-dot" id="canvasDot"></div>
+  </div>
+  <div class="canvas-side">
+    <div class="canvas-presets" id="canvasPresets"></div>
+    <div class="canvas-actions">
+      <button class="shuffle-btn" onclick="shuffleMix()">&#8635; new mix</button>
+      <label class="short-session-label">
+        <input type="checkbox" id="shortSession" onchange="if(currentData)render(currentData)"> short session
+      </label>
+    </div>
+    <div class="canvas-hint" id="canvasHint">drag the dot, or pick a preset</div>
+  </div>
+</div>
+<div id="content"><div class="no-data">Run <code>python recommend.py</code> to generate scored-books.json first.</div></div>
+
+<script>
+// Canvas presets: [label, x, y] where x: 0=play/left, 1=learn/right; y: 0=comfort/bottom, 1=discover/top
+const PRESETS = [
+  { key: 'pile',    label: 'from the pile',  x: 0.15, y: 0.85 },
+  { key: 'work',    label: 'feed the work',  x: 0.88, y: 0.55 },
+  { key: 'safe',    label: 'comfort pick',   x: 0.15, y: 0.15 },
+  { key: 'push',    label: 'push me',        x: 0.6,  y: 0.9  },
+];
+
+const LOVED_AUTHORS_LC = ['terry pratchett', 'haruki murakami'];
+const PRESET_SNAP_RADIUS = 0.15; // how close the dot needs to be to show preset as active
+
+let currentData = null;
+let shuffleSeed = 0;
+let canvasX = 0.5; // 0=play(left), 1=learn(right)
+let canvasY = 0.5; // 0=comfort(bottom), 1=discover(top)
+let isDragging = false;
+
+const SHORT_GENRES = ['essay', 'poetry', 'short stor', 'biography', 'children', 'memoir', 'fable'];
+
+function isShortGenre(book) {
+  const g = (book.genre || '').toLowerCase();
+  return SHORT_GENRES.some(s => g.includes(s));
+}
+
+function canvasBonus(book, scores) {
+  const nx = (canvasX - 0.5) * 2; // -1=play, +1=learn
+  const ny = (canvasY - 0.5) * 2; // -1=comfort, +1=discover
+  let bonus = 0;
+
+  // X axis
+  if (nx > 0) {
+    // Learn/work side: boost garden connection + professional + topic match
+    bonus += nx * Math.round(scores.garden.score * 0.7);
+    if (book.purpose === 'professional') bonus += nx * 15;
+    if (book.type === 'non-fiction') bonus += nx * 8;
+  } else {
+    // Play side: boost personal, fiction, loved authors
+    const abs = Math.abs(nx);
+    if (book.purpose === 'personal') bonus += abs * 20;
+    if (book.type === 'fiction') bonus += abs * 12;
+    if (LOVED_AUTHORS_LC.some(a => (book.author || '').toLowerCase().includes(a))) bonus += abs * 20;
+  }
+
+  // Y axis
+  if (ny > 0) {
+    // Discover: boost freshness, surface forgotten and abandoned
+    bonus += ny * Math.round(scores.freshness * 0.75);
+    if (book.status === 'abandoned') bonus += ny * 15;
+  } else {
+    // Comfort: boost experience score (familiarity)
+    bonus += Math.abs(ny) * Math.round(scores.experience * 0.45);
+  }
+
+  return bonus;
+}
+
+function applyCanvasModifiers(books) {
+  return books.map(b => ({
+    ...b,
+    _vtotal: b.scores.total + canvasBonus(b, b.scores),
+  }));
+}
+
+function getSortedBooks(data) {
+  return applyCanvasModifiers([...data.all_scored])
+    .sort((a, b) => b._vtotal - a._vtotal);
+}
+
+function pickFromSlot(candidates, seedOffset) {
+  if (!candidates.length) return null;
+  const pool = candidates.slice(0, Math.min(5, candidates.length));
+  return pool[(shuffleSeed + seedOffset) % pool.length];
+}
+
+function buildMix(sorted) {
+  const shortSession = document.getElementById('shortSession')?.checked;
+  if (shortSession) {
+    const under250 = sorted.filter(b => (b.estimated_pages || 999) < 250);
+    const pool = under250.length >= 2 ? under250 : sorted.filter(b => (b.estimated_pages || 999) < 350);
+    const main = pool[0] || sorted[0];
+    const side = pool.filter(b => isShortGenre(b) && b !== main)[0] || pool.filter(b => b !== main)[0] || null;
+    const wildcard = pool.filter(b => b !== main && b !== side)[0] || null;
+    return { main, side, wildcard };
+  }
+  const main = pickFromSlot(sorted, 0);
+  const sideCandidates = sorted.filter(b => isShortGenre(b) && b !== main);
+  const side = pickFromSlot(sideCandidates, 1);
+  const wildcard = pickFromSlot(sorted.slice(0, 10).filter(b => b !== main && b !== side), 2);
+  return { main, side, wildcard };
+}
+
+// --- Canvas interaction ---
+function positionFromEvent(e, rect) {
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return {
+    x: Math.max(0.03, Math.min(0.97, (clientX - rect.left) / rect.width)),
+    y: Math.max(0.03, Math.min(0.97, 1 - (clientY - rect.top) / rect.height)),
+  };
+}
+
+function updateDot() {
+  const dot = document.getElementById('canvasDot');
+  if (!dot) return;
+  dot.style.left = `${canvasX * 100}%`;
+  dot.style.top  = `${(1 - canvasY) * 100}%`;
+  updateActivePreset();
+}
+
+function updateActivePreset() {
+  document.querySelectorAll('.canvas-preset').forEach(el => {
+    const preset = PRESETS.find(p => p.key === el.dataset.preset);
+    if (!preset) return;
+    const dist = Math.hypot(canvasX - preset.x, canvasY - preset.y);
+    el.classList.toggle('active', dist < PRESET_SNAP_RADIUS);
+  });
+  updateHint();
+}
+
+function updateHint() {
+  const hint = document.getElementById('canvasHint');
+  if (!hint) return;
+  const nx = (canvasX - 0.5) * 2;
+  const ny = (canvasY - 0.5) * 2;
+  if (Math.abs(nx) < 0.15 && Math.abs(ny) < 0.15) {
+    hint.textContent = 'drag the dot, or pick a preset';
+  } else {
+    const xDesc = nx > 0.15 ? 'work & learning' : nx < -0.15 ? 'pleasure & play' : '';
+    const yDesc = ny > 0.15 ? 'discovery' : ny < -0.15 ? 'comfort' : '';
+    hint.textContent = [xDesc, yDesc].filter(Boolean).join(' + ') || 'drag the dot, or pick a preset';
+  }
+}
+
+function snapToPreset(preset) {
+  canvasX = preset.x;
+  canvasY = preset.y;
+  updateDot();
+  if (currentData) render(currentData);
+}
+
+// Canvas mouse/touch events
+function initCanvas() {
+  const container = document.getElementById('canvasContainer');
+  const dot = document.getElementById('canvasDot');
+  if (!container || !dot) return;
+
+  const onMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const rect = container.getBoundingClientRect();
+    const pos = positionFromEvent(e, rect);
+    canvasX = pos.x;
+    canvasY = pos.y;
+    updateDot();
+    if (currentData) render(currentData);
+  };
+
+  const onUp = () => {
+    isDragging = false;
+    dot.classList.remove('dragging');
+  };
+
+  dot.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dot.classList.add('dragging');
+    e.preventDefault();
+  });
+  dot.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    dot.classList.add('dragging');
+  }, { passive: true });
+
+  // Click anywhere on canvas to jump dot there
+  container.addEventListener('mousedown', (e) => {
+    if (e.target === dot) return;
+    const rect = container.getBoundingClientRect();
+    const pos = positionFromEvent(e, rect);
+    canvasX = pos.x;
+    canvasY = pos.y;
+    isDragging = true;
+    updateDot();
+    if (currentData) render(currentData);
+  });
+
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('touchmove', onMove, { passive: false });
+  document.addEventListener('mouseup', onUp);
+  document.addEventListener('touchend', onUp);
+}
+
+// Build preset chips
+const presetsEl = document.getElementById('canvasPresets');
+PRESETS.forEach(p => {
+  const btn = document.createElement('button');
+  btn.className = 'canvas-preset';
+  btn.dataset.preset = p.key;
+  btn.textContent = p.label;
+  btn.onclick = () => snapToPreset(p);
+  presetsEl.appendChild(btn);
+});
+
+async function loadData() {
+  try {
+    const resp = await fetch('scored-books.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('No file');
+    const data = await resp.json();
+    currentData = data;
+    render(currentData);
+  } catch(e) {
+    // No pre-generated file
+  }
+}
+
+function shuffleMix() {
+  shuffleSeed++;
+  if (currentData) render(currentData);
+}
+
+const SCORE_TOOLTIPS = {
+  'Topic match': 'Keyword overlap between the book\'s genre and title and your core interests: systems thinking, language & storytelling, and philosophy & depth. Weight: 30%',
+  'Experience': 'Predicted reading enjoyment based on your audit patterns: genre density, loved authors (Pratchett, Murakami), and momentum signals like humor or short stories. Weight: 35%',
+  'Garden': 'Connection to your digital garden: matching tags across all your notes and overlap with active projects you\'re currently writing about. Weight: 20%',
+  'Freshness': 'Rediscovery potential: books you forgot you had, recent purchases, ereader invisibility. Penalizes books you already abandoned. Weight: 15%',
+};
+
+function scoreBars(s, compact = false) {
+  const labels = compact
+    ? ['Topic', 'Experience', 'Garden', 'Freshness']
+    : ['Topic match', 'Experience', 'Garden', 'Freshness'];
+  const fullLabels = ['Topic match', 'Experience', 'Garden', 'Freshness'];
+  const fills = ['topic', 'experience', 'garden', 'freshness'];
+  const values = [s.topic_match, s.experience, s.garden.score, s.freshness];
+  return labels.map((label, i) => `
+    <div class="bar-label has-tooltip" data-tooltip="${SCORE_TOOLTIPS[fullLabels[i]]}">${label}</div>
+    <div class="bar-track"><div class="bar-fill ${fills[i]}" style="width:${values[i]}%"></div></div>
+    <div class="bar-value">${values[i]}</div>
+  `).join('');
+}
+
+function renderMixCard(book, type) {
+  if (!book) return '';
+  const s = book.scores;
+  const tags = s.garden.matching_tags || [];
+  const projects = s.garden.matching_projects || [];
+  const keywords = s.matched_keywords || [];
+
+  return `
+    <div class="mix-label ${type}">${type === 'main' ? 'Main read' : type === 'side' ? 'Side read' : 'Wildcard'}</div>
+    <div class="mix-card ${type}">
+      <div class="card-header">
+        <div>
+          <div class="card-title">${book.title}</div>
+          <div class="card-author">${book.author} &middot; ${book.genre}</div>
+        </div>
+        <div class="card-score">${s.total}</div>
+      </div>
+      <div class="card-why">${book.why}</div>
+      <div class="card-details">
+        <div class="detail-item"><span class="detail-label">Pages:</span> ~${book.estimated_pages || '?'}</div>
+        <div class="detail-item"><span class="detail-label">Reading time:</span> ${book.estimated_days} day${book.estimated_days !== 1 ? 's' : ''} at 1h/day</div>
+        ${book.type ? `<div class="detail-item"><span class="detail-label">Type:</span> ${book.type}</div>` : ''}
+        ${book.purpose ? `<div class="detail-item"><span class="detail-label">Purpose:</span> ${book.purpose}</div>` : ''}
+      </div>
+      ${book.reason ? `<div class="card-meta" style="font-style:italic;margin-bottom:0.75rem;">${book.reason}</div>` : ''}
+      <div class="score-bars">${scoreBars(s)}</div>
+      ${keywords.length ? `
+        <div class="keyword-tags">
+          ${keywords.map(k => `<span class="keyword-tag">${k}</span>`).join('')}
+        </div>
+      ` : ''}
+      ${tags.length || projects.length ? `
+        <div class="garden-tags">
+          ${projects.map(p => `<span class="garden-tag project-tag">${p}</span>`).join('')}
+          ${tags.map(t => `<span class="garden-tag">${t}</span>`).join('')}
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function renderBookRow(book, rank) {
+  const s = book.scores;
+  const statusClass = `status-${book.status}`;
+  const keywords = s.matched_keywords || [];
+  return `
+    <div class="book-row" onclick="this.classList.toggle('expanded')">
+      <div class="book-rank">#${rank}</div>
+      <div>
+        <div class="book-row-title">${book.title}</div>
+        <div class="book-row-author">${book.author}</div>
+      </div>
+      <div class="book-row-status ${statusClass}">${book.status || ''}</div>
+      <div class="book-row-score">${s.total}</div>
+      <div class="book-row-days">~${book.estimated_pages || '?'}p</div>
+      <div class="book-row-days">${book.estimated_days}d</div>
+      <div class="book-detail">
+        <div class="card-why">${book.why}</div>
+        <div class="card-details" style="margin-bottom:0.5rem;">
+          <div class="detail-item"><span class="detail-label">Genre:</span> ${book.genre}</div>
+          <div class="detail-item"><span class="detail-label">Pages:</span> ~${book.estimated_pages || '?'}</div>
+          <div class="detail-item"><span class="detail-label">Reading time:</span> ${book.estimated_days}d at 1h/day</div>
+          ${book.type ? `<div class="detail-item"><span class="detail-label">Type:</span> ${book.type}</div>` : ''}
+          ${book.purpose ? `<div class="detail-item"><span class="detail-label">Purpose:</span> ${book.purpose}</div>` : ''}
+        </div>
+        ${book.reason ? `<div class="card-meta" style="margin-bottom:0.5rem;font-style:italic">${book.reason}</div>` : ''}
+        <div class="score-bars" style="max-width:420px;margin-top:0.5rem;">${scoreBars(s, true)}</div>
+        ${keywords.length ? `<div class="keyword-tags">${keywords.map(k => `<span class="keyword-tag">${k}</span>`).join('')}</div>` : ''}
+        ${(s.garden.matching_tags?.length || s.garden.matching_projects?.length) ? `
+          <div class="garden-tags">
+            ${(s.garden.matching_projects || []).map(p => `<span class="garden-tag project-tag">${p}</span>`).join('')}
+            ${(s.garden.matching_tags || []).map(t => `<span class="garden-tag">${t}</span>`).join('')}
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderAlgoExplainer() {
+  return `
+    <details class="algo-explainer">
+      <summary>How the scoring works</summary>
+      <div class="algo-explainer-body">
+        <p>Each book is scored on four dimensions, then combined into a total out of 100. Vibe chips re-rank the results client-side based on your current situation.</p>
+        <h4>Scoring dimensions</h4>
+        <div class="algo-dim">
+          <span class="algo-dim-label">Topic match <span class="algo-dim-weight">30%</span></span>
+          <span>Keyword overlap between the book's genre and title and three interest threads: <em>how things connect</em> (systems, ecology, community), <em>the craft of language</em> (storytelling, linguistics, writing), and <em>the deeper layer</em> (philosophy, humor, intelligence).</span>
+        </div>
+        <div class="algo-dim">
+          <span class="algo-dim-label">Experience <span class="algo-dim-weight">35%</span></span>
+          <span>Predicted enjoyment based on your reading patterns: bonus for Pratchett and Murakami, bonus for humor and satire, small penalty for textbook-dense genres (linguistics, economics). Strong bonus if you've already started it and like it.</span>
+        </div>
+        <div class="algo-dim">
+          <span class="algo-dim-label">Garden <span class="algo-dim-weight">20%</span></span>
+          <span>Connection to your digital garden: tag overlap across all your notes (up to 60 points) and overlap with active garden projects tagged "project" (up to 40 points).</span>
+        </div>
+        <div class="algo-dim">
+          <span class="algo-dim-label">Freshness <span class="algo-dim-weight">15%</span></span>
+          <span>Rediscovery bonus for books you forgot you had, recent purchases, and gifts. Penalty for abandoned books.</span>
+        </div>
+        <h4>Reading mix logic</h4>
+        <p><strong>Main read:</strong> highest overall score.<br>
+        <strong>Side read:</strong> highest score among short/light genres (essays, poetry, short stories, biography, children's books).<br>
+        <strong>Wildcard:</strong> random pick from the top 10 that isn't already in main or side.</p>
+        <h4>Pink keyword tags</h4>
+        <p>The pink tags under each score breakdown show which of your interest keywords matched this book. Zero tags = the score is driven by other dimensions (experience, freshness, garden).</p>
+        <h4>Positioning canvas</h4>
+        <p>The canvas adds a situational layer on top of the base scores. Drag the dot to express what you're in the mood for right now — results re-rank instantly.</p>
+        <p><strong>X axis (play ↔ learn):</strong> left side boosts personal, fiction, and loved authors. Right side boosts garden connection, professional purpose, and non-fiction.<br>
+        <strong>Y axis (comfort ↔ discover):</strong> bottom boosts experience score (familiarity, lightness). Top boosts freshness — surfaces forgotten books and abandoned reads.<br>
+        <strong>Preset chips:</strong> snap the dot to named positions for common situations.<br>
+        <strong>Short session:</strong> filters the candidate pool to books under ~250 pages before ranking.</p>
+      </div>
+    </details>
+  `;
+}
+
+function render(data) {
+  const sorted = getSortedBooks(data);
+  const mix = buildMix(sorted);
+  const html = `
+    <div class="mix-section">
+      ${renderMixCard(mix.main, 'main')}
+      ${renderMixCard(mix.side, 'side')}
+      ${renderMixCard(mix.wildcard, 'wildcard')}
+    </div>
+    <div class="all-books-header">All ${sorted.length} books ranked</div>
+    ${sorted.map((b, i) => renderBookRow(b, i + 1)).join('')}
+    ${renderAlgoExplainer()}
+  `;
+  document.getElementById('content').innerHTML = html;
+}
+
+// Load on startup
+initCanvas();
+updateDot();
+loadData();
+</script>
+</body>
+</html>
