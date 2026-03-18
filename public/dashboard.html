@@ -30,6 +30,10 @@
     max-width: 960px;
     margin: 0 auto;
   }
+  body.embedded {
+    padding: 1.25rem;
+    max-width: 100%;
+  }
 
   h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; }
   .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
@@ -847,6 +851,11 @@ function render(data) {
     ${renderAlgoExplainer()}
   `;
   document.getElementById('content').innerHTML = html;
+}
+
+// Embed mode (when loaded inside drawer iframe)
+if (new URLSearchParams(window.location.search).has('embed')) {
+  document.body.classList.add('embedded');
 }
 
 // Load on startup

@@ -47,10 +47,10 @@ const stages = [
 <script>
   (() => {
     const bar = document.getElementById('filter-bar');
-    const grid = document.getElementById('content-grid');
-    if (!bar || !grid) return;
+    if (!bar) return;
 
-    const cards = () => [...grid.querySelectorAll<HTMLElement>('.card')];
+    // Query all cards across the page (works for single and multi-grid layouts)
+    const cards = () => [...document.querySelectorAll<HTMLElement>('.card')];
     const activeMaturity = new Set<string>();
     const activeTags = new Set<string>();
     let currentSort = 'date';
@@ -64,22 +64,29 @@ const stages = [
       for (const card of cards()) {
         const m = card.dataset.maturity ?? '';
         const t = (card.dataset.tags ?? '').split(',').filter(Boolean);
-
         const matchesMaturity = activeMaturity.size === 0 || activeMaturity.has(m);
         const matchesTags = activeTags.size === 0 || t.some((tag) => activeTags.has(tag));
-
         card.style.display = matchesMaturity && matchesTags ? '' : 'none';
       }
     }
 
     function applySort() {
-      const sorted = cards().sort((a, b) => {
-        const key = currentSort === 'updated' ? 'updated' : 'date';
-        const da = new Date(a.dataset[key] ?? '').getTime();
-        const db = new Date(b.dataset[key] ?? '').getTime();
-        return db - da;
+      // Sort within each parent container independently
+      const byParent = new Map<Element, HTMLElement[]>();
+      for (const card of cards()) {
+        const parent = card.parentElement!;
+        if (!byParent.has(parent)) byParent.set(parent, []);
+        byParent.get(parent)!.push(card);
+      }
+      byParent.forEach((group, parent) => {
+        const sorted = [...group].sort((a, b) => {
+          const key = currentSort === 'updated' ? 'updated' : 'date';
+          const da = new Date(a.dataset[key] ?? '').getTime();
+          const db = new Date(b.dataset[key] ?? '').getTime();
+          return db - da;
+        });
+        for (const card of sorted) parent.appendChild(card);
       });
-      for (const card of sorted) grid.appendChild(card);
     }
 
     function syncAllBtn() {
@@ -88,13 +95,9 @@ const stages = [
       allBtn.setAttribute('aria-pressed', String(isAll));
     }
 
-    // Maturity filter
     allBtn.addEventListener('click', () => {
       activeMaturity.clear();
-      maturityBtns.forEach((b) => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
+      maturityBtns.forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       syncAllBtn();
       applyFilters();
     });
@@ -116,7 +119,6 @@ const stages = [
       });
     });
 
-    // Tag filter
     tagChips.forEach((chip) => {
       chip.addEventListener('click', () => {
         const tag = chip.dataset.tag!;
@@ -133,7 +135,6 @@ const stages = [
       });
     });
 
-    // Sort
     sortBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         currentSort = btn.dataset.sort!;
@@ -142,6 +143,24 @@ const stages = [
         applySort();
       });
     });
+
+    // Collapsible tag row
+    const tagRow = bar.querySelector<HTMLElement>('.tag-row');
+    const allTagChips = [...(tagRow?.querySelectorAll<HTMLElement>('.tag-chip') ?? [])];
+    const SHOW_N = 18;
+    if (tagRow && allTagChips.length > SHOW_N) {
+      allTagChips.slice(SHOW_N).forEach(t => t.hidden = true);
+      const toggle = document.createElement('button');
+      toggle.className = 'tag-chip tag-toggle';
+      toggle.textContent = `+${allTagChips.length - SHOW_N} more`;
+      tagRow.appendChild(toggle);
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.dataset.expanded === 'true';
+        allTagChips.slice(SHOW_N).forEach(t => t.hidden = expanded);
+        toggle.dataset.expanded = String(!expanded);
+        toggle.textContent = expanded ? `+${allTagChips.length - SHOW_N} more` : 'show less';
+      });
+    }
   })();
 </script>
 

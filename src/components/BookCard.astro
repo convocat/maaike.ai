@@ -6,13 +6,15 @@ interface Props {
   href: string;
   author: string;
   cover?: string;
-  status: 'reading' | 'read' | 'to-read';
+  status: 'reading' | 'read' | 'to-read' | 'abandoned';
   maturity: 'draft' | 'developing' | 'solid' | 'complete';
   tags?: string[];
   description?: string;
+  date?: string;
+  updated?: string;
 }
 
-const { title, href, author, cover, status, maturity, tags, description } = Astro.props;
+const { title, href, author, cover, status, maturity, tags, description, date, updated } = Astro.props;
 
 const statusLabel: Record<string, string> = {
   'reading': 'Reading',
@@ -26,7 +28,14 @@ const statusClass: Record<string, string> = {
 };
 ---
 
-<a href={href} class="book-card">
+<a
+  href={href}
+  class="card book-card"
+  data-maturity={maturity}
+  data-tags={tags?.join(',') ?? ''}
+  data-date={date ?? ''}
+  data-updated={updated ?? ''}
+>
   {cover ? (
     <img src={cover} alt="" class="book-cover" loading="lazy" />
   ) : (
