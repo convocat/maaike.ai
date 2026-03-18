@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: History / New York City
+book_type: non-fiction
+purpose: personal
+reason: A focused history of the Bowery neighbourhood in New York. Picked it up out of the same interest in NYC history that led me to the Bowery Boys podcast.
 ---

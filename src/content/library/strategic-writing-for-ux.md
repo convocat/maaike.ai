@@ -9,4 +9,7 @@ tags:
   - writing
   - design
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Torrey Podmajersky on UX writing strategy. Practical and focused on the relationship between words and design decisions, which is core to my work.
 ---

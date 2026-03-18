@@ -9,4 +9,7 @@ tags:
   - natural-language-processing
   - python
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Hands-on NLP with spaCy, the library I used most when experimenting with text analysis. A practical complement to the NLTK book.
 ---

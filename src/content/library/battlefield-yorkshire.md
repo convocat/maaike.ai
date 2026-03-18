@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: History / Military
+book_type: non-fiction
+purpose: personal
+reason: History of battles fought on English soil, which ties into a personal interest in British history and walks around Yorkshire.
 ---

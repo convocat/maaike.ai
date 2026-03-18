@@ -7,9 +7,11 @@ tags:
   - essay
   - feminist-literature
 ai: assisted
-status: to-read
 genre: Essay / Feminist Literature
-book_type: non-fiction
-purpose: professional
-reason: Just new
+recommended: true
+recommended_score: 55.1
+book_type: "non-fiction"
+purpose: "professional"
+reason: "Just new"
+status: "to-read"
 ---

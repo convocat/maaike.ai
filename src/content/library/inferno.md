@@ -8,4 +8,7 @@ tags:
 ai: assisted
 status: to-read
 genre: Thriller
+book_type: fiction
+purpose: personal
+reason: Dan Brown is guilty pleasure reading. Fast, plotty, and set in beautiful places. Sometimes that's exactly what you need.
 ---

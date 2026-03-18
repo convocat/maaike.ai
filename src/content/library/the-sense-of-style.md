@@ -9,6 +9,9 @@ tags:
   - writing
   - linguistics
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Steven Pinker on writing well, grounded in cognitive science and linguistics. One of my go-to references for clear, direct prose.
 ---
 
 A guide to writing English informed by recent scholarship (linguistics, cognative science, and such like).

@@ -11,4 +11,7 @@ tags:
   - personal-knowledge-systems
   - content-architecture
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Rowley and Hartley on knowledge organisation: taxonomies, classification, indexing. Core stuff for anyone working with structured content or knowledge bases.
 ---

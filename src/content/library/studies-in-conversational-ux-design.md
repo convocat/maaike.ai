@@ -12,6 +12,9 @@ tags:
   - interaction-design
   - human-machine-interface-design
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: A collection of research and case studies in conversational UX from the IBM group. More rigorous than most books on the topic and useful for thinking beyond simple chatbot patterns.
 ---
 
 ## Related

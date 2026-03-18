@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: Fantasy / Fiction
+book_type: fiction
+purpose: personal
+reason: Korean novel about a dream shop. Charming premise and exactly the kind of gentle magical realism I enjoy between heavier reads.
 ---

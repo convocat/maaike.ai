@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: Fantasy / Romance
+book_type: fiction
+purpose: personal
+reason: Popular fantasy romance series that keeps appearing on reading lists. Curious what all the fuss is about.
 ---

@@ -13,4 +13,7 @@ tags:
   - philosophy
   - ethics
 ai: assisted
+book_type: non-fiction
+purpose: personal
+reason: Kate Manne on male entitlement and how it operates in everyday life. Important reading for anyone trying to make sense of the world we actually live in.
 ---

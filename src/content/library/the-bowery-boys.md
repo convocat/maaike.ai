@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: History / New York City
+book_type: non-fiction
+purpose: personal
+reason: The Bowery Boys podcast companions in book form. New York City history is a long-running personal interest, and this covers exactly the gritty side I find most interesting.
 ---

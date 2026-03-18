@@ -13,5 +13,5 @@ book_type: non-fiction
 purpose: professional
 reason: Felt like a topic I need to ready up on, but too much textbook to read for fun. 
 recommended: true
-recommended_score: 68.3
+recommended_score: 53.3
 ---

@@ -12,4 +12,7 @@ tags:
   - speech-processing
   - voice-user-interfaces
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Technical and human-factors perspective on voice systems. Useful when digging into the ergonomics and cognitive load side of voice interaction design.
 ---

@@ -9,6 +9,9 @@ tags:
   - ai
   - fiction
 ai: assisted
+book_type: fiction
+purpose: professional
+reason: Ian McEwan imagines what happens when AI becomes indistinguishable from human. Reading literary fiction about AI is a good way to think through the ethics without the jargon.
 ---
 
 Machines Like Me is the 15th novel by the English author Ian McEwan. The novel published in 2019 by Jonathan Cape.

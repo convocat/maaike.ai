@@ -8,6 +8,9 @@ maturity: draft
 tags:
   - feminism
 ai: assisted
+book_type: non-fiction
+purpose: personal
+reason: Caroline Criado Perez on the gender data gap. An important and infuriating book that changed how I think about whose needs get centred in design.
 ---
 
 Data is fundamental to the modern world. 

@@ -12,4 +12,7 @@ tags:
   - distopia
   - future
 ai: assisted
+book_type: fiction
+purpose: professional
+reason: Asimov's robot stories are the starting point for thinking about AI ethics and the Three Laws. Reading it as a conversation designer gives you a completely different angle.
 ---

@@ -9,6 +9,9 @@ tags:
   - ai
   - philosophy
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Essays on machine ethics and AI from a philosophical angle. The title alone says something useful about where the field is heading.
 ---
 
 ## Related

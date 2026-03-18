@@ -11,5 +11,6 @@ genre: Essay
 book_type: non-fiction
 purpose: personal
 rating: liked it
-review: Always interesting to read about my favorite author, especially on the topic of freely chosen death. 
+review: Always interesting to read about my favorite author, especially on the topic of freely chosen death.
+reason: Pratchett's lecture on assisted dying. Short but powerful, and very him.
 ---

@@ -9,4 +9,7 @@ tags:
   - psychology
   - design
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: A foundational text on learning science. Relevant to anything involving instructional design, onboarding, or building products that teach.
 ---

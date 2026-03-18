@@ -13,4 +13,5 @@ book_type: fiction
 purpose: personal
 rating: loved it
 review: "Pratchett is my favorite author and brings together language, humor, deep insights, philosophy, a world view that's so deep and accurate. "
+reason: Pratchett at his best. Going Postal is about the power of stories and language, which is very much my territory.
 ---

@@ -8,6 +8,9 @@ maturity: draft
 tags:
   - psychology
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Kahneman on how we actually make decisions. Understanding cognitive biases is useful in every aspect of design, and this is the most thorough account of them.
 ---
 
 In his mega bestseller, Thinking, Fast and Slow, Daniel Kahneman, world-famous psychologist and winner of the Nobel Prize in Economics, takes us on a groundbreaking tour of the mind and explains the two systems that drive the way we think.

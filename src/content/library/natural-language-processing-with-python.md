@@ -9,6 +9,9 @@ tags:
   - natural-language-processing
   - python
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: The standard introduction to NLP with Python. Worked through it to get a better technical grounding in how language models and text processing actually work.
 ---
 
 This book offers a highly accessible introduction to Natural Language Processing, the field that underpins a variety of language technologies ranging from predictive text and email filtering to automatic summarization and translation. You'll learn how to write Python programs to analyze the structure and meaning of texts, drawing on techniques from the fields of linguistics and artificial intelligence.

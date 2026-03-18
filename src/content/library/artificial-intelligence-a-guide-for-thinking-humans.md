@@ -8,6 +8,9 @@ maturity: draft
 tags:
   - ai
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Melanie Mitchell cuts through the hype with clear-eyed analysis. I wanted a grounded perspective on AI that doesn't either panic or cheer.
 ---
 
 No recent scientific enterprise has proved as alluring, terrifying, and filled with extravagant promise and frustrating setbacks as artificial intelligence. An award-winning author and leading computer scientist reveals its turbulent history and the recent surge of successes, grand hopes, and emerging fears that surround AI.

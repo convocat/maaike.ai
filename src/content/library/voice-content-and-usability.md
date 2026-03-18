@@ -10,4 +10,7 @@ tags:
   - conversation-design
   - voice-user-interfaces
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Preston So on content strategy for voice interfaces. One of the few books that seriously addresses how content needs to change when there's no screen.
 ---

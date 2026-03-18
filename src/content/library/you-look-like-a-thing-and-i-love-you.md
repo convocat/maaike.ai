@@ -8,4 +8,7 @@ maturity: draft
 tags:
   - ai
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Janelle Shane on how AI really works, through funny and illuminating experiments. One of the most enjoyable AI books I've read, and it actually teaches you something.
 ---

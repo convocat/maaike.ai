@@ -9,4 +9,7 @@ tags:
 ai: assisted
 status: to-read
 genre: Psychology / Self-development
+book_type: non-fiction
+purpose: personal
+reason: Ryan Bush on deliberate self-development through applied philosophy and psychology. Picked it up out of personal curiosity about cognitive habits and growth.
 ---

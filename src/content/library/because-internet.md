@@ -12,6 +12,9 @@ tags:
   - discourse
   - internet-language
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Gretchen McCulloch on how the internet has changed language. As someone who designs conversations for digital interfaces, this is genuinely useful and also just a fun read.
 ---
 
 Because Internet is for anyone who's ever puzzled over how to punctuate a text message or wondered where memes come from. It's the perfect book for understanding how the internet is changing the English language, why that's a good thing, and what our online interactions reveal about who we are.

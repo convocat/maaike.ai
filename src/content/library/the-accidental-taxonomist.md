@@ -12,4 +12,7 @@ tags:
   - knowledge-management
   - content-architecture
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Heather Hedden on taxonomy and controlled vocabularies. Very relevant to knowledge management and structured content, which feeds directly into how AI systems find and use information.
 ---

@@ -13,5 +13,5 @@ book_type: non-fiction
 purpose: professional
 reason: A dense read. Might be relevant for now though, with genAI and my garden
 recommended: true
-recommended_score: 68.3
+recommended_score: 53.3
 ---

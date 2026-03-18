@@ -9,6 +9,9 @@ tags:
   - conversational-ai
   - design
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Carla Diana on social design and making products feel more human. Good for thinking about personality and emotional interaction in the interfaces I design.
 ---
 
 ## Related

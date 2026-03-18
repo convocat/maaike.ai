@@ -9,4 +9,7 @@ tags:
   - design
   - accessibility
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Design that works across different senses and modalities is central to accessible conversation and voice design. This book broadened my thinking on that.
 ---

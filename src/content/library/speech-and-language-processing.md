@@ -13,6 +13,9 @@ tags:
   - acoustics
   - computational-linguistics
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: Jurafsky and Martin's textbook is a standard reference in NLP. More technical than I typically work, but essential background for understanding what's happening under the hood.
 ---
 
 "This book offers a unified vision of speech and language processing, presenting state-of-the-art algorithms and techniques for both speech and text-based processing of natural language.

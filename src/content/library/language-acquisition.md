@@ -8,4 +8,7 @@ maturity: draft
 tags:
   - linguistics
 ai: assisted
+book_type: non-fiction
+purpose: professional
+reason: How children acquire language is surprisingly relevant to how we design systems that process and generate language. A classic in the field, and it shows.
 ---
