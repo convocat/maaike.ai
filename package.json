@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "new": "node scripts/new-content.mjs"
+    "new": "node scripts/new-content.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "test": "playwright test"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
@@ -15,6 +17,7 @@
     "remark-wiki-link": "^2.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "umap-js": "^1.4.0"
   }
 }
