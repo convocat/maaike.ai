@@ -19,6 +19,17 @@ const tags = getUniqueTags([...books, ...weblinks]);
 const reading = books.filter((b) => b.data.status === 'reading');
 const read = books.filter((b) => b.data.status === 'read');
 const toRead = books.filter((b) => b.data.status === 'to-read');
+
+const categories = [
+  { emoji: '🤖', label: 'Conversation design', tags: ['chatbots', 'conversational-ai', 'conversation-design', 'ai', 'human-computer-interaction', 'interaction-design', 'user-interfaces', 'voice-user-interface-design', 'voice-user-interfaces', 'voice-ux', 'human-machine-interface-design', 'robots', 'voice'] },
+  { emoji: '🕵️', label: 'Conversational analysis', tags: ['conversation-analysis', 'conversational-patterns', 'pragmatics', 'discourse', 'sociolinguistics', 'expandable-sequences', 'turn-construction-units', 'linguistics', 'phonetics', 'speech-processing', 'acoustics'] },
+  { emoji: '⛏️', label: 'Content architecture', tags: ['content-architecture', 'content-strategy', 'knowledge-management', 'taxonomy', 'ontology', 'personal-knowledge-systems', 'methodology', 'semiotics'] },
+  { emoji: '🔊', label: 'NLP/NLU & speech', tags: ['natural-language-processing', 'computational-linguistics', 'speech-processing', 'python', 'phonetics', 'acoustics'] },
+  { emoji: '🥇', label: 'Feminism, bias, ethics', tags: ['feminism', 'feminist-literature', 'ethics', 'misogyny', 'social-psychology', 'sociology', 'cultural-theory', 'posthumanism', 'postkolonialisme', 'politiek'] },
+  { emoji: '♿', label: 'Accessibility & inclusive design', tags: ['accessibility', 'human-factors', 'inclusive-design', 'design'] },
+  { emoji: '📝', label: 'Writing', tags: ['writing', 'typography', 'rhetoric', 'internet-language', 'poetry', 'media-studies'] },
+  { emoji: '🌐', label: 'General interest & fun', tags: ['fiction', 'literary-fiction', 'science-fiction', 'fantasy', "children's-fiction", 'fictie', 'biography', 'history', 'ecology', 'philosophy', 'memoir', 'mental-health', 'self-development', 'new-york-city', 'military', 'romance', 'thriller', 'satire', 'distopia', 'historical-fiction', 'historische-roman', 'kinderboek', 'reizen', 'non-fictie', 'essay', 'classic', 'short-stories', 'future', 'science', 'economics', 'leadership', 'business', 'cognitive-science', 'psychologie', 'psychology'] },
+];
 ---
 
 <PageLayout title={`${settings.libraryTitle} — ${settings.siteTitle}`}>
@@ -29,7 +40,7 @@ const toRead = books.filter((b) => b.data.status === 'to-read');
     📚 What to read next?
   </button>
 
-  {tags.length > 0 && <FilterBar tags={tags} />}
+  <FilterBar tags={tags} categories={categories} />
 
   {reading.length > 0 && (
     <section class="book-section">

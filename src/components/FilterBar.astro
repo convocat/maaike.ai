@@ -1,9 +1,16 @@
 ---
-interface Props {
+interface Category {
+  emoji: string;
+  label: string;
   tags: string[];
 }
 
-const { tags } = Astro.props;
+interface Props {
+  tags: string[];
+  categories?: Category[];
+}
+
+const { tags, categories } = Astro.props;
 
 const stages = [
   { key: 'draft', emoji: '🌱', label: 'Seedling' },
@@ -35,7 +42,21 @@ const stages = [
     </div>
   </div>
 
-  {tags.length > 0 && (
+  {categories && categories.length > 0 ? (
+    <div class="filter-row category-row">
+      {categories.map((cat) => (
+        <button
+          class="category-btn"
+          data-tags={cat.tags.join(',')}
+          aria-pressed="false"
+          title={cat.label}
+        >
+          <span class="category-emoji">{cat.emoji}</span>
+          <span class="category-label">{cat.label}</span>
+        </button>
+      ))}
+    </div>
+  ) : tags.length > 0 && (
     <div class="filter-row tag-row">
       {tags.map((tag, i) => (
         <button class="tag-chip" data-tag={tag} aria-pressed="false" hidden={i >= 8 || undefined}>{tag}</button>
@@ -52,18 +73,30 @@ const stages = [
     const bar = document.getElementById('filter-bar');
     if (!bar) return;
 
-    // Query all cards across the page (works for single and multi-grid layouts)
     const cards = () => [...document.querySelectorAll<HTMLElement>('.card')];
     const activeMaturity = new Set<string>();
-    const activeTags = new Set<string>();
+    // activeCategories: map from button element to its tag set
+    const activeCategories = new Map<Element, Set<string>>();
     let currentSort = 'date';
 
     const allBtn = bar.querySelector<HTMLButtonElement>('[data-filter="all"]')!;
     const maturityBtns = bar.querySelectorAll<HTMLButtonElement>('.maturity-btn');
     const sortBtns = bar.querySelectorAll<HTMLButtonElement>('.sort-btn');
-    const tagChips = bar.querySelectorAll<HTMLButtonElement>('.tag-chip');
+    const categoryBtns = bar.querySelectorAll<HTMLButtonElement>('.category-btn');
+    const tagChips = bar.querySelectorAll<HTMLButtonElement>('.tag-chip[data-tag]');
+
+    function getActiveTags(): Set<string> {
+      const all = new Set<string>();
+      activeCategories.forEach((tags) => tags.forEach((t) => all.add(t)));
+      // also include individually active tag chips
+      tagChips.forEach((chip) => {
+        if (chip.classList.contains('active')) all.add(chip.dataset.tag!);
+      });
+      return all;
+    }
 
     function applyFilters() {
+      const activeTags = getActiveTags();
       for (const card of cards()) {
         const m = card.dataset.maturity ?? '';
         const t = (card.dataset.tags ?? '').split(',').filter(Boolean);
@@ -74,7 +107,6 @@ const stages = [
     }
 
     function applySort() {
-      // Sort within each parent container independently
       const byParent = new Map<Element, HTMLElement[]>();
       for (const card of cards()) {
         const parent = card.parentElement!;
@@ -122,18 +154,27 @@ const stages = [
       });
     });
 
+    categoryBtns.forEach((btn) => {
+      const tagSet = new Set((btn.dataset.tags ?? '').split(',').filter(Boolean));
+      btn.addEventListener('click', () => {
+        if (activeCategories.has(btn)) {
+          activeCategories.delete(btn);
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        } else {
+          activeCategories.set(btn, tagSet);
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        }
+        applyFilters();
+      });
+    });
+
     tagChips.forEach((chip) => {
       chip.addEventListener('click', () => {
-        const tag = chip.dataset.tag!;
-        if (activeTags.has(tag)) {
-          activeTags.delete(tag);
-          chip.classList.remove('active');
-          chip.setAttribute('aria-pressed', 'false');
-        } else {
-          activeTags.add(tag);
-          chip.classList.add('active');
-          chip.setAttribute('aria-pressed', 'true');
-        }
+        chip.classList.toggle('active');
+        const pressed = chip.classList.contains('active');
+        chip.setAttribute('aria-pressed', String(pressed));
         applyFilters();
       });
     });
@@ -147,7 +188,7 @@ const stages = [
       });
     });
 
-    // Collapsible tag row
+    // Collapsible tag row (only used when categories are NOT present)
     const toggle = bar.querySelector<HTMLButtonElement>('#tag-toggle');
     const allTagChips = [...bar.querySelectorAll<HTMLElement>('.tag-chip[data-tag]')];
     if (toggle) {
@@ -158,7 +199,6 @@ const stages = [
         overflowChips.forEach(t => t.hidden = expanded);
         toggle.dataset.expanded = String(!expanded);
         toggle.textContent = expanded ? `+${overflowChips.length} more` : 'show less';
-        // Move toggle to end
         toggle.parentElement?.appendChild(toggle);
       });
     }
@@ -241,5 +281,39 @@ const stages = [
   }
   .tag-toggle:hover {
     opacity: 1;
+  }
+
+  /* Category buttons */
+  .category-row {
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .category-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    border: 1px solid var(--color-border);
+    border-radius: 1.5em;
+    background: transparent;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.3em 0.8em;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .category-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .category-btn.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+  .category-emoji {
+    font-size: 0.95em;
+    line-height: 1;
   }
 </style>
