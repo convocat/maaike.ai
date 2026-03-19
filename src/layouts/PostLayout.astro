@@ -24,7 +24,7 @@ interface Props {
 const { title, date, updated, maturity, tags, description, collection, slug, url, ai, hub, develops } = Astro.props;
 
 const isHub = hub === true;
-const ogImage = `/images/og-${collection}.png`;
+const ogImage = `/images/og/${collection}/${slug}.png`;
 const postUrl = `https://maaike.ai/${collection}/${slug}/`;
 
 const aiLabels: Record<string, { label: string; description: string }> = {

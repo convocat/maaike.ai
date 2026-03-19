@@ -14,7 +14,10 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "astro": "^5.17.1",
-    "remark-wiki-link": "^2.0.1"
+    "node-fetch": "^3.3.2",
+    "remark-wiki-link": "^2.0.1",
+    "satori": "^0.25.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
