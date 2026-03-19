@@ -1,7 +1,7 @@
 ---
 title: "Is conversation still a useful metaphor?"
 date: 2026-03-15
-maturity: draft
+maturity: developing
 tags:
   - conversation-design
   - conversational-ai
