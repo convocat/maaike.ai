@@ -1106,13 +1106,13 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   let zoomBehavior = null;
 
   // ----------------------------------------------------------------
-  // DOM references
+  // DOM references (re-assigned on each init for view-transitions compatibility)
   // ----------------------------------------------------------------
 
-  const svg = document.getElementById('garden-svg');
-  const tooltip = document.getElementById('tooltip');
-  const wanderCard = document.getElementById('wander-card');
-  const trailSidebar = document.getElementById('trail-sidebar');
+  let svg = document.getElementById('garden-svg');
+  let tooltip = document.getElementById('tooltip');
+  let wanderCard = document.getElementById('wander-card');
+  let trailSidebar = document.getElementById('trail-sidebar');
 
   // ----------------------------------------------------------------
   // Helpers
@@ -1159,6 +1159,23 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   // ----------------------------------------------------------------
 
   async function init() {
+    // Re-capture DOM references so view-transitions navigations get fresh elements
+    svg = document.getElementById('garden-svg');
+    tooltip = document.getElementById('tooltip');
+    wanderCard = document.getElementById('wander-card');
+    trailSidebar = document.getElementById('trail-sidebar');
+    if (!svg) return; // not on the explore page
+
+    // Reset state for clean re-init
+    data = null;
+    roughSvg = null;
+    currentTransform = null;
+    zoomBehavior = null;
+    wanderItem = null;
+    activeTrail = null;
+    activeTrailStep = 0;
+    currentMode = 'map';
+
     try {
       const resp = await fetch('/explore-data.json');
       data = await resp.json();
@@ -1941,13 +1958,17 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   }
 
   async function boot() {
-    try {
-      await Promise.all([
-        loadScript('https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.min.js'),
-        loadScript('https://cdn.jsdelivr.net/npm/d3@7/+esm'),
-      ]);
-    } catch (e) {
-      console.warn('CDN script load failed, continuing without rough.js / d3:', e);
+    // Only load CDN scripts if not already present
+    const needsLibs = (typeof rough === 'undefined' && typeof roughjs === 'undefined') || typeof d3 === 'undefined';
+    if (needsLibs) {
+      try {
+        await Promise.all([
+          loadScript('https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.min.js'),
+          loadScript('https://cdn.jsdelivr.net/npm/d3@7/+esm'),
+        ]);
+      } catch (e) {
+        console.warn('CDN script load failed, continuing without rough.js / d3:', e);
+      }
     }
     init();
   }
@@ -1958,5 +1979,12 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   } else {
     boot();
   }
+
+  // Re-initialize when Astro view transitions swap the page
+  document.addEventListener('astro:page-load', () => {
+    if (document.getElementById('garden-svg')) {
+      boot();
+    }
+  });
 })();
 </script>
