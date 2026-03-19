@@ -85,6 +85,9 @@ Periodic enrichment job:
 - [x] Enrich thin content: video transcripts, book summaries for better embeddings
 - [x] Re-generate link candidates with normalized embeddings (210 items, 0.70 threshold, 269 new candidates)
 - [x] Auto-generate trails from project-tagged content (built into `build-explore-data.cjs`)
+- [x] Enriched embedding input: keyphrases + reason fields for better map accuracy
+- [x] Stable map positions: pinned in `map-roots.json` ([[stable-map-positions|field note]])
+- [ ] Wiki-link graph as positioning signal (nudge linked items toward each other)
 - [ ] External content discovery (spun off as [[external-content-discovery|separate project]])
 
 ## Related

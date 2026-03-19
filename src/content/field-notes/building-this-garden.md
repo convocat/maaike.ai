@@ -132,6 +132,20 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Test strategy**: Three-layer test pyramid: content validator (`scripts/validate-content.mjs`, run via `npm run validate`), build verification via GitHub Actions, and 11 Playwright E2E tests (`tests/library.spec.ts`, run via `npm test`). Pre-commit hook wired up
 - **About tag**: Five field notes about building the garden tagged with `about` for easier filtering
 
+### 19 March
+
+- **Explore map: 10 territories**: Increased territory count from 6 to 10 with label overrides for awkward auto-labels. New territories include knowledge-graph, ai-ethics, philosophy, developer-experience, conversational-ai
+- **Normalized re-embedding**: All 213 items re-embedded with enriched input: title + description + tags + keyphrases + reason fields. Better semantic discrimination without length bias
+- **Link candidates regenerated**: 269 new candidates at 0.70 threshold (down from 5,583 at 0.50)
+- **Stable map positions**: Pinned item positions and territories in `map-roots.json`. Map no longer reshuffles on every rebuild. New items placed near most similar neighbor. `--recompute` flag for full reset
+- **Manual position overrides**: Items can be moved to a different territory via overrides in `map-roots.json`
+- **Library noise filter**: Unconnected fiction excluded from explore map. 18 professional books given wiki-links to keep them visible
+- **Wiki-links on 18 library books**: Related sections added to professional books that had no connections
+- **External content discovery**: New project hub with constraints and conditions for using the garden's knowledge graph to find relevant external content
+- **Garden lifecycle metaphor**: Field note describing the greenhouse (quarantine for external content), compost heap (decayed content), and soil (pre-stage for seeds) as a full recycle loop
+- **Nav bar updated**: Field Notes and Seeds added back to main navigation
+- **About page rewritten**: Updated from 3 content types to all 7 collections, plus maturity system, AI transparency, connections, and projects sections
+
 ## Related
 
 - [[digital-garden-history|The History of Digital Gardens]]

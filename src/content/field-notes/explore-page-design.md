@@ -106,6 +106,11 @@ The page loads a pre-computed JSON with item metadata + 2D coordinates. No runti
 - [x] Named territories: semantic regions named by dominant tags, rendered as subtle italic labels
 - [x] Topographic contour lines: KDE density iso-contours as faint hand-drawn background terrain
 - [x] Organic trail paths: smooth Catmull-Rom curves through stops (rough.js curve) instead of straight lines
+- [x] Stable map positions: pinned in `map-roots.json`, `--recompute` flag for full reset ([[stable-map-positions|field note]])
+- [x] Manual position overrides: move items to a target territory via `map-roots.json`
+- [x] Library noise filter: fiction and unconnected books excluded from map
+- [x] Enriched embeddings: keyphrases + reason fields for more accurate positioning
+- [ ] Wiki-link graph as positioning signal: nudge linked items toward each other
 - [ ] Keyboard navigation on the map
 - [ ] Mobile layout polish
 
