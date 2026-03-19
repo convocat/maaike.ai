@@ -82,10 +82,10 @@ Periodic enrichment job:
 - [x] Explore page: interactive spatial map built on the embedding + key phrase data (spun off as [[explore-page-design|separate project]])
 - [x] Nightly rebuild pipeline: scheduled task for embeddings, key phrases, and explore data
 - [x] Chunk size analysis: content length distorts embeddings, normalized re-embedding ([[content-chunk-size-and-embeddings|write-up]])
-- [ ] Enrich thin content: video transcripts, book summaries for better embeddings
-- [ ] Re-generate link candidates with normalized embeddings
-- [ ] Auto-generate trails from project-tagged content
-- [ ] External content discovery (inline links to relevant papers/articles)
+- [x] Enrich thin content: video transcripts, book summaries for better embeddings
+- [x] Re-generate link candidates with normalized embeddings (210 items, 0.70 threshold, 269 new candidates)
+- [x] Auto-generate trails from project-tagged content (built into `build-explore-data.cjs`)
+- [ ] External content discovery (spun off as [[external-content-discovery|separate project]])
 
 ## Related
 

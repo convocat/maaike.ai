@@ -7,8 +7,8 @@
       "maturity": "complete",
       "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
       "url": "/articles/2-years-and-700-members-insights-from-convoclub",
-      "x": 0.5152,
-      "y": 0.9378,
+      "x": 0.3277,
+      "y": 0.2128,
       "keyphrases": [
         "conversation designers",
         "knowledge gaps",
@@ -25,8 +25,8 @@
       "maturity": "complete",
       "description": "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level.",
       "url": "/articles/7-new-skills-for-conversation-designers-2022",
-      "x": 0.4721,
-      "y": 0.9541,
+      "x": 0.2345,
+      "y": 0.2085,
       "keyphrases": [
         "nlu",
         "entities",
@@ -43,8 +43,8 @@
       "maturity": "solid",
       "description": "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet.",
       "url": "/articles/a-digital-garden-as-central-space",
-      "x": 0.7724,
-      "y": 0.1404,
+      "x": 0.8797,
+      "y": 0.639,
       "keyphrases": [
         "digital garden",
         "non-linear thinking",
@@ -61,8 +61,8 @@
       "maturity": "complete",
       "description": "So if it's not a case of LLM hallucination, what did happen?",
       "url": "/articles/air-canadas-bot-mishap-pre-dates-chatgpt",
-      "x": 0.6529,
-      "y": 0.7797,
+      "x": 0.02,
+      "y": 0.2998,
       "keyphrases": [
         "chatbot mishap",
         "nlu-based bot",
@@ -79,8 +79,8 @@
       "maturity": "complete",
       "description": "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
       "url": "/articles/an-evening-with-chatgpt-2",
-      "x": 0.7952,
-      "y": 0.7756,
+      "x": 0.1368,
+      "y": 0.2886,
       "keyphrases": [
         "conversation design",
         "hello world",
@@ -97,8 +97,8 @@
       "maturity": "complete",
       "description": "Can ChatGPT take over some of my work as a conversation designer? Can it create an intent model for me?",
       "url": "/articles/an-evening-with-chatgpt-3",
-      "x": 0.7983,
-      "y": 0.7301,
+      "x": 0.0309,
+      "y": 0.3452,
       "keyphrases": [
         "intent model",
         "nlp tasks",
@@ -115,8 +115,8 @@
       "maturity": "complete",
       "description": "Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?",
       "url": "/articles/an-evening-with-chatgpt-september-2023",
-      "x": 0.6924,
-      "y": 0.6736,
+      "x": 0.0693,
+      "y": 0.2244,
       "keyphrases": [
         "chatgpt sessions",
         "new browse feature",
@@ -133,8 +133,8 @@
       "maturity": "complete",
       "description": "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT.",
       "url": "/articles/an-evening-with-chatgpt",
-      "x": 0.7568,
-      "y": 0.7504,
+      "x": 0.1184,
+      "y": 0.379,
       "keyphrases": [
         "large language model",
         "contextual understanding",
@@ -151,8 +151,8 @@
       "maturity": "complete",
       "description": "Both can access the internet and retrieve recent information. Let's take them for a test drive.",
       "url": "/articles/an-evening-with-youchat-and-chatsonic",
-      "x": 0.6804,
-      "y": 0.7183,
+      "x": 0.1108,
+      "y": 0.2439,
       "keyphrases": [
         "youchat and chatsonic models",
         "internet access and information retrieval",
@@ -169,8 +169,8 @@
       "maturity": "complete",
       "description": "Facebook's AI chatbot might just be saying what you want it to say…",
       "url": "/articles/blender-turned-rogue",
-      "x": 0.6882,
-      "y": 0.81,
+      "x": 0.181,
+      "y": 0.2099,
       "keyphrases": [
         "ai chatbot",
         "anti-semitic responses",
@@ -187,8 +187,8 @@
       "maturity": "complete",
       "description": "Wow, that went down fast!",
       "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "x": 0.6841,
-      "y": 0.5694,
+      "x": 0.3899,
+      "y": 0.3731,
       "keyphrases": [
         "hallucinations in llms",
         "missing fundamental concept",
@@ -205,8 +205,8 @@
       "maturity": "complete",
       "description": "Stress-free preparation...could it really work?",
       "url": "/articles/chatgpt-presentation-prep",
-      "x": 0.7255,
-      "y": 0.7072,
+      "x": 0.0764,
+      "y": 0.3418,
       "keyphrases": [
         "presentation prep",
         "generative ai use",
@@ -223,8 +223,8 @@
       "maturity": "complete",
       "description": "So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.",
       "url": "/articles/context-engineering-lets-call-it-design",
-      "x": 0.7897,
-      "y": 0.5701,
+      "x": 0.1886,
+      "y": 0.3007,
       "keyphrases": [
         "context engineering",
         "design approach",
@@ -241,8 +241,8 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.6008,
-      "y": 0.6824,
+      "x": 0.3008,
+      "y": 0.3477,
       "keyphrases": [
         "conversational interfaces",
         "review-regenerate-repeat",
@@ -259,8 +259,8 @@
       "maturity": "complete",
       "description": "As a conversation designer, should I know how to code? Some pros and cons.",
       "url": "/articles/convo-question-should-i-learn-programming",
-      "x": 0.5175,
-      "y": 0.8425,
+      "x": 0.2096,
+      "y": 0.2465,
       "keyphrases": [
         "conversation design",
         "code logic",
@@ -277,8 +277,8 @@
       "maturity": "complete",
       "description": "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!",
       "url": "/articles/convoclub-clubhouse",
-      "x": 0.5503,
-      "y": 0.9725,
+      "x": 0.2647,
+      "y": 0.1745,
       "keyphrases": [
         "conversation designers",
         "clubhouse community",
@@ -295,8 +295,8 @@
       "maturity": "complete",
       "description": "How to build Coronabots responsibly — if you want to build one at all.",
       "url": "/articles/corona-is-spreading-and-so-are-the-bots",
-      "x": 0.6079,
-      "y": 0.8095,
+      "x": 0.206,
+      "y": 0.1717,
       "keyphrases": [
         "corona chatbots",
         "crisis communication tools",
@@ -313,8 +313,8 @@
       "maturity": "complete",
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
-      "x": 0.834,
-      "y": 0.6225,
+      "x": 0.3016,
+      "y": 0.394,
       "keyphrases": [
         "dall-e 3 prompt rewriting",
         "diverse image generation",
@@ -331,8 +331,8 @@
       "maturity": "complete",
       "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
       "url": "/articles/european-chatbot-conference-10-talks",
-      "x": 0.6271,
-      "y": 0.8525,
+      "x": 0.3979,
+      "y": 0.2118,
       "keyphrases": [
         "collaborative task assistants",
         "voice challenges",
@@ -349,8 +349,8 @@
       "maturity": "complete",
       "description": "DALL-E 3 is still digitally challenged.",
       "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
-      "x": 0.829,
-      "y": 0.6894,
+      "x": 0.2512,
+      "y": 0.3672,
       "keyphrases": [
         "image generation",
         "augmented prompt",
@@ -367,8 +367,8 @@
       "maturity": "complete",
       "description": "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think.",
       "url": "/articles/hey-chatgpt-whos-the-boss",
-      "x": 0.6951,
-      "y": 0.7623,
+      "x": 0.0508,
+      "y": 0.2663,
       "keyphrases": [
         "probabilistic model",
         "chatgpt's training cut-off",
@@ -385,8 +385,8 @@
       "maturity": "complete",
       "description": "The original woman in voice. On international women's day, a tribute to the first named composer in history.",
       "url": "/articles/hildegard-von-bingen",
-      "x": 0.3296,
-      "y": 0.4929,
+      "x": 0.4443,
+      "y": 0.1198,
       "keyphrases": [
         "hildegard von bingen",
         "female monastery",
@@ -403,8 +403,8 @@
       "maturity": "complete",
       "description": "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?",
       "url": "/articles/hoe-word-ik-conversation-designer",
-      "x": 0.4617,
-      "y": 0.9087,
+      "x": 0.2824,
+      "y": 0.2233,
       "keyphrases": [
         "conversation design",
         "chatbot ontwerp",
@@ -421,8 +421,8 @@
       "maturity": "complete",
       "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
       "url": "/articles/how-do-i-become-a-conversation-designer",
-      "x": 0.5007,
-      "y": 0.8854,
+      "x": 0.2326,
+      "y": 0.2853,
       "keyphrases": [
         "conversation interfaces",
         "chatbot builder",
@@ -439,8 +439,8 @@
       "maturity": "complete",
       "description": "5 checks to keep your content on track — and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
-      "x": 0.5159,
-      "y": 0.796,
+      "x": 0.4009,
+      "y": 0.2769,
       "keyphrases": [
         "content quality audit",
         "feedback checklist",
@@ -457,8 +457,8 @@
       "maturity": "complete",
       "description": "There's a prompt for that! A quick tutorial for designing conversational system prompts.",
       "url": "/articles/how-to-make-chatgpt-more-conversational",
-      "x": 0.7622,
-      "y": 0.6799,
+      "x": 0.1222,
+      "y": 0.3321,
       "keyphrases": [
         "conversational system prompts",
         "more conversational chatgpt",
@@ -475,8 +475,8 @@
       "maturity": "developing",
       "description": "Whether conversation is still a useful metaphor for what we're building.",
       "url": "/articles/is-conversation-still-a-useful-metaphor",
-      "x": 0.3777,
-      "y": 0.7844,
+      "x": 0.2497,
+      "y": 0.2465,
       "keyphrases": [],
       "connections": 6
     },
@@ -487,8 +487,8 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.7298,
-      "y": 0.5629,
+      "x": 0.3364,
+      "y": 0.424,
       "keyphrases": [
         "llm hallucinations",
         "missing fundamental",
@@ -505,8 +505,8 @@
       "maturity": "complete",
       "description": "You built a conversational interface and then expected people to use it just for search?",
       "url": "/articles/microsoft-youre-using-bing-wrong",
-      "x": 0.7295,
-      "y": 0.8391,
+      "x": 0.164,
+      "y": 0.2516,
       "keyphrases": [
         "conversation 101",
         "conversational interface",
@@ -523,8 +523,8 @@
       "maturity": "complete",
       "description": "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!",
       "url": "/articles/nieuwe-editie-voicelunch",
-      "x": 0.5961,
-      "y": 0.9535,
+      "x": 0.3106,
+      "y": 0.1705,
       "keyphrases": [
         "language & linguistics",
         "virtual meetups",
@@ -541,8 +541,8 @@
       "maturity": "complete",
       "description": "An onboarding checklist for conversation designers.",
       "url": "/articles/off-to-a-good-start",
-      "x": 0.5952,
-      "y": 0.8957,
+      "x": 0.3632,
+      "y": 0.2421,
       "keyphrases": [
         "onboarding checklist",
         "remote onboarding",
@@ -559,8 +559,8 @@
       "maturity": "complete",
       "description": "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us.",
       "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
-      "x": 0.7996,
-      "y": 0.6529,
+      "x": 0.2087,
+      "y": 0.3839,
       "keyphrases": [
         "de-bias dall-e",
         "inclusive image generation",
@@ -577,8 +577,8 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.5801,
-      "y": 0.8524,
+      "x": 0.313,
+      "y": 0.3033,
       "keyphrases": [
         "online vergaderen uitput",
         "lichaamshouding speelt rol",
@@ -595,8 +595,8 @@
       "maturity": "complete",
       "description": "Klinkt jouw Google Assistant ook zo buiten adem? SSML helpt!",
       "url": "/articles/onthaast-je-voice-action-met-ssml",
-      "x": 0.5084,
-      "y": 0.3365,
+      "x": 0.4383,
+      "y": 0.1664,
       "keyphrases": [
         "voice action onthaasten",
         "speech synthesis markup language",
@@ -613,8 +613,8 @@
       "maturity": "complete",
       "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
       "url": "/articles/prompt-thought-summaries",
-      "x": 0.8048,
-      "y": 0.5268,
+      "x": 0.2589,
+      "y": 0.4122,
       "keyphrases": [
         "key concepts",
         "short definition",
@@ -631,8 +631,8 @@
       "maturity": "complete",
       "description": "Blind prompting vs. prompt engineering — and what it means for conversation designers.",
       "url": "/articles/putting-the-design-in-prompt-design",
-      "x": 0.7746,
-      "y": 0.6131,
+      "x": 0.2148,
+      "y": 0.3381,
       "keyphrases": [
         "prompt design",
         "experiment-based design",
@@ -649,8 +649,8 @@
       "maturity": "complete",
       "description": "Designing for negative space",
       "url": "/articles/saturday-design-thoughts",
-      "x": 0.6703,
-      "y": 0.8659,
+      "x": 0.3508,
+      "y": 0.334,
       "keyphrases": [
         "llms impossible to shut up",
         "negative space in llm",
@@ -667,8 +667,8 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.5726,
-      "y": 0.7673,
+      "x": 0.2643,
+      "y": 0.3201,
       "keyphrases": [
         "chatbot scrum team",
         "fixed publication windows",
@@ -685,8 +685,8 @@
       "maturity": "complete",
       "description": "My favorite resources for building a curious and critical frame of mind.",
       "url": "/articles/stay-calm-and-keep-thinking-for-yourself",
-      "x": 0.6465,
-      "y": 0.6878,
+      "x": 0.6475,
+      "y": 0.3536,
       "keyphrases": [
         "chatgpt hype",
         "openai technology",
@@ -703,8 +703,8 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.5459,
-      "y": 0.8822,
+      "x": 0.2771,
+      "y": 0.2744,
       "keyphrases": [
         "conversation designer",
         "team-of-one workflow",
@@ -721,8 +721,8 @@
       "maturity": "complete",
       "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
       "url": "/articles/the-long-and-winding-road",
-      "x": 0.5597,
-      "y": 0.9264,
+      "x": 0.3208,
+      "y": 0.2581,
       "keyphrases": [
         "conversation design",
         "entrepreneurial journey",
@@ -739,8 +739,8 @@
       "maturity": "complete",
       "description": "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.",
       "url": "/articles/understanding-speech-part-1",
-      "x": 0.6012,
-      "y": 0.5932,
+      "x": 0.3564,
+      "y": 0.1265,
       "keyphrases": [
         "speech communication",
         "voice assistant design",
@@ -757,8 +757,8 @@
       "maturity": "complete",
       "description": "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.",
       "url": "/articles/understanding-speech-part-2",
-      "x": 0.6933,
-      "y": 0.614,
+      "x": 0.3954,
+      "y": 0.1518,
       "keyphrases": [
         "speech-like action",
         "backchannelling cues",
@@ -775,8 +775,8 @@
       "maturity": "complete",
       "description": "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended.",
       "url": "/articles/visual-notes-brian-roemmele",
-      "x": 0.6311,
-      "y": 0.9233,
+      "x": 0.3613,
+      "y": 0.182,
       "keyphrases": [
         "sketchnotes creation",
         "open safe space",
@@ -793,8 +793,8 @@
       "maturity": "complete",
       "description": "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!",
       "url": "/articles/what-happens-when-ai-has-read-everything",
-      "x": 0.5556,
-      "y": 0.6741,
+      "x": 0.5984,
+      "y": 0.342,
       "keyphrases": [
         "ai data shortage",
         "language data replenishment",
@@ -811,8 +811,8 @@
       "maturity": "complete",
       "description": "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids.",
       "url": "/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
-      "x": 0.6383,
-      "y": 0.735,
+      "x": 0.0899,
+      "y": 0.2897,
       "keyphrases": [
         "word-string-generator",
         "stochastic parrot",
@@ -829,8 +829,8 @@
       "maturity": "complete",
       "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
       "url": "/articles/youre-not-married-to-your-texts",
-      "x": 0.5591,
-      "y": 0.8123,
+      "x": 0.3564,
+      "y": 0.2886,
       "keyphrases": [
         "content project system",
         "quality parameters",
@@ -841,14 +841,26 @@
       "connections": 0
     },
     {
+      "slug": "book-recommender",
+      "title": "Book recommender",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
+      "url": "/field-notes/book-recommender",
+      "x": 0.4424,
+      "y": 0.813,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
       "slug": "building-this-garden",
       "title": "Building this garden: change log",
       "collection": "field-notes",
       "maturity": "developing",
       "description": "A changelog of features and decisions made while building this digital garden.",
       "url": "/field-notes/building-this-garden",
-      "x": 0.8065,
-      "y": 0.1399,
+      "x": 0.9126,
+      "y": 0.6314,
       "keyphrases": [
         "garden metaphor",
         "ai transparency",
@@ -865,8 +877,8 @@
       "maturity": "draft",
       "description": "How a CLAUDE.md file gives your AI coding assistant persistent project context.",
       "url": "/field-notes/claude-md-project-memory",
-      "x": 0.741,
-      "y": 0.4535,
+      "x": 0.7786,
+      "y": 0.5919,
       "keyphrases": [
         "persistent context",
         "across sessions",
@@ -883,8 +895,8 @@
       "maturity": "developing",
       "description": "Why embedding models cluster documents by format instead of topic when content lengths vary, and what to do about it.",
       "url": "/field-notes/content-chunk-size-and-embeddings",
-      "x": 0.9424,
-      "y": 0.0506,
+      "x": 0.6033,
+      "y": 0.7108,
       "keyphrases": [],
       "connections": 10
     },
@@ -895,8 +907,8 @@
       "maturity": "developing",
       "description": "The living reference for the visual design, component library, content rules, and interaction patterns of maaike.ai.",
       "url": "/field-notes/design-system-and-content-guidelines",
-      "x": 0.8344,
-      "y": 0.1554,
+      "x": 0.8729,
+      "y": 0.6042,
       "keyphrases": [],
       "connections": 3
     },
@@ -907,8 +919,8 @@
       "maturity": "developing",
       "description": "What makes a digital garden different from a traditional blog?",
       "url": "/field-notes/digital-gardens-vs-blogs",
-      "x": 0.7019,
-      "y": 0.1634,
+      "x": 0.9363,
+      "y": 0.5988,
       "keyphrases": [
         "digital gardens",
         "vs blogs",
@@ -925,8 +937,8 @@
       "maturity": "developing",
       "description": "A non-coder's guide to text embedding models, from word counting to semantic understanding, surveyed for use in a personal knowledge garden.",
       "url": "/field-notes/embedding-models-for-the-garden",
-      "x": 0.9558,
-      "y": 0.083,
+      "x": 0.6865,
+      "y": 0.7049,
       "keyphrases": [
         "embedding models",
         "vector representations",
@@ -943,8 +955,8 @@
       "maturity": "developing",
       "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
       "url": "/field-notes/explore-page-design",
-      "x": 0.8652,
-      "y": 0.147,
+      "x": 0.9055,
+      "y": 0.6671,
       "keyphrases": [],
       "connections": 12
     },
@@ -955,8 +967,8 @@
       "maturity": "developing",
       "description": "Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.",
       "url": "/field-notes/full-scale-key-phrase-extraction",
-      "x": 0.9251,
-      "y": 0.0771,
+      "x": 0.5475,
+      "y": 0.7478,
       "keyphrases": [],
       "connections": 12
     },
@@ -967,8 +979,8 @@
       "maturity": "developing",
       "description": "What key phrase extraction is, how it evolved from word counting to LLM prompting, and which approach fits a small multilingual knowledge garden.",
       "url": "/field-notes/key-phrase-extraction-for-the-garden",
-      "x": 0.9334,
-      "y": 0.107,
+      "x": 0.7076,
+      "y": 0.7273,
       "keyphrases": [
         "key phrase extraction",
         "structured text data",
@@ -985,8 +997,8 @@
       "maturity": "developing",
       "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
       "url": "/field-notes/knowledge-graph-for-the-garden",
-      "x": 0.8726,
-      "y": 0.0734,
+      "x": 0.7603,
+      "y": 0.7286,
       "keyphrases": [
         "knowledge graph",
         "world model",
@@ -1003,8 +1015,8 @@
       "maturity": "draft",
       "description": "An early thought about structuring prompts in stages.",
       "url": "/field-notes/prompt-scaffolding",
-      "x": 0.7579,
-      "y": 0.5832,
+      "x": 0.2953,
+      "y": 0.4281,
       "keyphrases": [
         "prompt scaffolding",
         "layered prompts",
@@ -1021,8 +1033,8 @@
       "maturity": "solid",
       "description": "Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.",
       "url": "/field-notes/reading-notes-saga-knowledge-graph",
-      "x": 0.8775,
-      "y": 0.1083,
+      "x": 0.5896,
+      "y": 0.7665,
       "keyphrases": [
         "saga platform",
         "knowledge graph layers",
@@ -1033,14 +1045,26 @@
       "connections": 10
     },
     {
+      "slug": "testing-strategy",
+      "title": "A test strategy for the garden",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Three layers of automated testing: content validation, build verification, and Playwright E2E. Why each layer exists and what it catches.",
+      "url": "/field-notes/testing-strategy",
+      "x": 0.9308,
+      "y": 0.6551,
+      "keyphrases": [],
+      "connections": 5
+    },
+    {
       "slug": "thinking-in-public",
       "title": "Thinking in Public",
       "collection": "field-notes",
       "maturity": "developing",
       "description": "The practice of sharing unfinished thoughts openly.",
       "url": "/field-notes/thinking-in-public",
-      "x": 0.6973,
-      "y": 0.2308,
+      "x": 0.9041,
+      "y": 0.6008,
       "keyphrases": [
         "sharing ideas early",
         "digital garden model",
@@ -1057,8 +1081,8 @@
       "maturity": "developing",
       "description": "How to go from \"everything is related to everything\" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.",
       "url": "/field-notes/tuning-the-similarity-threshold",
-      "x": 0.9079,
-      "y": 0.1261,
+      "x": 0.4973,
+      "y": 0.7375,
       "keyphrases": [
         "1. cosine similarity threshold",
         "2. per-document normalization",
@@ -1069,14 +1093,26 @@
       "connections": 12
     },
     {
+      "slug": "typed-relations-as-garden-infrastructure",
+      "title": "Typed relations as garden infrastructure",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden.",
+      "url": "/field-notes/typed-relations-as-garden-infrastructure",
+      "x": 0.7344,
+      "y": 0.7108,
+      "keyphrases": [],
+      "connections": 9
+    },
+    {
       "slug": "ai-as-writing-partner",
       "title": "AI as writing partner",
       "collection": "seeds",
       "maturity": "draft",
       "description": "What's the right metaphor for AI's role in my writing process?",
       "url": "/seeds/ai-as-writing-partner",
-      "x": 0.4559,
-      "y": 0.6338,
+      "x": 0.4675,
+      "y": 0.6689,
       "keyphrases": [
         "ai writing partner",
         "serious role ai",
@@ -1093,8 +1129,8 @@
       "maturity": "draft",
       "description": "How should I indicate when content was made with AI — and share the prompts?",
       "url": "/seeds/ai-transparency-in-content",
-      "x": 0.6168,
-      "y": 0.3875,
+      "x": 0.4695,
+      "y": 0.3553,
       "keyphrases": [
         "ai transparency",
         "content creation",
@@ -1111,8 +1147,8 @@
       "maturity": "draft",
       "description": "Can a chatbot-style UI work without generative AI, using decision trees, hyperlinking, and serendipity instead?",
       "url": "/seeds/chatbots-without-ai",
-      "x": 0.7765,
-      "y": 0.2373,
+      "x": 0.4707,
+      "y": 0.6184,
       "keyphrases": [
         "conversational garden guide",
         "deterministic chatbot design",
@@ -1129,8 +1165,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/seeds/crew-resource-management",
-      "x": 0.0503,
-      "y": 0.6539,
+      "x": 0.4572,
+      "y": 0.4278,
       "keyphrases": [],
       "connections": 0
     },
@@ -1141,8 +1177,8 @@
       "maturity": "draft",
       "description": "Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.",
       "url": "/seeds/dutch-aware-quantization",
-      "x": 0.9599,
-      "y": 0.1128,
+      "x": 0.4809,
+      "y": 0.7721,
       "keyphrases": [
         "dutch calibration data",
         "component-level vulnerability data",
@@ -1159,8 +1195,8 @@
       "maturity": "draft",
       "description": "Academic research on embeddings hasn't caught up with how PKM tools actually use them. There might be something worth writing here.",
       "url": "/seeds/embeddings-for-knowledge-gardens-research-gap",
-      "x": 0.9068,
-      "y": 0.0987,
+      "x": 0.6722,
+      "y": 0.7299,
       "keyphrases": [
         "embedding models",
         "knowledge graph project",
@@ -1177,8 +1213,8 @@
       "maturity": "draft",
       "description": "A living list of ideas and plans for this garden.",
       "url": "/seeds/garden-to-do-list",
-      "x": 0.765,
-      "y": 0.1713,
+      "x": 0.7702,
+      "y": 0.7017,
       "keyphrases": [
         "conversational garden guide",
         "smart linking",
@@ -1195,8 +1231,8 @@
       "maturity": "draft",
       "description": "What if I wrote a comprehensive guide on how I built this site?",
       "url": "/seeds/how-to-build-a-digital-garden",
-      "x": 0.7416,
-      "y": 0.1492,
+      "x": 0.9404,
+      "y": 0.6262,
       "keyphrases": [
         "digital garden",
         "content collections",
@@ -1213,8 +1249,8 @@
       "maturity": "developing",
       "description": "Should a digital garden be searchable and useful, or is there beauty in letting people explore?",
       "url": "/seeds/knowledge-gardens-and-serendipity",
-      "x": 0.754,
-      "y": 0.2075,
+      "x": 0.7102,
+      "y": 0.7592,
       "keyphrases": [
         "knowledge gardens",
         "interconnectedness",
@@ -1231,8 +1267,8 @@
       "maturity": "draft",
       "description": "What design principles shaped this site — and why do they matter?",
       "url": "/seeds/principles-behind-this-garden",
-      "x": 0.7105,
-      "y": 0.2028,
+      "x": 0.9627,
+      "y": 0.6292,
       "keyphrases": [
         "thinking in public",
         "embracing imperfection",
@@ -1249,8 +1285,8 @@
       "maturity": "draft",
       "description": "Language rules for how I talk about AI in my work.",
       "url": "/seeds/style-guide-for-ai",
-      "x": 0.4906,
-      "y": 0.6895,
+      "x": 0.4887,
+      "y": 0.6779,
       "keyphrases": [
         "ai doesn't write",
         "call the ai",
@@ -1267,8 +1303,8 @@
       "maturity": "draft",
       "description": "When did we stop caring about who actually wrote the words?",
       "url": "/seeds/the-disappearance-of-authentic-voice-online",
-      "x": 0.5396,
-      "y": 0.634,
+      "x": 0.6239,
+      "y": 0.3169,
       "keyphrases": [
         "authentic voice",
         "ai-generated content",
@@ -1285,8 +1321,8 @@
       "maturity": "draft",
       "description": "A mechanism that catches your train of thought. Something that responds in another space.",
       "url": "/seeds/writing-as-a-conversation-with-yourself",
-      "x": 0.6753,
-      "y": 0.2522,
+      "x": 0.5242,
+      "y": 0.3839,
       "keyphrases": [
         "conversation with self",
         "internal thought process",
@@ -1303,8 +1339,8 @@
       "maturity": "solid",
       "description": "A comprehensive overview of the digital garden concept and its evolution.",
       "url": "/weblinks/digital-garden-history",
-      "x": 0.7333,
-      "y": 0.1784,
+      "x": 0.8044,
+      "y": 0.6924,
       "keyphrases": [
         "digital garden concept",
         "hypertext systems",
@@ -1321,8 +1357,8 @@
       "maturity": "solid",
       "description": "Apple's hybrid batch-incremental knowledge graph platform. Key inspiration for building smarter connections in this garden.",
       "url": "/weblinks/saga-knowledge-platform",
-      "x": 0.839,
-      "y": 0.1071,
+      "x": 0.6238,
+      "y": 0.7468,
       "keyphrases": [
         "knowledge graph platform",
         "hybrid batch-incremental design",
@@ -1339,8 +1375,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/weblinks/www-linkedin-com",
-      "x": 0.1211,
-      "y": 0.6256,
+      "x": 0.5187,
+      "y": 0.7533,
       "keyphrases": [],
       "connections": 0
     },
@@ -1351,8 +1387,8 @@
       "maturity": "complete",
       "description": "A candid reflection on the challenges of course creation, AI tools, and the mismatch between linear workflows and my non-linear thinking style. I struggle with completing online courses due to procrastination, changing circumstances, and self-doubt about content value. AI writing tools like Jasper.ai can be counterproductive for non-linear thinkers, requiring extensive prompting that defeats the purpose of automation. Linear workflows imposed by course creation platforms and AI tools conflict with my chaotic, organic thinking process. System prompts have become invaluable personal tools for managing rumination and decision-making in my daily life. I am actively seeking to design custom system prompts that accommodate my unique thought patterns rather than conform to existing frameworks.",
       "url": "/videos/a-little-sunday-afternoon-rant",
-      "x": 0.5745,
-      "y": 0.5274,
+      "x": 0.2922,
+      "y": 0.8002,
       "keyphrases": [],
       "connections": 0
     },
@@ -1363,8 +1399,8 @@
       "maturity": "complete",
       "description": "A hands-on exploration of Microsoft Copilot for PowerPoint, testing its capabilities for presentation creation and editing, with humorous comparisons to the legacy Clippy assistant. Copilot has significant limitations in understanding context and user intent, particularly with non-English content and specific editing requests. The AI assistant struggles with co-reference resolution, making it difficult to understand which slide or element I am referring to. Copilot cannot directly access or interact with PowerPoint Online, limiting its functionality for cloud-based workflows. The fallback responses are repetitive and lack conversational variety, making the user experience frustrating. Despite being positioned as an AI assistant, Copilot performs worse than the legacy Clippy assistant from the 1990s in practical usability. Dutch language support is officially unavailable, creating barriers for non-English users even when prompting in English. My experience raises questions about the readiness of Copilot for PowerPoint as a production-ready tool for content creators.",
       "url": "/videos/an-evening-with-copilot-for-powerpoint",
-      "x": 0.611,
-      "y": 0.6373,
+      "x": 0.3894,
+      "y": 0.707,
       "keyphrases": [],
       "connections": 1
     },
@@ -1375,8 +1411,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.6221,
-      "y": 0.5511,
+      "x": 0.3317,
+      "y": 0.7769,
       "keyphrases": [],
       "connections": 0
     },
@@ -1387,8 +1423,8 @@
       "maturity": "complete",
       "description": "A critical analysis of Google Bard failing to adhere to conversational principles by withholding relevant information about Gemini model availability in the EU. Bard violates Grice's Cooperative Principle by failing to proactively communicate that Gemini is unavailable in the EU due to regulatory reviews. The issue is not a hallucination but a failure of the maxim of quality: Bard does not provide necessary information unless explicitly asked. Users must already know the answer to their question before asking it, creating a paradoxical and unhelpful interaction pattern. Bard in Europe still runs on the older Lambda/PaLM model, not the newer Gemini model available in other regions. This violation of conversational principles is arguably worse than generating false information because it presupposes user knowledge.",
       "url": "/videos/bard-violates-grices-maxims-again",
-      "x": 0.6806,
-      "y": 0.5225,
+      "x": 0.2473,
+      "y": 0.8417,
       "keyphrases": [],
       "connections": 10
     },
@@ -1399,8 +1435,8 @@
       "maturity": "complete",
       "description": "A practical guide to designing better AI interactions with documents using a systematic four-step approach that prioritizes content analysis, user needs, and task design. Content-driven interaction moves beyond simple Q&A patterns to create dynamic, purpose-driven AI interactions that leverage the intentional design embedded in documents. Analyzing your source content is the critical first step often overlooked: understanding what is in your documents, how they are structured, and what information is relevant prevents hallucinations and improves AI accuracy. The four-step methodology (analyze content, analyze users and tasks, design role and task, design interaction) creates a systematic approach to building RAG systems that actually serve user needs. Practical implementation includes welcome messages, rephrase-and-expand techniques, chain-of-thought reasoning, and step-by-step workflows that guide users through complex information.",
       "url": "/videos/content-driven-interaction-in-4-steps",
-      "x": 0.4608,
-      "y": 0.7988,
+      "x": 0.3696,
+      "y": 0.5914,
       "keyphrases": [],
       "connections": 2
     },
@@ -1411,8 +1447,8 @@
       "maturity": "complete",
       "description": "Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that's not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?",
       "url": "/videos/designing-for-doubt",
-      "x": 0.7702,
-      "y": 0.815,
+      "x": 0.4073,
+      "y": 0.7733,
       "keyphrases": [
         "designing for doubt",
         "chatgpt interface",
@@ -1429,8 +1465,8 @@
       "maturity": "complete",
       "description": "Episode 1 of the Maai & AI series, on the different types of prompting.",
       "url": "/videos/episode-1-types-of-prompting",
-      "x": 0.493,
-      "y": 0.4558,
+      "x": 0.4034,
+      "y": 0.624,
       "keyphrases": [],
       "connections": 3
     },
@@ -1441,8 +1477,8 @@
       "maturity": "complete",
       "description": "Episode 2 of the Maai & AI series, exploring the different types of AI.",
       "url": "/videos/episode-2-types-of-ai",
-      "x": 0.4289,
-      "y": 0.5182,
+      "x": 0.4447,
+      "y": 0.643,
       "keyphrases": [],
       "connections": 0
     },
@@ -1453,8 +1489,8 @@
       "maturity": "complete",
       "description": "Episode 3 of the Maai & AI series, on how LLMs work and some of their risks.",
       "url": "/videos/episode-3-llms-how-they-work",
-      "x": 0.475,
-      "y": 0.5228,
+      "x": 0.3793,
+      "y": 0.6631,
       "keyphrases": [],
       "connections": 6
     },
@@ -1465,8 +1501,8 @@
       "maturity": "complete",
       "description": "New roles, skills and tools for content professionals in the age of generative AI.",
       "url": "/videos/generative-ai-new-roles-skills-tools",
-      "x": 0.4161,
-      "y": 0.7935,
+      "x": 0.5038,
+      "y": 0.6302,
       "keyphrases": [],
       "connections": 4
     },
@@ -1477,8 +1513,8 @@
       "maturity": "complete",
       "description": "An analysis of Chevrolet's GPT-based chatbot vulnerability and how the company successfully addressed the security issues through proper monitoring and design improvements. The initial vulnerability was not a sign of stupidity, but a necessary part of the testing process that all chatbots must undergo. The real measure of competence is not whether vulnerabilities exist, but how quickly and effectively they respond. I test the updated bot and demonstrate practical prompt engineering techniques for controlling chatbot behavior, including defensive prompting, topic maintenance, and firm responses to abuse. GPT-based solutions alone are not sufficient for high-risk transactions: a hybrid approach combining multiple design techniques is more effective.",
       "url": "/videos/kudos-to-chevrolet",
-      "x": 0.7312,
-      "y": 0.7908,
+      "x": 0.3836,
+      "y": 0.8703,
       "keyphrases": [],
       "connections": 2
     },
@@ -1489,8 +1525,8 @@
       "maturity": "complete",
       "description": "A rant about LinkedIn's AI buttons.",
       "url": "/videos/linkedin-ai-buttons-a-little-rant",
-      "x": 0.5313,
-      "y": 0.5143,
+      "x": 0.3708,
+      "y": 0.8006,
       "keyphrases": [],
       "connections": 1
     },
@@ -1501,8 +1537,8 @@
       "maturity": "complete",
       "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
       "url": "/videos/lunchbreak-with-claude-research-papers",
-      "x": 0.6229,
-      "y": 0.4578,
+      "x": 0.3112,
+      "y": 0.6864,
       "keyphrases": [],
       "connections": 3
     },
@@ -1513,8 +1549,8 @@
       "maturity": "complete",
       "description": "A comparative demonstration of how Claude, ChatGPT, and Gemini respond to a web app development request, showcasing Claude's superior capability to generate interactive prototypes and code. Claude outperforms ChatGPT and Gemini by directly generating interactive web app prototypes with a single prompt, rather than just providing plans or design suggestions. Claude creates functional React-based applications with visual mockups, progress bars, and interactive quiz elements in response to simple one-line prompts. The AI demonstrates impressive iterative capabilities, enhancing initial suggestions with more detailed content, interactive elements, and SVG graphics upon request. Claude seamlessly converts React components into static markdown files for alternative platforms, showing flexibility across different deployment methods. I am seriously considering switching from ChatGPT to Claude as my primary LLM due to Claude's superior practical implementation capabilities.",
       "url": "/videos/lunchbreak-with-claude",
-      "x": 0.6632,
-      "y": 0.4799,
+      "x": 0.2874,
+      "y": 0.7534,
       "keyphrases": [],
       "connections": 3
     },
@@ -1525,8 +1561,8 @@
       "maturity": "complete",
       "description": "An intro to the Natural Conversation Framework for modeling conversational agents.",
       "url": "/videos/modeling-conversational-agents-natural-conversation-framework",
-      "x": 0.3331,
-      "y": 0.8459,
+      "x": 0.463,
+      "y": 0.5718,
       "keyphrases": [],
       "connections": 0
     },
@@ -1537,8 +1573,8 @@
       "maturity": "solid",
       "description": "An update on my favorite AI-tools...a never ending overview",
       "url": "/videos/my-favorite-ai-tools-2025-edition",
-      "x": 0.5333,
-      "y": 0.4715,
+      "x": 0.5192,
+      "y": 0.6696,
       "keyphrases": [
         "ai tools",
         "2025 edition",
@@ -1555,8 +1591,8 @@
       "maturity": "complete",
       "description": "A demonstration of Google's NotebookLM interactive podcast feature, where I participate as a guest in an AI-generated podcast discussion about the Coconut research paper on latent reasoning in large language models. NotebookLM now features an interactive podcast mode (beta) that allows users to join AI-generated podcast discussions about uploaded documents. The Coconut paper introduces a breakthrough method where AI can reason in continuous latent space rather than through explicit chain-of-thought language, potentially improving reasoning for complex problems. I raise philosophical questions about verification of hidden reasoning, and critical concerns about transparency, compliance, and explainability. Latent reasoning creates a black box problem: we see inputs and outputs but cannot observe the reasoning process. I also test the feature's limits by requesting humor, making Monty Python references, and asking the hosts to switch to Dutch, revealing important insights about inclusivity, turn-taking, and accessibility in AI-generated conversations. Despite current limitations where AI hosts can become condescending or defensive, the feature represents a significant step toward more natural, bidirectional conversations with documents and AI systems.",
       "url": "/videos/notebooklm-podcast-guest",
-      "x": 0.6565,
-      "y": 0.6418,
+      "x": 0.3683,
+      "y": 0.7491,
       "keyphrases": [],
       "connections": 0
     },
@@ -1567,8 +1603,8 @@
       "maturity": "complete",
       "description": "A tutorial on three essential prompting techniques to make ChatGPT more conversational and natural. I demonstrate the problem with ChatGPT's default responses, which are too long, impersonal, and unengaging for conversational interfaces. The three tips: use OpenAI Playground instead of ChatGPT for better control over LLM behavior and access to system prompts, define a specific expert role in the system prompt rather than the generic helpful assistant since research shows expert roles result in higher quality answers, and prompt for specific behaviors like conciseness, staying on topic, and ending messages with questions to drive conversation forward. I use structured delimiters to organize prompt sections and demonstrate how each behavioral instruction refines the bot's personality and interaction style. The process is like chipping away at a block of marble: each prompt chips away at behavior, domain, interaction models, and persona until you get the conversational bot you want.",
       "url": "/videos/prompt-tutorials-for-conversation-designers",
-      "x": 0.728,
-      "y": 0.6438,
+      "x": 0.3819,
+      "y": 0.5465,
       "keyphrases": [],
       "connections": 8
     },
@@ -1579,8 +1615,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 1: intonatie.",
       "url": "/videos/quickstart-ssml-les-1-intonatie",
-      "x": 0.46,
-      "y": 0.237,
+      "x": 0.2561,
+      "y": 0.5613,
       "keyphrases": [],
       "connections": 4
     },
@@ -1591,8 +1627,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 2: de SSML-simulator.",
       "url": "/videos/quickstart-ssml-les-2-de-ssml-simulator",
-      "x": 0.3983,
-      "y": 0.3261,
+      "x": 0.2005,
+      "y": 0.6423,
       "keyphrases": [],
       "connections": 4
     },
@@ -1603,8 +1639,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 3: de basiselementen.",
       "url": "/videos/quickstart-ssml-les-3-ssml-de-basiselementen",
-      "x": 0.4453,
-      "y": 0.3227,
+      "x": 0.2488,
+      "y": 0.6673,
       "keyphrases": [],
       "connections": 4
     },
@@ -1615,8 +1651,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 4: SSML invoeren in Dialogflow.",
       "url": "/videos/quickstart-ssml-les-4-ssml-invoeren-in-dialogflow",
-      "x": 0.4875,
-      "y": 0.2853,
+      "x": 0.2825,
+      "y": 0.6004,
       "keyphrases": [],
       "connections": 4
     },
@@ -1627,8 +1663,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 5: moeilijke woorden.",
       "url": "/videos/quickstart-ssml-les-5-moeilijke-woorden",
-      "x": 0.4369,
-      "y": 0.278,
+      "x": 0.2431,
+      "y": 0.6225,
       "keyphrases": [],
       "connections": 4
     },
@@ -1639,8 +1675,8 @@
       "maturity": "complete",
       "description": "The strawberry problem, and how one model gets it right.",
       "url": "/videos/strawberries-and-how-one-model-gets-it-right",
-      "x": 0.3857,
-      "y": 0.539,
+      "x": 0.5653,
+      "y": 0.7115,
       "keyphrases": [],
       "connections": 0
     },
@@ -1651,8 +1687,8 @@
       "maturity": "complete",
       "description": "Building an interactive tutorial with Claude on a Sunday afternoon.",
       "url": "/videos/sunday-afternoon-with-claude-interactive-tutorial",
-      "x": 0.6124,
-      "y": 0.5025,
+      "x": 0.3275,
+      "y": 0.7288,
       "keyphrases": [],
       "connections": 3
     },
@@ -1663,8 +1699,8 @@
       "maturity": "complete",
       "description": "A technical exploration of DeepSeek's content moderation and reasoning capabilities through testing its responses to sensitive geopolitical questions about Taiwan's political status. I discover that prompting DeepSeek in Dutch triggers the model's reasoning mechanism, revealing internal moderation instructions. By using linguistic workarounds like misspellings that exploit tokenization differences, I expose DeepSeek's internal guidelines for handling Taiwan-related questions, which include instructions to balance factual information with political sensitivity while avoiding language implying support for independence. This demonstrates that censorship occurs at the application level rather than within the model itself, similar to how ChatGPT handles restricted content. The model's reasoning shows it is capable of nuanced discussion about sensitive geopolitical topics, but the application layer prevents users from accessing these capabilities. I plan follow-up testing via API access, which may operate under different moderation policies than the web application, to further investigate the technical architecture of AI content moderation.",
       "url": "/videos/taking-deepseek-for-a-testdrive",
-      "x": 0.6478,
-      "y": 0.5972,
+      "x": 0.46,
+      "y": 0.7281,
       "keyphrases": [],
       "connections": 0
     },
@@ -1675,8 +1711,44 @@
       "maturity": "complete",
       "description": "A presentation exploring my transition from technical writing to conversation design, discussing how communication professionals are evolving their roles in the digital landscape. I explain that conversation design goes beyond simple chatbot scripting or dialogue trees, involving understanding user needs, communication patterns, and designing interactions that feel natural and helpful. Technical writers are well-positioned for this transition because their core skills, clarity, user focus, and structured thinking, are exactly what conversation designers need. The shift is not about learning entirely new skills but about applying existing expertise in a new context, leveraging experience with documentation, user guides, and information architecture while expanding into dialogue design, tone and voice development, and interaction patterns. The future of technical communication is conversational, and the intersection of technical writing and conversation design represents how organizations will interact with their users in an increasingly digital world.",
       "url": "/videos/van-technisch-schrijver-naar-conversation-designer",
-      "x": 0.4678,
-      "y": 0.8516,
+      "x": 0.4203,
+      "y": 0.523,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "1q84",
+      "title": "1Q84",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/1q84",
+      "x": 0.4512,
+      "y": 0.8814,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "a-court-of-thorns-and-roses",
+      "title": "A Court of Thorns and Roses",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/a-court-of-thorns-and-roses",
+      "x": 0.4257,
+      "y": 0.943,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "a-room-of-ones-own",
+      "title": "A Room of One's Own",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/a-room-of-ones-own",
+      "x": 0.4296,
+      "y": 0.8927,
       "keyphrases": [],
       "connections": 0
     },
@@ -1687,8 +1759,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/alone-together",
-      "x": 0.5162,
-      "y": 0.6411,
+      "x": 0.7665,
+      "y": 0.2735,
       "keyphrases": [
         "online intimacies",
         "illusion of companionship",
@@ -1705,8 +1777,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/ambiguity-in-natural-language",
-      "x": 0.1229,
-      "y": 0.8772,
+      "x": 0.6047,
+      "y": 0.0403,
       "keyphrases": [],
       "connections": 1
     },
@@ -1717,8 +1789,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/artificial-intelligence-a-guide-for-thinking-humans",
-      "x": 0.3977,
-      "y": 0.5773,
+      "x": 0.7933,
+      "y": 0.2538,
       "keyphrases": [
         "artificial intelligence",
         "turbulent history",
@@ -1729,14 +1801,38 @@
       "connections": 0
     },
     {
+      "slug": "bacteria-to-ai",
+      "title": "Bacteria to AI",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/bacteria-to-ai",
+      "x": 0.8325,
+      "y": 0.2705,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "battlefield-yorkshire",
+      "title": "Battlefield Yorkshire",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/battlefield-yorkshire",
+      "x": 0.3151,
+      "y": 0.9539,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "because-internet",
       "title": "Because Internet",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/because-internet",
-      "x": 0.5729,
-      "y": 0.7047,
+      "x": 0.629,
+      "y": 0.1226,
       "keyphrases": [
         "internet language change",
         "online interactions reveal",
@@ -1753,10 +1849,22 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/building-for-everyone",
-      "x": 0.0811,
-      "y": 0.5111,
+      "x": 0.9216,
+      "y": 0.0556,
       "keyphrases": [],
       "connections": 2
+    },
+    {
+      "slug": "carries-war",
+      "title": "Carrie's War",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/carries-war",
+      "x": 0.3025,
+      "y": 0.9326,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "chatbot-marketing-mastery",
@@ -1765,8 +1873,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/chatbot-marketing-mastery",
-      "x": 0.2223,
-      "y": 0.8153,
+      "x": 0.525,
+      "y": 0.2069,
       "keyphrases": [],
       "connections": 0
     },
@@ -1777,8 +1885,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/classical-rhetoric-for-the-modern-student",
-      "x": 0.0823,
-      "y": 0.7381,
+      "x": 0.6703,
+      "y": 0.0757,
       "keyphrases": [
         "argument, arrangement, style",
         "classical rhetoric",
@@ -1795,8 +1903,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/consciousness-and-robot-sentience",
-      "x": 0.3077,
-      "y": 0.6702,
+      "x": 0.7041,
+      "y": 0.271,
       "keyphrases": [],
       "connections": 6
     },
@@ -1807,8 +1915,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/content-strategy-at-work",
-      "x": 0.0739,
-      "y": 0.6367,
+      "x": 0.77,
+      "y": 0.1367,
       "keyphrases": [],
       "connections": 0
     },
@@ -1819,8 +1927,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/conversational-ai",
-      "x": 0.2425,
-      "y": 0.7926,
+      "x": 0.6482,
+      "y": 0.2079,
       "keyphrases": [],
       "connections": 0
     },
@@ -1831,8 +1939,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/conversational-ux-design",
-      "x": 0.2689,
-      "y": 0.8098,
+      "x": 0.6265,
+      "y": 0.1529,
       "keyphrases": [],
       "connections": 5
     },
@@ -1843,10 +1951,34 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/conversations-with-things",
-      "x": 0.2416,
-      "y": 0.757,
+      "x": 0.6194,
+      "y": 0.1858,
       "keyphrases": [],
       "connections": 5
+    },
+    {
+      "slug": "dallergut-dream-department",
+      "title": "DallerGut Dream Department",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/dallergut-dream-department",
+      "x": 0.4723,
+      "y": 0.8087,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "de-eilanden-van-goed-en-kwaad",
+      "title": "De eilanden van goed en kwaad",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/de-eilanden-van-goed-en-kwaad",
+      "x": 0.4236,
+      "y": 0.9152,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "definitive-guide-conversational-ai-dialogflow",
@@ -1855,8 +1987,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/definitive-guide-conversational-ai-dialogflow",
-      "x": 0.1966,
-      "y": 0.8531,
+      "x": 0.5917,
+      "y": 0.1772,
       "keyphrases": [],
       "connections": 1
     },
@@ -1867,8 +1999,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/designing-across-senses",
-      "x": 0.0504,
-      "y": 0.5572,
+      "x": 0.8809,
+      "y": 0.0647,
       "keyphrases": [],
       "connections": 2
     },
@@ -1879,8 +2011,20 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/designing-connected-content",
-      "x": 0.045,
-      "y": 0.5957,
+      "x": 0.7776,
+      "y": 0.1135,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "designing-the-mind",
+      "title": "Designing the Mind",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/designing-the-mind",
+      "x": 0.4314,
+      "y": 0.7483,
       "keyphrases": [],
       "connections": 0
     },
@@ -1891,8 +2035,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/designing-voice-user-interfaces",
-      "x": 0.1511,
-      "y": 0.7261,
+      "x": 0.5197,
+      "y": 0.1191,
       "keyphrases": [],
       "connections": 1
     },
@@ -1903,8 +2047,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/developing-enterprise-chatbots",
-      "x": 0.2179,
-      "y": 0.8653,
+      "x": 0.5044,
+      "y": 0.1976,
       "keyphrases": [],
       "connections": 2
     },
@@ -1915,8 +2059,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/discourse-consciousness-and-time",
-      "x": 0.1355,
-      "y": 0.7707,
+      "x": 0.6533,
+      "y": 0.1204,
       "keyphrases": [],
       "connections": 0
     },
@@ -1927,8 +2071,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/e-learning-and-the-science-of-instruction",
-      "x": 0.1395,
-      "y": 0.5935,
+      "x": 0.7915,
+      "y": 0.0923,
       "keyphrases": [
         "multimedia learning",
         "design principles",
@@ -1939,14 +2083,26 @@
       "connections": 0
     },
     {
+      "slug": "earth-emotions",
+      "title": "Earth Emotions",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/earth-emotions",
+      "x": 0.8651,
+      "y": 0.2049,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "entitled",
       "title": "Entitled",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/entitled",
-      "x": 0.1598,
-      "y": 0.6488,
+      "x": 0.8177,
+      "y": 0.1927,
       "keyphrases": [],
       "connections": 1
     },
@@ -1957,8 +2113,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/gamestorming",
-      "x": 0.1798,
-      "y": 0.5586,
+      "x": 0.8249,
+      "y": 0.0605,
       "keyphrases": [
         "break down barriers",
         "communicate better",
@@ -1969,14 +2125,26 @@
       "connections": 0
     },
     {
+      "slug": "going-postal",
+      "title": "Going Postal",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/going-postal",
+      "x": 0.3292,
+      "y": 0.8118,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "hello-world",
       "title": "Hello world",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/hello-world",
-      "x": 0.3434,
-      "y": 0.564,
+      "x": 0.7743,
+      "y": 0.2406,
       "keyphrases": [
         "algorithms surround us",
         "human bias code",
@@ -1987,14 +2155,50 @@
       "connections": 0
     },
     {
+      "slug": "het-lied-van-ooievaar-en-dromedaris",
+      "title": "Het lied van ooievaar en dromedaris",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/het-lied-van-ooievaar-en-dromedaris",
+      "x": 0.4055,
+      "y": 0.9292,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "hey-cyba",
       "title": "Hey Cyba: The inner workings of a virtual personal assistant",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/hey-cyba",
-      "x": 0.2098,
-      "y": 0.773,
+      "x": 0.5098,
+      "y": 0.1737,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "hoe-duur-was-de-suiker",
+      "title": "Hoe duur was de suiker",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hoe-duur-was-de-suiker",
+      "x": 0.3342,
+      "y": 0.8579,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "hostage-at-the-table",
+      "title": "Hostage at the Table",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hostage-at-the-table",
+      "x": 0.2462,
+      "y": 0.915,
       "keyphrases": [],
       "connections": 0
     },
@@ -2005,8 +2209,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/how-people-learn",
-      "x": 0.0938,
-      "y": 0.6224,
+      "x": 0.8756,
+      "y": 0.1235,
       "keyphrases": [],
       "connections": 0
     },
@@ -2017,8 +2221,20 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/how-to-talk-to-robots",
-      "x": 0.2632,
-      "y": 0.7492,
+      "x": 0.5829,
+      "y": 0.2134,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "how-we-became-posthuman",
+      "title": "How We Became Posthuman",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/how-we-became-posthuman",
+      "x": 0.3414,
+      "y": 0.8316,
       "keyphrases": [],
       "connections": 0
     },
@@ -2029,8 +2245,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/human-factors-and-voice-interaction-systems",
-      "x": 0.1731,
-      "y": 0.7781,
+      "x": 0.4709,
+      "y": 0.1528,
       "keyphrases": [],
       "connections": 2
     },
@@ -2041,8 +2257,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/i-robot",
-      "x": 0.2955,
-      "y": 0.6913,
+      "x": 0.6799,
+      "y": 0.2766,
       "keyphrases": [],
       "connections": 2
     },
@@ -2053,8 +2269,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/id-blush-if-i-could",
-      "x": 0.2237,
-      "y": 0.6573,
+      "x": 0.8115,
+      "y": 0.2374,
       "keyphrases": [],
       "connections": 1
     },
@@ -2065,10 +2281,22 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/inclusive-design-for-a-digital-world",
-      "x": 0.087,
-      "y": 0.5469,
+      "x": 0.9029,
+      "y": 0.0715,
       "keyphrases": [],
       "connections": 2
+    },
+    {
+      "slug": "inferno",
+      "title": "Inferno",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/inferno",
+      "x": 0.2691,
+      "y": 0.9156,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "instructional-story-design",
@@ -2077,8 +2305,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/instructional-story-design",
-      "x": 0.0605,
-      "y": 0.5786,
+      "x": 0.8049,
+      "y": 0.0713,
       "keyphrases": [],
       "connections": 2
     },
@@ -2089,8 +2317,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/invisible-women",
-      "x": 0.2757,
-      "y": 0.515,
+      "x": 0.8457,
+      "y": 0.1899,
       "keyphrases": [
         "gender bias in data",
         "invisible women",
@@ -2107,10 +2335,34 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/its-better-to-be-a-good-machine",
-      "x": 0.3336,
-      "y": 0.6232,
+      "x": 0.7198,
+      "y": 0.3026,
       "keyphrases": [],
       "connections": 6
+    },
+    {
+      "slug": "kies-toch-niet-steeds-de-kant-van-de-macht",
+      "title": "Kies toch niet steeds de kant van de macht",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/kies-toch-niet-steeds-de-kant-van-de-macht",
+      "x": 0.3018,
+      "y": 0.8562,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "krekel",
+      "title": "Krekel",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/krekel",
+      "x": 0.3876,
+      "y": 0.9058,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "language-acquisition",
@@ -2119,8 +2371,20 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/language-acquisition",
-      "x": 0.0881,
-      "y": 0.7958,
+      "x": 0.649,
+      "y": 0.0637,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "last-and-first-men",
+      "title": "Last and First Men",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/last-and-first-men",
+      "x": 0.3647,
+      "y": 0.9061,
       "keyphrases": [],
       "connections": 0
     },
@@ -2131,8 +2395,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/machines-like-me",
-      "x": 0.3615,
-      "y": 0.629,
+      "x": 0.7526,
+      "y": 0.2934,
       "keyphrases": [
         "alternative history timeline",
         "lost falklands war",
@@ -2149,10 +2413,22 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/microcopy",
-      "x": 0.1078,
-      "y": 0.5574,
+      "x": 0.8943,
+      "y": 0.1076,
       "keyphrases": [],
       "connections": 2
+    },
+    {
+      "slug": "min-of-meer-opmerkelijke-gebeurtenissen",
+      "title": "Min of meer opmerkelijke gebeurtenissen...",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/min-of-meer-opmerkelijke-gebeurtenissen",
+      "x": 0.8323,
+      "y": 0.1707,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "my-robot-gets-me",
@@ -2161,8 +2437,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/my-robot-gets-me",
-      "x": 0.3328,
-      "y": 0.7797,
+      "x": 0.6054,
+      "y": 0.2037,
       "keyphrases": [],
       "connections": 5
     },
@@ -2173,8 +2449,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/natural-language-processing-with-python",
-      "x": 0.1638,
-      "y": 0.9026,
+      "x": 0.6135,
+      "y": 0.0626,
       "keyphrases": [
         "natural language processing",
         "python programs",
@@ -2191,10 +2467,22 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/nlp-with-python-and-spacy",
-      "x": 0.1451,
-      "y": 0.8868,
+      "x": 0.5808,
+      "y": 0.0567,
       "keyphrases": [],
       "connections": 1
+    },
+    {
+      "slug": "nouveau-fuck",
+      "title": "Nouveau Fuck",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/nouveau-fuck",
+      "x": 0.2868,
+      "y": 0.8843,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "online-invloed",
@@ -2203,8 +2491,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/online-invloed",
-      "x": 0.0644,
-      "y": 0.5374,
+      "x": 0.8492,
+      "y": 0.0633,
       "keyphrases": [],
       "connections": 0
     },
@@ -2215,10 +2503,22 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/organising-knowledge",
-      "x": 0.0596,
-      "y": 0.6849,
+      "x": 0.7729,
+      "y": 0.16,
       "keyphrases": [],
       "connections": 1
+    },
+    {
+      "slug": "reasons-to-stay-alive",
+      "title": "Reasons to Stay Alive",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/reasons-to-stay-alive",
+      "x": 0.3844,
+      "y": 0.8325,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "rebooting-ai",
@@ -2227,8 +2527,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/rebooting-ai",
-      "x": 0.2593,
-      "y": 0.727,
+      "x": 0.7424,
+      "y": 0.2579,
       "keyphrases": [],
       "connections": 0
     },
@@ -2239,8 +2539,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/robots-zombies-and-us",
-      "x": 0.3201,
-      "y": 0.6474,
+      "x": 0.7314,
+      "y": 0.2811,
       "keyphrases": [
         "robots, zombies",
         "genuine intelligence",
@@ -2251,14 +2551,26 @@
       "connections": 6
     },
     {
+      "slug": "semiotics-the-basics",
+      "title": "Semiotics: The Basics",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/semiotics-the-basics",
+      "x": 0.4633,
+      "y": 0.787,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "sequence-organization-in-interaction",
       "title": "Sequence Organization in Interaction",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/sequence-organization-in-interaction",
-      "x": 0.2906,
-      "y": 0.821,
+      "x": 0.6036,
+      "y": 0.144,
       "keyphrases": [
         "sequence organization",
         "turn-at-talk ordering",
@@ -2269,14 +2581,26 @@
       "connections": 1
     },
     {
+      "slug": "shaking-hands-with-death",
+      "title": "Shaking Hands With Death",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/shaking-hands-with-death",
+      "x": 0.2923,
+      "y": 0.9082,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "slant",
       "title": "Slant",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/slant",
-      "x": 0.36,
-      "y": 0.6045,
+      "x": 0.3629,
+      "y": 0.8425,
       "keyphrases": [
         "nanotechnology advancements",
         "human body transformation",
@@ -2293,8 +2617,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/speech-and-language-processing",
-      "x": 0.1375,
-      "y": 0.8575,
+      "x": 0.5943,
+      "y": 0.0771,
       "keyphrases": [
         "speech and language",
         "natural language processing",
@@ -2311,8 +2635,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/strategic-writing-for-ux",
-      "x": 0.0843,
-      "y": 0.5926,
+      "x": 0.7596,
+      "y": 0.0937,
       "keyphrases": [],
       "connections": 2
     },
@@ -2323,8 +2647,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/studies-in-conversational-ux-design",
-      "x": 0.2893,
-      "y": 0.8441,
+      "x": 0.5491,
+      "y": 0.1535,
       "keyphrases": [],
       "connections": 5
     },
@@ -2335,8 +2659,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/talk",
-      "x": 0.2224,
-      "y": 0.7418,
+      "x": 0.6511,
+      "y": 0.1774,
       "keyphrases": [],
       "connections": 0
     },
@@ -2347,8 +2671,20 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/tech-skills-for-conversation-designers",
-      "x": 0.3701,
-      "y": 0.8281,
+      "x": 0.5399,
+      "y": 0.1813,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "terry-pratchett-biography",
+      "title": "Terry Pratchett (biography)",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/terry-pratchett-biography",
+      "x": 0.4604,
+      "y": 0.8301,
       "keyphrases": [],
       "connections": 0
     },
@@ -2359,10 +2695,70 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/the-accidental-taxonomist",
-      "x": 0.0825,
-      "y": 0.6657,
+      "x": 0.7968,
+      "y": 0.1542,
       "keyphrases": [],
       "connections": 1
+    },
+    {
+      "slug": "the-art-of-co-design",
+      "title": "The Art of Co-design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-art-of-co-design",
+      "x": 0.8156,
+      "y": 0.0968,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-big-con",
+      "title": "The Big Con",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-big-con",
+      "x": 0.7078,
+      "y": 0.1905,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-bowery-boys",
+      "title": "The Bowery Boys",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-bowery-boys",
+      "x": 0.3308,
+      "y": 0.9362,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "the-bowery",
+      "title": "The Bowery",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-bowery",
+      "x": 0.3548,
+      "y": 0.9312,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "the-complete-robot",
+      "title": "The Complete Robot",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-complete-robot",
+      "x": 0.6846,
+      "y": 0.2511,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "the-design-of-everyday-things",
@@ -2371,8 +2767,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/the-design-of-everyday-things",
-      "x": 0.2031,
-      "y": 0.5635,
+      "x": 0.8718,
+      "y": 0.0854,
       "keyphrases": [
         "communication between object",
         "usability engineer",
@@ -2389,8 +2785,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/the-inner-game-of-tennis",
-      "x": 0.1138,
-      "y": 0.6489,
+      "x": 0.89,
+      "y": 0.1612,
       "keyphrases": [
         "mental attitudes",
         "tennis performance",
@@ -2401,14 +2797,26 @@
       "connections": 0
     },
     {
+      "slug": "the-invention-of-wings",
+      "title": "The Invention of Wings",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-invention-of-wings",
+      "x": 0.4163,
+      "y": 0.8604,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "the-sense-of-style",
       "title": "The sense of style",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/the-sense-of-style",
-      "x": 0.0655,
-      "y": 0.7613,
+      "x": 0.7286,
+      "y": 0.0749,
       "keyphrases": [
         "sense of style",
         "writing english",
@@ -2419,16 +2827,40 @@
       "connections": 1
     },
     {
+      "slug": "the-shepherds-crown",
+      "title": "The Shepherd's Crown",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-shepherds-crown",
+      "x": 0.3782,
+      "y": 0.9287,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "the-smart-wife",
       "title": "The Smart wife",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/the-smart-wife",
-      "x": 0.2472,
-      "y": 0.6579,
+      "x": 0.8334,
+      "y": 0.2472,
       "keyphrases": [],
       "connections": 1
+    },
+    {
+      "slug": "the-witchs-vacuum-cleaner",
+      "title": "The Witch's Vacuum Cleaner",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-witchs-vacuum-cleaner",
+      "x": 0.31,
+      "y": 0.89,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "thinking-fast-and-slow",
@@ -2437,8 +2869,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/thinking-fast-and-slow",
-      "x": 0.2506,
-      "y": 0.5444,
+      "x": 0.8539,
+      "y": 0.1318,
       "keyphrases": [
         "two systems thinking",
         "intuition cognitive biases",
@@ -2449,14 +2881,38 @@
       "connections": 0
     },
     {
+      "slug": "typography-beyond-borders",
+      "title": "Typography Beyond Borders",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/typography-beyond-borders",
+      "x": 0.4169,
+      "y": 0.8058,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "unthought",
+      "title": "Unthought",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/unthought",
+      "x": 0.2876,
+      "y": 0.8363,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "voice-content-and-usability",
       "title": "Voice content and usability",
       "collection": "library",
       "maturity": "draft",
       "description": "",
       "url": "/library/voice-content-and-usability",
-      "x": 0.1554,
-      "y": 0.7553,
+      "x": 0.4955,
+      "y": 0.1157,
       "keyphrases": [],
       "connections": 2
     },
@@ -2467,8 +2923,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/voice-user-interface-design",
-      "x": 0.1839,
-      "y": 0.7573,
+      "x": 0.4773,
+      "y": 0.1306,
       "keyphrases": [],
       "connections": 5
     },
@@ -2479,10 +2935,34 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/voicebot-and-chatbot-design",
-      "x": 0.2468,
-      "y": 0.8162,
+      "x": 0.4688,
+      "y": 0.1815,
       "keyphrases": [],
       "connections": 6
+    },
+    {
+      "slug": "wat-is-je-overkomen",
+      "title": "Wat is je overkomen?",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/wat-is-je-overkomen",
+      "x": 0.3172,
+      "y": 0.8394,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "witte-onschuld",
+      "title": "Witte onschuld",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/witte-onschuld",
+      "x": 0.2705,
+      "y": 0.8673,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "you-look-like-a-thing-and-i-love-you",
@@ -2491,8 +2971,56 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/you-look-like-a-thing-and-i-love-you",
-      "x": 0.2577,
-      "y": 0.6358,
+      "x": 0.8088,
+      "y": 0.2727,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-library-audit",
+      "title": "Book recommender: library audit",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.",
+      "url": "/experiments/book-recommender-library-audit",
+      "x": 0.9481,
+      "y": 0.4952,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-library-integration",
+      "title": "Book recommender: library integration",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.",
+      "url": "/experiments/book-recommender-library-integration",
+      "x": 0.9405,
+      "y": 0.5412,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "book-recommender-scoring-algorithm",
+      "title": "Book recommender: scoring algorithm",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.",
+      "url": "/experiments/book-recommender-scoring-algorithm",
+      "x": 0.9166,
+      "y": 0.5209,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-user-research",
+      "title": "Book recommender: user research",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.",
+      "url": "/experiments/book-recommender-user-research",
+      "x": 0.9391,
+      "y": 0.5168,
       "keyphrases": [],
       "connections": 0
     },
@@ -2503,8 +3031,8 @@
       "maturity": "draft",
       "description": "Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.",
       "url": "/experiments/key-phrase-extraction-prototype",
-      "x": 0.9184,
-      "y": 0.0379,
+      "x": 0.524,
+      "y": 0.7298,
       "keyphrases": [
         "garden items",
         "key phrases",
@@ -2521,8 +3049,8 @@
       "maturity": "developing",
       "description": "How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.",
       "url": "/experiments/setting-up-local-embedding-models",
-      "x": 0.9005,
-      "y": 0.0597,
+      "x": 0.5279,
+      "y": 0.7031,
       "keyphrases": [
         "local embedding models",
         "ollama",
@@ -2531,572 +3059,68 @@
         "json response"
       ],
       "connections": 12
-    },
-    {
-      "slug": "book-recommender",
-      "title": "Book recommender",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
-      "url": "/field-notes/book-recommender",
-      "x": 0.274,
-      "y": 0.2912,
-      "keyphrases": [],
-      "connections": 3
-    },
-    {
-      "slug": "testing-strategy",
-      "title": "A test strategy for the garden",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "Three layers of automated testing: content validation, build verification, and Playwright E2E. Why each layer exists and what it catches.",
-      "url": "/field-notes/testing-strategy",
-      "x": 0.7935,
-      "y": 0.6934,
-      "keyphrases": [],
-      "connections": 5
-    },
-    {
-      "slug": "typed-relations-as-garden-infrastructure",
-      "title": "Typed relations as garden infrastructure",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden.",
-      "url": "/field-notes/typed-relations-as-garden-infrastructure",
-      "x": 0.4647,
-      "y": 0.6783,
-      "keyphrases": [],
-      "connections": 9
-    },
-    {
-      "slug": "1q84",
-      "title": "1Q84",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/1q84",
-      "x": 0.3985,
-      "y": 0.2885,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "a-court-of-thorns-and-roses",
-      "title": "A Court of Thorns and Roses",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/a-court-of-thorns-and-roses",
-      "x": 0.5431,
-      "y": 0.4133,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "a-room-of-ones-own",
-      "title": "A Room of One's Own",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/a-room-of-ones-own",
-      "x": 0.5428,
-      "y": 0.3386,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "bacteria-to-ai",
-      "title": "Bacteria to AI",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/bacteria-to-ai",
-      "x": 0.2676,
-      "y": 0.193,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "battlefield-yorkshire",
-      "title": "Battlefield Yorkshire",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/battlefield-yorkshire",
-      "x": 0.6543,
-      "y": 0.1249,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "carries-war",
-      "title": "Carrie's War",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/carries-war",
-      "x": 0.6958,
-      "y": 0.8433,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "dallergut-dream-department",
-      "title": "DallerGut Dream Department",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/dallergut-dream-department",
-      "x": 0.2151,
-      "y": 0.2191,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "de-eilanden-van-goed-en-kwaad",
-      "title": "De eilanden van goed en kwaad",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/de-eilanden-van-goed-en-kwaad",
-      "x": 0.6267,
-      "y": 0.4222,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "designing-the-mind",
-      "title": "Designing the Mind",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/designing-the-mind",
-      "x": 0.446,
-      "y": 0.8778,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "earth-emotions",
-      "title": "Earth Emotions",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/earth-emotions",
-      "x": 0.4801,
-      "y": 0.3583,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "going-postal",
-      "title": "Going Postal",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/going-postal",
-      "x": 0.3605,
-      "y": 0.8798,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "het-lied-van-ooievaar-en-dromedaris",
-      "title": "Het lied van ooievaar en dromedaris",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/het-lied-van-ooievaar-en-dromedaris",
-      "x": 0.257,
-      "y": 0.3277,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "hoe-duur-was-de-suiker",
-      "title": "Hoe duur was de suiker",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/hoe-duur-was-de-suiker",
-      "x": 0.173,
-      "y": 0.5821,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "hostage-at-the-table",
-      "title": "Hostage at the Table",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/hostage-at-the-table",
-      "x": 0.855,
-      "y": 0.2704,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "how-we-became-posthuman",
-      "title": "How We Became Posthuman",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/how-we-became-posthuman",
-      "x": 0.1512,
-      "y": 0.7891,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "inferno",
-      "title": "Inferno",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/inferno",
-      "x": 0.2245,
-      "y": 0.6028,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "kies-toch-niet-steeds-de-kant-van-de-macht",
-      "title": "Kies toch niet steeds de kant van de macht",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/kies-toch-niet-steeds-de-kant-van-de-macht",
-      "x": 0.3417,
-      "y": 0.1767,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "krekel",
-      "title": "Krekel",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/krekel",
-      "x": 0.7681,
-      "y": 0.714,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "last-and-first-men",
-      "title": "Last and First Men",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/last-and-first-men",
-      "x": 0.4548,
-      "y": 0.7071,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "min-of-meer-opmerkelijke-gebeurtenissen",
-      "title": "Min of meer opmerkelijke gebeurtenissen...",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/min-of-meer-opmerkelijke-gebeurtenissen",
-      "x": 0.5786,
-      "y": 0.5667,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "nouveau-fuck",
-      "title": "Nouveau Fuck",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/nouveau-fuck",
-      "x": 0.6816,
-      "y": 0.1816,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "reasons-to-stay-alive",
-      "title": "Reasons to Stay Alive",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/reasons-to-stay-alive",
-      "x": 0.2007,
-      "y": 0.809,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "semiotics-the-basics",
-      "title": "Semiotics: The Basics",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/semiotics-the-basics",
-      "x": 0.1523,
-      "y": 0.6801,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "shaking-hands-with-death",
-      "title": "Shaking Hands With Death",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/shaking-hands-with-death",
-      "x": 0.4143,
-      "y": 0.4535,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "terry-pratchett-biography",
-      "title": "Terry Pratchett (biography)",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/terry-pratchett-biography",
-      "x": 0.8164,
-      "y": 0.8158,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-art-of-co-design",
-      "title": "The Art of Co-design",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-art-of-co-design",
-      "x": 0.5982,
-      "y": 0.4276,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-big-con",
-      "title": "The Big Con",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-big-con",
-      "x": 0.3073,
-      "y": 0.6001,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-bowery-boys",
-      "title": "The Bowery Boys",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-bowery-boys",
-      "x": 0.7603,
-      "y": 0.5459,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "the-bowery",
-      "title": "The Bowery",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-bowery",
-      "x": 0.4753,
-      "y": 0.5586,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "the-complete-robot",
-      "title": "The Complete Robot",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-complete-robot",
-      "x": 0.3265,
-      "y": 0.4552,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-invention-of-wings",
-      "title": "The Invention of Wings",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-invention-of-wings",
-      "x": 0.8291,
-      "y": 0.8642,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-shepherds-crown",
-      "title": "The Shepherd's Crown",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-shepherds-crown",
-      "x": 0.6207,
-      "y": 0.7661,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-witchs-vacuum-cleaner",
-      "title": "The Witch's Vacuum Cleaner",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-witchs-vacuum-cleaner",
-      "x": 0.7628,
-      "y": 0.645,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "typography-beyond-borders",
-      "title": "Typography Beyond Borders",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/typography-beyond-borders",
-      "x": 0.8603,
-      "y": 0.6743,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "unthought",
-      "title": "Unthought",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/unthought",
-      "x": 0.5671,
-      "y": 0.5904,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "wat-is-je-overkomen",
-      "title": "Wat is je overkomen?",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/wat-is-je-overkomen",
-      "x": 0.4583,
-      "y": 0.4558,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "witte-onschuld",
-      "title": "Witte onschuld",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/witte-onschuld",
-      "x": 0.7364,
-      "y": 0.6028,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "book-recommender-library-audit",
-      "title": "Book recommender: library audit",
-      "collection": "experiments",
-      "maturity": "draft",
-      "description": "Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.",
-      "url": "/experiments/book-recommender-library-audit",
-      "x": 0.7221,
-      "y": 0.7418,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "book-recommender-library-integration",
-      "title": "Book recommender: library integration",
-      "collection": "experiments",
-      "maturity": "draft",
-      "description": "Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.",
-      "url": "/experiments/book-recommender-library-integration",
-      "x": 0.5552,
-      "y": 0.5682,
-      "keyphrases": [],
-      "connections": 3
-    },
-    {
-      "slug": "book-recommender-scoring-algorithm",
-      "title": "Book recommender: scoring algorithm",
-      "collection": "experiments",
-      "maturity": "draft",
-      "description": "Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.",
-      "url": "/experiments/book-recommender-scoring-algorithm",
-      "x": 0.2718,
-      "y": 0.7858,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "book-recommender-user-research",
-      "title": "Book recommender: user research",
-      "collection": "experiments",
-      "maturity": "draft",
-      "description": "Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.",
-      "url": "/experiments/book-recommender-user-research",
-      "x": 0.3291,
-      "y": 0.1241,
-      "keyphrases": [],
-      "connections": 0
     }
   ],
   "territories": [
     {
-      "label": "conversation-design",
-      "centerX": 0.5134,
-      "centerY": 0.8401,
-      "itemCount": 31
-    },
-    {
-      "label": "voice-design",
-      "centerX": 0.384,
-      "centerY": 0.3058,
-      "itemCount": 18
-    },
-    {
-      "label": "design",
-      "centerX": 0.1879,
-      "centerY": 0.6941,
-      "itemCount": 64
-    },
-    {
-      "label": "digital-gardens",
-      "centerX": 0.8201,
-      "centerY": 0.1426,
-      "itemCount": 28
+      "label": "conversational-ai",
+      "centerX": 0.5772,
+      "centerY": 0.1737,
+      "itemCount": 34
     },
     {
       "label": "ai",
-      "centerX": 0.561,
-      "centerY": 0.5311,
-      "itemCount": 31
+      "centerX": 0.5065,
+      "centerY": 0.7482,
+      "itemCount": 19
+    },
+    {
+      "label": "design",
+      "centerX": 0.8089,
+      "centerY": 0.1686,
+      "itemCount": 36
+    },
+    {
+      "label": "digital-gardens",
+      "centerX": 0.736,
+      "centerY": 0.7052,
+      "itemCount": 9
+    },
+    {
+      "label": "garden-building",
+      "centerX": 0.9223,
+      "centerY": 0.5943,
+      "itemCount": 13
+    },
+    {
+      "label": "conversation-design",
+      "centerX": 0.3209,
+      "centerY": 0.2812,
+      "itemCount": 27
+    },
+    {
+      "label": "reading",
+      "centerX": 0.345,
+      "centerY": 0.872,
+      "itemCount": 34
+    },
+    {
+      "label": "content-design",
+      "centerX": 0.4292,
+      "centerY": 0.6013,
+      "itemCount": 12
+    },
+    {
+      "label": "voice-design",
+      "centerX": 0.2696,
+      "centerY": 0.6578,
+      "itemCount": 8
     },
     {
       "label": "prompt-design",
-      "centerX": 0.7434,
-      "centerY": 0.6972,
-      "itemCount": 37
+      "centerX": 0.1293,
+      "centerY": 0.289,
+      "itemCount": 17
     }
   ],
   "topography": {
@@ -3107,362 +3131,444 @@
           [
             [
               0,
-              0.447
+              0.192
             ],
             [
-              0.032,
-              0.427
-            ],
-            [
-              0.053,
-              0.419
-            ],
-            [
-              0.065,
-              0.414
-            ],
-            [
-              0.097,
-              0.403
-            ],
-            [
-              0.129,
-              0.394
-            ],
-            [
-              0.15,
-              0.387
-            ],
-            [
-              0.161,
-              0.381
-            ],
-            [
-              0.194,
-              0.358
-            ],
-            [
-              0.197,
-              0.355
-            ],
-            [
-              0.209,
-              0.323
-            ],
-            [
-              0.213,
-              0.29
-            ],
-            [
-              0.215,
-              0.258
-            ],
-            [
-              0.22,
-              0.226
-            ],
-            [
-              0.226,
-              0.211
-            ],
-            [
-              0.234,
-              0.194
-            ],
-            [
-              0.258,
-              0.165
-            ],
-            [
-              0.262,
+              0.03,
               0.161
             ],
             [
-              0.29,
-              0.145
+              0.032,
+              0.16
             ],
             [
-              0.323,
-              0.137
+              0.065,
+              0.135
             ],
             [
-              0.355,
-              0.136
-            ],
-            [
-              0.387,
-              0.14
-            ],
-            [
-              0.419,
-              0.146
-            ],
-            [
-              0.452,
-              0.152
-            ],
-            [
-              0.484,
-              0.155
-            ],
-            [
-              0.516,
-              0.153
-            ],
-            [
-              0.548,
-              0.139
-            ],
-            [
-              0.56,
+              0.075,
               0.129
             ],
             [
-              0.581,
-              0.111
+              0.097,
+              0.116
             ],
             [
-              0.593,
+              0.129,
+              0.1
+            ],
+            [
+              0.136,
               0.097
             ],
             [
-              0.613,
-              0.079
+              0.161,
+              0.085
             ],
             [
-              0.628,
+              0.194,
+              0.073
+            ],
+            [
+              0.219,
               0.065
             ],
             [
-              0.645,
-              0.05
+              0.226,
+              0.062
             ],
             [
-              0.671,
+              0.258,
+              0.051
+            ],
+            [
+              0.29,
+              0.041
+            ],
+            [
+              0.319,
               0.032
             ],
             [
-              0.677,
-              0.028
+              0.323,
+              0.031
             ],
             [
-              0.71,
-              0.008
+              0.355,
+              0.019
             ],
             [
-              0.726,
+              0.387,
+              0.007
+            ],
+            [
+              0.407,
               0
             ]
           ],
           [
             [
+              0.979,
+              0
+            ],
+            [
               1,
-              0.224
+              0.032
+            ],
+            [
+              1,
+              0.033
+            ]
+          ],
+          [
+            [
+              1,
+              0.22
             ],
             [
               0.998,
               0.226
             ],
             [
-              0.968,
-              0.254
-            ],
-            [
-              0.963,
+              0.986,
               0.258
             ],
             [
-              0.935,
-              0.279
-            ],
-            [
-              0.919,
+              0.969,
               0.29
             ],
             [
-              0.903,
-              0.302
+              0.968,
+              0.293
             ],
             [
-              0.874,
+              0.953,
               0.323
             ],
             [
-              0.871,
-              0.326
-            ],
-            [
-              0.841,
+              0.935,
               0.355
             ],
             [
-              0.839,
-              0.365
+              0.935,
+              0.355
             ],
             [
-              0.834,
+              0.923,
               0.387
             ],
             [
-              0.839,
-              0.4
-            ],
-            [
-              0.845,
+              0.934,
               0.419
             ],
             [
-              0.866,
+              0.935,
+              0.42
+            ],
+            [
+              0.968,
+              0.443
+            ],
+            [
+              0.977,
               0.452
             ],
             [
-              0.871,
-              0.458
-            ],
-            [
-              0.889,
-              0.484
-            ],
-            [
-              0.903,
-              0.506
-            ],
-            [
-              0.91,
-              0.516
-            ],
-            [
-              0.927,
-              0.548
-            ],
-            [
-              0.935,
-              0.572
-            ],
-            [
-              0.939,
-              0.581
-            ],
-            [
-              0.949,
-              0.613
-            ],
-            [
-              0.954,
-              0.645
-            ],
-            [
-              0.956,
-              0.677
-            ],
-            [
-              0.955,
-              0.71
-            ],
-            [
-              0.951,
-              0.742
-            ],
-            [
-              0.943,
-              0.774
-            ],
-            [
-              0.935,
-              0.794
-            ],
-            [
-              0.932,
-              0.806
-            ],
-            [
-              0.918,
-              0.839
-            ],
-            [
-              0.903,
-              0.862
-            ],
-            [
-              0.898,
-              0.871
-            ],
-            [
-              0.871,
-              0.903
-            ],
-            [
-              0.871,
-              0.903
-            ],
-            [
-              0.839,
-              0.931
-            ],
-            [
-              0.833,
-              0.935
-            ],
-            [
-              0.806,
-              0.954
-            ],
-            [
-              0.782,
-              0.968
-            ],
-            [
-              0.774,
-              0.972
-            ],
-            [
-              0.742,
-              0.991
-            ],
-            [
-              0.725,
-              1
+              1,
+              0.47
             ]
           ],
           [
             [
               0,
-              0.885
+              0.398
             ],
             [
-              0.012,
-              0.903
+              0.021,
+              0.419
             ],
             [
               0.032,
-              0.928
+              0.429
             ],
             [
-              0.04,
-              0.935
+              0.064,
+              0.452
             ],
             [
               0.065,
-              0.958
-            ],
-            [
-              0.08,
-              0.968
+              0.452
             ],
             [
               0.097,
-              0.979
+              0.474
+            ],
+            [
+              0.111,
+              0.484
             ],
             [
               0.129,
-              0.992
+              0.502
+            ],
+            [
+              0.143,
+              0.516
+            ],
+            [
+              0.158,
+              0.548
             ],
             [
               0.161,
-              0.999
+              0.576
             ],
             [
-              0.169,
+              0.162,
+              0.581
+            ],
+            [
+              0.161,
+              0.584
+            ],
+            [
+              0.158,
+              0.613
+            ],
+            [
+              0.153,
+              0.645
+            ],
+            [
+              0.148,
+              0.677
+            ],
+            [
+              0.143,
+              0.71
+            ],
+            [
+              0.138,
+              0.742
+            ],
+            [
+              0.134,
+              0.774
+            ],
+            [
+              0.13,
+              0.806
+            ],
+            [
+              0.129,
+              0.831
+            ],
+            [
+              0.128,
+              0.839
+            ],
+            [
+              0.129,
+              0.871
+            ],
+            [
+              0.129,
+              0.871
+            ],
+            [
+              0.133,
+              0.903
+            ],
+            [
+              0.141,
+              0.935
+            ],
+            [
+              0.156,
+              0.968
+            ],
+            [
+              0.161,
+              0.976
+            ],
+            [
+              0.177,
+              1
+            ]
+          ],
+          [
+            [
+              0.645,
+              0.451
+            ],
+            [
+              0.643,
+              0.452
+            ],
+            [
+              0.613,
+              0.464
+            ],
+            [
+              0.595,
+              0.484
+            ],
+            [
+              0.606,
+              0.516
+            ],
+            [
+              0.613,
+              0.522
+            ],
+            [
+              0.645,
+              0.544
+            ],
+            [
+              0.666,
+              0.548
+            ],
+            [
+              0.677,
+              0.55
+            ],
+            [
+              0.69,
+              0.548
+            ],
+            [
+              0.71,
+              0.544
+            ],
+            [
+              0.742,
+              0.524
+            ],
+            [
+              0.751,
+              0.516
+            ],
+            [
+              0.771,
+              0.484
+            ],
+            [
+              0.742,
+              0.458
+            ],
+            [
+              0.717,
+              0.452
+            ],
+            [
+              0.71,
+              0.451
+            ],
+            [
+              0.677,
+              0.45
+            ],
+            [
+              0.645,
+              0.451
+            ]
+          ],
+          [
+            [
+              1,
+              0.72
+            ],
+            [
+              0.973,
+              0.742
+            ],
+            [
+              0.968,
+              0.745
+            ],
+            [
+              0.935,
+              0.763
+            ],
+            [
+              0.908,
+              0.774
+            ],
+            [
+              0.903,
+              0.776
+            ],
+            [
+              0.871,
+              0.79
+            ],
+            [
+              0.839,
+              0.802
+            ],
+            [
+              0.828,
+              0.806
+            ],
+            [
+              0.806,
+              0.816
+            ],
+            [
+              0.774,
+              0.83
+            ],
+            [
+              0.752,
+              0.839
+            ],
+            [
+              0.742,
+              0.843
+            ],
+            [
+              0.71,
+              0.857
+            ],
+            [
+              0.677,
+              0.871
+            ],
+            [
+              0.677,
+              0.871
+            ],
+            [
+              0.645,
+              0.89
+            ],
+            [
+              0.627,
+              0.903
+            ],
+            [
+              0.613,
+              0.915
+            ],
+            [
+              0.592,
+              0.935
+            ],
+            [
+              0.581,
+              0.948
+            ],
+            [
+              0.563,
+              0.968
+            ],
+            [
+              0.548,
+              0.983
+            ],
+            [
+              0.532,
               1
             ]
           ]
@@ -3473,43 +3579,75 @@
         "polylines": [
           [
             [
-              0.848,
+              0.531,
               0.032
+            ],
+            [
+              0.548,
+              0.026
+            ],
+            [
+              0.581,
+              0.019
+            ],
+            [
+              0.613,
+              0.013
+            ],
+            [
+              0.645,
+              0.009
+            ],
+            [
+              0.677,
+              0.007
+            ],
+            [
+              0.71,
+              0.005
+            ],
+            [
+              0.742,
+              0.003
+            ],
+            [
+              0.774,
+              0.002
+            ],
+            [
+              0.806,
+              0.002
+            ],
+            [
+              0.839,
+              0.006
             ],
             [
               0.871,
-              0.027
+              0.015
             ],
             [
-              0.903,
-              0.027
-            ],
-            [
-              0.919,
+              0.9,
               0.032
             ],
             [
-              0.935,
-              0.04
+              0.903,
+              0.035
             ],
             [
-              0.958,
+              0.928,
               0.065
             ],
             [
-              0.968,
-              0.096
+              0.935,
+              0.08
             ],
             [
-              0.968,
+              0.942,
               0.097
             ],
             [
-              0.968,
-              0.098
-            ],
-            [
-              0.962,
+              0.946,
               0.129
             ],
             [
@@ -3517,482 +3655,516 @@
               0.161
             ],
             [
-              0.935,
-              0.171
+              0.936,
+              0.194
             ],
             [
-              0.911,
+              0.935,
               0.194
+            ],
+            [
+              0.923,
+              0.226
+            ],
+            [
+              0.905,
+              0.258
             ],
             [
               0.903,
-              0.2
+              0.261
+            ],
+            [
+              0.88,
+              0.29
             ],
             [
               0.871,
-              0.22
+              0.3
             ],
             [
-              0.86,
-              0.226
+              0.844,
+              0.323
             ],
             [
               0.839,
-              0.237
+              0.327
             ],
             [
               0.806,
-              0.25
-            ],
-            [
-              0.78,
-              0.258
+              0.344
             ],
             [
               0.774,
-              0.26
+              0.353
+            ],
+            [
+              0.763,
+              0.355
             ],
             [
               0.742,
-              0.265
+              0.358
             ],
             [
               0.71,
-              0.262
-            ],
-            [
-              0.699,
-              0.258
+              0.36
             ],
             [
               0.677,
-              0.243
+              0.357
             ],
             [
-              0.668,
+              0.658,
+              0.355
+            ],
+            [
+              0.645,
+              0.353
+            ],
+            [
+              0.613,
+              0.348
+            ],
+            [
+              0.581,
+              0.342
+            ],
+            [
+              0.548,
+              0.337
+            ],
+            [
+              0.516,
+              0.337
+            ],
+            [
+              0.484,
+              0.345
+            ],
+            [
+              0.466,
+              0.355
+            ],
+            [
+              0.452,
+              0.365
+            ],
+            [
+              0.428,
+              0.387
+            ],
+            [
+              0.419,
+              0.396
+            ],
+            [
+              0.397,
+              0.419
+            ],
+            [
+              0.387,
+              0.433
+            ],
+            [
+              0.361,
+              0.452
+            ],
+            [
+              0.355,
+              0.458
+            ],
+            [
+              0.323,
+              0.467
+            ],
+            [
+              0.29,
+              0.462
+            ],
+            [
+              0.262,
+              0.452
+            ],
+            [
+              0.258,
+              0.451
+            ],
+            [
+              0.226,
+              0.437
+            ],
+            [
+              0.194,
+              0.421
+            ],
+            [
+              0.191,
+              0.419
+            ],
+            [
+              0.161,
+              0.403
+            ],
+            [
+              0.135,
+              0.387
+            ],
+            [
+              0.129,
+              0.383
+            ],
+            [
+              0.097,
+              0.355
+            ],
+            [
+              0.096,
+              0.355
+            ],
+            [
+              0.075,
+              0.323
+            ],
+            [
+              0.069,
+              0.29
+            ],
+            [
+              0.076,
+              0.258
+            ],
+            [
+              0.096,
               0.226
             ],
             [
-              0.665,
+              0.097,
+              0.225
+            ],
+            [
+              0.129,
+              0.195
+            ],
+            [
+              0.131,
               0.194
             ],
             [
-              0.673,
+              0.161,
+              0.174
+            ],
+            [
+              0.186,
               0.161
             ],
             [
-              0.677,
-              0.154
+              0.194,
+              0.158
             ],
             [
-              0.693,
+              0.226,
+              0.144
+            ],
+            [
+              0.258,
+              0.133
+            ],
+            [
+              0.272,
               0.129
             ],
             [
-              0.71,
-              0.112
+              0.29,
+              0.123
             ],
             [
-              0.726,
+              0.323,
+              0.114
+            ],
+            [
+              0.355,
+              0.103
+            ],
+            [
+              0.371,
               0.097
             ],
             [
-              0.742,
-              0.086
+              0.387,
+              0.091
             ],
             [
-              0.774,
+              0.419,
+              0.078
+            ],
+            [
+              0.449,
               0.065
             ],
             [
-              0.774,
-              0.065
+              0.452,
+              0.063
             ],
             [
-              0.806,
-              0.048
+              0.484,
+              0.05
             ],
             [
-              0.839,
-              0.034
+              0.516,
+              0.037
             ],
             [
-              0.848,
+              0.531,
               0.032
             ]
           ],
           [
             [
-              0,
-              0.564
-            ],
-            [
-              0.007,
-              0.548
-            ],
-            [
-              0.032,
-              0.518
-            ],
-            [
-              0.034,
-              0.516
-            ],
-            [
-              0.065,
-              0.496
-            ],
-            [
-              0.096,
-              0.484
-            ],
-            [
-              0.097,
-              0.483
-            ],
-            [
-              0.129,
-              0.477
-            ],
-            [
-              0.161,
-              0.473
-            ],
-            [
-              0.194,
-              0.471
-            ],
-            [
-              0.226,
-              0.467
+              0.286,
+              1
             ],
             [
               0.258,
-              0.461
+              0.985
             ],
             [
-              0.29,
-              0.452
+              0.239,
+              0.968
             ],
             [
-              0.29,
-              0.452
+              0.226,
+              0.953
             ],
             [
-              0.323,
-              0.433
+              0.214,
+              0.935
             ],
             [
-              0.342,
-              0.419
+              0.2,
+              0.903
             ],
             [
-              0.355,
-              0.404
+              0.194,
+              0.871
             ],
             [
-              0.369,
-              0.387
+              0.194,
+              0.839
             ],
             [
-              0.387,
-              0.358
+              0.197,
+              0.806
             ],
             [
-              0.389,
-              0.355
+              0.204,
+              0.774
             ],
             [
-              0.413,
-              0.323
+              0.214,
+              0.742
             ],
             [
-              0.419,
-              0.317
-            ],
-            [
-              0.452,
-              0.3
-            ],
-            [
-              0.484,
-              0.297
-            ],
-            [
-              0.516,
-              0.3
-            ],
-            [
-              0.548,
-              0.308
-            ],
-            [
-              0.581,
-              0.319
-            ],
-            [
-              0.59,
-              0.323
-            ],
-            [
-              0.613,
-              0.332
-            ],
-            [
-              0.644,
-              0.355
-            ],
-            [
-              0.645,
-              0.356
-            ],
-            [
-              0.677,
-              0.385
-            ],
-            [
-              0.679,
-              0.387
-            ],
-            [
-              0.71,
-              0.414
-            ],
-            [
-              0.714,
-              0.419
-            ],
-            [
-              0.742,
-              0.442
-            ],
-            [
-              0.752,
-              0.452
-            ],
-            [
-              0.774,
-              0.47
-            ],
-            [
-              0.789,
-              0.484
-            ],
-            [
-              0.806,
-              0.5
-            ],
-            [
-              0.821,
-              0.516
-            ],
-            [
-              0.839,
-              0.538
-            ],
-            [
-              0.846,
-              0.548
-            ],
-            [
-              0.864,
-              0.581
-            ],
-            [
-              0.871,
-              0.599
-            ],
-            [
-              0.876,
-              0.613
-            ],
-            [
-              0.884,
-              0.645
-            ],
-            [
-              0.886,
-              0.677
-            ],
-            [
-              0.884,
+              0.226,
               0.71
             ],
             [
-              0.878,
-              0.742
+              0.226,
+              0.709
             ],
             [
-              0.871,
-              0.763
+              0.239,
+              0.677
             ],
             [
-              0.867,
-              0.774
+              0.257,
+              0.645
             ],
             [
-              0.852,
-              0.806
+              0.258,
+              0.643
             ],
             [
-              0.839,
-              0.825
+              0.277,
+              0.613
             ],
             [
-              0.828,
-              0.839
+              0.29,
+              0.594
             ],
             [
-              0.806,
-              0.861
+              0.303,
+              0.581
             ],
             [
-              0.794,
-              0.871
+              0.323,
+              0.557
             ],
             [
-              0.774,
-              0.886
+              0.337,
+              0.548
             ],
             [
-              0.747,
-              0.903
+              0.355,
+              0.533
             ],
             [
-              0.742,
-              0.906
+              0.387,
+              0.529
             ],
             [
-              0.71,
-              0.924
+              0.419,
+              0.535
             ],
             [
-              0.687,
-              0.935
+              0.452,
+              0.547
             ],
             [
-              0.677,
-              0.941
-            ],
-            [
-              0.645,
-              0.956
-            ],
-            [
-              0.613,
-              0.968
-            ],
-            [
-              0.613,
-              0.968
-            ],
-            [
-              0.581,
-              0.976
-            ],
-            [
-              0.548,
-              0.979
-            ],
-            [
-              0.516,
-              0.977
+              0.454,
+              0.548
             ],
             [
               0.484,
-              0.969
+              0.561
             ],
             [
-              0.481,
+              0.516,
+              0.58
+            ],
+            [
+              0.516,
+              0.581
+            ],
+            [
+              0.548,
+              0.601
+            ],
+            [
+              0.567,
+              0.613
+            ],
+            [
+              0.581,
+              0.623
+            ],
+            [
+              0.613,
+              0.645
+            ],
+            [
+              0.614,
+              0.645
+            ],
+            [
+              0.645,
+              0.668
+            ],
+            [
+              0.663,
+              0.677
+            ],
+            [
+              0.677,
+              0.697
+            ],
+            [
+              0.689,
+              0.71
+            ],
+            [
+              0.68,
+              0.742
+            ],
+            [
+              0.677,
+              0.744
+            ],
+            [
+              0.653,
+              0.774
+            ],
+            [
+              0.645,
+              0.78
+            ],
+            [
+              0.619,
+              0.806
+            ],
+            [
+              0.613,
+              0.812
+            ],
+            [
+              0.587,
+              0.839
+            ],
+            [
+              0.581,
+              0.845
+            ],
+            [
+              0.559,
+              0.871
+            ],
+            [
+              0.548,
+              0.883
+            ],
+            [
+              0.533,
+              0.903
+            ],
+            [
+              0.516,
+              0.923
+            ],
+            [
+              0.505,
+              0.935
+            ],
+            [
+              0.484,
+              0.957
+            ],
+            [
+              0.472,
               0.968
             ],
             [
               0.452,
-              0.957
+              0.983
             ],
             [
               0.419,
-              0.945
+              1
             ],
             [
-              0.388,
-              0.935
+              0.419,
+              1
+            ]
+          ],
+          [
+            [
+              0.893,
+              0.613
             ],
             [
-              0.387,
-              0.935
+              0.903,
+              0.609
             ],
             [
-              0.355,
-              0.931
+              0.906,
+              0.613
             ],
             [
-              0.323,
-              0.93
+              0.903,
+              0.617
             ],
             [
-              0.29,
-              0.932
-            ],
-            [
-              0.258,
-              0.935
-            ],
-            [
-              0.226,
-              0.935
-            ],
-            [
-              0.194,
-              0.934
-            ],
-            [
-              0.161,
-              0.927
-            ],
-            [
-              0.129,
-              0.914
-            ],
-            [
-              0.112,
-              0.903
-            ],
-            [
-              0.097,
-              0.892
-            ],
-            [
-              0.076,
-              0.871
-            ],
-            [
-              0.065,
-              0.857
-            ],
-            [
-              0.052,
-              0.839
-            ],
-            [
-              0.034,
-              0.806
-            ],
-            [
-              0.032,
-              0.803
-            ],
-            [
-              0.019,
-              0.774
-            ],
-            [
-              0.007,
-              0.742
-            ],
-            [
-              0,
-              0.718
+              0.893,
+              0.613
             ]
           ]
         ]
@@ -4041,6 +4213,19 @@
       "type": "curated"
     },
     {
+      "id": "project-book-recommender",
+      "name": "Book recommender",
+      "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
+      "items": [
+        "book-recommender",
+        "book-recommender-library-audit",
+        "book-recommender-scoring-algorithm",
+        "book-recommender-user-research",
+        "book-recommender-library-integration"
+      ],
+      "type": "project"
+    },
+    {
       "id": "project-knowledge-graph-for-the-garden",
       "name": "Knowledge graph for the garden",
       "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
@@ -4056,19 +4241,6 @@
         "tuning-the-similarity-threshold",
         "key-phrase-extraction-prototype",
         "typed-relations-as-garden-infrastructure"
-      ],
-      "type": "project"
-    },
-    {
-      "id": "project-book-recommender",
-      "name": "Book recommender",
-      "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
-      "items": [
-        "book-recommender",
-        "book-recommender-library-audit",
-        "book-recommender-scoring-algorithm",
-        "book-recommender-user-research",
-        "book-recommender-library-integration"
       ],
       "type": "project"
     }

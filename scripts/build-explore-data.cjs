@@ -292,7 +292,7 @@ function kMeans2D(points, k, maxIter = 80) {
 }
 
 function computeTerritories(items) {
-  const k = Math.min(6, Math.max(4, Math.floor(items.length / 30)));
+  const k = Math.min(12, Math.max(4, Math.floor(items.length / 20)));
   const positions = items.map(item => [item.x, item.y]);
   console.log(`Computing ${k} territories from ${items.length} items...`);
   const { assignments, centroids } = kMeans2D(positions, k);
@@ -305,6 +305,12 @@ function computeTerritories(items) {
     }
   }
   const totalItems = items.length;
+
+  // Manual overrides for labels that don't capture the cluster well
+  const labelOverrides = {
+    'about': 'garden-building',
+    'fantasy': 'reading',
+  };
 
   const usedLabels = new Set();
   const territories = [];
@@ -331,7 +337,8 @@ function computeTerritories(items) {
       .filter(s => s.count >= 2 && !usedLabels.has(s.tag))
       .sort((a, b) => b.score - a.score);
 
-    const label = scored.length > 0 ? scored[0].tag : `region ${c + 1}`;
+    let label = scored.length > 0 ? scored[0].tag : `region ${c + 1}`;
+    if (labelOverrides[label]) label = labelOverrides[label];
     usedLabels.add(label);
 
     const centerX = parseFloat(centroids[c][0].toFixed(4));
