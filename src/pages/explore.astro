@@ -1356,47 +1356,13 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       roughSvg = roughLib.svg(svg);
     }
 
-    // Draw clusters
+    // Draw inquiry areas and other overlays
     clusterGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     clusterGroup.id = 'cluster-group';
     if (currentTransform) {
       clusterGroup.setAttribute('transform', `translate(${currentTransform.x},${currentTransform.y}) scale(${currentTransform.k})`);
     }
     svg.appendChild(clusterGroup);
-
-    if (roughSvg && data.clusters) {
-      for (const cluster of data.clusters) {
-        const cx = toSVGX(cluster.centerX);
-        const cy = toSVGY(cluster.centerY);
-        const rx = cluster.radius * svgWidth * 0.5;
-        const ry = cluster.radius * svgHeight * 0.5;
-        const clusterColor = isDark() ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)';
-
-        const ellipse = roughSvg.ellipse(cx, cy, rx * 2, ry * 2, {
-          stroke: clusterColor,
-          strokeWidth: 0.5,
-          fill: clusterColor,
-          fillStyle: 'solid',
-          roughness: 2,
-        });
-        ellipse.classList.add('rough-overlay');
-        clusterGroup.appendChild(ellipse);
-
-        // Cluster label
-        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        label.setAttribute('x', cx);
-        label.setAttribute('y', cy - ry * 0.7);
-        label.setAttribute('text-anchor', 'middle');
-        label.setAttribute('fill', isDark() ? 'rgba(255,255,255,0.35)' : 'rgba(0,0,0,0.3)');
-        label.setAttribute('font-family', 'Lora, Georgia, serif');
-        label.setAttribute('font-size', '16');
-        label.setAttribute('font-style', 'italic');
-        label.setAttribute('letter-spacing', '0.5');
-        label.textContent = cluster.label;
-        label.classList.add('cluster-label');
-        clusterGroup.appendChild(label);
-      }
-    }
 
     // Draw inquiry areas (hub/develops project boundaries)
     if (roughSvg && data.inquiryAreas) {

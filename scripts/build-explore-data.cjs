@@ -561,12 +561,6 @@ function main() {
   // Remove tags, hub, develops from output (not needed on the client as raw fields)
   const outputItems = allItems.map(({ tags, hub, develops, ...rest }) => rest);
 
-  // Clusters (on 2D positions)
-  console.log('Computing clusters...');
-  const allPositions = allItems.map(item => [item.x, item.y]);
-  const clusters = computeClusters(allItems, allPositions, keyphraseMap);
-  console.log(`Generated ${clusters.length} clusters`);
-
   // Inquiry areas (from hub/develops relations)
   console.log('Computing inquiry areas...');
   const inquiryAreas = computeInquiryAreas(allItems);
@@ -578,7 +572,7 @@ function main() {
   console.log(`Built ${trails.length} trails`);
 
   // Write output
-  const output = { items: outputItems, clusters, inquiryAreas, trails };
+  const output = { items: outputItems, inquiryAreas, trails };
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   console.log(`Wrote ${OUTPUT_FILE} (${outputItems.length} items)`);
