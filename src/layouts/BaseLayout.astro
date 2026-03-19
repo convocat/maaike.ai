@@ -23,6 +23,10 @@ const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : '
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; frame-ancestors 'none';" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Preload primary fonts so the browser fetches them immediately, not after CSS parse -->
+    <link rel="preload" href="/fonts/lora-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/roboto-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
 
     <!-- Open Graph -->

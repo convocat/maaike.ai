@@ -49,7 +49,7 @@ function getYouTubeId(url: string): string | null {
 <PageLayout title={settings.siteTitle}>
   <div class="hero">
     {settings.logo
-      ? <img src={settings.logo} alt={settings.siteTitle} class="hero-logo" />
+      ? <img src={settings.logo} alt={settings.siteTitle} class="hero-logo" fetchpriority="high" />
       : <h1>{settings.siteTitle}</h1>
     }
     <p>{settings.siteTagline}</p>
