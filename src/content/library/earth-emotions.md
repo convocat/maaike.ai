@@ -16,3 +16,8 @@ reason: "I remember this being beautiful but somehow it didn't stick. This being
 recommended: true
 recommended_score: 66.3
 ---
+
+## Related
+
+- [[the-disappearance-of-authentic-voice-online|The disappearance of authentic voice online]]
+- [[thinking-fast-and-slow|Thinking fast and slow]]

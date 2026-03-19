@@ -1,13 +1,14 @@
 /**
  * Re-embed all garden items using NORMALIZED input:
- *   Title + Description + Tags only (no body text).
+ *   Title + Description + Tags + Keyphrases + Reason (no body text).
  *
  * This levels the playing field so that a video about conversation design
  * lands near an article about conversation design, instead of clustering
- * by content length/format.
+ * by content length/format. Keyphrases and reason fields add semantic
+ * richness without reintroducing length bias.
  *
  * Requires: Ollama running with bge-m3 model loaded.
- * Output:   data/embeddings-bge-m3.json (overwrites existing)
+ * Output:   scripts/embeddings-bge-m3.json (overwrites existing)
  */
 
 const fs = require('fs');
@@ -55,8 +56,18 @@ function parseFrontmatter(raw) {
 }
 
 // ---------------------------------------------------------------------------
-// Build normalized text: title + description + tags ONLY
+// Build normalized text: title + description + tags + keyphrases + reason
 // ---------------------------------------------------------------------------
+
+// Load keyphrases if available
+const KEYPHRASES_FILE = path.join(__dirname, '..', 'keyphrase-results.json');
+let keyphraseMap = {};
+if (fs.existsSync(KEYPHRASES_FILE)) {
+  const kpData = JSON.parse(fs.readFileSync(KEYPHRASES_FILE, 'utf-8'));
+  for (const item of kpData.items) {
+    keyphraseMap[item.slug] = (item.llm_phrases || []).slice(0, 5);
+  }
+}
 
 function buildNormalizedText(fm, slug) {
   const parts = [];
@@ -74,6 +85,17 @@ function buildNormalizedText(fm, slug) {
 
   if (fm.author) {
     parts.push(`Author: ${fm.author}`);
+  }
+
+  // Include keyphrases for richer semantic signal
+  const kp = keyphraseMap[slug];
+  if (kp && kp.length > 0) {
+    parts.push(`Key concepts: ${kp.join(', ')}`);
+  }
+
+  // Include reason field (library books) for Maaike's personal context
+  if (fm.reason) {
+    parts.push(`Why it matters: ${fm.reason}`);
   }
 
   return parts.join('. ') + '.';
@@ -146,7 +168,7 @@ function embed(text) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  console.log('Reading content with NORMALIZED input (title + description + tags only)...');
+  console.log('Reading content with NORMALIZED input (title + description + tags + keyphrases + reason)...');
   const items = readAllContent();
   console.log(`Found ${items.length} items`);
 
@@ -171,7 +193,7 @@ async function main() {
   // Save
   const output = {
     model: MODEL,
-    method: 'normalized (title + description + tags only)',
+    method: 'normalized (title + description + tags + keyphrases + reason)',
     items: items.map(item => ({
       slug: item.slug,
       title: item.title,

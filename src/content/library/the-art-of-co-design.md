@@ -13,3 +13,9 @@ book_type: non-fiction
 purpose: professional
 reason: NOt enough time, but I really enjoyed this so far. Might be a high contender
 ---
+
+## Related
+
+- [[the-design-of-everyday-things|The Design of Everyday Things]]
+- [[designing-for-doubt|Designing for doubt]]
+- [[building-for-everyone|Building for everyone]]

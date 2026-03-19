@@ -898,7 +898,7 @@
       "x": 0.6033,
       "y": 0.7108,
       "keyphrases": [],
-      "connections": 10
+      "connections": 11
     },
     {
       "slug": "design-system-and-content-guidelines",
@@ -946,7 +946,7 @@
         "latent semantic analysis",
         "word2vec"
       ],
-      "connections": 12
+      "connections": 14
     },
     {
       "slug": "explore-page-design",
@@ -958,7 +958,19 @@
       "x": 0.9055,
       "y": 0.6671,
       "keyphrases": [],
-      "connections": 12
+      "connections": 14
+    },
+    {
+      "slug": "external-content-discovery",
+      "title": "External content discovery",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Using the garden's own knowledge graph to find relevant external content, papers, and articles.",
+      "url": "/field-notes/external-content-discovery",
+      "x": 0.5809,
+      "y": 0.4586,
+      "keyphrases": [],
+      "connections": 14
     },
     {
       "slug": "full-scale-key-phrase-extraction",
@@ -970,7 +982,19 @@
       "x": 0.5475,
       "y": 0.7478,
       "keyphrases": [],
-      "connections": 12
+      "connections": 14
+    },
+    {
+      "slug": "garden-lifecycle-greenhouse-compost",
+      "title": "Garden lifecycle: greenhouse, compost, and soil",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "A lifecycle metaphor for how content enters, matures, decays, and recycles in the garden.",
+      "url": "/field-notes/garden-lifecycle-greenhouse-compost",
+      "x": 0.782,
+      "y": 0.6358,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "key-phrase-extraction-for-the-garden",
@@ -988,7 +1012,7 @@
         "machine-generated embeddings",
         "cosine similarity threshold"
       ],
-      "connections": 12
+      "connections": 14
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -1006,7 +1030,7 @@
         "external content",
         "confidence scores"
       ],
-      "connections": 12
+      "connections": 14
     },
     {
       "slug": "prompt-scaffolding",
@@ -1042,7 +1066,19 @@
         "delta computation",
         "entity linking"
       ],
-      "connections": 10
+      "connections": 11
+    },
+    {
+      "slug": "stable-map-positions",
+      "title": "Stable map positions: giving the garden roots",
+      "collection": "field-notes",
+      "maturity": "solid",
+      "description": "How the explore map got stable positions and pinned territories, so the landscape doesn't shift on every rebuild.",
+      "url": "/field-notes/stable-map-positions",
+      "x": 0.8213,
+      "y": 0.595,
+      "keyphrases": [],
+      "connections": 11
     },
     {
       "slug": "testing-strategy",
@@ -1090,7 +1126,7 @@
         "4. token blocking",
         "5. empirical calibration"
       ],
-      "connections": 12
+      "connections": 14
     },
     {
       "slug": "typed-relations-as-garden-infrastructure",
@@ -1102,7 +1138,7 @@
       "x": 0.7344,
       "y": 0.7108,
       "keyphrases": [],
-      "connections": 9
+      "connections": 11
     },
     {
       "slug": "ai-as-writing-partner",
@@ -1204,7 +1240,7 @@
         "personal knowledge management",
         "auto-suggested links"
       ],
-      "connections": 16
+      "connections": 18
     },
     {
       "slug": "garden-to-do-list",
@@ -1366,7 +1402,7 @@
         "extended triples metadata",
         "blocking similarity linking"
       ],
-      "connections": 10
+      "connections": 11
     },
     {
       "slug": "www-linkedin-com",
@@ -1717,42 +1753,6 @@
       "connections": 0
     },
     {
-      "slug": "1q84",
-      "title": "1Q84",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/1q84",
-      "x": 0.4512,
-      "y": 0.8814,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "a-court-of-thorns-and-roses",
-      "title": "A Court of Thorns and Roses",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/a-court-of-thorns-and-roses",
-      "x": 0.4257,
-      "y": 0.943,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "a-room-of-ones-own",
-      "title": "A Room of One's Own",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/a-room-of-ones-own",
-      "x": 0.4296,
-      "y": 0.8927,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "alone-together",
       "title": "Alone together",
       "collection": "library",
@@ -1769,18 +1769,6 @@
         "isolation and connectivity"
       ],
       "connections": 7
-    },
-    {
-      "slug": "ambiguity-in-natural-language",
-      "title": "Ambiguity in natural language",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/ambiguity-in-natural-language",
-      "x": 0.6047,
-      "y": 0.0403,
-      "keyphrases": [],
-      "connections": 1
     },
     {
       "slug": "artificial-intelligence-a-guide-for-thinking-humans",
@@ -1813,18 +1801,6 @@
       "connections": 0
     },
     {
-      "slug": "battlefield-yorkshire",
-      "title": "Battlefield Yorkshire",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/battlefield-yorkshire",
-      "x": 0.3151,
-      "y": 0.9539,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "because-internet",
       "title": "Because Internet",
       "collection": "library",
@@ -1841,30 +1817,6 @@
         "internet slang patterns"
       ],
       "connections": 1
-    },
-    {
-      "slug": "building-for-everyone",
-      "title": "Building for everyone",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/building-for-everyone",
-      "x": 0.9216,
-      "y": 0.0556,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "carries-war",
-      "title": "Carrie's War",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/carries-war",
-      "x": 0.3025,
-      "y": 0.9326,
-      "keyphrases": [],
-      "connections": 0
     },
     {
       "slug": "chatbot-marketing-mastery",
@@ -1897,18 +1849,6 @@
       "connections": 1
     },
     {
-      "slug": "consciousness-and-robot-sentience",
-      "title": "Consciousness and Robot Sentience",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/consciousness-and-robot-sentience",
-      "x": 0.7041,
-      "y": 0.271,
-      "keyphrases": [],
-      "connections": 6
-    },
-    {
       "slug": "content-strategy-at-work",
       "title": "Content strategy at work",
       "collection": "library",
@@ -1933,78 +1873,6 @@
       "connections": 0
     },
     {
-      "slug": "conversational-ux-design",
-      "title": "Conversational UX design",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/conversational-ux-design",
-      "x": 0.6265,
-      "y": 0.1529,
-      "keyphrases": [],
-      "connections": 5
-    },
-    {
-      "slug": "conversations-with-things",
-      "title": "Conversations with things",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/conversations-with-things",
-      "x": 0.6194,
-      "y": 0.1858,
-      "keyphrases": [],
-      "connections": 5
-    },
-    {
-      "slug": "dallergut-dream-department",
-      "title": "DallerGut Dream Department",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/dallergut-dream-department",
-      "x": 0.4723,
-      "y": 0.8087,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "de-eilanden-van-goed-en-kwaad",
-      "title": "De eilanden van goed en kwaad",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/de-eilanden-van-goed-en-kwaad",
-      "x": 0.4236,
-      "y": 0.9152,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "definitive-guide-conversational-ai-dialogflow",
-      "title": "The Definitive Guide to Conversational AI with Dialogflow",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/definitive-guide-conversational-ai-dialogflow",
-      "x": 0.5917,
-      "y": 0.1772,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "designing-across-senses",
-      "title": "Designing Across Senses",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/designing-across-senses",
-      "x": 0.8809,
-      "y": 0.0647,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
       "slug": "designing-connected-content",
       "title": "Designing Connected Content",
       "collection": "library",
@@ -2015,42 +1883,6 @@
       "y": 0.1135,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "designing-the-mind",
-      "title": "Designing the Mind",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/designing-the-mind",
-      "x": 0.4314,
-      "y": 0.7483,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "designing-voice-user-interfaces",
-      "title": "Designing Voice User Interfaces",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/designing-voice-user-interfaces",
-      "x": 0.5197,
-      "y": 0.1191,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "developing-enterprise-chatbots",
-      "title": "Developing enterprise chatbots",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/developing-enterprise-chatbots",
-      "x": 0.5044,
-      "y": 0.1976,
-      "keyphrases": [],
-      "connections": 2
     },
     {
       "slug": "discourse-consciousness-and-time",
@@ -2095,18 +1927,6 @@
       "connections": 0
     },
     {
-      "slug": "entitled",
-      "title": "Entitled",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/entitled",
-      "x": 0.8177,
-      "y": 0.1927,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
       "slug": "gamestorming",
       "title": "Gamestorming",
       "collection": "library",
@@ -2122,18 +1942,6 @@
         "innovative professionals",
         "collaboration and creativity"
       ],
-      "connections": 0
-    },
-    {
-      "slug": "going-postal",
-      "title": "Going Postal",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/going-postal",
-      "x": 0.3292,
-      "y": 0.8118,
-      "keyphrases": [],
       "connections": 0
     },
     {
@@ -2155,18 +1963,6 @@
       "connections": 0
     },
     {
-      "slug": "het-lied-van-ooievaar-en-dromedaris",
-      "title": "Het lied van ooievaar en dromedaris",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/het-lied-van-ooievaar-en-dromedaris",
-      "x": 0.4055,
-      "y": 0.9292,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "hey-cyba",
       "title": "Hey Cyba: The inner workings of a virtual personal assistant",
       "collection": "library",
@@ -2175,30 +1971,6 @@
       "url": "/library/hey-cyba",
       "x": 0.5098,
       "y": 0.1737,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "hoe-duur-was-de-suiker",
-      "title": "Hoe duur was de suiker",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/hoe-duur-was-de-suiker",
-      "x": 0.3342,
-      "y": 0.8579,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "hostage-at-the-table",
-      "title": "Hostage at the Table",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/hostage-at-the-table",
-      "x": 0.2462,
-      "y": 0.915,
       "keyphrases": [],
       "connections": 0
     },
@@ -2225,90 +1997,6 @@
       "y": 0.2134,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "how-we-became-posthuman",
-      "title": "How We Became Posthuman",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/how-we-became-posthuman",
-      "x": 0.3414,
-      "y": 0.8316,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "human-factors-and-voice-interaction-systems",
-      "title": "Human factors and voice interaction systems",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/human-factors-and-voice-interaction-systems",
-      "x": 0.4709,
-      "y": 0.1528,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "i-robot",
-      "title": "I, robot",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/i-robot",
-      "x": 0.6799,
-      "y": 0.2766,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "id-blush-if-i-could",
-      "title": "I'd blush if I could",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/id-blush-if-i-could",
-      "x": 0.8115,
-      "y": 0.2374,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "inclusive-design-for-a-digital-world",
-      "title": "Inclusive Design for a Digital World",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/inclusive-design-for-a-digital-world",
-      "x": 0.9029,
-      "y": 0.0715,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "inferno",
-      "title": "Inferno",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/inferno",
-      "x": 0.2691,
-      "y": 0.9156,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "instructional-story-design",
-      "title": "Instructional story design",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/instructional-story-design",
-      "x": 0.8049,
-      "y": 0.0713,
-      "keyphrases": [],
-      "connections": 2
     },
     {
       "slug": "invisible-women",
@@ -2341,30 +2029,6 @@
       "connections": 6
     },
     {
-      "slug": "kies-toch-niet-steeds-de-kant-van-de-macht",
-      "title": "Kies toch niet steeds de kant van de macht",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/kies-toch-niet-steeds-de-kant-van-de-macht",
-      "x": 0.3018,
-      "y": 0.8562,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "krekel",
-      "title": "Krekel",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/krekel",
-      "x": 0.3876,
-      "y": 0.9058,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "language-acquisition",
       "title": "Language acquisition",
       "collection": "library",
@@ -2373,18 +2037,6 @@
       "url": "/library/language-acquisition",
       "x": 0.649,
       "y": 0.0637,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "last-and-first-men",
-      "title": "Last and First Men",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/last-and-first-men",
-      "x": 0.3647,
-      "y": 0.9061,
       "keyphrases": [],
       "connections": 0
     },
@@ -2405,30 +2057,6 @@
         "self-driving cars"
       ],
       "connections": 2
-    },
-    {
-      "slug": "microcopy",
-      "title": "Microcopy",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/microcopy",
-      "x": 0.8943,
-      "y": 0.1076,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "min-of-meer-opmerkelijke-gebeurtenissen",
-      "title": "Min of meer opmerkelijke gebeurtenissen...",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/min-of-meer-opmerkelijke-gebeurtenissen",
-      "x": 0.8323,
-      "y": 0.1707,
-      "keyphrases": [],
-      "connections": 0
     },
     {
       "slug": "my-robot-gets-me",
@@ -2461,30 +2089,6 @@
       "connections": 1
     },
     {
-      "slug": "nlp-with-python-and-spacy",
-      "title": "Natural Language Processing with Python and spaCy",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/nlp-with-python-and-spacy",
-      "x": 0.5808,
-      "y": 0.0567,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "nouveau-fuck",
-      "title": "Nouveau Fuck",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/nouveau-fuck",
-      "x": 0.2868,
-      "y": 0.8843,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "online-invloed",
       "title": "Online invloed",
       "collection": "library",
@@ -2493,30 +2097,6 @@
       "url": "/library/online-invloed",
       "x": 0.8492,
       "y": 0.0633,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "organising-knowledge",
-      "title": "Organising knowledge",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/organising-knowledge",
-      "x": 0.7729,
-      "y": 0.16,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "reasons-to-stay-alive",
-      "title": "Reasons to Stay Alive",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/reasons-to-stay-alive",
-      "x": 0.3844,
-      "y": 0.8325,
       "keyphrases": [],
       "connections": 0
     },
@@ -2581,18 +2161,6 @@
       "connections": 1
     },
     {
-      "slug": "shaking-hands-with-death",
-      "title": "Shaking Hands With Death",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/shaking-hands-with-death",
-      "x": 0.2923,
-      "y": 0.9082,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "slant",
       "title": "Slant",
       "collection": "library",
@@ -2626,18 +2194,6 @@
         "spelling and grammar",
         "information extraction"
       ],
-      "connections": 2
-    },
-    {
-      "slug": "strategic-writing-for-ux",
-      "title": "Strategic Writing for UX",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/strategic-writing-for-ux",
-      "x": 0.7596,
-      "y": 0.0937,
-      "keyphrases": [],
       "connections": 2
     },
     {
@@ -2677,30 +2233,6 @@
       "connections": 0
     },
     {
-      "slug": "terry-pratchett-biography",
-      "title": "Terry Pratchett (biography)",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/terry-pratchett-biography",
-      "x": 0.4604,
-      "y": 0.8301,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-accidental-taxonomist",
-      "title": "The accidental Taxonomist",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-accidental-taxonomist",
-      "x": 0.7968,
-      "y": 0.1542,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
       "slug": "the-art-of-co-design",
       "title": "The Art of Co-design",
       "collection": "library",
@@ -2711,42 +2243,6 @@
       "y": 0.0968,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "the-big-con",
-      "title": "The Big Con",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-big-con",
-      "x": 0.7078,
-      "y": 0.1905,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-bowery-boys",
-      "title": "The Bowery Boys",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-bowery-boys",
-      "x": 0.3308,
-      "y": 0.9362,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "the-bowery",
-      "title": "The Bowery",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-bowery",
-      "x": 0.3548,
-      "y": 0.9312,
-      "keyphrases": [],
-      "connections": 1
     },
     {
       "slug": "the-complete-robot",
@@ -2797,18 +2293,6 @@
       "connections": 0
     },
     {
-      "slug": "the-invention-of-wings",
-      "title": "The Invention of Wings",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-invention-of-wings",
-      "x": 0.4163,
-      "y": 0.8604,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "the-sense-of-style",
       "title": "The sense of style",
       "collection": "library",
@@ -2827,42 +2311,6 @@
       "connections": 1
     },
     {
-      "slug": "the-shepherds-crown",
-      "title": "The Shepherd's Crown",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-shepherds-crown",
-      "x": 0.3782,
-      "y": 0.9287,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-smart-wife",
-      "title": "The Smart wife",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-smart-wife",
-      "x": 0.8334,
-      "y": 0.2472,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
-      "slug": "the-witchs-vacuum-cleaner",
-      "title": "The Witch's Vacuum Cleaner",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-witchs-vacuum-cleaner",
-      "x": 0.31,
-      "y": 0.89,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
       "slug": "thinking-fast-and-slow",
       "title": "Thinking fast and slow",
       "collection": "library",
@@ -2878,90 +2326,6 @@
         "predicting happiness choices",
         "corporate strategies mental glitches"
       ],
-      "connections": 0
-    },
-    {
-      "slug": "typography-beyond-borders",
-      "title": "Typography Beyond Borders",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/typography-beyond-borders",
-      "x": 0.4169,
-      "y": 0.8058,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "unthought",
-      "title": "Unthought",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/unthought",
-      "x": 0.2876,
-      "y": 0.8363,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "voice-content-and-usability",
-      "title": "Voice content and usability",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/voice-content-and-usability",
-      "x": 0.4955,
-      "y": 0.1157,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "voice-user-interface-design",
-      "title": "Voice user interface design",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/voice-user-interface-design",
-      "x": 0.4773,
-      "y": 0.1306,
-      "keyphrases": [],
-      "connections": 5
-    },
-    {
-      "slug": "voicebot-and-chatbot-design",
-      "title": "Voicebot and Chatbot Design",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/voicebot-and-chatbot-design",
-      "x": 0.4688,
-      "y": 0.1815,
-      "keyphrases": [],
-      "connections": 6
-    },
-    {
-      "slug": "wat-is-je-overkomen",
-      "title": "Wat is je overkomen?",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/wat-is-je-overkomen",
-      "x": 0.3172,
-      "y": 0.8394,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "witte-onschuld",
-      "title": "Witte onschuld",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/witte-onschuld",
-      "x": 0.2705,
-      "y": 0.8673,
-      "keyphrases": [],
       "connections": 0
     },
     {
@@ -3040,7 +2404,7 @@
         "statistical extraction",
         "yake"
       ],
-      "connections": 12
+      "connections": 14
     },
     {
       "slug": "setting-up-local-embedding-models",
@@ -3058,69 +2422,63 @@
         "similarity matrices",
         "json response"
       ],
-      "connections": 12
+      "connections": 14
     }
   ],
   "territories": [
     {
-      "label": "conversational-ai",
-      "centerX": 0.5772,
-      "centerY": 0.1737,
-      "itemCount": 34
+      "label": "conversation-design",
+      "centerX": 0.458,
+      "centerY": 0.1815,
+      "itemCount": 24
     },
     {
       "label": "ai",
-      "centerX": 0.5065,
-      "centerY": 0.7482,
-      "itemCount": 19
+      "centerX": 0.3246,
+      "centerY": 0.6444,
+      "itemCount": 31
     },
     {
       "label": "design",
-      "centerX": 0.8089,
-      "centerY": 0.1686,
-      "itemCount": 36
+      "centerX": 0.742,
+      "centerY": 0.1073,
+      "itemCount": 32
     },
     {
       "label": "digital-gardens",
-      "centerX": 0.736,
-      "centerY": 0.7052,
-      "itemCount": 9
-    },
-    {
-      "label": "garden-building",
       "centerX": 0.9223,
       "centerY": 0.5943,
-      "itemCount": 13
+      "itemCount": 14
     },
     {
-      "label": "conversation-design",
-      "centerX": 0.3209,
-      "centerY": 0.2812,
-      "itemCount": 27
-    },
-    {
-      "label": "reading",
-      "centerX": 0.345,
-      "centerY": 0.872,
-      "itemCount": 34
-    },
-    {
-      "label": "content-design",
-      "centerX": 0.4292,
-      "centerY": 0.6013,
-      "itemCount": 12
-    },
-    {
-      "label": "voice-design",
-      "centerX": 0.2696,
-      "centerY": 0.6578,
+      "label": "ai-ethics",
+      "centerX": 0.5364,
+      "centerY": 0.3764,
       "itemCount": 8
     },
     {
       "label": "prompt-design",
-      "centerX": 0.1293,
-      "centerY": 0.289,
-      "itemCount": 17
+      "centerX": 0.204,
+      "centerY": 0.3004,
+      "itemCount": 33
+    },
+    {
+      "label": "knowledge-graph",
+      "centerX": 0.4974,
+      "centerY": 0.7123,
+      "itemCount": 40
+    },
+    {
+      "label": "philosophy",
+      "centerX": 0.7835,
+      "centerY": 0.2447,
+      "itemCount": 19
+    },
+    {
+      "label": "developer-experience",
+      "centerX": 0.73,
+      "centerY": 0.7027,
+      "itemCount": 11
     }
   ],
   "topography": {
@@ -3131,106 +2489,122 @@
           [
             [
               0,
-              0.192
+              0.151
             ],
             [
-              0.03,
-              0.161
-            ],
-            [
-              0.032,
-              0.16
-            ],
-            [
-              0.065,
-              0.135
-            ],
-            [
-              0.075,
+              0.028,
               0.129
             ],
             [
-              0.097,
-              0.116
+              0.032,
+              0.126
             ],
             [
-              0.129,
-              0.1
+              0.065,
+              0.105
             ],
             [
-              0.136,
+              0.08,
               0.097
             ],
             [
-              0.161,
-              0.085
+              0.097,
+              0.087
             ],
             [
-              0.194,
-              0.073
+              0.129,
+              0.072
             ],
             [
-              0.219,
+              0.149,
               0.065
             ],
             [
+              0.161,
+              0.059
+            ],
+            [
+              0.194,
+              0.047
+            ],
+            [
               0.226,
-              0.062
+              0.038
             ],
             [
-              0.258,
-              0.051
-            ],
-            [
-              0.29,
-              0.041
-            ],
-            [
-              0.319,
+              0.25,
               0.032
             ],
             [
+              0.258,
+              0.03
+            ],
+            [
+              0.29,
+              0.022
+            ],
+            [
               0.323,
-              0.031
+              0.016
             ],
             [
               0.355,
-              0.019
+              0.012
             ],
             [
               0.387,
               0.007
             ],
             [
-              0.407,
+              0.419,
+              0.003
+            ],
+            [
+              0.435,
               0
             ]
           ],
           [
             [
-              0.979,
+              0.946,
               0
             ],
             [
-              1,
+              0.968,
+              0.026
+            ],
+            [
+              0.972,
               0.032
             ],
             [
+              0.989,
+              0.065
+            ],
+            [
+              0.998,
+              0.097
+            ],
+            [
               1,
-              0.033
+              0.109
             ]
           ],
           [
             [
               1,
-              0.22
+              0.186
             ],
             [
-              0.998,
+              0.999,
+              0.194
+            ],
+            [
+              0.993,
               0.226
             ],
             [
-              0.986,
+              0.983,
               0.258
             ],
             [
@@ -3239,337 +2613,249 @@
             ],
             [
               0.968,
-              0.293
+              0.295
             ],
             [
-              0.953,
+              0.958,
               0.323
             ],
             [
-              0.935,
+              0.952,
               0.355
             ],
             [
-              0.935,
-              0.355
-            ],
-            [
-              0.923,
+              0.961,
               0.387
             ],
             [
-              0.934,
+              0.968,
+              0.393
+            ],
+            [
+              0.993,
               0.419
             ],
             [
-              0.935,
-              0.42
-            ],
-            [
-              0.968,
-              0.443
-            ],
-            [
-              0.977,
-              0.452
-            ],
-            [
               1,
-              0.47
+              0.425
             ]
           ],
           [
             [
               0,
-              0.398
+              0.439
             ],
             [
-              0.021,
-              0.419
+              0.015,
+              0.452
             ],
             [
               0.032,
-              0.429
+              0.465
             ],
             [
-              0.064,
-              0.452
+              0.061,
+              0.484
             ],
             [
               0.065,
-              0.452
+              0.487
             ],
             [
               0.097,
-              0.474
+              0.514
             ],
             [
-              0.111,
-              0.484
-            ],
-            [
-              0.129,
-              0.502
-            ],
-            [
-              0.143,
+              0.099,
               0.516
             ],
             [
-              0.158,
+              0.119,
               0.548
             ],
             [
-              0.161,
-              0.576
-            ],
-            [
-              0.162,
+              0.125,
               0.581
             ],
             [
-              0.161,
-              0.584
-            ],
-            [
-              0.158,
+              0.127,
               0.613
             ],
             [
-              0.153,
+              0.129,
               0.645
             ],
             [
-              0.148,
-              0.677
-            ],
-            [
-              0.143,
-              0.71
-            ],
-            [
-              0.138,
-              0.742
-            ],
-            [
-              0.134,
-              0.774
+              0.129,
+              0.651
             ],
             [
               0.13,
-              0.806
+              0.677
             ],
             [
-              0.129,
-              0.831
+              0.134,
+              0.71
             ],
             [
-              0.128,
-              0.839
-            ],
-            [
-              0.129,
-              0.871
-            ],
-            [
-              0.129,
-              0.871
-            ],
-            [
-              0.133,
-              0.903
-            ],
-            [
-              0.141,
-              0.935
-            ],
-            [
-              0.156,
-              0.968
-            ],
-            [
-              0.161,
-              0.976
-            ],
-            [
-              0.177,
-              1
-            ]
-          ],
-          [
-            [
-              0.645,
-              0.451
-            ],
-            [
-              0.643,
-              0.452
-            ],
-            [
-              0.613,
-              0.464
-            ],
-            [
-              0.595,
-              0.484
-            ],
-            [
-              0.606,
-              0.516
-            ],
-            [
-              0.613,
-              0.522
-            ],
-            [
-              0.645,
-              0.544
-            ],
-            [
-              0.666,
-              0.548
-            ],
-            [
-              0.677,
-              0.55
-            ],
-            [
-              0.69,
-              0.548
-            ],
-            [
-              0.71,
-              0.544
-            ],
-            [
-              0.742,
-              0.524
-            ],
-            [
-              0.751,
-              0.516
-            ],
-            [
-              0.771,
-              0.484
-            ],
-            [
-              0.742,
-              0.458
-            ],
-            [
-              0.717,
-              0.452
-            ],
-            [
-              0.71,
-              0.451
-            ],
-            [
-              0.677,
-              0.45
-            ],
-            [
-              0.645,
-              0.451
-            ]
-          ],
-          [
-            [
-              1,
-              0.72
-            ],
-            [
-              0.973,
+              0.14,
               0.742
             ],
             [
-              0.968,
-              0.745
-            ],
-            [
-              0.935,
-              0.763
-            ],
-            [
-              0.908,
+              0.149,
               0.774
             ],
             [
-              0.903,
-              0.776
-            ],
-            [
-              0.871,
-              0.79
-            ],
-            [
-              0.839,
-              0.802
-            ],
-            [
-              0.828,
+              0.161,
               0.806
             ],
             [
-              0.806,
-              0.816
+              0.161,
+              0.807
             ],
             [
-              0.774,
-              0.83
-            ],
-            [
-              0.752,
+              0.175,
               0.839
             ],
             [
-              0.742,
-              0.843
+              0.194,
+              0.867
             ],
             [
-              0.71,
-              0.857
-            ],
-            [
-              0.677,
+              0.196,
               0.871
             ],
             [
-              0.677,
-              0.871
-            ],
-            [
-              0.645,
-              0.89
-            ],
-            [
-              0.627,
+              0.226,
               0.903
             ],
             [
-              0.613,
-              0.915
+              0.226,
+              0.903
             ],
             [
-              0.592,
+              0.258,
+              0.927
+            ],
+            [
+              0.276,
               0.935
             ],
             [
-              0.581,
-              0.948
+              0.29,
+              0.942
             ],
             [
-              0.563,
-              0.968
+              0.323,
+              0.953
+            ],
+            [
+              0.355,
+              0.958
+            ],
+            [
+              0.387,
+              0.96
+            ],
+            [
+              0.419,
+              0.958
+            ],
+            [
+              0.452,
+              0.954
+            ],
+            [
+              0.484,
+              0.946
+            ],
+            [
+              0.516,
+              0.936
+            ],
+            [
+              0.518,
+              0.935
             ],
             [
               0.548,
-              0.983
+              0.928
             ],
             [
-              0.532,
-              1
+              0.581,
+              0.918
+            ],
+            [
+              0.613,
+              0.908
+            ],
+            [
+              0.63,
+              0.903
+            ],
+            [
+              0.645,
+              0.899
+            ],
+            [
+              0.677,
+              0.892
+            ],
+            [
+              0.71,
+              0.883
+            ],
+            [
+              0.742,
+              0.873
+            ],
+            [
+              0.747,
+              0.871
+            ],
+            [
+              0.774,
+              0.863
+            ],
+            [
+              0.806,
+              0.851
+            ],
+            [
+              0.834,
+              0.839
+            ],
+            [
+              0.839,
+              0.837
+            ],
+            [
+              0.871,
+              0.825
+            ],
+            [
+              0.903,
+              0.811
+            ],
+            [
+              0.913,
+              0.806
+            ],
+            [
+              0.935,
+              0.797
+            ],
+            [
+              0.968,
+              0.781
+            ],
+            [
+              0.978,
+              0.774
+            ],
+            [
+              1,
+              0.76
             ]
           ]
         ]
@@ -3579,100 +2865,424 @@
         "polylines": [
           [
             [
-              0.531,
-              0.032
+              1,
+              0.631
             ],
             [
-              0.548,
-              0.026
+              0.996,
+              0.645
             ],
             [
-              0.581,
-              0.019
+              0.977,
+              0.677
             ],
             [
-              0.613,
-              0.013
+              0.968,
+              0.688
             ],
             [
-              0.645,
-              0.009
+              0.941,
+              0.71
             ],
             [
-              0.677,
-              0.007
+              0.935,
+              0.713
             ],
             [
-              0.71,
-              0.005
+              0.903,
+              0.73
             ],
             [
-              0.742,
-              0.003
-            ],
-            [
-              0.774,
-              0.002
-            ],
-            [
-              0.806,
-              0.002
-            ],
-            [
-              0.839,
-              0.006
+              0.873,
+              0.742
             ],
             [
               0.871,
-              0.015
+              0.743
             ],
             [
-              0.9,
-              0.032
+              0.839,
+              0.755
             ],
             [
-              0.903,
-              0.035
+              0.806,
+              0.767
             ],
             [
-              0.928,
-              0.065
+              0.787,
+              0.774
             ],
             [
-              0.935,
-              0.08
+              0.774,
+              0.779
             ],
             [
-              0.942,
-              0.097
+              0.742,
+              0.792
             ],
             [
-              0.946,
-              0.129
+              0.71,
+              0.803
             ],
             [
-              0.944,
-              0.161
+              0.702,
+              0.806
             ],
             [
-              0.936,
-              0.194
+              0.677,
+              0.815
             ],
             [
-              0.935,
-              0.194
+              0.645,
+              0.826
             ],
             [
-              0.923,
-              0.226
+              0.613,
+              0.837
             ],
             [
-              0.905,
+              0.609,
+              0.839
+            ],
+            [
+              0.581,
+              0.849
+            ],
+            [
+              0.548,
+              0.859
+            ],
+            [
+              0.516,
+              0.869
+            ],
+            [
+              0.507,
+              0.871
+            ],
+            [
+              0.484,
+              0.877
+            ],
+            [
+              0.452,
+              0.884
+            ],
+            [
+              0.419,
+              0.887
+            ],
+            [
+              0.387,
+              0.887
+            ],
+            [
+              0.355,
+              0.882
+            ],
+            [
+              0.323,
+              0.871
+            ],
+            [
+              0.322,
+              0.871
+            ],
+            [
+              0.29,
+              0.852
+            ],
+            [
+              0.275,
+              0.839
+            ],
+            [
+              0.258,
+              0.818
+            ],
+            [
+              0.25,
+              0.806
+            ],
+            [
+              0.234,
+              0.774
+            ],
+            [
+              0.226,
+              0.749
+            ],
+            [
+              0.224,
+              0.742
+            ],
+            [
+              0.217,
+              0.71
+            ],
+            [
+              0.215,
+              0.677
+            ],
+            [
+              0.217,
+              0.645
+            ],
+            [
+              0.222,
+              0.613
+            ],
+            [
+              0.226,
+              0.593
+            ],
+            [
+              0.229,
+              0.581
+            ],
+            [
+              0.232,
+              0.548
+            ],
+            [
+              0.226,
+              0.525
+            ],
+            [
+              0.224,
+              0.516
+            ],
+            [
+              0.197,
+              0.484
+            ],
+            [
+              0.194,
+              0.482
+            ],
+            [
+              0.161,
+              0.458
+            ],
+            [
+              0.153,
+              0.452
+            ],
+            [
+              0.129,
+              0.437
+            ],
+            [
+              0.101,
+              0.419
+            ],
+            [
+              0.097,
+              0.417
+            ],
+            [
+              0.065,
+              0.393
+            ],
+            [
+              0.058,
+              0.387
+            ],
+            [
+              0.032,
+              0.356
+            ],
+            [
+              0.031,
+              0.355
+            ],
+            [
+              0.017,
+              0.323
+            ],
+            [
+              0.013,
+              0.29
+            ],
+            [
+              0.019,
               0.258
             ],
             [
+              0.032,
+              0.231
+            ],
+            [
+              0.035,
+              0.226
+            ],
+            [
+              0.063,
+              0.194
+            ],
+            [
+              0.065,
+              0.192
+            ],
+            [
+              0.097,
+              0.166
+            ],
+            [
+              0.104,
+              0.161
+            ],
+            [
+              0.129,
+              0.146
+            ],
+            [
+              0.161,
+              0.13
+            ],
+            [
+              0.163,
+              0.129
+            ],
+            [
+              0.194,
+              0.116
+            ],
+            [
+              0.226,
+              0.105
+            ],
+            [
+              0.258,
+              0.097
+            ],
+            [
+              0.261,
+              0.097
+            ],
+            [
+              0.29,
+              0.09
+            ],
+            [
+              0.323,
+              0.086
+            ],
+            [
+              0.355,
+              0.083
+            ],
+            [
+              0.387,
+              0.081
+            ],
+            [
+              0.419,
+              0.08
+            ],
+            [
+              0.452,
+              0.076
+            ],
+            [
+              0.484,
+              0.068
+            ],
+            [
+              0.495,
+              0.065
+            ],
+            [
+              0.516,
+              0.057
+            ],
+            [
+              0.548,
+              0.044
+            ],
+            [
+              0.58,
+              0.032
+            ],
+            [
+              0.581,
+              0.032
+            ],
+            [
+              0.613,
+              0.021
+            ],
+            [
+              0.645,
+              0.014
+            ],
+            [
+              0.677,
+              0.01
+            ],
+            [
+              0.71,
+              0.008
+            ],
+            [
+              0.742,
+              0.007
+            ],
+            [
+              0.774,
+              0.008
+            ],
+            [
+              0.806,
+              0.012
+            ],
+            [
+              0.839,
+              0.021
+            ],
+            [
+              0.863,
+              0.032
+            ],
+            [
+              0.871,
+              0.037
+            ],
+            [
+              0.901,
+              0.065
+            ],
+            [
               0.903,
-              0.261
+              0.068
+            ],
+            [
+              0.919,
+              0.097
+            ],
+            [
+              0.928,
+              0.129
+            ],
+            [
+              0.929,
+              0.161
+            ],
+            [
+              0.924,
+              0.194
+            ],
+            [
+              0.915,
+              0.226
+            ],
+            [
+              0.903,
+              0.252
+            ],
+            [
+              0.9,
+              0.258
             ],
             [
               0.88,
@@ -3680,491 +3290,171 @@
             ],
             [
               0.871,
-              0.3
+              0.303
             ],
             [
-              0.844,
+              0.853,
               0.323
             ],
             [
               0.839,
-              0.327
+              0.336
+            ],
+            [
+              0.809,
+              0.355
             ],
             [
               0.806,
-              0.344
-            ],
-            [
-              0.774,
-              0.353
-            ],
-            [
-              0.763,
-              0.355
-            ],
-            [
-              0.742,
-              0.358
-            ],
-            [
-              0.71,
-              0.36
-            ],
-            [
-              0.677,
               0.357
             ],
             [
-              0.658,
-              0.355
+              0.774,
+              0.369
+            ],
+            [
+              0.742,
+              0.376
+            ],
+            [
+              0.71,
+              0.379
+            ],
+            [
+              0.677,
+              0.381
             ],
             [
               0.645,
-              0.353
+              0.381
             ],
             [
               0.613,
-              0.348
-            ],
-            [
-              0.581,
-              0.342
-            ],
-            [
-              0.548,
-              0.337
-            ],
-            [
-              0.516,
-              0.337
-            ],
-            [
-              0.484,
-              0.345
-            ],
-            [
-              0.466,
-              0.355
-            ],
-            [
-              0.452,
-              0.365
-            ],
-            [
-              0.428,
-              0.387
-            ],
-            [
-              0.419,
-              0.396
-            ],
-            [
-              0.397,
-              0.419
-            ],
-            [
-              0.387,
-              0.433
-            ],
-            [
-              0.361,
-              0.452
-            ],
-            [
-              0.355,
-              0.458
-            ],
-            [
-              0.323,
-              0.467
-            ],
-            [
-              0.29,
-              0.462
-            ],
-            [
-              0.262,
-              0.452
-            ],
-            [
-              0.258,
-              0.451
-            ],
-            [
-              0.226,
-              0.437
-            ],
-            [
-              0.194,
-              0.421
-            ],
-            [
-              0.191,
-              0.419
-            ],
-            [
-              0.161,
-              0.403
-            ],
-            [
-              0.135,
-              0.387
-            ],
-            [
-              0.129,
               0.383
             ],
             [
-              0.097,
-              0.355
+              0.581,
+              0.386
             ],
             [
-              0.096,
-              0.355
+              0.576,
+              0.387
             ],
             [
-              0.075,
-              0.323
+              0.548,
+              0.396
             ],
             [
-              0.069,
-              0.29
-            ],
-            [
-              0.076,
-              0.258
-            ],
-            [
-              0.096,
-              0.226
-            ],
-            [
-              0.097,
-              0.225
-            ],
-            [
-              0.129,
-              0.195
-            ],
-            [
-              0.131,
-              0.194
-            ],
-            [
-              0.161,
-              0.174
-            ],
-            [
-              0.186,
-              0.161
-            ],
-            [
-              0.194,
-              0.158
-            ],
-            [
-              0.226,
-              0.144
-            ],
-            [
-              0.258,
-              0.133
-            ],
-            [
-              0.272,
-              0.129
-            ],
-            [
-              0.29,
-              0.123
-            ],
-            [
-              0.323,
-              0.114
-            ],
-            [
-              0.355,
-              0.103
-            ],
-            [
-              0.371,
-              0.097
-            ],
-            [
-              0.387,
-              0.091
-            ],
-            [
-              0.419,
-              0.078
-            ],
-            [
-              0.449,
-              0.065
-            ],
-            [
-              0.452,
-              0.063
-            ],
-            [
-              0.484,
-              0.05
+              0.517,
+              0.419
             ],
             [
               0.516,
-              0.037
+              0.42
             ],
             [
-              0.531,
-              0.032
-            ]
-          ],
-          [
-            [
-              0.286,
-              1
+              0.503,
+              0.452
             ],
             [
-              0.258,
-              0.985
+              0.507,
+              0.484
             ],
             [
-              0.239,
-              0.968
+              0.516,
+              0.496
             ],
             [
-              0.226,
-              0.953
+              0.529,
+              0.516
             ],
             [
-              0.214,
-              0.935
-            ],
-            [
-              0.2,
-              0.903
-            ],
-            [
-              0.194,
-              0.871
-            ],
-            [
-              0.194,
-              0.839
-            ],
-            [
-              0.197,
-              0.806
-            ],
-            [
-              0.204,
-              0.774
-            ],
-            [
-              0.214,
-              0.742
-            ],
-            [
-              0.226,
-              0.71
-            ],
-            [
-              0.226,
-              0.709
-            ],
-            [
-              0.239,
-              0.677
-            ],
-            [
-              0.257,
-              0.645
-            ],
-            [
-              0.258,
-              0.643
-            ],
-            [
-              0.277,
-              0.613
-            ],
-            [
-              0.29,
-              0.594
-            ],
-            [
-              0.303,
-              0.581
-            ],
-            [
-              0.323,
-              0.557
-            ],
-            [
-              0.337,
-              0.548
-            ],
-            [
-              0.355,
+              0.548,
               0.533
             ],
             [
-              0.387,
-              0.529
-            ],
-            [
-              0.419,
-              0.535
-            ],
-            [
-              0.452,
-              0.547
-            ],
-            [
-              0.454,
+              0.563,
               0.548
             ],
             [
-              0.484,
+              0.581,
               0.561
             ],
             [
-              0.516,
-              0.58
-            ],
-            [
-              0.516,
+              0.61,
               0.581
             ],
             [
-              0.548,
-              0.601
-            ],
-            [
-              0.567,
-              0.613
-            ],
-            [
-              0.581,
-              0.623
-            ],
-            [
               0.613,
-              0.645
-            ],
-            [
-              0.614,
-              0.645
+              0.582
             ],
             [
               0.645,
-              0.668
-            ],
-            [
-              0.663,
-              0.677
+              0.593
             ],
             [
               0.677,
-              0.697
+              0.596
             ],
             [
-              0.689,
-              0.71
+              0.71,
+              0.59
             ],
             [
-              0.68,
-              0.742
+              0.729,
+              0.581
             ],
             [
-              0.677,
-              0.744
+              0.742,
+              0.574
             ],
             [
-              0.653,
-              0.774
+              0.774,
+              0.552
             ],
             [
-              0.645,
-              0.78
+              0.779,
+              0.548
             ],
             [
-              0.619,
-              0.806
+              0.806,
+              0.527
             ],
             [
-              0.613,
-              0.812
+              0.824,
+              0.516
             ],
             [
-              0.587,
-              0.839
+              0.839,
+              0.506
             ],
             [
-              0.581,
-              0.845
-            ],
-            [
-              0.559,
-              0.871
-            ],
-            [
-              0.548,
-              0.883
-            ],
-            [
-              0.533,
-              0.903
-            ],
-            [
-              0.516,
-              0.923
-            ],
-            [
-              0.505,
-              0.935
-            ],
-            [
-              0.484,
-              0.957
-            ],
-            [
-              0.472,
-              0.968
-            ],
-            [
-              0.452,
-              0.983
-            ],
-            [
-              0.419,
-              1
-            ],
-            [
-              0.419,
-              1
-            ]
-          ],
-          [
-            [
-              0.893,
-              0.613
+              0.871,
+              0.493
             ],
             [
               0.903,
-              0.609
+              0.49
             ],
             [
-              0.906,
-              0.613
+              0.935,
+              0.496
             ],
             [
-              0.903,
-              0.617
+              0.968,
+              0.515
             ],
             [
-              0.893,
-              0.613
+              0.969,
+              0.516
+            ],
+            [
+              0.993,
+              0.548
+            ],
+            [
+              1,
+              0.567
             ]
           ]
         ]
@@ -4226,6 +3516,26 @@
       "type": "project"
     },
     {
+      "id": "project-explore-page-design",
+      "name": "Explore page: a visual browsing UI for the garden",
+      "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
+      "items": [
+        "explore-page-design",
+        "stable-map-positions"
+      ],
+      "type": "project"
+    },
+    {
+      "id": "project-external-content-discovery",
+      "name": "External content discovery",
+      "description": "Using the garden's own knowledge graph to find relevant external content, papers, and articles.",
+      "items": [
+        "external-content-discovery",
+        "garden-lifecycle-greenhouse-compost"
+      ],
+      "type": "project"
+    },
+    {
       "id": "project-knowledge-graph-for-the-garden",
       "name": "Knowledge graph for the garden",
       "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
@@ -4240,6 +3550,7 @@
         "key-phrase-extraction-for-the-garden",
         "tuning-the-similarity-threshold",
         "key-phrase-extraction-prototype",
+        "external-content-discovery",
         "typed-relations-as-garden-infrastructure"
       ],
       "type": "project"

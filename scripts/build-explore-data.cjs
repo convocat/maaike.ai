@@ -3,7 +3,13 @@
  * Reads content frontmatter, embeddings, and keyphrases,
  * computes UMAP 2D projection + territories + topography, outputs public/explore-data.json.
  *
- * Usage: node scripts/build-explore-data.cjs
+ * Positions and territories are pinned in scripts/map-roots.json. Once an item
+ * has a position, it keeps it across rebuilds. New items are placed near their
+ * most similar existing neighbor. Territories are stored once and reused.
+ *
+ * Usage:
+ *   node scripts/build-explore-data.cjs              # incremental (default)
+ *   node scripts/build-explore-data.cjs --recompute   # full UMAP + territory recalculation
  */
 
 const fs = require('fs');
@@ -15,6 +21,9 @@ const CONTENT_DIR = path.join(ROOT, 'src', 'content');
 const EMBEDDINGS_FILE = path.join(ROOT, 'scripts', 'embeddings-bge-m3.json');
 const KEYPHRASES_FILE = path.join(ROOT, 'keyphrase-results.json');
 const OUTPUT_FILE = path.join(ROOT, 'public', 'explore-data.json');
+const ROOTS_FILE = path.join(ROOT, 'scripts', 'map-roots.json');
+
+const RECOMPUTE = process.argv.includes('--recompute');
 
 const COLLECTIONS = [
   'articles', 'field-notes', 'seeds', 'weblinks',
@@ -311,6 +320,10 @@ function computeTerritories(items) {
     'about': 'garden-building',
     'fantasy': 'reading',
   };
+  // Override fallback labels (region N) based on dominant collection
+  const regionOverrides = {
+    'videos': 'explorations',
+  };
 
   const usedLabels = new Set();
   const territories = [];
@@ -337,7 +350,16 @@ function computeTerritories(items) {
       .filter(s => s.count >= 2 && !usedLabels.has(s.tag))
       .sort((a, b) => b.score - a.score);
 
-    let label = scored.length > 0 ? scored[0].tag : `region ${c + 1}`;
+    let label = scored.length > 0 ? scored[0].tag : null;
+    if (!label) {
+      // Fallback: label by dominant collection in the cluster
+      const colCounts = {};
+      for (const item of clusterItems) {
+        colCounts[item.collection] = (colCounts[item.collection] || 0) + 1;
+      }
+      const topCol = Object.entries(colCounts).sort((a, b) => b[1] - a[1])[0][0];
+      label = regionOverrides[topCol] || topCol;
+    }
     if (labelOverrides[label]) label = labelOverrides[label];
     usedLabels.add(label);
 
@@ -581,10 +603,106 @@ function buildTrails(itemSlugs, allItems) {
 }
 
 // ---------------------------------------------------------------------------
+// Persistence helpers: load / save map roots (pinned positions + territories)
+// ---------------------------------------------------------------------------
+
+function loadRoots() {
+  if (!fs.existsSync(ROOTS_FILE)) return null;
+  return JSON.parse(fs.readFileSync(ROOTS_FILE, 'utf-8'));
+}
+
+function saveRoots(positions, territories, overrides) {
+  const data = {
+    generated: new Date().toISOString(),
+    overrides,    // { "collection/slug": "territory-label" } — manual placement requests
+    positions,    // { "collection/slug": { x, y } }
+    territories,  // [{ label, centerX, centerY }]
+  };
+  fs.writeFileSync(ROOTS_FILE, JSON.stringify(data, null, 2));
+  console.log(`Saved map roots to ${ROOTS_FILE}`);
+}
+
+// Place a new item near its most similar existing neighbor
+function placeNearNeighbor(item, embeddingMap, pinnedItems, rng) {
+  const key = `${item.collection}/${item.slug}`;
+  const emb = embeddingMap.get(key);
+  if (!emb || pinnedItems.length === 0) {
+    return { x: 0.1 + rng() * 0.8, y: 0.1 + rng() * 0.8 };
+  }
+
+  // Find most similar pinned item by cosine similarity
+  let bestSim = -Infinity, bestItem = pinnedItems[0];
+  for (const pinned of pinnedItems) {
+    const pKey = `${pinned.collection}/${pinned.slug}`;
+    const pEmb = embeddingMap.get(pKey);
+    if (!pEmb) continue;
+    let dot = 0, nA = 0, nB = 0;
+    for (let i = 0; i < emb.length; i++) {
+      dot += emb[i] * pEmb[i];
+      nA += emb[i] * emb[i];
+      nB += pEmb[i] * pEmb[i];
+    }
+    const sim = dot / (Math.sqrt(nA) * Math.sqrt(nB));
+    if (sim > bestSim) { bestSim = sim; bestItem = pinned; }
+  }
+
+  // Place near the neighbor with a small random offset
+  const offset = 0.02 + rng() * 0.03;
+  const angle = rng() * Math.PI * 2;
+  return {
+    x: Math.max(0.02, Math.min(0.98, bestItem.x + Math.cos(angle) * offset)),
+    y: Math.max(0.02, Math.min(0.98, bestItem.y + Math.sin(angle) * offset)),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Library noise filter
+// ---------------------------------------------------------------------------
+
+function hasWikiLinks(item) {
+  const filePath = path.join(CONTENT_DIR, item.collection, `${item.slug}.md`);
+  if (!fs.existsSync(filePath)) return false;
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const body = content.replace(/^---[\s\S]*?---/, '');
+  return /\[\[.+?\]\]/.test(body);
+}
+
+function filterLibraryNoise(allItems, territories) {
+  const readingTerritory = territories.find(t => t.label === 'reading');
+
+  function nearestTerritoryLabel(item) {
+    let nearest = null, minD = Infinity;
+    for (const t of territories) {
+      const d = Math.sqrt((item.x - t.centerX) ** 2 + (item.y - t.centerY) ** 2);
+      if (d < minD) { minD = d; nearest = t.label; }
+    }
+    return nearest;
+  }
+
+  const filteredItems = allItems.filter(item => {
+    if (item.collection !== 'library') return true;
+    const inReading = readingTerritory && nearestTerritoryLabel(item) === 'reading';
+    const hasKp = item.keyphrases && item.keyphrases.length > 0;
+    const hasLinks = hasWikiLinks(item);
+    if (inReading) return false;
+    if (!hasKp && !hasLinks) return false;
+    return true;
+  });
+
+  const excluded = allItems.length - filteredItems.length;
+  if (excluded > 0) console.log(`Filtered out ${excluded} library items (reading territory or no signal)`);
+
+  const filteredTerritories = territories.filter(t => t.label !== 'reading');
+  return { filteredItems, filteredTerritories };
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
 function main() {
+  if (RECOMPUTE) console.log('*** FULL RECOMPUTE: recalculating all positions and territories ***\n');
+
   console.log('Reading content...');
   const contentItems = readAllContent();
   console.log(`Found ${contentItems.length} published items`);
@@ -597,51 +715,134 @@ function main() {
   const keyphraseMap = loadKeyphrases();
   console.log(`Loaded ${keyphraseMap.size} keyphrase sets`);
 
-  // Filter to items that have embeddings
-  const itemsWithEmbeddings = contentItems.filter(item => {
-    const key = `${item.collection}/${item.slug}`;
-    return embeddingMap.has(key);
-  });
-  console.log(`${itemsWithEmbeddings.length} items have embeddings`);
+  // Load pinned roots (if they exist and we're not recomputing)
+  const roots = RECOMPUTE ? null : loadRoots();
 
-  // Items without embeddings get random positions
-  const itemsWithout = contentItems.filter(item => {
-    const key = `${item.collection}/${item.slug}`;
-    return !embeddingMap.has(key);
-  });
+  let allItems;
+  let territories;
 
-  // Build embedding matrix for UMAP
-  const embeddingsMatrix = itemsWithEmbeddings.map(item => {
-    const key = `${item.collection}/${item.slug}`;
-    return embeddingMap.get(key);
-  });
+  if (roots) {
+    // --- INCREMENTAL MODE: reuse pinned positions, place only new items ---
+    console.log('Using pinned positions from map-roots.json...');
 
-  // Compute UMAP
-  let positions;
-  if (embeddingsMatrix.length > 0) {
-    const rawPositions = computeUMAP(embeddingsMatrix);
-    positions = normalizePositions(rawPositions);
+    const pinnedSlugs = new Set(Object.keys(roots.positions));
+    const pinned = [];
+    const newItems = [];
+
+    for (const item of contentItems) {
+      const key = `${item.collection}/${item.slug}`;
+      if (pinnedSlugs.has(key)) {
+        item.x = roots.positions[key].x;
+        item.y = roots.positions[key].y;
+        pinned.push(item);
+      } else {
+        newItems.push(item);
+      }
+    }
+
+    // Apply manual overrides: move items to a target territory
+    const overrides = roots.overrides || {};
+    let overrideCount = 0;
+    for (const item of pinned) {
+      const key = `${item.collection}/${item.slug}`;
+      if (overrides[key]) {
+        const targetTerritory = roots.territories.find(t => t.label === overrides[key]);
+        if (targetTerritory) {
+          const rngO = seededRandom(key.length * 7 + key.charCodeAt(0));
+          const offset = 0.02 + rngO() * 0.04;
+          const angle = rngO() * Math.PI * 2;
+          item.x = parseFloat(Math.max(0.02, Math.min(0.98, targetTerritory.centerX + Math.cos(angle) * offset)).toFixed(4));
+          item.y = parseFloat(Math.max(0.02, Math.min(0.98, targetTerritory.centerY + Math.sin(angle) * offset)).toFixed(4));
+          overrideCount++;
+        } else {
+          console.log(`  Warning: override target "${overrides[key]}" not found for ${key}`);
+        }
+      }
+    }
+    if (overrideCount > 0) console.log(`  Applied ${overrideCount} manual position overrides`);
+
+    console.log(`  ${pinned.length} items have pinned positions`);
+    console.log(`  ${newItems.length} new items to place`);
+
+    // Place new items near their most similar pinned neighbor
+    const rng = seededRandom(Date.now());
+    for (const item of newItems) {
+      const pos = placeNearNeighbor(item, embeddingMap, pinned, rng);
+      item.x = parseFloat(pos.x.toFixed(4));
+      item.y = parseFloat(pos.y.toFixed(4));
+    }
+
+    allItems = [...pinned, ...newItems];
+
+    // Resolve collisions only for new items against all
+    if (newItems.length > 0) {
+      console.log('Resolving collisions for new items...');
+      resolveCollisions(allItems);
+    }
+
+    // Reuse pinned territories
+    territories = roots.territories;
+    console.log(`Using ${territories.length} pinned territories`);
+
+    // Update territory item counts based on current items
+    for (const t of territories) {
+      t.itemCount = allItems.filter(item => {
+        let nearest = null, minD = Infinity;
+        for (const tt of territories) {
+          const d = Math.sqrt((item.x - tt.centerX) ** 2 + (item.y - tt.centerY) ** 2);
+          if (d < minD) { minD = d; nearest = tt.label; }
+        }
+        return nearest === t.label;
+      }).length;
+    }
+
   } else {
-    positions = [];
+    // --- FULL RECOMPUTE: run UMAP on everything ---
+
+    const itemsWithEmbeddings = contentItems.filter(item => {
+      const key = `${item.collection}/${item.slug}`;
+      return embeddingMap.has(key);
+    });
+    console.log(`${itemsWithEmbeddings.length} items have embeddings`);
+
+    const itemsWithout = contentItems.filter(item => {
+      const key = `${item.collection}/${item.slug}`;
+      return !embeddingMap.has(key);
+    });
+
+    const embeddingsMatrix = itemsWithEmbeddings.map(item => {
+      const key = `${item.collection}/${item.slug}`;
+      return embeddingMap.get(key);
+    });
+
+    let positions;
+    if (embeddingsMatrix.length > 0) {
+      const rawPositions = computeUMAP(embeddingsMatrix);
+      positions = normalizePositions(rawPositions);
+    } else {
+      positions = [];
+    }
+
+    for (let i = 0; i < itemsWithEmbeddings.length; i++) {
+      itemsWithEmbeddings[i].x = parseFloat(positions[i][0].toFixed(4));
+      itemsWithEmbeddings[i].y = parseFloat(positions[i][1].toFixed(4));
+    }
+
+    const rng = seededRandom(42);
+    for (const item of itemsWithout) {
+      item.x = parseFloat((0.1 + rng() * 0.8).toFixed(4));
+      item.y = parseFloat((0.1 + rng() * 0.8).toFixed(4));
+    }
+
+    allItems = [...itemsWithEmbeddings, ...itemsWithout];
+
+    console.log('Resolving dot collisions...');
+    resolveCollisions(allItems);
+
+    console.log('Computing territories...');
+    territories = computeTerritories(allItems);
+    console.log(`Generated ${territories.length} territories`);
   }
-
-  // Assign positions
-  for (let i = 0; i < itemsWithEmbeddings.length; i++) {
-    itemsWithEmbeddings[i].x = parseFloat(positions[i][0].toFixed(4));
-    itemsWithEmbeddings[i].y = parseFloat(positions[i][1].toFixed(4));
-  }
-
-  // Random positions for items without embeddings
-  for (const item of itemsWithout) {
-    item.x = parseFloat((0.1 + Math.random() * 0.8).toFixed(4));
-    item.y = parseFloat((0.1 + Math.random() * 0.8).toFixed(4));
-  }
-
-  const allItems = [...itemsWithEmbeddings, ...itemsWithout];
-
-  // Resolve dot collisions so no circles overlap
-  console.log('Resolving dot collisions...');
-  resolveCollisions(allItems);
 
   // Add keyphrases
   for (const item of allItems) {
@@ -660,24 +861,33 @@ function main() {
     item.connections = connections;
   }
 
-  // Remove tags, hub, develops, date from output (not needed on client as raw fields)
-  const outputItems = allItems.map(({ tags, hub, develops, date, ...rest }) => rest);
+  // Filter library noise
+  const { filteredItems, filteredTerritories } = filterLibraryNoise(allItems, territories);
 
-  // Territories (semantic clusters named by dominant tags)
-  console.log('Computing territories...');
-  const territories = computeTerritories(allItems);
-  console.log(`Generated ${territories.length} territories`);
+  // Save roots (positions + territories) for future incremental builds
+  // Save ALL positions (including filtered items) so they keep their spot if they regain signal
+  const posMap = {};
+  for (const item of allItems) {
+    posMap[`${item.collection}/${item.slug}`] = { x: item.x, y: item.y };
+  }
+  // Preserve manual overrides from previous roots (applied overrides update positions,
+  // but the override entry stays so the item doesn't drift back on recompute)
+  const overrides = (roots && roots.overrides) || {};
+  saveRoots(posMap, filteredTerritories, overrides);
 
-  // Topographic contours (KDE density iso-contours)
-  const topography = computeTopography(allItems);
+  // Remove internal fields from output
+  const outputItems = filteredItems.map(({ tags, hub, develops, date, ...rest }) => rest);
 
-  // Trails (manual curated + auto-generated from hub/develops)
-  const slugSet = new Set(allItems.map(i => i.slug));
-  const trails = buildTrails(slugSet, allItems);
+  // Topographic contours
+  const topography = computeTopography(filteredItems);
+
+  // Trails
+  const slugSet = new Set(filteredItems.map(i => i.slug));
+  const trails = buildTrails(slugSet, filteredItems);
   console.log(`Built ${trails.length} trails`);
 
   // Write output
-  const output = { items: outputItems, territories, topography, trails };
+  const output = { items: outputItems, territories: filteredTerritories, topography, trails };
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   console.log(`Wrote ${OUTPUT_FILE} (${outputItems.length} items)`);

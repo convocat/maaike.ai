@@ -12,3 +12,9 @@ book_type: non-fiction
 purpose: professional
 reason: How children acquire language is surprisingly relevant to how we design systems that process and generate language. A classic in the field, and it shows.
 ---
+
+## Related
+
+- [[understanding-speech-part-1|Understanding speech — part 1]]
+- [[because-internet|Because Internet]]
+- [[speech-and-language-processing|Speech and language processing]]

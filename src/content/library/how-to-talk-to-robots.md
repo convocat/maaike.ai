@@ -13,3 +13,9 @@ book_type: non-fiction
 purpose: professional
 reason: Tabitha Goldstaub on navigating the AI world, aimed at women and non-technical audiences. A useful reminder that access and legibility matter.
 ---
+
+## Related
+
+- [[an-evening-with-chatgpt|An evening with ChatGPT]]
+- [[conversational-interfaces-are-not-easy|Conversational interfaces are not easy]]
+- [[stay-calm-and-keep-thinking-for-yourself|Stay calm and keep thinking for yourself]]

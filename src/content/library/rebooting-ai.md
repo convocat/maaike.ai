@@ -12,3 +12,9 @@ book_type: non-fiction
 purpose: professional
 reason: Marcus and Davis make a sober case for what AI can and can't do, and what it would actually take to get to general intelligence. A grounding read for anyone working in the field.
 ---
+
+## Related
+
+- [[llm-hallucinations-knowledge-as-missing-fundamental|The issue with LLM hallucinations: knowledge as a missing fundamental]]
+- [[why-chatgpt-is-bullshit-and-why-we-should-design-for-that|Why ChatGPT is bullshit (and why we should design for that)]]
+- [[artificial-intelligence-a-guide-for-thinking-humans|Artificial Intelligence: A guide for thinking humans]]
