@@ -8,8 +8,9 @@
  * most similar existing neighbor. Territories are stored once and reused.
  *
  * Usage:
- *   node scripts/build-explore-data.cjs              # incremental (default)
- *   node scripts/build-explore-data.cjs --recompute   # full UMAP + territory recalculation
+ *   node scripts/build-explore-data.cjs              # incremental (default): pinned positions
+ *   node scripts/build-explore-data.cjs --relax       # nudge items toward linked neighbors
+ *   node scripts/build-explore-data.cjs --recompute   # full UMAP + territory reset (new layout)
  */
 
 const fs = require('fs');
@@ -24,6 +25,7 @@ const OUTPUT_FILE = path.join(ROOT, 'public', 'explore-data.json');
 const ROOTS_FILE = path.join(ROOT, 'scripts', 'map-roots.json');
 
 const RECOMPUTE = process.argv.includes('--recompute');
+const RELAX = process.argv.includes('--relax');
 
 const COLLECTIONS = [
   'articles', 'field-notes', 'seeds', 'weblinks',
@@ -175,7 +177,146 @@ function normalizePositions(positions) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Collision resolution: push overlapping dots apart
+// 4. Graph-based position relaxation
+//    Nudges items toward their wiki-link neighbors, tag-sharing neighbors,
+//    and hub/develops parents. Runs after UMAP to correct misplacements.
+// ---------------------------------------------------------------------------
+
+function parseWikiLinksFromFile(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const body = content.replace(/^---[\s\S]*?---/, '');
+  const links = [];
+  const re = /\[\[([^\]]+)\]\]/g;
+  let m;
+  while ((m = re.exec(body)) !== null) {
+    links.push(m[1].split('|')[0].trim().toLowerCase().replace(/\s+/g, '-'));
+  }
+  return links;
+}
+
+function relaxPositions(items, iterations = 20) {
+  console.log('Relaxing positions using wiki-links, tags, and hub/develops...');
+
+  const slugIndex = new Map();
+  items.forEach((item, i) => slugIndex.set(item.slug, i));
+
+  // Build wiki-link edges
+  const wikiEdges = [];
+  for (const item of items) {
+    const filePath = path.join(CONTENT_DIR, item.collection, `${item.slug}.md`);
+    const targets = parseWikiLinksFromFile(filePath);
+    for (const target of targets) {
+      if (slugIndex.has(target) && target !== item.slug) {
+        wikiEdges.push([slugIndex.get(item.slug), slugIndex.get(target)]);
+      }
+    }
+  }
+
+  // Build hub/develops edges
+  const hubEdges = [];
+  for (const item of items) {
+    if (item.develops && slugIndex.has(item.develops)) {
+      hubEdges.push([slugIndex.get(item.slug), slugIndex.get(item.develops)]);
+    }
+  }
+
+  // Build tag-sharing edges (2+ shared tags)
+  const tagEdges = [];
+  for (let i = 0; i < items.length; i++) {
+    for (let j = i + 1; j < items.length; j++) {
+      const shared = items[i].tags.filter(t => items[j].tags.includes(t)).length;
+      if (shared >= 2) tagEdges.push([i, j]);
+    }
+  }
+
+  console.log(`  Edges: ${wikiEdges.length} wiki-links, ${hubEdges.length} hub/develops, ${tagEdges.length} tag-pairs`);
+
+  // Spring constants — gentle nudges, not hard pulls
+  const WIKI_STRENGTH = 0.0003;  // explicit links: gentle nudge toward each other
+  const HUB_STRENGTH = 0.0002;   // project files: gentle nudge toward hub
+  const TAG_STRENGTH = 0.00005;  // shared topics: very gentle attraction
+  const REPULSION = 0.00002;     // all items: mild push apart to prevent collapse
+  const ANCHOR_STRENGTH = 0.15;  // pull toward original position (must dominate)
+
+  // Save original UMAP positions as anchors
+  const anchorX = items.map(item => item.x);
+  const anchorY = items.map(item => item.y);
+
+  for (let iter = 0; iter < iterations; iter++) {
+    // Accumulate forces
+    const fx = new Float64Array(items.length);
+    const fy = new Float64Array(items.length);
+
+    // Spring attraction for connected items
+    function applySpring(edges, strength) {
+      for (const [a, b] of edges) {
+        const dx = items[b].x - items[a].x;
+        const dy = items[b].y - items[a].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 0.001) continue;
+        const force = strength * dist;
+        fx[a] += (dx / dist) * force;
+        fy[a] += (dy / dist) * force;
+        fx[b] -= (dx / dist) * force;
+        fy[b] -= (dy / dist) * force;
+      }
+    }
+
+    applySpring(wikiEdges, WIKI_STRENGTH);
+    applySpring(hubEdges, HUB_STRENGTH);
+    applySpring(tagEdges, TAG_STRENGTH);
+
+    // Mild repulsion between all nearby items (only within radius 0.15)
+    for (let i = 0; i < items.length; i++) {
+      for (let j = i + 1; j < items.length; j++) {
+        const dx = items[j].x - items[i].x;
+        const dy = items[j].y - items[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > 0.15 || dist < 0.0001) continue;
+        const force = REPULSION / (dist * dist);
+        fx[i] -= (dx / dist) * force;
+        fy[i] -= (dy / dist) * force;
+        fx[j] += (dx / dist) * force;
+        fy[j] += (dy / dist) * force;
+      }
+    }
+
+    // Anchor: pull back toward original UMAP position to preserve global structure
+    for (let i = 0; i < items.length; i++) {
+      fx[i] += (anchorX[i] - items[i].x) * ANCHOR_STRENGTH;
+      fy[i] += (anchorY[i] - items[i].y) * ANCHOR_STRENGTH;
+    }
+
+    // Apply forces
+    for (let i = 0; i < items.length; i++) {
+      items[i].x += fx[i];
+      items[i].y += fy[i];
+      items[i].x = Math.max(0.02, Math.min(0.98, items[i].x));
+      items[i].y = Math.max(0.02, Math.min(0.98, items[i].y));
+    }
+  }
+
+  // Cap max displacement: no item moves more than 0.08 from its anchor
+  const MAX_DISPLACEMENT = 0.08;
+  for (let i = 0; i < items.length; i++) {
+    const dx = items[i].x - anchorX[i];
+    const dy = items[i].y - anchorY[i];
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist > MAX_DISPLACEMENT) {
+      const scale = MAX_DISPLACEMENT / dist;
+      items[i].x = anchorX[i] + dx * scale;
+      items[i].y = anchorY[i] + dy * scale;
+    }
+    items[i].x = parseFloat(Math.max(0.02, Math.min(0.98, items[i].x)).toFixed(4));
+    items[i].y = parseFloat(Math.max(0.02, Math.min(0.98, items[i].y)).toFixed(4));
+  }
+
+  console.log('  Relaxation complete');
+}
+
+// ---------------------------------------------------------------------------
+// 5. Collision resolution: push overlapping dots apart
 // ---------------------------------------------------------------------------
 
 /**
@@ -316,13 +457,24 @@ function computeTerritories(items) {
   const totalItems = items.length;
 
   // Manual overrides for labels that don't capture the cluster well
+  // Override labels that are collection names or too generic
   const labelOverrides = {
     'about': 'garden-building',
     'fantasy': 'reading',
+    'articles': 'ai-and-design',
+    'writing': 'critical-thinking',
+    'field-notes': 'research',
+    'explorations': 'hands-on',
   };
   // Override fallback labels (region N) based on dominant collection
   const regionOverrides = {
     'videos': 'explorations',
+    'library': 'reading-shelf',
+    'articles': 'ai-and-design',
+    'field-notes': 'research',
+    'seeds': 'ideas',
+    'experiments': 'hands-on',
+    'weblinks': 'resources',
   };
 
   const usedLabels = new Set();
@@ -347,7 +499,7 @@ function computeTerritories(items) {
         const globalFreq = (globalTagCount[tag] || 0) / totalItems;
         return { tag, score: clusterFreq * (1 - globalFreq * 0.6), count };
       })
-      .filter(s => s.count >= 2 && !usedLabels.has(s.tag))
+      .filter(s => s.count >= 2 && !usedLabels.has(s.tag) && !COLLECTIONS.includes(s.tag))
       .sort((a, b) => b.score - a.score);
 
     let label = scored.length > 0 ? scored[0].tag : null;
@@ -774,8 +926,12 @@ function main() {
 
     allItems = [...pinned, ...newItems];
 
-    // Resolve collisions only for new items against all
-    if (newItems.length > 0) {
+    // Optional: nudge items toward their linked neighbors
+    if (RELAX) {
+      relaxPositions(allItems);
+      console.log('Resolving dot collisions after relaxation...');
+      resolveCollisions(allItems);
+    } else if (newItems.length > 0) {
       console.log('Resolving collisions for new items...');
       resolveCollisions(allItems);
     }
@@ -835,6 +991,9 @@ function main() {
     }
 
     allItems = [...itemsWithEmbeddings, ...itemsWithout];
+
+    // Graph-based relaxation: pull linked items together
+    relaxPositions(allItems);
 
     console.log('Resolving dot collisions...');
     resolveCollisions(allItems);
