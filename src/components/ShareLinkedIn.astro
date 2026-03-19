@@ -5,7 +5,7 @@ interface Props {
 }
 
 const { url, title } = Astro.props;
-const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+const shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
 ---
 
 <a
