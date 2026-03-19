@@ -28,7 +28,7 @@ Astro static site with 7 content collections, wiki-style cross-linking, and dual
 | Library | `library` | `author`, `cover`, `status` (reading/read/to-read) |
 | Experiments | `experiments` | - |
 
-All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`, `ai`.
+All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`, `ai`, `hub` (optional boolean), `develops` (optional slug string).
 
 Content files are Markdown with YAML frontmatter. Draft items (`draft: true`) are filtered out at build time.
 
@@ -103,15 +103,20 @@ Optional `ai` frontmatter field on any content. Renders a styled aside box above
 
 ## Projects page rule
 
-The Projects page (`/projects`) shows **only project hub posts** — the single post that defines what a project is. It filters by the `project` tag.
+The Projects page (`/projects`) shows **only project hub posts** — the single post that defines what a project is. It filters by `hub: true` in frontmatter.
 
-**Rule: only the hub post gets the `project` tag.** Project files (experiments, seeds, articles, field notes that are part of a project) must NOT have the `project` tag. They appear in the "Project files" sidebar section on the hub's detail page via backlinks (wiki-links pointing back to the hub).
+### Typed relations: `hub` and `develops`
+
+The garden uses two frontmatter fields to express project structure:
+
+- **`hub: true`** — marks a post as a project hub. It appears on the Projects page. Hub posts show a "Project files" sidebar listing all posts that link back to them via backlinks.
+- **`develops: <slug>`** — marks a post as a file that belongs to a hub. The sidebar on that post shows a "Part of" link to the hub. A post can have both `hub: true` and `develops: <slug>` (a sub-project that is itself a hub within a larger project).
 
 Example:
-- `field-notes/book-recommender.md` → has `project` tag → appears on Projects page ✓
-- `experiments/book-recommender-scoring-algorithm.md` → no `project` tag → appears in hub sidebar via backlink ✓
+- `field-notes/book-recommender.md` → `hub: true` → appears on Projects page ✓
+- `experiments/book-recommender-scoring-algorithm.md` → `develops: book-recommender` → shows "Part of: Book recommender" in sidebar ✓
 
-When creating project files, never add the `project` tag to them.
+**Never use the `project` tag to mark hubs or project files.** Use `hub: true` and `develops` instead. The `project` tag is no longer used for project structure.
 
 ## Adding content
 

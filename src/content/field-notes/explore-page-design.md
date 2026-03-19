@@ -4,9 +4,10 @@ date: 2026-03-15
 maturity: developing
 tags:
   - about
-  - project
   - digital-gardens
   - knowledge-graph
+hub: true
+develops: knowledge-graph-for-the-garden
 description: Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.
 ai: co-created
 ---

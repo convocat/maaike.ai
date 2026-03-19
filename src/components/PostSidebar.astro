@@ -1,6 +1,6 @@
 ---
 import { getBacklinks } from '../utils/backlinks';
-import { getRelatedPosts } from '../utils/collections';
+import { getRelatedPosts, getAllContent } from '../utils/collections';
 import { getSuggestedBooks } from '../utils/recommender';
 import CollectionIcon from './CollectionIcon.astro';
 interface Props {
@@ -9,20 +9,46 @@ interface Props {
   collection: string;
   title: string;
   postUrl: string;
+  hub?: boolean;
+  develops?: string;
 }
 
-const { slug, tags, collection, title, postUrl } = Astro.props;
+const { slug, tags, collection, title, postUrl, hub, develops } = Astro.props;
 
-const isProject = tags.includes('project');
+const isHub = hub === true;
 const backlinks = await getBacklinks(slug);
 const relatedPosts = await getRelatedPosts(slug, tags, collection);
 const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
+
+// Resolve the hub post when this file develops one
+let hubPost: { title: string; href: string; collection: string } | null = null;
+if (develops) {
+  const allContent = await getAllContent();
+  const found = allContent.find((e) => e.id === develops);
+  if (found) {
+    hubPost = { title: found.data.title, href: `/${found.collection}/${found.id}`, collection: found.collection };
+  }
+}
 ---
 
 <div class="sidebar-content">
+  {hubPost && (
+    <section class="sidebar-section">
+      <h3 class="sidebar-heading">Part of</h3>
+      <ul class="sidebar-links">
+        <li>
+          <a href={hubPost.href}>
+            <CollectionIcon collection={hubPost.collection} size={14} />
+            <span>{hubPost.title}</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  )}
+
   {backlinks.length > 0 && (
     <section class="sidebar-section">
-      <h3 class="sidebar-heading">{isProject ? 'Project files' : 'Linked from'}</h3>
+      <h3 class="sidebar-heading">{isHub ? 'Project files' : 'Linked from'}</h3>
       <ul class="sidebar-links">
         {backlinks.map(({ title: blTitle, href, collection: coll }) => (
           <li>
@@ -36,7 +62,7 @@ const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
     </section>
   )}
 
-  {!isProject && relatedPosts.length > 0 && (
+  {!isHub && relatedPosts.length > 0 && (
     <section class="sidebar-section">
       <h3 class="sidebar-heading">Related</h3>
       <ul class="sidebar-links">

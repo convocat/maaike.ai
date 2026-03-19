@@ -6,6 +6,7 @@ tags:
   - knowledge-management
 description: Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.
 ai: co-created
+develops: book-recommender
 ---
 
 Used Claude to interview me about how I pick books, what goes wrong, and what my reading habits look like. Part of the [[book-recommender]] project.

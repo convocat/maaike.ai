@@ -3,10 +3,10 @@ title: Knowledge graph for the garden
 date: 2026-03-14
 maturity: developing
 tags:
-  - project
   - digital-gardens
   - knowledge-graph
   - ai
+hub: true
 description: Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.
 ai: co-created
 ---

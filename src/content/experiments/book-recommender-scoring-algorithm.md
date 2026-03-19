@@ -6,6 +6,7 @@ tags:
   - knowledge-management
 description: Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.
 ai: co-created
+develops: book-recommender
 ---
 
 Scoring algorithm design for the [[book-recommender]] project. Pure logic, no AI, no embeddings.

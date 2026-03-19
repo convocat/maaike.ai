@@ -6,7 +6,7 @@ import { getAllContent, sortByDate } from '../../utils/collections';
 
 const allContent = await getAllContent();
 const projects = sortByDate(
-  allContent.filter((e) => e.data.tags.includes('project'))
+  allContent.filter((e) => e.data.hub === true)
 );
 ---
 

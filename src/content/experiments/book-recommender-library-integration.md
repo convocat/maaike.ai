@@ -7,6 +7,7 @@ tags:
   - digital-gardens
 description: Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.
 ai: co-created
+develops: book-recommender
 ---
 
 Design for integrating the [[book-recommender]] with the garden's library collection.

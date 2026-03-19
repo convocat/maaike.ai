@@ -6,6 +6,7 @@ tags:
   - knowledge-management
 description: Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.
 ai: co-created
+develops: book-recommender
 ---
 
 Labeled 40 books (10 physical, 30 e-books) across status, type, purpose, and "why stuck". Built an interactive HTML labeling interface as part of the [[book-recommender]] project.

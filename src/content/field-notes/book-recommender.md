@@ -3,10 +3,10 @@ title: Book recommender
 date: 2026-03-17
 maturity: draft
 tags:
-  - project
   - python
   - knowledge-management
   - digital-gardens
+hub: true
 description: A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.
 ai: co-created
 ---

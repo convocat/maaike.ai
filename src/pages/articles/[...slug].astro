@@ -24,6 +24,8 @@ const { Content } = await render(entry);
   collection="articles"
   slug={entry.id}
   ai={entry.data.ai}
+  hub={entry.data.hub}
+  develops={entry.data.develops}
 >
   {entry.data.pruning && (
     <aside class="pruning-box">

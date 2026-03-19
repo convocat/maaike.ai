@@ -15,6 +15,8 @@ const baseSchema = z.object({
   description: z.string().optional(),
   draft: z.boolean().default(false),
   ai: z.enum(['100% Maai', 'assisted', 'co-created', 'generated']).optional(),
+  hub: z.boolean().optional(),
+  develops: z.string().optional(),
 });
 
 const fieldNotes = defineCollection({
