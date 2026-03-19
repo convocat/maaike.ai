@@ -37,7 +37,7 @@ ai: 100% Maai
 
 ## Alternatives to talking
 
-Instructing, Commanding, Inputting, Entering, [Claude, think of more synonyms]
+Instructing, Commanding, Inputting, Entering, Prompting, Directing, Delegating, Dictating, Querying, Requesting, Dispatching, Steering, Cueing
 
 ## Who do we talk to? 
 
@@ -60,11 +60,25 @@ Also the notes become executionable.
 
 ## Research papers
 
-Claude find research papers on this
+**Conversational grounding and its absence in AI:**
+- Clark & Brennan, [Grounding in Communication](https://web.stanford.edu/~clark/1990s/Clark,%20H.H.%20_%20Brennan,%20S.E.%20_Grounding%20in%20communication_%201991.pdf) (1991): the foundational framework for how conversational participants establish mutual understanding
+- Shaikh et al., [Grounding Gaps in Language Model Generations](https://arxiv.org/abs/2311.09144) (2023): LLMs produce fewer grounding acts than humans and presume common ground
+- Suchman, *Plans and Situated Actions* (1987/2007): machines designed on planning models miss the situated nature of human communication
 
+**The conversation metaphor and its limits:**
+- [The Bewitching AI: The Illusion of Communication with LLMs](https://link.springer.com/article/10.1007/s13347-025-00893-6) (2025, Philosophy & Technology): Wittgensteinian analysis showing LLMs lack constancy for genuine dialogue
+- Gvozdiak, [Pragmatics Beyond Humans](https://arxiv.org/pdf/2508.06167) (2025): pragmatic meaning relies on communicative situatedness that LLMs lack
+- [Beyond the Illusion: Pragmatic Cues in Conversation](https://dl.acm.org/doi/10.1145/3719160.3737614) (2025, ACM CUI): should agents mimic pragmatic cues or use them purposefully?
 
+**Alternative metaphors:**
+- [Beyond Anthropomorphism: A Spectrum of Interface Metaphors for LLMs](https://arxiv.org/html/2603.04613) (2026): proposes metaphors beyond the anthropomorphic default
+- [Toward Metaphor-Fluid Conversation Design for VUIs](https://arxiv.org/html/2502.11554v2) (2025): VUIs should dynamically shift metaphorical framing based on context
+- [Interpretative Interfaces](https://arxiv.org/html/2603.15863) (2026, CHI workshop): tangible interaction metaphors as alternatives to chat
 
-
+**Thinking and metacognition as interaction paradigms:**
+- [Thought as a Substrate in Human-AI Interaction](https://dl.acm.org/doi/10.1145/3746058.3758466) (2024, ACM UIST): thought as a new substrate, challenging chat-as-default
+- [Interacting with Thoughtful AI](https://arxiv.org/html/2502.18676v1) (2025): AI as continuously thinking entity, not reactive prompt-response
+- [Tools for Thought](https://arxiv.org/abs/2508.21036) (2025, CHI workshop): 34 papers on how GenAI affects metacognition
 
 
 
