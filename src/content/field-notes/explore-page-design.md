@@ -102,8 +102,10 @@ The page loads a pre-computed JSON with item metadata + 2D coordinates. No runti
 - [x] WCAG AA color palette: all collection colors ≥3:1 contrast in both light and dark mode
 - [x] Design system documentation ([[design-system-and-content-guidelines|design system field note]])
 - [x] Added to main navigation
-- [ ] Auto-generated trails from project-tagged content
-- [ ] Manual trails via trails.json
+- [x] Auto-generated trails from hub/develops project structure
+- [x] Named territories: semantic regions named by dominant tags, rendered as subtle italic labels
+- [x] Topographic contour lines: KDE density iso-contours as faint hand-drawn background terrain
+- [x] Organic trail paths: smooth Catmull-Rom curves through stops (rough.js curve) instead of straight lines
 - [ ] Keyboard navigation on the map
 - [ ] Mobile layout polish
 

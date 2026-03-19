@@ -1094,7 +1094,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   // State
   // ----------------------------------------------------------------
 
-  let data = null;          // { items, clusters, inquiryAreas, trails }
+  let data = null;          // { items, territories, topography, trails }
   let currentMode = 'map';  // 'map' | 'wander' | 'paths'
   let activeTrail = null;
   let activeTrailStep = 0;
@@ -1340,7 +1340,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
   function clearOverlays() {
     // Remove rough.js overlays
-    svg.querySelectorAll('.rough-overlay, .cluster-label').forEach(el => el.remove());
+    svg.querySelectorAll('.rough-overlay, .cluster-label, .territory-label').forEach(el => el.remove());
   }
 
   function drawMap() {
@@ -1364,37 +1364,49 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     }
     svg.appendChild(clusterGroup);
 
-    // Draw inquiry areas (hub/develops project boundaries)
-    if (roughSvg && data.inquiryAreas) {
-      for (const area of data.inquiryAreas) {
-        const cx = toSVGX(area.centerX);
-        const cy = toSVGY(area.centerY);
-        const rx = area.radius * svgWidth * 0.5;
-        const ry = area.radius * svgHeight * 0.5;
-        const inquiryStroke = isDark() ? 'rgba(255,77,166,0.35)' : 'rgba(214,0,108,0.3)';
+    // Draw topographic contour lines (faint KDE iso-contours showing density terrain)
+    if (roughSvg && data.topography && data.topography.levels) {
+      for (let li = 0; li < data.topography.levels.length; li++) {
+        const level = data.topography.levels[li];
+        const opacity = li === 0
+          ? (isDark() ? 0.11 : 0.09)
+          : (isDark() ? 0.20 : 0.15);
+        const stroke = isDark()
+          ? `rgba(255,255,255,${opacity})`
+          : `rgba(0,0,0,${opacity})`;
+        for (const polyline of level.polylines) {
+          if (polyline.length < 2) continue;
+          const pts = polyline.map(([x, y]) => [toSVGX(x), toSVGY(y)]);
+          const path = roughSvg.linearPath(pts, {
+            stroke,
+            strokeWidth: 0.7,
+            roughness: 2.5,
+            bowing: 0.5,
+          });
+          path.classList.add('rough-overlay', 'topo-contour');
+          clusterGroup.appendChild(path);
+        }
+      }
+    }
 
-        const ellipse = roughSvg.ellipse(cx, cy, rx * 2, ry * 2, {
-          stroke: inquiryStroke,
-          strokeWidth: 1,
-          fill: 'none',
-          roughness: 2.5,
-          strokeLineDash: [6, 4],
-        });
-        ellipse.classList.add('rough-overlay', 'inquiry-area');
-        clusterGroup.appendChild(ellipse);
-
-        // Inquiry label — small, pink, uppercase
+    // Draw territory labels (named semantic regions, subtle italic)
+    if (data.territories) {
+      for (const territory of data.territories) {
+        const cx = toSVGX(territory.centerX);
+        const cy = toSVGY(territory.centerY);
         const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         label.setAttribute('x', cx);
-        label.setAttribute('y', cy + ry + 14);
+        label.setAttribute('y', cy);
         label.setAttribute('text-anchor', 'middle');
-        label.setAttribute('fill', isDark() ? 'rgba(255,77,166,0.6)' : 'rgba(214,0,108,0.55)');
-        label.setAttribute('font-family', 'Roboto, sans-serif');
-        label.setAttribute('font-size', '11');
-        label.setAttribute('font-weight', '600');
-        label.setAttribute('letter-spacing', '0.08em');
-        label.textContent = area.label.toUpperCase();
-        label.classList.add('cluster-label', 'inquiry-label');
+        label.setAttribute('dominant-baseline', 'middle');
+        label.setAttribute('fill', isDark() ? 'rgba(255,255,255,0.32)' : 'rgba(0,0,0,0.35)');
+        label.setAttribute('font-family', 'Lora, Georgia, serif');
+        label.setAttribute('font-size', '15');
+        label.setAttribute('font-style', 'italic');
+        label.setAttribute('letter-spacing', '0.02em');
+        const labelText = territory.label.replace(/-/g, ' ');
+        label.textContent = labelText.charAt(0).toUpperCase() + labelText.slice(1);
+        label.classList.add('territory-label');
         clusterGroup.appendChild(label);
       }
     }
@@ -1853,20 +1865,16 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       .map(slug => data.items.find(d => d.slug === slug))
       .filter(Boolean);
 
-    // Draw path segments
-    for (let i = 0; i < trailItems.length - 1; i++) {
-      const a = trailItems[i];
-      const b = trailItems[i + 1];
-      const line = roughSvg.line(
-        toSVGX(a.x), toSVGY(a.y),
-        toSVGX(b.x), toSVGY(b.y),
-        {
-          stroke: accent,
-          strokeWidth: 1.5,
-          roughness: 2,
-        }
-      );
-      group.appendChild(line);
+    // Draw a smooth organic curve through all trail stops
+    if (trailItems.length >= 2) {
+      const pts = trailItems.map(item => [toSVGX(item.x), toSVGY(item.y)]);
+      const curve = roughSvg.curve(pts, {
+        stroke: accent,
+        strokeWidth: 1.5,
+        roughness: 3,
+        bowing: 2,
+      });
+      group.appendChild(curve);
     }
 
     // Draw circles at each trail stop

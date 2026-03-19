@@ -1,7 +1,7 @@
 /**
  * Build script for explore page data.
  * Reads content frontmatter, embeddings, and keyphrases,
- * computes UMAP 2D projection + clusters, outputs public/explore-data.json.
+ * computes UMAP 2D projection + territories + topography, outputs public/explore-data.json.
  *
  * Usage: node scripts/build-explore-data.cjs
  */
@@ -88,6 +88,7 @@ function readAllContent() {
         url: `/${collection}/${slug}`,
         hub: fm.hub === true,
         develops: typeof fm.develops === 'string' ? fm.develops : null,
+        date: fm.date || null,
       });
     }
   }
@@ -175,13 +176,9 @@ function normalizePositions(positions) {
  * scaled to normalized space assuming a ~1200px wide SVG viewport.
  */
 function resolveCollisions(items, iterations = 300) {
-  // The SVG viewBox matches the container pixel size (typically 800-1400px wide).
-  // Circle radii are fixed in px (5-14), so in normalized 0..1 space we need
-  // to separate by radius/viewportWidth. We use a conservative (small) reference
-  // so that dots don't overlap even on narrower viewports.
   const MATURITY_RADIUS = { draft: 5, developing: 8, solid: 11, complete: 14 };
-  const SVG_REF = 800; // conservative: narrower viewport = more overlap risk
-  const PADDING = 4;   // px gap between dot edges
+  const SVG_REF = 800;
+  const PADDING = 4;
 
   for (let iter = 0; iter < iterations; iter++) {
     let maxOverlap = 0;
@@ -202,7 +199,7 @@ function resolveCollisions(items, iterations = 300) {
           if (overlap > maxOverlap) maxOverlap = overlap;
 
           if (dist > 0.0001) {
-            const push = overlap / 2 + 0.001; // slight extra push
+            const push = overlap / 2 + 0.001;
             const nx = dx / dist;
             const ny = dy / dist;
             a.x += nx * push;
@@ -210,7 +207,6 @@ function resolveCollisions(items, iterations = 300) {
             b.x -= nx * push;
             b.y -= ny * push;
           } else {
-            // Nearly identical positions: nudge randomly
             const angle = Math.random() * Math.PI * 2;
             const nudge = minDist / 2;
             a.x += Math.cos(angle) * nudge;
@@ -222,7 +218,6 @@ function resolveCollisions(items, iterations = 300) {
       }
     }
 
-    // Clamp within bounds each iteration to prevent drift
     for (const item of items) {
       item.x = Math.max(0.02, Math.min(0.98, item.x));
       item.y = Math.max(0.02, Math.min(0.98, item.y));
@@ -234,7 +229,6 @@ function resolveCollisions(items, iterations = 300) {
     }
   }
 
-  // Final precision
   for (const item of items) {
     item.x = parseFloat(item.x.toFixed(4));
     item.y = parseFloat(item.y.toFixed(4));
@@ -242,16 +236,15 @@ function resolveCollisions(items, iterations = 300) {
 }
 
 // ---------------------------------------------------------------------------
-// 5. Simple k-means clustering
+// 5. Territory computation: k-means on positions, named by dominant tags
 // ---------------------------------------------------------------------------
 
 // k-means++ on 2D positions with deterministic seed
 function kMeans2D(points, k, maxIter = 80) {
   const n = points.length;
 
-  // k-means++ init: spread initial centroids apart
   const rng = (seed) => { let s = seed; return () => { s = (s * 16807) % 2147483647; return s / 2147483647; }; };
-  const rand = rng(42); // deterministic for reproducible clusters
+  const rand = rng(42);
   const centroids = [points[Math.floor(rand() * n)].slice()];
   while (centroids.length < k) {
     const dists = points.map(p => {
@@ -298,137 +291,208 @@ function kMeans2D(points, k, maxIter = 80) {
   return { assignments, centroids };
 }
 
-function computeClusters(items, positions, keyphraseMap) {
-  // Cluster on 2D UMAP positions (which already encode semantic similarity)
-  // Use fewer clusters for clarity
-  const k = Math.min(5, Math.max(3, Math.floor(items.length / 30)));
-  console.log(`Clustering ${items.length} items into ${k} clusters on 2D UMAP positions...`);
+function computeTerritories(items) {
+  const k = Math.min(6, Math.max(4, Math.floor(items.length / 30)));
+  const positions = items.map(item => [item.x, item.y]);
+  console.log(`Computing ${k} territories from ${items.length} items...`);
   const { assignments, centroids } = kMeans2D(positions, k);
 
-  // Build global phrase document frequency for TF-IDF scoring
-  const globalPhraseDF = {};
+  // Global tag frequency
+  const globalTagCount = {};
   for (const item of items) {
-    const key = `${item.collection}/${item.slug}`;
-    const phrases = keyphraseMap.get(key) || [];
-    const seen = new Set();
-    for (const p of phrases) {
-      if (!seen.has(p)) { globalPhraseDF[p] = (globalPhraseDF[p] || 0) + 1; seen.add(p); }
+    for (const tag of item.tags) {
+      globalTagCount[tag] = (globalTagCount[tag] || 0) + 1;
     }
   }
-  const totalDocs = items.length;
+  const totalItems = items.length;
 
-  const clusters = [];
+  const usedLabels = new Set();
+  const territories = [];
+
   for (let c = 0; c < k; c++) {
-    const clusterIndices = [];
-    for (let i = 0; i < items.length; i++) {
-      if (assignments[i] === c) clusterIndices.push(i);
-    }
-    if (clusterIndices.length < 3) continue;
+    const clusterItems = items.filter((_, i) => assignments[i] === c);
+    if (clusterItems.length < 3) continue;
 
-    const clusterItems = clusterIndices.map(i => items[i]);
-    const centerX = centroids[c][0];
-    const centerY = centroids[c][1];
-
-    // Radius: 75th percentile distance from center (tighter than max)
-    const distances = clusterIndices.map(i =>
-      Math.sqrt((positions[i][0] - centerX) ** 2 + (positions[i][1] - centerY) ** 2)
-    ).sort((a, b) => a - b);
-    const radius = Math.max(0.06, distances[Math.floor(distances.length * 0.85)] * 1.4);
-
-    // TF-IDF label: phrases distinctive to THIS cluster vs the whole garden
-    const phraseTF = {};
+    // Count tags within this cluster
+    const clusterTagCount = {};
     for (const item of clusterItems) {
-      const key = `${item.collection}/${item.slug}`;
-      const phrases = keyphraseMap.get(key) || [];
-      for (const p of phrases) {
-        phraseTF[p] = (phraseTF[p] || 0) + 1;
+      for (const tag of item.tags) {
+        clusterTagCount[tag] = (clusterTagCount[tag] || 0) + 1;
       }
     }
-    const scored = Object.entries(phraseTF).map(([phrase, tf]) => {
-      const df = globalPhraseDF[phrase] || 1;
-      const idf = Math.log(totalDocs / df);
-      const clusterCoverage = tf / clusterItems.length; // what fraction of cluster has this phrase
-      return { phrase, score: clusterCoverage * idf, tf };
-    }).filter(s => s.tf >= 2) // must appear in 2+ cluster items
+
+    // Score: prefer tags frequent in this cluster but not everywhere
+    const scored = Object.entries(clusterTagCount)
+      .map(([tag, count]) => {
+        const clusterFreq = count / clusterItems.length;
+        const globalFreq = (globalTagCount[tag] || 0) / totalItems;
+        return { tag, score: clusterFreq * (1 - globalFreq * 0.6), count };
+      })
+      .filter(s => s.count >= 2 && !usedLabels.has(s.tag))
       .sort((a, b) => b.score - a.score);
 
-    // Manual overrides for clusters the algorithm can't name well
-    const LABEL_OVERRIDES = {
-      'region 1': 'AI ethics and critical perspectives',
-      'region 2': 'AI ethics and critical perspectives',
-      'region 3': 'AI ethics and critical perspectives',
-      'region 4': 'AI ethics and critical perspectives',
-      'region 5': 'AI ethics and critical perspectives',
-    };
-    const autoLabel = scored.length > 0 ? scored[0].phrase : `region ${c + 1}`;
-    const label = LABEL_OVERRIDES[autoLabel] || autoLabel;
+    const label = scored.length > 0 ? scored[0].tag : `region ${c + 1}`;
+    usedLabels.add(label);
 
-    console.log(`  ${label} (${clusterItems.length} items, r=${radius.toFixed(3)})`);
-    clusters.push({ label, centerX, centerY, radius });
+    const centerX = parseFloat(centroids[c][0].toFixed(4));
+    const centerY = parseFloat(centroids[c][1].toFixed(4));
+    console.log(`  Territory: "${label}" (${clusterItems.length} items)`);
+    territories.push({ label, centerX, centerY, itemCount: clusterItems.length });
   }
-  return clusters;
+
+  return territories;
 }
 
 // ---------------------------------------------------------------------------
-// 5. Compute inquiry areas from hub/develops relations
+// 6. Topographic contours via KDE + marching squares
 // ---------------------------------------------------------------------------
 
-function computeInquiryAreas(items) {
-  // Build a map: hubSlug → { hubItem, files[] }
-  const hubMap = new Map();
+function marchingSquaresSegs(idx, top, right, bottom, left) {
+  switch (idx) {
+    case 1:  return [[left, bottom]];
+    case 2:  return [[bottom, right]];
+    case 3:  return [[left, right]];
+    case 4:  return [[top, right]];
+    case 5:  return [[top, right], [left, bottom]]; // ambiguous
+    case 6:  return [[top, bottom]];
+    case 7:  return [[top, left]];
+    case 8:  return [[top, left]];
+    case 9:  return [[top, bottom]];
+    case 10: return [[top, left], [right, bottom]]; // ambiguous
+    case 11: return [[top, right]];
+    case 12: return [[left, right]];
+    case 13: return [[right, bottom]];
+    case 14: return [[left, bottom]];
+    default: return [];
+  }
+}
 
-  // Register all hubs
+function chainSegments(segments) {
+  if (segments.length === 0) return [];
+  const fmt = v => Math.round(v * 1e4);
+  const key = ([x, y]) => `${fmt(x)},${fmt(y)}`;
+
+  const endMap = new Map();
+  segments.forEach((seg, i) => {
+    [0, 1].forEach(e => {
+      const k = key(seg[e]);
+      if (!endMap.has(k)) endMap.set(k, []);
+      endMap.get(k).push([i, e]);
+    });
+  });
+
+  const used = new Array(segments.length).fill(false);
+  const polylines = [];
+
+  for (let start = 0; start < segments.length; start++) {
+    if (used[start]) continue;
+    used[start] = true;
+    const chain = [segments[start][0], segments[start][1]];
+
+    // Extend forward
+    let growing = true;
+    while (growing) {
+      growing = false;
+      for (const [si, ei] of (endMap.get(key(chain[chain.length - 1])) || [])) {
+        if (used[si]) continue;
+        used[si] = true;
+        chain.push(segments[si][1 - ei]);
+        growing = true;
+        break;
+      }
+    }
+    // Extend backward
+    growing = true;
+    while (growing) {
+      growing = false;
+      for (const [si, ei] of (endMap.get(key(chain[0])) || [])) {
+        if (used[si]) continue;
+        used[si] = true;
+        chain.unshift(segments[si][1 - ei]);
+        growing = true;
+        break;
+      }
+    }
+
+    if (chain.length >= 3) polylines.push(chain);
+  }
+  return polylines;
+}
+
+function computeTopography(items) {
+  const GRID = 32; // 32×32 vertex grid
+  const h = 0.10;  // KDE bandwidth (10% of map)
+  const h2 = h * h;
+
+  // Gaussian KDE evaluated at each grid vertex
+  const grid = new Float64Array(GRID * GRID).fill(0);
   for (const item of items) {
-    if (item.hub) {
-      if (!hubMap.has(item.slug)) {
-        hubMap.set(item.slug, { hubItem: item, files: [] });
-      } else {
-        hubMap.get(item.slug).hubItem = item;
+    for (let gy = 0; gy < GRID; gy++) {
+      for (let gx = 0; gx < GRID; gx++) {
+        const cx = gx / (GRID - 1);
+        const cy = gy / (GRID - 1);
+        const dx = item.x - cx;
+        const dy = item.y - cy;
+        const d2 = (dx * dx + dy * dy) / h2;
+        if (d2 < 9) grid[gy * GRID + gx] += Math.exp(-0.5 * d2);
       }
     }
   }
 
-  // Register all project files
-  for (const item of items) {
-    if (item.develops) {
-      if (!hubMap.has(item.develops)) {
-        hubMap.set(item.develops, { hubItem: null, files: [] });
+  // Normalize to [0,1]
+  let maxVal = 0;
+  for (let i = 0; i < grid.length; i++) if (grid[i] > maxVal) maxVal = grid[i];
+  if (maxVal === 0) return { levels: [] };
+  for (let i = 0; i < grid.length; i++) grid[i] /= maxVal;
+
+  const THRESHOLDS = [0.15, 0.38];
+  console.log('Computing topographic contours...');
+
+  const levels = THRESHOLDS.map(threshold => {
+    const segments = [];
+    for (let gy = 0; gy < GRID - 1; gy++) {
+      for (let gx = 0; gx < GRID - 1; gx++) {
+        const tl = grid[gy * GRID + gx];
+        const tr = grid[gy * GRID + gx + 1];
+        const bl = grid[(gy + 1) * GRID + gx];
+        const br = grid[(gy + 1) * GRID + gx + 1];
+
+        const idx = (tl >= threshold ? 8 : 0) | (tr >= threshold ? 4 : 0) |
+                    (br >= threshold ? 2 : 0) | (bl >= threshold ? 1 : 0);
+        if (idx === 0 || idx === 15) continue;
+
+        const x0 = gx / (GRID - 1);
+        const x1 = (gx + 1) / (GRID - 1);
+        const y0 = gy / (GRID - 1);
+        const y1 = (gy + 1) / (GRID - 1);
+
+        const lerp = (a, b, va, vb) =>
+          Math.abs(vb - va) < 1e-10 ? (a + b) / 2 : a + (b - a) * (threshold - va) / (vb - va);
+
+        const top    = [lerp(x0, x1, tl, tr), y0];
+        const right  = [x1, lerp(y0, y1, tr, br)];
+        const bottom = [lerp(x0, x1, bl, br), y1];
+        const left   = [x0, lerp(y0, y1, tl, bl)];
+
+        segments.push(...marchingSquaresSegs(idx, top, right, bottom, left));
       }
-      hubMap.get(item.develops).files.push(item);
     }
-  }
 
-  const areas = [];
+    const polylines = chainSegments(segments).map(pl =>
+      pl.map(([x, y]) => [parseFloat(x.toFixed(3)), parseFloat(y.toFixed(3))])
+    );
+    console.log(`  Level ${(threshold * 100).toFixed(0)}%: ${polylines.length} contour lines`);
+    return { threshold, polylines };
+  });
 
-  for (const [hubSlug, { hubItem, files }] of hubMap) {
-    // Need hub + at least 1 file, and all must have positions
-    const members = [...files];
-    if (hubItem && typeof hubItem.x === 'number') members.push(hubItem);
-    const located = members.filter(m => typeof m.x === 'number');
-    if (located.length < 2) continue;
-
-    // Centroid
-    const cx = located.reduce((s, m) => s + m.x, 0) / located.length;
-    const cy = located.reduce((s, m) => s + m.y, 0) / located.length;
-
-    // 85th-percentile distance + 15% buffer
-    const dists = located.map(m => Math.sqrt((m.x - cx) ** 2 + (m.y - cy) ** 2)).sort((a, b) => a - b);
-    const radius = Math.max(0.05, dists[Math.floor(dists.length * 0.85)] * 1.15 + 0.02);
-
-    const label = hubItem ? hubItem.title : hubSlug;
-    const hubUrl = hubItem ? hubItem.url : null;
-
-    areas.push({ label, centerX: parseFloat(cx.toFixed(4)), centerY: parseFloat(cy.toFixed(4)), radius: parseFloat(radius.toFixed(4)), hubUrl });
-  }
-
-  return areas;
+  return { levels };
 }
 
 // ---------------------------------------------------------------------------
-// 6. Define trails
+// 7. Define trails (manual + auto-generated from hub/develops)
 // ---------------------------------------------------------------------------
 
-function buildTrails(itemSlugs) {
+function buildTrails(itemSlugs, allItems) {
   const trails = [
     {
       id: 'building-the-garden',
@@ -441,6 +505,7 @@ function buildTrails(itemSlugs) {
         'claude-md-project-memory',
         'knowledge-graph',
       ],
+      type: 'curated',
     },
     {
       id: 'evening-with-chatgpt',
@@ -453,6 +518,7 @@ function buildTrails(itemSlugs) {
         'an-evening-with-chatgpt-september-2023',
         'an-evening-with-youchat-and-chatsonic',
       ],
+      type: 'curated',
     },
     {
       id: 'conversation-design',
@@ -468,8 +534,37 @@ function buildTrails(itemSlugs) {
         'context-engineering-lets-call-it-design',
         'designing-for-doubt',
       ],
+      type: 'curated',
     },
   ];
+
+  // Auto-generate trails from hub/develops project structure
+  if (allItems) {
+    const hubMap = new Map();
+    for (const item of allItems) {
+      if (item.hub) hubMap.set(item.slug, { hubItem: item, files: [] });
+    }
+    for (const item of allItems) {
+      if (item.develops && hubMap.has(item.develops)) {
+        hubMap.get(item.develops).files.push(item);
+      }
+    }
+    for (const [hubSlug, { hubItem, files }] of hubMap) {
+      if (!hubItem || files.length === 0) continue;
+      // Sort files by date ascending, falling back to slug order
+      const sorted = files.slice().sort((a, b) => {
+        if (a.date && b.date) return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
+        return a.slug.localeCompare(b.slug);
+      });
+      trails.push({
+        id: `project-${hubSlug}`,
+        name: hubItem.title,
+        description: hubItem.description || `Explore the ${hubItem.title} project.`,
+        items: [hubSlug, ...sorted.map(f => f.slug)],
+        type: 'project',
+      });
+    }
+  }
 
   // Filter out trail items that don't exist in the data
   return trails.map(t => ({
@@ -558,21 +653,24 @@ function main() {
     item.connections = connections;
   }
 
-  // Remove tags, hub, develops from output (not needed on the client as raw fields)
-  const outputItems = allItems.map(({ tags, hub, develops, ...rest }) => rest);
+  // Remove tags, hub, develops, date from output (not needed on client as raw fields)
+  const outputItems = allItems.map(({ tags, hub, develops, date, ...rest }) => rest);
 
-  // Inquiry areas (from hub/develops relations)
-  console.log('Computing inquiry areas...');
-  const inquiryAreas = computeInquiryAreas(allItems);
-  console.log(`Generated ${inquiryAreas.length} inquiry areas`);
+  // Territories (semantic clusters named by dominant tags)
+  console.log('Computing territories...');
+  const territories = computeTerritories(allItems);
+  console.log(`Generated ${territories.length} territories`);
 
-  // Trails
+  // Topographic contours (KDE density iso-contours)
+  const topography = computeTopography(allItems);
+
+  // Trails (manual curated + auto-generated from hub/develops)
   const slugSet = new Set(allItems.map(i => i.slug));
-  const trails = buildTrails(slugSet);
+  const trails = buildTrails(slugSet, allItems);
   console.log(`Built ${trails.length} trails`);
 
   // Write output
-  const output = { items: outputItems, inquiryAreas, trails };
+  const output = { items: outputItems, territories, topography, trails };
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   console.log(`Wrote ${OUTPUT_FILE} (${outputItems.length} items)`);

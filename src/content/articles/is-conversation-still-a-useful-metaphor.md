@@ -7,7 +7,7 @@ tags:
   - conversational-ai
   - design
 description: "Whether conversation is still a useful metaphor for what we're building."
-ai: 100% Maaike
+ai: 100% Maai
 ---
 
 # Is conversation still a useful metaphor for human-machine interaction?
