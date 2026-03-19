@@ -1,6 +1,7 @@
 ---
 title: "Hoe word ik conversation designer?"
 date: 2020-07-26
+updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design

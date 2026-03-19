@@ -1,6 +1,7 @@
 ---
 title: "Understanding speech — part 1"
 date: 2020-02-13
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

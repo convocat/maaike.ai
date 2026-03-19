@@ -1,6 +1,7 @@
 ---
 title: "Reading notes: Apple's Saga knowledge graph"
 date: 2026-03-14
+updated: 2026-03-19
 maturity: solid
 tags:
   - knowledge-graph

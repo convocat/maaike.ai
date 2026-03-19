@@ -1,6 +1,7 @@
 ---
 title: "Why ChatGPT is bullshit (and why we should design for that)"
 date: 2023-01-07
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

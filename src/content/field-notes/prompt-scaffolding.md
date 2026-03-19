@@ -1,6 +1,7 @@
 ---
 title: Prompt Scaffolding
 date: 2026-03-05
+updated: 2026-03-15
 maturity: draft
 tags:
   - llm

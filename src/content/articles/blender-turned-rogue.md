@@ -1,6 +1,7 @@
 ---
 title: "Blender turned rogue?"
 date: 2020-05-24
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

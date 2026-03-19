@@ -1,6 +1,7 @@
 ---
 title: "Prompt thought: summaries"
 date: 2023-12-16
+updated: 2026-03-15
 maturity: complete
 tags:
   - prompt-design

@@ -1,6 +1,7 @@
 ---
 title: "The disappearance of authentic voice online"
 date: 2026-03-12
+updated: 2026-03-15
 maturity: draft
 tags:
   - ai

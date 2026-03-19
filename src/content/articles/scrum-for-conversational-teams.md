@@ -1,6 +1,7 @@
 ---
 title: "Scrum for conversational teams: sprints"
 date: 2020-10-31
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

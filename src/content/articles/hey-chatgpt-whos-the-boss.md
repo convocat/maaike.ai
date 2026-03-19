@@ -1,6 +1,7 @@
 ---
 title: "Hey ChatGPT, who's the boss?"
 date: 2023-01-14
+updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design

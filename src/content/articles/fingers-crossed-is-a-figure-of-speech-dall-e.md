@@ -1,6 +1,7 @@
 ---
 title: "Fingers crossed is a figure of speech, DALL-E!"
 date: 2023-11-04
+updated: 2026-03-11
 maturity: complete
 tags:
   - prompt-design

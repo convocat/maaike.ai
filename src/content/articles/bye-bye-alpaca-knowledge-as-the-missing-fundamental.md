@@ -1,6 +1,7 @@
 ---
 title: "Bye bye Alpaca...knowledge as the missing fundamental?"
 date: 2023-03-26
+updated: 2026-03-11
 maturity: complete
 tags:
   - ai-ethics

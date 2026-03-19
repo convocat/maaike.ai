@@ -1,6 +1,7 @@
 ---
 title: Conversational interfaces are not easy
 date: 2023-09-29
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

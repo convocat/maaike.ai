@@ -1,6 +1,7 @@
 ---
 title: "How content chunk size influences embedding representations"
 date: 2026-03-15
+updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph

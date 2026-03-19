@@ -1,6 +1,7 @@
 ---
 title: "7 new skills to learn for conversation designers in 2022"
 date: 2022-01-05
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

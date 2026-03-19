@@ -1,6 +1,7 @@
 ---
 title: "The lone convo designer: a checklist for a team-of-one"
 date: 2022-02-17
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

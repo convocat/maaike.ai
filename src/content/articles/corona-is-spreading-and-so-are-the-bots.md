@@ -1,6 +1,7 @@
 ---
 title: "Corona is spreading…and so are the bots"
 date: 2020-03-15
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

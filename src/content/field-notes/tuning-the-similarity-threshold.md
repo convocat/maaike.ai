@@ -1,6 +1,7 @@
 ---
 title: "Tuning the similarity threshold: from 2,771 candidates to useful suggestions"
 date: 2026-03-15
+updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph

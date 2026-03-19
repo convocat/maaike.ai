@@ -1,6 +1,7 @@
 ---
 title: Knowledge gardens and serendipity
 date: 2026-03-14
+updated: 2026-03-15
 maturity: developing
 tags:
   - digital-gardens

@@ -1,6 +1,7 @@
 ---
 title: Book recommender
 date: 2026-03-17
+updated: 2026-03-19
 maturity: draft
 tags:
   - python

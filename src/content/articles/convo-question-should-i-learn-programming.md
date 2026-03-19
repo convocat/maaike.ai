@@ -1,6 +1,7 @@
 ---
 title: "Convo question: Should I learn programming?"
 date: 2022-09-11
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

@@ -1,6 +1,7 @@
 ---
 title: "You're not married to your texts"
 date: 2020-11-28
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

@@ -1,6 +1,7 @@
 ---
 title: "The issue with LLM hallucinations: knowledge as a missing fundamental"
 date: 2024-02-11
+updated: 2026-03-11
 maturity: complete
 tags:
   - philosophy

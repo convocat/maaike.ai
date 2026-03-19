@@ -1,6 +1,7 @@
 ---
 title: "Air Canada's bot mishap pre-dates ChatGPT"
 date: 2024-02-18
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

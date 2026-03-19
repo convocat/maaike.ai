@@ -1,6 +1,7 @@
 ---
 title: "What happens when AI has read everything?"
 date: 2023-03-05
+updated: 2026-03-15
 maturity: complete
 tags:
   - ai-ethics

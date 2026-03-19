@@ -1,6 +1,7 @@
 ---
 title: "Full-scale key phrase extraction: results"
 date: 2026-03-15
+updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph

@@ -1,6 +1,7 @@
 ---
 title: "How do I become a conversation designer?"
 date: 2020-09-06
+updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design

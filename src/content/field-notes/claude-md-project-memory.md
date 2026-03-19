@@ -1,6 +1,7 @@
 ---
 title: Project memory for persistent context
 date: 2026-03-10
+updated: 2026-03-18
 maturity: draft
 tags:
   - about

@@ -1,6 +1,7 @@
 ---
 title: "An evening with ChatGPT (2)"
 date: 2022-12-05
+updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design

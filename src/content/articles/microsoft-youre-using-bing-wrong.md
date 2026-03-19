@@ -1,6 +1,7 @@
 ---
 title: "Microsoft: \"you're using Bing wrong! You're not supposed to talk with it!\""
 date: 2023-03-05
+updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design

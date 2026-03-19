@@ -1,6 +1,7 @@
 ---
 title: "Context engineering? Let's call it design"
 date: 2025-07-06
+updated: 2026-03-15
 maturity: complete
 tags:
   - prompt-design

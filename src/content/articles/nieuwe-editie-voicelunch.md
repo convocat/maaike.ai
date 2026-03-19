@@ -1,6 +1,7 @@
 ---
 title: "Nieuwe editie voicelunch: language & linguistics!"
 date: 2020-08-20
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

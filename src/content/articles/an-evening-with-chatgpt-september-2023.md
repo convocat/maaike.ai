@@ -1,6 +1,7 @@
 ---
 title: "An evening with ChatGPT - the september 2023 edition"
 date: 2023-10-01
+updated: 2026-03-11
 maturity: complete
 tags:
   - ai-ethics

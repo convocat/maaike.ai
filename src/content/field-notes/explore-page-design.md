@@ -1,6 +1,7 @@
 ---
 title: "Explore page: a visual browsing UI for the garden"
 date: 2026-03-15
+updated: 2026-03-19
 maturity: developing
 tags:
   - about

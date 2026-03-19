@@ -1,6 +1,7 @@
 ---
 title: "Design system and content guidelines"
 date: 2026-03-15
+updated: 2026-03-19
 maturity: developing
 tags:
   - about

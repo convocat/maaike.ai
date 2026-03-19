@@ -1,6 +1,7 @@
 ---
 title: "Embedding models: a survey for the garden"
 date: 2026-03-14
+updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph

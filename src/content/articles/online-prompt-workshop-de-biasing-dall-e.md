@@ -1,6 +1,7 @@
 ---
 title: "Online prompt workshop: de-biasing Dall-e"
 date: 2023-11-20
+updated: 2026-03-11
 maturity: complete
 tags:
   - prompt-design

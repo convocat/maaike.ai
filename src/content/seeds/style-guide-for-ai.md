@@ -1,6 +1,7 @@
 ---
 title: Style guide for AI
 date: 2026-03-13
+updated: 2026-03-17
 maturity: draft
 tags:
   - ai

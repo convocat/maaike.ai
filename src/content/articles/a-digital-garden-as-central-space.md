@@ -1,6 +1,7 @@
 ---
 title: "A digital garden as central space for my thoughts and writing"
 date: 2026-03-11
+updated: 2026-03-15
 maturity: solid
 tags:
   - digital-gardens

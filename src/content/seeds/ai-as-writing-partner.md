@@ -1,6 +1,7 @@
 ---
 title: AI as writing partner
 date: 2026-03-11
+updated: 2026-03-15
 maturity: draft
 tags:
   - ai

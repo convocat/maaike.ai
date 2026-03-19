@@ -1,6 +1,7 @@
 ---
 title: Putting the design in prompt design
 date: 2023-05-22
+updated: 2026-03-15
 maturity: complete
 tags:
   - prompt-design

@@ -1,6 +1,7 @@
 ---
 title: "European chatbot conference: 10 talks that I'm going to rewatch"
 date: 2022-03-07
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design

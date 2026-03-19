@@ -1,6 +1,7 @@
 ---
 title: "My favorite ChatGPT use case: presentation prep!"
 date: 2024-02-04
+updated: 2026-03-11
 maturity: complete
 tags:
   - prompt-design

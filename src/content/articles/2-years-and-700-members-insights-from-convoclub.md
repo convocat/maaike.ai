@@ -1,6 +1,7 @@
 ---
 title: "2 years and 700 members: insights from Convoclub"
 date: 2023-08-16
+updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
