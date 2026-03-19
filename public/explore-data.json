@@ -7,8 +7,8 @@
       "maturity": "complete",
       "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
       "url": "/articles/2-years-and-700-members-insights-from-convoclub",
-      "x": 0.515,
-      "y": 0.9383,
+      "x": 0.5155,
+      "y": 0.9381,
       "keyphrases": [
         "conversation designers",
         "knowledge gaps",
@@ -25,8 +25,8 @@
       "maturity": "complete",
       "description": "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level.",
       "url": "/articles/7-new-skills-for-conversation-designers-2022",
-      "x": 0.4711,
-      "y": 0.9498,
+      "x": 0.4715,
+      "y": 0.9508,
       "keyphrases": [
         "nlu",
         "entities",
@@ -43,8 +43,8 @@
       "maturity": "solid",
       "description": "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet.",
       "url": "/articles/a-digital-garden-as-central-space",
-      "x": 0.7724,
-      "y": 0.1404,
+      "x": 0.7718,
+      "y": 0.1383,
       "keyphrases": [
         "digital garden",
         "non-linear thinking",
@@ -61,8 +61,8 @@
       "maturity": "complete",
       "description": "So if it's not a case of LLM hallucination, what did happen?",
       "url": "/articles/air-canadas-bot-mishap-pre-dates-chatgpt",
-      "x": 0.6717,
-      "y": 0.7742,
+      "x": 0.6703,
+      "y": 0.7724,
       "keyphrases": [
         "chatbot mishap",
         "nlu-based bot",
@@ -79,8 +79,8 @@
       "maturity": "complete",
       "description": "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
       "url": "/articles/an-evening-with-chatgpt-2",
-      "x": 0.8003,
-      "y": 0.7746,
+      "x": 0.8043,
+      "y": 0.7769,
       "keyphrases": [
         "conversation design",
         "hello world",
@@ -97,8 +97,8 @@
       "maturity": "complete",
       "description": "Can ChatGPT take over some of my work as a conversation designer? Can it create an intent model for me?",
       "url": "/articles/an-evening-with-chatgpt-3",
-      "x": 0.7893,
-      "y": 0.7245,
+      "x": 0.7876,
+      "y": 0.7247,
       "keyphrases": [
         "intent model",
         "nlp tasks",
@@ -115,8 +115,8 @@
       "maturity": "complete",
       "description": "Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?",
       "url": "/articles/an-evening-with-chatgpt-september-2023",
-      "x": 0.6914,
-      "y": 0.6785,
+      "x": 0.6883,
+      "y": 0.6811,
       "keyphrases": [
         "chatgpt sessions",
         "new browse feature",
@@ -133,8 +133,8 @@
       "maturity": "complete",
       "description": "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT.",
       "url": "/articles/an-evening-with-chatgpt",
-      "x": 0.7574,
-      "y": 0.7581,
+      "x": 0.7611,
+      "y": 0.7631,
       "keyphrases": [
         "large language model",
         "contextual understanding",
@@ -151,8 +151,8 @@
       "maturity": "complete",
       "description": "Both can access the internet and retrieve recent information. Let's take them for a test drive.",
       "url": "/articles/an-evening-with-youchat-and-chatsonic",
-      "x": 0.6755,
-      "y": 0.7215,
+      "x": 0.6777,
+      "y": 0.7269,
       "keyphrases": [
         "youchat and chatsonic models",
         "internet access and information retrieval",
@@ -169,8 +169,8 @@
       "maturity": "complete",
       "description": "Facebook's AI chatbot might just be saying what you want it to say…",
       "url": "/articles/blender-turned-rogue",
-      "x": 0.6822,
-      "y": 0.8189,
+      "x": 0.6835,
+      "y": 0.8161,
       "keyphrases": [
         "ai chatbot",
         "anti-semitic responses",
@@ -187,8 +187,8 @@
       "maturity": "complete",
       "description": "Wow, that went down fast!",
       "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "x": 0.6857,
-      "y": 0.5674,
+      "x": 0.6912,
+      "y": 0.5598,
       "keyphrases": [
         "hallucinations in llms",
         "missing fundamental concept",
@@ -205,8 +205,8 @@
       "maturity": "complete",
       "description": "Stress-free preparation...could it really work?",
       "url": "/articles/chatgpt-presentation-prep",
-      "x": 0.728,
-      "y": 0.7055,
+      "x": 0.7291,
+      "y": 0.7022,
       "keyphrases": [
         "presentation prep",
         "generative ai use",
@@ -223,8 +223,8 @@
       "maturity": "complete",
       "description": "So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.",
       "url": "/articles/context-engineering-lets-call-it-design",
-      "x": 0.7865,
-      "y": 0.5661,
+      "x": 0.7869,
+      "y": 0.5641,
       "keyphrases": [
         "context engineering",
         "design approach",
@@ -241,8 +241,8 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.5998,
-      "y": 0.6697,
+      "x": 0.603,
+      "y": 0.6727,
       "keyphrases": [
         "conversational interfaces",
         "review-regenerate-repeat",
@@ -296,7 +296,7 @@
       "description": "How to build Coronabots responsibly — if you want to build one at all.",
       "url": "/articles/corona-is-spreading-and-so-are-the-bots",
       "x": 0.6079,
-      "y": 0.8095,
+      "y": 0.8093,
       "keyphrases": [
         "corona chatbots",
         "crisis communication tools",
@@ -313,8 +313,8 @@
       "maturity": "complete",
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
-      "x": 0.8372,
-      "y": 0.6207,
+      "x": 0.8342,
+      "y": 0.615,
       "keyphrases": [
         "dall-e 3 prompt rewriting",
         "diverse image generation",
@@ -331,8 +331,8 @@
       "maturity": "complete",
       "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
       "url": "/articles/european-chatbot-conference-10-talks",
-      "x": 0.627,
-      "y": 0.8532,
+      "x": 0.6241,
+      "y": 0.8533,
       "keyphrases": [
         "collaborative task assistants",
         "voice challenges",
@@ -349,8 +349,8 @@
       "maturity": "complete",
       "description": "DALL-E 3 is still digitally challenged.",
       "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
-      "x": 0.8205,
-      "y": 0.6919,
+      "x": 0.818,
+      "y": 0.6913,
       "keyphrases": [
         "image generation",
         "augmented prompt",
@@ -367,8 +367,8 @@
       "maturity": "complete",
       "description": "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think.",
       "url": "/articles/hey-chatgpt-whos-the-boss",
-      "x": 0.7131,
-      "y": 0.7482,
+      "x": 0.7187,
+      "y": 0.7468,
       "keyphrases": [
         "probabilistic model",
         "chatgpt's training cut-off",
@@ -403,8 +403,8 @@
       "maturity": "complete",
       "description": "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?",
       "url": "/articles/hoe-word-ik-conversation-designer",
-      "x": 0.4596,
-      "y": 0.9062,
+      "x": 0.4567,
+      "y": 0.9064,
       "keyphrases": [
         "conversation design",
         "chatbot ontwerp",
@@ -421,8 +421,8 @@
       "maturity": "complete",
       "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
       "url": "/articles/how-do-i-become-a-conversation-designer",
-      "x": 0.5004,
-      "y": 0.8862,
+      "x": 0.499,
+      "y": 0.886,
       "keyphrases": [
         "conversation interfaces",
         "chatbot builder",
@@ -439,8 +439,8 @@
       "maturity": "complete",
       "description": "5 checks to keep your content on track — and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
-      "x": 0.5159,
-      "y": 0.796,
+      "x": 0.5147,
+      "y": 0.7956,
       "keyphrases": [
         "content quality audit",
         "feedback checklist",
@@ -457,8 +457,8 @@
       "maturity": "complete",
       "description": "There's a prompt for that! A quick tutorial for designing conversational system prompts.",
       "url": "/articles/how-to-make-chatgpt-more-conversational",
-      "x": 0.768,
-      "y": 0.683,
+      "x": 0.7709,
+      "y": 0.6821,
       "keyphrases": [
         "conversational system prompts",
         "more conversational chatgpt",
@@ -470,13 +470,13 @@
     },
     {
       "slug": "is-conversation-still-a-useful-metaphor",
-      "title": "Is conversation still a useful metaphor?",
+      "title": "Is conversation still a useful metaphor for human-machine interaction?",
       "collection": "articles",
-      "maturity": "draft",
+      "maturity": "developing",
       "description": "Whether conversation is still a useful metaphor for what we're building.",
       "url": "/articles/is-conversation-still-a-useful-metaphor",
-      "x": 0.3796,
-      "y": 0.7849,
+      "x": 0.3777,
+      "y": 0.7844,
       "keyphrases": [],
       "connections": 6
     },
@@ -487,8 +487,8 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.7308,
-      "y": 0.5681,
+      "x": 0.7357,
+      "y": 0.5717,
       "keyphrases": [
         "llm hallucinations",
         "missing fundamental",
@@ -505,8 +505,8 @@
       "maturity": "complete",
       "description": "You built a conversational interface and then expected people to use it just for search?",
       "url": "/articles/microsoft-youre-using-bing-wrong",
-      "x": 0.7261,
-      "y": 0.8395,
+      "x": 0.727,
+      "y": 0.8373,
       "keyphrases": [
         "conversation 101",
         "conversational interface",
@@ -523,8 +523,8 @@
       "maturity": "complete",
       "description": "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!",
       "url": "/articles/nieuwe-editie-voicelunch",
-      "x": 0.5961,
-      "y": 0.9535,
+      "x": 0.597,
+      "y": 0.9542,
       "keyphrases": [
         "language & linguistics",
         "virtual meetups",
@@ -541,8 +541,8 @@
       "maturity": "complete",
       "description": "An onboarding checklist for conversation designers.",
       "url": "/articles/off-to-a-good-start",
-      "x": 0.5953,
-      "y": 0.8959,
+      "x": 0.5945,
+      "y": 0.896,
       "keyphrases": [
         "onboarding checklist",
         "remote onboarding",
@@ -559,8 +559,8 @@
       "maturity": "complete",
       "description": "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us.",
       "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
-      "x": 0.8007,
-      "y": 0.6493,
+      "x": 0.8019,
+      "y": 0.648,
       "keyphrases": [
         "de-bias dall-e",
         "inclusive image generation",
@@ -577,8 +577,8 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.5819,
-      "y": 0.8526,
+      "x": 0.5784,
+      "y": 0.8523,
       "keyphrases": [
         "online vergaderen uitput",
         "lichaamshouding speelt rol",
@@ -613,8 +613,8 @@
       "maturity": "complete",
       "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
       "url": "/articles/prompt-thought-summaries",
-      "x": 0.8081,
-      "y": 0.5255,
+      "x": 0.809,
+      "y": 0.524,
       "keyphrases": [
         "key concepts",
         "short definition",
@@ -631,8 +631,8 @@
       "maturity": "complete",
       "description": "Blind prompting vs. prompt engineering — and what it means for conversation designers.",
       "url": "/articles/putting-the-design-in-prompt-design",
-      "x": 0.7633,
-      "y": 0.6229,
+      "x": 0.7615,
+      "y": 0.6266,
       "keyphrases": [
         "prompt design",
         "experiment-based design",
@@ -649,8 +649,8 @@
       "maturity": "complete",
       "description": "Designing for negative space",
       "url": "/articles/saturday-design-thoughts",
-      "x": 0.6708,
-      "y": 0.8637,
+      "x": 0.6693,
+      "y": 0.8594,
       "keyphrases": [
         "llms impossible to shut up",
         "negative space in llm",
@@ -667,8 +667,8 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.5726,
-      "y": 0.7673,
+      "x": 0.573,
+      "y": 0.7662,
       "keyphrases": [
         "chatbot scrum team",
         "fixed publication windows",
@@ -685,8 +685,8 @@
       "maturity": "complete",
       "description": "My favorite resources for building a curious and critical frame of mind.",
       "url": "/articles/stay-calm-and-keep-thinking-for-yourself",
-      "x": 0.6383,
-      "y": 0.694,
+      "x": 0.644,
+      "y": 0.6956,
       "keyphrases": [
         "chatgpt hype",
         "openai technology",
@@ -703,8 +703,8 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.5456,
-      "y": 0.8821,
+      "x": 0.5447,
+      "y": 0.8838,
       "keyphrases": [
         "conversation designer",
         "team-of-one workflow",
@@ -721,8 +721,8 @@
       "maturity": "complete",
       "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
       "url": "/articles/the-long-and-winding-road",
-      "x": 0.5603,
-      "y": 0.9257,
+      "x": 0.5608,
+      "y": 0.9272,
       "keyphrases": [
         "conversation design",
         "entrepreneurial journey",
@@ -739,8 +739,8 @@
       "maturity": "complete",
       "description": "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.",
       "url": "/articles/understanding-speech-part-1",
-      "x": 0.5836,
-      "y": 0.5933,
+      "x": 0.595,
+      "y": 0.5864,
       "keyphrases": [
         "speech communication",
         "voice assistant design",
@@ -757,8 +757,8 @@
       "maturity": "complete",
       "description": "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.",
       "url": "/articles/understanding-speech-part-2",
-      "x": 0.6949,
-      "y": 0.6257,
+      "x": 0.6954,
+      "y": 0.6235,
       "keyphrases": [
         "speech-like action",
         "backchannelling cues",
@@ -775,8 +775,8 @@
       "maturity": "complete",
       "description": "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended.",
       "url": "/articles/visual-notes-brian-roemmele",
-      "x": 0.6311,
-      "y": 0.9233,
+      "x": 0.631,
+      "y": 0.9232,
       "keyphrases": [
         "sketchnotes creation",
         "open safe space",
@@ -793,8 +793,8 @@
       "maturity": "complete",
       "description": "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!",
       "url": "/articles/what-happens-when-ai-has-read-everything",
-      "x": 0.5545,
-      "y": 0.6742,
+      "x": 0.5562,
+      "y": 0.6716,
       "keyphrases": [
         "ai data shortage",
         "language data replenishment",
@@ -811,8 +811,8 @@
       "maturity": "complete",
       "description": "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids.",
       "url": "/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
-      "x": 0.6353,
-      "y": 0.7438,
+      "x": 0.6335,
+      "y": 0.7437,
       "keyphrases": [
         "word-string-generator",
         "stochastic parrot",
@@ -829,8 +829,8 @@
       "maturity": "complete",
       "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
       "url": "/articles/youre-not-married-to-your-texts",
-      "x": 0.5592,
-      "y": 0.8124,
+      "x": 0.5586,
+      "y": 0.8101,
       "keyphrases": [
         "content project system",
         "quality parameters",
@@ -847,7 +847,7 @@
       "maturity": "developing",
       "description": "A changelog of features and decisions made while building this digital garden.",
       "url": "/field-notes/building-this-garden",
-      "x": 0.8065,
+      "x": 0.8075,
       "y": 0.1399,
       "keyphrases": [
         "garden metaphor",
@@ -856,7 +856,7 @@
         "tag system",
         "filtering sorting"
       ],
-      "connections": 2
+      "connections": 5
     },
     {
       "slug": "claude-md-project-memory",
@@ -874,7 +874,7 @@
         "setup commands",
         "design system"
       ],
-      "connections": 1
+      "connections": 2
     },
     {
       "slug": "content-chunk-size-and-embeddings",
@@ -898,7 +898,7 @@
       "x": 0.8344,
       "y": 0.1554,
       "keyphrases": [],
-      "connections": 2
+      "connections": 3
     },
     {
       "slug": "digital-gardens-vs-blogs",
@@ -907,8 +907,8 @@
       "maturity": "developing",
       "description": "What makes a digital garden different from a traditional blog?",
       "url": "/field-notes/digital-gardens-vs-blogs",
-      "x": 0.7011,
-      "y": 0.1644,
+      "x": 0.7008,
+      "y": 0.1642,
       "keyphrases": [
         "digital gardens",
         "vs blogs",
@@ -934,7 +934,7 @@
         "latent semantic analysis",
         "word2vec"
       ],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "explore-page-design",
@@ -946,7 +946,7 @@
       "x": 0.8652,
       "y": 0.147,
       "keyphrases": [],
-      "connections": 9
+      "connections": 12
     },
     {
       "slug": "full-scale-key-phrase-extraction",
@@ -958,7 +958,7 @@
       "x": 0.9251,
       "y": 0.0771,
       "keyphrases": [],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "key-phrase-extraction-for-the-garden",
@@ -976,7 +976,7 @@
         "machine-generated embeddings",
         "cosine similarity threshold"
       ],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -1003,8 +1003,8 @@
       "maturity": "draft",
       "description": "An early thought about structuring prompts in stages.",
       "url": "/field-notes/prompt-scaffolding",
-      "x": 0.7588,
-      "y": 0.5887,
+      "x": 0.7654,
+      "y": 0.5915,
       "keyphrases": [
         "prompt scaffolding",
         "layered prompts",
@@ -1066,7 +1066,7 @@
         "4. token blocking",
         "5. empirical calibration"
       ],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "ai-as-writing-partner",
@@ -1168,7 +1168,7 @@
         "personal knowledge management",
         "auto-suggested links"
       ],
-      "connections": 13
+      "connections": 16
     },
     {
       "slug": "garden-to-do-list",
@@ -1177,8 +1177,8 @@
       "maturity": "draft",
       "description": "A living list of ideas and plans for this garden.",
       "url": "/seeds/garden-to-do-list",
-      "x": 0.765,
-      "y": 0.1713,
+      "x": 0.7618,
+      "y": 0.1674,
       "keyphrases": [
         "conversational garden guide",
         "smart linking",
@@ -1186,7 +1186,7 @@
         "linkedin integration",
         "knowledge gardens"
       ],
-      "connections": 1
+      "connections": 2
     },
     {
       "slug": "how-to-build-a-digital-garden",
@@ -1195,8 +1195,8 @@
       "maturity": "draft",
       "description": "What if I wrote a comprehensive guide on how I built this site?",
       "url": "/seeds/how-to-build-a-digital-garden",
-      "x": 0.7416,
-      "y": 0.1492,
+      "x": 0.7425,
+      "y": 0.1504,
       "keyphrases": [
         "digital garden",
         "content collections",
@@ -1213,8 +1213,8 @@
       "maturity": "developing",
       "description": "Should a digital garden be searchable and useful, or is there beauty in letting people explore?",
       "url": "/seeds/knowledge-gardens-and-serendipity",
-      "x": 0.7539,
-      "y": 0.2074,
+      "x": 0.7532,
+      "y": 0.2063,
       "keyphrases": [
         "knowledge gardens",
         "interconnectedness",
@@ -1222,7 +1222,7 @@
         "digital garden",
         "flat content"
       ],
-      "connections": 3
+      "connections": 5
     },
     {
       "slug": "principles-behind-this-garden",
@@ -1267,8 +1267,8 @@
       "maturity": "draft",
       "description": "When did we stop caring about who actually wrote the words?",
       "url": "/seeds/the-disappearance-of-authentic-voice-online",
-      "x": 0.5396,
-      "y": 0.634,
+      "x": 0.5363,
+      "y": 0.6346,
       "keyphrases": [
         "authentic voice",
         "ai-generated content",
@@ -1285,8 +1285,8 @@
       "maturity": "draft",
       "description": "A mechanism that catches your train of thought. Something that responds in another space.",
       "url": "/seeds/writing-as-a-conversation-with-yourself",
-      "x": 0.6753,
-      "y": 0.2522,
+      "x": 0.6758,
+      "y": 0.2511,
       "keyphrases": [
         "conversation with self",
         "internal thought process",
@@ -1303,8 +1303,8 @@
       "maturity": "solid",
       "description": "A comprehensive overview of the digital garden concept and its evolution.",
       "url": "/weblinks/digital-garden-history",
-      "x": 0.733,
-      "y": 0.1784,
+      "x": 0.7321,
+      "y": 0.1795,
       "keyphrases": [
         "digital garden concept",
         "hypertext systems",
@@ -1351,8 +1351,8 @@
       "maturity": "complete",
       "description": "A candid reflection on the challenges of course creation, AI tools, and the mismatch between linear workflows and my non-linear thinking style. I struggle with completing online courses due to procrastination, changing circumstances, and self-doubt about content value. AI writing tools like Jasper.ai can be counterproductive for non-linear thinkers, requiring extensive prompting that defeats the purpose of automation. Linear workflows imposed by course creation platforms and AI tools conflict with my chaotic, organic thinking process. System prompts have become invaluable personal tools for managing rumination and decision-making in my daily life. I am actively seeking to design custom system prompts that accommodate my unique thought patterns rather than conform to existing frameworks.",
       "url": "/videos/a-little-sunday-afternoon-rant",
-      "x": 0.576,
-      "y": 0.5263,
+      "x": 0.5752,
+      "y": 0.526,
       "keyphrases": [],
       "connections": 0
     },
@@ -1363,8 +1363,8 @@
       "maturity": "complete",
       "description": "A hands-on exploration of Microsoft Copilot for PowerPoint, testing its capabilities for presentation creation and editing, with humorous comparisons to the legacy Clippy assistant. Copilot has significant limitations in understanding context and user intent, particularly with non-English content and specific editing requests. The AI assistant struggles with co-reference resolution, making it difficult to understand which slide or element I am referring to. Copilot cannot directly access or interact with PowerPoint Online, limiting its functionality for cloud-based workflows. The fallback responses are repetitive and lack conversational variety, making the user experience frustrating. Despite being positioned as an AI assistant, Copilot performs worse than the legacy Clippy assistant from the 1990s in practical usability. Dutch language support is officially unavailable, creating barriers for non-English users even when prompting in English. My experience raises questions about the readiness of Copilot for PowerPoint as a production-ready tool for content creators.",
       "url": "/videos/an-evening-with-copilot-for-powerpoint",
-      "x": 0.6145,
-      "y": 0.6269,
+      "x": 0.6151,
+      "y": 0.6276,
       "keyphrases": [],
       "connections": 1
     },
@@ -1375,8 +1375,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.6183,
-      "y": 0.5624,
+      "x": 0.625,
+      "y": 0.5514,
       "keyphrases": [],
       "connections": 0
     },
@@ -1387,8 +1387,8 @@
       "maturity": "complete",
       "description": "A critical analysis of Google Bard failing to adhere to conversational principles by withholding relevant information about Gemini model availability in the EU. Bard violates Grice's Cooperative Principle by failing to proactively communicate that Gemini is unavailable in the EU due to regulatory reviews. The issue is not a hallucination but a failure of the maxim of quality: Bard does not provide necessary information unless explicitly asked. Users must already know the answer to their question before asking it, creating a paradoxical and unhelpful interaction pattern. Bard in Europe still runs on the older Lambda/PaLM model, not the newer Gemini model available in other regions. This violation of conversational principles is arguably worse than generating false information because it presupposes user knowledge.",
       "url": "/videos/bard-violates-grices-maxims-again",
-      "x": 0.68,
-      "y": 0.5208,
+      "x": 0.6768,
+      "y": 0.5164,
       "keyphrases": [],
       "connections": 10
     },
@@ -1411,8 +1411,8 @@
       "maturity": "complete",
       "description": "Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that's not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?",
       "url": "/videos/designing-for-doubt",
-      "x": 0.7647,
-      "y": 0.8065,
+      "x": 0.7646,
+      "y": 0.8082,
       "keyphrases": [
         "designing for doubt",
         "chatgpt interface",
@@ -1429,8 +1429,8 @@
       "maturity": "complete",
       "description": "Episode 1 of the Maai & AI series, on the different types of prompting.",
       "url": "/videos/episode-1-types-of-prompting",
-      "x": 0.4925,
-      "y": 0.4562,
+      "x": 0.4913,
+      "y": 0.4557,
       "keyphrases": [],
       "connections": 3
     },
@@ -1465,8 +1465,8 @@
       "maturity": "complete",
       "description": "New roles, skills and tools for content professionals in the age of generative AI.",
       "url": "/videos/generative-ai-new-roles-skills-tools",
-      "x": 0.4142,
-      "y": 0.793,
+      "x": 0.4161,
+      "y": 0.7935,
       "keyphrases": [],
       "connections": 4
     },
@@ -1477,8 +1477,8 @@
       "maturity": "complete",
       "description": "An analysis of Chevrolet's GPT-based chatbot vulnerability and how the company successfully addressed the security issues through proper monitoring and design improvements. The initial vulnerability was not a sign of stupidity, but a necessary part of the testing process that all chatbots must undergo. The real measure of competence is not whether vulnerabilities exist, but how quickly and effectively they respond. I test the updated bot and demonstrate practical prompt engineering techniques for controlling chatbot behavior, including defensive prompting, topic maintenance, and firm responses to abuse. GPT-based solutions alone are not sufficient for high-risk transactions: a hybrid approach combining multiple design techniques is more effective.",
       "url": "/videos/kudos-to-chevrolet",
-      "x": 0.7199,
-      "y": 0.794,
+      "x": 0.7219,
+      "y": 0.7922,
       "keyphrases": [],
       "connections": 2
     },
@@ -1489,8 +1489,8 @@
       "maturity": "complete",
       "description": "A rant about LinkedIn's AI buttons.",
       "url": "/videos/linkedin-ai-buttons-a-little-rant",
-      "x": 0.5313,
-      "y": 0.5143,
+      "x": 0.5279,
+      "y": 0.5212,
       "keyphrases": [],
       "connections": 1
     },
@@ -1501,8 +1501,8 @@
       "maturity": "complete",
       "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
       "url": "/videos/lunchbreak-with-claude-research-papers",
-      "x": 0.6242,
-      "y": 0.4502,
+      "x": 0.622,
+      "y": 0.4488,
       "keyphrases": [],
       "connections": 3
     },
@@ -1513,8 +1513,8 @@
       "maturity": "complete",
       "description": "A comparative demonstration of how Claude, ChatGPT, and Gemini respond to a web app development request, showcasing Claude's superior capability to generate interactive prototypes and code. Claude outperforms ChatGPT and Gemini by directly generating interactive web app prototypes with a single prompt, rather than just providing plans or design suggestions. Claude creates functional React-based applications with visual mockups, progress bars, and interactive quiz elements in response to simple one-line prompts. The AI demonstrates impressive iterative capabilities, enhancing initial suggestions with more detailed content, interactive elements, and SVG graphics upon request. Claude seamlessly converts React components into static markdown files for alternative platforms, showing flexibility across different deployment methods. I am seriously considering switching from ChatGPT to Claude as my primary LLM due to Claude's superior practical implementation capabilities.",
       "url": "/videos/lunchbreak-with-claude",
-      "x": 0.6617,
-      "y": 0.4796,
+      "x": 0.661,
+      "y": 0.4736,
       "keyphrases": [],
       "connections": 3
     },
@@ -1537,8 +1537,8 @@
       "maturity": "solid",
       "description": "An update on my favorite AI-tools...a never ending overview",
       "url": "/videos/my-favorite-ai-tools-2025-edition",
-      "x": 0.5322,
-      "y": 0.4711,
+      "x": 0.5314,
+      "y": 0.472,
       "keyphrases": [
         "ai tools",
         "2025 edition",
@@ -1555,8 +1555,8 @@
       "maturity": "complete",
       "description": "A demonstration of Google's NotebookLM interactive podcast feature, where I participate as a guest in an AI-generated podcast discussion about the Coconut research paper on latent reasoning in large language models. NotebookLM now features an interactive podcast mode (beta) that allows users to join AI-generated podcast discussions about uploaded documents. The Coconut paper introduces a breakthrough method where AI can reason in continuous latent space rather than through explicit chain-of-thought language, potentially improving reasoning for complex problems. I raise philosophical questions about verification of hidden reasoning, and critical concerns about transparency, compliance, and explainability. Latent reasoning creates a black box problem: we see inputs and outputs but cannot observe the reasoning process. I also test the feature's limits by requesting humor, making Monty Python references, and asking the hosts to switch to Dutch, revealing important insights about inclusivity, turn-taking, and accessibility in AI-generated conversations. Despite current limitations where AI hosts can become condescending or defensive, the feature represents a significant step toward more natural, bidirectional conversations with documents and AI systems.",
       "url": "/videos/notebooklm-podcast-guest",
-      "x": 0.6554,
-      "y": 0.6502,
+      "x": 0.6563,
+      "y": 0.6489,
       "keyphrases": [],
       "connections": 0
     },
@@ -1567,8 +1567,8 @@
       "maturity": "complete",
       "description": "A tutorial on three essential prompting techniques to make ChatGPT more conversational and natural. I demonstrate the problem with ChatGPT's default responses, which are too long, impersonal, and unengaging for conversational interfaces. The three tips: use OpenAI Playground instead of ChatGPT for better control over LLM behavior and access to system prompts, define a specific expert role in the system prompt rather than the generic helpful assistant since research shows expert roles result in higher quality answers, and prompt for specific behaviors like conciseness, staying on topic, and ending messages with questions to drive conversation forward. I use structured delimiters to organize prompt sections and demonstrate how each behavioral instruction refines the bot's personality and interaction style. The process is like chipping away at a block of marble: each prompt chips away at behavior, domain, interaction models, and persona until you get the conversational bot you want.",
       "url": "/videos/prompt-tutorials-for-conversation-designers",
-      "x": 0.7318,
-      "y": 0.6554,
+      "x": 0.7271,
+      "y": 0.6561,
       "keyphrases": [],
       "connections": 8
     },
@@ -1579,8 +1579,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 1: intonatie.",
       "url": "/videos/quickstart-ssml-les-1-intonatie",
-      "x": 0.46,
-      "y": 0.237,
+      "x": 0.4587,
+      "y": 0.2399,
       "keyphrases": [],
       "connections": 4
     },
@@ -1603,8 +1603,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 3: de basiselementen.",
       "url": "/videos/quickstart-ssml-les-3-ssml-de-basiselementen",
-      "x": 0.4453,
-      "y": 0.3227,
+      "x": 0.445,
+      "y": 0.3193,
       "keyphrases": [],
       "connections": 4
     },
@@ -1615,8 +1615,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 4: SSML invoeren in Dialogflow.",
       "url": "/videos/quickstart-ssml-les-4-ssml-invoeren-in-dialogflow",
-      "x": 0.4875,
-      "y": 0.2853,
+      "x": 0.4971,
+      "y": 0.2879,
       "keyphrases": [],
       "connections": 4
     },
@@ -1627,8 +1627,8 @@
       "maturity": "complete",
       "description": "Quickstart SSML les 5: moeilijke woorden.",
       "url": "/videos/quickstart-ssml-les-5-moeilijke-woorden",
-      "x": 0.4369,
-      "y": 0.278,
+      "x": 0.4287,
+      "y": 0.2752,
       "keyphrases": [],
       "connections": 4
     },
@@ -1663,8 +1663,8 @@
       "maturity": "complete",
       "description": "A technical exploration of DeepSeek's content moderation and reasoning capabilities through testing its responses to sensitive geopolitical questions about Taiwan's political status. I discover that prompting DeepSeek in Dutch triggers the model's reasoning mechanism, revealing internal moderation instructions. By using linguistic workarounds like misspellings that exploit tokenization differences, I expose DeepSeek's internal guidelines for handling Taiwan-related questions, which include instructions to balance factual information with political sensitivity while avoiding language implying support for independence. This demonstrates that censorship occurs at the application level rather than within the model itself, similar to how ChatGPT handles restricted content. The model's reasoning shows it is capable of nuanced discussion about sensitive geopolitical topics, but the application layer prevents users from accessing these capabilities. I plan follow-up testing via API access, which may operate under different moderation policies than the web application, to further investigate the technical architecture of AI content moderation.",
       "url": "/videos/taking-deepseek-for-a-testdrive",
-      "x": 0.6504,
-      "y": 0.5976,
+      "x": 0.6443,
+      "y": 0.5933,
       "keyphrases": [],
       "connections": 0
     },
@@ -1675,8 +1675,8 @@
       "maturity": "complete",
       "description": "A presentation exploring my transition from technical writing to conversation design, discussing how communication professionals are evolving their roles in the digital landscape. I explain that conversation design goes beyond simple chatbot scripting or dialogue trees, involving understanding user needs, communication patterns, and designing interactions that feel natural and helpful. Technical writers are well-positioned for this transition because their core skills, clarity, user focus, and structured thinking, are exactly what conversation designers need. The shift is not about learning entirely new skills but about applying existing expertise in a new context, leveraging experience with documentation, user guides, and information architecture while expanding into dialogue design, tone and voice development, and interaction patterns. The future of technical communication is conversational, and the intersection of technical writing and conversation design represents how organizations will interact with their users in an increasingly digital world.",
       "url": "/videos/van-technisch-schrijver-naar-conversation-designer",
-      "x": 0.4648,
-      "y": 0.8569,
+      "x": 0.4639,
+      "y": 0.8561,
       "keyphrases": [],
       "connections": 0
     },
@@ -1687,8 +1687,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/alone-together",
-      "x": 0.5162,
-      "y": 0.6411,
+      "x": 0.5147,
+      "y": 0.6416,
       "keyphrases": [
         "online intimacies",
         "illusion of companionship",
@@ -1735,8 +1735,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/because-internet",
-      "x": 0.5816,
-      "y": 0.6986,
+      "x": 0.5807,
+      "y": 0.6993,
       "keyphrases": [
         "internet language change",
         "online interactions reveal",
@@ -1796,7 +1796,7 @@
       "description": "",
       "url": "/library/consciousness-and-robot-sentience",
       "x": 0.3077,
-      "y": 0.6702,
+      "y": 0.6691,
       "keyphrases": [],
       "connections": 6
     },
@@ -1855,8 +1855,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/definitive-guide-conversational-ai-dialogflow",
-      "x": 0.1966,
-      "y": 0.8531,
+      "x": 0.1949,
+      "y": 0.8518,
       "keyphrases": [],
       "connections": 1
     },
@@ -1903,8 +1903,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/developing-enterprise-chatbots",
-      "x": 0.2179,
-      "y": 0.8653,
+      "x": 0.2142,
+      "y": 0.8668,
       "keyphrases": [],
       "connections": 2
     },
@@ -2041,8 +2041,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/i-robot",
-      "x": 0.2955,
-      "y": 0.6913,
+      "x": 0.2893,
+      "y": 0.6852,
       "keyphrases": [],
       "connections": 2
     },
@@ -2053,8 +2053,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/id-blush-if-i-could",
-      "x": 0.2237,
-      "y": 0.6573,
+      "x": 0.2241,
+      "y": 0.6558,
       "keyphrases": [],
       "connections": 1
     },
@@ -2323,8 +2323,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/studies-in-conversational-ux-design",
-      "x": 0.2893,
-      "y": 0.8441,
+      "x": 0.2923,
+      "y": 0.8446,
       "keyphrases": [],
       "connections": 5
     },
@@ -2425,8 +2425,8 @@
       "maturity": "draft",
       "description": "",
       "url": "/library/the-smart-wife",
-      "x": 0.2472,
-      "y": 0.6579,
+      "x": 0.2485,
+      "y": 0.658,
       "keyphrases": [],
       "connections": 1
     },
@@ -2512,7 +2512,7 @@
         "statistical extraction",
         "yake"
       ],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "setting-up-local-embedding-models",
@@ -2530,39 +2530,583 @@
         "similarity matrices",
         "json response"
       ],
-      "connections": 11
+      "connections": 12
+    },
+    {
+      "slug": "book-recommender",
+      "title": "Book recommender",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
+      "url": "/field-notes/book-recommender",
+      "x": 0.5478,
+      "y": 0.7064,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "testing-strategy",
+      "title": "A test strategy for the garden",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Three layers of automated testing: content validation, build verification, and Playwright E2E. Why each layer exists and what it catches.",
+      "url": "/field-notes/testing-strategy",
+      "x": 0.5701,
+      "y": 0.6121,
+      "keyphrases": [],
+      "connections": 5
+    },
+    {
+      "slug": "typed-relations-as-garden-infrastructure",
+      "title": "Typed relations as garden infrastructure",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden.",
+      "url": "/field-notes/typed-relations-as-garden-infrastructure",
+      "x": 0.6494,
+      "y": 0.421,
+      "keyphrases": [],
+      "connections": 9
+    },
+    {
+      "slug": "1q84",
+      "title": "1Q84",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/1q84",
+      "x": 0.6735,
+      "y": 0.9014,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "a-court-of-thorns-and-roses",
+      "title": "A Court of Thorns and Roses",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/a-court-of-thorns-and-roses",
+      "x": 0.7948,
+      "y": 0.6134,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "a-room-of-ones-own",
+      "title": "A Room of One's Own",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/a-room-of-ones-own",
+      "x": 0.2594,
+      "y": 0.4098,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "bacteria-to-ai",
+      "title": "Bacteria to AI",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/bacteria-to-ai",
+      "x": 0.5351,
+      "y": 0.5562,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "battlefield-yorkshire",
+      "title": "Battlefield Yorkshire",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/battlefield-yorkshire",
+      "x": 0.7767,
+      "y": 0.1854,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "carries-war",
+      "title": "Carrie's War",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/carries-war",
+      "x": 0.8929,
+      "y": 0.4787,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "dallergut-dream-department",
+      "title": "DallerGut Dream Department",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/dallergut-dream-department",
+      "x": 0.3141,
+      "y": 0.6945,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "de-eilanden-van-goed-en-kwaad",
+      "title": "De eilanden van goed en kwaad",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/de-eilanden-van-goed-en-kwaad",
+      "x": 0.8149,
+      "y": 0.449,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "designing-the-mind",
+      "title": "Designing the Mind",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/designing-the-mind",
+      "x": 0.2069,
+      "y": 0.6721,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "earth-emotions",
+      "title": "Earth Emotions",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/earth-emotions",
+      "x": 0.5039,
+      "y": 0.5726,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "going-postal",
+      "title": "Going Postal",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/going-postal",
+      "x": 0.5832,
+      "y": 0.6451,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "het-lied-van-ooievaar-en-dromedaris",
+      "title": "Het lied van ooievaar en dromedaris",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/het-lied-van-ooievaar-en-dromedaris",
+      "x": 0.6912,
+      "y": 0.8852,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "hoe-duur-was-de-suiker",
+      "title": "Hoe duur was de suiker",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hoe-duur-was-de-suiker",
+      "x": 0.8057,
+      "y": 0.8474,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "hostage-at-the-table",
+      "title": "Hostage at the Table",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/hostage-at-the-table",
+      "x": 0.2924,
+      "y": 0.7095,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "how-we-became-posthuman",
+      "title": "How We Became Posthuman",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/how-we-became-posthuman",
+      "x": 0.6008,
+      "y": 0.3031,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "inferno",
+      "title": "Inferno",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/inferno",
+      "x": 0.8821,
+      "y": 0.3088,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "kies-toch-niet-steeds-de-kant-van-de-macht",
+      "title": "Kies toch niet steeds de kant van de macht",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/kies-toch-niet-steeds-de-kant-van-de-macht",
+      "x": 0.8551,
+      "y": 0.2652,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "krekel",
+      "title": "Krekel",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/krekel",
+      "x": 0.2374,
+      "y": 0.4206,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "last-and-first-men",
+      "title": "Last and First Men",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/last-and-first-men",
+      "x": 0.2681,
+      "y": 0.8408,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "min-of-meer-opmerkelijke-gebeurtenissen",
+      "title": "Min of meer opmerkelijke gebeurtenissen...",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/min-of-meer-opmerkelijke-gebeurtenissen",
+      "x": 0.1404,
+      "y": 0.5637,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "nouveau-fuck",
+      "title": "Nouveau Fuck",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/nouveau-fuck",
+      "x": 0.5598,
+      "y": 0.6329,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "reasons-to-stay-alive",
+      "title": "Reasons to Stay Alive",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/reasons-to-stay-alive",
+      "x": 0.7529,
+      "y": 0.7282,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "semiotics-the-basics",
+      "title": "Semiotics: The Basics",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/semiotics-the-basics",
+      "x": 0.2762,
+      "y": 0.4262,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "shaking-hands-with-death",
+      "title": "Shaking Hands With Death",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/shaking-hands-with-death",
+      "x": 0.5524,
+      "y": 0.4945,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "terry-pratchett-biography",
+      "title": "Terry Pratchett (biography)",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/terry-pratchett-biography",
+      "x": 0.3211,
+      "y": 0.3548,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-art-of-co-design",
+      "title": "The Art of Co-design",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-art-of-co-design",
+      "x": 0.237,
+      "y": 0.8649,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-big-con",
+      "title": "The Big Con",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-big-con",
+      "x": 0.7562,
+      "y": 0.8647,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-bowery-boys",
+      "title": "The Bowery Boys",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-bowery-boys",
+      "x": 0.1672,
+      "y": 0.6003,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "the-bowery",
+      "title": "The Bowery",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-bowery",
+      "x": 0.8447,
+      "y": 0.6508,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "the-complete-robot",
+      "title": "The Complete Robot",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-complete-robot",
+      "x": 0.6664,
+      "y": 0.2737,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-invention-of-wings",
+      "title": "The Invention of Wings",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-invention-of-wings",
+      "x": 0.1723,
+      "y": 0.3774,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-shepherds-crown",
+      "title": "The Shepherd's Crown",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-shepherds-crown",
+      "x": 0.4628,
+      "y": 0.2781,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-witchs-vacuum-cleaner",
+      "title": "The Witch's Vacuum Cleaner",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/the-witchs-vacuum-cleaner",
+      "x": 0.6221,
+      "y": 0.1922,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "typography-beyond-borders",
+      "title": "Typography Beyond Borders",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/typography-beyond-borders",
+      "x": 0.4227,
+      "y": 0.6361,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "unthought",
+      "title": "Unthought",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/unthought",
+      "x": 0.8691,
+      "y": 0.2419,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "wat-is-je-overkomen",
+      "title": "Wat is je overkomen?",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/wat-is-je-overkomen",
+      "x": 0.8448,
+      "y": 0.2875,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "witte-onschuld",
+      "title": "Witte onschuld",
+      "collection": "library",
+      "maturity": "draft",
+      "description": "",
+      "url": "/library/witte-onschuld",
+      "x": 0.282,
+      "y": 0.3059,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-library-audit",
+      "title": "Book recommender: library audit",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.",
+      "url": "/experiments/book-recommender-library-audit",
+      "x": 0.7308,
+      "y": 0.8711,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-library-integration",
+      "title": "Book recommender: library integration",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.",
+      "url": "/experiments/book-recommender-library-integration",
+      "x": 0.6914,
+      "y": 0.2971,
+      "keyphrases": [],
+      "connections": 3
+    },
+    {
+      "slug": "book-recommender-scoring-algorithm",
+      "title": "Book recommender: scoring algorithm",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.",
+      "url": "/experiments/book-recommender-scoring-algorithm",
+      "x": 0.6558,
+      "y": 0.1628,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "book-recommender-user-research",
+      "title": "Book recommender: user research",
+      "collection": "experiments",
+      "maturity": "draft",
+      "description": "Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.",
+      "url": "/experiments/book-recommender-user-research",
+      "x": 0.6793,
+      "y": 0.5929,
+      "keyphrases": [],
+      "connections": 0
     }
   ],
   "clusters": [
     {
-      "label": "conversation design",
-      "centerX": 0.519316,
-      "centerY": 0.8570239999999998,
-      "radius": 0.2127908465294501
-    },
-    {
-      "label": "digital garden",
-      "centerX": 0.83088,
-      "centerY": 0.136728,
-      "radius": 0.19224836286595517
-    },
-    {
-      "label": "natural language processing",
-      "centerX": 0.1787272727272727,
-      "centerY": 0.6983818181818183,
-      "radius": 0.25608949294474015
-    },
-    {
-      "label": "contextual understanding",
-      "centerX": 0.6977473684210529,
-      "centerY": 0.6649684210526315,
-      "radius": 0.2191965595550614
+      "label": "bot persona",
+      "centerX": 0.5627677419354841,
+      "centerY": 0.8534612903225807,
+      "radius": 0.23653771180409047
     },
     {
       "label": "AI ethics and critical perspectives",
-      "centerX": 0.4796863636363637,
-      "centerY": 0.4559545454545454,
-      "radius": 0.2562363100652749
+      "centerX": 0.4359205882352941,
+      "centerY": 0.44505294117647065,
+      "radius": 0.2800292944666961
+    },
+    {
+      "label": "natural language processing",
+      "centerX": 0.18559032258064512,
+      "centerY": 0.7045129032258065,
+      "radius": 0.24889262334397702
+    },
+    {
+      "label": "digital garden",
+      "centerX": 0.8127117647058821,
+      "centerY": 0.16549117647058822,
+      "radius": 0.23122913540289347
+    },
+    {
+      "label": "contextual understanding",
+      "centerX": 0.7023895833333335,
+      "centerY": 0.6417645833333334,
+      "radius": 0.23984529733666649
+    }
+  ],
+  "inquiryAreas": [
+    {
+      "label": "Knowledge graph for the garden",
+      "centerX": 0.8862,
+      "centerY": 0.1174,
+      "radius": 0.1204,
+      "hubUrl": "/field-notes/knowledge-graph-for-the-garden"
+    },
+    {
+      "label": "Book recommender",
+      "centerX": 0.661,
+      "centerY": 0.5261,
+      "radius": 0.4378,
+      "hubUrl": "/field-notes/book-recommender"
     }
   ],
   "trails": [
