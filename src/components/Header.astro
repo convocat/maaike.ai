@@ -5,6 +5,8 @@ import settings from '../data/settings.json';
 const navLinks = [
   { href: '/explore', label: 'Garden', accent: true },
   { href: '/articles', label: 'Articles' },
+  { href: '/field-notes', label: 'Field Notes' },
+  { href: '/seeds', label: 'Seeds' },
   { href: '/projects', label: 'Projects' },
   { href: '/library', label: 'Library' },
   { href: '/about', label: 'About' },
@@ -94,6 +96,7 @@ const currentPath = Astro.url.pathname;
     color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.95rem;
+    white-space: nowrap;
     transition: color var(--transition-fast);
   }
   .site-nav a:hover,
