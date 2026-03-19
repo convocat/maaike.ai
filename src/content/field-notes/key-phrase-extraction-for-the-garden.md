@@ -8,6 +8,7 @@ tags:
   - digital-gardens
 description: What key phrase extraction is, how it evolved from word counting to LLM prompting, and which approach fits a small multilingual knowledge garden.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 Key phrase extraction is step 1 in the [[knowledge-graph-for-the-garden|knowledge graph architecture]]: before we can block items by shared concepts (to reduce the 2,771 candidate pairs), we need to know what each item is *about* in a way that's more structured than tags but richer than raw text.

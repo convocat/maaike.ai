@@ -8,6 +8,7 @@ tags:
   - embeddings
 description: Why embedding models cluster documents by format instead of topic when content lengths vary, and what to do about it.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 ## The problem

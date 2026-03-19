@@ -8,6 +8,7 @@ tags:
   - digital-gardens
 description: How to go from "everything is related to everything" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 The [[knowledge-graph-for-the-garden|knowledge graph experiment]] produced 2,771 candidate link pairs at a 0.55 cosine similarity threshold. At that volume, the results become meaningless: no one is going to review nearly three thousand pairs, and the genuinely surprising connections (a seed about Dutch quantization linking to a book review about multilingual NLP, say) are buried under hundreds of obvious same-topic matches. This field note documents how to find a better threshold, what filtering strategies exist, and which ones fit a garden this size.

@@ -86,6 +86,8 @@ function readAllContent() {
         description: fm.description || '',
         tags: Array.isArray(fm.tags) ? fm.tags : [],
         url: `/${collection}/${slug}`,
+        hub: fm.hub === true,
+        develops: typeof fm.develops === 'string' ? fm.develops : null,
       });
     }
   }
@@ -368,7 +370,62 @@ function computeClusters(items, positions, keyphraseMap) {
 }
 
 // ---------------------------------------------------------------------------
-// 5. Define trails
+// 5. Compute inquiry areas from hub/develops relations
+// ---------------------------------------------------------------------------
+
+function computeInquiryAreas(items) {
+  // Build a map: hubSlug → { hubItem, files[] }
+  const hubMap = new Map();
+
+  // Register all hubs
+  for (const item of items) {
+    if (item.hub) {
+      if (!hubMap.has(item.slug)) {
+        hubMap.set(item.slug, { hubItem: item, files: [] });
+      } else {
+        hubMap.get(item.slug).hubItem = item;
+      }
+    }
+  }
+
+  // Register all project files
+  for (const item of items) {
+    if (item.develops) {
+      if (!hubMap.has(item.develops)) {
+        hubMap.set(item.develops, { hubItem: null, files: [] });
+      }
+      hubMap.get(item.develops).files.push(item);
+    }
+  }
+
+  const areas = [];
+
+  for (const [hubSlug, { hubItem, files }] of hubMap) {
+    // Need hub + at least 1 file, and all must have positions
+    const members = [...files];
+    if (hubItem && typeof hubItem.x === 'number') members.push(hubItem);
+    const located = members.filter(m => typeof m.x === 'number');
+    if (located.length < 2) continue;
+
+    // Centroid
+    const cx = located.reduce((s, m) => s + m.x, 0) / located.length;
+    const cy = located.reduce((s, m) => s + m.y, 0) / located.length;
+
+    // 85th-percentile distance + 15% buffer
+    const dists = located.map(m => Math.sqrt((m.x - cx) ** 2 + (m.y - cy) ** 2)).sort((a, b) => a - b);
+    const radius = Math.max(0.05, dists[Math.floor(dists.length * 0.85)] * 1.15 + 0.02);
+
+    const label = hubItem ? hubItem.title : hubSlug;
+    const hubUrl = hubItem ? hubItem.url : null;
+
+    areas.push({ label, centerX: parseFloat(cx.toFixed(4)), centerY: parseFloat(cy.toFixed(4)), radius: parseFloat(radius.toFixed(4)), hubUrl });
+  }
+
+  return areas;
+}
+
+// ---------------------------------------------------------------------------
+// 6. Define trails
 // ---------------------------------------------------------------------------
 
 function buildTrails(itemSlugs) {
@@ -501,14 +558,19 @@ function main() {
     item.connections = connections;
   }
 
-  // Remove tags from output (not needed on the client)
-  const outputItems = allItems.map(({ tags, ...rest }) => rest);
+  // Remove tags, hub, develops from output (not needed on the client as raw fields)
+  const outputItems = allItems.map(({ tags, hub, develops, ...rest }) => rest);
 
-  // Clusters (on original high-dim embeddings, not 2D positions)
+  // Clusters (on 2D positions)
   console.log('Computing clusters...');
   const allPositions = allItems.map(item => [item.x, item.y]);
   const clusters = computeClusters(allItems, allPositions, keyphraseMap);
   console.log(`Generated ${clusters.length} clusters`);
+
+  // Inquiry areas (from hub/develops relations)
+  console.log('Computing inquiry areas...');
+  const inquiryAreas = computeInquiryAreas(allItems);
+  console.log(`Generated ${inquiryAreas.length} inquiry areas`);
 
   // Trails
   const slugSet = new Set(allItems.map(i => i.slug));
@@ -516,7 +578,7 @@ function main() {
   console.log(`Built ${trails.length} trails`);
 
   // Write output
-  const output = { items: outputItems, clusters, trails };
+  const output = { items: outputItems, clusters, inquiryAreas, trails };
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
   console.log(`Wrote ${OUTPUT_FILE} (${outputItems.length} items)`);

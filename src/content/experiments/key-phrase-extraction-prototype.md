@@ -8,6 +8,7 @@ tags:
   - digital-gardens
 description: Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 Prototype key phrase extraction on 10 garden items, comparing two approaches from the [[key-phrase-extraction-for-the-garden|write-up]]: LLM-based extraction via Ollama and statistical extraction via YAKE.

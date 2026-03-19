@@ -1094,7 +1094,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   // State
   // ----------------------------------------------------------------
 
-  let data = null;          // { items, clusters, trails }
+  let data = null;          // { items, clusters, inquiryAreas, trails }
   let currentMode = 'map';  // 'map' | 'wander' | 'paths'
   let activeTrail = null;
   let activeTrailStep = 0;
@@ -1377,6 +1377,41 @@ import SketchyFilter from '../components/SketchyFilter.astro';
         label.setAttribute('letter-spacing', '0.5');
         label.textContent = cluster.label;
         label.classList.add('cluster-label');
+        clusterGroup.appendChild(label);
+      }
+    }
+
+    // Draw inquiry areas (hub/develops project boundaries)
+    if (roughSvg && data.inquiryAreas) {
+      for (const area of data.inquiryAreas) {
+        const cx = toSVGX(area.centerX);
+        const cy = toSVGY(area.centerY);
+        const rx = area.radius * svgWidth * 0.5;
+        const ry = area.radius * svgHeight * 0.5;
+        const inquiryStroke = isDark() ? 'rgba(255,77,166,0.35)' : 'rgba(214,0,108,0.3)';
+
+        const ellipse = roughSvg.ellipse(cx, cy, rx * 2, ry * 2, {
+          stroke: inquiryStroke,
+          strokeWidth: 1,
+          fill: 'none',
+          roughness: 2.5,
+          strokeLineDash: [6, 4],
+        });
+        ellipse.classList.add('rough-overlay', 'inquiry-area');
+        clusterGroup.appendChild(ellipse);
+
+        // Inquiry label — small, pink, uppercase
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', cx);
+        label.setAttribute('y', cy + ry + 14);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('fill', isDark() ? 'rgba(255,77,166,0.6)' : 'rgba(214,0,108,0.55)');
+        label.setAttribute('font-family', 'Roboto, sans-serif');
+        label.setAttribute('font-size', '11');
+        label.setAttribute('font-weight', '600');
+        label.setAttribute('letter-spacing', '0.08em');
+        label.textContent = area.label.toUpperCase();
+        label.classList.add('cluster-label', 'inquiry-label');
         clusterGroup.appendChild(label);
       }
     }

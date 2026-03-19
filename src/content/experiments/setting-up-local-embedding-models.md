@@ -8,6 +8,7 @@ tags:
   - digital-gardens
 description: How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 Part of the [[knowledge-graph-for-the-garden|knowledge graph project]]. This experiment documents how to run embedding models locally and includes the code for both the 10-item comparison and the full-scale embedding run.

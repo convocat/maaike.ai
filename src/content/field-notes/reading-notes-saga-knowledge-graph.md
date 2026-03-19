@@ -7,6 +7,7 @@ tags:
   - ai
 description: Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 Reading notes from two papers by Apple's knowledge graph team:

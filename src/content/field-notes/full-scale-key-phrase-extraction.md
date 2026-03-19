@@ -8,6 +8,7 @@ tags:
   - digital-gardens
 description: Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.
 ai: co-created
+develops: knowledge-graph-for-the-garden
 ---
 
 This is the third step in building a knowledge graph for the garden. After [[setting-up-local-embedding-models|computing embeddings]] and [[tuning-the-similarity-threshold|tuning the similarity threshold]], I now have key phrases for every item. The idea: use phrases alongside embeddings to make link suggestions more interpretable and filterable.
