@@ -3,7 +3,6 @@ title: "Book recommender: scoring algorithm"
 date: 2026-03-17
 maturity: draft
 tags:
-  - project
   - knowledge-management
 description: Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.
 ai: co-created

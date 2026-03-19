@@ -3,7 +3,6 @@ title: "Book recommender: library integration"
 date: 2026-03-18
 maturity: draft
 tags:
-  - project
   - knowledge-management
   - digital-gardens
 description: Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.

@@ -101,6 +101,18 @@ Optional `ai` frontmatter field on any content. Renders a styled aside box above
 - `publish.bat` is a convenience script for local git-add-commit-push
 - GitHub workflow `share-link.yml` allows quick weblink creation via manual dispatch
 
+## Projects page rule
+
+The Projects page (`/projects`) shows **only project hub posts** — the single post that defines what a project is. It filters by the `project` tag.
+
+**Rule: only the hub post gets the `project` tag.** Project files (experiments, seeds, articles, field notes that are part of a project) must NOT have the `project` tag. They appear in the "Project files" sidebar section on the hub's detail page via backlinks (wiki-links pointing back to the hub).
+
+Example:
+- `field-notes/book-recommender.md` → has `project` tag → appears on Projects page ✓
+- `experiments/book-recommender-scoring-algorithm.md` → no `project` tag → appears in hub sidebar via backlink ✓
+
+When creating project files, never add the `project` tag to them.
+
 ## Adding content
 
 ```

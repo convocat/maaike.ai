@@ -3,7 +3,6 @@ title: "Book recommender: library audit"
 date: 2026-03-17
 maturity: draft
 tags:
-  - project
   - knowledge-management
 description: Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.
 ai: co-created

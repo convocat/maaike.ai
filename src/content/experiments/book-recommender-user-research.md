@@ -3,7 +3,6 @@ title: "Book recommender: user research"
 date: 2026-03-17
 maturity: draft
 tags:
-  - project
   - knowledge-management
 description: Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.
 ai: co-created
