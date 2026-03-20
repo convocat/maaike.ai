@@ -9,7 +9,7 @@ tags:
   - design-metaphor
   - conversation-design
   - generative-ai-design
-description: "Whether conversation is still a useful metaphor for what we're building."
+description: "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction."
 ai: 100% Maai
 ---
 
