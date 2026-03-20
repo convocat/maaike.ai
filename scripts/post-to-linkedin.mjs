@@ -38,6 +38,7 @@ if (!textFile || !fs.existsSync(textFile)) {
 
 const postText = fs.readFileSync(textFile, 'utf-8').trim();
 const imageFile = process.argv[3] || null;
+const commentText = process.argv[4] || null;
 
 // Step 1: Get the user's LinkedIn profile URN
 async function getProfileUrn() {
@@ -105,7 +106,31 @@ async function uploadImage(uploadUrl, imagePath) {
   }
 }
 
-// Step 3: Create a post (text only or with image)
+// Step 3: Add a comment to a post
+async function addComment(postUrn, authorUrn, text) {
+  const payload = {
+    actor: `urn:li:person:${authorUrn}`,
+    message: { text },
+    object: postUrn,
+  };
+
+  const res = await fetch('https://api.linkedin.com/v2/socialActions/' + encodeURIComponent(postUrn) + '/comments', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+      'X-Restli-Protocol-Version': '2.0.0',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Failed to add comment: ${res.status} ${body}`);
+  }
+}
+
+// Step 4: Create a post (text only or with image)
 async function createPost(authorUrn, text, imageAsset) {
   let shareContent;
 
@@ -184,6 +209,13 @@ try {
   if (postId) {
     const shareId = postId.replace('urn:li:ugcPost:', '').replace('urn:li:share:', '');
     console.log(`View at: https://www.linkedin.com/feed/update/urn:li:share:${shareId}/`);
+
+    // Add a comment with the link if provided
+    if (commentText) {
+      console.log('Adding comment with link...');
+      await addComment(postId, urn, commentText);
+      console.log('Comment added.');
+    }
   }
 } catch (err) {
   console.error(err.message);

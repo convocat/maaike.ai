@@ -65,10 +65,12 @@ Rules:
 
 After user approval:
 
-1. Write the final text to a temp file
-2. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png`
-3. Show the result (post URL) to the user
-4. Delete the temp files (linkedin-draft.md and the temp text file)
+1. Remove the article link from the post text (it will go in the comment instead)
+2. Write the final text to a temp file
+3. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
+4. This posts the image + text, then automatically adds a comment with the clickable link
+5. Show the result (post URL) to the user
+6. Delete the temp files (linkedin-draft.md and the temp text file)
 
 ## Step 7: Record the share
 
