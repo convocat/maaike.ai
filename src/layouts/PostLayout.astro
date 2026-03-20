@@ -119,14 +119,14 @@ const formattedUpdated = updated
           <h3 class="post-footer-heading">Share</h3>
           <div class="post-footer-share-buttons">
             <CopyCardImage imagePath={ogImage} />
-            <ShareLinkedIn url={postUrl} title={title} />
-            <button class="share-generic" data-url={postUrl} data-title={title} aria-label="Copy link or share">
+            <button class="share-generic" data-url={postUrl} data-title={title} aria-label="Copy link">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketchy)" aria-hidden="true">
                 <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7" />
                 <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" />
               </svg>
               <span>Copy link</span>
             </button>
+            <ShareLinkedIn url={postUrl} title={title} />
           </div>
         </div>
       </footer>
