@@ -5,6 +5,7 @@ import WikiLinkPreview from '../components/WikiLinkPreview.astro';
 import CollectionIcon from '../components/CollectionIcon.astro';
 import PostSidebar from '../components/PostSidebar.astro';
 import ShareLinkedIn from '../components/ShareLinkedIn.astro';
+import CopyCardImage from '../components/CopyCardImage.astro';
 
 interface Props {
   title: string;
@@ -117,6 +118,7 @@ const formattedUpdated = updated
         <div class="post-footer-share">
           <h3 class="post-footer-heading">Share</h3>
           <div class="post-footer-share-buttons">
+            <CopyCardImage imagePath={ogImage} />
             <ShareLinkedIn url={postUrl} title={title} />
             <button class="share-generic" data-url={postUrl} data-title={title} aria-label="Copy link or share">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketchy)" aria-hidden="true">

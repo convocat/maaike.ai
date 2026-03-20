@@ -1,0 +1,91 @@
+---
+interface Props {
+  imagePath: string;
+}
+
+const { imagePath } = Astro.props;
+---
+
+<button
+  class="copy-card-btn"
+  data-image={imagePath}
+  aria-label="Copy share card image to clipboard"
+>
+  <svg
+    class="copy-card-icon"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#sketchy)"
+    aria-hidden="true"
+  >
+    <rect x="5" y="3" width="14" height="16" rx="2" />
+    <circle cx="12" cy="11" r="3" />
+    <path d="M7 19 L10 15 L13 17 L16 13 L19 16" />
+  </svg>
+  <span class="copy-card-label">Copy card</span>
+</button>
+
+<script>
+  document.querySelectorAll('.copy-card-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const imagePath = btn.getAttribute('data-image') || '';
+      const label = btn.querySelector('.copy-card-label');
+      try {
+        const response = await fetch(imagePath);
+        const blob = await response.blob();
+        const pngBlob = new Blob([blob], { type: 'image/png' });
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': pngBlob }),
+        ]);
+        if (label) {
+          label.textContent = 'Copied!';
+          setTimeout(() => { label.textContent = 'Copy card'; }, 2000);
+        }
+      } catch (err) {
+        console.error('Failed to copy card image:', err);
+        if (label) {
+          label.textContent = 'Failed';
+          setTimeout(() => { label.textContent = 'Copy card'; }, 2000);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .copy-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.4rem;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .copy-card-btn:hover {
+    color: var(--color-accent);
+    background: var(--color-tag-bg);
+  }
+
+  .copy-card-icon {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .copy-card-label {
+    line-height: 1;
+  }
+</style>
