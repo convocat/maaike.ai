@@ -10,6 +10,7 @@ No questions. Just do this:
    ```markdown
    ---
    draft: true
+   description: ""
    ---
 
    # Title
@@ -50,6 +51,7 @@ Build the full YAML frontmatter:
 ```yaml
 ---
 title: "<title from heading>"
+description: "<from frontmatter if filled in, otherwise generate a suggestion and ask Maaike>"
 date: <YYYY-MM-DD today>
 maturity: <chosen>
 draft: true
@@ -57,6 +59,11 @@ tags: []
 ai: "<chosen>"
 ---
 ```
+
+**Description rules:**
+- If the user already filled in `description` in the draft frontmatter, use it as-is
+- If `description` is empty or missing, generate a suggestion and show it to Maaike for approval before writing
+- For articles: always expect the user to write this themselves (remind them if empty)
 
 Extra fields by collection:
 - weblinks: add `url: "<url>"` after title
