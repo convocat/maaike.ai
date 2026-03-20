@@ -38,7 +38,7 @@ const statusClass: Record<string, string> = {
   data-updated={updated ?? ''}
 >
   {cover ? (
-    <img src={cover} alt="" class="book-cover" loading="lazy" width="80" height="120" />
+    <img src={cover} alt={`Cover of ${title}`} class="book-cover" loading="lazy" width="80" height="120" />
   ) : (
     <div class="book-cover-placeholder">
       <span>{title.charAt(0)}</span>

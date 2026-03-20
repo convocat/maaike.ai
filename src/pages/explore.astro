@@ -9,7 +9,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   <SketchyFilter />
   <Header />
 
-  <div id="explore-root">
+  <main id="main-content" class="explore-main">
     <!-- Map container -->
     <div id="map-container">
       <svg id="garden-svg"></svg>
@@ -160,14 +160,14 @@ import SketchyFilter from '../components/SketchyFilter.astro';
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </BaseLayout>
 
 <style is:global>
   /* ----------------------------------------------------------------
      Explore page layout
      ---------------------------------------------------------------- */
-  #explore-root {
+  .explore-main {
     position: relative;
     width: 100%;
     height: calc(100vh - 72px); /* below header */

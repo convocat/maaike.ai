@@ -16,7 +16,7 @@ const { title, description, ogImage } = Astro.props;
 <BaseLayout title={title} description={description} ogImage={ogImage}>
   <SketchyFilter />
   <Header />
-  <main class="container">
+  <main id="main-content" class="container">
     <slot />
   </main>
   <Footer />

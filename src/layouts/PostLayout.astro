@@ -72,6 +72,7 @@ const formattedUpdated = updated
         {url && (
           <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
             {new URL(url).hostname.replace('www.', '')} ↗
+            <span class="visually-hidden">(opens in new window)</span>
           </a>
         )}
         <div class="post-meta-line">
@@ -353,7 +354,8 @@ const formattedUpdated = updated
     color: var(--color-text-muted);
     font-size: 0.8rem;
     letter-spacing: 0.02em;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.6rem;
+    min-height: 44px;
     border-radius: 0.4rem;
     border: none;
     background: none;

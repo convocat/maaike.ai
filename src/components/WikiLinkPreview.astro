@@ -122,6 +122,22 @@ if (!window.__wikiPreviewInit) {
     hidePreview();
   });
 
+  // Keyboard: show preview on focus, hide on blur
+  document.addEventListener('focusin', function (e) {
+    var link = e.target.closest ? e.target.closest('.wiki-link') : null;
+    if (!link || link.classList.contains('wiki-link--new')) return;
+    if (link === activeLink) return;
+    hidePreview();
+    activeLink = link;
+    showPreview(link);
+  });
+
+  document.addEventListener('focusout', function (e) {
+    var link = e.target.closest ? e.target.closest('.wiki-link') : null;
+    if (!link) return;
+    hidePreview();
+  });
+
   document.addEventListener('astro:after-swap', function () {
     hidePreview();
     if (popover && !document.body.contains(popover)) {

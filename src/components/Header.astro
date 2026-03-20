@@ -21,15 +21,15 @@ const currentPath = Astro.url.pathname;
       {settings.siteTitle}
     </a>
 
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <line x1="3" y1="6" x2="21" y2="6" />
         <line x1="3" y1="12" x2="21" y2="12" />
         <line x1="3" y1="18" x2="21" y2="18" />
       </svg>
     </button>
 
-    <nav class="site-nav" aria-label="Main navigation">
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <ul>
         {navLinks.map(({ href, label, accent }) => (
           <li>
@@ -48,11 +48,36 @@ const currentPath = Astro.url.pathname;
 <script>
   function setupMenu() {
     const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.site-nav');
-    toggle?.addEventListener('click', () => {
+    const nav = document.getElementById('site-nav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
-      nav?.classList.toggle('open');
+      nav.classList.toggle('open');
+
+      if (!expanded) {
+        // Focus first nav link when opening
+        const firstLink = nav.querySelector('a');
+        firstLink?.focus();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('open') && !nav.contains(e.target as Node) && e.target !== toggle && !toggle.contains(e.target as Node)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
@@ -80,6 +105,7 @@ const currentPath = Astro.url.pathname;
     color: var(--color-heading);
     text-decoration: none;
     white-space: nowrap;
+    padding: var(--space-xs) 0;
   }
   .site-title:hover {
     color: var(--color-accent);
@@ -118,12 +144,17 @@ const currentPath = Astro.url.pathname;
     border: none;
     color: var(--color-text);
     cursor: pointer;
-    padding: var(--space-xs);
+    padding: 10px;
+    margin: -10px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (max-width: 640px) {
     .menu-toggle {
-      display: block;
+      display: flex;
     }
 
     .site-nav {
@@ -144,7 +175,15 @@ const currentPath = Astro.url.pathname;
 
     .site-nav ul {
       flex-direction: column;
-      gap: var(--space-md);
+      gap: 0;
+    }
+
+    .site-nav li a {
+      display: block;
+      padding: var(--space-sm) var(--space-xs);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
 
     .header-inner {

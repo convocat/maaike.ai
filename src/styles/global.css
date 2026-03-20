@@ -16,6 +16,34 @@ body {
   transition: background-color var(--transition-base), color var(--transition-base);
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 200;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus-visible styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+[data-theme="dark"] :focus-visible {
+  outline-color: var(--color-accent);
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
@@ -46,6 +74,16 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 /* Prose (rendered Markdown) */
 .prose {
   max-width: var(--content-width);
+}
+/* Hide duplicate H1 in prose — the title is already rendered by PostLayout */
+.prose > h1:first-child {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 .prose p {
   margin-block: var(--space-md);

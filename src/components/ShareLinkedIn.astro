@@ -13,7 +13,7 @@ const { url, title } = Astro.props;
   target="_blank"
   rel="noopener noreferrer"
   title={`Share "${title}" on LinkedIn`}
-  aria-label={`Share "${title}" on LinkedIn`}
+  aria-label={`Share "${title}" on LinkedIn (opens in new window)`}
 >
   <svg
     class="share-linkedin-icon"
@@ -45,7 +45,8 @@ const { url, title } = Astro.props;
     text-decoration: none;
     font-size: 0.8rem;
     letter-spacing: 0.02em;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.6rem;
+    min-height: 44px;
     border-radius: 0.4rem;
     transition: color 0.2s, background 0.2s;
   }
