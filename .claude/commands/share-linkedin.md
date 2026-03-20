@@ -1,6 +1,6 @@
 # Share to LinkedIn
 
-Generate a LinkedIn-ready post from garden content, copy the OG card image to clipboard, and provide the post text.
+Generate a LinkedIn post with the OG card image attached, and post it directly via the API.
 
 ## Step 1: Select the post
 
@@ -11,15 +11,11 @@ Ask the user which post to share. Options:
 
 Read the target post's full content (frontmatter + body).
 
-## Step 2: Prepare the card image
+## Step 2: Check the card image
 
 1. Check if the OG card exists at `public/images/og/<collection>/<slug>.png`
-2. If not, generate it: `node scripts/generate-og-images.cjs` (delete the existing one first to force regeneration if needed)
-3. Copy the card image to clipboard:
-   ```
-   powershell.exe -command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.Clipboard]::SetImage([System.Drawing.Image]::FromFile('C:\Users\MaaikeGroenewege\Documents\Pythonprojecten\digital-garden\public\images\og\<collection>\<slug>.png'))"
-   ```
-4. Tell the user: "Card image copied to clipboard. Paste it into your LinkedIn post with Ctrl+V."
+2. If not, generate it by deleting any stale version and running `node scripts/generate-og-images.cjs`
+3. Show the card image to the user for confirmation.
 
 ## Step 3: Generate LinkedIn text
 
@@ -27,7 +23,7 @@ Create a LinkedIn-friendly post that:
 - Opens with a compelling hook (first 1-2 lines are visible before "see more")
 - Summarizes the key idea in 3-5 short paragraphs
 - Sounds like Maaike, not like a corporate announcement
-- Ends with a link to the garden: `https://www.maaike.ai/<collection>/<slug>/`
+- Includes the link: `https://www.maaike.ai/<collection>/<slug>/`
 - Adds 3-5 relevant hashtags at the bottom
 
 Rules:
@@ -48,18 +44,19 @@ Display the generated LinkedIn text to the user. They may want to:
 
 Iterate until they're happy.
 
-## Step 5: Copy text and post
+## Step 5: Post with image
 
-1. Copy the final text to clipboard: `echo "<text>" | clip`
-2. Tell the user: "Text copied. Note: this replaced the card image on your clipboard. Paste the text first, then I'll re-copy the image for you."
-3. After user pastes the text, re-copy the card image to clipboard using the PowerShell command from Step 2.
-4. User pastes the image into the LinkedIn post.
+After user approval:
 
-Alternatively, if the user prefers, copy just the text and let them download the image manually from `public/images/og/<collection>/<slug>.png`.
+1. Write the final text to a temp file
+2. Run: `node scripts/post-to-linkedin.mjs <temp-file> <image-file>`
+   - The image file is `public/images/og/<collection>/<slug>.png`
+3. Show the result (post URL) to the user
+4. Delete the temp file
 
 ## Step 6: Record the share
 
-After the user confirms they posted, add a `linkedin_url` field to the post's frontmatter:
+Add a `linkedin_url` field to the post's frontmatter:
 ```yaml
 linkedin_url: "https://www.linkedin.com/posts/..."
 ```

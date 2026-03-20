@@ -30,12 +30,14 @@ if (!accessToken) {
 // Read post text from a temp file passed as argument
 const textFile = process.argv[2];
 if (!textFile || !fs.existsSync(textFile)) {
-  console.error('Usage: node post-to-linkedin.mjs <text-file>');
+  console.error('Usage: node post-to-linkedin.mjs <text-file> [image-file]');
   console.error('The text file should contain the LinkedIn post text.');
+  console.error('Optional: path to an image file (PNG/JPG) to attach.');
   process.exit(1);
 }
 
 const postText = fs.readFileSync(textFile, 'utf-8').trim();
+const imageFile = process.argv[3] || null;
 
 // Step 1: Get the user's LinkedIn profile URN
 async function getProfileUrn() {
@@ -50,16 +52,86 @@ async function getProfileUrn() {
   return data.sub;
 }
 
-// Step 2: Create a text post
-async function createPost(authorUrn, text) {
+// Step 2a: Register an image upload with LinkedIn
+async function registerImageUpload(authorUrn) {
+  const payload = {
+    registerUploadRequest: {
+      recipes: ['urn:li:digitalmediaRecipe:feedshare-image'],
+      owner: `urn:li:person:${authorUrn}`,
+      serviceRelationships: [
+        {
+          relationshipType: 'OWNER',
+          identifier: 'urn:li:userGeneratedContent',
+        },
+      ],
+    },
+  };
+
+  const res = await fetch('https://api.linkedin.com/v2/assets?action=registerUpload', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Failed to register image upload: ${res.status} ${body}`);
+  }
+
+  const data = await res.json();
+  const uploadUrl = data.value.uploadMechanism['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest'].uploadUrl;
+  const asset = data.value.asset;
+  return { uploadUrl, asset };
+}
+
+// Step 2b: Upload the image binary
+async function uploadImage(uploadUrl, imagePath) {
+  const imageData = fs.readFileSync(imagePath);
+  const res = await fetch(uploadUrl, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'image/png',
+    },
+    body: imageData,
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Failed to upload image: ${res.status} ${body}`);
+  }
+}
+
+// Step 3: Create a post (text only or with image)
+async function createPost(authorUrn, text, imageAsset) {
+  let shareContent;
+
+  if (imageAsset) {
+    shareContent = {
+      shareCommentary: { text },
+      shareMediaCategory: 'IMAGE',
+      media: [
+        {
+          status: 'READY',
+          media: imageAsset,
+        },
+      ],
+    };
+  } else {
+    shareContent = {
+      shareCommentary: { text },
+      shareMediaCategory: 'NONE',
+    };
+  }
+
   const payload = {
     author: `urn:li:person:${authorUrn}`,
     lifecycleState: 'PUBLISHED',
     specificContent: {
-      'com.linkedin.ugc.ShareContent': {
-        shareCommentary: { text },
-        shareMediaCategory: 'NONE',
-      },
+      'com.linkedin.ugc.ShareContent': shareContent,
     },
     visibility: {
       'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC',
@@ -89,17 +161,27 @@ try {
   console.log('Getting your LinkedIn profile...');
   const urn = await getProfileUrn();
   console.log(`Posting as: urn:li:person:${urn}`);
+
+  let imageAsset = null;
+
+  if (imageFile && fs.existsSync(imageFile)) {
+    console.log(`Uploading image: ${imageFile}`);
+    const { uploadUrl, asset } = await registerImageUpload(urn);
+    await uploadImage(uploadUrl, imageFile);
+    imageAsset = asset;
+    console.log('Image uploaded.');
+  }
+
   console.log('');
   console.log('--- Post content ---');
   console.log(postText);
+  if (imageAsset) console.log(`[Image attached: ${imageFile}]`);
   console.log('--------------------');
   console.log('');
   console.log('Publishing to LinkedIn...');
-  const postId = await createPost(urn, postText);
+  const postId = await createPost(urn, postText, imageAsset);
   console.log(`Published! Post ID: ${postId}`);
   if (postId) {
-    // ugcPosts IDs look like urn:li:ugcPost:123456
-    // The shareable URL format:
     const shareId = postId.replace('urn:li:ugcPost:', '').replace('urn:li:share:', '');
     console.log(`View at: https://www.linkedin.com/feed/update/urn:li:share:${shareId}/`);
   }
