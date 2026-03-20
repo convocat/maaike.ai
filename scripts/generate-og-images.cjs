@@ -21,7 +21,7 @@ const BG_IMAGE = path.join(__dirname, 'og-bg.png');
 const COLLECTIONS = ['articles', 'field-notes', 'seeds'];
 
 const WIDTH = 1200;
-const HEIGHT = 630;
+const HEIGHT = 627;
 
 // Colors
 const DARK = '#1c1917';
