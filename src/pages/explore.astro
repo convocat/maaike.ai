@@ -116,7 +116,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       </div>
     </div>
 
-    <!-- Tooltip -->
+    <!-- Tooltip (desktop hover) -->
     <div id="tooltip" class="hidden">
       <div class="tooltip-collection">
         <span class="tooltip-dot"></span>
@@ -127,6 +127,20 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       <div class="tooltip-description"></div>
       <div class="tooltip-maturity-bar"></div>
     </div>
+
+    <!-- Detail card (tap/click to select, then tap card to visit) -->
+    <a id="detail-card" class="hidden" href="#">
+      <button id="detail-close" type="button" aria-label="Close">&times;</button>
+      <div class="tooltip-collection">
+        <span class="tooltip-dot"></span>
+        <span class="tooltip-collection-name"></span>
+        <span class="tooltip-maturity-label"></span>
+      </div>
+      <div class="tooltip-title"></div>
+      <div class="tooltip-description"></div>
+      <div class="tooltip-maturity-bar"></div>
+      <span class="detail-card-cta">Read more &rarr;</span>
+    </a>
 
     <!-- Trail sidebar (left, slides in) -->
     <div id="trail-sidebar" class="hidden">
@@ -762,6 +776,83 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     height: 3px;
     border-radius: 2px;
     transition: background var(--transition-fast);
+  }
+
+  /* ----------------------------------------------------------------
+     Detail card (click/tap to select an item)
+     ---------------------------------------------------------------- */
+  #detail-card {
+    position: fixed;
+    z-index: 110;
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: 16px;
+    padding-right: 36px;
+    width: 300px;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    animation: tooltipIn 150ms ease-out;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+  }
+  #detail-card:hover,
+  #detail-card:focus {
+    border-color: var(--color-accent);
+  }
+
+  #detail-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+  #detail-close:hover {
+    color: var(--color-accent);
+    background: var(--color-tag-bg);
+  }
+
+  .detail-card-cta {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* Mobile: pin to bottom as a full-width card */
+  #detail-card.detail-card-mobile {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    border-bottom: none;
+    padding: 20px;
+    padding-right: 44px;
+  }
+
+  /* Hide hover tooltip on touch devices */
+  @media (hover: none) {
+    #tooltip {
+      display: none !important;
+    }
   }
 
   /* ----------------------------------------------------------------
@@ -1433,12 +1524,13 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       circle.setAttribute('data-slug', item.slug);
       circle.classList.add('item-circle');
 
-      // Hover
+      // Hover (desktop only — touch devices use tap)
       circle.addEventListener('mouseenter', e => onItemHover(e, item, circle));
       circle.addEventListener('mousemove', e => moveTooltip(e));
       circle.addEventListener('mouseleave', () => onItemLeave(circle));
-      circle.addEventListener('click', () => {
-        window.location.href = item.url;
+      circle.addEventListener('click', (e) => {
+        e.preventDefault();
+        showDetailCard(item, circle);
       });
 
       itemGroup.appendChild(circle);
@@ -1569,6 +1661,144 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 
     tooltip.classList.add('hidden');
   }
+
+  // ----------------------------------------------------------------
+  // Detail card (tap/click to select, then navigate from card)
+  // ----------------------------------------------------------------
+
+  const detailCard = document.getElementById('detail-card');
+  const detailClose = document.getElementById('detail-close');
+  let activeCircle = null;
+
+  function showDetailCard(item, circle) {
+    // Clear any previous selection ring
+    clearSelectionRing();
+
+    // Add persistent selection ring
+    const cx = parseFloat(circle.getAttribute('cx'));
+    const cy = parseFloat(circle.getAttribute('cy'));
+    const r = parseFloat(circle.getAttribute('r'));
+    const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    ring.setAttribute('cx', cx);
+    ring.setAttribute('cy', cy);
+    ring.setAttribute('r', r + 6);
+    ring.setAttribute('fill', 'none');
+    ring.setAttribute('stroke', getAccentColor());
+    ring.setAttribute('stroke-width', '2');
+    ring.setAttribute('stroke-dasharray', '3 3');
+    ring.classList.add('selection-ring');
+    circle.parentNode.appendChild(ring);
+    activeCircle = circle;
+
+    // Populate detail card
+    const maturityLabels = { draft: 'Seedling', developing: 'Growing', solid: 'Flourishing', complete: 'Mature' };
+    const stages = ['draft', 'developing', 'solid', 'complete'];
+    const stageIdx = stages.indexOf(item.maturity);
+
+    detailCard.href = item.url;
+    detailCard.querySelector('.tooltip-dot').style.background = getCollectionColor(item.collection);
+    detailCard.querySelector('.tooltip-collection-name').textContent = COLLECTION_LABELS[item.collection] || item.collection;
+    detailCard.querySelector('.tooltip-maturity-label').textContent = maturityLabels[item.maturity] || '';
+    detailCard.querySelector('.tooltip-title').textContent = item.title;
+    detailCard.querySelector('.tooltip-description').textContent = item.description || '';
+
+    const matBar = detailCard.querySelector('.tooltip-maturity-bar');
+    matBar.innerHTML = '';
+    for (let i = 0; i < 4; i++) {
+      const seg = document.createElement('span');
+      seg.className = 'tooltip-maturity-segment';
+      seg.style.background = i <= stageIdx ? getCollectionColor(item.collection) : 'var(--color-border)';
+      seg.style.opacity = i <= stageIdx ? '1' : '0.3';
+      matBar.appendChild(seg);
+    }
+
+    // Position: on wide screens, near the circle; on narrow/touch, pinned to bottom
+    const isNarrow = window.innerWidth < 640;
+
+    // Clear any previous inline positioning
+    detailCard.style.left = '';
+    detailCard.style.top = '';
+    detailCard.style.bottom = '';
+    detailCard.style.right = '';
+    detailCard.style.width = '';
+
+    detailCard.classList.remove('hidden');
+
+    if (isNarrow) {
+      // Mobile: pin to bottom, full width (CSS handles via .detail-card-mobile)
+      detailCard.classList.add('detail-card-mobile');
+    } else {
+      detailCard.classList.remove('detail-card-mobile');
+      // Desktop: position near the clicked circle
+      const svgRect = svg.getBoundingClientRect();
+      const transform = currentTransform || { x: 0, y: 0, k: 1 };
+      const screenX = cx * transform.k + transform.x + svgRect.left;
+      const screenY = cy * transform.k + transform.y + svgRect.top;
+
+      let left = screenX + 20;
+      let top = screenY - 20;
+
+      // Keep on screen
+      const cardW = 300;
+      const cardH = detailCard.offsetHeight || 200;
+      if (left + cardW > window.innerWidth - 16) left = screenX - cardW - 20;
+      if (top + cardH > window.innerHeight - 16) top = window.innerHeight - cardH - 16;
+      if (top < 16) top = 16;
+      if (left < 16) left = 16;
+
+      detailCard.style.left = left + 'px';
+      detailCard.style.top = top + 'px';
+      detailCard.style.width = '300px';
+    }
+
+    // Hide the hover tooltip
+    tooltip.classList.add('hidden');
+  }
+
+  function hideDetailCard() {
+    detailCard.classList.add('hidden');
+    detailCard.classList.remove('detail-card-mobile');
+    detailCard.style.left = '';
+    detailCard.style.top = '';
+    detailCard.style.width = '';
+    clearSelectionRing();
+    activeCircle = null;
+  }
+
+  function clearSelectionRing() {
+    svg.querySelectorAll('.selection-ring').forEach(el => el.remove());
+    // Also reset the previously enlarged circle
+    if (activeCircle) {
+      const slug = activeCircle.getAttribute('data-slug');
+      const item = data.items.find(i => i.slug === slug);
+      if (item) {
+        const r = MATURITY_RADIUS[item.maturity] || 5;
+        activeCircle.setAttribute('r', r);
+        activeCircle.setAttribute('fill', getCollectionColor(item.collection, 0.6));
+      }
+    }
+  }
+
+  // Close detail card
+  detailClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideDetailCard();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !detailCard.classList.contains('hidden')) {
+      hideDetailCard();
+    }
+  });
+
+  // Close when clicking empty SVG area (not on a dot)
+  svg.addEventListener('click', (e) => {
+    if (!e.target.closest('.item-circle') && !detailCard.classList.contains('hidden')) {
+      hideDetailCard();
+    }
+  });
 
   // ----------------------------------------------------------------
   // Wander
