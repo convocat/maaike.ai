@@ -83,6 +83,10 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 .prose .observation p:last-child {
   margin-bottom: 0;
 }
+/* LinkedIn draft block — hidden on site, visible in Typora */
+.prose .linkedin {
+  display: none;
+}
 .prose code {
   font-family: var(--font-mono);
   font-size: 0.9em;

@@ -1,6 +1,6 @@
 # Share to LinkedIn
 
-Generate a LinkedIn post with the OG card image, compose in Typora, post via the API.
+Post an article to LinkedIn with the OG card image attached via the API.
 
 ## Step 1: Select the post
 
@@ -16,26 +16,15 @@ Read the target post's full content (frontmatter + body).
 1. Check if the OG card exists at `public/images/og/<collection>/<slug>.png`
 2. If not, generate it by deleting any stale version and running `node scripts/generate-og-images.cjs`
 
-## Step 3: Generate LinkedIn text
+## Step 3: Get the LinkedIn text
 
-Create a LinkedIn-friendly post that:
-- Opens with a compelling hook (first 1-2 lines are visible before "see more")
-- Summarizes the key idea in 3-5 short paragraphs
-- Sounds like Maaike, not like a corporate announcement
-- Includes the link: `https://www.maaike.ai/<collection>/<slug>/`
-- Adds 3-5 relevant hashtags at the bottom
+Check if the article contains a `<div class="linkedin">` block.
 
-Rules:
-- Never use em-dashes
-- Keep it under 1300 characters (LinkedIn's sweet spot for engagement)
-- Don't start with "I'm excited to share" or similar cliches
-- Never use AI tropes (see style rules)
-- Match the tone of the original: if it's reflective, keep it reflective
-- The post should make people want to read the full piece, not replace it
+**If yes:** extract the text from inside it. This is what Maaike wrote while drafting the article. Show it to her for confirmation.
 
-## Step 4: Open in Typora
+**If no:** open Typora for her to write the LinkedIn text:
 
-1. Create a temp markdown file at `scripts/linkedin-draft.md` with this structure:
+1. Create `scripts/linkedin-draft.md`:
 
 ```markdown
 # LinkedIn post: <title>
@@ -44,39 +33,39 @@ Rules:
 
 ---
 
-<generated post text here>
+(write your post here)
 
 ---
-
-*Edit the text between the lines. The card image above is what will be attached to your post. Save and close when done.*
 ```
 
 2. Open in Typora: `"/c/Program Files/Typora/Typora.exe" "scripts/linkedin-draft.md" &`
-3. Tell the user: "Typora is open. Edit the post text, then come back here when you're done."
+3. Tell the user: "Typora is open. Write the post text, then come back here when you're done."
+4. When she returns, read the file and extract text between the `---` lines.
 
-## Step 5: User returns
+## Step 4: Confirm and post
 
-1. Read `scripts/linkedin-draft.md`
-2. Extract the text between the two `---` lines (ignore the heading, image, and instructions)
-3. Show the final text to the user for confirmation
-4. Show the character count
-
-## Step 6: Post with image
-
-After user approval:
-
-1. Remove the article link from the post text (it will go in the comment instead)
-2. Write the final text to a temp file
+1. Show the final text and character count
+2. After approval, write the text to a temp file
 3. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
 4. This posts the image + text, then automatically adds a comment with the clickable link
 5. Show the result (post URL) to the user
-6. Delete the temp files (linkedin-draft.md and the temp text file)
+6. Delete temp files
 
-## Step 7: Record the share
+## Step 5: Record the share
 
 Add a `linkedin_url` field to the post's frontmatter:
 ```yaml
 linkedin_url: "https://www.linkedin.com/posts/..."
 ```
 
-This creates a record that the content also lives on LinkedIn.
+## How to add a LinkedIn block to an article
+
+When writing an article in Typora, add this anywhere in the body (usually at the end):
+
+```html
+<div class="linkedin">
+Your LinkedIn post text here. Write it while the article is fresh in your head.
+</div>
+```
+
+In Typora this renders as a sage green card with a "LinkedIn" label. On the published site it's hidden. It's completely optional.

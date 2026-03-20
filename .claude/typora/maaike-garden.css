@@ -100,6 +100,20 @@ blockquote {
     margin: 1rem 0;
 }
 
+/* Observation box — teal accent for meta/process notes */
+.observation {
+    background: rgba(13, 124, 102, 0.08);
+    border-left: 3px solid #0D7C66;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.92em;
+}
+
+.observation p:last-child {
+    margin-bottom: 0;
+}
+
 /* Inline code */
 code {
     font-family: 'JetBrains Mono', monospace;
@@ -210,4 +224,29 @@ pre.md-meta-block.md-focus {
 /* Task lists */
 .task-list-item input[type="checkbox"] {
     accent-color: #D6006C;
+}
+
+/* LinkedIn post block — styled card for drafting social posts */
+.linkedin {
+    background: #E8EFE3;
+    border-left: 4px solid #8B7355;
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin: 2.5rem 0;
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: #1c1917;
+    position: relative;
+}
+
+.linkedin::before {
+    content: 'LinkedIn';
+    display: block;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    color: #8B7355;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
 }
