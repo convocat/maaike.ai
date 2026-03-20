@@ -16,6 +16,10 @@ No questions. Just do this:
    # Title
 
    Start writing here...
+
+   <div class="linkedin">
+
+   </div>
    ```
    If `new-draft.md` already exists, use `new-draft-2.md`, `new-draft-3.md`, etc.
 
