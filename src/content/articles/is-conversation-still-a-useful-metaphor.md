@@ -4,9 +4,11 @@ date: 2026-03-15
 updated: 2026-03-19
 maturity: developing
 tags:
+  - human-machine-interface
+  - interaction-model
+  - design-metaphor
   - conversation-design
-  - conversational-ai
-  - design
+  - generative-ai-design
 description: "Whether conversation is still a useful metaphor for what we're building."
 ai: 100% Maai
 ---
