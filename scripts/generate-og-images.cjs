@@ -1,6 +1,8 @@
 /**
  * Generate OG images for all articles, field notes, and seeds.
- * Uses satori (HTML/CSS → SVG) + sharp (SVG → PNG).
+ *
+ * Uses a pre-rendered background PNG (sage green + leaf watermark) and
+ * composites text on top via satori (text → SVG) + sharp (composite).
  *
  * Usage: node scripts/generate-og-images.cjs
  * Output: public/images/og/<collection>/<slug>.png
@@ -14,27 +16,17 @@ const sharp = require('sharp');
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'src', 'content');
 const OUTPUT_DIR = path.join(ROOT, 'public', 'images', 'og');
+const BG_IMAGE = path.join(__dirname, 'og-bg.png');
 
 const COLLECTIONS = ['articles', 'field-notes', 'seeds'];
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-// Collection display names and icon SVGs (bold white versions for OG cards)
-const COLLECTION_META = {
-  'articles': {
-    label: 'Articles',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 L15 2 L20 7 L20 22 L6 22 Z"/><path d="M15 2 L15 7 L20 7"/><line x1="9" y1="11" x2="17" y2="11"/><line x1="9" y1="14" x2="17" y2="14"/><line x1="9" y1="17" x2="14" y2="17"/></svg>`,
-  },
-  'field-notes': {
-    label: 'Field Notes',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 L5 22 L19 22 L19 4 Z"/><path d="M10 4 L10 2.5 L14 2.5 L14 4"/><line x1="7" y1="4" x2="17" y2="4"/><path d="M6.5 6 L6.5 20.5 L17.5 20.5 L17.5 6 Z"/><rect x="10" y="9" width="2" height="2"/><rect x="10" y="13" width="2" height="2"/><rect x="10" y="17" width="2" height="2"/></svg>`,
-  },
-  'seeds': {
-    label: 'Seeds',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22 C12 22, 12 16, 12 14"/><path d="M12 14 C8 14, 5 10, 7 6 C9 2, 12 2, 12 2 C12 2, 15 2, 17 6 C19 10, 16 14, 12 14 Z"/><path d="M12 6 C12 6, 10 9, 12 14"/></svg>`,
-  },
-};
+// Colors
+const DARK = '#1c1917';
+const MUTED = '#57534e';
+const CHESTNUT = '#8B7355';
 
 // ---------------------------------------------------------------------------
 // Parse frontmatter
@@ -49,24 +41,19 @@ function parseFrontmatter(filePath) {
   const title = (fm.match(/^title:\s*["']?(.+?)["']?\s*$/m) || [])[1] || '';
   const description = (fm.match(/^description:\s*["']?(.+?)["']?\s*$/m) || [])[1] || '';
   const draft = /draft:\s*true/.test(fm);
-  const maturity = (fm.match(/maturity:\s+(\S+)/) || [])[1] || 'draft';
 
-  return { title, description, draft, maturity };
+  return { title, description, draft };
 }
 
 // ---------------------------------------------------------------------------
-// Generate card markup (satori JSX-like objects)
+// Build text overlay (transparent background, text only)
 // ---------------------------------------------------------------------------
 
-function buildCard(title, description, collectionLabel, iconSvg, maturity) {
-  // Truncate description to ~120 chars
+function buildTextOverlay(title, description) {
   let snippet = description || '';
-  if (snippet.length > 120) {
-    snippet = snippet.slice(0, 117) + '...';
+  if (snippet.length > 140) {
+    snippet = snippet.slice(0, 137) + '...';
   }
-
-  // Create data URI for the collection icon SVG
-  const iconDataUri = `data:image/svg+xml;base64,${Buffer.from(iconSvg).toString('base64')}`;
 
   return {
     type: 'div',
@@ -77,123 +64,67 @@ function buildCard(title, description, collectionLabel, iconSvg, maturity) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        background: '#D6006C',
-        padding: '60px',
-        fontFamily: 'LeagueSpartan',
+        padding: '56px 64px',
+        backgroundColor: 'transparent',
       },
       children: [
-        // Top: collection label + site name
+        // Wordmark
         {
           type: 'div',
           props: {
-            style: {
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+            style: { display: 'flex' },
+            children: {
+              type: 'span',
+              props: {
+                style: {
+                  fontSize: '42px',
+                  fontFamily: 'SourceSerifPro',
+                  fontWeight: 700,
+                  color: CHESTNUT,
+                },
+                children: 'Maai&AI',
+              },
             },
-            children: [
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    background: 'rgba(255,255,255,0.2)',
-                    borderRadius: '20px',
-                    padding: '8px 20px',
-                    fontSize: '24px',
-                    color: '#fff',
-                    fontFamily: 'LeagueSpartan',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                  },
-                  children: collectionLabel,
-                },
-              },
-              // Site name
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    fontSize: '28px',
-                    color: 'rgba(255,255,255,0.7)',
-                    fontFamily: 'LeagueSpartan',
-                    fontWeight: 700,
-                    letterSpacing: '0.02em',
-                  },
-                  children: 'maaike.ai',
-                },
-              },
-            ],
           },
         },
-        // Middle: large icon + title side by side
+        // Title + description
         {
           type: 'div',
           props: {
             style: {
               display: 'flex',
-              alignItems: 'center',
-              gap: '40px',
-              flex: 1,
+              flexDirection: 'column',
+              gap: '20px',
             },
             children: [
-              // Large collection icon
               {
-                type: 'img',
-                props: {
-                  src: iconDataUri,
-                  width: 220,
-                  height: 220,
-                  style: {
-                    flexShrink: 0,
-                  },
-                },
-              },
-              // Title
-              {
-                type: 'h1',
+                type: 'div',
                 props: {
                   style: {
-                    fontSize: title.length > 60 ? '42px' : title.length > 40 ? '50px' : '56px',
-                    color: '#fff',
+                    fontSize: title.length > 70 ? '48px' : '64px',
+                    fontFamily: 'SourceSerifPro',
                     fontWeight: 700,
-                    fontFamily: 'LeagueSpartan',
-                    lineHeight: 1.2,
-                    margin: 0,
+                    color: DARK,
+                    lineHeight: 1.1,
+                    maxWidth: '900px',
                   },
                   children: title,
                 },
               },
-            ],
-          },
-        },
-        // Bottom: description snippet
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-            },
-            children: [
               snippet ? {
-                type: 'p',
+                type: 'div',
                 props: {
                   style: {
-                    fontSize: '24px',
-                    color: 'rgba(255,255,255,0.85)',
-                    fontFamily: 'Lora',
+                    fontSize: '32px',
+                    fontFamily: 'Inter',
                     fontWeight: 400,
+                    color: MUTED,
                     lineHeight: 1.4,
-                    margin: 0,
-                    maxWidth: '950px',
+                    maxWidth: '850px',
                   },
                   children: snippet,
                 },
-              } : {
-                type: 'div',
-                props: { children: '' },
-              },
+              } : { type: 'div', props: { children: '' } },
             ],
           },
         },
@@ -207,15 +138,17 @@ function buildCard(title, description, collectionLabel, iconSvg, maturity) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  // Load fonts (satori needs raw TTF/OTF font data)
   console.log('Loading fonts...');
-  const leagueSpartanFont = fs.readFileSync(path.join(__dirname, 'league-spartan-700.ttf'));
-  const loraFont = fs.readFileSync(path.join(__dirname, 'lora-400.ttf'));
+  const sourceSerifFont = fs.readFileSync(path.join(__dirname, 'source-serif-pro-700.ttf'));
+  const interFont = fs.readFileSync(path.join(__dirname, 'inter-400.ttf'));
 
   const fonts = [
-    { name: 'LeagueSpartan', data: leagueSpartanFont, weight: 700, style: 'normal' },
-    { name: 'Lora', data: loraFont, weight: 400, style: 'normal' },
+    { name: 'SourceSerifPro', data: sourceSerifFont, weight: 700, style: 'normal' },
+    { name: 'Inter', data: interFont, weight: 400, style: 'normal' },
   ];
+
+  // Load background image once
+  const bgBuffer = fs.readFileSync(BG_IMAGE);
 
   let generated = 0;
   let skipped = 0;
@@ -233,7 +166,6 @@ async function main() {
       const slug = file.replace('.md', '');
       const outPath = path.join(outDir, `${slug}.png`);
 
-      // Skip if already generated (for incremental builds)
       if (fs.existsSync(outPath)) {
         skipped++;
         continue;
@@ -242,16 +174,14 @@ async function main() {
       const fm = parseFrontmatter(path.join(dir, file));
       if (!fm || fm.draft) continue;
 
-      const meta = COLLECTION_META[collection];
-      const card = buildCard(fm.title, fm.description, meta.label, meta.icon, fm.maturity);
+      // Render text as transparent PNG via satori
+      const textNode = buildTextOverlay(fm.title, fm.description);
+      const svg = await satori(textNode, { width: WIDTH, height: HEIGHT, fonts });
+      const textPng = await sharp(Buffer.from(svg)).png().toBuffer();
 
-      const svg = await satori(card, {
-        width: WIDTH,
-        height: HEIGHT,
-        fonts,
-      });
-
-      await sharp(Buffer.from(svg))
+      // Composite text on background
+      await sharp(bgBuffer)
+        .composite([{ input: textPng, left: 0, top: 0 }])
         .png({ quality: 90 })
         .toFile(outPath);
 
