@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share to LinkedIn</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #1c1917;
+      padding: 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #57534e;
+    }
+    .card-preview {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
+    }
+    .card-preview img {
+      width: 100%;
+      display: block;
+    }
+    .post-composer {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    .post-composer textarea {
+      width: 100%;
+      min-height: 180px;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      color: #1c1917;
+    }
+    .post-composer textarea:focus {
+      outline: none;
+      border-color: #8B7355;
+    }
+    .char-count {
+      text-align: right;
+      font-size: 12px;
+      color: #a8a29e;
+      margin-top: 6px;
+    }
+    .char-count.over { color: #dc2626; }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    button {
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-post {
+      background: #D6006C;
+      color: white;
+    }
+    .btn-post:hover { background: #b80058; }
+    .btn-copy {
+      background: #E8EFE3;
+      color: #1c1917;
+    }
+    .btn-copy:hover { background: #d9e5d1; }
+    .status {
+      font-size: 13px;
+      color: #57534e;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+    .meta {
+      font-size: 12px;
+      color: #a8a29e;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Share to LinkedIn</h1>
+  <div class="meta" id="meta"></div>
+  <div class="card-preview">
+    <img id="card-img" src="" alt="Share card preview" />
+  </div>
+  <div class="post-composer">
+    <textarea id="post-text" placeholder="Write your LinkedIn post here..."></textarea>
+    <div class="char-count" id="char-count">0 / 1300</div>
+    <div class="actions">
+      <button class="btn-post" id="btn-approve">Approve for posting</button>
+      <button class="btn-copy" id="btn-copy">Copy text</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    // Data will be injected by the build script
+    const DATA = /*__DATA__*/{ title: "", collection: "", slug: "", text: "", imagePath: "" }/*__END__*/;
+
+    const img = document.getElementById('card-img');
+    const textarea = document.getElementById('post-text');
+    const charCount = document.getElementById('char-count');
+    const status = document.getElementById('status');
+    const meta = document.getElementById('meta');
+
+    img.src = DATA.imagePath;
+    textarea.value = DATA.text;
+    meta.textContent = `${DATA.collection} / ${DATA.title}`;
+    updateCount();
+
+    textarea.addEventListener('input', updateCount);
+
+    function updateCount() {
+      const len = textarea.value.length;
+      charCount.textContent = `${len} / 1300`;
+      charCount.className = len > 1300 ? 'char-count over' : 'char-count';
+    }
+
+    document.getElementById('btn-copy').addEventListener('click', async () => {
+      await navigator.clipboard.writeText(textarea.value);
+      status.textContent = 'Text copied to clipboard.';
+      setTimeout(() => status.textContent = '', 2000);
+    });
+
+    document.getElementById('btn-approve').addEventListener('click', () => {
+      // Store the approved text so Claude can read it
+      window.__approvedText = textarea.value;
+      status.textContent = 'Approved! Go back to Claude Code to post.';
+      document.getElementById('btn-approve').textContent = 'Approved ✓';
+      document.getElementById('btn-approve').style.background = '#0D7C66';
+    });
+  </script>
+</body>
+</html>
