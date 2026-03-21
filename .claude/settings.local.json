@@ -99,7 +99,15 @@
       "Bash(sed 's/\\\\]\\\\]//g')",
       "Bash(git -C \"D:\\\\Projecten\\\\Digital-Garden\" status)",
       "Bash(python -c \":*)",
-      "Bash(node /tmp/tag-count.js)"
+      "Bash(node /tmp/tag-count.js)",
+      "Bash(npm install:*)",
+      "Bash(cp /c/Sharing/Maaike/Digital-Garden/.claude/migration/settings.json /c/Users/mgroe/.claude/settings.json)",
+      "Bash(cp -r /c/Sharing/Maaike/Digital-Garden/.claude/migration/memory/. /c/Users/mgroe/.claude/projects/C--Sharing-Maaike-Digital-Garden/memory/)",
+      "Bash(cp -r /c/Sharing/Maaike/Digital-Garden/.claude/migration/garden-health-final/. /c/Users/mgroe/.claude/scheduled-tasks/garden-health-final/)",
+      "Bash(mkdir -p /c/Users/mgroe/.claude/scheduled-tasks/garden-health-final)",
+      "Bash(rm -rf /c/Sharing/Maaike/Digital-Garden/.claude/migration)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
