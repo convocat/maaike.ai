@@ -1,7 +1,7 @@
 ---
 title: "Is conversation still a useful metaphor for human-machine interaction?"
 date: 2026-03-15
-updated: 2026-03-19
+updated: 2026-03-21
 maturity: developing
 tags:
   - human-machine-interface
@@ -15,6 +15,12 @@ linkedin_url: "https://www.linkedin.com/feed/update/urn:li:share:744067471586776
 ---
 
 # Is conversation still a useful metaphor for human-machine interaction? Loose thoughts
+
+<div class="tended">
+
+Tended March 21: added sections on the problem with conversation and delegation as metaphor.
+
+</div>
 
 ## Before generative AI
 
@@ -38,6 +44,22 @@ linkedin_url: "https://www.linkedin.com/feed/update/urn:li:share:744067471586776
   Without fullfilling the underlying contract that underpins human-human conversation:
 - grounding in truth, shared sense making, sensory experience, deixis
 - so even in chat interfaces, the interaction happening is not a proper conversation.
+
+## The problem with conversation
+
+Conversations between humans rely on a lot more than two-way interaction: having equal stakes in the exchange, relying on an underlying contract with a lot of subtleties and intricacies, and a lot of non-verbal communication, implicature, and assumed trust.
+
+Calling a human interaction with a chatbot a conversation has always been a bit of a misnomer, but with so many different use cases opening up with GenAI, we're really stretching that metaphor beyond usefulness.
+
+There's also the anthropomorphism problem: conversation is inherently human-shaped. For many GenAI use cases, you don't want that. You don't need your code editor to feel like a person. You don't need your document processor to have a personality. Yet the conversation metaphor smuggles in anthropomorphism by default.
+
+And then there's the emotional labor dimension: when we design chat agents that converse, we're also designing agents that perform emotional work. See Helena Rodemann's [Personality is a labor system](https://thebodycopy.substack.com/p/personality-is-a-labor-system) on emotional labor by chat agents.
+
+## Metaphor: delegation and delivery
+
+Imagine having a large document set, and you need to perform a number of actions on it. With agent AI, yes, you might be inputting things through language, but chances are that most of the time, you'll be using a mix of language, traditional GUI elements like forms, upload fields etc.
+
+After that, chances are that a small swarm of agents will take your request and run with it, leaving you standing with no clue of what's happening, and then returning you your requested deliverable. That's not a conversation anymore, that's more of a parcel delivery service :-) Of course, you could argue that after that, you could use turn taking to tweak the results, but nine out of ten, you'd be doing that directly in the deliverable, not through conversation.
 
 ## Alternatives to talking
 
