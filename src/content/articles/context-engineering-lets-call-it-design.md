@@ -49,5 +49,4 @@ So let's call it context design or context architecture from now on — an evolu
 
 ## Related
 
-- [[prompt-scaffolding|Prompt Scaffolding]]
 - [[claude-md-project-memory|Project memory for persistent context]]

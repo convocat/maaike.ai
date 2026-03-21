@@ -11,6 +11,3 @@ draft: false
 ai: "100% Maai"
 ---
 
-## Related
-
-- [[prompt-scaffolding|Prompt Scaffolding]]
