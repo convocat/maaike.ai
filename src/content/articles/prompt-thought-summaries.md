@@ -26,6 +26,3 @@ Here, I basically told the model to disregard the text and start from scratch. B
 
 It totally makes sense, and at the same time sounds so counterintuitive :-)
 
-## Related
-
-- [[prompt-scaffolding|Prompt Scaffolding]]

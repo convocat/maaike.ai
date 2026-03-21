@@ -18,4 +18,3 @@ Would you like to make ChatGPT more conversational? You can prompt for that! Her
 ## Related
 
 - [[prompt-tutorials-for-conversation-designers|Prompt tutorials for conversation designers]]
-- [[prompt-scaffolding|Prompt Scaffolding]]

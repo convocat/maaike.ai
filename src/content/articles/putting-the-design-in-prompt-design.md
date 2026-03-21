@@ -74,6 +74,3 @@ Well, first of all, that our jobs are not going to disappear anytime soon! :-) I
 - **Process thinking** is THE skill to master. To think, not so much in conversations, but in terms of logical steps in a process and input-output pairs is greatly going to improve the robustness of your prompts (I believe this to be true for 'traditional conversation design' as well, by the way).
 - **Persona is everything.** This article didn't mention it explicitly, because it mostly focused on prompt engineering as an organised, methodical way of working. But persona, in terms of the 'System role', the 'you' in every prompt, and the keeper of relevant global information about your bot's scope and capabilities is going to be the beating heart of every generative AI bot.
 
-## Related
-
-- [[prompt-scaffolding|Prompt Scaffolding]]
