@@ -12,6 +12,8 @@ develops: claude-code-whats-new-for-the-garden
 
 # Experiment 1: scheduled garden health check
 
+Part of [[claude-code-whats-new-for-the-garden]].
+
 **Feature under test:** Scheduled tasks (new in Claude Code, March 2026)
 **Question:** Can Claude automatically flag broken links, stale drafts, and tag issues on a recurring schedule?
 
