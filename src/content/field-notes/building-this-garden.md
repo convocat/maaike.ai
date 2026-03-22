@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-03-19
+updated: 2026-03-21
 maturity: developing
 tags:
   - about
@@ -146,6 +146,17 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Garden lifecycle metaphor**: Field note describing the greenhouse (quarantine for external content), compost heap (decayed content), and soil (pre-stage for seeds) as a full recycle loop
 - **Nav bar updated**: Field Notes and Seeds added back to main navigation
 - **About page rewritten**: Updated from 3 content types to all 7 collections, plus maturity system, AI transparency, connections, and projects sections
+
+### 21 March
+
+- **New project: Claude Code features x garden**: Project hub with 5 experiments demonstrating new Claude Code features through practical garden tasks
+- **Experiment 1: scheduled health check**: Automated garden health task using Claude Code's scheduled tasks feature
+- **Experiment 2: thematic analysis with 1M context**: Full-garden reading of all 244 files in a single context window, producing 7 emergent themes plus embedding cluster comparison
+- **Conversation metaphor article updated**: New sections on the problem with conversation (anthropomorphism, emotional labor) and delegation as metaphor (parcel delivery service)
+- **Tended box**: Pink accent box for marking article updates, with Typora theme support
+- **End-of-session housekeeping**: Checklist added to CLAUDE.md for consistent garden maintenance
+- **Prompt scaffolding removed**: AI-generated content that violated garden ethics, cleaned up across articles
+- **Machine migration**: Repo migrated to new machine with memory and scheduled task files
 
 ## Related
 
