@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Build a slug-to-path map for wiki links to resolve across collections
 function buildPermalinkMap() {
   const contentDir = path.join(__dirname, 'src', 'content');
-  const collections = ['field-notes', 'seeds', 'articles', 'weblinks', 'videos', 'library', 'experiments'];
+  const collections = ['field-notes', 'seeds', 'articles', 'weblinks', 'videos', 'library', 'experiments', 'jottings'];
   const slugMap = new Map();
 
   for (const collection of collections) {

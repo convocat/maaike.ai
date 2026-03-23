@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContentGrid from '../../components/ContentGrid.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { sortByDate, getUniqueTags } from '../../utils/collections';
+import settings from '../../data/settings.json';
+import CollectionIcon from '../../components/CollectionIcon.astro';
+
+const jottings = sortByDate(
+  (await getCollection('jottings')).filter((e) => !e.data.draft)
+);
+const tags = getUniqueTags(jottings);
+---
+
+<PageLayout title={`${settings.jottingsTitle} — ${settings.siteTitle}`}>
+  <h1><CollectionIcon collection="jottings" size={28} /> {settings.jottingsTitle}</h1>
+  <p class="section-description">{settings.jottingsDescription}</p>
+
+  <FilterBar tags={tags} />
+
+  <ContentGrid>
+    {jottings.length > 0 ? (
+      jottings.map((jotting) => (
+        <ContentCard
+          title={jotting.data.title}
+          href={`/jottings/${jotting.id}`}
+          date={jotting.data.date}
+          updated={jotting.data.updated}
+          maturity={jotting.data.maturity}
+          tags={jotting.data.tags}
+          description={jotting.data.description}
+          collection="jottings"
+        />
+      ))
+    ) : (
+      <p class="empty-state">No jottings yet. Ink is drying.</p>
+    )}
+  </ContentGrid>
+</PageLayout>
+
+<style>
+  h1 { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
+  .section-description {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-xl);
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,410 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import MosaicCard from '../components/MosaicCard.astro';
+import CollectionIcon from '../components/CollectionIcon.astro';
+import { getAllContent, sortByDate } from '../utils/collections';
+import settings from '../data/settings.json';
+
+function getYouTubeId(url: string): string | null {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,
+    /(?:youtu\.be\/)([^?]+)/,
+    /(?:youtube\.com\/embed\/)([^?]+)/,
+    /(?:youtube\.com\/shorts\/)([^?]+)/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+const allContent = sortByDate(await getAllContent());
+
+// Stream: articles, standalone field notes, seeds, jottings, weblinks
+// Guarantee at least 3 per collection, then fill chronologically
+const streamCollectionNames = ['articles', 'field-notes', 'seeds', 'jottings', 'weblinks'];
+const streamEligible = allContent.filter((e) => {
+  const data = e.data as any;
+  if (!streamCollectionNames.includes(e.collection)) return false;
+  // Exclude field notes that belong to a project
+  if (e.collection === 'field-notes' && data.develops) return false;
+  // Exclude quotes (they get their own placement in the grid)
+  if (e.collection === 'jottings' && data.type === 'quote') return false;
+  return true;
+});
+
+// Take 5 per collection, 7 for articles (hero takes 1, leaving 6)
+const guaranteed = new Set<string>();
+const guaranteedItems: typeof streamEligible = [];
+for (const col of streamCollectionNames) {
+  const minItems = col === 'articles' ? 7 : 5;
+  const colItems = streamEligible.filter((e) => e.collection === col).slice(0, minItems);
+  colItems.forEach((item) => {
+    guaranteedItems.push(item);
+    guaranteed.add(item.id);
+  });
+}
+// Fill remaining slots chronologically
+const remaining = streamEligible.filter((e) => !guaranteed.has(e.id));
+const allStreamItems = sortByDate([...guaranteedItems, ...remaining]).slice(0, 30);
+
+// Pin the latest article as hero
+const latestArticle = allStreamItems.find((e) => e.collection === 'articles');
+const streamItems = allStreamItems.filter((e) => e !== latestArticle);
+
+// Full collection lists for filter mode (all items, not just stream subset)
+const fullCollectionItems = streamEligible;
+
+// Quotes: up to 2, placed in the hero row
+const quotes = allContent
+  .filter((e) => e.collection === 'jottings' && (e.data as any).type === 'quote')
+  .slice(0, 2);
+
+// Currently reading books
+const library = sortByDate(
+  (await getCollection('library')).filter((e) => !e.data.draft)
+);
+const currentlyReading = library.filter((e) => e.data.status === 'reading').slice(0, 3);
+
+// Projects (hub posts) for filter view
+const projects = allContent.filter((e) => (e.data as any).hub === true);
+
+const filterCollections = ['articles', 'field-notes', 'seeds', 'jottings', 'weblinks', 'projects'];
+
+const collectionLabels: Record<string, string> = {
+  articles: 'Articles',
+  'field-notes': 'Field Notes',
+  seeds: 'Seeds',
+  jottings: 'Jottings',
+  weblinks: 'Weblinks',
+  projects: 'Projects',
+};
+
+const doodleFilterIcons: Record<string, string> = {
+  articles: '/images/icons/doc.svg',
+  'field-notes': '/images/icons/note.svg',
+  seeds: '/images/icons/bulb.svg',
+  jottings: '/images/icons/pencil.svg',
+  weblinks: '/images/icons/globe.svg',
+  projects: '/images/icons/rocket.svg',
+};
+
+const activeCollections = filterCollections;
+---
+
+<PageLayout title={`Stream — ${settings.siteTitle}`}>
+  <h1>Stream</h1>
+  <p class="stream-description">What's growing, what's on my mind.</p>
+
+  <div class="mosaic-filters" role="group" aria-label="Filter by content type">
+    <button class="filter-chip active" data-filter="all">All</button>
+    {activeCollections.map((col) => (
+      <button class="filter-chip" data-filter={col}>
+        {doodleFilterIcons[col] && <img src={doodleFilterIcons[col]} alt="" class="filter-icon" />}
+        {collectionLabels[col] || col}
+      </button>
+    ))}
+  </div>
+
+  <div class="hero-row">
+    {latestArticle && (() => {
+      const data = latestArticle.data as any;
+      return (
+        <MosaicCard
+          title={data.title}
+          href={`/articles/${latestArticle.id}`}
+          date={data.date}
+          updated={data.updated}
+          maturity={data.maturity}
+          tags={data.tags}
+          description={data.description}
+          collection="articles"
+          hero={true}
+        />
+      );
+    })()}
+    <div class="hero-side">
+      {quotes.map((q) => {
+        const data = q.data as any;
+        return (
+          <MosaicCard
+            title={data.title}
+            href={`/jottings/${q.id}`}
+            date={data.date}
+            updated={data.updated}
+            maturity={data.maturity}
+            tags={data.tags}
+            description={data.description}
+            collection="jottings"
+            jottingType="quote"
+            source={data.source}
+          />
+        );
+      })}
+      {currentlyReading.length > 0 && (
+        <article class="mosaic-card mosaic-card--reading" data-collection="library">
+          <div class="mosaic-body">
+            <div class="mosaic-icon-row">
+              <CollectionIcon collection="library" size={32} />
+              <div class="mosaic-meta-block">
+                <span class="mosaic-collection-label">Currently reading</span>
+              </div>
+            </div>
+            {currentlyReading.map((book) => (
+              <a href={`/library/${book.id}`} class="reading-book">
+                {book.data.cover && <img src={book.data.cover} alt="" class="reading-cover" loading="lazy" />}
+                <div>
+                  <span class="reading-title">{book.data.title}</span>
+                  <span class="reading-author">{book.data.author}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </article>
+      )}
+    </div>
+  </div>
+
+  <div class="mosaic" id="stream-mosaic">
+    {streamItems.map((entry) => {
+      const data = entry.data as any;
+      const col = entry.collection;
+      const href = `/${col}/${entry.id}`;
+      const domain = (col === 'jottings' || col === 'weblinks') && data.url
+        ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
+        : undefined;
+
+      return (
+        <MosaicCard
+          title={data.title}
+          href={href}
+          date={data.date}
+          updated={data.updated}
+          maturity={data.maturity}
+          tags={data.tags}
+          description={data.description}
+          collection={col}
+          jottingType={data.type}
+          source={data.source}
+          domain={domain}
+          url={data.url}
+        />
+      );
+    })}
+  </div>
+
+  <div class="mosaic" id="filtered-mosaic" style="display:none;">
+    {fullCollectionItems.map((entry) => {
+      const data = entry.data as any;
+      const col = entry.collection;
+      const href = `/${col}/${entry.id}`;
+      const domain = (col === 'jottings' || col === 'weblinks') && data.url
+        ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
+        : undefined;
+
+      return (
+        <MosaicCard
+          title={data.title}
+          href={href}
+          date={data.date}
+          updated={data.updated}
+          maturity={data.maturity}
+          tags={data.tags}
+          description={data.description}
+          collection={col}
+          jottingType={data.type}
+          source={data.source}
+          domain={domain}
+          url={data.url}
+        />
+      );
+    })}
+    {projects.map((entry) => {
+      const data = entry.data as any;
+      return (
+        <article class="mosaic-card mosaic-card--default" data-collection="projects">
+          <a href={`/${entry.collection}/${entry.id}`} class="mosaic-link">
+            <div class="mosaic-body">
+              <div class="mosaic-icon-row">
+                <img src="/images/icons/rocket.svg" alt="" class="mosaic-doodle-icon" />
+                <div class="mosaic-meta-block">
+                  <span class="mosaic-collection-label">Project</span>
+                  <time class="mosaic-date">{new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' }).format(data.date)}</time>
+                </div>
+              </div>
+              <h3 class="mosaic-title">{data.title}</h3>
+              {data.description && <p class="mosaic-desc">{data.description}</p>}
+            </div>
+          </a>
+        </article>
+      );
+    })}
+  </div>
+</PageLayout>
+
+<script>
+  function setupFilters() {
+    const chips = document.querySelectorAll('.filter-chip');
+    const heroRow = document.querySelector('.hero-row') as HTMLElement;
+    const streamMosaic = document.getElementById('stream-mosaic') as HTMLElement;
+    const filteredMosaic = document.getElementById('filtered-mosaic') as HTMLElement;
+    const filteredCards = filteredMosaic?.querySelectorAll('.mosaic-card');
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = (chip as HTMLElement).dataset.filter;
+
+        if (filter === 'all') {
+          heroRow.style.display = '';
+          streamMosaic.style.display = '';
+          filteredMosaic.style.display = 'none';
+        } else {
+          heroRow.style.display = 'none';
+          streamMosaic.style.display = 'none';
+          filteredMosaic.style.display = '';
+          filteredCards?.forEach((card) => {
+            (card as HTMLElement).style.display =
+              (card as HTMLElement).dataset.collection === filter ? '' : 'none';
+          });
+        }
+      });
+    });
+  }
+
+  setupFilters();
+  document.addEventListener('astro:after-swap', setupFilters);
+</script>
+
+<style is:global>
+  h1 {
+    margin-block-end: var(--space-xs);
+  }
+
+  .stream-description {
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-block-end: var(--space-xl);
+  }
+
+  /* Filter chips */
+  .mosaic-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-xl);
+  }
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .filter-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+  }
+  .filter-chip.active .filter-icon {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+  .filter-chip:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .filter-chip.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  /* Hero row: 2-column hero + side cards */
+  .hero-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    margin-block-end: var(--space-xl);
+  }
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  @media (max-width: 768px) {
+    .hero-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Masonry layout via CSS columns */
+  .mosaic {
+    column-count: 3;
+    column-gap: var(--space-lg);
+    margin-block-end: var(--space-2xl);
+  }
+  .mosaic > * {
+    break-inside: avoid;
+    margin-block-end: var(--space-lg);
+  }
+
+
+  @media (max-width: 768px) {
+    .mosaic { column-count: 2; }
+  }
+  @media (max-width: 480px) {
+    .mosaic { column-count: 1; }
+  }
+
+  /* Currently reading card (pinned in grid) */
+  .mosaic-card--reading {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .mosaic-card--reading:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+  }
+  .reading-book {
+    display: flex;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    padding: var(--space-xs) 0;
+  }
+  .reading-book:hover .reading-title {
+    color: var(--color-accent);
+  }
+  .reading-cover {
+    width: 32px;
+    height: auto;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .reading-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-heading);
+    line-height: 1.3;
+    transition: color var(--transition-fast);
+  }
+  .reading-author {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -12,12 +12,13 @@ let backlinkMap: Map<string, Backlink[]> | null = null;
 async function buildBacklinkMap() {
   if (backlinkMap) return backlinkMap;
 
-  const [fieldNotes, seeds, articles, weblinks, experiments] = await Promise.all([
+  const [fieldNotes, seeds, articles, weblinks, experiments, jottings] = await Promise.all([
     getCollection('fieldNotes'),
     getCollection('seeds'),
     getCollection('articles'),
     getCollection('weblinks'),
     getCollection('experiments'),
+    getCollection('jottings'),
   ]);
 
   const allEntries = [
@@ -26,6 +27,7 @@ async function buildBacklinkMap() {
     ...articles.map((e) => ({ ...e, collection: 'articles' })),
     ...weblinks.map((e) => ({ ...e, collection: 'weblinks' })),
     ...experiments.map((e) => ({ ...e, collection: 'experiments' })),
+    ...jottings.map((e) => ({ ...e, collection: 'jottings' })),
   ];
 
   const map = new Map<string, Backlink[]>();

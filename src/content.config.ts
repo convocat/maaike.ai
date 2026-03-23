@@ -73,4 +73,14 @@ const experiments = defineCollection({
   schema: baseSchema,
 });
 
-export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments };
+const jottings = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/jottings' }),
+  schema: baseSchema.extend({
+    type: z.enum(['note', 'quote', 'event', 'link', 'post']).default('note'),
+    source: z.string().optional(),
+    page: z.number().optional(),
+    url: z.string().optional(),
+  }),
+});
+
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings };

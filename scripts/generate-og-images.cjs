@@ -18,7 +18,7 @@ const CONTENT_DIR = path.join(ROOT, 'src', 'content');
 const OUTPUT_DIR = path.join(ROOT, 'public', 'images', 'og');
 const BG_IMAGE = path.join(__dirname, 'og-bg.png');
 
-const COLLECTIONS = ['articles', 'field-notes', 'seeds'];
+const COLLECTIONS = ['articles', 'field-notes', 'seeds', 'jottings'];
 
 const WIDTH = 1200;
 const HEIGHT = 627;

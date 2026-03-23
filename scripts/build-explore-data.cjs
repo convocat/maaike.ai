@@ -29,7 +29,7 @@ const RELAX = process.argv.includes('--relax');
 
 const COLLECTIONS = [
   'articles', 'field-notes', 'seeds', 'weblinks',
-  'videos', 'library', 'experiments'
+  'videos', 'library', 'experiments', 'jottings'
 ];
 
 // ---------------------------------------------------------------------------

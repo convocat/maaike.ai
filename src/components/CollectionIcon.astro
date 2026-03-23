@@ -46,6 +46,11 @@ const icons: Record<string, string> = {
     <circle cx="10" cy="16" r="1" class="icon-fill" />
     <circle cx="13" cy="18" r="0.7" class="icon-fill" />
     <circle cx="15" cy="15" r="0.5" class="icon-fill" />`,
+  jottings: `
+    <path d="M17 3 L7 13 L6 18 L11 17 L21 7 Z" />
+    <line x1="14" y1="6" x2="18" y2="10" />
+    <path d="M6 18 C5 19, 4 20, 3 22" />
+    <circle cx="4" cy="21" r="1" class="icon-fill" />`,
 };
 
 const svgContent = icons[collection];
@@ -83,10 +88,12 @@ const svgContent = icons[collection];
   .collection-icon--videos { stroke: #6E4E68; }
   .collection-icon--library { stroke: #5A4E44; }
   .collection-icon--experiments { stroke: #3A7080; }
+  .collection-icon--jottings { stroke: #4A5A7A; }
 
   /* Filled elements (pupil, compass needle, bubbles) inherit stroke color */
   .collection-icon--videos .icon-fill { fill: #6E4E68; }
   .collection-icon--experiments .icon-fill { fill: #3A7080; }
+  .collection-icon--jottings .icon-fill { fill: #4A5A7A; }
   /* Dark mode (WCAG AA ≥3:1 on #111) */
   :root[data-theme="dark"] .collection-icon--articles { stroke: #D4A88E; }
   :root[data-theme="dark"] .collection-icon--field-notes { stroke: #8ECF94; }
@@ -95,7 +102,9 @@ const svgContent = icons[collection];
   :root[data-theme="dark"] .collection-icon--videos { stroke: #C9A8C4; }
   :root[data-theme="dark"] .collection-icon--library { stroke: #BDB0A6; }
   :root[data-theme="dark"] .collection-icon--experiments { stroke: #7ECCD6; }
+  :root[data-theme="dark"] .collection-icon--jottings { stroke: #9AAED4; }
 
   :root[data-theme="dark"] .collection-icon--videos .icon-fill { fill: #C9A8C4; }
   :root[data-theme="dark"] .collection-icon--experiments .icon-fill { fill: #7ECCD6; }
+  :root[data-theme="dark"] .collection-icon--jottings .icon-fill { fill: #9AAED4; }
 </style>

@@ -15,5 +15,7 @@
   "libraryTitle": "Library",
   "libraryDescription": "Books I've read, am reading, or want to read.",
   "experimentsTitle": "Experiments",
-  "experimentsDescription": "Hands-on explorations you can try yourself."
+  "experimentsDescription": "Hands-on explorations you can try yourself.",
+  "jottingsTitle": "Jottings",
+  "jottingsDescription": "Quick thoughts and observations. No obligation to develop further."
 }
