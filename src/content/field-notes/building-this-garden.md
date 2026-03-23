@@ -166,6 +166,11 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **/new-book skill**: Slash command for adding library books via Open Library API with automatic cover downloads
 - **Doodle icon set**: Hand-drawn SVG icons for Stream cards (doc, note, bulb, pencil, globe, flask, rocket, calendar, send, message)
 - **UX review**: Three-agent review of Stream page covering visual design, interaction model, and content strategy
+- **Mega-menu navigation**: Garden dropdown replaced with a mega-menu showing all collections with doodle icons and descriptions, plus Overview/Map/Stream view links
+- **Doodle icons everywhere**: Replaced all inline SVG collection icons with the doodle icon set across the entire site
+- **Simplified nav**: Reduced from 9 items to 4: The Garden (mega-dropdown), Projects, Library, About
+- **Stream layout refinements**: Braided content mix with articles at double weight, projects pinned to right column, 2-column main masonry
+- **Dark mode toggle removed**: System preference still applies automatically
 
 ## Related
 
