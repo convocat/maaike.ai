@@ -31,6 +31,7 @@ const REQUIRED_BY_COLLECTION = {
   videos:       [...SHARED_FIELDS, 'url'],
   library:      [...SHARED_FIELDS, 'author', 'status'],
   experiments:  [...SHARED_FIELDS],
+  jottings:     [...SHARED_FIELDS],
   tags:         ['title'], // tag definition files only need a title
 };
 

@@ -1124,9 +1124,46 @@ import SketchyFilter from '../components/SketchyFilter.astro';
   /* ----------------------------------------------------------------
      Responsive
      ---------------------------------------------------------------- */
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     #explore-title h1 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+    }
+
+    #paths-btn {
+      padding: 8px 14px;
+      font-size: 0.85rem;
+    }
+
+    #legend {
+      max-width: 260px;
+    }
+
+    #wander-btn {
+      padding: 10px 16px;
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #explore-title {
+      top: var(--space-md);
+      left: var(--space-md);
+    }
+
+    #explore-title h1 {
+      font-size: 1.1rem;
+    }
+
+    .explore-subtitle {
+      font-size: 0.75rem;
+      margin: 2px 0 6px;
+    }
+
+    #paths-btn {
+      top: calc(var(--space-md) + 50px);
+      left: var(--space-md);
+      padding: 6px 12px;
+      font-size: 0.8rem;
     }
 
     .mode-btn span {
@@ -1137,14 +1174,85 @@ import SketchyFilter from '../components/SketchyFilter.astro';
       padding: 8px 10px;
     }
 
-    #trail-sidebar {
-      width: 100%;
+    #mode-switcher {
+      top: var(--space-md);
+      right: var(--space-md);
+    }
+
+    #legend {
+      bottom: var(--space-md);
+      left: var(--space-md);
+      max-width: 200px;
+    }
+
+    #legend-collections {
+      grid-template-columns: 1fr;
+    }
+
+    .legend-maturity {
+      gap: 8px;
+    }
+
+    #wander-btn {
+      bottom: var(--space-md);
+      right: var(--space-md);
+      padding: 8px 12px;
+      gap: 8px;
+    }
+
+    .wander-btn-sub {
+      display: none;
+    }
+
+    #wander-canvas {
+      width: 40px;
+      height: 30px;
     }
 
     #wander-card {
-      width: calc(100% - 2 * var(--space-lg));
-      right: var(--space-lg);
-      left: var(--space-lg);
+      width: calc(100% - 2 * var(--space-md));
+      right: var(--space-md);
+      left: var(--space-md);
+    }
+
+    #trail-sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Landscape on short viewports */
+  @media (max-height: 500px) and (orientation: landscape) {
+    #explore-title {
+      display: none;
+    }
+
+    #paths-btn {
+      top: var(--space-sm);
+      left: var(--space-sm);
+    }
+
+    #legend {
+      display: none;
+    }
+
+    #wander-btn {
+      bottom: var(--space-sm);
+      right: var(--space-sm);
+      padding: 6px 10px;
+    }
+
+    .wander-btn-text {
+      display: none;
+    }
+
+    #mode-switcher {
+      top: var(--space-sm);
+      right: var(--space-sm);
+    }
+
+    #wander-card {
+      max-height: 80vh;
+      overflow-y: auto;
     }
   }
 </style>
@@ -1166,6 +1274,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     videos:         { light: '#6E4E68', dark: '#C9A8C4' },
     library:        { light: '#5A4E44', dark: '#BDB0A6' },
     experiments:    { light: '#3A7080', dark: '#7ECCD6' },
+    jottings:       { light: '#4A5A7A', dark: '#9AAED4' },
   };
 
   const MATURITY_RADIUS = { draft: 5, developing: 8, solid: 11, complete: 14 };
@@ -1179,6 +1288,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
     videos: 'Videos',
     library: 'Library',
     experiments: 'Experiments',
+    jottings: 'Jottings',
   };
 
   // ----------------------------------------------------------------
@@ -1492,7 +1602,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
         label.setAttribute('dominant-baseline', 'middle');
         label.setAttribute('fill', isDark() ? 'rgba(255,255,255,0.32)' : 'rgba(0,0,0,0.35)');
         label.setAttribute('font-family', 'Lora, Georgia, serif');
-        label.setAttribute('font-size', '15');
+        label.setAttribute('font-size', String(Math.max(10, Math.min(15, svgWidth / 80))));
         label.setAttribute('font-style', 'italic');
         label.setAttribute('letter-spacing', '0.02em');
         const labelText = territory.label.replace(/-/g, ' ');

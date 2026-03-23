@@ -14,7 +14,7 @@ Dev server config lives in `.claude/launch.json` (name: "digital-garden", port 4
 
 ## Architecture
 
-Astro static site with 7 content collections, wiki-style cross-linking, and dual light/dark theme.
+Astro static site with 8 content collections, wiki-style cross-linking, and dual light/dark theme.
 
 ### Content collections (src/content/)
 
@@ -27,6 +27,7 @@ Astro static site with 7 content collections, wiki-style cross-linking, and dual
 | Videos | `videos` | `url` (required) |
 | Library | `library` | `author`, `cover`, `status` (reading/read/to-read) |
 | Experiments | `experiments` | - |
+| Jottings | `jottings` | `type` (note/quote/event/link/post), `source` (optional), `page` (optional), `url` (optional) |
 
 All collections share: `title`, `date`, `updated`, `maturity` (draft/developing/solid/complete), `tags[]`, `description`, `draft`, `ai`, `hub` (optional boolean), `develops` (optional slug string).
 
@@ -80,7 +81,7 @@ Hand-drawn SVG icons per collection with earthy pastel stroke colors and a feTur
 - Collection index page headings
 - Post detail headers (as collection label)
 
-Icon stroke palette (light, WCAG AA ≥3:1): articles=#7A5A48, field-notes=#4A7A50, seeds=#A07030, weblinks=#7A6048, videos=#6E4E68, library=#5A4E44, experiments=#3A7080. Dark mode: articles=#D4A88E, field-notes=#8ECF94, seeds=#E8C07A, weblinks=#D4B89E, videos=#C9A8C4, library=#BDB0A6, experiments=#7ECCD6.
+Icon stroke palette (light, WCAG AA ≥3:1): articles=#7A5A48, field-notes=#4A7A50, seeds=#A07030, weblinks=#7A6048, videos=#6E4E68, library=#5A4E44, experiments=#3A7080, jottings=#4A5A7A. Dark mode: articles=#D4A88E, field-notes=#8ECF94, seeds=#E8C07A, weblinks=#D4B89E, videos=#C9A8C4, library=#BDB0A6, experiments=#7ECCD6, jottings=#9AAED4.
 
 ### AI transparency indicator
 
