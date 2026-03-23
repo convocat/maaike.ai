@@ -184,7 +184,7 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     flex: 1;
   }
   .mosaic-collection-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -244,15 +244,6 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     position: relative;
     overflow: hidden;
   }
-  .mosaic-card--hero::after {
-    content: '📝';
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 4rem;
-    opacity: 0.08;
-    pointer-events: none;
-  }
   :root[data-theme="dark"] .mosaic-card--hero {
     background: #1e1c1a;
   }
@@ -301,7 +292,7 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     transform: rotate(-15deg);
   }
   :root[data-theme="dark"] .mosaic-card--quote {
-    background: #2a3328;
+    background: #1f2b1d;
   }
   .mosaic-card--quote .mosaic-meta {
     color: #57534e;
@@ -389,20 +380,25 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     display: block;
   }
 
-  /* Card backgrounds: white default, parchment on hover */
-  .mosaic-card:hover {
-    background: #FAF8F5;
-  }
-  :root[data-theme="dark"] .mosaic-card:hover {
-    background: #1e1c1a;
-  }
+  /* Card hover: tinted to match collection icon color */
+  .mosaic-card--articles:hover { background: #FDF8F5; }
+  .mosaic-card--field-notes:hover { background: #F3FAF4; }
+  .mosaic-card--seeds:hover { background: #FDF9F0; }
+  .mosaic-card--weblinks:hover { background: #F0F7F6; }
+  .mosaic-card--jottings:hover { background: #F0F7F6; }
+
+  :root[data-theme="dark"] .mosaic-card--articles:hover { background: #1e1815; }
+  :root[data-theme="dark"] .mosaic-card--field-notes:hover { background: #151e16; }
+  :root[data-theme="dark"] .mosaic-card--seeds:hover { background: #1e1b14; }
+  :root[data-theme="dark"] .mosaic-card--weblinks:hover { background: #141e1c; }
+  :root[data-theme="dark"] .mosaic-card--jottings:hover { background: #141e1c; }
 
   /* Colored doodle icons per collection */
-  .mosaic-card--articles .mosaic-doodle-icon { filter: sepia(1) saturate(3) hue-rotate(-10deg) brightness(0.6); }
-  .mosaic-card--field-notes .mosaic-doodle-icon { filter: sepia(1) saturate(2) hue-rotate(80deg) brightness(0.6); }
-  .mosaic-card--seeds .mosaic-doodle-icon { filter: sepia(1) saturate(2) hue-rotate(15deg) brightness(0.7); }
-  .mosaic-card--weblinks .mosaic-doodle-icon { filter: sepia(1) saturate(2) hue-rotate(-10deg) brightness(0.55); }
-  .mosaic-card--jottings .mosaic-doodle-icon { filter: sepia(1) saturate(2) hue-rotate(180deg) brightness(0.6); }
+  .mosaic-card--articles .mosaic-doodle-icon { filter: invert(30%) sepia(50%) saturate(500%) hue-rotate(-15deg); }
+  .mosaic-card--field-notes .mosaic-doodle-icon { filter: invert(40%) sepia(30%) saturate(600%) hue-rotate(100deg); }
+  .mosaic-card--seeds .mosaic-doodle-icon { filter: invert(45%) sepia(60%) saturate(400%) hue-rotate(10deg); }
+  .mosaic-card--weblinks .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg); }
+  .mosaic-card--jottings .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg); }
 
   /* Jottings — no special border, clean card */
 </style>
