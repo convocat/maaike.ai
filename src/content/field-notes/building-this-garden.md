@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-03-21
+updated: 2026-03-23
 maturity: developing
 tags:
   - about
@@ -157,6 +157,15 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **End-of-session housekeeping**: Checklist added to CLAUDE.md for consistent garden maintenance
 - **Prompt scaffolding removed**: AI-generated content that violated garden ethics, cleaned up across articles
 - **Machine migration**: Repo migrated to new machine with memory and scheduled task files
+
+### 23 March
+
+- **Jottings collection**: New content type with subtypes (note, quote, event, link, post) for casual personal notes, book quotes, and LinkedIn cross-posts. Fountain pen nib icon in ink-blue
+- **Stream page**: New braided feed view mixing articles, field notes, seeds, jottings and weblinks chronologically. Doodle icons per collection, parchment hero card, pinned quote cards in sage green, currently reading sidebar
+- **Explore map mobile fix**: Responsive breakpoints at 768px and 640px, territory label scaling, landscape mode, improved touch targets
+- **/new-book skill**: Slash command for adding library books via Open Library API with automatic cover downloads
+- **Doodle icon set**: Hand-drawn SVG icons for Stream cards (doc, note, bulb, pencil, globe, flask, rocket, calendar, send, message)
+- **UX review**: Three-agent review of Stream page covering visual design, interaction model, and content strategy
 
 ## Related
 
