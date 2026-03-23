@@ -1,14 +1,18 @@
 ---
-import DarkModeToggle from './DarkModeToggle.astro';
 import settings from '../data/settings.json';
+import CollectionIcon from './CollectionIcon.astro';
+
+const collections = [
+  { href: '/articles', slug: 'articles', label: 'Articles', desc: settings.articlesDescription },
+  { href: '/field-notes', slug: 'field-notes', label: 'Field Notes', desc: settings.fieldNotesDescription },
+  { href: '/seeds', slug: 'seeds', label: 'Seeds', desc: settings.seedsDescription },
+  { href: '/jottings', slug: 'jottings', label: 'Jottings', desc: settings.jottingsDescription },
+  { href: '/weblinks', slug: 'weblinks', label: 'Weblinks', desc: settings.weblinksDescription },
+  { href: '/videos', slug: 'videos', label: 'Videos', desc: settings.videosDescription },
+  { href: '/experiments', slug: 'experiments', label: 'Experiments', desc: settings.experimentsDescription },
+];
 
 const navLinks = [
-  { href: '/explore', label: 'Garden', accent: true },
-  { href: '/stream', label: 'Stream' },
-  { href: '/articles', label: 'Articles' },
-  { href: '/field-notes', label: 'Field Notes' },
-  { href: '/seeds', label: 'Seeds' },
-  { href: '/jottings', label: 'Jottings' },
   { href: '/projects', label: 'Projects' },
   { href: '/library', label: 'Library' },
   { href: '/about', label: 'About' },
@@ -33,9 +37,44 @@ const currentPath = Astro.url.pathname;
 
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <ul>
-        {navLinks.map(({ href, label, accent }) => (
+        <li class="garden-dropdown">
+          <button class="garden-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            The Garden
+            <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M1 1 L5 5 L9 1" />
+            </svg>
+          </button>
+          <div class="garden-mega-menu">
+            <div class="mega-collections">
+              {collections.map(({ href, slug, label, desc }) => (
+                <a href={href} class:list={['mega-item', { active: currentPath.startsWith(href) }]}>
+                  <CollectionIcon collection={slug} size={20} />
+                  <div>
+                    <span class="mega-label">{label}</span>
+                    <span class="mega-desc">{desc}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div class="mega-views">
+              <a href="/" class:list={[{ active: currentPath === '/' }]}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+                Overview
+              </a>
+              <a href="/explore" class:list={[{ active: currentPath.startsWith('/explore') }]}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z" /></svg>
+                Map
+              </a>
+              <a href="/stream" class:list={[{ active: currentPath.startsWith('/stream') }]}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="15" y2="12" /><line x1="3" y1="18" x2="18" y2="18" /></svg>
+                Stream
+              </a>
+            </div>
+          </div>
+        </li>
+        {navLinks.map(({ href, label }) => (
           <li>
-            <a href={href} class:list={[{ active: currentPath.startsWith(href), 'nav-accent': accent }]}>
+            <a href={href} class:list={[{ active: href !== '/' && currentPath.startsWith(href) }]}>
               {label}
             </a>
           </li>
@@ -43,7 +82,6 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
-    <DarkModeToggle />
   </div>
 </header>
 
@@ -59,13 +97,11 @@ const currentPath = Astro.url.pathname;
       nav.classList.toggle('open');
 
       if (!expanded) {
-        // Focus first nav link when opening
         const firstLink = nav.querySelector('a');
         firstLink?.focus();
       }
     });
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
         nav.classList.remove('open');
@@ -74,7 +110,6 @@ const currentPath = Astro.url.pathname;
       }
     });
 
-    // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (nav.classList.contains('open') && !nav.contains(e.target as Node) && e.target !== toggle && !toggle.contains(e.target as Node)) {
         nav.classList.remove('open');
@@ -83,8 +118,37 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  function setupGardenDropdown() {
+    const trigger = document.querySelector('.garden-dropdown-trigger') as HTMLButtonElement;
+    const dropdown = document.querySelector('.garden-dropdown') as HTMLElement;
+    if (!trigger || !dropdown) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target as Node)) {
+        trigger.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        trigger.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('open');
+        trigger.focus();
+      }
+    });
+  }
+
   setupMenu();
-  document.addEventListener('astro:after-swap', setupMenu);
+  setupGardenDropdown();
+  document.addEventListener('astro:after-swap', () => { setupMenu(); setupGardenDropdown(); });
 </script>
 
 <style>
@@ -113,11 +177,16 @@ const currentPath = Astro.url.pathname;
     color: var(--color-accent);
   }
 
+  .site-nav {
+    margin-left: auto;
+  }
+
   .site-nav ul {
     display: flex;
     list-style: none;
     padding: 0;
     gap: var(--space-lg);
+    align-items: center;
   }
 
   .site-nav a {
@@ -132,12 +201,118 @@ const currentPath = Astro.url.pathname;
     color: var(--color-accent);
   }
 
-  .site-nav a.nav-accent {
+  /* Garden mega dropdown */
+  .garden-dropdown {
+    position: relative;
+  }
+  .garden-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+  }
+  .garden-dropdown-trigger:hover {
+    color: var(--color-accent);
+  }
+  .garden-dropdown-trigger .chevron {
+    transition: transform var(--transition-fast);
+  }
+  .garden-dropdown.open .garden-dropdown-trigger .chevron {
+    transform: rotate(180deg);
+  }
+
+  .garden-mega-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: -100px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    width: 520px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+  }
+  .garden-dropdown.open .garden-mega-menu {
+    display: block;
+  }
+
+  .mega-collections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
+  }
+
+  .mega-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+  .mega-item:hover {
+    background: var(--color-bg-card);
+  }
+  .mega-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mega-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .mega-item:hover .mega-label {
+    color: var(--color-accent);
+  }
+  .mega-item.active .mega-label {
+    color: var(--color-accent);
+  }
+  .mega-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .mega-views {
+    display: flex;
+    gap: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+  }
+  .mega-views a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+  }
+  .mega-views a:hover {
+    color: var(--color-accent);
+    background: var(--color-bg-card);
+  }
+  .mega-views a.active {
     color: var(--color-accent);
     font-weight: 600;
-  }
-  .site-nav a.nav-accent:hover {
-    color: var(--color-accent-hover);
   }
 
   .menu-toggle {
@@ -186,6 +361,23 @@ const currentPath = Astro.url.pathname;
       min-height: 44px;
       display: flex;
       align-items: center;
+    }
+
+    .garden-mega-menu {
+      position: static;
+      width: auto;
+      border: none;
+      box-shadow: none;
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+    }
+
+    .mega-collections {
+      grid-template-columns: 1fr;
+    }
+
+    .mega-views {
+      flex-direction: column;
+      gap: var(--space-xs);
     }
 
     .header-inner {
