@@ -22,40 +22,72 @@ function getYouTubeId(url: string): string | null {
 
 const allContent = sortByDate(await getAllContent());
 
-// Stream: articles, standalone field notes, seeds, jottings, weblinks
-// Guarantee at least 3 per collection, then fill chronologically
+// Stream collections: articles, field notes (minus infrastructure), seeds, jottings, weblinks
 const streamCollectionNames = ['articles', 'field-notes', 'seeds', 'jottings', 'weblinks'];
 const streamEligible = allContent.filter((e) => {
   const data = e.data as any;
   if (!streamCollectionNames.includes(e.collection)) return false;
-  // Exclude field notes that belong to a project
-  if (e.collection === 'field-notes' && data.develops) return false;
-  // Exclude quotes (they get their own placement in the grid)
+  // Exclude infrastructure field notes (tagged 'about') and project sub-files (develops)
+  if (e.collection === 'field-notes' && data.tags?.includes('about')) return false;
+  if (data.develops) return false;
+  // Exclude articles from before 2025 (imported legacy content)
+  if (e.collection === 'articles' && data.date.getFullYear() < 2025) return false;
+  // Exclude quotes (they get pinned in hero row)
   if (e.collection === 'jottings' && data.type === 'quote') return false;
   return true;
 });
 
-// Take 5 per collection, 7 for articles (hero takes 1, leaving 6)
-const guaranteed = new Set<string>();
-const guaranteedItems: typeof streamEligible = [];
-for (const col of streamCollectionNames) {
-  const minItems = col === 'articles' ? 7 : 5;
-  const colItems = streamEligible.filter((e) => e.collection === col).slice(0, minItems);
-  colItems.forEach((item) => {
-    guaranteedItems.push(item);
-    guaranteed.add(item.id);
-  });
+// Braid: interleave collections so variety is guaranteed
+// Articles get double weight (appear twice as often)
+function braidCollections(items: typeof streamEligible) {
+  const buckets: Record<string, typeof streamEligible> = {};
+  for (const col of streamCollectionNames) {
+    buckets[col] = items.filter((e) => e.collection === col);
+  }
+  // Rotation order: articles appear twice
+  const rotation = ['articles', 'field-notes', 'articles', 'seeds', 'jottings', 'weblinks'];
+  const braided: typeof streamEligible = [];
+  const indices: Record<string, number> = {};
+  for (const col of streamCollectionNames) indices[col] = 0;
+
+  let rotIdx = 0;
+  let staleRounds = 0;
+  while (staleRounds < rotation.length) {
+    const col = rotation[rotIdx % rotation.length];
+    if (indices[col] < buckets[col].length) {
+      braided.push(buckets[col][indices[col]]);
+      indices[col]++;
+      staleRounds = 0;
+    } else {
+      staleRounds++;
+    }
+    rotIdx++;
+  }
+  // Append any remaining items not yet braided
+  for (const col of streamCollectionNames) {
+    while (indices[col] < buckets[col].length) {
+      braided.push(buckets[col][indices[col]]);
+      indices[col]++;
+    }
+  }
+  return braided;
 }
-// Fill remaining slots chronologically
-const remaining = streamEligible.filter((e) => !guaranteed.has(e.id));
-const allStreamItems = sortByDate([...guaranteedItems, ...remaining]).slice(0, 30);
+
+const braidedItems = braidCollections(streamEligible);
 
 // Pin the latest article as hero
-const latestArticle = allStreamItems.find((e) => e.collection === 'articles');
-const streamItems = allStreamItems.filter((e) => e !== latestArticle);
+const latestArticle = braidedItems.find((e) => e.collection === 'articles');
+const streamItems = braidedItems.filter((e) => e !== latestArticle);
 
-// Full collection lists for filter mode (all items, not just stream subset)
-const fullCollectionItems = streamEligible;
+// Full collection lists for filter mode (no date restriction on articles)
+const fullCollectionItems = allContent.filter((e) => {
+  const data = e.data as any;
+  if (!streamCollectionNames.includes(e.collection)) return false;
+  if (e.collection === 'field-notes' && data.tags?.includes('about')) return false;
+  if (data.develops) return false;
+  if (e.collection === 'jottings' && data.type === 'quote') return false;
+  return true;
+});
 
 // Quotes: up to 2, placed in the hero row
 const quotes = allContent
@@ -302,7 +334,8 @@ const activeCollections = filterCollections;
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    min-height: 44px;
     border: 1px solid var(--color-border);
     border-radius: 2rem;
     background: var(--color-bg);
@@ -407,4 +440,5 @@ const activeCollections = filterCollections;
     font-size: 0.7rem;
     color: var(--color-text-muted);
   }
+
 </style>
