@@ -10,11 +10,11 @@ const collections = [
   { href: '/weblinks', slug: 'weblinks', label: 'Weblinks', desc: settings.weblinksDescription },
   { href: '/videos', slug: 'videos', label: 'Videos', desc: settings.videosDescription },
   { href: '/experiments', slug: 'experiments', label: 'Experiments', desc: settings.experimentsDescription },
+  { href: '/library', slug: 'library', label: 'Library', desc: settings.libraryDescription },
+  { href: '/projects', slug: 'projects', label: 'Projects', desc: 'Active and completed projects.' },
 ];
 
 const navLinks = [
-  { href: '/projects', label: 'Projects' },
-  { href: '/library', label: 'Library' },
   { href: '/about', label: 'About' },
 ];
 
@@ -58,16 +58,12 @@ const currentPath = Astro.url.pathname;
             </div>
             <div class="mega-views">
               <a href="/" class:list={[{ active: currentPath === '/' }]}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
-                Overview
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="15" y2="12" /><line x1="3" y1="18" x2="18" y2="18" /></svg>
+                Stream
               </a>
               <a href="/explore" class:list={[{ active: currentPath.startsWith('/explore') }]}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z" /></svg>
                 Map
-              </a>
-              <a href="/stream" class:list={[{ active: currentPath.startsWith('/stream') }]}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="15" y2="12" /><line x1="3" y1="18" x2="18" y2="18" /></svg>
-                Stream
               </a>
             </div>
           </div>

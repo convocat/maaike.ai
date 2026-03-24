@@ -87,7 +87,7 @@ const stages = [
 </div>
 
 <script>
-  (() => {
+  function initFilterBar() {
     const bar = document.getElementById('filter-bar');
     if (!bar) return;
 
@@ -178,7 +178,6 @@ const stages = [
       btn.addEventListener('click', () => {
         const key = btn.dataset.status!;
         if (activeStatus === key) {
-          // deactivate
           activeStatus = null;
           btn.classList.remove('active');
           btn.setAttribute('aria-pressed', 'false');
@@ -241,7 +240,10 @@ const stages = [
         toggle.parentElement?.appendChild(toggle);
       });
     }
-  })();
+  }
+
+  initFilterBar();
+  document.addEventListener('astro:after-swap', initFilterBar);
 </script>
 
 <style>
