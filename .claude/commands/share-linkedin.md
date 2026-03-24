@@ -1,6 +1,8 @@
 # Share to LinkedIn
 
-Post an article to LinkedIn with the OG card image attached via the API.
+Post an article or jotting to LinkedIn with the OG card image attached via the API.
+
+**Only for articles and jottings.** Field notes, seeds, weblinks, videos, and project files are not shared to LinkedIn.
 
 ## Step 1: Select the post
 

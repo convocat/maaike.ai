@@ -139,15 +139,19 @@ Or create a `.md` file directly in the appropriate `src/content/<collection>/` f
 - **AI language rules**: Refer to yourself as "Claude", not "AI" or "I". Never use "write" for Claude's output, use "generate". Only Maaike writes. Claude generates.
 - **ALWAYS let Maaike review content before writing it to a file**. Show her the draft first and wait for approval. This applies to all content: seeds, articles, field notes, descriptions, blurbs, anything that will be published on the site. Never write content directly without her sign-off.
 
-## End-of-session housekeeping
+## Content workflows
 
-Before ending any session, run through this checklist:
+Use these skills for all content work:
 
-1. `npm run validate` — check all content for frontmatter errors
-2. `/update-release-notes` — update the changelog with today's commits
-3. `/auto-tag` any new or changed posts
-4. `node scripts/generate-og-images.cjs` — generate OG images for new posts
-5. `node scripts/build-explore-data.cjs` — rebuild the explore map (incremental)
-6. Re-generate embeddings if Python is available (`python scripts/full-scale-embeddings.py`)
+| Task | Skill |
+|------|-------|
+| Write a new article or jotting | `/new-post` |
+| Write a field note or seed | `/new-post` |
+| Add a book | `/new-book` |
+| Start a new project | `/new-project` |
+| Add a file to a project | `/new-project-file` |
+| Complete a project + generate report | `/complete-project` |
+| Publish a post (validate + OG + deploy) | `/publish` |
+| Share to LinkedIn | `/share-linkedin` (articles + jottings only) |
 
-Skip steps that don't apply (e.g. no new content, no commits). Always ask Maaike before pushing.
+**`/publish` handles all housekeeping automatically** (validate, OG images, explore map, release notes). Do not run these manually unless debugging.
