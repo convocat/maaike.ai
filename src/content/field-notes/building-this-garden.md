@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-03-23
+updated: 2026-03-24
 maturity: developing
 tags:
   - about
@@ -171,6 +171,16 @@ For the story behind why this garden exists, read [[a-digital-garden-as-central-
 - **Simplified nav**: Reduced from 9 items to 4: The Garden (mega-dropdown), Projects, Library, About
 - **Stream layout refinements**: Braided content mix with articles at double weight, projects pinned to right column, 2-column main masonry
 - **Dark mode toggle removed**: System preference still applies automatically
+
+### 24 March
+
+- **Files + artefacts collections**: Two new project-specific content types for project sub-documents (files) and design deliverables (artefacts), with folder and gem icons.
+- **Post layout: description subtitle**: Description shown as subtitle below the post title.
+- **Post layout: books mentioned**: Wiki-linked library books appear in a sidebar section when referenced in body text.
+- **Post layout: h6 styling**: h6 headings styled as bold body-size text for inline labels.
+- **LinkedIn share button**: Fixed to use the correct share-offsite URL; working again.
+- **LinkedIn API posting**: Full posting flow via API: image upload, post creation, URL comment. App verified with Convocat BV company page.
+- **Content workflow redesign**: New /publish, /new-project, /new-project-file, and /complete-project slash commands replace manual housekeeping. /publish handles validate, OG images, explore map, release notes, commit, push, and LinkedIn in one flow.
 
 ## Related
 

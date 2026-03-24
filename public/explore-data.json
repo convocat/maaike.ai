@@ -7,15 +7,9 @@
       "maturity": "complete",
       "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
       "url": "/articles/2-years-and-700-members-insights-from-convoclub",
-      "x": 0.3277,
+      "x": 0.3283,
       "y": 0.2128,
-      "keyphrases": [
-        "conversation designers",
-        "knowledge gaps",
-        "immature tools",
-        "stakeholder alignment",
-        "complex conversations"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -25,15 +19,9 @@
       "maturity": "complete",
       "description": "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level.",
       "url": "/articles/7-new-skills-for-conversation-designers-2022",
-      "x": 0.2345,
-      "y": 0.2085,
-      "keyphrases": [
-        "nlu",
-        "entities",
-        "ontologies",
-        "conversational teams",
-        "open source"
-      ],
+      "x": 0.2331,
+      "y": 0.1983,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -43,15 +31,9 @@
       "maturity": "solid",
       "description": "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet.",
       "url": "/articles/a-digital-garden-as-central-space",
-      "x": 0.8797,
-      "y": 0.639,
-      "keyphrases": [
-        "digital garden",
-        "non-linear thinking",
-        "personal knowledge system",
-        "evolving ideas",
-        "linked associations"
-      ],
+      "x": 0.8661,
+      "y": 0.6312,
+      "keyphrases": [],
       "connections": 1
     },
     {
@@ -63,13 +45,7 @@
       "url": "/articles/air-canadas-bot-mishap-pre-dates-chatgpt",
       "x": 0.02,
       "y": 0.2998,
-      "keyphrases": [
-        "chatbot mishap",
-        "nlu-based bot",
-        "conversational ai",
-        "content lifecycle",
-        "single sourcing"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -79,15 +55,9 @@
       "maturity": "complete",
       "description": "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
       "url": "/articles/an-evening-with-chatgpt-2",
-      "x": 0.1368,
-      "y": 0.2886,
-      "keyphrases": [
-        "conversation design",
-        "hello world",
-        "slot filling",
-        "pizza ordering",
-        "interactive simulation"
-      ],
+      "x": 0.1355,
+      "y": 0.2897,
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -99,13 +69,7 @@
       "url": "/articles/an-evening-with-chatgpt-3",
       "x": 0.0309,
       "y": 0.3452,
-      "keyphrases": [
-        "intent model",
-        "nlp tasks",
-        "pizza bot",
-        "training phrases",
-        "prepositional phrases"
-      ],
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -117,13 +81,7 @@
       "url": "/articles/an-evening-with-chatgpt-september-2023",
       "x": 0.0693,
       "y": 0.2244,
-      "keyphrases": [
-        "chatgpt sessions",
-        "new browse feature",
-        "training data",
-        "data collection",
-        "llm interactions"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -133,15 +91,9 @@
       "maturity": "complete",
       "description": "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT.",
       "url": "/articles/an-evening-with-chatgpt",
-      "x": 0.1184,
-      "y": 0.379,
-      "keyphrases": [
-        "large language model",
-        "contextual understanding",
-        "bot persona",
-        "coreference recognition",
-        "logic inferences"
-      ],
+      "x": 0.1183,
+      "y": 0.3802,
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -153,13 +105,7 @@
       "url": "/articles/an-evening-with-youchat-and-chatsonic",
       "x": 0.1108,
       "y": 0.2439,
-      "keyphrases": [
-        "youchat and chatsonic models",
-        "internet access and information retrieval",
-        "semantic ambiguity and context",
-        "llm date understanding",
-        "stochastic parrot behavior"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -169,15 +115,9 @@
       "maturity": "complete",
       "description": "Facebook's AI chatbot might just be saying what you want it to say…",
       "url": "/articles/blender-turned-rogue",
-      "x": 0.181,
-      "y": 0.2099,
-      "keyphrases": [
-        "ai chatbot",
-        "anti-semitic responses",
-        "misogynism",
-        "lack internal coherence",
-        "ethical validation rules"
-      ],
+      "x": 0.1815,
+      "y": 0.2089,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -189,13 +129,7 @@
       "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
       "x": 0.3899,
       "y": 0.3731,
-      "keyphrases": [
-        "hallucinations in llms",
-        "missing fundamental concept",
-        "tuning llm models",
-        "approximation of truth",
-        "low price models"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -207,13 +141,7 @@
       "url": "/articles/chatgpt-presentation-prep",
       "x": 0.0764,
       "y": 0.3418,
-      "keyphrases": [
-        "presentation prep",
-        "generative ai use",
-        "procrastination paralysis",
-        "ai feedback loop",
-        "voice mode input"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -225,13 +153,7 @@
       "url": "/articles/context-engineering-lets-call-it-design",
       "x": 0.1886,
       "y": 0.3007,
-      "keyphrases": [
-        "context engineering",
-        "design approach",
-        "information architecture",
-        "semantic building blocks",
-        "system prompts"
-      ],
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -241,15 +163,9 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.3008,
-      "y": 0.3477,
-      "keyphrases": [
-        "conversational interfaces",
-        "review-regenerate-repeat",
-        "articulation barrier",
-        "accordion editing",
-        "apple picking"
-      ],
+      "x": 0.2996,
+      "y": 0.3496,
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -259,15 +175,9 @@
       "maturity": "complete",
       "description": "As a conversation designer, should I know how to code? Some pros and cons.",
       "url": "/articles/convo-question-should-i-learn-programming",
-      "x": 0.2096,
-      "y": 0.2465,
-      "keyphrases": [
-        "conversation design",
-        "code logic",
-        "json, html, css",
-        "nlu and language",
-        "data analysis"
-      ],
+      "x": 0.2025,
+      "y": 0.2522,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -277,15 +187,9 @@
       "maturity": "complete",
       "description": "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!",
       "url": "/articles/convoclub-clubhouse",
-      "x": 0.2647,
-      "y": 0.1745,
-      "keyphrases": [
-        "conversation designers",
-        "clubhouse community",
-        "social audio space",
-        "weekly rooms",
-        "casual chats"
-      ],
+      "x": 0.2674,
+      "y": 0.1683,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -295,15 +199,9 @@
       "maturity": "complete",
       "description": "How to build Coronabots responsibly — if you want to build one at all.",
       "url": "/articles/corona-is-spreading-and-so-are-the-bots",
-      "x": 0.206,
-      "y": 0.1717,
-      "keyphrases": [
-        "corona chatbots",
-        "crisis communication tools",
-        "reliable information",
-        "content strategy",
-        "official government bodies"
-      ],
+      "x": 0.2013,
+      "y": 0.1663,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -313,15 +211,9 @@
       "maturity": "complete",
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
-      "x": 0.3016,
-      "y": 0.394,
-      "keyphrases": [
-        "dall-e 3 prompt rewriting",
-        "diverse image generation",
-        "ethnically diverse prompts",
-        "cultural stereotypes",
-        "bias in image generation"
-      ],
+      "x": 0.3009,
+      "y": 0.3948,
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -333,13 +225,7 @@
       "url": "/articles/european-chatbot-conference-10-talks",
       "x": 0.3979,
       "y": 0.2118,
-      "keyphrases": [
-        "collaborative task assistants",
-        "voice challenges",
-        "conversational collaboration",
-        "data improve ai",
-        "future conversational ai"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -351,13 +237,7 @@
       "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
       "x": 0.2512,
       "y": 0.3672,
-      "keyphrases": [
-        "image generation",
-        "augmented prompt",
-        "realistic photograph",
-        "hand details",
-        "bias propagation"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -369,13 +249,7 @@
       "url": "/articles/hey-chatgpt-whos-the-boss",
       "x": 0.0508,
       "y": 0.2663,
-      "keyphrases": [
-        "probabilistic model",
-        "chatgpt's training cut-off",
-        "access the internet",
-        "human error ai",
-        "probabilistic distribution"
-      ],
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -387,13 +261,7 @@
       "url": "/articles/hildegard-von-bingen",
       "x": 0.4443,
       "y": 0.1198,
-      "keyphrases": [
-        "hildegard von bingen",
-        "female monastery",
-        "equality of women",
-        "giving life",
-        "religious bulwarks"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -403,15 +271,9 @@
       "maturity": "complete",
       "description": "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?",
       "url": "/articles/hoe-word-ik-conversation-designer",
-      "x": 0.2824,
-      "y": 0.2233,
-      "keyphrases": [
-        "conversation design",
-        "chatbot ontwerp",
-        "gespreks patronen",
-        "bot persona",
-        "gespreks paden"
-      ],
+      "x": 0.2832,
+      "y": 0.2226,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -421,15 +283,9 @@
       "maturity": "complete",
       "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
       "url": "/articles/how-do-i-become-a-conversation-designer",
-      "x": 0.2326,
-      "y": 0.2853,
-      "keyphrases": [
-        "conversation interfaces",
-        "chatbot builder",
-        "user journeys",
-        "conversational flows",
-        "bot persona"
-      ],
+      "x": 0.2333,
+      "y": 0.2862,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -439,15 +295,9 @@
       "maturity": "complete",
       "description": "5 checks to keep your content on track — and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
-      "x": 0.4009,
-      "y": 0.2769,
-      "keyphrases": [
-        "content quality audit",
-        "feedback checklist",
-        "audience understanding",
-        "stakeholder expectations",
-        "quality level"
-      ],
+      "x": 0.4031,
+      "y": 0.2763,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -457,15 +307,9 @@
       "maturity": "complete",
       "description": "There's a prompt for that! A quick tutorial for designing conversational system prompts.",
       "url": "/articles/how-to-make-chatgpt-more-conversational",
-      "x": 0.1222,
-      "y": 0.3321,
-      "keyphrases": [
-        "conversational system prompts",
-        "more conversational chatgpt",
-        "designing conversational systems",
-        "prompt for that",
-        "tutorial design"
-      ],
+      "x": 0.1215,
+      "y": 0.3333,
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -473,12 +317,12 @@
       "title": "Is conversation still a useful metaphor for human-machine interaction?",
       "collection": "articles",
       "maturity": "developing",
-      "description": "Whether conversation is still a useful metaphor for what we're building.",
+      "description": "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction.",
       "url": "/articles/is-conversation-still-a-useful-metaphor",
-      "x": 0.2497,
-      "y": 0.2465,
+      "x": 0.255,
+      "y": 0.2494,
       "keyphrases": [],
-      "connections": 6
+      "connections": 1
     },
     {
       "slug": "llm-hallucinations-knowledge-as-missing-fundamental",
@@ -487,15 +331,9 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.3364,
-      "y": 0.424,
-      "keyphrases": [
-        "llm hallucinations",
-        "missing fundamental",
-        "knowledge approximation",
-        "truth tuning",
-        "probability levels"
-      ],
+      "x": 0.3372,
+      "y": 0.4246,
+      "keyphrases": [],
       "connections": 1
     },
     {
@@ -505,15 +343,9 @@
       "maturity": "complete",
       "description": "You built a conversational interface and then expected people to use it just for search?",
       "url": "/articles/microsoft-youre-using-bing-wrong",
-      "x": 0.164,
-      "y": 0.2516,
-      "keyphrases": [
-        "conversation 101",
-        "conversational interface",
-        "task-based solution",
-        "real conversation",
-        "collaborative effort"
-      ],
+      "x": 0.1571,
+      "y": 0.2493,
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -523,15 +355,9 @@
       "maturity": "complete",
       "description": "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!",
       "url": "/articles/nieuwe-editie-voicelunch",
-      "x": 0.3106,
-      "y": 0.1705,
-      "keyphrases": [
-        "language & linguistics",
-        "virtual meetups",
-        "voice and conversation",
-        "community building",
-        "safe environment"
-      ],
+      "x": 0.3144,
+      "y": 0.1693,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -541,15 +367,9 @@
       "maturity": "complete",
       "description": "An onboarding checklist for conversation designers.",
       "url": "/articles/off-to-a-good-start",
-      "x": 0.3632,
-      "y": 0.2421,
-      "keyphrases": [
-        "onboarding checklist",
-        "remote onboarding",
-        "digital access",
-        "socialise with people",
-        "onboarding tour"
-      ],
+      "x": 0.3642,
+      "y": 0.2417,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -561,13 +381,7 @@
       "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
       "x": 0.2087,
       "y": 0.3839,
-      "keyphrases": [
-        "de-bias dall-e",
-        "inclusive image generation",
-        "stereotypes in dall-e",
-        "conscious prompting",
-        "dall-e representation"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -577,15 +391,9 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.313,
-      "y": 0.3033,
-      "keyphrases": [
-        "online vergaderen uitput",
-        "lichaamshouding speelt rol",
-        "zitbotjes basis",
-        "voeten op grond",
-        "hoofd drijven wervelkolom"
-      ],
+      "x": 0.3154,
+      "y": 0.3061,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -597,13 +405,7 @@
       "url": "/articles/onthaast-je-voice-action-met-ssml",
       "x": 0.4383,
       "y": 0.1664,
-      "keyphrases": [
-        "voice action onthaasten",
-        "speech synthesis markup language",
-        "conversational designer",
-        "standaard stemmen",
-        "dialoogtekst"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -615,13 +417,7 @@
       "url": "/articles/prompt-thought-summaries",
       "x": 0.2589,
       "y": 0.4122,
-      "keyphrases": [
-        "key concepts",
-        "short definition",
-        "related concepts",
-        "keyword extraction",
-        "llm performance"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -633,13 +429,7 @@
       "url": "/articles/putting-the-design-in-prompt-design",
       "x": 0.2148,
       "y": 0.3381,
-      "keyphrases": [
-        "prompt design",
-        "experiment-based design",
-        "reliable prompt design",
-        "repeatable prompt design",
-        "robust prompt design"
-      ],
+      "keyphrases": [],
       "connections": 8
     },
     {
@@ -649,15 +439,9 @@
       "maturity": "complete",
       "description": "Designing for negative space",
       "url": "/articles/saturday-design-thoughts",
-      "x": 0.3508,
-      "y": 0.334,
-      "keyphrases": [
-        "llms impossible to shut up",
-        "negative space in llm",
-        "designed invitation reflection",
-        "constraint into interaction model",
-        "silence-informed interaction"
-      ],
+      "x": 0.3517,
+      "y": 0.3347,
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -667,15 +451,9 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.2643,
-      "y": 0.3201,
-      "keyphrases": [
-        "chatbot scrum team",
-        "fixed publication windows",
-        "xml-based content",
-        "research and co-ordination",
-        "content planning review"
-      ],
+      "x": 0.2639,
+      "y": 0.3214,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -687,13 +465,7 @@
       "url": "/articles/stay-calm-and-keep-thinking-for-yourself",
       "x": 0.6475,
       "y": 0.3536,
-      "keyphrases": [
-        "chatgpt hype",
-        "openai technology",
-        "ethical ai standards",
-        "bias algorithms",
-        "generative ai interfaces"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -703,15 +475,9 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.2771,
-      "y": 0.2744,
-      "keyphrases": [
-        "conversation designer",
-        "team-of-one workflow",
-        "find your allies",
-        "business sponsor",
-        "design process"
-      ],
+      "x": 0.2793,
+      "y": 0.2789,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -721,15 +487,9 @@
       "maturity": "complete",
       "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
       "url": "/articles/the-long-and-winding-road",
-      "x": 0.3208,
-      "y": 0.2581,
-      "keyphrases": [
-        "conversation design",
-        "entrepreneurial journey",
-        "corporate identity",
-        "exit strategy",
-        "conversational ai"
-      ],
+      "x": 0.3206,
+      "y": 0.2592,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -741,13 +501,7 @@
       "url": "/articles/understanding-speech-part-1",
       "x": 0.3564,
       "y": 0.1265,
-      "keyphrases": [
-        "speech communication",
-        "voice assistant design",
-        "breath boundaries",
-        "prosodic properties",
-        "intonation patterns"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -759,13 +513,7 @@
       "url": "/articles/understanding-speech-part-2",
       "x": 0.3954,
       "y": 0.1518,
-      "keyphrases": [
-        "speech-like action",
-        "backchannelling cues",
-        "discourse markers",
-        "deixis",
-        "front channel"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -777,13 +525,7 @@
       "url": "/articles/visual-notes-brian-roemmele",
       "x": 0.3613,
       "y": 0.182,
-      "keyphrases": [
-        "sketchnotes creation",
-        "open safe space",
-        "missed voicelunch session",
-        "brian roemmele",
-        "voicelunch magic"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -795,13 +537,7 @@
       "url": "/articles/what-happens-when-ai-has-read-everything",
       "x": 0.5984,
       "y": 0.342,
-      "keyphrases": [
-        "ai data shortage",
-        "language data replenishment",
-        "synthetic training data",
-        "human data collection",
-        "llm training data"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -813,13 +549,7 @@
       "url": "/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
       "x": 0.0899,
       "y": 0.2897,
-      "keyphrases": [
-        "word-string-generator",
-        "stochastic parrot",
-        "probabilistic concatenation",
-        "conversational talent",
-        "co-operative principle"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -829,15 +559,9 @@
       "maturity": "complete",
       "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
       "url": "/articles/youre-not-married-to-your-texts",
-      "x": 0.3564,
-      "y": 0.2886,
-      "keyphrases": [
-        "content project system",
-        "quality parameters",
-        "detach from texts",
-        "open inquisitive mind",
-        "client feedback"
-      ],
+      "x": 0.3585,
+      "y": 0.2874,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -861,13 +585,7 @@
       "url": "/field-notes/building-this-garden",
       "x": 0.9126,
       "y": 0.6314,
-      "keyphrases": [
-        "garden metaphor",
-        "ai transparency",
-        "content import",
-        "tag system",
-        "filtering sorting"
-      ],
+      "keyphrases": [],
       "connections": 5
     },
     {
@@ -879,13 +597,7 @@
       "url": "/field-notes/claude-md-project-memory",
       "x": 0.7786,
       "y": 0.5919,
-      "keyphrases": [
-        "persistent context",
-        "across sessions",
-        "ai docs",
-        "setup commands",
-        "design system"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -895,8 +607,8 @@
       "maturity": "developing",
       "description": "Why embedding models cluster documents by format instead of topic when content lengths vary, and what to do about it.",
       "url": "/field-notes/content-chunk-size-and-embeddings",
-      "x": 0.6033,
-      "y": 0.7108,
+      "x": 0.602,
+      "y": 0.7148,
       "keyphrases": [],
       "connections": 11
     },
@@ -907,8 +619,8 @@
       "maturity": "developing",
       "description": "The living reference for the visual design, component library, content rules, and interaction patterns of maaike.ai.",
       "url": "/field-notes/design-system-and-content-guidelines",
-      "x": 0.8729,
-      "y": 0.6042,
+      "x": 0.8733,
+      "y": 0.5974,
       "keyphrases": [],
       "connections": 3
     },
@@ -921,13 +633,7 @@
       "url": "/field-notes/digital-gardens-vs-blogs",
       "x": 0.9363,
       "y": 0.5988,
-      "keyphrases": [
-        "digital gardens",
-        "vs blogs",
-        "chronological streams",
-        "topological networks",
-        "embrace imperfection"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -939,14 +645,8 @@
       "url": "/field-notes/embedding-models-for-the-garden",
       "x": 0.6865,
       "y": 0.7049,
-      "keyphrases": [
-        "embedding models",
-        "vector representations",
-        "text embeddings",
-        "latent semantic analysis",
-        "word2vec"
-      ],
-      "connections": 14
+      "keyphrases": [],
+      "connections": 16
     },
     {
       "slug": "explore-page-design",
@@ -955,10 +655,10 @@
       "maturity": "developing",
       "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
       "url": "/field-notes/explore-page-design",
-      "x": 0.9055,
-      "y": 0.6671,
+      "x": 0.9145,
+      "y": 0.6771,
       "keyphrases": [],
-      "connections": 14
+      "connections": 15
     },
     {
       "slug": "external-content-discovery",
@@ -970,7 +670,7 @@
       "x": 0.5809,
       "y": 0.4586,
       "keyphrases": [],
-      "connections": 14
+      "connections": 16
     },
     {
       "slug": "full-scale-key-phrase-extraction",
@@ -982,7 +682,7 @@
       "x": 0.5475,
       "y": 0.7478,
       "keyphrases": [],
-      "connections": 14
+      "connections": 16
     },
     {
       "slug": "garden-lifecycle-greenhouse-compost",
@@ -1005,14 +705,8 @@
       "url": "/field-notes/key-phrase-extraction-for-the-garden",
       "x": 0.7076,
       "y": 0.7273,
-      "keyphrases": [
-        "key phrase extraction",
-        "structured text data",
-        "human-curated phrases",
-        "machine-generated embeddings",
-        "cosine similarity threshold"
-      ],
-      "connections": 14
+      "keyphrases": [],
+      "connections": 16
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -1021,34 +715,10 @@
       "maturity": "developing",
       "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
       "url": "/field-notes/knowledge-graph-for-the-garden",
-      "x": 0.7603,
-      "y": 0.7286,
-      "keyphrases": [
-        "knowledge graph",
-        "world model",
-        "semantic links",
-        "external content",
-        "confidence scores"
-      ],
-      "connections": 14
-    },
-    {
-      "slug": "prompt-scaffolding",
-      "title": "Prompt Scaffolding",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "An early thought about structuring prompts in stages.",
-      "url": "/field-notes/prompt-scaffolding",
-      "x": 0.2953,
-      "y": 0.4281,
-      "keyphrases": [
-        "prompt scaffolding",
-        "layered prompts",
-        "contextual addition",
-        "format specification",
-        "examples provided"
-      ],
-      "connections": 0
+      "x": 0.7598,
+      "y": 0.7281,
+      "keyphrases": [],
+      "connections": 16
     },
     {
       "slug": "reading-notes-saga-knowledge-graph",
@@ -1059,13 +729,7 @@
       "url": "/field-notes/reading-notes-saga-knowledge-graph",
       "x": 0.5896,
       "y": 0.7665,
-      "keyphrases": [
-        "saga platform",
-        "knowledge graph layers",
-        "extended rdf triples",
-        "delta computation",
-        "entity linking"
-      ],
+      "keyphrases": [],
       "connections": 11
     },
     {
@@ -1075,10 +739,10 @@
       "maturity": "solid",
       "description": "How the explore map got stable positions and pinned territories, so the landscape doesn't shift on every rebuild.",
       "url": "/field-notes/stable-map-positions",
-      "x": 0.8213,
-      "y": 0.595,
+      "x": 0.8216,
+      "y": 0.5994,
       "keyphrases": [],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "testing-strategy",
@@ -1087,8 +751,8 @@
       "maturity": "draft",
       "description": "Three layers of automated testing: content validation, build verification, and Playwright E2E. Why each layer exists and what it catches.",
       "url": "/field-notes/testing-strategy",
-      "x": 0.9308,
-      "y": 0.6551,
+      "x": 0.9316,
+      "y": 0.6543,
       "keyphrases": [],
       "connections": 5
     },
@@ -1101,13 +765,7 @@
       "url": "/field-notes/thinking-in-public",
       "x": 0.9041,
       "y": 0.6008,
-      "keyphrases": [
-        "sharing ideas early",
-        "digital garden model",
-        "visibility of drafts",
-        "collaboration and feedback",
-        "accountability for thoughts"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -1119,14 +777,8 @@
       "url": "/field-notes/tuning-the-similarity-threshold",
       "x": 0.4973,
       "y": 0.7375,
-      "keyphrases": [
-        "1. cosine similarity threshold",
-        "2. per-document normalization",
-        "3. spectral thresholding",
-        "4. token blocking",
-        "5. empirical calibration"
-      ],
-      "connections": 14
+      "keyphrases": [],
+      "connections": 16
     },
     {
       "slug": "typed-relations-as-garden-infrastructure",
@@ -1135,10 +787,10 @@
       "maturity": "developing",
       "description": "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden.",
       "url": "/field-notes/typed-relations-as-garden-infrastructure",
-      "x": 0.7344,
-      "y": 0.7108,
+      "x": 0.7334,
+      "y": 0.7101,
       "keyphrases": [],
-      "connections": 11
+      "connections": 12
     },
     {
       "slug": "ai-as-writing-partner",
@@ -1149,13 +801,7 @@
       "url": "/seeds/ai-as-writing-partner",
       "x": 0.4675,
       "y": 0.6689,
-      "keyphrases": [
-        "ai writing partner",
-        "serious role ai",
-        "sparring partner",
-        "thinking companion",
-        "editor assistance"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -1167,13 +813,7 @@
       "url": "/seeds/ai-transparency-in-content",
       "x": 0.4695,
       "y": 0.3553,
-      "keyphrases": [
-        "ai transparency",
-        "content creation",
-        "ai assistance",
-        "collaboration process",
-        "actual prompts"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -1185,13 +825,7 @@
       "url": "/seeds/chatbots-without-ai",
       "x": 0.4707,
       "y": 0.6184,
-      "keyphrases": [
-        "conversational garden guide",
-        "deterministic chatbot design",
-        "branching dialogue paths",
-        "tag-based exploration",
-        "random walks mode"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -1215,13 +849,7 @@
       "url": "/seeds/dutch-aware-quantization",
       "x": 0.4809,
       "y": 0.7721,
-      "keyphrases": [
-        "dutch calibration data",
-        "component-level vulnerability data",
-        "language-specific calibration",
-        "quantization process",
-        "dutch embedding quality"
-      ],
+      "keyphrases": [],
       "connections": 1
     },
     {
@@ -1233,14 +861,8 @@
       "url": "/seeds/embeddings-for-knowledge-gardens-research-gap",
       "x": 0.6722,
       "y": 0.7299,
-      "keyphrases": [
-        "embedding models",
-        "knowledge graph project",
-        "digital gardens",
-        "personal knowledge management",
-        "auto-suggested links"
-      ],
-      "connections": 18
+      "keyphrases": [],
+      "connections": 20
     },
     {
       "slug": "garden-to-do-list",
@@ -1251,13 +873,7 @@
       "url": "/seeds/garden-to-do-list",
       "x": 0.7702,
       "y": 0.7017,
-      "keyphrases": [
-        "conversational garden guide",
-        "smart linking",
-        "serendipity by design",
-        "linkedin integration",
-        "knowledge gardens"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -1269,13 +885,7 @@
       "url": "/seeds/how-to-build-a-digital-garden",
       "x": 0.9404,
       "y": 0.6262,
-      "keyphrases": [
-        "digital garden",
-        "content collections",
-        "wiki links",
-        "backlinks",
-        "maturity stages"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -1287,13 +897,7 @@
       "url": "/seeds/knowledge-gardens-and-serendipity",
       "x": 0.7102,
       "y": 0.7592,
-      "keyphrases": [
-        "knowledge gardens",
-        "interconnectedness",
-        "serendipity",
-        "digital garden",
-        "flat content"
-      ],
+      "keyphrases": [],
       "connections": 5
     },
     {
@@ -1305,13 +909,7 @@
       "url": "/seeds/principles-behind-this-garden",
       "x": 0.9627,
       "y": 0.6292,
-      "keyphrases": [
-        "thinking in public",
-        "embracing imperfection",
-        "connecting ideas",
-        "making room",
-        "growth potential"
-      ],
+      "keyphrases": [],
       "connections": 2
     },
     {
@@ -1323,13 +921,7 @@
       "url": "/seeds/style-guide-for-ai",
       "x": 0.4887,
       "y": 0.6779,
-      "keyphrases": [
-        "ai doesn't write",
-        "call the ai",
-        "active voice agency",
-        "co-created meaning",
-        "directed generation"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -1341,13 +933,7 @@
       "url": "/seeds/the-disappearance-of-authentic-voice-online",
       "x": 0.6239,
       "y": 0.3169,
-      "keyphrases": [
-        "authentic voice",
-        "ai-generated content",
-        "template fitting",
-        "lost personality",
-        "real voices"
-      ],
+      "keyphrases": [],
       "connections": 10
     },
     {
@@ -1359,13 +945,7 @@
       "url": "/seeds/writing-as-a-conversation-with-yourself",
       "x": 0.5242,
       "y": 0.3839,
-      "keyphrases": [
-        "conversation with self",
-        "internal thought process",
-        "catching train of thought",
-        "responding in space",
-        "quick thinking"
-      ],
+      "keyphrases": [],
       "connections": 1
     },
     {
@@ -1377,13 +957,7 @@
       "url": "/weblinks/digital-garden-history",
       "x": 0.8044,
       "y": 0.6924,
-      "keyphrases": [
-        "digital garden concept",
-        "hypertext systems",
-        "wikis evolution",
-        "personal knowledge gardens",
-        "early hypertext"
-      ],
+      "keyphrases": [],
       "connections": 1
     },
     {
@@ -1395,13 +969,7 @@
       "url": "/weblinks/saga-knowledge-platform",
       "x": 0.6238,
       "y": 0.7468,
-      "keyphrases": [
-        "knowledge graph platform",
-        "hybrid batch-incremental design",
-        "delta processing",
-        "extended triples metadata",
-        "blocking similarity linking"
-      ],
+      "keyphrases": [],
       "connections": 11
     },
     {
@@ -1485,13 +1053,7 @@
       "url": "/videos/designing-for-doubt",
       "x": 0.4073,
       "y": 0.7733,
-      "keyphrases": [
-        "designing for doubt",
-        "chatgpt interface",
-        "user trust",
-        "remove friction",
-        "human-like naturalness"
-      ],
+      "keyphrases": [],
       "connections": 3
     },
     {
@@ -1537,8 +1099,8 @@
       "maturity": "complete",
       "description": "New roles, skills and tools for content professionals in the age of generative AI.",
       "url": "/videos/generative-ai-new-roles-skills-tools",
-      "x": 0.5038,
-      "y": 0.6302,
+      "x": 0.5034,
+      "y": 0.6292,
       "keyphrases": [],
       "connections": 4
     },
@@ -1609,15 +1171,9 @@
       "maturity": "solid",
       "description": "An update on my favorite AI-tools...a never ending overview",
       "url": "/videos/my-favorite-ai-tools-2025-edition",
-      "x": 0.5192,
-      "y": 0.6696,
-      "keyphrases": [
-        "ai tools",
-        "2025 edition",
-        "ai overview",
-        "favorite tools",
-        "never ending"
-      ],
+      "x": 0.5194,
+      "y": 0.6694,
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -1711,8 +1267,8 @@
       "maturity": "complete",
       "description": "The strawberry problem, and how one model gets it right.",
       "url": "/videos/strawberries-and-how-one-model-gets-it-right",
-      "x": 0.5653,
-      "y": 0.7115,
+      "x": 0.5626,
+      "y": 0.7116,
       "keyphrases": [],
       "connections": 0
     },
@@ -1761,13 +1317,7 @@
       "url": "/library/alone-together",
       "x": 0.7665,
       "y": 0.2735,
-      "keyphrases": [
-        "online intimacies",
-        "illusion of companionship",
-        "electronic companions",
-        "social networking tools",
-        "isolation and connectivity"
-      ],
+      "keyphrases": [],
       "connections": 7
     },
     {
@@ -1779,13 +1329,7 @@
       "url": "/library/artificial-intelligence-a-guide-for-thinking-humans",
       "x": 0.7933,
       "y": 0.2538,
-      "keyphrases": [
-        "artificial intelligence",
-        "turbulent history",
-        "grand hopes",
-        "emerging fears",
-        "human-level intelligence"
-      ],
+      "keyphrases": [],
       "connections": 0
     },
     {
@@ -1801,24 +1345,6 @@
       "connections": 0
     },
     {
-      "slug": "because-internet",
-      "title": "Because Internet",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/because-internet",
-      "x": 0.629,
-      "y": 0.1226,
-      "keyphrases": [
-        "internet language change",
-        "online interactions reveal",
-        "language evolution",
-        "social media laboratory",
-        "internet slang patterns"
-      ],
-      "connections": 1
-    },
-    {
       "slug": "chatbot-marketing-mastery",
       "title": "Chatbot marketing mastery",
       "collection": "library",
@@ -1829,24 +1355,6 @@
       "y": 0.2069,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "classical-rhetoric-for-the-modern-student",
-      "title": "Classical Rhetoric for the Modern Student",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/classical-rhetoric-for-the-modern-student",
-      "x": 0.6703,
-      "y": 0.0757,
-      "keyphrases": [
-        "argument, arrangement, style",
-        "classical rhetoric",
-        "effective presentation",
-        "discourses organization",
-        "rhetorical principles"
-      ],
-      "connections": 1
     },
     {
       "slug": "content-strategy-at-work",
@@ -1897,24 +1405,6 @@
       "connections": 0
     },
     {
-      "slug": "e-learning-and-the-science-of-instruction",
-      "title": "e-Learning and the Science of Instruction",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/e-learning-and-the-science-of-instruction",
-      "x": 0.7915,
-      "y": 0.0923,
-      "keyphrases": [
-        "multimedia learning",
-        "design principles",
-        "e-learning educators",
-        "delivery technologies",
-        "social media"
-      ],
-      "connections": 0
-    },
-    {
       "slug": "earth-emotions",
       "title": "Earth Emotions",
       "collection": "library",
@@ -1924,42 +1414,6 @@
       "x": 0.8651,
       "y": 0.2049,
       "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "gamestorming",
-      "title": "Gamestorming",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/gamestorming",
-      "x": 0.8249,
-      "y": 0.0605,
-      "keyphrases": [
-        "break down barriers",
-        "communicate better",
-        "generate new ideas",
-        "innovative professionals",
-        "collaboration and creativity"
-      ],
-      "connections": 0
-    },
-    {
-      "slug": "hello-world",
-      "title": "Hello world",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/hello-world",
-      "x": 0.7743,
-      "y": 0.2406,
-      "keyphrases": [
-        "algorithms surround us",
-        "human bias code",
-        "relatable real world",
-        "accessible explanations",
-        "underlying mathematics"
-      ],
       "connections": 0
     },
     {
@@ -1999,24 +1453,6 @@
       "connections": 0
     },
     {
-      "slug": "invisible-women",
-      "title": "Invisible Women",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/invisible-women",
-      "x": 0.8457,
-      "y": 0.1899,
-      "keyphrases": [
-        "gender bias in data",
-        "invisible women",
-        "data consequences women",
-        "one-size-fits-all approach",
-        "women’s safety needs"
-      ],
-      "connections": 0
-    },
-    {
       "slug": "its-better-to-be-a-good-machine",
       "title": "It's better to be a good machine than a bad person",
       "collection": "library",
@@ -2041,24 +1477,6 @@
       "connections": 0
     },
     {
-      "slug": "machines-like-me",
-      "title": "Machines like me",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/machines-like-me",
-      "x": 0.7526,
-      "y": 0.2934,
-      "keyphrases": [
-        "alternative history timeline",
-        "lost falklands war",
-        "alan turing alive",
-        "internet social media",
-        "self-driving cars"
-      ],
-      "connections": 2
-    },
-    {
       "slug": "my-robot-gets-me",
       "title": "My Robot Gets Me: How Social Design Can Make New Products More Human",
       "collection": "library",
@@ -2068,25 +1486,7 @@
       "x": 0.6054,
       "y": 0.2037,
       "keyphrases": [],
-      "connections": 5
-    },
-    {
-      "slug": "natural-language-processing-with-python",
-      "title": "Natural language processing with Python",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/natural-language-processing-with-python",
-      "x": 0.6135,
-      "y": 0.0626,
-      "keyphrases": [
-        "natural language processing",
-        "python programs",
-        "text analysis",
-        "language technologies",
-        "predictive text"
-      ],
-      "connections": 1
+      "connections": 4
     },
     {
       "slug": "online-invloed",
@@ -2113,24 +1513,6 @@
       "connections": 0
     },
     {
-      "slug": "robots-zombies-and-us",
-      "title": "Robots, zombies and us",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/robots-zombies-and-us",
-      "x": 0.7314,
-      "y": 0.2811,
-      "keyphrases": [
-        "robots, zombies",
-        "genuine intelligence",
-        "consciousness problems",
-        "behaviourism, turing's test",
-        "dualism, physicalism"
-      ],
-      "connections": 6
-    },
-    {
       "slug": "semiotics-the-basics",
       "title": "Semiotics: The Basics",
       "collection": "library",
@@ -2143,60 +1525,6 @@
       "connections": 0
     },
     {
-      "slug": "sequence-organization-in-interaction",
-      "title": "Sequence Organization in Interaction",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/sequence-organization-in-interaction",
-      "x": 0.6036,
-      "y": 0.144,
-      "keyphrases": [
-        "sequence organization",
-        "turn-at-talk ordering",
-        "conversation analysis",
-        "talk in interaction",
-        "actions in conversation"
-      ],
-      "connections": 1
-    },
-    {
-      "slug": "slant",
-      "title": "Slant",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/slant",
-      "x": 0.3629,
-      "y": 0.8425,
-      "keyphrases": [
-        "nanotechnology advancements",
-        "human body transformation",
-        "artificial intelligence reality",
-        "psychotherapy revolution",
-        "new millennium world"
-      ],
-      "connections": 2
-    },
-    {
-      "slug": "speech-and-language-processing",
-      "title": "Speech and language processing",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/speech-and-language-processing",
-      "x": 0.5943,
-      "y": 0.0771,
-      "keyphrases": [
-        "speech and language",
-        "natural language processing",
-        "speech recognition",
-        "spelling and grammar",
-        "information extraction"
-      ],
-      "connections": 2
-    },
-    {
       "slug": "studies-in-conversational-ux-design",
       "title": "Studies in conversational UX design",
       "collection": "library",
@@ -2206,7 +1534,7 @@
       "x": 0.5491,
       "y": 0.1535,
       "keyphrases": [],
-      "connections": 5
+      "connections": 4
     },
     {
       "slug": "talk",
@@ -2254,78 +1582,6 @@
       "x": 0.6846,
       "y": 0.2511,
       "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-design-of-everyday-things",
-      "title": "The Design of Everyday Things",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-design-of-everyday-things",
-      "x": 0.8718,
-      "y": 0.0854,
-      "keyphrases": [
-        "communication between object",
-        "usability engineer",
-        "pleasurable experience",
-        "intuitive guidance",
-        "design optimization"
-      ],
-      "connections": 0
-    },
-    {
-      "slug": "the-inner-game-of-tennis",
-      "title": "The Inner Game of Tennis",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-inner-game-of-tennis",
-      "x": 0.89,
-      "y": 0.1612,
-      "keyphrases": [
-        "mental attitudes",
-        "tennis performance",
-        "relaxing effectively",
-        "concentrating skills",
-        "discarding bad habits"
-      ],
-      "connections": 0
-    },
-    {
-      "slug": "the-sense-of-style",
-      "title": "The sense of style",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/the-sense-of-style",
-      "x": 0.7286,
-      "y": 0.0749,
-      "keyphrases": [
-        "sense of style",
-        "writing english",
-        "recent scholarship",
-        "linguistics, cognitive science",
-        "informed writing"
-      ],
-      "connections": 1
-    },
-    {
-      "slug": "thinking-fast-and-slow",
-      "title": "Thinking fast and slow",
-      "collection": "library",
-      "maturity": "draft",
-      "description": "",
-      "url": "/library/thinking-fast-and-slow",
-      "x": 0.8539,
-      "y": 0.1318,
-      "keyphrases": [
-        "two systems thinking",
-        "intuition cognitive biases",
-        "fast slow thinking",
-        "predicting happiness choices",
-        "corporate strategies mental glitches"
-      ],
       "connections": 0
     },
     {
@@ -2395,16 +1651,10 @@
       "maturity": "draft",
       "description": "Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.",
       "url": "/experiments/key-phrase-extraction-prototype",
-      "x": 0.524,
-      "y": 0.7298,
-      "keyphrases": [
-        "garden items",
-        "key phrases",
-        "llm extraction",
-        "statistical extraction",
-        "yake"
-      ],
-      "connections": 14
+      "x": 0.5239,
+      "y": 0.7308,
+      "keyphrases": [],
+      "connections": 16
     },
     {
       "slug": "setting-up-local-embedding-models",
@@ -2413,16 +1663,130 @@
       "maturity": "developing",
       "description": "How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.",
       "url": "/experiments/setting-up-local-embedding-models",
-      "x": 0.5279,
-      "y": 0.7031,
-      "keyphrases": [
-        "local embedding models",
-        "ollama",
-        "embedding models",
-        "similarity matrices",
-        "json response"
-      ],
+      "x": 0.5257,
+      "y": 0.7026,
+      "keyphrases": [],
+      "connections": 16
+    },
+    {
+      "slug": "claude-code-whats-new-for-the-garden",
+      "title": "Claude Code: what's new for the garden",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
+      "url": "/field-notes/claude-code-whats-new-for-the-garden",
+      "x": 0.757,
+      "y": 0.6089,
+      "keyphrases": [],
+      "connections": 9
+    },
+    {
+      "slug": "experiment-1-scheduled-garden-health-check",
+      "title": "Experiment 1: scheduled garden health check",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Testing Claude Code's new scheduled tasks feature by automating weekly garden health checks.",
+      "url": "/field-notes/experiment-1-scheduled-garden-health-check",
+      "x": 0.8191,
+      "y": 0.5637,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "experiment-2-thematic-analysis-with-1m-context",
+      "title": "Experiment 2: thematic analysis with 1M context",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Testing the 1M context window by loading the entire garden and running thematic analysis, comparing fresh analysis against graph-augmented analysis.",
+      "url": "/field-notes/experiment-2-thematic-analysis-with-1m-context",
+      "x": 0.6345,
+      "y": 0.712,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "garden-user-manual",
+      "title": "Garden user manual",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Task-based reference for maintaining this digital garden: writing, tagging, linking, mapping, sharing, publishing.",
+      "url": "/field-notes/garden-user-manual",
+      "x": 0.8916,
+      "y": 0.6546,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "thematic-analysis-approach-a-fresh",
+      "title": "Thematic analysis of the garden: fresh reading",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Seven themes and one emerging pattern discovered by loading all 244 garden files into a single context window with no prior structure.",
+      "url": "/field-notes/thematic-analysis-approach-a-fresh",
+      "x": 0.7842,
+      "y": 0.7469,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "thematic-analysis-approach-b-graph-augmented",
+      "title": "Thematic analysis of the garden: graph-augmented",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "What happens when you start from embeddings instead of reading? Comparing cluster-based discovery against the fresh thematic analysis.",
+      "url": "/field-notes/thematic-analysis-approach-b-graph-augmented",
+      "x": 0.6151,
+      "y": 0.6865,
+      "keyphrases": [],
       "connections": 14
+    },
+    {
+      "slug": "thematic-analysis-as-interaction-model-and-research-method",
+      "title": "Thematic analysis as interaction model and research method",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "What if we modeled human-AI interaction on thematic analysis rather than conversation? And what if we used that same method to discover themes in a knowledge garden?",
+      "url": "/seeds/thematic-analysis-as-interaction-model-and-research-method",
+      "x": 0.232,
+      "y": 0.234,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "on-the-joy-of-finding-a-good-book",
+      "title": "O joy!",
+      "collection": "jottings",
+      "maturity": "developing",
+      "description": "On the joy of finding a book that speaks to you",
+      "url": "/jottings/on-the-joy-of-finding-a-good-book",
+      "x": 0.3542,
+      "y": 0.4713,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "test-quote",
+      "title": "The map is not the territory",
+      "collection": "jottings",
+      "maturity": "solid",
+      "description": "",
+      "url": "/jottings/test-quote",
+      "x": 0.6567,
+      "y": 0.2647,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "test",
+      "title": "Test",
+      "collection": "jottings",
+      "maturity": "complete",
+      "description": "Test.",
+      "url": "/jottings/test",
+      "x": 0.8703,
+      "y": 0.8751,
+      "keyphrases": [],
+      "connections": 0
     }
   ],
   "territories": [
@@ -2436,7 +1800,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 31
+      "itemCount": 32
     },
     {
       "label": "design",
@@ -2448,7 +1812,7 @@
       "label": "digital-gardens",
       "centerX": 0.9223,
       "centerY": 0.5943,
-      "itemCount": 14
+      "itemCount": 16
     },
     {
       "label": "ai-ethics",
@@ -2472,13 +1836,13 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 19
+      "itemCount": 20
     },
     {
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 11
+      "itemCount": 17
     }
   ],
   "topography": {
@@ -2489,59 +1853,59 @@
           [
             [
               0,
-              0.151
+              0.15
             ],
             [
-              0.028,
+              0.026,
               0.129
             ],
             [
               0.032,
-              0.126
+              0.124
             ],
             [
               0.065,
-              0.105
+              0.103
             ],
             [
-              0.08,
+              0.075,
               0.097
             ],
             [
               0.097,
-              0.087
+              0.084
             ],
             [
               0.129,
-              0.072
+              0.069
             ],
             [
-              0.149,
+              0.141,
               0.065
             ],
             [
               0.161,
-              0.059
+              0.055
             ],
             [
               0.194,
-              0.047
+              0.044
             ],
             [
               0.226,
-              0.038
+              0.035
             ],
             [
-              0.25,
+              0.239,
               0.032
             ],
             [
               0.258,
-              0.03
+              0.027
             ],
             [
               0.29,
-              0.022
+              0.02
             ],
             [
               0.323,
@@ -2549,87 +1913,133 @@
             ],
             [
               0.355,
-              0.012
+              0.013
             ],
             [
               0.387,
-              0.007
+              0.011
             ],
             [
               0.419,
-              0.003
+              0.011
             ],
             [
-              0.435,
+              0.452,
+              0.013
+            ],
+            [
+              0.484,
+              0.014
+            ],
+            [
+              0.516,
+              0.013
+            ],
+            [
+              0.548,
+              0.012
+            ],
+            [
+              0.581,
+              0.009
+            ],
+            [
+              0.613,
+              0.007
+            ],
+            [
+              0.645,
+              0.004
+            ],
+            [
+              0.677,
+              0.001
+            ],
+            [
+              0.69,
               0
             ]
           ],
           [
             [
-              0.946,
+              0.811,
               0
             ],
             [
-              0.968,
-              0.026
+              0.839,
+              0.006
             ],
             [
-              0.972,
+              0.871,
+              0.019
+            ],
+            [
+              0.889,
               0.032
             ],
             [
-              0.989,
+              0.903,
+              0.044
+            ],
+            [
+              0.92,
               0.065
             ],
             [
-              0.998,
+              0.935,
+              0.094
+            ],
+            [
+              0.937,
               0.097
             ],
             [
-              1,
-              0.109
-            ]
-          ],
-          [
-            [
-              1,
-              0.186
+              0.946,
+              0.129
             ],
             [
-              0.999,
+              0.951,
+              0.161
+            ],
+            [
+              0.951,
               0.194
             ],
             [
-              0.993,
+              0.948,
               0.226
             ],
             [
-              0.983,
+              0.942,
               0.258
             ],
             [
-              0.969,
+              0.935,
+              0.282
+            ],
+            [
+              0.933,
               0.29
             ],
             [
-              0.968,
-              0.295
-            ],
-            [
-              0.958,
+              0.927,
               0.323
             ],
             [
-              0.952,
+              0.927,
               0.355
             ],
             [
-              0.961,
+              0.935,
+              0.369
+            ],
+            [
+              0.949,
               0.387
             ],
             [
               0.968,
-              0.393
+              0.399
             ],
             [
               0.993,
@@ -2637,225 +2047,221 @@
             ],
             [
               1,
-              0.425
+              0.424
             ]
           ],
           [
             [
               0,
-              0.439
+              0.438
             ],
             [
-              0.015,
+              0.017,
               0.452
             ],
             [
               0.032,
-              0.465
+              0.464
             ],
             [
-              0.061,
+              0.063,
               0.484
             ],
             [
               0.065,
-              0.487
+              0.485
             ],
             [
               0.097,
-              0.514
+              0.512
             ],
             [
-              0.099,
+              0.101,
               0.516
             ],
             [
-              0.119,
+              0.122,
               0.548
             ],
             [
-              0.125,
+              0.127,
               0.581
             ],
             [
-              0.127,
+              0.129,
               0.613
             ],
             [
               0.129,
-              0.645
-            ],
-            [
-              0.129,
-              0.651
+              0.617
             ],
             [
               0.13,
+              0.645
+            ],
+            [
+              0.131,
               0.677
             ],
             [
-              0.134,
+              0.136,
               0.71
             ],
             [
-              0.14,
+              0.142,
               0.742
             ],
             [
-              0.149,
+              0.152,
               0.774
             ],
             [
               0.161,
+              0.797
+            ],
+            [
+              0.165,
               0.806
             ],
             [
-              0.161,
-              0.807
-            ],
-            [
-              0.175,
+              0.181,
               0.839
             ],
             [
               0.194,
-              0.867
+              0.857
             ],
             [
-              0.196,
+              0.205,
               0.871
             ],
             [
               0.226,
-              0.903
+              0.892
             ],
             [
-              0.226,
+              0.241,
               0.903
             ],
             [
               0.258,
-              0.927
-            ],
-            [
-              0.276,
-              0.935
+              0.915
             ],
             [
               0.29,
-              0.942
+              0.93
             ],
             [
-              0.323,
-              0.953
-            ],
-            [
-              0.355,
-              0.958
-            ],
-            [
-              0.387,
-              0.96
-            ],
-            [
-              0.419,
-              0.958
-            ],
-            [
-              0.452,
-              0.954
-            ],
-            [
-              0.484,
-              0.946
-            ],
-            [
-              0.516,
-              0.936
-            ],
-            [
-              0.518,
+              0.309,
               0.935
             ],
             [
+              0.323,
+              0.94
+            ],
+            [
+              0.355,
+              0.947
+            ],
+            [
+              0.387,
+              0.949
+            ],
+            [
+              0.419,
+              0.949
+            ],
+            [
+              0.452,
+              0.946
+            ],
+            [
+              0.484,
+              0.94
+            ],
+            [
+              0.503,
+              0.935
+            ],
+            [
+              0.516,
+              0.933
+            ],
+            [
               0.548,
-              0.928
+              0.927
             ],
             [
               0.581,
-              0.918
+              0.92
             ],
             [
               0.613,
-              0.908
-            ],
-            [
-              0.63,
-              0.903
+              0.913
             ],
             [
               0.645,
-              0.899
+              0.906
+            ],
+            [
+              0.663,
+              0.903
             ],
             [
               0.677,
-              0.892
+              0.901
             ],
             [
               0.71,
-              0.883
+              0.897
             ],
             [
               0.742,
-              0.873
-            ],
-            [
-              0.747,
-              0.871
+              0.893
             ],
             [
               0.774,
-              0.863
+              0.889
             ],
             [
               0.806,
-              0.851
-            ],
-            [
-              0.834,
-              0.839
+              0.882
             ],
             [
               0.839,
-              0.837
+              0.873
+            ],
+            [
+              0.845,
+              0.871
             ],
             [
               0.871,
-              0.825
+              0.862
             ],
             [
               0.903,
-              0.811
+              0.845
             ],
             [
-              0.913,
-              0.806
+              0.912,
+              0.839
             ],
             [
               0.935,
-              0.797
+              0.825
+            ],
+            [
+              0.961,
+              0.806
             ],
             [
               0.968,
-              0.781
-            ],
-            [
-              0.978,
-              0.774
+              0.802
             ],
             [
               1,
-              0.76
+              0.775
             ]
           ]
         ]
@@ -2866,234 +2272,230 @@
           [
             [
               1,
-              0.631
+              0.657
             ],
             [
-              0.996,
-              0.645
-            ],
-            [
-              0.977,
+              0.99,
               0.677
             ],
             [
               0.968,
-              0.688
+              0.706
             ],
             [
-              0.941,
+              0.964,
               0.71
             ],
             [
               0.935,
-              0.713
+              0.733
             ],
             [
-              0.903,
-              0.73
-            ],
-            [
-              0.873,
+              0.922,
               0.742
             ],
             [
+              0.903,
+              0.754
+            ],
+            [
               0.871,
-              0.743
+              0.77
             ],
             [
-              0.839,
-              0.755
-            ],
-            [
-              0.806,
-              0.767
-            ],
-            [
-              0.787,
+              0.863,
               0.774
             ],
             [
-              0.774,
-              0.779
+              0.839,
+              0.785
             ],
             [
-              0.742,
-              0.792
+              0.806,
+              0.798
             ],
             [
-              0.71,
-              0.803
-            ],
-            [
-              0.702,
+              0.779,
               0.806
             ],
             [
+              0.774,
+              0.808
+            ],
+            [
+              0.742,
+              0.817
+            ],
+            [
+              0.71,
+              0.825
+            ],
+            [
               0.677,
-              0.815
+              0.831
             ],
             [
               0.645,
-              0.826
+              0.838
             ],
             [
-              0.613,
-              0.837
-            ],
-            [
-              0.609,
+              0.644,
               0.839
             ],
             [
+              0.613,
+              0.846
+            ],
+            [
               0.581,
-              0.849
+              0.854
             ],
             [
               0.548,
-              0.859
+              0.861
             ],
             [
               0.516,
-              0.869
+              0.868
             ],
             [
-              0.507,
+              0.494,
               0.871
             ],
             [
               0.484,
-              0.877
+              0.873
             ],
             [
               0.452,
-              0.884
+              0.877
             ],
             [
               0.419,
-              0.887
+              0.877
             ],
             [
               0.387,
-              0.887
+              0.875
+            ],
+            [
+              0.365,
+              0.871
             ],
             [
               0.355,
-              0.882
+              0.869
             ],
             [
               0.323,
-              0.871
+              0.857
             ],
             [
-              0.322,
-              0.871
-            ],
-            [
-              0.29,
-              0.852
-            ],
-            [
-              0.275,
+              0.292,
               0.839
             ],
             [
-              0.258,
-              0.818
+              0.29,
+              0.837
             ],
             [
-              0.25,
+              0.26,
               0.806
             ],
             [
-              0.234,
+              0.258,
+              0.804
+            ],
+            [
+              0.241,
               0.774
             ],
             [
-              0.226,
-              0.749
-            ],
-            [
-              0.224,
+              0.228,
               0.742
             ],
             [
-              0.217,
+              0.226,
+              0.731
+            ],
+            [
+              0.221,
               0.71
             ],
             [
-              0.215,
+              0.218,
               0.677
             ],
             [
-              0.217,
+              0.219,
               0.645
             ],
             [
-              0.222,
+              0.224,
               0.613
             ],
             [
               0.226,
-              0.593
+              0.604
             ],
             [
-              0.229,
+              0.231,
               0.581
             ],
             [
-              0.232,
+              0.235,
               0.548
             ],
             [
-              0.226,
-              0.525
-            ],
-            [
-              0.224,
+              0.228,
               0.516
             ],
             [
-              0.197,
+              0.226,
+              0.513
+            ],
+            [
+              0.204,
               0.484
             ],
             [
               0.194,
-              0.482
+              0.477
             ],
             [
               0.161,
-              0.458
+              0.453
             ],
             [
-              0.153,
+              0.159,
               0.452
             ],
             [
               0.129,
-              0.437
+              0.435
             ],
             [
-              0.101,
+              0.104,
               0.419
             ],
             [
               0.097,
-              0.417
+              0.415
             ],
             [
               0.065,
-              0.393
+              0.391
             ],
             [
-              0.058,
+              0.06,
               0.387
             ],
             [
               0.032,
-              0.356
+              0.355
             ],
             [
-              0.031,
+              0.032,
               0.355
             ],
             [
@@ -3110,234 +2512,202 @@
             ],
             [
               0.032,
-              0.231
+              0.229
             ],
             [
-              0.035,
+              0.034,
               0.226
             ],
             [
-              0.063,
+              0.06,
               0.194
             ],
             [
               0.065,
-              0.192
+              0.19
             ],
             [
               0.097,
-              0.166
+              0.163
             ],
             [
-              0.104,
+              0.099,
               0.161
             ],
             [
               0.129,
-              0.146
+              0.143
+            ],
+            [
+              0.156,
+              0.129
             ],
             [
               0.161,
-              0.13
-            ],
-            [
-              0.163,
-              0.129
+              0.126
             ],
             [
               0.194,
-              0.116
+              0.112
             ],
             [
               0.226,
-              0.105
+              0.102
+            ],
+            [
+              0.249,
+              0.097
             ],
             [
               0.258,
-              0.097
-            ],
-            [
-              0.261,
-              0.097
+              0.094
             ],
             [
               0.29,
-              0.09
+              0.088
             ],
             [
               0.323,
-              0.086
+              0.085
             ],
             [
               0.355,
-              0.083
+              0.084
             ],
             [
               0.387,
-              0.081
+              0.085
             ],
             [
               0.419,
-              0.08
+              0.089
             ],
             [
               0.452,
-              0.076
+              0.092
             ],
             [
               0.484,
-              0.068
+              0.096
             ],
             [
-              0.495,
-              0.065
-            ],
-            [
-              0.516,
-              0.057
-            ],
-            [
-              0.548,
-              0.044
-            ],
-            [
-              0.58,
-              0.032
-            ],
-            [
-              0.581,
-              0.032
-            ],
-            [
-              0.613,
-              0.021
-            ],
-            [
-              0.645,
-              0.014
-            ],
-            [
-              0.677,
-              0.01
-            ],
-            [
-              0.71,
-              0.008
-            ],
-            [
-              0.742,
-              0.007
-            ],
-            [
-              0.774,
-              0.008
-            ],
-            [
-              0.806,
-              0.012
-            ],
-            [
-              0.839,
-              0.021
-            ],
-            [
-              0.863,
-              0.032
-            ],
-            [
-              0.871,
-              0.037
-            ],
-            [
-              0.901,
-              0.065
-            ],
-            [
-              0.903,
-              0.068
-            ],
-            [
-              0.919,
+              0.489,
               0.097
             ],
             [
-              0.928,
-              0.129
+              0.516,
+              0.099
             ],
             [
-              0.929,
-              0.161
-            ],
-            [
-              0.924,
-              0.194
-            ],
-            [
-              0.915,
-              0.226
-            ],
-            [
-              0.903,
-              0.252
-            ],
-            [
-              0.9,
-              0.258
-            ],
-            [
-              0.88,
-              0.29
-            ],
-            [
-              0.871,
-              0.303
-            ],
-            [
-              0.853,
-              0.323
-            ],
-            [
-              0.839,
-              0.336
-            ],
-            [
-              0.809,
-              0.355
-            ],
-            [
-              0.806,
-              0.357
-            ],
-            [
-              0.774,
-              0.369
-            ],
-            [
-              0.742,
-              0.376
-            ],
-            [
-              0.71,
-              0.379
-            ],
-            [
-              0.677,
-              0.381
-            ],
-            [
-              0.645,
-              0.381
-            ],
-            [
-              0.613,
-              0.383
+              0.548,
+              0.099
             ],
             [
               0.581,
-              0.386
+              0.098
             ],
             [
-              0.576,
+              0.613,
+              0.097
+            ],
+            [
+              0.645,
+              0.097
+            ],
+            [
+              0.677,
+              0.097
+            ],
+            [
+              0.71,
+              0.099
+            ],
+            [
+              0.742,
+              0.102
+            ],
+            [
+              0.774,
+              0.109
+            ],
+            [
+              0.806,
+              0.124
+            ],
+            [
+              0.812,
+              0.129
+            ],
+            [
+              0.836,
+              0.161
+            ],
+            [
+              0.839,
+              0.171
+            ],
+            [
+              0.844,
+              0.194
+            ],
+            [
+              0.842,
+              0.226
+            ],
+            [
+              0.839,
+              0.239
+            ],
+            [
+              0.833,
+              0.258
+            ],
+            [
+              0.815,
+              0.29
+            ],
+            [
+              0.806,
+              0.3
+            ],
+            [
+              0.78,
+              0.323
+            ],
+            [
+              0.774,
+              0.327
+            ],
+            [
+              0.742,
+              0.344
+            ],
+            [
+              0.711,
+              0.355
+            ],
+            [
+              0.71,
+              0.355
+            ],
+            [
+              0.677,
+              0.363
+            ],
+            [
+              0.645,
+              0.369
+            ],
+            [
+              0.613,
+              0.375
+            ],
+            [
+              0.581,
+              0.382
+            ],
+            [
+              0.566,
               0.387
             ],
             [
@@ -3345,116 +2715,112 @@
               0.396
             ],
             [
-              0.517,
+              0.521,
               0.419
             ],
             [
               0.516,
-              0.42
+              0.431
             ],
             [
-              0.503,
+              0.509,
               0.452
             ],
             [
-              0.507,
+              0.515,
               0.484
             ],
             [
               0.516,
-              0.496
+              0.486
             ],
             [
-              0.529,
+              0.54,
               0.516
             ],
             [
               0.548,
-              0.533
-            ],
-            [
-              0.563,
-              0.548
+              0.523
             ],
             [
               0.581,
-              0.561
+              0.547
             ],
             [
-              0.61,
-              0.581
+              0.583,
+              0.548
             ],
             [
               0.613,
-              0.582
+              0.561
             ],
             [
               0.645,
-              0.593
+              0.566
             ],
             [
               0.677,
-              0.596
+              0.563
             ],
             [
               0.71,
-              0.59
+              0.553
             ],
             [
-              0.729,
-              0.581
+              0.719,
+              0.548
             ],
             [
               0.742,
-              0.574
+              0.536
             ],
             [
               0.774,
-              0.552
+              0.517
             ],
             [
-              0.779,
-              0.548
+              0.776,
+              0.516
             ],
             [
               0.806,
-              0.527
-            ],
-            [
-              0.824,
-              0.516
+              0.499
             ],
             [
               0.839,
-              0.506
+              0.486
+            ],
+            [
+              0.851,
+              0.484
             ],
             [
               0.871,
-              0.493
+              0.479
             ],
             [
               0.903,
-              0.49
+              0.479
+            ],
+            [
+              0.924,
+              0.484
             ],
             [
               0.935,
-              0.496
+              0.487
             ],
             [
               0.968,
-              0.515
+              0.505
             ],
             [
-              0.969,
+              0.979,
               0.516
             ],
             [
-              0.993,
-              0.548
-            ],
-            [
               1,
-              0.567
+              0.547
             ]
           ]
         ]
@@ -3496,7 +2862,6 @@
         "conversational-interfaces-are-not-easy",
         "modeling-conversational-agents-natural-conversation-framework",
         "how-to-make-chatgpt-more-conversational",
-        "prompt-scaffolding",
         "context-engineering-lets-call-it-design",
         "designing-for-doubt"
       ],
@@ -3552,6 +2917,17 @@
         "key-phrase-extraction-prototype",
         "external-content-discovery",
         "typed-relations-as-garden-infrastructure"
+      ],
+      "type": "project"
+    },
+    {
+      "id": "project-claude-code-whats-new-for-the-garden",
+      "name": "Claude Code: what's new for the garden",
+      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
+      "items": [
+        "claude-code-whats-new-for-the-garden",
+        "experiment-1-scheduled-garden-health-check",
+        "experiment-2-thematic-analysis-with-1m-context"
       ],
       "type": "project"
     }
