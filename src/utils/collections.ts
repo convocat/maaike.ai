@@ -1,9 +1,9 @@
 import { getCollection } from 'astro:content';
 
-type CollectionName = 'fieldNotes' | 'seeds' | 'articles' | 'weblinks' | 'videos' | 'library' | 'experiments' | 'jottings';
+type CollectionName = 'fieldNotes' | 'seeds' | 'articles' | 'weblinks' | 'videos' | 'library' | 'experiments' | 'jottings' | 'files' | 'artefacts';
 
 export async function getAllContent() {
-  const [fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings] = await Promise.all([
+  const [fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts] = await Promise.all([
     getCollection('fieldNotes'),
     getCollection('seeds'),
     getCollection('articles'),
@@ -12,6 +12,8 @@ export async function getAllContent() {
     getCollection('library'),
     getCollection('experiments'),
     getCollection('jottings'),
+    getCollection('files'),
+    getCollection('artefacts'),
   ]);
 
   return [
@@ -23,6 +25,8 @@ export async function getAllContent() {
     ...library.map((e) => ({ ...e, collection: 'library' as const })),
     ...experiments.map((e) => ({ ...e, collection: 'experiments' as const })),
     ...jottings.map((e) => ({ ...e, collection: 'jottings' as const })),
+    ...files.map((e) => ({ ...e, collection: 'files' as const })),
+    ...artefacts.map((e) => ({ ...e, collection: 'artefacts' as const })),
   ].filter((e) => !e.data.draft);
 }
 

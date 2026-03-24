@@ -12,7 +12,7 @@ status: reading
 genre: Science / Cultural Theory / Posthumanism
 book_type: non-fiction
 purpose: professional
-reason: Is on my wishlist, no time yet
+reason: Reading now, March 2026
 ---
 
 ## Related

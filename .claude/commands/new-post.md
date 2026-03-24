@@ -40,7 +40,10 @@ Then ask metadata questions in a single AskUserQuestion call:
 1. **Which collection?** (single select)
    - Articles
    - Field notes
-   - Sparks
+   - Jottings (requires `type`: note / quote / event / link / post)
+   - Seeds
+   - Files (project sub-documents, requires `develops` slug)
+   - Artefacts (design deliverables, requires `develops` slug)
    - Weblinks / Videos (requires URL)
 
 2. **Maturity and AI status** (single select each)
