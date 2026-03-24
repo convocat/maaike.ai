@@ -2,11 +2,32 @@
 
 Create a new content post. Writing first, metadata later.
 
-## Step 1: Open Typora immediately
+## Step 1: Select type (first question, before opening Typora)
 
-No questions. Just do this:
+Ask the user which type of content they want to create using AskUserQuestion:
 
-1. Create a temporary file at `src/content/articles/new-draft.md` with minimal frontmatter and a writing template:
+- **Article** — long-form piece, will be shared on LinkedIn
+- **Jotting** — short note, thought, or observation, will be shared on LinkedIn
+- **Field note** — process note, observation, or reflection (no LinkedIn)
+- **Seed** — early idea or question (no LinkedIn)
+- **Weblink** — external link with annotation (requires URL)
+- **Video** — video with annotation (requires URL)
+- **Library** — book or resource → redirect to `/new-book` skill instead
+- **File** — project sub-document → redirect to `/new-project-file` skill instead
+- **Artefact** — design deliverable → redirect to `/new-project-file` skill instead
+
+If they choose **Library**, tell them: "Use `/new-book` to add a book — it fetches metadata from Open Library automatically." Stop here.
+
+If they choose **File** or **Artefact**, tell them: "Use `/new-project-file` to create a project file — it links it to the right project hub." Stop here.
+
+If they choose **Weblink** or **Video**, ask for the URL now before opening Typora.
+
+## Step 2: Open Typora
+
+1. Create a temporary file at `src/content/articles/new-draft.md`.
+   If `new-draft.md` already exists, use `new-draft-2.md`, `new-draft-3.md`, etc.
+
+   **Template for Articles and Jottings** (includes LinkedIn block):
    ```markdown
    ---
    draft: true
@@ -17,11 +38,24 @@ No questions. Just do this:
 
    Start writing here...
 
-   <div class="linkedin">
+   ---
 
+   <div class="linkedin">
+   Write your LinkedIn post here...
    </div>
    ```
-   If `new-draft.md` already exists, use `new-draft-2.md`, `new-draft-3.md`, etc.
+
+   **Template for Field notes, Seeds, Weblinks, Videos** (no LinkedIn block):
+   ```markdown
+   ---
+   draft: true
+   description: ""
+   ---
+
+   # Title
+
+   Start writing here...
+   ```
 
 2. Install the Typora theme if needed:
    - Compare `.claude/typora/maaike-garden.css` with `$APPDATA/Typora/themes/maaike-garden.css`
@@ -31,20 +65,17 @@ No questions. Just do this:
 
 4. Tell the user: "Typora is open. Write your post, then come back here when you're done."
 
-## Step 2: User returns after writing
+## Step 3: User returns after writing
 
 When the user comes back, read the file they wrote. Extract the title from the first `# Heading` in the body.
 
-Then ask metadata questions in a single AskUserQuestion call:
+The collection is already known from Step 1. Ask only:
 
-1. **Which collection?** (single select)
-   - Articles
-   - Field notes
-   - Jottings (requires `type`: note / quote / event / link / post)
-   - Seeds
-   - Files (project sub-documents, requires `develops` slug)
-   - Artefacts (design deliverables, requires `develops` slug)
-   - Weblinks / Videos (requires URL)
+1. **Maturity and AI status** (single select each)
+   - Maturity: Draft, Developing, Solid, Complete
+   - AI: 100% Maai, Assisted, Co-created, Generated
+
+2. For **Jottings**: also ask for `type` (note / quote / event / link / post)
 
 2. **Maturity and AI status** (single select each)
    - Maturity: Draft, Developing, Solid, Complete
@@ -52,7 +83,7 @@ Then ask metadata questions in a single AskUserQuestion call:
 
 If they chose Weblinks/Videos, ask for the URL in a follow-up question.
 
-## Step 3: Build frontmatter and finalize
+## Step 4: Build frontmatter and finalize
 
 Build the full YAML frontmatter:
 ```yaml
@@ -84,14 +115,13 @@ Rename the file:
 - Move to correct collection: `src/content/<collection>/<slug>.md`
 - If a file with that slug already exists, warn and ask for alternative
 
-## Step 4: Auto-tag
+## Step 5: Auto-tag
 
-Automatically run the `/auto-tag` skill on the new post. This will scan the content base and suggest tags and wiki-links.
+Automatically run the `/auto-tag` skill on the new post.
 
-## Step 5: Commit
+## Step 6: Done
 
-After auto-tag is done, ask if the user wants to commit and push.
-- Commit message: `Add <collection>: <title>`
+Tell the user the post is saved as a draft. To publish it, run `/publish`.
 
 ## Conventions
 
