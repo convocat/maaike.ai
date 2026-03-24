@@ -83,4 +83,14 @@ const jottings = defineCollection({
   }),
 });
 
-export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings };
+const files = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/files' }),
+  schema: baseSchema,
+});
+
+const artefacts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/artefacts' }),
+  schema: baseSchema,
+});
+
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts };
