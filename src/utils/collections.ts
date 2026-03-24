@@ -45,6 +45,32 @@ export interface RelatedPost {
   sharedTagCount: number;
 }
 
+export async function getLinkedBooks(slug: string): Promise<Array<{ title: string; author: string; cover?: string; href: string }>> {
+  const allEntries = await getAllContent();
+  const entry = allEntries.find((e) => e.id === slug);
+  if (!entry || !entry.body) return [];
+
+  const wikiLinkRegex = /\[\[([^\]]+)\]\]/g;
+  const linkedSlugs = new Set<string>();
+  let match;
+  while ((match = wikiLinkRegex.exec(entry.body)) !== null) {
+    const targetSlug = match[1].split('|')[0].replace(/ /g, '-').toLowerCase();
+    linkedSlugs.add(targetSlug);
+  }
+
+  if (linkedSlugs.size === 0) return [];
+
+  const library = await getCollection('library');
+  return library
+    .filter((book) => !book.data.draft && linkedSlugs.has(book.id))
+    .map((book) => ({
+      title: book.data.title,
+      author: book.data.author,
+      cover: book.data.cover,
+      href: `/library/${book.id}`,
+    }));
+}
+
 export async function getRelatedPosts(
   currentSlug: string,
   currentTags: string[],
