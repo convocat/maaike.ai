@@ -1,0 +1,357 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import ContentCard from '../components/ContentCard.astro';
+import NotePreview from '../components/NotePreview.astro';
+import MaturityBadge from '../components/MaturityBadge.astro';
+import CollectionIcon from '../components/CollectionIcon.astro';
+import { sortByDate } from '../utils/collections';
+import settings from '../data/settings.json';
+
+const fieldNotes = sortByDate(
+  (await getCollection('fieldNotes')).filter((e) => !e.data.draft)
+);
+const seeds = sortByDate(
+  (await getCollection('seeds')).filter((e) => !e.data.draft)
+);
+const articles = sortByDate(
+  (await getCollection('articles')).filter((e) => !e.data.draft)
+);
+const weblinks = sortByDate(
+  (await getCollection('weblinks')).filter((e) => !e.data.draft)
+);
+const videos = sortByDate(
+  (await getCollection('videos')).filter((e) => !e.data.draft)
+);
+
+const recentArticles = articles.slice(0, 4);
+const recentFieldNotes = fieldNotes.slice(0, 6);
+const recentSeeds = seeds.slice(0, 6);
+const recentWeblinks = weblinks.slice(0, 6);
+const recentVideos = videos.slice(0, 4);
+
+function getYouTubeId(url: string): string | null {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=)([^&]+)/,
+    /(?:youtu\.be\/)([^?]+)/,
+    /(?:youtube\.com\/embed\/)([^?]+)/,
+    /(?:youtube\.com\/shorts\/)([^?]+)/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+---
+
+<PageLayout title={settings.siteTitle}>
+  <div class="hero">
+    {settings.logo
+      ? <img src={settings.logo} alt={settings.siteTitle} class="hero-logo" fetchpriority="high" />
+      : <h1>{settings.siteTitle}</h1>
+    }
+    <p>{settings.siteTagline}</p>
+  </div>
+
+  <hr class="hero-line" aria-hidden="true" />
+
+  <section class="home-articles">
+    <div class="section-header">
+      <h2><CollectionIcon collection="articles" size={20} /> Articles</h2>
+      <a href="/articles" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="articles-grid">
+      {recentArticles.map((article) => (
+        <ContentCard
+          title={article.data.title}
+          href={`/articles/${article.id}`}
+          date={article.data.date}
+          updated={article.data.updated}
+          maturity={article.data.maturity}
+          tags={article.data.tags}
+          description={article.data.description}
+          collection="articles"
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="home-field-notes">
+    <div class="section-header">
+      <h2><CollectionIcon collection="field-notes" size={20} /> Field Notes</h2>
+      <a href="/field-notes" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="notes-grid">
+      {recentFieldNotes.map((note) => (
+        <NotePreview
+          title={note.data.title}
+          href={`/field-notes/${note.id}`}
+          date={note.data.date}
+          updated={note.data.updated}
+          maturity={note.data.maturity}
+          description={note.data.description}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="home-seeds">
+    <div class="section-header">
+      <h2><CollectionIcon collection="seeds" size={20} /> Seeds</h2>
+      <a href="/seeds" class="view-all">View all &rarr;</a>
+    </div>
+    <div class="notes-grid">
+      {recentSeeds.length > 0 ? (
+        recentSeeds.map((seed) => (
+          <NotePreview
+            title={seed.data.title}
+            href={`/seeds/${seed.id}`}
+            date={seed.data.date}
+            updated={seed.data.updated}
+            maturity={seed.data.maturity}
+            description={seed.data.description}
+          />
+        ))
+      ) : (
+        <p class="empty-state">No seeds yet — ideas waiting to germinate will appear here.</p>
+      )}
+    </div>
+  </section>
+
+  <div class="home-bottom">
+    <section class="home-weblinks">
+      <div class="section-header">
+        <h2><CollectionIcon collection="weblinks" size={20} /> Weblinks</h2>
+        <a href="/weblinks" class="view-all">View all &rarr;</a>
+      </div>
+      <ul class="links-list">
+        {recentWeblinks.map((link) => {
+          const domain = new URL(link.data.url).hostname.replace('www.', '');
+          const formattedDate = new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' }).format(link.data.date);
+          return (
+            <li class="link-item">
+              <a href={`/weblinks/${link.id}`} class="link-item-link">
+                <MaturityBadge maturity={link.data.maturity} />
+                <span class="link-item-title">{link.data.title}</span>
+                <span class="link-item-domain">{domain}</span>
+              </a>
+              <time datetime={link.data.date.toISOString()}>{formattedDate}</time>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="home-videos">
+      <div class="section-header">
+        <h2><CollectionIcon collection="videos" size={20} /> Videos</h2>
+        <a href="/videos" class="view-all">View all &rarr;</a>
+      </div>
+      {recentVideos.length > 0 ? (
+        <div class="videos-mini-grid">
+          {recentVideos.map((video) => {
+            const videoId = getYouTubeId(video.data.url);
+            const thumb = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : null;
+            return (
+              <a href={`/videos/${video.id}`} class="video-mini">
+                {thumb && <img src={thumb} alt="" class="video-mini-thumb" loading="lazy" />}
+                <span class="video-mini-title">{video.data.title}</span>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <p class="empty-state">No videos yet.</p>
+      )}
+    </section>
+  </div>
+</PageLayout>
+
+<style is:global>
+  /* Hero */
+  .hero {
+    margin-block-start: calc(-1 * var(--space-xl)); /* pull up into main's top padding */
+    margin-block-end: var(--space-xl);
+    padding-block: 0 var(--space-sm);
+  }
+  .hero-logo {
+    display: block;
+    height: auto;
+    max-height: 18rem;
+    width: auto;
+    margin-block-end: -1.5rem; /* pull tagline up into logo's bottom whitespace */
+    margin-inline-start: -1rem; /* compensate for whitespace in logo image */
+  }
+  [data-theme="dark"] .hero-logo {
+    filter: invert(1) grayscale(1);
+    mix-blend-mode: lighten;
+  }
+  .hero h1 {
+    margin-block-end: var(--space-md);
+  }
+  .hero p {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    padding-inline-start: 3rem; /* align with the M in the logo */
+  }
+
+  /* Gradient accent line */
+  .hero-line {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, var(--color-accent), var(--color-accent-2), transparent);
+    margin-block-end: var(--space-3xl);
+    max-width: 20rem;
+    opacity: 0.5;
+  }
+
+  /* Section spacing */
+  .home-articles,
+  .home-field-notes,
+  .home-seeds {
+    margin-block-end: var(--space-3xl);
+  }
+
+  /* Section headers */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-lg);
+  }
+  .section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  .view-all {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* Articles 2x2 grid */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  @media (max-width: 480px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Notes grid */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
+  }
+
+  /* Bottom two-column: Weblinks + Videos */
+  .home-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-block-end: var(--space-2xl);
+  }
+  @media (max-width: 768px) {
+    .home-bottom {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Compact links list */
+  .links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .link-item:last-child {
+    border-bottom: none;
+  }
+  .link-item-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    min-width: 0;
+  }
+  .link-item-link:hover .link-item-title {
+    color: var(--color-accent);
+  }
+  .link-item-title {
+    font-weight: 500;
+    color: var(--color-heading);
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .link-item-domain {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+  .link-item time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+
+  /* Video mini grid */
+  .videos-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+  .video-mini {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .video-mini:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+  }
+  .video-mini-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  .video-mini-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-heading);
+    padding: var(--space-sm);
+    line-height: 1.3;
+  }
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
