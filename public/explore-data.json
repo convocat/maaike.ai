@@ -589,6 +589,18 @@
       "connections": 5
     },
     {
+      "slug": "claude-code-whats-new-for-the-garden",
+      "title": "Claude Code: what's new for the garden",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
+      "url": "/field-notes/claude-code-whats-new-for-the-garden",
+      "x": 0.757,
+      "y": 0.6089,
+      "keyphrases": [],
+      "connections": 9
+    },
+    {
       "slug": "claude-md-project-memory",
       "title": "Project memory for persistent context",
       "collection": "field-notes",
@@ -649,6 +661,30 @@
       "connections": 16
     },
     {
+      "slug": "experiment-1-scheduled-garden-health-check",
+      "title": "Experiment 1: scheduled garden health check",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Testing Claude Code's new scheduled tasks feature by automating weekly garden health checks.",
+      "url": "/field-notes/experiment-1-scheduled-garden-health-check",
+      "x": 0.8191,
+      "y": 0.5637,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "experiment-2-thematic-analysis-with-1m-context",
+      "title": "Experiment 2: thematic analysis with 1M context",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Testing the 1M context window by loading the entire garden and running thematic analysis, comparing fresh analysis against graph-augmented analysis.",
+      "url": "/field-notes/experiment-2-thematic-analysis-with-1m-context",
+      "x": 0.6345,
+      "y": 0.712,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
       "slug": "explore-page-design",
       "title": "Explore page: a visual browsing UI for the garden",
       "collection": "field-notes",
@@ -693,6 +729,18 @@
       "url": "/field-notes/garden-lifecycle-greenhouse-compost",
       "x": 0.782,
       "y": 0.6358,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "garden-user-manual",
+      "title": "Garden user manual",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Task-based reference for maintaining this digital garden: writing, tagging, linking, mapping, sharing, publishing.",
+      "url": "/field-notes/garden-user-manual",
+      "x": 0.8916,
+      "y": 0.6546,
       "keyphrases": [],
       "connections": 0
     },
@@ -755,6 +803,30 @@
       "y": 0.6543,
       "keyphrases": [],
       "connections": 5
+    },
+    {
+      "slug": "thematic-analysis-approach-a-fresh",
+      "title": "Thematic analysis of the garden: fresh reading",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "Seven themes and one emerging pattern discovered by loading all 244 garden files into a single context window with no prior structure.",
+      "url": "/field-notes/thematic-analysis-approach-a-fresh",
+      "x": 0.7842,
+      "y": 0.7469,
+      "keyphrases": [],
+      "connections": 2
+    },
+    {
+      "slug": "thematic-analysis-approach-b-graph-augmented",
+      "title": "Thematic analysis of the garden: graph-augmented",
+      "collection": "field-notes",
+      "maturity": "developing",
+      "description": "What happens when you start from embeddings instead of reading? Comparing cluster-based discovery against the fresh thematic analysis.",
+      "url": "/field-notes/thematic-analysis-approach-b-graph-augmented",
+      "x": 0.6151,
+      "y": 0.6865,
+      "keyphrases": [],
+      "connections": 14
     },
     {
       "slug": "thinking-in-public",
@@ -935,6 +1007,18 @@
       "y": 0.3169,
       "keyphrases": [],
       "connections": 10
+    },
+    {
+      "slug": "thematic-analysis-as-interaction-model-and-research-method",
+      "title": "Thematic analysis as interaction model and research method",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "What if we modeled human-AI interaction on thematic analysis rather than conversation? And what if we used that same method to discover themes in a knowledge garden?",
+      "url": "/seeds/thematic-analysis-as-interaction-model-and-research-method",
+      "x": 0.232,
+      "y": 0.234,
+      "keyphrases": [],
+      "connections": 1
     },
     {
       "slug": "writing-as-a-conversation-with-yourself",
@@ -1669,90 +1753,6 @@
       "connections": 16
     },
     {
-      "slug": "claude-code-whats-new-for-the-garden",
-      "title": "Claude Code: what's new for the garden",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
-      "url": "/field-notes/claude-code-whats-new-for-the-garden",
-      "x": 0.757,
-      "y": 0.6089,
-      "keyphrases": [],
-      "connections": 9
-    },
-    {
-      "slug": "experiment-1-scheduled-garden-health-check",
-      "title": "Experiment 1: scheduled garden health check",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "Testing Claude Code's new scheduled tasks feature by automating weekly garden health checks.",
-      "url": "/field-notes/experiment-1-scheduled-garden-health-check",
-      "x": 0.8191,
-      "y": 0.5637,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "experiment-2-thematic-analysis-with-1m-context",
-      "title": "Experiment 2: thematic analysis with 1M context",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "Testing the 1M context window by loading the entire garden and running thematic analysis, comparing fresh analysis against graph-augmented analysis.",
-      "url": "/field-notes/experiment-2-thematic-analysis-with-1m-context",
-      "x": 0.6345,
-      "y": 0.712,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "garden-user-manual",
-      "title": "Garden user manual",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "Task-based reference for maintaining this digital garden: writing, tagging, linking, mapping, sharing, publishing.",
-      "url": "/field-notes/garden-user-manual",
-      "x": 0.8916,
-      "y": 0.6546,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "thematic-analysis-approach-a-fresh",
-      "title": "Thematic analysis of the garden: fresh reading",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "Seven themes and one emerging pattern discovered by loading all 244 garden files into a single context window with no prior structure.",
-      "url": "/field-notes/thematic-analysis-approach-a-fresh",
-      "x": 0.7842,
-      "y": 0.7469,
-      "keyphrases": [],
-      "connections": 2
-    },
-    {
-      "slug": "thematic-analysis-approach-b-graph-augmented",
-      "title": "Thematic analysis of the garden: graph-augmented",
-      "collection": "field-notes",
-      "maturity": "developing",
-      "description": "What happens when you start from embeddings instead of reading? Comparing cluster-based discovery against the fresh thematic analysis.",
-      "url": "/field-notes/thematic-analysis-approach-b-graph-augmented",
-      "x": 0.6151,
-      "y": 0.6865,
-      "keyphrases": [],
-      "connections": 14
-    },
-    {
-      "slug": "thematic-analysis-as-interaction-model-and-research-method",
-      "title": "Thematic analysis as interaction model and research method",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "What if we modeled human-AI interaction on thematic analysis rather than conversation? And what if we used that same method to discover themes in a knowledge garden?",
-      "url": "/seeds/thematic-analysis-as-interaction-model-and-research-method",
-      "x": 0.232,
-      "y": 0.234,
-      "keyphrases": [],
-      "connections": 1
-    },
-    {
       "slug": "on-the-joy-of-finding-a-good-book",
       "title": "O joy!",
       "collection": "jottings",
@@ -1773,18 +1773,6 @@
       "url": "/jottings/test-quote",
       "x": 0.6567,
       "y": 0.2647,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "test",
-      "title": "Test",
-      "collection": "jottings",
-      "maturity": "complete",
-      "description": "Test.",
-      "url": "/jottings/test",
-      "x": 0.8703,
-      "y": 0.8751,
       "keyphrases": [],
       "connections": 0
     }
@@ -1842,7 +1830,7 @@
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 17
+      "itemCount": 16
     }
   ],
   "topography": {
@@ -2201,67 +2189,71 @@
             ],
             [
               0.645,
-              0.906
+              0.905
             ],
             [
-              0.663,
+              0.652,
               0.903
             ],
             [
               0.677,
-              0.901
+              0.899
             ],
             [
               0.71,
-              0.897
+              0.892
             ],
             [
               0.742,
-              0.893
+              0.885
             ],
             [
               0.774,
-              0.889
+              0.876
             ],
             [
-              0.806,
-              0.882
-            ],
-            [
-              0.839,
-              0.873
-            ],
-            [
-              0.845,
+              0.787,
               0.871
             ],
             [
+              0.806,
+              0.865
+            ],
+            [
+              0.839,
+              0.854
+            ],
+            [
               0.871,
-              0.862
-            ],
-            [
-              0.903,
-              0.845
-            ],
-            [
-              0.912,
               0.839
             ],
             [
-              0.935,
+              0.871,
+              0.839
+            ],
+            [
+              0.903,
               0.825
             ],
             [
-              0.961,
+              0.935,
+              0.809
+            ],
+            [
+              0.94,
               0.806
             ],
             [
               0.968,
-              0.802
+              0.792
+            ],
+            [
+              0.993,
+              0.774
             ],
             [
               1,
-              0.775
+              0.769
             ]
           ]
         ]
@@ -2272,74 +2264,74 @@
           [
             [
               1,
-              0.657
+              0.655
             ],
             [
-              0.99,
+              0.989,
               0.677
             ],
             [
               0.968,
-              0.706
+              0.703
             ],
             [
-              0.964,
+              0.961,
               0.71
             ],
             [
               0.935,
-              0.733
+              0.729
             ],
             [
-              0.922,
+              0.914,
               0.742
             ],
             [
               0.903,
-              0.754
+              0.748
             ],
             [
               0.871,
-              0.77
+              0.763
             ],
             [
-              0.863,
+              0.845,
               0.774
             ],
             [
               0.839,
-              0.785
+              0.777
             ],
             [
               0.806,
-              0.798
-            ],
-            [
-              0.779,
-              0.806
+              0.79
             ],
             [
               0.774,
-              0.808
+              0.802
+            ],
+            [
+              0.761,
+              0.806
             ],
             [
               0.742,
-              0.817
+              0.813
             ],
             [
               0.71,
-              0.825
+              0.822
             ],
             [
               0.677,
-              0.831
+              0.83
             ],
             [
               0.645,
               0.838
             ],
             [
-              0.644,
+              0.641,
               0.839
             ],
             [
@@ -2881,6 +2873,17 @@
       "type": "project"
     },
     {
+      "id": "project-claude-code-whats-new-for-the-garden",
+      "name": "Claude Code: what's new for the garden",
+      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
+      "items": [
+        "claude-code-whats-new-for-the-garden",
+        "experiment-1-scheduled-garden-health-check",
+        "experiment-2-thematic-analysis-with-1m-context"
+      ],
+      "type": "project"
+    },
+    {
       "id": "project-explore-page-design",
       "name": "Explore page: a visual browsing UI for the garden",
       "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
@@ -2917,17 +2920,6 @@
         "key-phrase-extraction-prototype",
         "external-content-discovery",
         "typed-relations-as-garden-infrastructure"
-      ],
-      "type": "project"
-    },
-    {
-      "id": "project-claude-code-whats-new-for-the-garden",
-      "name": "Claude Code: what's new for the garden",
-      "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
-      "items": [
-        "claude-code-whats-new-for-the-garden",
-        "experiment-1-scheduled-garden-health-check",
-        "experiment-2-thematic-analysis-with-1m-context"
       ],
       "type": "project"
     }

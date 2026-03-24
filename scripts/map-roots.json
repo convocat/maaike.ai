@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-24T20:41:44.974Z",
+  "generated": "2026-03-24T20:46:47.057Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -198,6 +198,10 @@
       "x": 0.9126,
       "y": 0.6314
     },
+    "field-notes/claude-code-whats-new-for-the-garden": {
+      "x": 0.757,
+      "y": 0.6089
+    },
     "field-notes/claude-md-project-memory": {
       "x": 0.7786,
       "y": 0.5919
@@ -218,6 +222,14 @@
       "x": 0.6865,
       "y": 0.7049
     },
+    "field-notes/experiment-1-scheduled-garden-health-check": {
+      "x": 0.8191,
+      "y": 0.5637
+    },
+    "field-notes/experiment-2-thematic-analysis-with-1m-context": {
+      "x": 0.6345,
+      "y": 0.712
+    },
     "field-notes/explore-page-design": {
       "x": 0.9145,
       "y": 0.6771
@@ -233,6 +245,10 @@
     "field-notes/garden-lifecycle-greenhouse-compost": {
       "x": 0.782,
       "y": 0.6358
+    },
+    "field-notes/garden-user-manual": {
+      "x": 0.8916,
+      "y": 0.6546
     },
     "field-notes/key-phrase-extraction-for-the-garden": {
       "x": 0.7076,
@@ -253,6 +269,14 @@
     "field-notes/testing-strategy": {
       "x": 0.9316,
       "y": 0.6543
+    },
+    "field-notes/thematic-analysis-approach-a-fresh": {
+      "x": 0.7842,
+      "y": 0.7469
+    },
+    "field-notes/thematic-analysis-approach-b-graph-augmented": {
+      "x": 0.6151,
+      "y": 0.6865
     },
     "field-notes/thinking-in-public": {
       "x": 0.9041,
@@ -313,6 +337,10 @@
     "seeds/the-disappearance-of-authentic-voice-online": {
       "x": 0.6239,
       "y": 0.3169
+    },
+    "seeds/thematic-analysis-as-interaction-model-and-research-method": {
+      "x": 0.232,
+      "y": 0.234
     },
     "seeds/writing-as-a-conversation-with-yourself": {
       "x": 0.5242,
@@ -770,6 +798,10 @@
       "x": 0.4163,
       "y": 0.8604
     },
+    "library/the-overstory": {
+      "x": 0.6748,
+      "y": 0.6375
+    },
     "library/the-sense-of-style": {
       "x": 0.7286,
       "y": 0.0749
@@ -846,38 +878,6 @@
       "x": 0.5257,
       "y": 0.7026
     },
-    "field-notes/claude-code-whats-new-for-the-garden": {
-      "x": 0.757,
-      "y": 0.6089
-    },
-    "field-notes/experiment-1-scheduled-garden-health-check": {
-      "x": 0.8191,
-      "y": 0.5637
-    },
-    "field-notes/experiment-2-thematic-analysis-with-1m-context": {
-      "x": 0.6345,
-      "y": 0.712
-    },
-    "field-notes/garden-user-manual": {
-      "x": 0.8916,
-      "y": 0.6546
-    },
-    "field-notes/thematic-analysis-approach-a-fresh": {
-      "x": 0.7842,
-      "y": 0.7469
-    },
-    "field-notes/thematic-analysis-approach-b-graph-augmented": {
-      "x": 0.6151,
-      "y": 0.6865
-    },
-    "seeds/thematic-analysis-as-interaction-model-and-research-method": {
-      "x": 0.232,
-      "y": 0.234
-    },
-    "library/the-overstory": {
-      "x": 0.6748,
-      "y": 0.6375
-    },
     "jottings/on-the-joy-of-finding-a-good-book": {
       "x": 0.3542,
       "y": 0.4713
@@ -885,10 +885,6 @@
     "jottings/test-quote": {
       "x": 0.6567,
       "y": 0.2647
-    },
-    "jottings/test": {
-      "x": 0.8703,
-      "y": 0.8751
     }
   },
   "territories": [
@@ -944,7 +940,7 @@
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 17
+      "itemCount": 16
     }
   ]
 }
