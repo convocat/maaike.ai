@@ -8,7 +8,7 @@ const { url, title } = Astro.props;
 ---
 
 <a
-  href="https://www.linkedin.com/feed/?shareActive=true"
+  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
   class="share-linkedin"
   target="_blank"
   rel="noopener noreferrer"
