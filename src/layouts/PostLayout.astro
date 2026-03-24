@@ -69,6 +69,7 @@ const formattedUpdated = updated
           {isHub && <span class="project-badge">Project hub</span>}
         </div>
         <h1>{title}</h1>
+        {description && <p class="post-subtitle">{description}</p>}
         {url && (
           <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
             {new URL(url).hostname.replace('www.', '')} ↗
@@ -226,7 +227,16 @@ const formattedUpdated = updated
   .post-header h1 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     line-height: 1.2;
-    margin-block: var(--space-md) var(--space-md);
+    margin-block: var(--space-md) var(--space-xs);
+  }
+
+  .post-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-block: var(--space-xs) var(--space-md);
+    font-family: var(--font-body);
+    font-weight: 400;
   }
 
   .external-link {

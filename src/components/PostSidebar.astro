@@ -1,6 +1,6 @@
 ---
 import { getBacklinks } from '../utils/backlinks';
-import { getRelatedPosts, getAllContent } from '../utils/collections';
+import { getRelatedPosts, getAllContent, getLinkedBooks } from '../utils/collections';
 import { getSuggestedBooks } from '../utils/recommender';
 import CollectionIcon from './CollectionIcon.astro';
 interface Props {
@@ -19,6 +19,7 @@ const isHub = hub === true;
 const backlinks = await getBacklinks(slug);
 const relatedPosts = await getRelatedPosts(slug, tags, collection);
 const suggestedBooks = await getSuggestedBooks(collection, slug, tags);
+const linkedBooks = await getLinkedBooks(slug);
 
 // Resolve the hub post when this file develops one
 let hubPost: { title: string; href: string; collection: string } | null = null;
@@ -71,6 +72,29 @@ if (develops) {
             <a href={href}>
               <CollectionIcon collection={coll} size={14} />
               <span>{rpTitle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {linkedBooks.length > 0 && (
+    <section class="sidebar-section">
+      <h3 class="sidebar-heading">Books mentioned</h3>
+      <ul class="sidebar-books">
+        {linkedBooks.map(({ title: bookTitle, author, href, cover }) => (
+          <li>
+            <a href={href} class="sidebar-book">
+              {cover ? (
+                <img src={cover} alt="" class="sidebar-book-cover" loading="lazy" />
+              ) : (
+                <div class="sidebar-book-placeholder">{bookTitle.charAt(0)}</div>
+              )}
+              <div class="sidebar-book-info">
+                <span class="sidebar-book-title">{bookTitle}</span>
+                <span class="sidebar-book-author">{author}</span>
+              </div>
             </a>
           </li>
         ))}

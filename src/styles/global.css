@@ -96,6 +96,14 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   margin-block-start: var(--space-xl);
   margin-block-end: var(--space-sm);
 }
+.prose h6 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-block: var(--space-md);
+}
 .prose ul, .prose ol {
   padding-inline-start: var(--space-lg);
   margin-block: var(--space-md);
