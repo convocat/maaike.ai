@@ -21,16 +21,29 @@ function loadEnv(filePath) {
 
 const env = loadEnv(envPath);
 const accessToken = env.LINKEDIN_ACCESS_TOKEN;
-
 if (!accessToken) {
   console.error('Missing LINKEDIN_ACCESS_TOKEN in .env');
   process.exit(1);
 }
 
+// Fetch member URN from userinfo (requires openid + profile scopes)
+async function getMemberUrn() {
+  if (env.LINKEDIN_MEMBER_URN) return env.LINKEDIN_MEMBER_URN;
+  const res = await fetch('https://api.linkedin.com/v2/userinfo', {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Failed to get member URN: ${res.status} ${body}`);
+  }
+  const data = await res.json();
+  return `urn:li:person:${data.sub}`;
+}
+
 // Read post text from a temp file passed as argument
 const textFile = process.argv[2];
 if (!textFile || !fs.existsSync(textFile)) {
-  console.error('Usage: node post-to-linkedin.mjs <text-file> [image-file]');
+  console.error('Usage: node post-to-linkedin.mjs <text-file> [image-file] [comment-text]');
   console.error('The text file should contain the LinkedIn post text.');
   console.error('Optional: path to an image file (PNG/JPG) to attach.');
   process.exit(1);
@@ -40,40 +53,25 @@ const postText = fs.readFileSync(textFile, 'utf-8').trim();
 const imageFile = process.argv[3] || null;
 const commentText = process.argv[4] || null;
 
-// Step 1: Get the user's LinkedIn profile URN
-async function getProfileUrn() {
-  const res = await fetch('https://api.linkedin.com/v2/userinfo', {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`Failed to get profile: ${res.status} ${body}`);
-  }
-  const data = await res.json();
-  return data.sub;
-}
+const HEADERS = {
+  Authorization: `Bearer ${accessToken}`,
+  'Content-Type': 'application/json',
+  'X-Restli-Protocol-Version': '2.0.0',
+};
 
-// Step 2a: Register an image upload with LinkedIn
-async function registerImageUpload(authorUrn) {
+// Step 1: Register image upload (v2 API)
+async function initializeImageUpload(memberUrn) {
   const payload = {
     registerUploadRequest: {
       recipes: ['urn:li:digitalmediaRecipe:feedshare-image'],
-      owner: `urn:li:person:${authorUrn}`,
-      serviceRelationships: [
-        {
-          relationshipType: 'OWNER',
-          identifier: 'urn:li:userGeneratedContent',
-        },
-      ],
+      owner: memberUrn,
+      serviceRelationships: [{ relationshipType: 'OWNER', identifier: 'urn:li:userGeneratedContent' }],
     },
   };
 
   const res = await fetch('https://api.linkedin.com/v2/assets?action=registerUpload', {
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-    },
+    headers: HEADERS,
     body: JSON.stringify(payload),
   });
 
@@ -84,18 +82,18 @@ async function registerImageUpload(authorUrn) {
 
   const data = await res.json();
   const uploadUrl = data.value.uploadMechanism['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest'].uploadUrl;
-  const asset = data.value.asset;
-  return { uploadUrl, asset };
+  const imageUrn = data.value.asset;
+  return { uploadUrl, imageUrn };
 }
 
-// Step 2b: Upload the image binary
-async function uploadImage(uploadUrl, imagePath) {
+// Step 2: Upload image binary
+async function uploadImageBinary(uploadUrl, imagePath) {
   const imageData = fs.readFileSync(imagePath);
   const res = await fetch(uploadUrl, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'image/png',
+      'Content-Type': 'application/octet-stream',
     },
     body: imageData,
   });
@@ -106,23 +104,54 @@ async function uploadImage(uploadUrl, imagePath) {
   }
 }
 
-// Step 3: Add a comment to a post
-async function addComment(postUrn, authorUrn, text) {
+// Step 3: Create post (v2 ugcPosts API)
+async function createPost(memberUrn, text, imageUrn) {
+  let shareContent;
+  if (imageUrn) {
+    shareContent = { shareCommentary: { text }, shareMediaCategory: 'IMAGE', media: [{ status: 'READY', media: imageUrn }] };
+  } else {
+    shareContent = { shareCommentary: { text }, shareMediaCategory: 'NONE' };
+  }
+
   const payload = {
-    actor: `urn:li:person:${authorUrn}`,
+    author: memberUrn,
+    lifecycleState: 'PUBLISHED',
+    specificContent: { 'com.linkedin.ugc.ShareContent': shareContent },
+    visibility: { 'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC' },
+  };
+
+  const res = await fetch('https://api.linkedin.com/v2/ugcPosts', {
+    method: 'POST',
+    headers: HEADERS,
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Failed to create post: ${res.status} ${body}`);
+  }
+
+  const postData = await res.json();
+  const postUrn = postData.id;
+  return postUrn;
+}
+
+// Step 4: Add a comment (new REST API)
+async function addComment(memberUrn, postUrn, text) {
+  const payload = {
+    actor: memberUrn,
     message: { text },
     object: postUrn,
   };
 
-  const res = await fetch('https://api.linkedin.com/v2/socialActions/' + encodeURIComponent(postUrn) + '/comments', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-      'X-Restli-Protocol-Version': '2.0.0',
-    },
-    body: JSON.stringify(payload),
-  });
+  const res = await fetch(
+    `https://api.linkedin.com/v2/socialActions/${encodeURIComponent(postUrn)}/comments`,
+    {
+      method: 'POST',
+      headers: HEADERS,
+      body: JSON.stringify(payload),
+    }
+  );
 
   if (!res.ok) {
     const body = await res.text();
@@ -130,90 +159,39 @@ async function addComment(postUrn, authorUrn, text) {
   }
 }
 
-// Step 4: Create a post (text only or with image)
-async function createPost(authorUrn, text, imageAsset) {
-  let shareContent;
-
-  if (imageAsset) {
-    shareContent = {
-      shareCommentary: { text },
-      shareMediaCategory: 'IMAGE',
-      media: [
-        {
-          status: 'READY',
-          media: imageAsset,
-        },
-      ],
-    };
-  } else {
-    shareContent = {
-      shareCommentary: { text },
-      shareMediaCategory: 'NONE',
-    };
-  }
-
-  const payload = {
-    author: `urn:li:person:${authorUrn}`,
-    lifecycleState: 'PUBLISHED',
-    specificContent: {
-      'com.linkedin.ugc.ShareContent': shareContent,
-    },
-    visibility: {
-      'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC',
-    },
-  };
-
-  const res = await fetch('https://api.linkedin.com/v2/ugcPosts', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-      'X-Restli-Protocol-Version': '2.0.0',
-    },
-    body: JSON.stringify(payload),
-  });
-
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`Failed to post: ${res.status} ${body}`);
-  }
-
-  const postId = res.headers.get('x-restli-id');
-  return postId;
-}
-
 try {
-  console.log('Getting your LinkedIn profile...');
-  const urn = await getProfileUrn();
-  console.log(`Posting as: urn:li:person:${urn}`);
+  const memberUrn = await getMemberUrn();
+  console.log(`Posting as: ${memberUrn}`);
 
-  let imageAsset = null;
+  let imageUrn = null;
 
   if (imageFile && fs.existsSync(imageFile)) {
     console.log(`Uploading image: ${imageFile}`);
-    const { uploadUrl, asset } = await registerImageUpload(urn);
-    await uploadImage(uploadUrl, imageFile);
-    imageAsset = asset;
-    console.log('Image uploaded.');
+    const { uploadUrl, imageUrn: urn } = await initializeImageUpload(memberUrn);
+    await uploadImageBinary(uploadUrl, imageFile);
+    imageUrn = urn;
+    console.log(`Image uploaded: ${imageUrn}`);
   }
 
   console.log('');
   console.log('--- Post content ---');
   console.log(postText);
-  if (imageAsset) console.log(`[Image attached: ${imageFile}]`);
+  if (imageUrn) console.log(`[Image: ${imageFile}]`);
+  if (commentText) console.log(`[Comment: ${commentText}]`);
   console.log('--------------------');
   console.log('');
   console.log('Publishing to LinkedIn...');
-  const postId = await createPost(urn, postText, imageAsset);
-  console.log(`Published! Post ID: ${postId}`);
-  if (postId) {
-    const shareId = postId.replace('urn:li:ugcPost:', '').replace('urn:li:share:', '');
-    console.log(`View at: https://www.linkedin.com/feed/update/urn:li:share:${shareId}/`);
 
-    // Add a comment with the link if provided
+  const postUrn = await createPost(memberUrn, postText, imageUrn);
+  console.log(`Published! Post URN: ${postUrn}`);
+
+  if (postUrn) {
+    const shareId = postUrn.replace('urn:li:share:', '').replace('urn:li:ugcPost:', '');
+    console.log(`View at: https://www.linkedin.com/feed/update/${postUrn}/`);
+
     if (commentText) {
       console.log('Adding comment with link...');
-      await addComment(postId, urn, commentText);
+      await addComment(memberUrn, postUrn, commentText);
       console.log('Comment added.');
     }
   }
