@@ -34,6 +34,8 @@ const streamEligible = allContent.filter((e) => {
   if (e.collection === 'articles' && data.date.getFullYear() < 2025) return false;
   // Exclude quotes (they get pinned in hero row)
   if (e.collection === 'jottings' && data.type === 'quote') return false;
+  // Exclude hub posts — they appear in the projects sidebar, not the main stream
+  if (data.hub === true) return false;
   return true;
 });
 
@@ -86,6 +88,8 @@ const fullCollectionItems = allContent.filter((e) => {
   if (e.collection === 'field-notes' && data.tags?.includes('about')) return false;
   if (data.develops) return false;
   if (e.collection === 'jottings' && data.type === 'quote') return false;
+  // Exclude hub posts — they appear in the projects filter, not the main collections
+  if (data.hub === true) return false;
   return true;
 });
 
