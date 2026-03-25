@@ -68,10 +68,35 @@ All pushes and PR merges to `main` run:
 - OG image generation
 
 Additionally:
-- PR merge with a new article file: LinkedIn post
-- Direct push with a new jotting file: LinkedIn post
+- PR merge with a new article file (`on-article-publish.yml`): LinkedIn post
+- Direct push with a new jotting file (`on-jotting-push.yml`): LinkedIn post
 
 New vs updated is detected by git file status: `A` (added) triggers LinkedIn, `M` (modified) does not.
+
+## Setting up LinkedIn auto-posting
+
+The LinkedIn workflows require two GitHub secrets. Add them in **repo Settings > Secrets and variables > Actions**:
+
+| Secret | Value |
+|---|---|
+| `LINKEDIN_ACCESS_TOKEN` | OAuth access token from your LinkedIn app |
+| `LINKEDIN_MEMBER_URN` | Optional. Your LinkedIn member URN (`urn:li:person:...`). Auto-fetched if not set. |
+
+If the secrets are not configured, the workflows run but skip the LinkedIn step gracefully with a log message.
+
+**Token expiry:** LinkedIn access tokens expire after 60 days. Refresh the `LINKEDIN_ACCESS_TOKEN` secret when it expires.
+
+## Custom LinkedIn post text
+
+Add a `<div class="linkedin">` block anywhere in a post body to override the auto-generated text (title + description):
+
+```html
+<div class="linkedin">
+Your custom LinkedIn post text here.
+</div>
+```
+
+The block is hidden on the published site but renders as a sage green card in Typora. If no block is present, the post title and description are used automatically.
 
 ## Branch naming conventions
 

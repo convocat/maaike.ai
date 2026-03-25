@@ -20,15 +20,15 @@ function loadEnv(filePath) {
 }
 
 const env = loadEnv(envPath);
-const accessToken = env.LINKEDIN_ACCESS_TOKEN;
+const accessToken = env.LINKEDIN_ACCESS_TOKEN || process.env.LINKEDIN_ACCESS_TOKEN;
 if (!accessToken) {
-  console.error('Missing LINKEDIN_ACCESS_TOKEN in .env');
+  console.error('Missing LINKEDIN_ACCESS_TOKEN in .env or environment');
   process.exit(1);
 }
 
 // Fetch member URN from userinfo (requires openid + profile scopes)
 async function getMemberUrn() {
-  if (env.LINKEDIN_MEMBER_URN) return env.LINKEDIN_MEMBER_URN;
+  if (env.LINKEDIN_MEMBER_URN || process.env.LINKEDIN_MEMBER_URN) return env.LINKEDIN_MEMBER_URN || process.env.LINKEDIN_MEMBER_URN;
   const res = await fetch('https://api.linkedin.com/v2/userinfo', {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
