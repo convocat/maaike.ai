@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-24T20:46:47.057Z",
+  "generated": "2026-03-25T21:39:50.709Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -675,8 +675,8 @@
       "y": 0.9061
     },
     "library/machines-like-me": {
-      "x": 0.7526,
-      "y": 0.2934
+      "x": 0.7522,
+      "y": 0.2913
     },
     "library/microcopy": {
       "x": 0.8943,
@@ -719,8 +719,8 @@
       "y": 0.2579
     },
     "library/robots-zombies-and-us": {
-      "x": 0.7314,
-      "y": 0.2811
+      "x": 0.7302,
+      "y": 0.2805
     },
     "library/semiotics-the-basics": {
       "x": 0.4633,
@@ -885,6 +885,10 @@
     "jottings/test-quote": {
       "x": 0.6567,
       "y": 0.2647
+    },
+    "field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing": {
+      "x": 0.7637,
+      "y": 0.3116
     }
   },
   "territories": [
@@ -934,7 +938,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 20
+      "itemCount": 21
     },
     {
       "label": "developer-experience",
