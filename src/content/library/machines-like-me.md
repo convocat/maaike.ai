@@ -6,7 +6,6 @@ date: 2026-03-12
 status: to-read
 maturity: draft
 tags:
-
   - fiction
 ai: assisted
 book_type: fiction
