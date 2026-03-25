@@ -5,7 +5,7 @@ cover: "/images/library/artificial-intelligence-a-guide-for-thinking-humans.jpg"
 date: 2026-03-12
 status: to-read
 maturity: draft
-tags:
+tags: []
 
 ai: assisted
 book_type: non-fiction

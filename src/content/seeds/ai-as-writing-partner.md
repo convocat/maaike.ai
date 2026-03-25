@@ -4,7 +4,6 @@ date: 2026-03-11
 updated: 2026-03-15
 maturity: draft
 tags:
-
   - writing
 description: What's the right metaphor for AI's role in my writing process?
 ai: 100% Maai

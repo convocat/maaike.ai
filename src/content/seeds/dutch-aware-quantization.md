@@ -4,7 +4,6 @@ date: 2026-03-14
 updated: 2026-03-15
 maturity: draft
 tags:
-
   - knowledge-management
 description: Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.
 draft: false

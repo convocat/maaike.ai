@@ -5,7 +5,6 @@ cover: "/images/library/slant.jpg"
 date: 2026-03-12
 maturity: draft
 tags:
-
   - fiction
 ai: assisted
 status: abandoned

@@ -5,7 +5,7 @@ cover: "/images/library/you-look-like-a-thing-and-i-love-you.jpg"
 date: 2026-03-12
 status: read
 maturity: draft
-tags:
+tags: []
 
 ai: assisted
 book_type: non-fiction

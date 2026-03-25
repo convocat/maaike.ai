@@ -4,7 +4,6 @@ url: https://youtu.be/jYL1vvLQ3qg
 date: 2024-06-03
 maturity: complete
 tags:
-
   - conversation-design
   - content-design
 description: New roles, skills and tools for content professionals in the age of generative AI.
