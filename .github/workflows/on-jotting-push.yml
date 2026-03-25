@@ -1,0 +1,98 @@
+name: On jotting published
+
+# Fires on direct pushes to main that touch jotting files.
+# Detects newly added jottings (not updates) and posts them to LinkedIn.
+# Jottings bypass the PR flow by design — this is their automation hook.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/jottings/**'
+
+jobs:
+  linkedin-share:
+    name: Share new jottings to LinkedIn
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Find new jottings
+        id: detect
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          # Skip if this is the very first push (no previous commit to diff against)
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "found=false" >> $GITHUB_OUTPUT
+            echo "Initial push — skipping LinkedIn share."
+            exit 0
+          fi
+
+          # Status A = added (new file), M = modified (update, skip for LinkedIn)
+          NEW=$(git diff --name-status "$BEFORE" "$AFTER" -- src/content/jottings/ \
+            | grep '^A' | awk '{print $2}')
+
+          if [ -n "$NEW" ]; then
+            echo "found=true" >> $GITHUB_OUTPUT
+            {
+              echo 'files<<EOF'
+              echo "$NEW"
+              echo 'EOF'
+            } >> $GITHUB_OUTPUT
+            echo "New jottings detected:"
+            echo "$NEW"
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+            echo "No new jottings detected — skipping LinkedIn share."
+          fi
+
+      - name: Post to LinkedIn
+        if: steps.detect.outputs.found == 'true'
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_MEMBER_URN: ${{ secrets.LINKEDIN_MEMBER_URN }}
+        run: |
+          if [ -z "$LINKEDIN_ACCESS_TOKEN" ]; then
+            echo "LINKEDIN_ACCESS_TOKEN secret not set — skipping."
+            echo "Add it in repo Settings > Secrets > Actions to enable auto-posting."
+            exit 0
+          fi
+
+          while IFS= read -r FILE; do
+            [ -z "$FILE" ] && continue
+
+            # Skip draft posts
+            if grep -q '^draft: true' "$FILE"; then
+              echo "Skipping draft: $FILE"
+              continue
+            fi
+
+            SLUG=$(basename "$FILE" .md)
+            URL="https://maaike.ai/jottings/${SLUG}"
+            OG_IMAGE="public/images/og/jottings/${SLUG}.png"
+
+            echo "Posting to LinkedIn: $SLUG"
+
+            # Extract post text (custom linkedin block > title + description)
+            node scripts/prepare-linkedin-post.mjs "$FILE" > /tmp/linkedin-post.txt
+
+            # Post — script handles missing OG image gracefully
+            node scripts/post-to-linkedin.mjs \
+              /tmp/linkedin-post.txt \
+              "$OG_IMAGE" \
+              "Read the full post: $URL"
+
+          done <<< "${{ steps.detect.outputs.files }}"
