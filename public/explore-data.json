@@ -34,7 +34,7 @@
       "x": 0.8661,
       "y": 0.6312,
       "keyphrases": [],
-      "connections": 1
+      "connections": 2
     },
     {
       "slug": "air-canadas-bot-mishap-pre-dates-chatgpt",
@@ -598,7 +598,7 @@
       "x": 0.757,
       "y": 0.6089,
       "keyphrases": [],
-      "connections": 9
+      "connections": 0
     },
     {
       "slug": "claude-md-project-memory",
@@ -622,7 +622,7 @@
       "x": 0.602,
       "y": 0.7148,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "design-system-and-content-guidelines",
@@ -646,7 +646,7 @@
       "x": 0.9363,
       "y": 0.5988,
       "keyphrases": [],
-      "connections": 2
+      "connections": 3
     },
     {
       "slug": "embedding-models-for-the-garden",
@@ -658,7 +658,7 @@
       "x": 0.6865,
       "y": 0.7049,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "experiment-1-scheduled-garden-health-check",
@@ -706,7 +706,7 @@
       "x": 0.5809,
       "y": 0.4586,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "full-scale-key-phrase-extraction",
@@ -718,7 +718,7 @@
       "x": 0.5475,
       "y": 0.7478,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "garden-lifecycle-greenhouse-compost",
@@ -754,7 +754,7 @@
       "x": 0.7076,
       "y": 0.7273,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -766,7 +766,7 @@
       "x": 0.7598,
       "y": 0.7281,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "reading-notes-saga-knowledge-graph",
@@ -778,7 +778,7 @@
       "x": 0.5896,
       "y": 0.7665,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "stable-map-positions",
@@ -838,7 +838,7 @@
       "x": 0.9041,
       "y": 0.6008,
       "keyphrases": [],
-      "connections": 2
+      "connections": 3
     },
     {
       "slug": "tuning-the-similarity-threshold",
@@ -850,7 +850,7 @@
       "x": 0.4973,
       "y": 0.7375,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "typed-relations-as-garden-infrastructure",
@@ -874,7 +874,7 @@
       "x": 0.4675,
       "y": 0.6689,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "ai-transparency-in-content",
@@ -886,7 +886,7 @@
       "x": 0.4695,
       "y": 0.3553,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "chatbots-without-ai",
@@ -922,7 +922,7 @@
       "x": 0.4809,
       "y": 0.7721,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "embeddings-for-knowledge-gardens-research-gap",
@@ -934,7 +934,7 @@
       "x": 0.6722,
       "y": 0.7299,
       "keyphrases": [],
-      "connections": 20
+      "connections": 15
     },
     {
       "slug": "garden-to-do-list",
@@ -958,7 +958,7 @@
       "x": 0.9404,
       "y": 0.6262,
       "keyphrases": [],
-      "connections": 2
+      "connections": 3
     },
     {
       "slug": "knowledge-gardens-and-serendipity",
@@ -994,7 +994,7 @@
       "x": 0.4887,
       "y": 0.6779,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "the-disappearance-of-authentic-voice-online",
@@ -1006,7 +1006,7 @@
       "x": 0.6239,
       "y": 0.3169,
       "keyphrases": [],
-      "connections": 10
+      "connections": 1
     },
     {
       "slug": "thematic-analysis-as-interaction-model-and-research-method",
@@ -1054,7 +1054,7 @@
       "x": 0.6238,
       "y": 0.7468,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "www-linkedin-com",
@@ -1090,7 +1090,7 @@
       "x": 0.3894,
       "y": 0.707,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "an-evening-with-perplexity-ai",
@@ -1114,7 +1114,7 @@
       "x": 0.2473,
       "y": 0.8417,
       "keyphrases": [],
-      "connections": 10
+      "connections": 2
     },
     {
       "slug": "content-driven-interaction-in-4-steps",
@@ -1150,7 +1150,7 @@
       "x": 0.4034,
       "y": 0.624,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "episode-2-types-of-ai",
@@ -1174,7 +1174,7 @@
       "x": 0.3793,
       "y": 0.6631,
       "keyphrases": [],
-      "connections": 6
+      "connections": 0
     },
     {
       "slug": "generative-ai-new-roles-skills-tools",
@@ -1186,7 +1186,7 @@
       "x": 0.5034,
       "y": 0.6292,
       "keyphrases": [],
-      "connections": 4
+      "connections": 2
     },
     {
       "slug": "kudos-to-chevrolet",
@@ -1198,7 +1198,7 @@
       "x": 0.3836,
       "y": 0.8703,
       "keyphrases": [],
-      "connections": 2
+      "connections": 0
     },
     {
       "slug": "linkedin-ai-buttons-a-little-rant",
@@ -1210,7 +1210,7 @@
       "x": 0.3708,
       "y": 0.8006,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "lunchbreak-with-claude-research-papers",
@@ -1222,7 +1222,7 @@
       "x": 0.3112,
       "y": 0.6864,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "lunchbreak-with-claude",
@@ -1234,7 +1234,7 @@
       "x": 0.2874,
       "y": 0.7534,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "modeling-conversational-agents-natural-conversation-framework",
@@ -1366,7 +1366,7 @@
       "x": 0.3275,
       "y": 0.7288,
       "keyphrases": [],
-      "connections": 3
+      "connections": 0
     },
     {
       "slug": "taking-deepseek-for-a-testdrive",
@@ -1402,7 +1402,7 @@
       "x": 0.7665,
       "y": 0.2735,
       "keyphrases": [],
-      "connections": 7
+      "connections": 1
     },
     {
       "slug": "artificial-intelligence-a-guide-for-thinking-humans",
@@ -1546,7 +1546,7 @@
       "x": 0.7198,
       "y": 0.3026,
       "keyphrases": [],
-      "connections": 6
+      "connections": 0
     },
     {
       "slug": "language-acquisition",
@@ -1738,7 +1738,7 @@
       "x": 0.5239,
       "y": 0.7308,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "setting-up-local-embedding-models",
@@ -1750,7 +1750,7 @@
       "x": 0.5257,
       "y": 0.7026,
       "keyphrases": [],
-      "connections": 16
+      "connections": 12
     },
     {
       "slug": "on-the-joy-of-finding-a-good-book",
@@ -1775,6 +1775,18 @@
       "y": 0.2647,
       "keyphrases": [],
       "connections": 0
+    },
+    {
+      "slug": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "title": "The garden so far: how do I keep the weeds away from my writing",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "On the tension between cultivating a tidy digital garden and letting the chaos of ideas coexist. How AI-assisted growth pulls at the time and attention I'd rather spend writing.",
+      "url": "/field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "x": 0.7637,
+      "y": 0.3116,
+      "keyphrases": [],
+      "connections": 4
     }
   ],
   "territories": [
@@ -1824,7 +1836,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 20
+      "itemCount": 21
     },
     {
       "label": "developer-experience",
@@ -1962,7 +1974,7 @@
               0.019
             ],
             [
-              0.889,
+              0.89,
               0.032
             ],
             [
@@ -1975,67 +1987,67 @@
             ],
             [
               0.935,
-              0.094
+              0.093
             ],
             [
-              0.937,
+              0.938,
               0.097
             ],
             [
-              0.946,
+              0.947,
               0.129
             ],
             [
-              0.951,
+              0.952,
               0.161
             ],
             [
-              0.951,
+              0.953,
               0.194
             ],
             [
-              0.948,
+              0.951,
               0.226
             ],
             [
-              0.942,
+              0.946,
               0.258
             ],
             [
-              0.935,
-              0.282
-            ],
-            [
-              0.933,
+              0.939,
               0.29
             ],
             [
-              0.927,
+              0.935,
+              0.311
+            ],
+            [
+              0.934,
               0.323
             ],
             [
-              0.927,
+              0.935,
               0.355
             ],
             [
               0.935,
-              0.369
+              0.356
             ],
             [
-              0.949,
+              0.955,
               0.387
             ],
             [
               0.968,
-              0.399
+              0.397
             ],
             [
-              0.993,
+              0.994,
               0.419
             ],
             [
               1,
-              0.424
+              0.423
             ]
           ],
           [
@@ -2599,123 +2611,131 @@
               0.098
             ],
             [
+              0.612,
+              0.097
+            ],
+            [
               0.613,
               0.097
             ],
             [
               0.645,
-              0.097
+              0.096
             ],
             [
               0.677,
+              0.096
+            ],
+            [
+              0.705,
               0.097
             ],
             [
               0.71,
-              0.099
+              0.097
             ],
             [
               0.742,
-              0.102
+              0.1
             ],
             [
               0.774,
-              0.109
+              0.106
             ],
             [
               0.806,
-              0.124
+              0.12
             ],
             [
-              0.812,
+              0.818,
               0.129
             ],
             [
-              0.836,
-              0.161
-            ],
-            [
               0.839,
-              0.171
-            ],
-            [
-              0.844,
-              0.194
+              0.156
             ],
             [
               0.842,
+              0.161
+            ],
+            [
+              0.851,
+              0.194
+            ],
+            [
+              0.852,
               0.226
             ],
             [
-              0.839,
-              0.239
-            ],
-            [
-              0.833,
+              0.846,
               0.258
             ],
             [
-              0.815,
+              0.839,
+              0.277
+            ],
+            [
+              0.832,
               0.29
             ],
             [
-              0.806,
-              0.3
-            ],
-            [
-              0.78,
+              0.808,
               0.323
             ],
             [
+              0.806,
+              0.325
+            ],
+            [
               0.774,
-              0.327
+              0.348
+            ],
+            [
+              0.759,
+              0.355
             ],
             [
               0.742,
-              0.344
-            ],
-            [
-              0.711,
-              0.355
+              0.362
             ],
             [
               0.71,
-              0.355
+              0.37
             ],
             [
               0.677,
-              0.363
+              0.374
             ],
             [
               0.645,
-              0.369
+              0.377
             ],
             [
               0.613,
-              0.375
+              0.381
             ],
             [
               0.581,
-              0.382
+              0.386
             ],
             [
-              0.566,
+              0.576,
               0.387
             ],
             [
               0.548,
-              0.396
+              0.398
             ],
             [
-              0.521,
+              0.522,
               0.419
             ],
             [
               0.516,
-              0.431
+              0.433
             ],
             [
-              0.509,
+              0.51,
               0.452
             ],
             [
@@ -2744,7 +2764,7 @@
             ],
             [
               0.613,
-              0.561
+              0.56
             ],
             [
               0.645,
@@ -2756,51 +2776,51 @@
             ],
             [
               0.71,
-              0.553
+              0.552
             ],
             [
-              0.719,
+              0.717,
               0.548
             ],
             [
               0.742,
-              0.536
+              0.534
             ],
             [
-              0.774,
-              0.517
-            ],
-            [
-              0.776,
+              0.773,
               0.516
             ],
             [
+              0.774,
+              0.515
+            ],
+            [
               0.806,
-              0.499
+              0.496
             ],
             [
               0.839,
-              0.486
+              0.484
             ],
             [
-              0.851,
+              0.839,
               0.484
             ],
             [
               0.871,
-              0.479
+              0.477
             ],
             [
               0.903,
-              0.479
+              0.477
             ],
             [
-              0.924,
+              0.927,
               0.484
             ],
             [
               0.935,
-              0.487
+              0.486
             ],
             [
               0.968,
