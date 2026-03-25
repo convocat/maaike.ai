@@ -6,7 +6,7 @@ date: 2026-03-12
 status: read
 maturity: draft
 tags:
-  - ai
+
   - philosophy
   - human-computer-interaction
   - social-psychology

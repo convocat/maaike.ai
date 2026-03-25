@@ -4,7 +4,7 @@ url: https://youtu.be/PtGvHuibCys
 date: 2024-06-23
 maturity: complete
 tags:
-  - ai
+
   - prompt-design
 description: Building an interactive tutorial with Claude on a Sunday afternoon.
 draft: false

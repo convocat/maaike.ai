@@ -40,8 +40,6 @@ Run these in order, halting on any error:
    node scripts/build-explore-data.cjs
    ```
 
-5. **Update release notes** — run `/update-release-notes`, show draft, wait for approval.
-
 ## Step 4: Commit
 
 Stage only the relevant files (the post, OG image, explore data, release notes). Commit with:

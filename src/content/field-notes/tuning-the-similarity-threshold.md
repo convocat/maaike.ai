@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: How to go from "everything is related to everything" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.
 ai: co-created

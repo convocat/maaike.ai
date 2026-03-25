@@ -4,7 +4,7 @@ date: 2026-03-14
 maturity: solid
 tags:
   - knowledge-graph
-  - ai
+
 description: Apple's hybrid batch-incremental knowledge graph platform. Key inspiration for building smarter connections in this garden.
 url: https://arxiv.org/abs/2204.07309
 ---

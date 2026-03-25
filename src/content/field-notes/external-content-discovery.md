@@ -5,7 +5,7 @@ maturity: draft
 tags:
   - knowledge-graph
   - digital-gardens
-  - ai
+
 hub: true
 develops: knowledge-graph-for-the-garden
 description: Using the garden's own knowledge graph to find relevant external content, papers, and articles.

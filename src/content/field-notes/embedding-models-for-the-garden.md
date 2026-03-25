@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: A non-coder's guide to text embedding models, from word counting to semantic understanding, surveyed for use in a personal knowledge garden.
 ai: co-created

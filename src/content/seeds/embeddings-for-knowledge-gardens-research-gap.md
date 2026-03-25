@@ -6,7 +6,7 @@ maturity: draft
 tags:
   - digital-gardens
   - knowledge-graph
-  - ai
+
   - knowledge-management
 description: Academic research on embeddings hasn't caught up with how PKM tools actually use them. There might be something worth writing here.
 draft: false

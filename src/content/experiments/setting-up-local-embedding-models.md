@@ -4,7 +4,7 @@ date: 2026-03-14
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.
 ai: co-created

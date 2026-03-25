@@ -4,9 +4,9 @@ date: 2026-03-24
 maturity: developing
 tags: [reading, books, hayles, bacteria-to-ai]
 description: "On the joy of finding a book that speaks to you"
-type: post
+type: note
 draft: false
-ai: "100% Maai"
+ai: "co-created"
 ---
 
 ###### Sometimes a book is so good that you just want to underline and memorize everything. [[bacteria-to-ai|Bacteria to AI]] is such a book.
