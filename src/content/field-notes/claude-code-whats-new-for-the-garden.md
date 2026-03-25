@@ -5,7 +5,7 @@ maturity: draft
 tags:
   - claude-code
   - digital-gardens
-  - ai
+
 hub: true
 description: "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers."
 ai: co-created
@@ -114,9 +114,10 @@ Started as a typo ("interaction model" instead of "research method"), turned int
 - [x] Created project hub
 - [x] Created seed: thematic analysis as interaction model and research method
 - [x] Experiment 1: scheduled garden health check
-- [ ] Experiment 2: thematic analysis with 1M context
+- [x] Experiment 2: thematic analysis with 1M context ([[experiment-2-thematic-analysis-with-1m-context|field note]])
 - [ ] Experiment 3: research companion with dynamic filtering
 - [ ] Experiment 4: adaptive content analysis
 - [ ] Experiment 5: parallel batch analysis
+- [ ] Instruction manual: parallel agent design for conversation designers
 - [ ] Write-up report
 - [ ] Slide deck for feedback video

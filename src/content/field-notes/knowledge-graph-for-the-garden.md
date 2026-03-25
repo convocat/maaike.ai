@@ -6,7 +6,7 @@ maturity: developing
 tags:
   - digital-gardens
   - knowledge-graph
-  - ai
+
 hub: true
 description: Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.
 ai: co-created

@@ -4,7 +4,7 @@ date: 2026-03-15
 maturity: draft
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.
 ai: co-created

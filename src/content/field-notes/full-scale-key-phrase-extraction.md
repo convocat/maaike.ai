@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.
 ai: co-created

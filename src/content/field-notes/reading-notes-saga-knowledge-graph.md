@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: solid
 tags:
   - knowledge-graph
-  - ai
+
 description: Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.
 ai: co-created
 develops: knowledge-graph-for-the-garden

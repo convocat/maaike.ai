@@ -4,7 +4,7 @@ date: 2026-03-10
 updated: 2026-03-15
 maturity: draft
 tags:
-  - ai
+
   - ai-ethics
   - writing
 description: How should I indicate when content was made with AI — and share the prompts?

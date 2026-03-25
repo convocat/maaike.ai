@@ -4,23 +4,19 @@ Create a new content post. Writing first, metadata later.
 
 ## Step 1: Select type (first question, before opening Typora)
 
-Ask the user which type of content they want to create using AskUserQuestion:
+Ask the user using AskUserQuestion with these 4 options:
 
 - **Article** — long-form piece, will be shared on LinkedIn
 - **Jotting** — short note, thought, or observation, will be shared on LinkedIn
-- **Field note** — process note, observation, or reflection (no LinkedIn)
-- **Seed** — early idea or question (no LinkedIn)
-- **Weblink** — external link with annotation (requires URL)
-- **Video** — video with annotation (requires URL)
-- **Library** — book or resource → redirect to `/new-book` skill instead
-- **File** — project sub-document → redirect to `/new-project-file` skill instead
-- **Artefact** — design deliverable → redirect to `/new-project-file` skill instead
+- **Field note or seed** — reflection or early idea (no LinkedIn)
+- **Other** — weblink, video, book, or project file
 
-If they choose **Library**, tell them: "Use `/new-book` to add a book — it fetches metadata from Open Library automatically." Stop here.
+**If they choose "Field note or seed":** ask a follow-up with 2 options: Field note / Seed.
 
-If they choose **File** or **Artefact**, tell them: "Use `/new-project-file` to create a project file — it links it to the right project hub." Stop here.
-
-If they choose **Weblink** or **Video**, ask for the URL now before opening Typora.
+**If they choose "Other":** ask a follow-up with 4 options: Weblink / Video / Library / File or artefact.
+  - If **Library**: tell them "Use `/new-book` to add a book — it fetches metadata from Open Library automatically." Stop here.
+  - If **File or artefact**: tell them "Use `/new-project-file` to create a project file — it links it to the right project hub." Stop here.
+  - If **Weblink** or **Video**: ask for the URL now before opening Typora.
 
 ## Step 2: Open Typora
 
@@ -61,7 +57,9 @@ If they choose **Weblink** or **Video**, ask for the URL now before opening Typo
    - Compare `.claude/typora/maaike-garden.css` with `$APPDATA/Typora/themes/maaike-garden.css`
    - Copy if missing or outdated: `cp ".claude/typora/maaike-garden.css" "$APPDATA/Typora/themes/maaike-garden.css"`
 
-3. Open in Typora: `"/c/Program Files/Typora/Typora.exe" "<file-path>" &`
+3. Open in Typora. Try these paths in order until one works:
+   - `"/c/Users/$USERNAME/AppData/Local/Programs/Typora/Typora.exe" "<file-path>" &`
+   - `"/c/Program Files/Typora/Typora.exe" "<file-path>" &`
 
 4. Tell the user: "Typora is open. Write your post, then come back here when you're done."
 
@@ -71,15 +69,10 @@ When the user comes back, read the file they wrote. Extract the title from the f
 
 The collection is already known from Step 1. Ask only:
 
-1. **Maturity and AI status** (single select each)
-   - Maturity: Draft, Developing, Solid, Complete
-   - AI: 100% Maai, Assisted, Co-created, Generated
+1. **Maturity** (single select): Draft, Developing, Solid, Complete
+2. **AI status** (single select): 100% Maai, Assisted, Co-created, Generated
 
-2. For **Jottings**: also ask for `type` (note / quote / event / link / post)
-
-2. **Maturity and AI status** (single select each)
-   - Maturity: Draft, Developing, Solid, Complete
-   - AI: 100% Maai, Assisted, Co-created, Generated
+For **Jottings**: also ask for `type` (note / quote / event / link / post) as a follow-up.
 
 If they chose Weblinks/Videos, ask for the URL in a follow-up question.
 

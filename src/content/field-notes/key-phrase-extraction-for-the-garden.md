@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - digital-gardens
 description: What key phrase extraction is, how it evolved from word counting to LLM prompting, and which approach fits a small multilingual knowledge garden.
 ai: co-created

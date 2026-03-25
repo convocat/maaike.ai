@@ -5,7 +5,7 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-  - ai
+
   - embeddings
 description: Why embedding models cluster documents by format instead of topic when content lengths vary, and what to do about it.
 ai: co-created
