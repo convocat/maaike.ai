@@ -230,7 +230,7 @@ const doodleIcon = collection === 'jottings'
     gap: 0.4em;
     padding: 0.45rem 1rem;
     border-block-end: 1px solid var(--color-border);
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   .mosaic-meta-right {
     margin-inline-start: auto;
@@ -238,6 +238,17 @@ const doodleIcon = collection === 'jottings'
     align-items: center;
     gap: 0.5em;
     flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .mosaic-top-meta {
+      gap: 0.3em;
+      padding: 0.4rem 0.75rem;
+    }
+    .mosaic-meta-right {
+      margin-inline-start: 0;
+      width: 100%;
+    }
+    .mosaic-tended { display: none; }
   }
   .mosaic-pinned-badge {
     font-size: 0.55rem;
