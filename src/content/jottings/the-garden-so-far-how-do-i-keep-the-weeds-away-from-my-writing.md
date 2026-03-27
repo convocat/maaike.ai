@@ -4,6 +4,7 @@ description: "On the tension between cultivating a tidy digital garden and letti
 date: 2026-03-25
 maturity: draft
 draft: false
+type: note
 tags:
   - digital-gardens
   - writing
