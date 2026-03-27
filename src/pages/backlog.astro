@@ -1,0 +1,74 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { marked } from 'marked';
+import fs from 'fs';
+import path from 'path';
+
+const backlogPath = path.resolve('.claude/backlog.md');
+const raw = fs.readFileSync(backlogPath, 'utf-8');
+
+// Strip the header block (everything up to and including the first ---)
+const withoutHeader = raw.replace(/^[\s\S]*?---\n\n/, '');
+
+// Split into entries, filter out done items for the active view
+const html = marked(withoutHeader);
+---
+
+<PageLayout title="Backlog — Maai & AI" description="What I'm working on and what's queued up next.">
+  <div class="backlog-header">
+    <h1>Backlog</h1>
+    <p class="backlog-intro">What's queued up. Sessions as branches: each thread picks up one item.</p>
+    <div class="status-legend">
+      <span>🟡 ready</span>
+      <span>🔵 in progress</span>
+      <span>🟠 parked</span>
+      <span>✅ done</span>
+    </div>
+  </div>
+
+  <div class="backlog-entries" set:html={html} />
+</PageLayout>
+
+<style>
+  .backlog-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .backlog-header h1 {
+    margin-block-end: var(--space-sm);
+  }
+
+  .backlog-intro {
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    margin-block-end: var(--space-md);
+  }
+
+  .status-legend {
+    display: flex;
+    gap: var(--space-lg);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .backlog-entries :global(h2) {
+    font-size: 1.15rem;
+    margin-block-start: var(--space-2xl);
+    margin-block-end: var(--space-sm);
+    padding-block-end: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .backlog-entries :global(p:first-of-type) {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-md);
+  }
+
+  .backlog-entries :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin-block: var(--space-xl);
+    opacity: 0.4;
+  }
+</style>
