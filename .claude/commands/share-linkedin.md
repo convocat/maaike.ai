@@ -47,8 +47,13 @@ Check if the article contains a `<div class="linkedin">` block.
 ## Step 4: Confirm and post
 
 1. Show the final text and character count
-2. After approval, write the text to a temp file
-3. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
+2. After approval, verify the post is live by running:
+   ```
+   curl -s -o /dev/null -w "%{http_code}" https://www.maaike.ai/<collection>/<slug>/
+   ```
+   If the response is not `200`, stop and tell Maaike: "The page isn't live yet at maaike.ai. Wait for the deploy to finish (~2 min after push) and try again."
+3. Once live, write the text to a temp file
+4. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
 4. This posts the image + text, then automatically adds a comment with the clickable link
 5. Show the result (post URL) to the user
 6. Delete temp files
