@@ -159,6 +159,12 @@ npm run new    # interactive content creation script
 
 Or create a `.md` file directly in the appropriate `src/content/<collection>/` folder with the required frontmatter.
 
+## Interaction examples
+
+See `.claude/interaction-examples.md` for a running log of great and meh exchanges. Use these as reference for tone, approach, and judgment.
+
+When the thread nudge fires and Maaike responds with feedback about how the interaction felt, log it there immediately: date, topic, her words, and whether it was a great or meh exchange. Do not ask for clarification — just log what she said.
+
 ## Preferences
 
 - **Commit author**: No Co-Authored-By line. Maaike is the sole author.
