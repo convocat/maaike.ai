@@ -17,10 +17,17 @@ Deliverables: one article and one LinkedIn post. Use `/new-post` to start. I wil
 
 ---
 
-## 🟡 Fix filter pills
+## 🔵 Fix stream UI
 *2026-03-27 · redesign/stream-ui*
 
-Continue work on branch `redesign/stream-ui`. The filter pills on the stream page (and other collection pages) are inconsistent — some work, some do not. Do a full review of filtering behaviour across all pages before touching anything.
+Branch `redesign/stream-ui` exists and is pushed. The stream is now the homepage (`/`), with the old collections overview moved to `/collections`. Known issue: filter pills are not working consistently. The duplicate hub posts bug was fixed directly on main via cherry-pick (already done). Start by checking out the branch and reproducing the filter pill issue in the browser.
+
+Key files:
+- `src/pages/index.astro` — stream homepage
+- `src/components/Header.astro` — mega menu with Stream, Map, Collections
+- `src/pages/collections.astro` — old homepage, now at /collections
+
+Do a full review of filtering behaviour across all pages before touching anything.
 
 ---
 

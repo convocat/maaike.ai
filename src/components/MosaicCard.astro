@@ -1,5 +1,4 @@
 ---
-import MaturityBadge from './MaturityBadge.astro';
 import CollectionIcon from './CollectionIcon.astro';
 
 interface Props {
@@ -19,118 +18,139 @@ interface Props {
   domain?: string;
   url?: string;
   hero?: boolean;
+  pinned?: boolean;
+  ai?: string;
+  bodyPreview?: string;
 }
 
 const {
   title, href, date, updated, maturity, tags = [], description,
-  collection, jottingType, source, author, cover, videoThumb, domain, url, hero = false,
+  collection, jottingType, source, author, cover, videoThumb, domain, url, hero = false, pinned = false, ai, bodyPreview,
 } = Astro.props;
 
-const dateFmt = new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric' });
-const displayDate = updated ?? date;
-const dateLabel = updated ? 'Tended' : 'Planted';
-const formattedDate = dateFmt.format(displayDate);
+const dateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+const plantedDate = dateFmt.format(date).toUpperCase();
+const tendedDate = updated ? dateFmt.format(updated).toUpperCase() : null;
+
+const maturityEmoji: Record<string, string> = {
+  draft: '🌱',
+  developing: '🌿',
+  solid: '🪴',
+  complete: '🌳',
+};
+const emoji = maturityEmoji[maturity] ?? '🌱';
+const displayAi = ai ?? '100% Maai';
 
 const isQuote = collection === 'jottings' && jottingType === 'quote';
-const isPost = collection === 'jottings' && jottingType === 'post';
-const isLink = collection === 'jottings' && jottingType === 'link';
-const isEvent = collection === 'jottings' && jottingType === 'event';
+const isPost  = collection === 'jottings' && jottingType === 'post';
+const isLink  = collection === 'jottings' && jottingType === 'link';
 const isVideo = collection === 'videos';
 const isLibrary = collection === 'library';
-const isArticle = collection === 'articles';
-const isSeed = collection === 'seeds';
-const isJotting = collection === 'jottings' && !isQuote && !isPost && !isLink && !isEvent;
 
-// Doodle icon mapping
+// Collection label (shown in top meta bar)
+const collectionLabel =
+  collection === 'field-notes' ? 'Field note' :
+  collection === 'jottings' ? (jottingType || 'note') :
+  collection.replace(/s$/, '');
+
+// Doodle icon per collection / jotting type
 const doodleIcons: Record<string, string> = {
-  articles: '/images/icons/doc.svg',
-  'field-notes': '/images/icons/note.svg',
-  seeds: '/images/icons/bulb.svg',
-  weblinks: '/images/icons/globe.svg',
-  experiments: '/images/icons/flask.svg',
+  articles:     '/images/icons/doc.svg',
+  'field-notes':'/images/icons/note.svg',
+  seeds:        '/images/icons/bulb.svg',
+  weblinks:     '/images/icons/globe.svg',
+  experiments:  '/images/icons/flask.svg',
 };
 const jottingIcons: Record<string, string> = {
-  note: '/images/icons/pencil.svg',
+  note:  '/images/icons/pencil.svg',
   quote: '/images/icons/message.svg',
   event: '/images/icons/calendar.svg',
-  link: '/images/icons/send.svg',
-  post: '/images/icons/linkedin.svg',
+  link:  '/images/icons/send.svg',
+  post:  '/images/icons/linkedin.svg',
 };
 const doodleIcon = collection === 'jottings'
   ? jottingIcons[jottingType || 'note']
   : doodleIcons[collection];
-
-const sizeClass = hero ? 'mosaic-card--hero' :
-                  isArticle ? 'mosaic-card--large' :
-                  isQuote ? 'mosaic-card--quote' :
-                  isPost ? 'mosaic-card--post' :
-                  isVideo ? 'mosaic-card--video' :
-                  isLibrary ? 'mosaic-card--book' :
-                  isEvent ? 'mosaic-card--default' :
-                  'mosaic-card--default';
 ---
 
 <article
-  class:list={['mosaic-card', sizeClass, `mosaic-card--${collection}`]}
+  class:list={['mosaic-card', `mosaic-card--${collection}`, hero && 'mosaic-card--hero']}
   data-collection={collection}
   data-maturity={maturity}
   data-tags={tags.join(',')}
   data-date={date.toISOString()}
+  data-updated={(updated ?? date).toISOString()}
+  data-ai={ai}
 >
   <a href={href} class="mosaic-link">
     {isVideo && videoThumb && (
       <img src={videoThumb} alt="" class="mosaic-thumb" loading="lazy" />
     )}
-    {isLibrary && cover && (
-      <img src={cover} alt="" class="mosaic-cover" loading="lazy" />
-    )}
-    <div class="mosaic-body">
-      {doodleIcon && (
-        <div class="mosaic-icon-row">
-          <img src={doodleIcon} alt="" class="mosaic-doodle-icon" />
-          <div class="mosaic-meta-block">
-            <span class="mosaic-collection-label">{collection === 'field-notes' ? 'Field note' : collection === 'jottings' ? (jottingType || 'note') : collection.replace(/s$/, '')}</span>
-            <time datetime={displayDate.toISOString()} class="mosaic-date">
-              {(isArticle || collection === 'field-notes') && updated ? `Tended ${formattedDate}` : formattedDate}
-            </time>
-          </div>
+
+    {/* Bookmark strip — icon only */}
+    <div class="mosaic-strip">
+      {doodleIcon
+        ? <img src={doodleIcon} alt="" class="mosaic-doodle-icon" width="32" height="32" />
+        : <CollectionIcon collection={collection} size={32} />
+      }
+    </div>
+
+    {/* Main content column */}
+    <div class="mosaic-main">
+      <div class="mosaic-top-meta">
+        {pinned && <span class="mosaic-pinned-badge">Latest</span>}
+        <span class="mosaic-collection-label">{collectionLabel}</span>
+        <span class="mosaic-dot">·</span>
+        <time datetime={date.toISOString()} class="mosaic-date">{plantedDate}</time>
+        {tendedDate && (
+          <Fragment>
+            <span class="mosaic-dot">·</span>
+            <span class="mosaic-tended">TENDED {tendedDate}</span>
+          </Fragment>
+        )}
+        <div class="mosaic-meta-right">
+          <span class="mosaic-maturity">MATURITY {emoji}</span>
+          <span class="mosaic-ai-label">{displayAi}</span>
         </div>
-      )}
-      {!doodleIcon && (
-        <div class="mosaic-icon-row">
-          <CollectionIcon collection={collection} size={32} />
-          <div class="mosaic-meta-block">
-            <span class="mosaic-collection-label">{collection.replace(/s$/, '')}</span>
-            <time datetime={displayDate.toISOString()} class="mosaic-date">
-              {(isArticle || collection === 'field-notes') && updated ? `Tended ${formattedDate}` : formattedDate}
-            </time>
-          </div>
-        </div>
-      )}
-      {isQuote ? (
-        <blockquote class="mosaic-quote-text">
-          <h3>{title}</h3>
-          {source && <cite>🌿 {source}</cite>}
-        </blockquote>
-      ) : isPost ? (
-        <Fragment>
-          <h3 class="mosaic-title">{title}</h3>
-          {description && <p class="mosaic-desc">{description}</p>}
-          {url && <span class="mosaic-post-label">LinkedIn post</span>}
-        </Fragment>
-      ) : (
-        <Fragment>
-          <h3 class="mosaic-title">{title}</h3>
-          {isLibrary && author && <span class="mosaic-author">{author}</span>}
-          {(isLink || collection === 'weblinks') && domain && <span class="mosaic-domain">{domain}</span>}
-          {description && <p class="mosaic-desc">{description}</p>}
-        </Fragment>
-      )}
+      </div>
+
+      <div class="mosaic-body">
+        {isQuote ? (
+          <blockquote class="mosaic-quote-text">
+            <h3>{title}</h3>
+            {source && <cite>{source}</cite>}
+          </blockquote>
+        ) : isPost ? (
+          <Fragment>
+            <h3 class="mosaic-title">{title}</h3>
+            {description && <p class="mosaic-desc">{description}</p>}
+          </Fragment>
+        ) : (
+          <Fragment>
+            {isLibrary && cover && (
+              <img src={cover} alt="" class="mosaic-cover" loading="lazy" />
+            )}
+            <h3 class="mosaic-title">{title}</h3>
+            {isLibrary && author && <span class="mosaic-author">{author}</span>}
+            {(isLink || collection === 'weblinks') && domain && <span class="mosaic-domain">{domain}</span>}
+            {(collection === 'articles' || collection === 'jottings') ? (
+              <Fragment>
+                {description && <p class="mosaic-desc">{description}</p>}
+                {bodyPreview && <p class="mosaic-desc mosaic-body-preview">{bodyPreview}</p>}
+                {bodyPreview && <span class="mosaic-read-more">Read more →</span>}
+              </Fragment>
+            ) : (
+              description && <p class="mosaic-desc">{description}</p>
+            )}
+          </Fragment>
+        )}
+      </div>
     </div>
   </a>
 </article>
 
 <style is:global>
+  /* ── Base card ── */
   .mosaic-card {
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
@@ -145,63 +165,142 @@ const sizeClass = hero ? 'mosaic-card--hero' :
 
   .mosaic-link {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-decoration: none;
     color: inherit;
     height: 100%;
   }
 
-  .mosaic-body {
-    padding: var(--space-lg);
+  /* ── Bookmark strip ── */
+  .mosaic-strip {
+    width: 52px;
+    flex-shrink: 0;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    flex: 1;
-  }
-
-  /* Icon row: doodle icon + meta side by side */
-  .mosaic-icon-row {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-    margin-block-end: var(--space-xs);
+    align-items: center;
+    justify-content: center;
   }
   .mosaic-doodle-icon {
     width: 32px;
     height: 32px;
-    flex-shrink: 0;
-    opacity: 0.7;
-  }
-  .mosaic-card--hero .mosaic-doodle-icon {
-    width: 44px;
-    height: 44px;
+    display: block;
   }
 
-  .mosaic-meta-block {
+  /* Strip colours per collection */
+  .mosaic-card--articles   .mosaic-strip { background: #EEE6DF; }
+  .mosaic-card--seeds      .mosaic-strip { background: #EDE8D5; }
+  .mosaic-card--field-notes .mosaic-strip { background: #D8ECD8; }
+  .mosaic-card--weblinks   .mosaic-strip { background: #D4E8E5; }
+  .mosaic-card--jottings   .mosaic-strip { background: #DDE3EF; }
+  .mosaic-card--videos     .mosaic-strip { background: #E8DDE5; }
+  .mosaic-card--library    .mosaic-strip { background: #E5E0DA; }
+  .mosaic-card--experiments .mosaic-strip { background: #D4E5E8; }
+
+  :root[data-theme="dark"] .mosaic-card--articles   .mosaic-strip { background: #2a2320; }
+  :root[data-theme="dark"] .mosaic-card--seeds      .mosaic-strip { background: #27231a; }
+  :root[data-theme="dark"] .mosaic-card--field-notes .mosaic-strip { background: #1a2b1a; }
+  :root[data-theme="dark"] .mosaic-card--weblinks   .mosaic-strip { background: #182422; }
+  :root[data-theme="dark"] .mosaic-card--jottings   .mosaic-strip { background: #1c2130; }
+  :root[data-theme="dark"] .mosaic-card--videos     .mosaic-strip { background: #251d24; }
+  :root[data-theme="dark"] .mosaic-card--library    .mosaic-strip { background: #221e1b; }
+  :root[data-theme="dark"] .mosaic-card--experiments .mosaic-strip { background: #182224; }
+
+  /* Icon tint per collection */
+  .mosaic-card--articles   .mosaic-doodle-icon { filter: invert(30%) sepia(50%) saturate(500%) hue-rotate(-15deg); }
+  .mosaic-card--seeds      .mosaic-doodle-icon { filter: invert(45%) sepia(60%) saturate(400%) hue-rotate(10deg); }
+  .mosaic-card--field-notes .mosaic-doodle-icon { filter: invert(40%) sepia(30%) saturate(600%) hue-rotate(100deg); }
+  .mosaic-card--weblinks   .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg); }
+  .mosaic-card--jottings   .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(200deg); }
+  .mosaic-card--videos     .mosaic-doodle-icon { filter: invert(30%) sepia(20%) saturate(400%) hue-rotate(270deg); }
+  .mosaic-card--library    .mosaic-doodle-icon { filter: invert(25%) sepia(15%) saturate(300%) hue-rotate(0deg); }
+  .mosaic-card--experiments .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(160deg); }
+
+  /* ── Main column ── */
+  .mosaic-main {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    flex: 1;
-  }
-  .mosaic-collection-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-text-muted);
-  }
-  .mosaic-date {
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
-  }
-  .mosaic-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+    border-inline-start: 3px double #B8B0AA;
+    min-width: 0;
   }
 
+  /* ── Top meta bar ── */
+  .mosaic-top-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.45rem 1rem;
+    border-block-end: 1px solid var(--color-border);
+    flex-wrap: nowrap;
+  }
+  .mosaic-meta-right {
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-shrink: 0;
+  }
+  .mosaic-pinned-badge {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.15em 0.45em;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+  }
+  .mosaic-collection-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b6258;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .mosaic-collection-label { color: #a89880; }
+  .mosaic-dot {
+    font-size: 0.62rem;
+    color: #c4bdb5;
+    flex-shrink: 0;
+  }
+  .mosaic-date,
+  .mosaic-tended {
+    font-size: 0.62rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+  .mosaic-date {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mosaic-maturity {
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9a8f84;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .mosaic-maturity { color: #8a7f74; }
+  .mosaic-ai-label {
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9a8f84;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .mosaic-ai-label { color: #8a7f74; }
+
+  /* ── Card body ── */
+  .mosaic-body {
+    padding: 0.75rem 1rem 0.9rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
   .mosaic-title {
     font-size: 1rem;
     font-weight: 600;
@@ -209,97 +308,31 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     line-height: 1.3;
     margin: 0;
   }
-
   .mosaic-desc {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-text-muted);
     line-height: 1.5;
     margin: 0;
   }
-
+  .mosaic-body-preview {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    margin-block-start: 0.2rem;
+  }
+  .mosaic-read-more {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-block-start: 0.3rem;
+    display: block;
+  }
   .mosaic-author,
   .mosaic-domain {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-muted);
   }
 
-  /* Large cards (articles) — parchment, single column */
-  .mosaic-card--large {
-    background: #FAF8F5;
-    border-color: transparent;
-    box-shadow: 0 4px 16px var(--color-shadow);
-  }
-  :root[data-theme="dark"] .mosaic-card--large {
-    background: #1e1c1a;
-  }
-  .mosaic-card--large .mosaic-title {
-    font-size: 1.15rem;
-  }
-
-  /* Hero card (pinned latest article) */
-  .mosaic-card--hero {
-    background: #FAF8F5;
-    border-color: transparent;
-    box-shadow: 0 6px 20px var(--color-shadow);
-    position: relative;
-    overflow: hidden;
-  }
-  :root[data-theme="dark"] .mosaic-card--hero {
-    background: #1e1c1a;
-  }
-  .mosaic-card--hero:hover {
-    transform: scale(1.01);
-    box-shadow: 0 10px 32px var(--color-shadow);
-  }
-  .mosaic-card--hero .mosaic-body {
-    padding: var(--space-xl) var(--space-2xl);
-    justify-content: center;
-  }
-  .mosaic-card--hero .mosaic-title {
-    font-size: 1.4rem;
-  }
-  .mosaic-card--hero .mosaic-desc {
-    font-size: 0.95rem;
-  }
-
-
-  /* Compact cards (seeds, jottings, links) */
-  .mosaic-card--compact .mosaic-body {
-    padding: var(--space-md);
-  }
-  .mosaic-card--compact .mosaic-title {
-    font-size: 0.9rem;
-  }
-  .mosaic-card--compact .mosaic-desc {
-    -webkit-line-clamp: 1;
-  }
-
-  /* Quote cards — sage green, no border, leaf watermark */
-  .mosaic-card--quote {
-    background: #E8EFE3;
-    border-color: transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .mosaic-card--quote::after {
-    content: '🌿';
-    position: absolute;
-    bottom: -10px;
-    right: -5px;
-    font-size: 5rem;
-    opacity: 0.12;
-    pointer-events: none;
-    transform: rotate(-15deg);
-  }
-  :root[data-theme="dark"] .mosaic-card--quote {
-    background: #1f2b1d;
-  }
-  .mosaic-card--quote .mosaic-meta {
-    color: #57534e;
-  }
-  :root[data-theme="dark"] .mosaic-card--quote .mosaic-meta {
-    color: #a8a29e;
-  }
+  /* ── Quote card ── */
   .mosaic-quote-text {
     margin: 0;
     padding: 0;
@@ -309,12 +342,9 @@ const sizeClass = hero ? 'mosaic-card--hero' :
     font-style: italic;
     font-size: 1rem;
     font-weight: 400;
-    color: #1c1917;
+    color: var(--color-heading);
     line-height: 1.4;
     margin: 0;
-  }
-  :root[data-theme="dark"] .mosaic-quote-text h3 {
-    color: #e5e5e5;
   }
   .mosaic-quote-text h3::before {
     content: '\201C';
@@ -327,78 +357,49 @@ const sizeClass = hero ? 'mosaic-card--hero' :
   .mosaic-quote-text cite {
     display: block;
     font-size: 0.8rem;
-    color: #57534e;
+    color: var(--color-text-muted);
     font-style: normal;
     margin-block-start: var(--space-sm);
   }
-  :root[data-theme="dark"] .mosaic-quote-text cite {
-    color: #a8a29e;
-  }
 
-  /* LinkedIn post cards — LinkedIn blue */
-  .mosaic-card--post {
-    background: #EDF3FE;
+  /* ── Hero card ── */
+  .mosaic-card--hero {
+    background: #FAF8F5;
     border-color: transparent;
+    box-shadow: 0 6px 20px var(--color-shadow);
   }
-  :root[data-theme="dark"] .mosaic-card--post {
-    background: #1a2030;
-  }
-  .mosaic-post-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #8B7355;
-    margin-block-start: var(--space-xs);
+  :root[data-theme="dark"] .mosaic-card--hero { background: #1e1c1a; }
+  .mosaic-card--hero .mosaic-strip { width: 64px; }
+  .mosaic-card--hero .mosaic-doodle-icon { width: 38px; height: 38px; }
+  .mosaic-card--hero .mosaic-body { padding: var(--space-lg) var(--space-xl); }
+  .mosaic-card--hero .mosaic-title { font-size: 1.3rem; }
+  .mosaic-card--hero .mosaic-desc { font-size: 0.9rem; }
+  .mosaic-card--hero:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 32px var(--color-shadow);
   }
 
-  /* Video cards */
+  /* ── Video thumbnail (above the strip row) ── */
   .mosaic-thumb {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
   }
-  .mosaic-card--video .mosaic-title {
-    font-size: 0.9rem;
+  .mosaic-card--videos .mosaic-link {
+    flex-direction: column;
   }
+  .mosaic-card--videos .mosaic-link > .mosaic-strip,
+  .mosaic-card--videos .mosaic-link > .mosaic-main {
+    /* after thumb, strip+main go row again */
+  }
+  .mosaic-card--videos .mosaic-title { font-size: 0.9rem; }
 
-  /* Book cards */
-  .mosaic-card--book .mosaic-link {
-    flex-direction: row;
-  }
+  /* ── Library cover ── */
   .mosaic-cover {
-    width: 60px;
+    width: 44px;
     height: auto;
-    object-fit: cover;
+    border-radius: 2px;
     flex-shrink: 0;
   }
-
-  /* Weblink cards */
-  .mosaic-card--weblinks .mosaic-domain {
-    display: block;
-  }
-
-  /* Card hover: tinted to match collection icon color */
-  .mosaic-card--articles:hover { background: #FDF8F5; }
-  .mosaic-card--field-notes:hover { background: #F3FAF4; }
-  .mosaic-card--seeds:hover { background: #FDF9F0; }
-  .mosaic-card--weblinks:hover { background: #F0F7F6; }
-  .mosaic-card--jottings:hover { background: #F0F7F6; }
-
-  :root[data-theme="dark"] .mosaic-card--articles:hover { background: #1e1815; }
-  :root[data-theme="dark"] .mosaic-card--field-notes:hover { background: #151e16; }
-  :root[data-theme="dark"] .mosaic-card--seeds:hover { background: #1e1b14; }
-  :root[data-theme="dark"] .mosaic-card--weblinks:hover { background: #141e1c; }
-  :root[data-theme="dark"] .mosaic-card--jottings:hover { background: #141e1c; }
-
-  /* Colored doodle icons per collection */
-  .mosaic-card--articles .mosaic-doodle-icon { filter: invert(30%) sepia(50%) saturate(500%) hue-rotate(-15deg); }
-  .mosaic-card--field-notes .mosaic-doodle-icon { filter: invert(40%) sepia(30%) saturate(600%) hue-rotate(100deg); }
-  .mosaic-card--seeds .mosaic-doodle-icon { filter: invert(45%) sepia(60%) saturate(400%) hue-rotate(10deg); }
-  .mosaic-card--weblinks .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg); }
-  .mosaic-card--jottings .mosaic-doodle-icon { filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg); }
-
-  /* Jottings — no special border, clean card */
 </style>

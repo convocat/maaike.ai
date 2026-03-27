@@ -187,7 +187,9 @@
       "Bash(\"C:/Sharing/Maaike/Digital-Garden/scripts/linkedin-draft.md\":*)",
       "Bash(\"/c/Program Files/nodejs/node.exe\" scripts/post-to-linkedin.mjs scripts/linkedin-temp.txt \"public/images/og/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing.png\" \"Read the full post: https://www.maaike.ai/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing/\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://www.maaike.ai/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://www.maaike.ai/jottings/on-the-joy-of-finding-a-good-book/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://www.maaike.ai/jottings/on-the-joy-of-finding-a-good-book/)",
+      "Bash(git checkout:*)",
+      "Bash(git -C \"C:/Sharing/Maaike/Digital-Garden\" status --short)"
     ]
   },
   "hooks": {
