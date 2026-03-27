@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-25T21:39:50.709Z",
+  "generated": "2026-03-27T08:05:06.452Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -11,8 +11,8 @@
       "y": 0.1983
     },
     "articles/a-digital-garden-as-central-space": {
-      "x": 0.8661,
-      "y": 0.6312
+      "x": 0.8609,
+      "y": 0.6376
     },
     "articles/air-canadas-bot-mishap-pre-dates-chatgpt": {
       "x": 0.02,
@@ -31,8 +31,8 @@
       "y": 0.2244
     },
     "articles/an-evening-with-chatgpt": {
-      "x": 0.1183,
-      "y": 0.3802
+      "x": 0.1077,
+      "y": 0.3867
     },
     "articles/an-evening-with-youchat-and-chatsonic": {
       "x": 0.1108,
@@ -211,8 +211,8 @@
       "y": 0.7148
     },
     "field-notes/design-system-and-content-guidelines": {
-      "x": 0.8733,
-      "y": 0.5974
+      "x": 0.8708,
+      "y": 0.5925
     },
     "field-notes/digital-gardens-vs-blogs": {
       "x": 0.9363,
@@ -269,6 +269,10 @@
     "field-notes/testing-strategy": {
       "x": 0.9316,
       "y": 0.6543
+    },
+    "field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing": {
+      "x": 0.7637,
+      "y": 0.3116
     },
     "field-notes/thematic-analysis-approach-a-fresh": {
       "x": 0.7842,
@@ -439,16 +443,16 @@
       "y": 0.6423
     },
     "videos/quickstart-ssml-les-3-ssml-de-basiselementen": {
-      "x": 0.2488,
-      "y": 0.6673
+      "x": 0.2494,
+      "y": 0.6737
     },
     "videos/quickstart-ssml-les-4-ssml-invoeren-in-dialogflow": {
       "x": 0.2825,
       "y": 0.6004
     },
     "videos/quickstart-ssml-les-5-moeilijke-woorden": {
-      "x": 0.2431,
-      "y": 0.6225
+      "x": 0.2457,
+      "y": 0.6269
     },
     "videos/strawberries-and-how-one-model-gets-it-right": {
       "x": 0.5626,
@@ -886,9 +890,17 @@
       "x": 0.6567,
       "y": 0.2647
     },
-    "field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing": {
-      "x": 0.7637,
-      "y": 0.3116
+    "seeds/a-reading-log-for-bacteria-to-ai": {
+      "x": 0.1382,
+      "y": 0.368
+    },
+    "seeds/my-changing-role-in-an-ultrasmall-development-team": {
+      "x": 0.2349,
+      "y": 0.5941
+    },
+    "seeds/the-return-of-the-button": {
+      "x": 0.8836,
+      "y": 0.6177
     }
   },
   "territories": [
@@ -902,7 +914,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 32
+      "itemCount": 33
     },
     {
       "label": "design",
@@ -914,7 +926,7 @@
       "label": "digital-gardens",
       "centerX": 0.9223,
       "centerY": 0.5943,
-      "itemCount": 16
+      "itemCount": 17
     },
     {
       "label": "ai-ethics",
@@ -926,7 +938,7 @@
       "label": "prompt-design",
       "centerX": 0.204,
       "centerY": 0.3004,
-      "itemCount": 33
+      "itemCount": 34
     },
     {
       "label": "knowledge-graph",

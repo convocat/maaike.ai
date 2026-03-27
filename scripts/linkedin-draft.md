@@ -1,11 +1,11 @@
-# LinkedIn post: O joy!
+# LinkedIn post: The garden so far: how do I keep the weeds away from my writing
 
-![Card](../public/images/og/jottings/on-the-joy-of-finding-a-good-book.png)
+![Card](../public/images/og/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing.png)
 
 ---
 
-You know that feeling when you just want to underline every sentence in a book you started? That's what I'm feeling while readying Bacteria to AI by N. Katherine Hayles. Some thoughts on my current reading practise...do you still know how to read?
+Dispatches from the digital garden: I asked for calm, and got more chaos instead...but is that because of AI, or because of me?
 
-#joyofreading #bacteriatoai #fromthegarden #books
+**#claudecode** **#anthropic** #digitalgarden #generativeai #writing
 
 ---
