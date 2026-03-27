@@ -6,6 +6,33 @@ Status: 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done
 
 ---
 
+## ✅ Stream page redesign: index cards + sidebar
+*2026-03-27*
+
+Redesigned the stream page around an index card metaphor. Each card has a coloured bookmark strip on the left, a double-line separator, and a horizontal meta bar with collection label, date (year, all caps), maturity emoji and AI indicator. Articles and jottings show a body preview with "Read more". Hero card replaced by a pinned LATEST badge. Sidebar has three portrait cards (About, Currently reading, Projects) with greige strip and brand-pink double lines. Two-column layout, sidebar collapses on mobile.
+
+Key files: `src/components/MosaicCard.astro`, `src/pages/index.astro`, `src/styles/global.css`
+
+---
+
+## 🟡 Experiment: browsable Zettelkasten
+*2026-03-27*
+
+The index card metaphor on the stream page opens up a natural next step: a real Zettelkasten view where cards are spatially arranged, connections are visible, and you can browse by following links. Start by scoping what "browsable" means: a card wall grid, a force-directed graph, or something in between. The wiki-link and backlink infrastructure already exists. First step: decide on the interaction model before touching any code.
+
+Key files: `src/components/MosaicCard.astro`, `src/utils/backlinks.ts`, `src/pages/index.astro`
+
+---
+
+## 🟡 Content updates: About page + thin cards
+*2026-03-27*
+
+Several pieces of content need attention. The About page is due for a rewrite (noted during this session). The sidebar About Maai & AI blurb in `src/pages/index.astro` is a placeholder. Some garden cards are thin on content and need tending. Start with the About page, then update the sidebar bio to match. Use `/new-post` or direct editing for individual cards.
+
+Key files: `src/pages/about.astro`, `src/pages/index.astro` (sidebar bio blurb)
+
+---
+
 ## 🟡 The return of the button
 *2026-03-27 · article*
 
