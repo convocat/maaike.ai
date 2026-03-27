@@ -179,7 +179,23 @@
       "Bash(notepad \"C:\\\\Sharing\\\\Maaike\\\\Digital-Garden\\\\.env\")",
       "Bash(xargs -I{} sh -c \"echo \"\"=== {} ===\"\" && grep \"\"^title:\\\\|^\\\\s*- ai\"\" \"\"{}\"\"\")",
       "Bash(xargs sed:*)",
-      "Bash(gh issue:*)"
+      "Bash(gh issue:*)",
+      "WebFetch(domain:lnkd.in)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "count=$(cat /tmp/cc-nudge-count 2>/dev/null || echo 0); count=$((count+1)); echo $count > /tmp/cc-nudge-count; if [ $((count % 20)) -eq 0 ]; then echo '{\"systemMessage\": \"💡 Covering multiple topics? A fresh thread keeps things focused.\\n\\nHow did this interaction feel? One word or one sentence is enough — I will log it to the interaction examples.\"}'; else echo '{}'; fi"
+          }
+        ]
+      }
     ]
   }
 }
