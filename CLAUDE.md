@@ -104,35 +104,19 @@ Optional `ai` frontmatter field on any content. Renders a styled aside box above
 
 ## Git workflow
 
-The garden uses a branching strategy based on content type. The guiding principle is **meaningful friction**: some content deserves a deliberate publication moment; other content should be instant.
+Everything goes directly to `main`. No branches. The Claude Code session itself is the editorial moment: Maaike reviews content before it's written to a file, and reviews the diff before it's committed.
 
-### Branching strategy
+### Content flow
 
-| Content type | Branch | PR | LinkedIn on publish |
-|---|---|---|---|
-| Articles | ✅ `draft/slug` | ✅ | ✅ new only |
-| Projects | ✅ `project/slug` | ✅ | ❌ |
-| Major redesigns | ✅ `redesign/name` | ✅ | ❌ |
-| Field notes | ❌ direct to main | ❌ | ❌ |
-| Seeds | ❌ direct to main | ❌ | ❌ |
-| Jottings | ❌ direct to main | ❌ | ✅ new only |
-| Weblinks | ❌ direct to main | ❌ | ❌ |
-
-### Branch naming
-
-- `draft/article-slug` — article in progress
-- `project/project-slug` — new project or project work
-- `redesign/feature-name` — structural or design changes
-
-### PR as the editorial moment
-
-For articles, the PR is the publication decision. Review the diff, confirm the post is ready, then merge. On merge, GitHub Actions runs tagging, backlinks, OG image generation, and (for new files) LinkedIn.
-
-For jottings, LinkedIn fires automatically on push to main when the file is new (git status `A`). No branch, no PR.
+| Content type | LinkedIn on publish |
+|---|---|
+| Articles | ✅ new only |
+| Jottings | ✅ new only |
+| Field notes, seeds, weblinks, projects | ❌ |
 
 ### Detecting new vs updated posts
 
-GitHub Actions uses `git diff` to check file status. `A` (added) = new post, triggers LinkedIn. `M` (modified) = update, skips LinkedIn. This applies to both the PR merge flow (articles) and the direct push flow (jottings).
+GitHub Actions uses `git diff` to check file status. `A` (added) = new post, triggers LinkedIn. `M` (modified) = update, skips LinkedIn.
 
 ## Projects page rule
 

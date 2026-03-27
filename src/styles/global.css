@@ -129,6 +129,29 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 .prose .observation p:last-child {
   margin-bottom: 0;
 }
+/* Tended revision note */
+.prose .tended {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-block-end: 1px solid var(--color-border);
+  padding-block-end: var(--space-md);
+  margin-block-end: var(--space-xl);
+  margin-block-start: 0;
+}
+.prose .tended::before {
+  content: '✏️';
+  font-style: normal;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+.prose .tended p {
+  margin: 0;
+}
+
 /* LinkedIn draft block — hidden on site, visible in Typora */
 .prose .linkedin {
   display: none;

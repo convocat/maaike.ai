@@ -80,6 +80,12 @@ jobs:
               continue
             fi
 
+            # Skip if already manually shared (linkedin_url set in frontmatter)
+            if grep -q '^linkedin_url:' "$FILE"; then
+              echo "Skipping — already shared manually: $FILE"
+              continue
+            fi
+
             SLUG=$(basename "$FILE" .md)
             URL="https://maaike.ai/jottings/${SLUG}"
             OG_IMAGE="public/images/og/jottings/${SLUG}.png"
