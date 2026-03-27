@@ -261,6 +261,7 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-md);
+      order: -1;
     }
   }
   @media (max-width: 500px) {
