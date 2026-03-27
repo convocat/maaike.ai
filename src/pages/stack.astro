@@ -1,0 +1,1103 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+
+// ── Build graph at build time ─────────────────────────────────────────────────
+
+const [articles, fieldNotes, seeds, weblinks, experiments, jottings, files, artefacts] = await Promise.all([
+  getCollection('articles'),
+  getCollection('fieldNotes'),
+  getCollection('seeds'),
+  getCollection('weblinks'),
+  getCollection('experiments'),
+  getCollection('jottings'),
+  getCollection('files'),
+  getCollection('artefacts'),
+]);
+
+const rawEntries = [
+  ...articles.map(e => ({ ...e, collection: 'articles' })),
+  ...fieldNotes.map(e => ({ ...e, collection: 'field-notes' })),
+  ...seeds.map(e => ({ ...e, collection: 'seeds' })),
+  ...weblinks.map(e => ({ ...e, collection: 'weblinks' })),
+  ...experiments.map(e => ({ ...e, collection: 'experiments' })),
+  ...jottings.map(e => ({ ...e, collection: 'jottings' })),
+  ...files.map(e => ({ ...e, collection: 'files' })),
+  ...artefacts.map(e => ({ ...e, collection: 'artefacts' })),
+].filter(e => !e.data.draft);
+
+const nodes = rawEntries.map(e => ({
+  id: e.id,
+  title: e.data.title,
+  description: e.data.description || '',
+  href: `/${e.collection}/${e.id}`,
+  collection: e.collection,
+  maturity: e.data.maturity || 'draft',
+  tags: ((e.data.tags || []) as string[]).slice(0, 4),
+  date: e.data.date ? (e.data.date as Date).toISOString().slice(0, 10) : '',
+}));
+
+const nodeIdSet = new Set(rawEntries.map(e => e.id));
+
+// Parse wiki links, build undirected edges
+const edgeSet = new Set<string>();
+const edges: { from: string; to: string }[] = [];
+const wikiRe = /\[\[([^\]]+)\]\]/g;
+
+for (const entry of rawEntries) {
+  const body = entry.body ?? '';
+  const seen = new Set<string>();
+  let m: RegExpExecArray | null;
+  while ((m = wikiRe.exec(body)) !== null) {
+    const target = m[1].split('|')[0].replace(/ /g, '-').toLowerCase();
+    if (!seen.has(target) && nodeIdSet.has(target) && target !== entry.id) {
+      const key = [entry.id, target].sort().join('\x00');
+      if (!edgeSet.has(key)) {
+        edges.push({ from: entry.id, to: target });
+        edgeSet.add(key);
+      }
+      seen.add(target);
+    }
+  }
+}
+
+const graphData = { nodes, edges };
+---
+
+<PageLayout title="Stack" description="Browse the garden card by card, following connections between ideas">
+
+  <div id="stack-page">
+
+    <!-- START SCREEN -->
+    <div id="start-screen">
+      <div class="start-inner">
+        <h1 class="start-title">Pick a card</h1>
+        <p class="start-sub">Start anywhere, then follow connections through the garden.</p>
+
+        <div class="start-search-wrap">
+          <input
+            type="search"
+            id="start-search"
+            placeholder="Search cards..."
+            autocomplete="off"
+            aria-label="Search for a card"
+          />
+        </div>
+
+        <div class="start-view-toggle" role="group" aria-label="View">
+          <button id="view-top" class="view-btn active">Top connected</button>
+          <button id="view-all" class="view-btn">All A–Z</button>
+        </div>
+
+        <div id="start-grid" role="list"></div>
+      </div>
+    </div>
+
+    <!-- BROWSER -->
+    <div id="browser" class="hidden">
+
+      <!-- Trail -->
+      <div id="trail-bar">
+        <button id="back-btn" class="trail-back-btn" aria-label="Go back">← Back</button>
+        <ol id="trail-list" aria-label="Navigation trail"></ol>
+        <button id="restart-btn" class="trail-restart-btn" aria-label="Start over">Start over</button>
+      </div>
+
+      <!-- Card stack -->
+      <div class="stack-outer">
+        <div class="card-wrapper">
+          <div id="focused-card" class="focused-card" data-stack="0">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Connection nav -->
+      <div id="conn-nav" class="conn-nav">
+        <div id="alpha-label" class="alpha-label hidden"></div>
+        <div id="no-connections" class="no-conn hidden">
+          No connections yet.
+          <button id="wander-btn" class="wander-link">Browse a random card →</button>
+        </div>
+        <div id="has-connections">
+          <div class="conn-peek-label">
+            <span class="conn-peek-prefix" id="conn-prefix">Next:</span>
+            <span id="conn-title" class="conn-title"></span>
+            <span id="conn-collection" class="conn-collection-badge"></span>
+          </div>
+          <div class="conn-controls">
+            <button id="conn-prev" class="conn-btn" aria-label="Previous connection">◄</button>
+            <span id="conn-count" class="conn-count"></span>
+            <button id="conn-next" class="conn-btn" aria-label="Next connection">►</button>
+          </div>
+          <button id="follow-btn" class="follow-btn">Follow this connection →</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</PageLayout>
+
+<script define:vars={{ graphData }}>
+  // ── DATA ──────────────────────────────────────────────────────────────────
+
+  const { nodes, edges } = graphData;
+  const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+  // Precompute connections (undirected) per node
+  const connMap = new Map();
+  for (const n of nodes) connMap.set(n.id, new Set());
+  for (const e of edges) {
+    connMap.get(e.from)?.add(e.to);
+    connMap.get(e.to)?.add(e.from);
+  }
+  for (const [id, set] of connMap) {
+    connMap.set(id,
+      [...set]
+        .filter(cid => nodeMap.has(cid))
+        .map(cid => nodeMap.get(cid))
+        .sort((a, b) => a.title.localeCompare(b.title))
+    );
+  }
+
+  // Suggestions: most connected first (top 12)
+  const suggestions = [...nodes]
+    .sort((a, b) => connMap.get(b.id).length - connMap.get(a.id).length)
+    .slice(0, 12);
+
+  // Full list: all cards A–Z
+  const allAlpha = [...nodes].sort((a, b) => a.title.localeCompare(b.title));
+
+  // ── STATE ─────────────────────────────────────────────────────────────────
+
+  let current = null;
+  let connections = [];
+  let connIdx = 0;
+  let history = []; // array of node ids
+
+  // Alpha-browse mode: stepping through the full A-Z deck
+  let alphaMode = false;
+  let alphaIdx = 0;
+
+  // ── DOM REFS ──────────────────────────────────────────────────────────────
+
+  const startScreen  = document.getElementById('start-screen');
+  const browser      = document.getElementById('browser');
+  const startSearch  = document.getElementById('start-search');
+  const startGrid    = document.getElementById('start-grid');
+  const viewTop      = document.getElementById('view-top');
+  const viewAll      = document.getElementById('view-all');
+  let currentView    = 'top'; // 'top' | 'all'
+  const focusedCard  = document.getElementById('focused-card');
+  const trailList    = document.getElementById('trail-list');
+  const backBtn      = document.getElementById('back-btn');
+  const restartBtn   = document.getElementById('restart-btn');
+  const connPrev     = document.getElementById('conn-prev');
+  const connNext     = document.getElementById('conn-next');
+  const connCount    = document.getElementById('conn-count');
+  const connTitle    = document.getElementById('conn-title');
+  const connBadge    = document.getElementById('conn-collection');
+  const connPrefix   = document.getElementById('conn-prefix');
+  const followBtn    = document.getElementById('follow-btn');
+  const noConn       = document.getElementById('no-connections');
+  const hasConn      = document.getElementById('has-connections');
+  const alphaLabel   = document.getElementById('alpha-label');
+  const wanderBtn    = document.getElementById('wander-btn');
+
+  // ── LOOK-UP TABLES ────────────────────────────────────────────────────────
+
+  const stripColors = {
+    articles: '#EEE6DF', seeds: '#EDE8D5', 'field-notes': '#D8ECD8',
+    weblinks: '#D4E8E5', jottings: '#DDE3EF', videos: '#E8DDE5',
+    library: '#E5E0DA', experiments: '#D4E5E8', files: '#E2E5EA', artefacts: '#E5E5E5',
+  };
+  const labelColors = {
+    articles: '#7A5A48', seeds: '#A07030', 'field-notes': '#4A7A50',
+    weblinks: '#7A6048', jottings: '#4A5A7A', videos: '#6E4E68',
+    library: '#5A4E44', experiments: '#3A7080', files: '#4A5A6A', artefacts: '#5A5A5A',
+  };
+  const maturityEmoji = { draft: '🌱', developing: '🌿', solid: '🪴', complete: '🌳' };
+  const collLabel = {
+    articles: 'Article', seeds: 'Seed', 'field-notes': 'Field note',
+    weblinks: 'Weblink', jottings: 'Jotting', videos: 'Video',
+    library: 'Book', experiments: 'Experiment', files: 'File', artefacts: 'Artefact',
+  };
+
+  // ── HELPERS ───────────────────────────────────────────────────────────────
+
+  function esc(str) {
+    return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
+  }
+
+  // ── RENDER ────────────────────────────────────────────────────────────────
+
+  function renderStartGrid(list, limit = null) {
+    startGrid.innerHTML = '';
+    const shown = limit ? list.slice(0, limit) : list;
+    for (const node of shown) {
+      const deg = connMap.get(node.id).length;
+      const btn = document.createElement('button');
+      btn.className = 'start-card';
+      btn.setAttribute('role', 'listitem');
+      btn.style.setProperty('--strip', stripColors[node.collection] || '#EEE');
+      btn.innerHTML = `
+        <div class="sc-strip"></div>
+        <div class="sc-body">
+          <span class="sc-label" style="color:${labelColors[node.collection] || '#666'}">${esc(collLabel[node.collection] || node.collection)}</span>
+          <span class="sc-title">${esc(node.title)}</span>
+          ${node.description ? `<span class="sc-desc">${esc(node.description.slice(0, 90))}${node.description.length > 90 ? '…' : ''}</span>` : ''}
+          <span class="sc-deg">${deg} connection${deg !== 1 ? 's' : ''}</span>
+        </div>
+      `;
+      btn.addEventListener('click', () => focusNode(node.id));
+      startGrid.appendChild(btn);
+    }
+    if (shown.length === 0) {
+      startGrid.innerHTML = '<p class="sc-empty">No cards found.</p>';
+    }
+  }
+
+  function renderCard(node) {
+    const strip  = stripColors[node.collection] || '#EEE';
+    const lColor = labelColors[node.collection] || '#666';
+    const emoji  = maturityEmoji[node.maturity] || '🌱';
+    const label  = collLabel[node.collection] || node.collection;
+    const date   = fmtDate(node.date);
+
+    focusedCard.style.setProperty('--strip', strip);
+    focusedCard.innerHTML = `
+      <div class="fc-strip"></div>
+      <div class="fc-main">
+        <div class="fc-meta">
+          <span class="fc-label" style="color:${lColor}">${esc(label)}</span>
+          <span class="fc-sep">·</span>
+          <span class="fc-maturity">${emoji} ${node.maturity}</span>
+          ${date ? `<span class="fc-sep">·</span><time class="fc-date">${date}</time>` : ''}
+        </div>
+        <h2 class="fc-title">${esc(node.title)}</h2>
+        ${node.description ? `<p class="fc-desc">${esc(node.description)}</p>` : ''}
+        ${node.tags.length ? `<div class="fc-tags">${node.tags.map(t => `<span class="fc-tag">${esc(t)}</span>`).join('')}</div>` : ''}
+        <a href="${esc(node.href)}" class="fc-open">Open full post →</a>
+      </div>
+    `;
+  }
+
+  function renderConnNav() {
+    if (alphaMode) {
+      // A-Z sequential browsing
+      alphaLabel.textContent = `A–Z · ${alphaIdx + 1} of ${allAlpha.length}`;
+      alphaLabel.classList.remove('hidden');
+      noConn.classList.add('hidden');
+      hasConn.classList.remove('hidden');
+
+      const hasNext = alphaIdx < allAlpha.length - 1;
+      const hasPrev = alphaIdx > 0;
+      const peek = hasNext ? allAlpha[alphaIdx + 1] : allAlpha[0];
+      connPrefix.textContent = hasNext ? 'Next:' : 'Wrap to:';
+      connTitle.textContent = peek.title;
+      connBadge.textContent = collLabel[peek.collection] || peek.collection;
+      connBadge.style.color = labelColors[peek.collection] || '#666';
+      connCount.textContent = `${alphaIdx + 1} / ${allAlpha.length}`;
+      connPrev.disabled = !hasPrev;
+      connNext.disabled = !hasNext;
+      followBtn.textContent = 'Browse connections →';
+      focusedCard.setAttribute('data-stack', String(Math.min(allAlpha.length - alphaIdx - 1, 3)));
+      return;
+    }
+
+    alphaLabel.classList.add('hidden');
+    connPrefix.textContent = 'Next:';
+    followBtn.textContent = 'Follow this connection →';
+
+    if (connections.length === 0) {
+      noConn.classList.remove('hidden');
+      hasConn.classList.add('hidden');
+      focusedCard.setAttribute('data-stack', '0');
+      return;
+    }
+    noConn.classList.add('hidden');
+    hasConn.classList.remove('hidden');
+
+    const peek = connections[connIdx];
+    connTitle.textContent = peek.title;
+    connBadge.textContent = collLabel[peek.collection] || peek.collection;
+    connBadge.style.color = labelColors[peek.collection] || '#666';
+    connCount.textContent = `${connIdx + 1} / ${connections.length}`;
+    connPrev.disabled = connections.length <= 1;
+    connNext.disabled = connections.length <= 1;
+
+    focusedCard.setAttribute('data-stack', String(Math.min(connections.length, 3)));
+  }
+
+  function renderTrail() {
+    trailList.innerHTML = '';
+    const all = [...history.map(id => nodeMap.get(id)).filter(Boolean), current];
+    const shown = all.slice(-5);
+
+    for (let i = 0; i < shown.length; i++) {
+      const node = shown[i];
+      const li = document.createElement('li');
+      li.className = 'trail-item';
+
+      if (i < shown.length - 1) {
+        // Clickable past item
+        const histIdx = history.indexOf(node.id); // index in history array
+        const btn = document.createElement('button');
+        btn.className = 'trail-btn';
+        btn.textContent = node.title;
+        btn.title = node.title;
+        btn.addEventListener('click', () => jumpTo(node.id));
+        li.appendChild(btn);
+        const sep = document.createElement('span');
+        sep.className = 'trail-sep';
+        sep.textContent = '→';
+        li.appendChild(sep);
+      } else {
+        // Current item
+        const span = document.createElement('span');
+        span.className = 'trail-current';
+        span.textContent = node.title;
+        span.title = node.title;
+        li.appendChild(span);
+      }
+      trailList.appendChild(li);
+    }
+
+    backBtn.disabled = history.length === 0;
+  }
+
+  // ── NAVIGATION ────────────────────────────────────────────────────────────
+
+  function focusNode(id, pushHistory = false) {
+    const node = nodeMap.get(id);
+    if (!node) return;
+
+    if (pushHistory && current) history.push(current.id);
+
+    current = node;
+    connections = connMap.get(id) || [];
+    connIdx = 0;
+
+    // Switch to browser view
+    startScreen.classList.add('hidden');
+    browser.classList.remove('hidden');
+
+    renderCard(node);
+    renderConnNav();
+    renderTrail();
+
+    // Animate card in
+    focusedCard.classList.remove('card-enter');
+    void focusedCard.offsetWidth;
+    focusedCard.classList.add('card-enter');
+  }
+
+  function follow() {
+    if (connections.length === 0) return;
+    focusNode(connections[connIdx].id, true);
+  }
+
+  function goBack() {
+    if (history.length === 0) return;
+    const prevId = history.pop();
+    current = nodeMap.get(prevId);
+    connections = connMap.get(prevId) || [];
+    connIdx = 0;
+    renderCard(current);
+    renderConnNav();
+    renderTrail();
+    focusedCard.classList.remove('card-enter');
+    void focusedCard.offsetWidth;
+    focusedCard.classList.add('card-enter');
+  }
+
+  function jumpTo(id) {
+    // Jump to a node in history, trimming everything after it
+    const idx = history.indexOf(id);
+    if (idx !== -1) history = history.slice(0, idx);
+    focusNode(id);
+  }
+
+  function wander() {
+    const r = nodes[Math.floor(Math.random() * nodes.length)];
+    focusNode(r.id, true);
+  }
+
+  // ── EVENT LISTENERS ───────────────────────────────────────────────────────
+
+  connNext.addEventListener('click', () => {
+    if (alphaMode) {
+      if (alphaIdx < allAlpha.length - 1) {
+        alphaIdx++;
+        current = allAlpha[alphaIdx];
+        connections = connMap.get(current.id) || [];
+        connIdx = 0;
+        renderCard(current);
+        renderConnNav();
+        renderTrail();
+        focusedCard.classList.remove('card-enter');
+        void focusedCard.offsetWidth;
+        focusedCard.classList.add('card-enter');
+      }
+      return;
+    }
+    if (connections.length === 0) return;
+    connIdx = (connIdx + 1) % connections.length;
+    renderConnNav();
+  });
+
+  connPrev.addEventListener('click', () => {
+    if (alphaMode) {
+      if (alphaIdx > 0) {
+        alphaIdx--;
+        current = allAlpha[alphaIdx];
+        connections = connMap.get(current.id) || [];
+        connIdx = 0;
+        renderCard(current);
+        renderConnNav();
+        renderTrail();
+        focusedCard.classList.remove('card-enter');
+        void focusedCard.offsetWidth;
+        focusedCard.classList.add('card-enter');
+      }
+      return;
+    }
+    if (connections.length === 0) return;
+    connIdx = (connIdx - 1 + connections.length) % connections.length;
+    renderConnNav();
+  });
+
+  followBtn.addEventListener('click', () => {
+    if (alphaMode) {
+      // Switch from alpha mode to connection browsing for this card
+      alphaMode = false;
+      history = [];
+      renderConnNav();
+      return;
+    }
+    follow();
+  });
+  backBtn.addEventListener('click', goBack);
+  wanderBtn.addEventListener('click', wander);
+
+  restartBtn.addEventListener('click', () => {
+    history = [];
+    current = null;
+    connections = [];
+    connIdx = 0;
+    alphaMode = false;
+    alphaIdx = 0;
+    startScreen.classList.remove('hidden');
+    browser.classList.add('hidden');
+    renderStartGrid(suggestions, 12);
+    viewTop.classList.add('active');
+    viewAll.classList.remove('active');
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (browser.classList.contains('hidden')) return;
+    if (['INPUT', 'TEXTAREA', 'A'].includes(e.target.tagName)) return;
+    if (e.key === 'ArrowRight' && connections.length) {
+      connIdx = (connIdx + 1) % connections.length;
+      renderConnNav();
+    }
+    if (e.key === 'ArrowLeft' && connections.length) {
+      connIdx = (connIdx - 1 + connections.length) % connections.length;
+      renderConnNav();
+    }
+    if (e.key === 'Enter') follow();
+    if (e.key === 'Backspace') goBack();
+    if (e.key === 'Escape') restartBtn.click();
+  });
+
+  // View toggle
+  viewTop.addEventListener('click', () => {
+    currentView = 'top';
+    viewTop.classList.add('active');
+    viewAll.classList.remove('active');
+    startSearch.value = '';
+    renderStartGrid(suggestions, 12);
+  });
+
+  viewAll.addEventListener('click', () => {
+    // Enter the stack browser in alpha mode, starting at card 0
+    alphaMode = true;
+    alphaIdx = 0;
+    history = [];
+    current = allAlpha[0];
+    connections = connMap.get(current.id) || [];
+    connIdx = 0;
+
+    startScreen.classList.add('hidden');
+    browser.classList.remove('hidden');
+
+    renderCard(current);
+    renderConnNav();
+    renderTrail();
+    focusedCard.classList.remove('card-enter');
+    void focusedCard.offsetWidth;
+    focusedCard.classList.add('card-enter');
+  });
+
+  // Search
+  startSearch.addEventListener('input', () => {
+    const q = startSearch.value.toLowerCase().trim();
+    if (!q) {
+      renderStartGrid(currentView === 'all' ? allAlpha : suggestions, currentView === 'top' ? 12 : null);
+      return;
+    }
+    const filtered = nodes.filter(n =>
+      n.title.toLowerCase().includes(q) ||
+      n.description.toLowerCase().includes(q) ||
+      n.tags.some(t => t.toLowerCase().includes(q))
+    ).sort((a, b) => a.title.localeCompare(b.title));
+    renderStartGrid(filtered);
+  });
+
+  // ── INIT ──────────────────────────────────────────────────────────────────
+
+  const params = new URLSearchParams(window.location.search);
+  const startId = params.get('card');
+  if (startId && nodeMap.has(startId)) {
+    focusNode(startId);
+  } else {
+    renderStartGrid(suggestions, 12);
+  }
+</script>
+
+<style is:global>
+
+  /* ── PAGE SHELL ──────────────────────────────────────────────────────────── */
+
+  #stack-page {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+
+  .hidden { display: none !important; }
+
+  /* ── START SCREEN ────────────────────────────────────────────────────────── */
+
+  .start-inner { text-align: center; }
+
+  .start-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-heading);
+    margin-block-end: 0.2rem;
+  }
+
+  .start-sub {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-block-end: var(--space-lg);
+  }
+
+  .start-view-toggle {
+    display: inline-flex;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-block-end: var(--space-md);
+  }
+
+  .view-btn {
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: background 0.15s, color 0.15s;
+  }
+  .view-btn.active {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .view-btn:not(.active):hover { background: var(--color-border); }
+
+  .start-search-wrap { margin-block-end: var(--space-lg); }
+
+  #start-search {
+    width: 100%;
+    max-width: 340px;
+    padding: 0.55rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #start-search:focus { border-color: var(--color-accent); }
+
+  #start-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: var(--space-sm);
+    text-align: left;
+  }
+
+  .start-card {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--color-bg);
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .start-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+  }
+
+  .sc-strip {
+    width: 8px;
+    flex-shrink: 0;
+    background: var(--strip, #EEE);
+  }
+
+  .sc-body {
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .sc-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .sc-title {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.3;
+  }
+
+  .sc-desc {
+    font-size: 0.74rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .sc-deg {
+    font-size: 0.67rem;
+    color: var(--color-text-muted);
+    margin-block-start: 0.1rem;
+  }
+
+  .sc-empty {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: var(--space-xl);
+    grid-column: 1 / -1;
+  }
+
+  /* ── BROWSER ─────────────────────────────────────────────────────────────── */
+
+  #browser {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  /* Trail */
+  #trail-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    min-height: 36px;
+  }
+
+  .trail-back-btn,
+  .trail-restart-btn {
+    font-size: 0.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .trail-back-btn {
+    color: var(--color-accent);
+  }
+  .trail-restart-btn {
+    color: var(--color-text-muted);
+    margin-inline-start: auto;
+  }
+  .trail-back-btn:hover:not(:disabled),
+  .trail-restart-btn:hover { background: var(--color-border); }
+  .trail-back-btn:disabled { color: var(--color-text-muted); cursor: default; }
+
+  #trail-list {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .trail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .trail-btn {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.1rem 0.2rem;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+  .trail-btn:hover { color: var(--color-accent); }
+
+  .trail-sep {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    opacity: 0.4;
+  }
+
+  .trail-current {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-text);
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ── PHYSICAL CARD STACK ─────────────────────────────────────────────────── */
+
+  /* Extra padding creates visible space for peek cards to extend into */
+  .stack-outer {
+    padding-block-start: 18px;
+    padding-inline-end: 18px;
+  }
+
+  .card-wrapper { position: relative; }
+
+  .focused-card {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-bg);
+    overflow: hidden; /* clips strip/content to border-radius; does NOT clip box-shadow */
+
+    /* Default: no stack */
+    box-shadow: 0 6px 24px var(--color-shadow);
+    transition: box-shadow 0.3s;
+  }
+
+  /* 1 peek card behind */
+  .focused-card[data-stack="1"] {
+    box-shadow:
+      0 6px 24px var(--color-shadow),
+      9px -9px 0 0 #F4F1ED,
+      9px -9px 0 1px rgba(0,0,0,0.11);
+  }
+
+  /* 2 peek cards */
+  .focused-card[data-stack="2"],
+  .focused-card[data-stack="3"] {
+    box-shadow:
+      0 6px 24px var(--color-shadow),
+      9px -9px 0 0 #F4F1ED,
+      9px -9px 0 1px rgba(0,0,0,0.11),
+      18px -18px 0 0 #EDEAE6,
+      18px -18px 0 1px rgba(0,0,0,0.07);
+  }
+
+  /* Dark mode stack shadows */
+  :root[data-theme="dark"] .focused-card[data-stack="1"] {
+    box-shadow:
+      0 6px 24px var(--color-shadow),
+      9px -9px 0 0 #1f1d1b,
+      9px -9px 0 1px rgba(255,255,255,0.07);
+  }
+  :root[data-theme="dark"] .focused-card[data-stack="2"],
+  :root[data-theme="dark"] .focused-card[data-stack="3"] {
+    box-shadow:
+      0 6px 24px var(--color-shadow),
+      9px -9px 0 0 #1f1d1b,
+      9px -9px 0 1px rgba(255,255,255,0.07),
+      18px -18px 0 0 #1a1816,
+      18px -18px 0 1px rgba(255,255,255,0.04);
+  }
+
+  /* Card enter animation */
+  @keyframes cardEnter {
+    from { opacity: 0.5; transform: translateY(6px) scale(0.99); }
+    to   { opacity: 1;   transform: translateY(0)   scale(1); }
+  }
+  .card-enter { animation: cardEnter 0.2s ease-out forwards; }
+
+  /* Collection strip */
+  .fc-strip {
+    width: 52px;
+    flex-shrink: 0;
+    background: var(--strip, #EEE);
+  }
+
+  /* Main content */
+  .fc-main {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    border-inline-start: 3px double #B8B0AA;
+    min-width: 0;
+  }
+  :root[data-theme="dark"] .fc-main { border-inline-start-color: #3a3530; }
+
+  .fc-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.62rem;
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+  }
+
+  .fc-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .fc-sep { opacity: 0.4; }
+
+  .fc-maturity,
+  .fc-date {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .fc-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.25;
+    margin-block-start: var(--space-xs);
+    margin-block-end: 0;
+  }
+
+  .fc-desc {
+    font-size: 0.87rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .fc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-block-start: var(--space-xs);
+  }
+
+  .fc-tag {
+    font-size: 0.63rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.1em 0.45em;
+    border-radius: 0.2rem;
+  }
+
+  .fc-open {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-block-start: var(--space-sm);
+    align-self: flex-start;
+    transition: opacity 0.15s;
+  }
+  .fc-open:hover { opacity: 0.75; text-decoration: underline; }
+
+  /* ── CONNECTION NAV ───────────────────────────────────────────────────────── */
+
+  .conn-nav {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg);
+  }
+
+  .alpha-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-block-end: var(--space-sm);
+  }
+
+  .no-conn {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .wander-link {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .conn-peek-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4em;
+    margin-block-end: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .conn-peek-prefix {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  .conn-title {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.3;
+  }
+
+  .conn-collection-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    flex-shrink: 0;
+  }
+
+  .conn-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-sm);
+  }
+
+  .conn-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-bg);
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .conn-btn:hover:not(:disabled) {
+    background: var(--color-border);
+    border-color: var(--color-accent);
+  }
+  .conn-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .conn-count {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    flex: 1;
+    text-align: center;
+  }
+
+  .follow-btn {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    text-align: center;
+  }
+  .follow-btn:hover { opacity: 0.85; }
+
+  /* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
+
+  @media (max-width: 460px) {
+    .stack-outer { padding-block-start: 12px; padding-inline-end: 12px; }
+
+    .focused-card[data-stack="1"] {
+      box-shadow:
+        0 4px 16px var(--color-shadow),
+        6px -6px 0 0 #F4F1ED,
+        6px -6px 0 1px rgba(0,0,0,0.11);
+    }
+    .focused-card[data-stack="2"],
+    .focused-card[data-stack="3"] {
+      box-shadow:
+        0 4px 16px var(--color-shadow),
+        6px -6px 0 0 #F4F1ED,
+        6px -6px 0 1px rgba(0,0,0,0.11),
+        12px -12px 0 0 #EDEAE6,
+        12px -12px 0 1px rgba(0,0,0,0.07);
+    }
+  }
+
+</style>
