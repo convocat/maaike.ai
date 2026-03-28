@@ -69,7 +69,16 @@ Check if the post has a `<div class="linkedin">` block with content.
 
 If sharing: run `/share-linkedin` with the post already identified (skip the "select post" step).
 
-## Step 7: Done
+## Step 7: Update backlog
+
+Check if the published post matches any item in `.claude/backlog.md` (by title or topic). If it does:
+- Move the item to the Archive section with today's date and a one-line summary
+- Update the `Groomed:` date at the top of the file
+- Show the diff and ask Maaike whether to commit it now or bundle with other work
+
+If no matching item exists, skip this step silently.
+
+## Step 8: Done
 
 Confirm what happened:
 - Post live at: `https://www.maaike.ai/<collection>/<slug>/`
