@@ -89,6 +89,17 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </button>
         ))}
       </div>
+      <div class="filter-select-wrap">
+        <svg class="filter-select-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <select class="filter-select" aria-label="Filter by content type" id="filter-select">
+          <option value="all">All</option>
+          {filterCollections.map((col) => (
+            <option value={col}>{collectionLabels[col] || col}</option>
+          ))}
+        </select>
+      </div>
 
       <div class="stream-feed" id="stream-feed">
         {latestArticle && (() => {
@@ -210,26 +221,38 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 
 <script>
   function initStream() {
-    // Filter chips
     const chips = document.querySelectorAll<HTMLElement>('.filter-chip');
+    const select = document.getElementById('filter-select') as HTMLSelectElement | null;
     const sidebar = document.getElementById('stream-sidebar');
     const feed = document.getElementById('stream-feed');
     if (!feed) return;
 
     const allCards = Array.from(feed.querySelectorAll<HTMLElement>('.mosaic-card'));
 
+    function applyFilter(filter: string) {
+      if (sidebar) sidebar.style.display = filter === 'all' ? '' : 'none';
+      allCards.forEach((c) => {
+        c.style.display = filter === 'all' || c.dataset.collection === filter ? '' : 'none';
+      });
+    }
+
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
         chips.forEach((c) => c.classList.remove('active'));
         chip.classList.add('active');
         const filter = chip.dataset.filter ?? 'all';
-        if (sidebar) sidebar.style.display = filter === 'all' ? '' : 'none';
-        allCards.forEach((c) => {
-          c.style.display = filter === 'all' || c.dataset.collection === filter ? '' : 'none';
-        });
+        if (select) select.value = filter;
+        applyFilter(filter);
       });
     });
 
+    if (select) {
+      select.addEventListener('change', () => {
+        const filter = select.value;
+        chips.forEach((c) => c.classList.toggle('active', c.dataset.filter === filter));
+        applyFilter(filter);
+      });
+    }
   }
 
   initStream();
@@ -258,14 +281,8 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       grid-template-columns: 1fr;
     }
     .stream-sidebar {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-md);
       order: -1;
     }
-  }
-  @media (max-width: 500px) {
-    .stream-sidebar { grid-template-columns: 1fr; }
   }
 
   /* Filter chips */
@@ -274,6 +291,13 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     flex-wrap: wrap;
     gap: var(--space-sm);
     margin-block-end: var(--space-xl);
+  }
+  .filter-select-wrap { display: none; }
+  .filter-select-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--color-text-muted);
   }
   .filter-chip {
     display: inline-flex;
@@ -468,4 +492,32 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     display: block;
   }
   .project-link:hover { color: var(--color-accent); }
+
+  @media (max-width: 800px) {
+    .sidebar-card--reading,
+    .sidebar-card--projects {
+      display: none;
+    }
+    .mosaic-filters { display: none; }
+    .filter-select-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-block-end: var(--space-xl);
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 2rem;
+      background: var(--color-bg);
+      color: var(--color-text-muted);
+    }
+    .filter-select {
+      border: none;
+      background: transparent;
+      color: var(--color-text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+    }
+  }
 </style>

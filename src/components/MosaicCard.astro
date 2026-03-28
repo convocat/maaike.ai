@@ -136,8 +136,6 @@ const doodleIcon = collection === 'jottings'
             {(collection === 'articles' || collection === 'jottings') ? (
               <Fragment>
                 {description && <p class="mosaic-desc">{description}</p>}
-                {bodyPreview && <p class="mosaic-desc mosaic-body-preview">{bodyPreview}</p>}
-                {bodyPreview && <span class="mosaic-read-more">Read more →</span>}
               </Fragment>
             ) : (
               description && <p class="mosaic-desc">{description}</p>
