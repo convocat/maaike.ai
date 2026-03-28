@@ -6,6 +6,15 @@ Status: 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done
 
 ---
 
+## 🟠 Stream + collections redesign
+*2026-03-28*
+
+This session cleaned up the mobile stream experience: body preview text removed from cards (description only), Currently Reading and Projects sidebar cards hidden on mobile, and filter chips replaced with a compact icon + dropdown. The stream is now much leaner on small screens. Next step is a more substantial redesign of the stream and collections pages: layout, hierarchy, and visual direction TBD. Start by reviewing the current state on both desktop and mobile before scoping what changes.
+
+Key files: `src/components/MosaicCard.astro`, `src/pages/index.astro`
+
+---
+
 ## ✅ Stream page redesign: index cards + sidebar
 *2026-03-27*
 
