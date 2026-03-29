@@ -106,6 +106,21 @@ Optional `ai` frontmatter field on any content. Renders a styled aside box above
 
 Everything goes directly to `main`. No branches. The Claude Code session itself is the editorial moment: Maaike reviews content before it's written to a file, and reviews the diff before it's committed.
 
+### Exception: large experimental changes
+
+For changes that shouldn't go near production until they're ready (redesigns, structural refactors), use a **git worktree** instead of a branch switch. This creates a second independent folder on disk so edits never bleed into main:
+
+```bash
+# Set up
+git worktree add ../Digital-Garden-redesign redesign/my-feature
+
+# Work in the worktree folder in a separate Claude session
+# When done, merge and clean up:
+git worktree remove ../Digital-Garden-redesign
+```
+
+Key rule: **never switch branches in the working directory without committing first** — uncommitted changes follow you across branch switches and will end up on the wrong branch.
+
 ### Content flow
 
 | Content type | LinkedIn on publish |
