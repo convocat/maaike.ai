@@ -206,6 +206,7 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
                 description={data.description}
                 collection="articles"
                 pinned={true}
+                hero={true}
                 ai={data.ai}
                 bodyPreview={extractBodyPreview(latestArticle.body, 300)}
               />

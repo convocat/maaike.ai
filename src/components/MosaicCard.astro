@@ -153,7 +153,13 @@ const doodleIcon = collection === 'jottings'
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
     overflow: hidden;
+    background: #FFFFFF;
     transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  :root[data-theme="dark"] .mosaic-card { background: var(--color-bg-card); }
+
+  .mosaic-top-meta {
+    border-block-end: 4px double rgba(180, 60, 60, 0.3) !important;
   }
   .mosaic-card:hover {
     transform: translateY(-2px);
@@ -373,20 +379,73 @@ const doodleIcon = collection === 'jottings'
 
   /* ── Hero card ── */
   .mosaic-card--hero {
-    background: #FAF8F5;
+    background: #FFFFFF;
     border-color: transparent;
     box-shadow: 0 6px 20px var(--color-shadow);
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mosaic-card--hero > .mosaic-link {
+    flex: 1;
   }
   :root[data-theme="dark"] .mosaic-card--hero { background: #1e1c1a; }
   .mosaic-card--hero .mosaic-strip { width: 64px; }
   .mosaic-card--hero .mosaic-doodle-icon { width: 38px; height: 38px; }
-  .mosaic-card--hero .mosaic-body { padding: var(--space-lg) var(--space-xl); }
+  .mosaic-card--hero .mosaic-body { padding: var(--space-lg) var(--space-xl); flex: 1; }
   .mosaic-card--hero .mosaic-title { font-size: 1.3rem; }
   .mosaic-card--hero .mosaic-desc { font-size: 0.9rem; }
   .mosaic-card--hero:hover {
     transform: scale(1.01);
     box-shadow: 0 10px 32px var(--color-shadow);
   }
+
+  /* Hide the "Latest article" badge — stamp replaces it */
+  .mosaic-card--hero .mosaic-pinned-badge { display: none; }
+
+/* Ruled index-card lines — blue — on the main content area */
+  .mosaic-card--hero .mosaic-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(1.75rem - 1px),
+      rgba(80, 120, 200, 0.1) calc(1.75rem - 1px),
+      rgba(80, 120, 200, 0.1) 1.75rem
+    );
+  }
+  :root[data-theme="dark"] .mosaic-card--hero .mosaic-main {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(1.75rem - 1px),
+      rgba(100, 150, 255, 0.08) calc(1.75rem - 1px),
+      rgba(100, 150, 255, 0.08) 1.75rem
+    );
+  }
+
+  /* "Featured" rubber stamp — prominent */
+  .mosaic-card--hero::after {
+    content: 'FEATURED';
+    position: absolute;
+    bottom: 1.1rem;
+    right: 1.6rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #CC2020;
+    border: 2.5px solid #CC2020;
+    padding: 0.35em 0.75em;
+    border-radius: 0.15rem;
+    opacity: 0.45;
+    transform: rotate(-10deg);
+    pointer-events: none;
+  }
+  :root[data-theme="dark"] .mosaic-card--hero::after { color: #FF6060; border-color: #FF6060; }
 
   /* ── Video thumbnail (above the strip row) ── */
   .mosaic-thumb {
