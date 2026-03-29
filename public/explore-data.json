@@ -163,8 +163,8 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.2996,
-      "y": 0.3496,
+      "x": 0.3002,
+      "y": 0.3471,
       "keyphrases": [],
       "connections": 8
     },
@@ -211,8 +211,8 @@
       "maturity": "complete",
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
-      "x": 0.3009,
-      "y": 0.3948,
+      "x": 0.2968,
+      "y": 0.3931,
       "keyphrases": [],
       "connections": 2
     },
@@ -319,8 +319,8 @@
       "maturity": "developing",
       "description": "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction.",
       "url": "/articles/is-conversation-still-a-useful-metaphor",
-      "x": 0.255,
-      "y": 0.2494,
+      "x": 0.2543,
+      "y": 0.2485,
       "keyphrases": [],
       "connections": 1
     },
@@ -331,8 +331,8 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.3372,
-      "y": 0.4246,
+      "x": 0.334,
+      "y": 0.4218,
       "keyphrases": [],
       "connections": 1
     },
@@ -391,8 +391,8 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.3154,
-      "y": 0.3061,
+      "x": 0.3169,
+      "y": 0.3052,
       "keyphrases": [],
       "connections": 0
     },
@@ -415,8 +415,8 @@
       "maturity": "complete",
       "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
       "url": "/articles/prompt-thought-summaries",
-      "x": 0.2589,
-      "y": 0.4122,
+      "x": 0.2563,
+      "y": 0.4135,
       "keyphrases": [],
       "connections": 0
     },
@@ -451,8 +451,8 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.2639,
-      "y": 0.3214,
+      "x": 0.2624,
+      "y": 0.3217,
       "keyphrases": [],
       "connections": 0
     },
@@ -475,8 +475,8 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.2793,
-      "y": 0.2789,
+      "x": 0.2796,
+      "y": 0.278,
       "keyphrases": [],
       "connections": 0
     },
@@ -805,18 +805,6 @@
       "connections": 5
     },
     {
-      "slug": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
-      "title": "The garden so far: how do I keep the weeds away from my writing",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "On the tension between cultivating a tidy digital garden and letting the chaos of ideas coexist. How AI-assisted growth pulls at the time and attention I'd rather spend writing.",
-      "url": "/field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
-      "x": 0.7637,
-      "y": 0.3116,
-      "keyphrases": [],
-      "connections": 4
-    },
-    {
       "slug": "thematic-analysis-approach-a-fresh",
       "title": "Thematic analysis of the garden: fresh reading",
       "collection": "field-notes",
@@ -875,6 +863,18 @@
       "y": 0.7101,
       "keyphrases": [],
       "connections": 12
+    },
+    {
+      "slug": "a-reading-log-for-bacteria-to-ai",
+      "title": "A reading log for Bacteria to AI",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Some kind of reading log for Bacteria to AI, and perhaps even a reminder to actually read.",
+      "url": "/seeds/a-reading-log-for-bacteria-to-ai",
+      "x": 0.1382,
+      "y": 0.368,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "ai-as-writing-partner",
@@ -985,6 +985,18 @@
       "connections": 5
     },
     {
+      "slug": "my-changing-role-in-an-ultrasmall-development-team",
+      "title": "My changing role in an ultrasmall development team",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Being PO, scrum master, prompt designer, tester, eval writer and UX designer in a team of 3 means rethinking roles and processes on a daily, almost hourly basis.",
+      "url": "/seeds/my-changing-role-in-an-ultrasmall-development-team",
+      "x": 0.2349,
+      "y": 0.5941,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "principles-behind-this-garden",
       "title": "Principles behind this garden",
       "collection": "seeds",
@@ -1019,6 +1031,18 @@
       "y": 0.3169,
       "keyphrases": [],
       "connections": 1
+    },
+    {
+      "slug": "the-return-of-the-button",
+      "title": "The return of the button",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Claude Code is reintroducing structured, constrained input: buttons, numbered options, limited choices. Which is actually IVR. And that might be exactly right.",
+      "url": "/seeds/the-return-of-the-button",
+      "x": 0.8836,
+      "y": 0.6177,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "thematic-analysis-as-interaction-model-and-research-method",
@@ -1789,38 +1813,26 @@
       "connections": 0
     },
     {
-      "slug": "a-reading-log-for-bacteria-to-ai",
-      "title": "A reading log for Bacteria to AI",
-      "collection": "seeds",
+      "slug": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "title": "The garden so far: how do I keep the weeds away from my writing",
+      "collection": "jottings",
       "maturity": "draft",
-      "description": "Some kind of reading log for Bacteria to AI, and perhaps even a reminder to actually read.",
-      "url": "/seeds/a-reading-log-for-bacteria-to-ai",
-      "x": 0.1382,
-      "y": 0.368,
+      "description": "On the tension between cultivating a tidy digital garden and letting the chaos of ideas coexist. How AI-assisted growth pulls at the time and attention I'd rather spend writing.",
+      "url": "/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "x": 0.3604,
+      "y": 0.4438,
       "keyphrases": [],
-      "connections": 0
+      "connections": 4
     },
     {
-      "slug": "my-changing-role-in-an-ultrasmall-development-team",
-      "title": "My changing role in an ultrasmall development team",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Being PO, scrum master, prompt designer, tester, eval writer and UX designer in a team of 3 means rethinking roles and processes on a daily, almost hourly basis.",
-      "url": "/seeds/my-changing-role-in-an-ultrasmall-development-team",
-      "x": 0.2349,
-      "y": 0.5941,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-return-of-the-button",
-      "title": "The return of the button",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Claude Code is reintroducing structured, constrained input: buttons, numbered options, limited choices. Which is actually IVR. And that might be exactly right.",
-      "url": "/seeds/the-return-of-the-button",
-      "x": 0.8836,
-      "y": 0.6177,
+      "slug": "thinking-in-action-precision-matters",
+      "title": "Thinking in action: precision matters",
+      "collection": "jottings",
+      "maturity": "complete",
+      "description": "On the importance of precise terminology and definition, and a brief exploration of dialectic thinking. It's humans that need to learn to reason, not LLMs",
+      "url": "/jottings/thinking-in-action-precision-matters",
+      "x": 0.173,
+      "y": 0.8253,
       "keyphrases": [],
       "connections": 0
     }
@@ -1836,7 +1848,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 33
+      "itemCount": 34
     },
     {
       "label": "design",
@@ -1854,7 +1866,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 8
+      "itemCount": 9
     },
     {
       "label": "prompt-design",
@@ -1872,7 +1884,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 21
+      "itemCount": 20
     },
     {
       "label": "developer-experience",
@@ -1889,22 +1901,22 @@
           [
             [
               0,
-              0.151
+              0.152
             ],
             [
-              0.026,
+              0.027,
               0.129
             ],
             [
               0.032,
-              0.124
+              0.125
             ],
             [
               0.065,
               0.103
             ],
             [
-              0.076,
+              0.077,
               0.097
             ],
             [
@@ -1916,12 +1928,12 @@
               0.07
             ],
             [
-              0.143,
+              0.144,
               0.065
             ],
             [
               0.161,
-              0.056
+              0.057
             ],
             [
               0.194,
@@ -1932,20 +1944,20 @@
               0.036
             ],
             [
-              0.243,
+              0.245,
               0.032
             ],
             [
               0.258,
-              0.028
+              0.029
             ],
             [
               0.29,
-              0.021
+              0.022
             ],
             [
               0.323,
-              0.016
+              0.017
             ],
             [
               0.355,
@@ -1953,23 +1965,23 @@
             ],
             [
               0.387,
-              0.012
-            ],
-            [
-              0.419,
-              0.012
-            ],
-            [
-              0.452,
               0.013
             ],
             [
-              0.484,
+              0.419,
+              0.013
+            ],
+            [
+              0.452,
               0.014
             ],
             [
+              0.484,
+              0.015
+            ],
+            [
               0.516,
-              0.014
+              0.015
             ],
             [
               0.548,
@@ -1977,11 +1989,11 @@
             ],
             [
               0.581,
-              0.01
+              0.011
             ],
             [
               0.613,
-              0.007
+              0.008
             ],
             [
               0.645,
@@ -1989,111 +2001,115 @@
             ],
             [
               0.677,
-              0.002
+              0.003
             ],
             [
-              0.703,
+              0.71,
+              0
+            ],
+            [
+              0.713,
               0
             ]
           ],
           [
             [
-              0.803,
+              0.794,
               0
             ],
             [
               0.806,
-              0
+              0.001
             ],
             [
               0.839,
-              0.007
+              0.008
             ],
             [
               0.871,
-              0.02
+              0.022
             ],
             [
-              0.888,
+              0.886,
               0.032
             ],
             [
               0.903,
-              0.046
+              0.047
             ],
             [
-              0.919,
+              0.917,
               0.065
             ],
             [
               0.935,
-              0.095
-            ],
-            [
-              0.936,
               0.097
             ],
             [
-              0.946,
+              0.935,
+              0.099
+            ],
+            [
+              0.944,
               0.129
             ],
             [
-              0.951,
+              0.949,
               0.161
             ],
             [
-              0.952,
+              0.949,
               0.194
             ],
             [
-              0.95,
+              0.946,
               0.226
             ],
             [
-              0.945,
+              0.94,
               0.258
             ],
             [
-              0.938,
+              0.935,
+              0.274
+            ],
+            [
+              0.931,
               0.29
             ],
             [
-              0.935,
-              0.305
-            ],
-            [
-              0.933,
+              0.925,
               0.323
             ],
             [
-              0.935,
+              0.925,
               0.355
             ],
             [
               0.935,
-              0.357
+              0.371
             ],
             [
-              0.955,
+              0.948,
               0.387
             ],
             [
               0.968,
-              0.396
+              0.4
             ],
             [
-              0.995,
+              0.992,
               0.419
             ],
             [
               1,
-              0.423
+              0.424
             ]
           ],
           [
             [
               0,
-              0.447
+              0.446
             ],
             [
               0.006,
@@ -2101,18 +2117,18 @@
             ],
             [
               0.032,
-              0.474
+              0.473
             ],
             [
-              0.046,
+              0.047,
               0.484
             ],
             [
               0.065,
-              0.5
+              0.499
             ],
             [
-              0.083,
+              0.084,
               0.516
             ],
             [
@@ -2120,92 +2136,92 @@
               0.534
             ],
             [
-              0.106,
+              0.105,
               0.548
             ],
             [
-              0.113,
+              0.112,
               0.581
             ],
             [
-              0.116,
+              0.115,
               0.613
             ],
             [
-              0.119,
+              0.116,
               0.645
             ],
             [
-              0.123,
+              0.117,
               0.677
             ],
             [
-              0.129,
-              0.703
-            ],
-            [
-              0.13,
+              0.12,
               0.71
             ],
             [
-              0.138,
+              0.124,
               0.742
             ],
             [
-              0.149,
+              0.129,
+              0.763
+            ],
+            [
+              0.131,
               0.774
             ],
             [
-              0.161,
-              0.802
-            ],
-            [
-              0.163,
+              0.14,
               0.806
             ],
             [
-              0.18,
+              0.155,
               0.839
             ],
             [
-              0.194,
-              0.857
+              0.161,
+              0.849
             ],
             [
-              0.205,
+              0.178,
               0.871
             ],
             [
-              0.226,
-              0.891
+              0.194,
+              0.886
             ],
             [
-              0.242,
+              0.217,
               0.903
             ],
             [
+              0.226,
+              0.909
+            ],
+            [
               0.258,
-              0.914
+              0.924
             ],
             [
               0.29,
-              0.929
+              0.934
             ],
             [
-              0.312,
+              0.296,
               0.935
             ],
             [
               0.323,
-              0.939
+              0.942
             ],
             [
               0.355,
-              0.946
+              0.947
             ],
             [
               0.387,
-              0.948
+              0.949
             ],
             [
               0.419,
@@ -2213,19 +2229,19 @@
             ],
             [
               0.452,
-              0.945
+              0.944
             ],
             [
               0.484,
-              0.939
+              0.938
             ],
             [
-              0.499,
+              0.496,
               0.935
             ],
             [
               0.516,
-              0.933
+              0.932
             ],
             [
               0.548,
@@ -2237,14 +2253,14 @@
             ],
             [
               0.613,
-              0.912
+              0.911
             ],
             [
               0.645,
-              0.904
+              0.903
             ],
             [
-              0.648,
+              0.645,
               0.903
             ],
             [
@@ -2253,18 +2269,18 @@
             ],
             [
               0.71,
-              0.892
+              0.891
             ],
             [
               0.742,
-              0.885
+              0.884
             ],
             [
               0.774,
-              0.875
+              0.874
             ],
             [
-              0.786,
+              0.784,
               0.871
             ],
             [
@@ -2273,34 +2289,34 @@
             ],
             [
               0.839,
-              0.854
+              0.853
             ],
             [
               0.871,
-              0.84
+              0.839
             ],
             [
-              0.873,
+              0.872,
               0.839
             ],
             [
               0.903,
-              0.827
+              0.826
             ],
             [
               0.935,
-              0.811
+              0.81
             ],
             [
-              0.944,
+              0.942,
               0.806
             ],
             [
               0.968,
-              0.794
+              0.793
             ],
             [
-              0.996,
+              0.995,
               0.774
             ],
             [
@@ -2316,98 +2332,98 @@
           [
             [
               1,
-              0.664
+              0.661
             ],
             [
-              0.993,
+              0.992,
               0.677
             ],
             [
               0.968,
-              0.709
+              0.707
             ],
             [
-              0.967,
+              0.965,
               0.71
             ],
             [
               0.935,
-              0.734
+              0.733
             ],
             [
-              0.921,
+              0.919,
               0.742
             ],
             [
               0.903,
-              0.752
+              0.751
             ],
             [
               0.871,
-              0.766
+              0.765
             ],
             [
-              0.85,
+              0.848,
               0.774
             ],
             [
               0.839,
-              0.779
+              0.778
             ],
             [
               0.806,
-              0.791
+              0.79
             ],
             [
               0.774,
-              0.802
+              0.801
             ],
             [
-              0.76,
+              0.757,
               0.806
             ],
             [
               0.742,
-              0.812
+              0.811
             ],
             [
               0.71,
-              0.821
+              0.82
             ],
             [
               0.677,
-              0.829
+              0.828
             ],
             [
               0.645,
               0.836
             ],
             [
-              0.636,
+              0.633,
               0.839
             ],
             [
               0.613,
-              0.845
+              0.844
             ],
             [
               0.581,
-              0.853
+              0.852
             ],
             [
               0.548,
-              0.86
+              0.859
             ],
             [
               0.516,
               0.866
             ],
             [
-              0.486,
+              0.484,
               0.871
             ],
             [
-              0.484,
+              0.48,
               0.871
             ],
             [
@@ -2423,87 +2439,87 @@
               0.874
             ],
             [
-              0.372,
+              0.368,
               0.871
             ],
             [
               0.355,
-              0.868
+              0.869
             ],
             [
               0.323,
-              0.856
-            ],
-            [
-              0.293,
-              0.839
+              0.859
             ],
             [
               0.29,
-              0.837
+              0.844
             ],
             [
-              0.259,
-              0.806
+              0.283,
+              0.839
             ],
             [
               0.258,
-              0.805
+              0.817
             ],
             [
-              0.239,
+              0.248,
+              0.806
+            ],
+            [
+              0.229,
               0.774
             ],
             [
               0.226,
-              0.745
+              0.767
             ],
             [
-              0.224,
+              0.216,
               0.742
             ],
             [
-              0.215,
+              0.209,
               0.71
             ],
             [
-              0.21,
+              0.206,
               0.677
             ],
             [
-              0.208,
+              0.206,
               0.645
             ],
             [
-              0.21,
+              0.209,
               0.613
             ],
             [
-              0.215,
+              0.213,
               0.581
             ],
             [
-              0.217,
+              0.214,
               0.548
             ],
             [
-              0.21,
+              0.207,
               0.516
             ],
             [
               0.194,
-              0.494
+              0.499
             ],
             [
-              0.185,
+              0.182,
               0.484
             ],
             [
               0.161,
-              0.467
+              0.468
             ],
             [
-              0.139,
+              0.138,
               0.452
             ],
             [
@@ -2520,78 +2536,78 @@
             ],
             [
               0.065,
-              0.402
+              0.401
             ],
             [
-              0.048,
+              0.049,
               0.387
             ],
             [
               0.032,
-              0.366
+              0.364
             ],
             [
-              0.025,
+              0.026,
               0.355
             ],
             [
-              0.013,
+              0.014,
               0.323
             ],
             [
-              0.01,
+              0.011,
               0.29
             ],
             [
-              0.017,
+              0.018,
               0.258
             ],
             [
               0.032,
-              0.227
+              0.229
             ],
             [
-              0.033,
+              0.034,
               0.226
             ],
             [
-              0.06,
+              0.061,
               0.194
             ],
             [
               0.065,
-              0.189
+              0.19
             ],
             [
               0.097,
-              0.163
+              0.164
             ],
             [
-              0.1,
+              0.101,
               0.161
             ],
             [
               0.129,
-              0.143
+              0.144
             ],
             [
-              0.157,
+              0.159,
               0.129
             ],
             [
               0.161,
-              0.127
+              0.128
             ],
             [
               0.194,
-              0.113
+              0.114
             ],
             [
               0.226,
-              0.103
+              0.104
             ],
             [
-              0.254,
+              0.256,
               0.097
             ],
             [
@@ -2600,178 +2616,178 @@
             ],
             [
               0.29,
-              0.089
-            ],
-            [
-              0.323,
-              0.086
-            ],
-            [
-              0.355,
-              0.085
-            ],
-            [
-              0.387,
-              0.087
-            ],
-            [
-              0.419,
               0.09
             ],
             [
-              0.452,
-              0.094
+              0.323,
+              0.087
             ],
             [
-              0.474,
+              0.355,
+              0.086
+            ],
+            [
+              0.387,
+              0.088
+            ],
+            [
+              0.419,
+              0.091
+            ],
+            [
+              0.452,
+              0.095
+            ],
+            [
+              0.466,
               0.097
             ],
             [
               0.484,
-              0.098
+              0.099
             ],
             [
               0.516,
-              0.101
-            ],
-            [
-              0.548,
-              0.101
-            ],
-            [
-              0.581,
-              0.1
-            ],
-            [
-              0.613,
-              0.099
-            ],
-            [
-              0.645,
-              0.098
-            ],
-            [
-              0.677,
-              0.098
-            ],
-            [
-              0.71,
-              0.099
-            ],
-            [
-              0.742,
               0.102
             ],
             [
+              0.548,
+              0.103
+            ],
+            [
+              0.581,
+              0.102
+            ],
+            [
+              0.613,
+              0.101
+            ],
+            [
+              0.645,
+              0.1
+            ],
+            [
+              0.677,
+              0.101
+            ],
+            [
+              0.71,
+              0.102
+            ],
+            [
+              0.742,
+              0.106
+            ],
+            [
               0.774,
-              0.109
+              0.114
             ],
             [
               0.806,
-              0.123
-            ],
-            [
-              0.814,
               0.129
             ],
             [
-              0.839,
-              0.161
-            ],
-            [
-              0.839,
-              0.161
-            ],
-            [
-              0.848,
-              0.194
-            ],
-            [
-              0.85,
-              0.226
-            ],
-            [
-              0.844,
-              0.258
-            ],
-            [
-              0.839,
-              0.271
+              0.806,
+              0.13
             ],
             [
               0.83,
+              0.161
+            ],
+            [
+              0.839,
+              0.19
+            ],
+            [
+              0.84,
+              0.194
+            ],
+            [
+              0.839,
+              0.218
+            ],
+            [
+              0.838,
+              0.226
+            ],
+            [
+              0.829,
+              0.258
+            ],
+            [
+              0.81,
               0.29
             ],
             [
               0.806,
-              0.321
+              0.294
             ],
             [
-              0.805,
+              0.774,
               0.323
             ],
             [
               0.774,
-              0.346
-            ],
-            [
-              0.754,
-              0.355
+              0.323
             ],
             [
               0.742,
-              0.36
+              0.34
             ],
             [
               0.71,
-              0.368
+              0.352
+            ],
+            [
+              0.696,
+              0.355
             ],
             [
               0.677,
-              0.372
+              0.359
             ],
             [
               0.645,
-              0.375
+              0.365
             ],
             [
               0.613,
-              0.378
+              0.372
             ],
             [
               0.581,
-              0.383
+              0.379
             ],
             [
-              0.565,
+              0.56,
               0.387
             ],
             [
               0.548,
-              0.394
+              0.393
             ],
             [
-              0.517,
+              0.523,
               0.419
             ],
             [
               0.516,
-              0.421
+              0.438
             ],
             [
-              0.506,
+              0.512,
               0.452
             ],
             [
-              0.511,
-              0.484
+              0.516,
+              0.483
             ],
             [
               0.516,
-              0.49
+              0.484
             ],
             [
-              0.537,
+              0.538,
               0.516
             ],
             [
@@ -2779,84 +2795,84 @@
               0.525
             ],
             [
-              0.579,
+              0.578,
               0.548
             ],
             [
               0.581,
-              0.549
+              0.55
             ],
             [
               0.613,
-              0.562
-            ],
-            [
-              0.645,
-              0.567
-            ],
-            [
-              0.677,
               0.563
             ],
             [
-              0.71,
-              0.551
+              0.645,
+              0.568
             ],
             [
-              0.715,
+              0.677,
+              0.565
+            ],
+            [
+              0.71,
+              0.553
+            ],
+            [
+              0.718,
               0.548
             ],
             [
               0.742,
-              0.532
+              0.534
             ],
             [
-              0.767,
+              0.772,
               0.516
             ],
             [
               0.774,
-              0.511
+              0.515
             ],
             [
               0.806,
-              0.492
+              0.496
             ],
             [
-              0.828,
+              0.839,
               0.484
             ],
             [
               0.839,
-              0.479
-            ],
-            [
-              0.871,
-              0.473
-            ],
-            [
-              0.903,
-              0.474
-            ],
-            [
-              0.935,
-              0.483
-            ],
-            [
-              0.938,
               0.484
             ],
             [
-              0.968,
-              0.501
+              0.871,
+              0.476
             ],
             [
-              0.983,
+              0.903,
+              0.476
+            ],
+            [
+              0.933,
+              0.484
+            ],
+            [
+              0.935,
+              0.485
+            ],
+            [
+              0.968,
+              0.503
+            ],
+            [
+              0.981,
               0.516
             ],
             [
               1,
-              0.541
+              0.543
             ]
           ]
         ]

@@ -3,7 +3,7 @@ title: "Thinking in action: precision matters"
 description: "On the importance of precise terminology and definition, and a brief exploration of dialectic thinking. It's humans that need to learn to reason, not LLMs"
 date: 2026-03-29
 maturity: complete
-draft: true
+draft: false
 tags: ["critical thinking", "philosophy", "thinking tools", "hegel", "dialectic thinking"]
 ai: "100% Maai"
 type: post
