@@ -4,7 +4,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-03-28 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-03-29 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
@@ -27,26 +27,6 @@ The About page is due for a rewrite (flagged during stream redesign session). Th
 Key files: `src/pages/about.astro`, `src/pages/index.astro` (sidebar bio)
 
 ---
-
-## 🟡 Verify: stream filter pills
-*added: 2026-03-27 · last-touched: 2026-03-28*
-
-The original "Fix stream UI" item referenced branch `redesign/stream-ui`, but that branch is now stale — all stream work happened directly on main. The filter pills issue (not working consistently) may have been resolved as part of the stream redesign, or may still be open.
-
-**First step:** open the stream page on desktop and mobile and verify filter pill behaviour before doing anything. If still broken, scope a fix. If working, close this item.
-
-Key files: `src/pages/index.astro`, `src/components/MosaicCard.astro`
-
----
-
-## 🟠 Stream + collections redesign
-*added: 2026-03-28 · last-touched: 2026-03-28*
-
-Mobile stream cleanup is done (body preview removed, sidebar cards hidden, filter replaced with icon + dropdown). Next step is a more substantial redesign of the stream and collections pages: layout, hierarchy, and visual direction.
-
-**blocker:** scope is too vague to start a session. Needs a dedicated scoping conversation: what does "redesign" mean here, what's wrong, what's the target?
-
-Key files: `src/components/MosaicCard.astro`, `src/pages/index.astro`
 
 ---
 
@@ -96,10 +76,20 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 
 ## Archive
 
+### ✅ Stream refinement: index card aesthetic, filter sidebar
+*2026-03-29 — completed*
+
+Extended the index card metaphor throughout the stream. Featured hero card: white paper, blue ruled lines, FEATURED rubber stamp, full-height bookmark strip. All cards: white background, washed-out red double line on meta bar. Page background: barely-there greengrey tint (#FCFCFB) so white cards pop. Filter sidebar: three separate cards each with a protruding folder tab (Collection, Maturity, Written by). Legend panel below filters: collapsible, covers maturity and written by definitions with emoji (✍️ ✏️ ✨ ⚙️). Hero visual: large leaf SVG with organic greengrey blob behind it. Doodle icon library (300+ SVGs) added to repo at `public/images/doodle-icons/`. No-em-dash rule extended to all UI copy.
+
 ### ✅ Stack page: browsable card browser
 *2026-03-28 — completed*
 
 Physical card browser at `/stack`. Pick a card, browse connections as a stacked deck. Box-shadow trick simulates peek cards. Top connected suggestions + A-Z sequential mode. Search across titles, descriptions, and tags. Resolved the Zettelkasten interaction model question: physical card metaphor won over grid/graph.
+
+### ✅ Stream + collections redesign: homepage v2
+*2026-03-29 — completed*
+
+Full homepage redesign. Hero section (50vh, warm #F5F4F0, leaf SVG, serif heading). Header merged into hero background. 3px double border divider. Stream column (10 items/page with pagination) + filter sidebar (Collection/Maturity/Written by checkboxes with All/Clear, hover-reveal animation from design specs). Currently reading + Projects sidebar cards in deeper green. Stay updated / webring / under construction footer sections. "Latest article" badge in teal. Back button on all post pages. Filter pills replaced entirely by checkbox panels. Library excluded from stream and filters.
 
 ### ✅ Stream page redesign: index cards + sidebar
 *2026-03-27 — completed*
