@@ -104,32 +104,23 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   <!-- ═══ HERO ═══ -->
   <section class="home-hero" aria-label="Introduction">
     <div class="hero-inner">
-      <div class="hero-text">
-        <h1 class="hero-heading">Welcome to my<br>digital garden</h1>
-        <p class="hero-desc">I'm Maaike: natural language interface designer, linguist, and owner of about 50 fountain pens. This is where I think in public about conversation design, AI, and the things in between.</p>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="leaf-container">
-          <div class="leaf-circle"></div>
-          <svg class="leaf-svg" viewBox="0 0 120 165" fill="none">
-            <!-- Outer leaf -->
+      <div class="hero-top">
+        <div class="hero-leaf" aria-hidden="true">
+          <svg viewBox="0 0 120 165" fill="none" class="leaf-svg-inline">
             <path d="M60 8 C18 42, 8 85, 18 115 C28 140, 50 155, 60 155 C70 155, 92 140, 102 115 C112 85, 102 42, 60 8Z" fill="#D4E8D4"/>
-            <!-- Middle layer -->
             <path d="M60 24 C28 52, 20 88, 28 112 C36 132, 52 144, 60 144 C68 144, 84 132, 92 112 C100 88, 92 52, 60 24Z" fill="#7A9B68"/>
-            <!-- Inner leaf -->
             <path d="M60 42 C38 62, 32 90, 40 108 C46 122, 54 130, 60 130 C66 130, 74 122, 80 108 C88 90, 82 62, 60 42Z" fill="#4A6741"/>
-            <!-- Center vein -->
             <line x1="60" y1="50" x2="60" y2="125" stroke="#3D5835" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
-            <!-- Side veins -->
             <path d="M60 65 Q45 75, 38 90" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
             <path d="M60 65 Q75 75, 82 90" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
             <path d="M60 85 Q48 92, 42 105" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
             <path d="M60 85 Q72 92, 78 105" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
-            <!-- Stem -->
             <line x1="60" y1="155" x2="60" y2="165" stroke="#6B8E5A" stroke-width="4" stroke-linecap="round"/>
           </svg>
         </div>
+        <h1 class="hero-heading">Welcome to my<br>digital garden</h1>
       </div>
+      <p class="hero-desc">I'm Maaike: natural language interface designer, linguist, and owner of about 50 fountain pens. This is where I think in public about conversation design, AI, and the things in between.</p>
     </div>
   </section>
 
@@ -376,15 +367,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
         </a>
       </div>
     </section>
-    <!-- Under construction banner -->
-    <div class="footer-construction">
-      <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BUpCYiagkyeoKHdWgi9jX0CkImTXlX.png"
-        alt="Under construction"
-        height="32"
-        loading="lazy"
-      />
-    </div>
 
     <!-- Webring -->
     <section class="footer-webring" aria-label="Webring">
@@ -403,7 +385,7 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 </BaseLayout>
 
 <script>
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = window.innerWidth <= 800 ? 6 : 10;
 
   function initStream() {
     const feed       = document.getElementById('stream-feed');
@@ -554,11 +536,8 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
      HERO
   ═══════════════════════════════════════════ */
   .home-hero {
-    min-height: 50vh;
     background: #F5F4F0;
-    display: flex;
-    align-items: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem 2rem 2.25rem;
   }
   :root[data-theme="dark"] .home-hero { background: #1a1916; }
 
@@ -566,60 +545,42 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+  }
+
+  .hero-top {
+    display: flex;
     align-items: center;
+    gap: 1.25rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-leaf {
+    flex-shrink: 0;
+  }
+
+  .leaf-svg-inline {
+    width: 60px;
+    height: auto;
+    display: block;
   }
 
   .hero-heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--color-heading);
-    margin-bottom: var(--space-lg);
+    margin: 0;
   }
 
   .hero-desc {
-    font-size: 1.0625rem;
+    font-size: 1.0rem;
     color: var(--color-text-muted);
     line-height: 1.75;
-    max-width: 30rem;
+    max-width: 42rem;
   }
 
-  .hero-visual {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .leaf-container {
-    width: min(360px, 100%);
-    aspect-ratio: 1;
-    border-radius: 1.5rem;
-    background: #D4E8D4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  :root[data-theme="dark"] .leaf-container { background: #1e2e1e; }
-
-  .leaf-circle {
-    position: absolute;
-    inset: 12%;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #C5DFC5 0%, #B8D8B8 50%, #A8CEA8 100%);
-  }
-  :root[data-theme="dark"] .leaf-circle { background: linear-gradient(145deg, #243824 0%, #1e301e 100%); }
-
-  .leaf-svg {
-    position: relative;
-    z-index: 1;
-    width: 43%;
-    height: auto;
-  }
 
   /* ═══════════════════════════════════════════
      DIVIDER
@@ -1011,23 +972,14 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   .mobile-filter-bar { display: none; }
 
   @media (max-width: 900px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-    .hero-visual {
-      justify-content: center;
-      order: -1;
-    }
-    .leaf-container {
-      width: 120px;
-    }
     .home-hero {
-      min-height: unset;
       padding: var(--space-lg) var(--space-md);
     }
     .hero-heading {
-      text-align: center;
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    .leaf-svg-inline {
+      width: 48px;
     }
   }
 

@@ -108,8 +108,13 @@ const currentPath = Astro.url.pathname;
       nav.classList.toggle('open');
 
       if (!expanded) {
-        const firstLink = nav.querySelector('a');
-        firstLink?.focus();
+        // Auto-open the garden mega menu on mobile
+        const trigger = nav.querySelector('.garden-dropdown-trigger') as HTMLButtonElement | null;
+        const dropdown = nav.querySelector('.garden-dropdown') as HTMLElement | null;
+        if (trigger && dropdown) {
+          trigger.setAttribute('aria-expanded', 'true');
+          dropdown.classList.add('open');
+        }
       }
     });
 
@@ -141,8 +146,9 @@ const currentPath = Astro.url.pathname;
       dropdown.classList.toggle('open');
     });
 
+    const menuToggle = document.querySelector('.menu-toggle');
     document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target as Node)) {
+      if (!dropdown.contains(e.target as Node) && !menuToggle?.contains(e.target as Node)) {
         trigger.setAttribute('aria-expanded', 'false');
         dropdown.classList.remove('open');
       }
