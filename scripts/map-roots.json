@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-27T08:05:06.452Z",
+  "generated": "2026-03-29T13:35:45.769Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -55,8 +55,8 @@
       "y": 0.3007
     },
     "articles/conversational-interfaces-are-not-easy": {
-      "x": 0.2996,
-      "y": 0.3496
+      "x": 0.3002,
+      "y": 0.3471
     },
     "articles/convo-question-should-i-learn-programming": {
       "x": 0.2025,
@@ -71,8 +71,8 @@
       "y": 0.1663
     },
     "articles/de-biassing-dall-e": {
-      "x": 0.3009,
-      "y": 0.3948
+      "x": 0.2968,
+      "y": 0.3931
     },
     "articles/european-chatbot-conference-10-talks": {
       "x": 0.3979,
@@ -107,12 +107,12 @@
       "y": 0.3333
     },
     "articles/is-conversation-still-a-useful-metaphor": {
-      "x": 0.255,
-      "y": 0.2494
+      "x": 0.2543,
+      "y": 0.2485
     },
     "articles/llm-hallucinations-knowledge-as-missing-fundamental": {
-      "x": 0.3372,
-      "y": 0.4246
+      "x": 0.334,
+      "y": 0.4218
     },
     "articles/microsoft-youre-using-bing-wrong": {
       "x": 0.1571,
@@ -131,16 +131,16 @@
       "y": 0.3839
     },
     "articles/online-uitgeput-pak-een-kruk": {
-      "x": 0.3154,
-      "y": 0.3061
+      "x": 0.3169,
+      "y": 0.3052
     },
     "articles/onthaast-je-voice-action-met-ssml": {
       "x": 0.4383,
       "y": 0.1664
     },
     "articles/prompt-thought-summaries": {
-      "x": 0.2589,
-      "y": 0.4122
+      "x": 0.2563,
+      "y": 0.4135
     },
     "articles/putting-the-design-in-prompt-design": {
       "x": 0.2148,
@@ -151,16 +151,16 @@
       "y": 0.3347
     },
     "articles/scrum-for-conversational-teams": {
-      "x": 0.2639,
-      "y": 0.3214
+      "x": 0.2624,
+      "y": 0.3217
     },
     "articles/stay-calm-and-keep-thinking-for-yourself": {
       "x": 0.6475,
       "y": 0.3536
     },
     "articles/the-lone-convo-designer": {
-      "x": 0.2793,
-      "y": 0.2789
+      "x": 0.2796,
+      "y": 0.278
     },
     "articles/the-long-and-winding-road": {
       "x": 0.3206,
@@ -270,10 +270,6 @@
       "x": 0.9316,
       "y": 0.6543
     },
-    "field-notes/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing": {
-      "x": 0.7637,
-      "y": 0.3116
-    },
     "field-notes/thematic-analysis-approach-a-fresh": {
       "x": 0.7842,
       "y": 0.7469
@@ -293,6 +289,10 @@
     "field-notes/typed-relations-as-garden-infrastructure": {
       "x": 0.7334,
       "y": 0.7101
+    },
+    "seeds/a-reading-log-for-bacteria-to-ai": {
+      "x": 0.1382,
+      "y": 0.368
     },
     "seeds/ai-as-writing-partner": {
       "x": 0.4675,
@@ -330,6 +330,10 @@
       "x": 0.7102,
       "y": 0.7592
     },
+    "seeds/my-changing-role-in-an-ultrasmall-development-team": {
+      "x": 0.2349,
+      "y": 0.5941
+    },
     "seeds/principles-behind-this-garden": {
       "x": 0.9627,
       "y": 0.6292
@@ -341,6 +345,10 @@
     "seeds/the-disappearance-of-authentic-voice-online": {
       "x": 0.6239,
       "y": 0.3169
+    },
+    "seeds/the-return-of-the-button": {
+      "x": 0.8836,
+      "y": 0.6177
     },
     "seeds/thematic-analysis-as-interaction-model-and-research-method": {
       "x": 0.232,
@@ -890,17 +898,13 @@
       "x": 0.6567,
       "y": 0.2647
     },
-    "seeds/a-reading-log-for-bacteria-to-ai": {
-      "x": 0.1382,
-      "y": 0.368
+    "jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing": {
+      "x": 0.3604,
+      "y": 0.4438
     },
-    "seeds/my-changing-role-in-an-ultrasmall-development-team": {
-      "x": 0.2349,
-      "y": 0.5941
-    },
-    "seeds/the-return-of-the-button": {
-      "x": 0.8836,
-      "y": 0.6177
+    "jottings/thinking-in-action-precision-matters": {
+      "x": 0.173,
+      "y": 0.8253
     }
   },
   "territories": [
@@ -914,7 +918,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 33
+      "itemCount": 34
     },
     {
       "label": "design",
@@ -932,7 +936,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 8
+      "itemCount": 9
     },
     {
       "label": "prompt-design",
@@ -950,7 +954,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 21
+      "itemCount": 20
     },
     {
       "label": "developer-experience",
