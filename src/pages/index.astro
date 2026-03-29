@@ -70,9 +70,9 @@ const maturities = [
   { value: 'complete',   label: '🌳 Complete' },
 ];
 const aiLevels = [
-  { value: '100% Maai', label: '100% Maai' },
-  { value: 'assisted',  label: 'Assisted' },
-  { value: 'co-created', label: 'Co-created' },
+  { value: '100% Maai', label: '✍️ 100% Maaike' },
+  { value: 'assisted',  label: '✏️ Assisted' },
+  { value: 'co-created', label: '✨ Co-created' },
 ];
 
 function extractBodyPreview(body: string | undefined, maxLen = 220): string {
@@ -251,9 +251,8 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       <aside class="stream-sidebar" id="stream-sidebar" aria-label="Filters">
 
         <!-- Collection filter -->
-        <div class="filter-panel">
+        <div class="filter-panel" data-label="Collection">
           <div class="filter-panel-header">
-            <p class="filter-panel-label">Collection</p>
             <button class="filter-action" id="col-select-all">All</button>
             <button class="filter-action" id="col-clear">Clear</button>
           </div>
@@ -274,9 +273,8 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
         </div>
 
         <!-- Maturity filter -->
-        <div class="filter-panel">
+        <div class="filter-panel" data-label="Maturity">
           <div class="filter-panel-header">
-            <p class="filter-panel-label">Maturity</p>
             <button class="filter-action" id="mat-select-all">All</button>
             <button class="filter-action" id="mat-clear">Clear</button>
           </div>
@@ -293,10 +291,9 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </div>
         </div>
 
-        <!-- AI filter -->
-        <div class="filter-panel">
+        <!-- Written by filter -->
+        <div class="filter-panel" data-label="Written by">
           <div class="filter-panel-header">
-            <p class="filter-panel-label">Written by</p>
             <button class="filter-action" id="ai-select-all">All</button>
             <button class="filter-action" id="ai-clear">Clear</button>
           </div>
@@ -312,6 +309,29 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
             ))}
           </div>
         </div>
+
+        <!-- Legend -->
+        <details class="legend-card">
+          <summary class="legend-summary">Legend</summary>
+          <div class="legend-section">
+            <p class="legend-section-title">Maturity</p>
+            <ul class="legend-list">
+              <li>🌱 <strong>Draft:</strong> early idea, rough</li>
+              <li>🌿 <strong>Developing:</strong> being worked on</li>
+              <li>🪴 <strong>Solid:</strong> reasonably complete</li>
+              <li>🌳 <strong>Complete:</strong> done, no plans to revise</li>
+            </ul>
+          </div>
+          <div class="legend-section">
+            <p class="legend-section-title">Written by</p>
+            <ul class="legend-list">
+              <li>✍️ <strong>100% Maaike:</strong> fully written by me, no AI at all</li>
+              <li>✏️ <strong>Assisted:</strong> my ideas and writing, AI as editor</li>
+              <li>✨ <strong>Co-created:</strong> my ideas and direction, AI generated the content</li>
+              <li>⚙️ <strong>Generated:</strong> fully AI generated, usually system loggings</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Currently reading -->
         {currentlyReading.length > 0 && (
@@ -716,27 +736,40 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   .page-btn:disabled { opacity: 0.35; cursor: default; }
   .page-indicator { font-size: 0.82rem; color: var(--color-text-muted); }
 
+  /* === Filter panels with protruding tab === */
   .filter-panel {
+    position: relative;
     background: #EEF3EB;
-    border-radius: 0.75rem;
-    padding: var(--space-md);
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    margin-top: 1.5rem;
   }
   :root[data-theme="dark"] .filter-panel { background: #1a2318; }
+
+  /* Protruding tab label */
+  .filter-panel::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -1.35rem;
+    left: 0;
+    padding: 0.22rem 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-muted);
+    background: #EEF3EB;
+    border-radius: 5px 5px 0 0;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .filter-panel::before { background: #1a2318; }
 
   .filter-panel-header {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    margin-bottom: var(--space-sm);
-  }
-
-  .filter-panel-label {
-    font-size: 0.69rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-    font-weight: 400;
-    flex: 1;
+    justify-content: flex-end;
+    margin-bottom: var(--space-xs);
   }
 
   .filter-action {
@@ -929,6 +962,70 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   .webring-row a:hover { color: #0D7C66; }
 
   .webring-sep { opacity: 0.4; }
+
+  /* ═══════════════════════════════════════════
+     LEGEND CARD
+  ═══════════════════════════════════════════ */
+  .legend-card {
+    background: #EEF3EB;
+    border-radius: 0.75rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+  :root[data-theme="dark"] .legend-card { background: #1a2318; }
+
+  .legend-summary {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .legend-summary::-webkit-details-marker { display: none; }
+  .legend-summary::before {
+    content: '▸ ';
+    font-size: 0.6rem;
+  }
+  details[open] .legend-summary::before { content: '▾ '; }
+
+  .legend-section {
+    margin-top: var(--space-sm);
+  }
+  .legend-section + .legend-section {
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  :root[data-theme="dark"] .legend-section + .legend-section { border-top-color: rgba(255,255,255,0.08); }
+
+  .legend-section-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .legend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .legend-list li {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+  .legend-list strong {
+    font-weight: 600;
+    color: var(--color-text);
+  }
 
   /* ═══════════════════════════════════════════
      SIDEBAR CONTENT CARDS (reading / projects)
