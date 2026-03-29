@@ -1,78 +1,113 @@
 # Auto-tag and link
 
-Analyze a post's content and automatically suggest tags and wiki-links based on the entire content base.
+Analyze a post's content and enrich it with tags, triples, internal wiki-links, and Wikipedia links.
 
 ## Step 1: Select the post
 
-Ask the user which post to analyze. Options:
-- They can provide a file path
-- They can provide a title
-- Use "the most recent post" (find via `git log --diff-filter=A --name-only --pretty=format: -10 -- src/content/`)
-
-Read the target post's full content (frontmatter + body).
+Use the post that was just created (if called from `/new-post`), or ask the user which post to analyze. Read the full content (frontmatter + body).
 
 ## Step 2: Build context
 
-Read the content base to understand what's available:
+1. **Existing tags**: Glob `src/content/tags/*.md` and extract all tag titles and slugs.
 
-1. **All existing tags**: Glob `src/content/tags/*.md` and extract all tag slugs. These are the canonical tags.
+2. **All garden content** (for backlink candidates): For each collection (articles, field-notes, seeds, weblinks, videos, library, experiments, jottings), glob `src/content/<collection>/*.md` and extract `title`, `description`, and `tags` from frontmatter. Build a map of slug → { title, description, collection }.
 
-2. **All post titles and slugs**: For each collection (articles, field-notes, seeds, weblinks, videos, library, experiments), glob `src/content/<collection>/*.md` and extract `title` from frontmatter. Build a map of title-to-slug for wiki-link candidates.
+3. **What the post already has**: Note existing tags, triples, and `[[...]]` wiki-links in the body.
 
-3. **Current post's tags**: Note which tags the post already has (if any).
+## Step 3: Thematic analysis
 
-4. **Current post's wiki-links**: Find existing `[[...]]` links in the body.
+Read the post carefully. Extract:
 
-## Step 3: Analyze and suggest tags
+**Named entities:**
+- People (researchers, philosophers, public figures)
+- Tools and products (software, platforms, services)
+- Disciplines and fields (conversation design, philosophy, linguistics)
+- Movements and schools of thought
+- Named theories, concepts, and frameworks
 
-Compare the post's content (title, description, body text) against the canonical tag list. Suggest tags that:
-- Match the post's topic and themes
-- Are already used in similar posts
-- Are not already on the post
+**Key themes:** the 2-4 main ideas the post is about.
 
-Rules:
-- Only suggest tags from the existing canonical tag list (don't invent new tags)
-- Suggest 2-5 tags maximum
-- Rank by relevance
+**Relationships:** Subject-predicate-object triples capturing claims, attributions, or structural relationships in the text. Aim for 2-5 triples. Good triples:
+- Are precise and non-trivial
+- Capture something the post actually argues or demonstrates
+- Use short, active predicate phrases: "argues against", "builds on", "coined by", "distinguishes between"
 
-## Step 4: Suggest wiki-links
+Example: `["Dialectical thinking", "attributed to", "Hegel"]`
 
-Scan the post's body text for opportunities to link to other posts. A good wiki-link candidate is:
-- A concept, title, or phrase in the body that matches or closely relates to another post's title
-- A reference to a topic that has its own dedicated post
+## Step 4: Tag suggestions
 
-Build suggestions as:
-- The phrase in the body text to wrap in `[[]]`
-- The target post title and collection
-- If the phrase doesn't exactly match the target slug, use alias syntax: `[[target-slug|display text]]`
+Map entities and themes to the existing tag list.
 
-Rules:
-- Don't over-link. 2-5 wiki-links per post is ideal.
-- Only link to existing posts (check the title map from Step 2)
-- Don't suggest links that already exist in the post
-- Prefer linking to the most relevant/related posts
+**For existing tags**: suggest any that genuinely fit, ranked by relevance.
 
-## Step 5: Present suggestions
+**For new tags**: if a theme or entity is significant but not in the tag list, propose creating it. A good new tag:
+- Is a distinct, reusable concept (not too specific to one post)
+- Would plausibly be used on 2+ future posts
+- Is a noun or noun phrase, kebab-cased
 
-Show the user:
+Don't pad with weak tags. 2-5 total is ideal.
 
-**Suggested tags:**
-- `tag-name`: reason for suggestion
+## Step 5: Backlink suggestions (internal wiki-links)
 
-**Suggested wiki-links:**
-- "phrase in text" -> `[[target-slug]]` (collection: target title)
+Scan the body for phrases that match or closely relate to other garden posts. A good wiki-link:
+- The phrase is genuinely about that post's topic
+- The linked post adds real value for the reader
+- 2-5 per post max; don't suggest existing links
 
-Ask the user which suggestions to accept. They can accept all, some, or none. They can also modify suggestions.
+Format: `[[slug|display phrase]]` if phrase ≠ slug, else `[[slug]]`.
 
-## Step 6: Apply changes
+## Step 6: Wikipedia link suggestions
 
-For accepted tags:
-- Add them to the frontmatter `tags:` list
+For named concepts, people, or theories in the post that:
+- Are significant and well-documented on Wikipedia
+- Don't have their own garden content
+- Would give the reader genuinely useful context
 
-For accepted wiki-links:
-- Replace the plain text phrase with the wiki-link syntax in the body
-- Use `[[slug]]` if the phrase matches the slug, or `[[slug|phrase]]` if it doesn't
+Suggest: `[display text](https://en.wikipedia.org/wiki/Article_title)`.
 
-## Step 7: Save
+Higher bar than internal links. Only suggest where Wikipedia is the natural reference.
 
-Write the updated file. Ask if the user wants to commit.
+## Step 7: Present all suggestions
+
+Show in one block:
+
+```
+**Suggested tags** (n new, n existing):
+- `tag-slug` — reason [NEW] or [existing]
+
+**Triples:**
+- ["Subject", "predicate", "Object"]
+
+**Wiki-links (internal):**
+- "phrase in text" → [[slug|phrase]] (collection: title)
+
+**Wikipedia links:**
+- "concept" → [concept](https://en.wikipedia.org/wiki/Concept) — why it's worth linking
+```
+
+Ask: "Accept all, or tell me what to skip/change."
+
+## Step 8: Apply
+
+**Tags:**
+- Add accepted tags to frontmatter `tags:` array
+- For NEW tags: create `src/content/tags/<slug>.md`:
+  ```yaml
+  ---
+  title: Tag Name
+  ---
+  ```
+
+**Triples:**
+- Add accepted triples to frontmatter `triples:` array
+- Format: `- ["Subject", "predicate", "Object"]`
+
+**Wiki-links:** Replace plain phrases in body with `[[slug|phrase]]` syntax.
+
+**Wikipedia links:** Wrap plain text with `[text](https://en.wikipedia.org/wiki/...)`.
+
+Keep all other body content intact.
+
+## Step 9: Save
+
+Write the updated file. Do not commit — the caller decides when to commit.

@@ -13,6 +13,7 @@ interface Props {
   updated?: Date;
   maturity: 'draft' | 'developing' | 'solid' | 'complete';
   tags: string[];
+  triples?: [string, string, string][];
   description?: string;
   collection: string;
   slug: string;
@@ -22,7 +23,7 @@ interface Props {
   develops?: string;
 }
 
-const { title, date, updated, maturity, tags, description, collection, slug, url, ai, hub, develops } = Astro.props;
+const { title, date, updated, maturity, tags, triples, description, collection, slug, url, ai, hub, develops } = Astro.props;
 
 const isHub = hub === true;
 const ogImage = `/images/og/${collection}/${slug}.png`;
@@ -117,6 +118,20 @@ const formattedUpdated = updated
             <TagList tags={tags} />
           </div>
         )}
+        {triples && triples.length > 0 && (
+          <div class="post-footer-triples">
+            <h3 class="post-footer-heading">Relations</h3>
+            <ul class="triples-list">
+              {triples.map(([s, p, o]) => (
+                <li class="triple">
+                  <span class="triple-subject">{s}</span>
+                  <span class="triple-predicate">{p}</span>
+                  <span class="triple-object">{o}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div class="post-footer-share">
           <h3 class="post-footer-heading">Share</h3>
           <div class="post-footer-share-buttons">
@@ -142,6 +157,15 @@ const formattedUpdated = updated
 </PageLayout>
 
 <script>
+  // Open external links in prose in a new tab
+  document.querySelectorAll('.prose a[href^="http"]').forEach((link) => {
+    const url = link.getAttribute('href') || '';
+    if (!url.startsWith('https://maaike.ai') && !url.startsWith('http://maaike.ai')) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
   document.querySelectorAll('.share-generic').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const url = btn.getAttribute('data-url') || '';
@@ -339,7 +363,43 @@ const formattedUpdated = updated
   }
 
   .post-footer-tags {
+    margin-block-end: var(--space-md);
+  }
+
+  .post-footer-triples {
     margin-block-end: var(--space-lg);
+  }
+
+  .triples-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .triple {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .triple-subject {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .triple-predicate {
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .triple-object {
+    font-weight: 500;
   }
 
   .post-footer-heading {
