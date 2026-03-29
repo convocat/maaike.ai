@@ -8,6 +8,17 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Tagging, triples, and auto-enrichment
+*2026-03-29 · main*
+
+Refactored the tagging and linking system: `/auto-tag` now does thematic analysis, extracts named entities, proposes new tags (and creates tag files), extracts subject-predicate-object triples, suggests internal wiki-links semantically, and suggests Wikipedia links for uncovered concepts. Triples are stored in frontmatter and displayed as a "Relations" section in the post footer. Wikipedia links get teal styling with a W superscript and open in a new tab. The `/new-post` Typora template now shows all metadata fields upfront.
+
+Next: run `/auto-tag` on existing posts to start populating triples and backlinks. Good first candidate: the "thinking in action" jotting published today.
+
+Key files: `.claude/commands/auto-tag.md`, `src/content.config.ts`, `src/layouts/PostLayout.astro`, `src/styles/global.css`
+
+---
+
 ## 🔵 The return of the button
 *added: 2026-03-27 · last-touched: 2026-03-28 · article*
 
