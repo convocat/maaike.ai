@@ -23,11 +23,15 @@ Ask the user using AskUserQuestion with these 4 options:
 1. Create a temporary file at `src/content/articles/new-draft.md`.
    If `new-draft.md` already exists, use `new-draft-2.md`, `new-draft-3.md`, etc.
 
-   **Template for Articles and Jottings** (includes LinkedIn block):
+   **Template for Articles** (expanded frontmatter + LinkedIn block):
    ```markdown
    ---
-   draft: true
+   title: ""
    description: ""
+   maturity: draft
+   ai: "100% Maai"
+   tags: []
+   triples: []
    ---
 
    # Title
@@ -41,11 +45,55 @@ Ask the user using AskUserQuestion with these 4 options:
    </div>
    ```
 
-   **Template for Field notes, Seeds, Weblinks, Videos** (no LinkedIn block):
+   **Template for Jottings** (expanded frontmatter + LinkedIn block):
    ```markdown
    ---
-   draft: true
+   title: ""
    description: ""
+   maturity: draft
+   ai: "100% Maai"
+   type: note
+   tags: []
+   triples: []
+   ---
+
+   # Title
+
+   Start writing here...
+
+   ---
+
+   <div class="linkedin">
+   Write your LinkedIn post here...
+   </div>
+   ```
+
+   **Template for Field notes and Seeds** (no LinkedIn block):
+   ```markdown
+   ---
+   title: ""
+   description: ""
+   maturity: draft
+   ai: "100% Maai"
+   tags: []
+   triples: []
+   ---
+
+   # Title
+
+   Start writing here...
+   ```
+
+   **Template for Weblinks and Videos** (with url field):
+   ```markdown
+   ---
+   title: ""
+   description: ""
+   url: "<url>"
+   maturity: draft
+   ai: "100% Maai"
+   tags: []
+   triples: []
    ---
 
    # Title
@@ -65,16 +113,19 @@ Ask the user using AskUserQuestion with these 4 options:
 
 ## Step 3: User returns after writing
 
-When the user comes back, read the file they wrote. Extract the title from the first `# Heading` in the body.
+When the user comes back, read the file they wrote. Extract:
+- **Title**: from the first `# Heading` in the body (takes precedence over frontmatter title field)
+- **All frontmatter fields** Maaike already filled in — use them as-is
 
-The collection is already known from Step 1. Ask only:
+Only ask about fields that are **missing or empty**:
+- **Maturity** — if not filled in or left as `draft`
+- **AI status** — if not filled in
+- **Jotting type** — if collection is jottings and `type` is not filled in (or still `note`)
+- **URL** — if collection is weblinks or videos and url is missing
 
-1. **Maturity** (single select): Draft, Developing, Solid, Complete
-2. **AI status** (single select): 100% Maai, Assisted, Co-created, Generated
+If she filled in tags, triples, description, etc. in the frontmatter — use them directly without asking. If `description` is empty, generate a suggestion and show it before writing.
 
-For **Jottings**: also ask for `type` (note / quote / event / link / post) as a follow-up.
-
-If they chose Weblinks/Videos, ask for the URL in a follow-up question.
+Note: if she left `triples: []` empty, that's fine — `/auto-tag` fills those in automatically in Step 5.
 
 ## Step 4: Build frontmatter and finalize
 

@@ -183,6 +183,23 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   margin-block: var(--space-2xl);
 }
 
+/* Wikipedia links — visually distinct from internal wiki-links */
+.prose a[href*="wikipedia.org"] {
+  color: var(--color-accent-2);
+  text-decoration-style: solid;
+}
+.prose a[href*="wikipedia.org"]:hover {
+  color: var(--color-accent-2-hover);
+}
+.prose a[href*="wikipedia.org"]::after {
+  content: "\00a0W";
+  font-size: 0.65em;
+  font-weight: 700;
+  vertical-align: super;
+  opacity: 0.55;
+  letter-spacing: -0.01em;
+}
+
 /* Wiki link styles */
 .wiki-link {
   color: var(--color-accent-2);

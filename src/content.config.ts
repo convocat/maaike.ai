@@ -12,6 +12,7 @@ const baseSchema = z.object({
   ),
   maturity: maturityEnum.default('draft'),
   tags: z.array(z.string()).default([]),
+  triples: z.array(z.tuple([z.string(), z.string(), z.string()])).optional(),
   description: z.string().optional(),
   draft: z.boolean().default(false),
   ai: z.enum(['100% Maai', 'assisted', 'co-created', 'generated']).optional(),
