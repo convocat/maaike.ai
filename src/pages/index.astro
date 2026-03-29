@@ -1,25 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SketchyFilter from '../components/SketchyFilter.astro';
 import MosaicCard from '../components/MosaicCard.astro';
 import { getAllContent, sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
 
 const allContent = sortByDate(await getAllContent());
 
-// Main feed: everything — articles, seeds, field notes, jottings, weblinks
+// Main feed: all content types except hubs, stubs, and generated-only
 const mainFeedEligible = allContent.filter((e) => {
   const data = e.data as any;
-  if (!['articles', 'seeds', 'field-notes', 'jottings', 'weblinks'].includes(e.collection)) return false;
   if (data.hub === true) return false;
   if (data.ai === 'generated') return false;
+  if (e.collection === 'library') return false;
   if (e.collection === 'field-notes') return !data.tags?.includes('about');
   if (data.develops) return false;
   if (e.collection === 'jottings' && data.type === 'quote') return false;
   return true;
 });
 
-// Pinned: latest article sits first in the stream
+// Pinned: latest article sits first
 const latestArticle = mainFeedEligible.find((e) => e.collection === 'articles');
 const feedItems = mainFeedEligible.filter((e) => e !== latestArticle);
 
@@ -34,21 +37,43 @@ const hubs = allContent
   .filter((e) => (e.data as any).hub === true)
   .slice(0, 8);
 
-const filterCollections = ['articles', 'seeds', 'field-notes', 'jottings', 'weblinks'];
+const filterCollections = [
+  'articles', 'seeds', 'field-notes', 'jottings',
+  'weblinks', 'videos',
+];
 const collectionLabels: Record<string, string> = {
-  articles: 'Articles',
-  seeds: 'Seeds',
+  articles:    'Articles',
+  seeds:       'Seeds',
   'field-notes': 'Field Notes',
-  jottings: 'Jottings',
-  weblinks: 'Weblinks',
+  jottings:    'Jottings',
+  weblinks:    'Weblinks',
+  videos:      'Videos',
+  library:     'Library',
+  experiments: 'Experiments',
+  projects:    'Projects',
 };
-const doodleFilterIcons: Record<string, string> = {
-  articles: '/images/icons/doc.svg',
-  seeds: '/images/icons/bulb.svg',
+const collectionIcons: Record<string, string> = {
+  articles:    '/images/icons/doc.svg',
+  seeds:       '/images/icons/bulb.svg',
   'field-notes': '/images/icons/note.svg',
-  jottings: '/images/icons/pencil.svg',
-  weblinks: '/images/icons/globe.svg',
+  jottings:    '/images/icons/pencil.svg',
+  weblinks:    '/images/icons/globe.svg',
+  videos:      '/images/icons/play.svg',
+  library:     '/images/icons/bookmark.svg',
+  experiments: '/images/icons/flask.svg',
+  projects:    '/images/icons/rocket.svg',
 };
+const maturities = [
+  { value: 'draft',      label: '🌱 Draft' },
+  { value: 'developing', label: '🌿 Developing' },
+  { value: 'solid',      label: '🪴 Solid' },
+  { value: 'complete',   label: '🌳 Complete' },
+];
+const aiLevels = [
+  { value: '100% Maai', label: '100% Maai' },
+  { value: 'assisted',  label: 'Assisted' },
+  { value: 'co-created', label: 'Co-created' },
+];
 
 function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   if (!body) return '';
@@ -72,109 +97,178 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 }
 ---
 
-<PageLayout title={`Stream — ${settings.siteTitle}`}>
-  <h1>Stream</h1>
-  <p class="stream-description">What's growing, what's on my mind.</p>
+<BaseLayout title={settings.siteTitle} description={settings.siteTagline}>
+  <SketchyFilter />
+  <Header />
 
-  <div class="stream-layout">
-
-    <!-- Main column: filter chips + feed -->
-    <div class="stream-main">
-      <div class="mosaic-filters" role="group" aria-label="Filter by content type">
-        <button class="filter-chip active" data-filter="all">All</button>
-        {filterCollections.map((col) => (
-          <button class="filter-chip" data-filter={col}>
-            {doodleFilterIcons[col] && <img src={doodleFilterIcons[col]} alt="" class="filter-icon" />}
-            {collectionLabels[col] || col}
-          </button>
-        ))}
+  <!-- ═══ HERO ═══ -->
+  <section class="home-hero" aria-label="Introduction">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-heading">Welcome to my<br>digital garden</h1>
+        <p class="hero-desc">I'm Maaike: natural language interface designer, linguist, and owner of about 50 fountain pens. This is where I think in public about conversation design, AI, and the things in between.</p>
       </div>
-      <div class="filter-select-wrap">
-        <svg class="filter-select-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <select class="filter-select" aria-label="Filter by content type" id="filter-select">
-          <option value="all">All</option>
-          {filterCollections.map((col) => (
-            <option value={col}>{collectionLabels[col] || col}</option>
-          ))}
-        </select>
-      </div>
-
-      <div class="stream-feed" id="stream-feed">
-        {latestArticle && (() => {
-          const data = latestArticle.data as any;
-          return (
-            <MosaicCard
-              title={data.title}
-              href={`/articles/${latestArticle.id}`}
-              date={data.date}
-              updated={data.updated}
-              maturity={data.maturity}
-              tags={data.tags}
-              description={data.description}
-              collection="articles"
-              pinned={true}
-              ai={data.ai}
-              bodyPreview={extractBodyPreview(latestArticle.body, 300)}
-            />
-          );
-        })()}
-        {feedItems.map((entry) => {
-          const data = entry.data as any;
-          const col = entry.collection;
-          const href = `/${col}/${entry.id}`;
-          const domain = (col === 'jottings' || col === 'weblinks') && data.url
-            ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
-            : undefined;
-          return (
-            <MosaicCard
-              title={data.title}
-              href={href}
-              date={data.date}
-              updated={data.updated}
-              maturity={data.maturity}
-              tags={data.tags}
-              description={data.description}
-              collection={col}
-              jottingType={data.type}
-              source={data.source}
-              domain={domain}
-              url={data.url}
-              ai={data.ai}
-              bodyPreview={(col === 'articles' || col === 'jottings') ? extractBodyPreview(entry.body) : undefined}
-            />
-          );
-        })}
+      <div class="hero-visual" aria-hidden="true">
+        <div class="leaf-container">
+          <div class="leaf-circle"></div>
+          <svg class="leaf-svg" viewBox="0 0 120 165" fill="none">
+            <!-- Outer leaf -->
+            <path d="M60 8 C18 42, 8 85, 18 115 C28 140, 50 155, 60 155 C70 155, 92 140, 102 115 C112 85, 102 42, 60 8Z" fill="#D4E8D4"/>
+            <!-- Middle layer -->
+            <path d="M60 24 C28 52, 20 88, 28 112 C36 132, 52 144, 60 144 C68 144, 84 132, 92 112 C100 88, 92 52, 60 24Z" fill="#7A9B68"/>
+            <!-- Inner leaf -->
+            <path d="M60 42 C38 62, 32 90, 40 108 C46 122, 54 130, 60 130 C66 130, 74 122, 80 108 C88 90, 82 62, 60 42Z" fill="#4A6741"/>
+            <!-- Center vein -->
+            <line x1="60" y1="50" x2="60" y2="125" stroke="#3D5835" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+            <!-- Side veins -->
+            <path d="M60 65 Q45 75, 38 90" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+            <path d="M60 65 Q75 75, 82 90" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+            <path d="M60 85 Q48 92, 42 105" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+            <path d="M60 85 Q72 92, 78 105" stroke="#3D5835" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+            <!-- Stem -->
+            <line x1="60" y1="155" x2="60" y2="165" stroke="#6B8E5A" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Sidebar: portrait index cards -->
-    <aside class="stream-sidebar" id="stream-sidebar">
+  <hr class="home-divider" />
 
-      {/* About */}
-      <article class="sidebar-card sidebar-card--about">
-        <div class="sidebar-strip">
-          <img src="/images/icons/bulb.svg" alt="" class="sidebar-icon" width="20" height="20" />
-          <span class="sidebar-strip-title">About Maai & AI</span>
+  <!-- ═══ STREAM ═══ -->
+  <main id="main-content" class="home-content">
+    <div class="stream-layout">
+
+      <!-- Main feed column -->
+      <div class="stream-main">
+        <p class="stream-label">Stream</p>
+        <div class="stream-feed" id="stream-feed">
+          {latestArticle && (() => {
+            const data = latestArticle.data as any;
+            return (
+              <MosaicCard
+                title={data.title}
+                href={`/articles/${latestArticle.id}`}
+                date={data.date}
+                updated={data.updated}
+                maturity={data.maturity}
+                tags={data.tags}
+                description={data.description}
+                collection="articles"
+                pinned={true}
+                ai={data.ai}
+                bodyPreview={extractBodyPreview(latestArticle.body, 300)}
+              />
+            );
+          })()}
+          {feedItems.map((entry) => {
+            const data = entry.data as any;
+            const col = entry.collection;
+            const href = `/${col}/${entry.id}`;
+            const domain = (col === 'jottings' || col === 'weblinks') && data.url
+              ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
+              : undefined;
+            return (
+              <MosaicCard
+                title={data.title}
+                href={href}
+                date={data.date}
+                updated={data.updated}
+                maturity={data.maturity}
+                tags={data.tags}
+                description={data.description}
+                collection={col}
+                jottingType={data.type}
+                source={data.source}
+                domain={domain}
+                url={data.url}
+                ai={data.ai}
+                bodyPreview={(col === 'articles' || col === 'jottings') ? extractBodyPreview(entry.body) : undefined}
+              />
+            );
+          })}
         </div>
-        <div class="sidebar-main">
-          <div class="sidebar-body">
-            <p class="sidebar-bio">Hoihoi, I'm Maaike: natural language interface designer, linguist and owner of about 50 fountain pens, with notebooks to match. I love public speaking. This digital garden is my space for public thinking.</p>
-            <a href="/about" class="sidebar-read-more">Read more →</a>
+        <p class="stream-empty" id="stream-empty" hidden>No items match the current filters.</p>
+        <nav class="stream-pagination" id="stream-pagination" aria-label="Stream pages" hidden>
+          <button class="page-btn" id="page-prev" aria-label="Previous page">&larr; Previous</button>
+          <span class="page-indicator" id="page-indicator"></span>
+          <button class="page-btn" id="page-next" aria-label="Next page">Next &rarr;</button>
+        </nav>
+      </div>
+
+      <!-- Sidebar: filter panels -->
+      <aside class="stream-sidebar" id="stream-sidebar" aria-label="Filters">
+
+        <!-- Collection filter -->
+        <div class="filter-panel">
+          <div class="filter-panel-header">
+            <p class="filter-panel-label">Collection</p>
+            <button class="filter-action" id="col-select-all">All</button>
+            <button class="filter-action" id="col-clear">Clear</button>
+          </div>
+          <div class="filter-items">
+            {filterCollections.map((col) => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only" value={col} data-group="collection" />
+                <span class="filter-content">
+                  <img src={collectionIcons[col]} alt="" width="15" height="15" class="filter-icon" />
+                  <span>{collectionLabels[col]}</span>
+                </span>
+              </label>
+            ))}
           </div>
         </div>
-      </article>
 
-
-      {/* Currently reading */}
-      {currentlyReading.length > 0 && (
-        <article class="sidebar-card sidebar-card--reading">
-          <div class="sidebar-strip">
-            <img src="/images/icons/bookmark.svg" alt="" class="sidebar-icon" width="20" height="20" />
-            <span class="sidebar-strip-title">Currently reading</span>
+        <!-- Maturity filter -->
+        <div class="filter-panel">
+          <div class="filter-panel-header">
+            <p class="filter-panel-label">Maturity</p>
+            <button class="filter-action" id="mat-select-all">All</button>
+            <button class="filter-action" id="mat-clear">Clear</button>
           </div>
-          <div class="sidebar-main">
+          <div class="filter-items">
+            {maturities.map((m) => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only" value={m.value} data-group="maturity" />
+                <span class="filter-content"><span>{m.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <!-- AI filter -->
+        <div class="filter-panel">
+          <div class="filter-panel-header">
+            <p class="filter-panel-label">Written by</p>
+            <button class="filter-action" id="ai-select-all">All</button>
+            <button class="filter-action" id="ai-clear">Clear</button>
+          </div>
+          <div class="filter-items">
+            {aiLevels.map((a) => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only" value={a.value} data-group="ai" />
+                <span class="filter-content"><span>{a.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <!-- Currently reading -->
+        {currentlyReading.length > 0 && (
+          <article class="sidebar-card">
+            <div class="sidebar-strip">
+              <img src="/images/icons/bookmark.svg" alt="" class="sidebar-icon" width="18" height="18" />
+              <span class="sidebar-strip-title">Currently reading</span>
+            </div>
             <div class="sidebar-body">
               {currentlyReading.map((book) => (
                 <a href={`/library/${book.id}`} class="reading-book">
@@ -186,18 +280,16 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
                 </a>
               ))}
             </div>
-          </div>
-        </article>
-      )}
+          </article>
+        )}
 
-      {/* Projects */}
-      {hubs.length > 0 && (
-        <article class="sidebar-card sidebar-card--projects">
-          <div class="sidebar-strip">
-            <img src="/images/icons/flask.svg" alt="" class="sidebar-icon" width="20" height="20" />
-            <span class="sidebar-strip-title">Projects</span>
-          </div>
-          <div class="sidebar-main">
+        <!-- Projects -->
+        {hubs.length > 0 && (
+          <article class="sidebar-card">
+            <div class="sidebar-strip">
+              <img src="/images/icons/rocket.svg" alt="" class="sidebar-icon" width="18" height="18" />
+              <span class="sidebar-strip-title">Projects</span>
+            </div>
             <div class="sidebar-body">
               <ul class="projects-list">
                 {hubs.map((hub) => (
@@ -208,51 +300,144 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
                   </li>
                 ))}
               </ul>
-              <a href="/projects" class="sidebar-read-more">All projects →</a>
+              <a href="/projects" class="sidebar-read-more">All projects &rarr;</a>
             </div>
-          </div>
-        </article>
-      )}
+          </article>
+        )}
 
-    </aside>
+      </aside>
+    </div>
+
+    <!-- Stay updated -->
+    <section class="stay-updated">
+      <h2 class="stay-updated-heading">Stay updated</h2>
+      <p class="stay-updated-desc">Follow along via RSS, LinkedIn, or the community.</p>
+      <div class="stay-updated-links">
+        <a href="/rss.xml" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+          RSS
+        </a>
+        <a href="https://www.linkedin.com/in/maaikegroenewegen" class="btn-outline" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.convo.club" class="btn-outline" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L2 22l5.71-.97A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.4 0-2.73-.35-3.9-1l-.28-.16-2.88.49.49-2.88-.17-.28A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+          Community
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Under construction banner -->
+  <div class="footer-construction">
+    <img
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BUpCYiagkyeoKHdWgi9jX0CkImTXlX.png"
+      alt="Under construction"
+      height="32"
+      loading="lazy"
+    />
   </div>
 
-</PageLayout>
+  <!-- Webring -->
+  <section class="footer-webring" aria-label="Webring">
+    <p class="webring-label">Webring</p>
+    <div class="webring-row">
+      <a href="#">&larr; Previous</a>
+      <span class="webring-sep" aria-hidden="true">|</span>
+      <a href="#">Random</a>
+      <span class="webring-sep" aria-hidden="true">|</span>
+      <a href="#">Next &rarr;</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
 
 <script>
+  const PAGE_SIZE = 10;
+
   function initStream() {
-    const chips = document.querySelectorAll<HTMLElement>('.filter-chip');
-    const select = document.getElementById('filter-select') as HTMLSelectElement | null;
-    const sidebar = document.getElementById('stream-sidebar');
-    const feed = document.getElementById('stream-feed');
+    const feed       = document.getElementById('stream-feed');
+    const empty      = document.getElementById('stream-empty');
+    const pagination = document.getElementById('stream-pagination');
+    const prevBtn    = document.getElementById('page-prev') as HTMLButtonElement | null;
+    const nextBtn    = document.getElementById('page-next') as HTMLButtonElement | null;
+    const indicator  = document.getElementById('page-indicator');
     if (!feed) return;
 
     const allCards = Array.from(feed.querySelectorAll<HTMLElement>('.mosaic-card'));
+    const inputs   = Array.from(document.querySelectorAll<HTMLInputElement>('.filter-cb-input'));
+    let currentPage = 1;
 
-    function applyFilter(filter: string) {
-      if (sidebar) sidebar.style.display = filter === 'all' ? '' : 'none';
-      allCards.forEach((c) => {
-        c.style.display = filter === 'all' || c.dataset.collection === filter ? '' : 'none';
-      });
+    function getActiveFilters(group: string): string[] {
+      return inputs
+        .filter((i) => i.dataset.group === group && i.checked)
+        .map((i) => i.value);
     }
 
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        chips.forEach((c) => c.classList.remove('active'));
-        chip.classList.add('active');
-        const filter = chip.dataset.filter ?? 'all';
-        if (select) select.value = filter;
-        applyFilter(filter);
-      });
+    function matchesFilters(card: HTMLElement): boolean {
+      const col = card.dataset.collection ?? '';
+      const mat = card.dataset.maturity ?? '';
+      const ai  = card.dataset.ai ?? '';
+      const cf  = getActiveFilters('collection');
+      const mf  = getActiveFilters('maturity');
+      const af  = getActiveFilters('ai');
+      return (cf.length === 0 || cf.includes(col))
+          && (mf.length === 0 || mf.includes(mat))
+          && (af.length === 0 || af.includes(ai));
+    }
+
+    function render() {
+      const matching = allCards.filter(matchesFilters);
+      const totalPages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const end   = start + PAGE_SIZE;
+
+      allCards.forEach((card) => { card.style.display = 'none'; });
+      matching.slice(start, end).forEach((card) => { card.style.display = ''; });
+
+      if (empty)      empty.hidden = matching.length > 0;
+      if (pagination) pagination.hidden = totalPages <= 1;
+      if (indicator)  indicator.textContent = `Page ${currentPage} of ${totalPages}`;
+      if (prevBtn)    prevBtn.disabled = currentPage === 1;
+      if (nextBtn)    nextBtn.disabled = currentPage === totalPages;
+    }
+
+    function scrollToStream() {
+      document.getElementById('main-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    prevBtn?.addEventListener('click', () => {
+      if (currentPage > 1) { currentPage--; render(); scrollToStream(); }
+    });
+    nextBtn?.addEventListener('click', () => {
+      currentPage++; render(); scrollToStream();
     });
 
-    if (select) {
-      select.addEventListener('change', () => {
-        const filter = select.value;
-        chips.forEach((c) => c.classList.toggle('active', c.dataset.filter === filter));
-        applyFilter(filter);
+    inputs.forEach((input) => {
+      input.addEventListener('change', () => { currentPage = 1; render(); });
+    });
+
+    function makeGroupActions(group: string, allId: string, clearId: string) {
+      const groupInputs = inputs.filter((i) => i.dataset.group === group);
+      document.getElementById(allId)?.addEventListener('click', () => {
+        groupInputs.forEach((i) => { i.checked = true; });
+        currentPage = 1; render();
+      });
+      document.getElementById(clearId)?.addEventListener('click', () => {
+        groupInputs.forEach((i) => { i.checked = false; });
+        currentPage = 1; render();
       });
     }
+
+    makeGroupActions('collection', 'col-select-all', 'col-clear');
+    makeGroupActions('maturity',   'mat-select-all', 'mat-clear');
+    makeGroupActions('ai',         'ai-select-all',  'ai-clear');
+
+    render();
   }
 
   initStream();
@@ -260,264 +445,496 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 </script>
 
 <style is:global>
-  h1 { margin-block-end: var(--space-xs); }
 
-  .stream-description {
-    color: var(--color-text-muted);
-    font-family: var(--font-heading);
-    font-style: italic;
-    margin-block-end: var(--space-xl);
+  /* ═══════════════════════════════════════════
+     HEADER OVERRIDES (homepage only)
+  ═══════════════════════════════════════════ */
+  .site-header {
+    background: #F5F4F0 !important;
+    border-bottom: none !important;
+    padding-block: var(--space-sm) !important;
+  }
+  :root[data-theme="dark"] .site-header {
+    background: #1a1916 !important;
   }
 
-  /* Two-column layout */
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .home-hero {
+    min-height: 50vh;
+    background: #F5F4F0;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 2rem;
+  }
+  :root[data-theme="dark"] .home-hero { background: #1a1916; }
+
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-desc {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    max-width: 30rem;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .leaf-container {
+    width: min(360px, 100%);
+    aspect-ratio: 1;
+    border-radius: 1.5rem;
+    background: #D4E8D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  :root[data-theme="dark"] .leaf-container { background: #1e2e1e; }
+
+  .leaf-circle {
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #C5DFC5 0%, #B8D8B8 50%, #A8CEA8 100%);
+  }
+  :root[data-theme="dark"] .leaf-circle { background: linear-gradient(145deg, #243824 0%, #1e301e 100%); }
+
+  .leaf-svg {
+    position: relative;
+    z-index: 1;
+    width: 43%;
+    height: auto;
+  }
+
+  /* ═══════════════════════════════════════════
+     DIVIDER
+  ═══════════════════════════════════════════ */
+  .home-divider {
+    border: none;
+    border-top: 3px double var(--color-border);
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     CONTENT WRAPPER
+  ═══════════════════════════════════════════ */
+  .home-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  /* ═══════════════════════════════════════════
+     STREAM LAYOUT
+  ═══════════════════════════════════════════ */
   .stream-layout {
     display: grid;
-    grid-template-columns: 1fr 240px;
+    grid-template-columns: 1fr 260px;
     gap: var(--space-2xl);
-    align-items: start;
-  }
-  @media (max-width: 800px) {
-    .stream-layout {
-      grid-template-columns: 1fr;
-    }
-    .stream-sidebar {
-      order: -1;
-    }
   }
 
-  /* Filter chips */
-  .mosaic-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-block-end: var(--space-xl);
-  }
-  .filter-select-wrap { display: none; }
-  .filter-select-icon {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
+  .stream-label {
+    font-size: 0.69rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--color-text-muted);
-  }
-  .filter-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
-    min-height: 44px;
-    border: 1px solid var(--color-border);
-    border-radius: 2rem;
-    background: var(--color-bg);
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-  }
-  .filter-icon { width: 14px; height: 14px; opacity: 0.6; }
-  .filter-chip.active .filter-icon { filter: brightness(0) invert(1); opacity: 1; }
-  .filter-chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
-  .filter-chip.active {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: #fff;
+    margin-bottom: var(--space-md);
+    font-weight: 400;
   }
 
-  /* Stream feed */
   .stream-feed {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
   }
 
-  /* ── Sidebar index cards (landscape, left strip) ── */
+  .stream-empty {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding: var(--space-xl) 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     FILTER SIDEBAR
+  ═══════════════════════════════════════════ */
   .stream-sidebar {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
   }
-  .sidebar-card {
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    overflow: hidden;
+
+  /* Pagination */
+  .stream-pagination {
     display: flex;
-    flex-direction: column;
-    background: var(--color-bg);
-    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
   }
-  .sidebar-card:hover {
-    box-shadow: 0 4px 12px var(--color-shadow);
-    border-color: transparent;
+  .page-btn {
+    background: none;
+    border: 1.5px solid var(--color-border);
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: border-color 150ms, color 150ms;
+  }
+  .page-btn:hover:not(:disabled) { border-color: var(--color-accent); color: var(--color-accent); }
+  .page-btn:disabled { opacity: 0.35; cursor: default; }
+  .page-indicator { font-size: 0.82rem; color: var(--color-text-muted); }
+
+  .filter-panel {
+    background: #EEF3EB;
+    border-radius: 0.75rem;
+    padding: var(--space-md);
+  }
+  :root[data-theme="dark"] .filter-panel { background: #1a2318; }
+
+  .filter-panel-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: var(--space-sm);
   }
 
-  /* Colored strip at top: icon left + title */
-  .sidebar-strip {
-    height: 38px;
+  .filter-panel-label {
+    font-size: 0.69rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .filter-action {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.72rem;
+    color: var(--color-accent-2, #0D7C66);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 150ms;
+  }
+  .filter-action:hover { opacity: 0.7; }
+
+  .filter-items {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Filter items — spec-exact animation from design files */
+  .filter-item {
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding-inline: 0.75rem;
-    flex-shrink: 0;
-    border-block-end: 3px double var(--color-border);
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0.18rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 150ms;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
   }
-  .sidebar-icon {
-    display: block;
-    width: 20px;
-    height: 20px;
+  .filter-item:hover { background: rgba(255,255,255,0.6); }
+
+  /* Visual checkbox: hidden by default, slides in on hover or when checked */
+  .filter-checkbox {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1.5px solid #B8C4B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s, background 0.15s, border-color 0.15s;
     flex-shrink: 0;
   }
-  .sidebar-strip-title {
-    font-size: 0.6rem;
-    font-weight: 700;
+  .filter-item:hover .filter-checkbox { opacity: 1; }
+
+  /* Checked state via :has() — no JS needed for visuals */
+  .filter-item:has(input:checked) .filter-checkbox {
+    opacity: 1;
+    background: #0D7C66;
+    border-color: #0D7C66;
+  }
+  :root[data-theme="dark"] .filter-item:has(input:checked) .filter-checkbox {
+    background: #2DD4A8;
+    border-color: #2DD4A8;
+  }
+
+  /* Content slides right on hover or when checked */
+  .filter-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 0;
+    transition: transform 0.15s ease;
+  }
+  .filter-item:hover .filter-content { transform: translateX(28px); }
+  .filter-item:has(input:checked) .filter-content { transform: translateX(28px); }
+
+  .filter-icon {
+    width: 15px;
+    height: 15px;
+    opacity: 0.65;
+    flex-shrink: 0;
+  }
+
+  /* sr-only for hidden native checkbox */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     STAY UPDATED
+  ═══════════════════════════════════════════ */
+  .stay-updated {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .stay-updated-heading {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stay-updated-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .stay-updated-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: border-color 150ms, color 150ms, background 150ms;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER EXTRAS
+  ═══════════════════════════════════════════ */
+  .footer-construction {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-webring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .webring-label {
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #6b6258;
-    white-space: nowrap;
-  }
-  :root[data-theme="dark"] .sidebar-strip-title { color: #a89880; }
-
-  /* All strips: single brand-pink tint */
-  .sidebar-strip {
-    background: #F4F1F2;
-    border-block-end: 3px double #B8B0AA;
-  }
-  :root[data-theme="dark"] .sidebar-strip {
-    background: #2a1020;
-    border-block-end: 3px double #4a3040;
   }
 
-  /* Icon + title: brand pink */
-  .sidebar-icon {
-    filter: invert(10%) sepia(90%) saturate(600%) hue-rotate(300deg) brightness(0.75);
-  }
-  .sidebar-strip-title { color: #A0005A; }
-  :root[data-theme="dark"] .sidebar-strip-title { color: #FF4DA6; }
-
-  .sidebar-main {
-    flex: 1;
+  .webring-row {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
   }
 
-.sidebar-body {
-    padding: 0.75rem 0.85rem;
-    flex: 1;
+  .webring-row a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 150ms;
+  }
+  .webring-row a:hover { color: var(--color-accent); }
+
+  .webring-sep { opacity: 0.4; }
+
+  /* ═══════════════════════════════════════════
+     SIDEBAR CONTENT CARDS (reading / projects)
+  ═══════════════════════════════════════════ */
+  .sidebar-card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #E4EDE1;
+  }
+  :root[data-theme="dark"] .sidebar-card { background: #1d2b1a; }
+
+  .sidebar-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .sidebar-icon { opacity: 0.6; flex-shrink: 0; }
+
+  .sidebar-strip-title {
+    font-size: 0.69rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .sidebar-body {
+    padding: 0 var(--space-md) var(--space-md);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  /* About */
-  .sidebar-bio {
-    font-size: 0.8rem;
-    line-height: 1.55;
-    color: var(--color-text);
-    margin: 0;
-  }
-  .sidebar-read-more {
-    font-size: 0.72rem;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    margin-block-start: auto;
-    transition: color var(--transition-fast);
-  }
-  .sidebar-read-more:hover { color: var(--color-accent); }
-
-  /* Quote */
-  .quote-item {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .sidebar-quote-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin: 0 0 0.5rem;
-    color: var(--color-heading);
-  }
-  .sidebar-quote-text::before {
-    content: '\201C';
-    font-size: 1.4em;
-    color: #8B7355;
-    margin-inline-end: 0.1em;
-    line-height: 0;
-    vertical-align: -0.15em;
-  }
-  .sidebar-quote-source {
-    display: block;
-    font-size: 0.72rem;
-    color: var(--color-text-muted);
-    font-style: normal;
-  }
-
-  /* Currently reading */
   .reading-book {
     display: flex;
-    gap: var(--space-sm);
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    color: inherit;
-    padding: var(--space-xs) 0;
+    padding: 0.25rem 0;
   }
-  .reading-book + .reading-book { border-block-start: 1px solid var(--color-border); }
-  .reading-book:hover .reading-title { color: var(--color-accent); }
-  .reading-cover { width: 32px; height: auto; border-radius: 2px; flex-shrink: 0; }
+  .reading-cover {
+    width: 28px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
   .reading-title {
     display: block;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--color-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
     line-height: 1.3;
-    transition: color var(--transition-fast);
   }
-  .reading-author { display: block; font-size: 0.68rem; color: var(--color-text-muted); }
+  .reading-author {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+  }
+  .reading-book:hover .reading-title { color: var(--color-accent); }
 
-  /* Projects */
   .projects-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.25rem;
   }
   .project-link {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--color-text);
     text-decoration: none;
-    line-height: 1.35;
-    transition: color var(--transition-fast);
     display: block;
+    padding: 0.2rem 0;
+    transition: color 150ms;
   }
   .project-link:hover { color: var(--color-accent); }
 
-  @media (max-width: 800px) {
-    .sidebar-card--reading,
-    .sidebar-card--projects {
-      display: none;
+  .sidebar-read-more {
+    font-size: 0.78rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-top: 0.25rem;
+  }
+  .sidebar-read-more:hover { text-decoration: underline; }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
     }
-    .mosaic-filters { display: none; }
-    .filter-select-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-block-end: var(--space-xl);
-      padding: 0.4rem 0.75rem;
-      border: 1px solid var(--color-border);
-      border-radius: 2rem;
-      background: var(--color-bg);
-      color: var(--color-text-muted);
+    .hero-visual {
+      justify-content: center;
+      order: -1;
     }
-    .filter-select {
-      border: none;
-      background: transparent;
-      color: var(--color-text);
-      font-size: 0.85rem;
-      cursor: pointer;
-      padding: 0;
-      outline: none;
+    .leaf-container {
+      width: 220px;
+    }
+    .home-hero {
+      min-height: unset;
+      padding: var(--space-2xl) var(--space-md);
     }
   }
+
+  @media (max-width: 800px) {
+    .stream-layout {
+      grid-template-columns: 1fr;
+    }
+    .stream-sidebar {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .filter-panel {
+      flex: 1;
+      min-width: 160px;
+    }
+  }
+
 </style>

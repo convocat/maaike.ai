@@ -61,6 +61,7 @@ const formattedUpdated = updated
 ---
 
 <PageLayout title={title} description={description} ogImage={ogImage}>
+  <a href="/" class="back-to-stream">&larr; Stream</a>
   <div class="post-with-sidebar">
     <article class="post">
       <header class="post-header">
@@ -188,6 +189,18 @@ const formattedUpdated = updated
 </script>
 
 <style>
+  .back-to-stream {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-lg);
+    transition: color 150ms;
+  }
+  .back-to-stream:hover { color: var(--color-accent); }
+
   .post-with-sidebar {
     display: grid;
     grid-template-columns: 1fr 14rem;
