@@ -98,7 +98,7 @@ const doodleIcon = collection === 'jottings'
     {/* Main content column */}
     <div class="mosaic-main">
       <div class="mosaic-top-meta">
-        {pinned && <span class="mosaic-pinned-badge">Latest</span>}
+        {pinned && <span class="mosaic-pinned-badge">Latest article</span>}
         <span class="mosaic-collection-label">{collectionLabel}</span>
         <span class="mosaic-dot">·</span>
         <time datetime={date.toISOString()} class="mosaic-date">{plantedDate}</time>
@@ -253,7 +253,7 @@ const doodleIcon = collection === 'jottings'
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    background: var(--color-accent);
+    background: #0D7C66;
     color: #fff;
     padding: 0.15em 0.45em;
     border-radius: 0.25rem;
