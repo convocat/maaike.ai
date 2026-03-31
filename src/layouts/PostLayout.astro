@@ -115,37 +115,47 @@ const formattedUpdated = updated
       </div>
 
       <footer class="post-footer">
-        {tags.length > 0 && (
-          <div class="post-footer-tags">
-            <TagList tags={tags} />
-          </div>
-        )}
-        {triples && triples.length > 0 && (
-          <div class="post-footer-triples">
-            <h3 class="post-footer-heading">Relations</h3>
-            <ul class="triples-list">
-              {triples.map(([s, p, o]) => (
-                <li class="triple">
-                  <span class="triple-subject">{s}</span>
-                  <span class="triple-predicate">{p}</span>
-                  <span class="triple-object">{o}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {themes && themes.length > 0 && (
-          <div class="post-footer-themes">
-            <h3 class="post-footer-heading">
-              What this post argues
-              <span class="beta-badge">beta</span>
-            </h3>
-            <ul class="themes-list">
-              {themes.map((theme) => (
-                <li class="theme-item">{theme}</li>
-              ))}
-            </ul>
-          </div>
+        {(tags.length > 0 || (triples && triples.length > 0) || (themes && themes.length > 0)) && (
+          <details class="mycelium-section">
+            <summary class="mycelium-summary">
+              <span class="mycelium-label">Mycelium</span>
+              <span class="mycelium-hint">tags, relations &amp; arguments</span>
+            </summary>
+            <div class="mycelium-content">
+              {tags.length > 0 && (
+                <div class="post-footer-tags">
+                  <TagList tags={tags} />
+                </div>
+              )}
+              {triples && triples.length > 0 && (
+                <div class="post-footer-triples">
+                  <h3 class="post-footer-heading">Relations</h3>
+                  <ul class="triples-list">
+                    {triples.map(([s, p, o]) => (
+                      <li class="triple">
+                        <span class="triple-subject">{s}</span>
+                        <span class="triple-predicate">{p}</span>
+                        <span class="triple-object">{o}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {themes && themes.length > 0 && (
+                <div class="post-footer-themes">
+                  <h3 class="post-footer-heading">
+                    What this post argues
+                    <span class="beta-badge">beta</span>
+                  </h3>
+                  <ul class="themes-list">
+                    {themes.map((theme) => (
+                      <li class="theme-item">{theme}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </details>
         )}
         <div class="post-footer-share">
           <h3 class="post-footer-heading">Share</h3>
@@ -393,12 +403,72 @@ const formattedUpdated = updated
     margin-block-end: var(--space-md);
   }
 
-  .post-footer-triples {
+  .mycelium-section {
     margin-block-end: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    padding-block-start: var(--space-md);
   }
 
+  .mycelium-summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    user-select: none;
+    padding-block: var(--space-xs);
+  }
+
+  .mycelium-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mycelium-label {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 1.4rem;
+  }
+
+  .mycelium-label::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    font-size: 0.65rem;
+    color: var(--color-accent);
+    opacity: 0.6;
+    transition: transform 150ms ease;
+    top: 0.45em;
+  }
+
+  .mycelium-section[open] .mycelium-label::before {
+    transform: rotate(90deg);
+  }
+
+  .mycelium-hint {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  .mycelium-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-block-start: var(--space-md);
+    animation: slide-down 200ms ease;
+  }
+
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .post-footer-triples,
   .post-footer-themes {
-    margin-block-end: var(--space-lg);
     background: var(--color-bg-card);
     border-left: 3px solid var(--color-accent);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -409,7 +479,11 @@ const formattedUpdated = updated
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    margin-block-end: var(--space-sm);
+  }
+
+  .post-footer-triples .triples-list,
+  .post-footer-themes .themes-list {
+    margin-block-start: var(--space-sm);
   }
 
   .beta-badge {
