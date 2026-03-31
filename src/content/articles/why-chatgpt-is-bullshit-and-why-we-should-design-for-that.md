@@ -9,17 +9,32 @@ tags:
   - philosophy
   - llm
   - epistemic-humility
+  - interaction-model
+  - conversational-grounding
+  - critical-thinking
+  - human-behavior
+themes:
+  - "LLMs as structurally indifferent to truth, not accidentally wrong"
+  - "Grice's cooperative principle as the violated contract"
+  - "Cognitive laziness as the human vulnerability that makes this dangerous"
+  - "Design as the response: keeping humans caring about truth"
 triples:
   - ["ChatGPT", "instance-of", "LLMs"]
   - ["LLMs", "characterised-as", "Stochastic parrot"]
   - ["Stochastic parrot", "coined-by", "Bender and Gebru"]
+  - ["Stochastic parrot", "coined-by", "Timnit Gebru"]
+  - ["Stochastic parrot", "coined-by", "Emily Bender"]
   - ["Bullshit", "defined-as", "Indifference to truth"]
   - ["Harry G. Frankfurt", "theorised-by", "Bullshit"]
   - ["LLMs", "exhibits", "Indifference to truth"]
   - ["LLMs", "violates", "Grice's maxim of quality"]
   - ["Grice's maxim of quality", "attributed-to", "Paul Grice"]
+  - ["Grice's maxim of quality", "instance-of", "Cooperative principle"]
+  - ["Cooperative principle", "attributed-to", "Paul Grice"]
   - ["Grice's maxim of quality", "presupposes", "Conversational grounding"]
   - ["Probabilistic word prediction", "leads-to", "Indifference to truth"]
+  - ["Cognitive laziness", "reinforces", "Indifference to truth"]
+  - ["Designing for doubt", "counters", "Indifference to truth"]
 description: "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids."
 draft: false
 ai: "100% Maai"

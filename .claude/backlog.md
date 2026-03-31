@@ -8,6 +8,15 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Themes as writing prompts
+*added: 2026-03-31*
+
+The `themes` object in `taxonomy.json` stores per-post thematic summaries from the TAO analysis. These read like writing prompts: concise, opinionated one-liners about what a post argues. Explore using them as: seed ideas for new posts, newsletter prompts, LinkedIn angle generators, or a "what this garden is really about" overview page.
+
+Key file: `src/data/taxonomy.json` (themes section)
+
+---
+
 ## 🟡 Review: Thematic-TAO method post
 *2026-03-30 · field-note · draft*
 

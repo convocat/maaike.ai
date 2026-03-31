@@ -6,6 +6,22 @@ maturity: complete
 tags:
   - prompt-design
   - conversation-design
+  - generative-ai-design
+  - systems-thinking
+  - context-engineering
+  - information-architecture
+  - instructional-design
+themes:
+  - "Context engineering is a rebranding of work designers and authors have always done"
+  - "Semantic information types as the structural logic behind good context windows"
+  - "Design vocabulary maps directly onto prompt engineering: information architecture, instructional design, technical authoring"
+  - "Inviting designers and authors to the GenAI table as a practical recommendation"
+triples:
+  - ["Context engineering", "attributed-to", "Andrej Karpathy"]
+  - ["Context design", "counters", "Context engineering"]
+  - ["Context design", "instance-of", "Information architecture"]
+  - ["System prompt", "instance-of", "Context design"]
+  - ["Context window", "structured-as", "Semantic information types"]
 description: So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.
 draft: false
 ai: "100% Maai"
@@ -43,7 +59,7 @@ The big advantage of this approach: if designed well, each block and map forms a
 
 ## Not new
 
-What's interesting, is that we've been context designing for humans for a very long time already. It's commonly known as information architecture, user-task analysis, instructional design, topic-based writing, information mapping, use case analysis, technical authoring, flow design (especially when designing for API-integration). And we've been doing this for humans for a long time already.
+What's interesting, is that we've been context designing for humans for a very long time already. It's commonly known as [information architecture](https://en.wikipedia.org/wiki/Information_architecture), user-task analysis, instructional design, topic-based writing, information mapping, use case analysis, technical authoring, flow design (especially when designing for API-integration). And we've been doing this for humans for a long time already.
 
 So let's call it context design or context architecture from now on — an evolution of what I wrote about earlier in [[putting-the-design-in-prompt-design]]. So that we recognise that this is not new, and take the opportunity to invite authors and designers to the table. That way, your GenAI solution will really start to fly.
 

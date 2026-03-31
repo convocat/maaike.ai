@@ -6,6 +6,25 @@ maturity: complete
 tags:
   - conversation-design
   - prompt-design
+  - writing
+  - human-behavior
+  - interaction-model
+  - cognitive-load
+  - generative-ai-design
+  - usability
+themes:
+  - "Conversational interfaces are poorly suited to non-linear tasks like writing"
+  - "Two new AI user behaviors: accordion editing and apple picking"
+  - "The articulation barrier as a specific usability threshold"
+  - "Direct manipulation as the design response"
+triples:
+  - ["Accordion editing", "attributed-to", "Jakob Nielsen"]
+  - ["Accordion editing", "attributed-to", "Don Norman"]
+  - ["Apple picking", "attributed-to", "Jakob Nielsen"]
+  - ["Apple picking", "attributed-to", "Don Norman"]
+  - ["Articulation barrier", "attributed-to", "Jakob Nielsen"]
+  - ["Conversational interface", "leads-to", "Cognitive load"]
+  - ["Direct manipulation", "counters", "Articulation barrier"]
 description: "Usability challenges of writing with AI: let people write!"
 draft: false
 ai: "100% Maai"
@@ -45,7 +64,7 @@ This is also one of the recommendations of the study: give users the possibility
 
 Apple picking is when a user wants to use previously generated content to create a new prompt for a new iteration of text. There's two ways in which users do this: either use the previous content as context for creating a new text, or use the previous content as the actual text that needs to be changed.
 
-And here's where conversational interfaces show their real limitation: they're completely linear, so performing a non-linear task like brainstorming, writing, editing takes an excessive amount of scrolling to find, collect and synthesize the relevant pieces of text between lots of superfluous information that's also part of the conversation. And this takes its toll on user's cognitive load. So that in the end we might actually end up with AI not doing the work for us, but making our work a lot harder.
+And here's where conversational interfaces show their real limitation: they're [[is-conversation-still-a-useful-metaphor|completely linear]], so performing a non-linear task like brainstorming, writing, editing takes an excessive amount of scrolling to find, collect and synthesize the relevant pieces of text between lots of superfluous information that's also part of the conversation. And this takes its toll on user's [cognitive load](https://en.wikipedia.org/wiki/Cognitive_load). So that in the end we might actually end up with AI not doing the work for us, but making our work a lot harder.
 
 In my own daily use of AI, I always ask it to collect everything it generated in that session, and put it together in a well structured overview. But even then, it's still up to me to transform that into something that I might have written. And you'll probably recognise it when I say that I find rewriting someone else's text a lot harder than starting over from scratch.
 
@@ -53,7 +72,7 @@ In my own daily use of AI, I always ask it to collect everything it generated in
 
 Norman & Nielsen ends their article by providing some usability recommendations to mitigate the current limitations of generative AI tools. And these might sound more straightforward than you might expect. They basically all boil down to: let humans write.
 
-- Enable direct text manipulation, rather than just prompts.
+- Enable [direct manipulation](https://en.wikipedia.org/wiki/Direct_manipulation_interface) of text, rather than just prompts.
 - Allow for editing just a portion of a generated response (especially handy for long-form responses, like blog posts).
 - Make text directly selectable.
 

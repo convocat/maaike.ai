@@ -1,0 +1,40 @@
+{
+  "_note": "Per-post thematic summaries from TAO analysis. Each entry is a list of theme statements — concise, opinionated one-liners about what the post argues. These also live in each post's frontmatter as 'themes:'.",
+
+  "is-conversation-still-a-useful-metaphor": [
+    "Conversation metaphor as increasingly inadequate for GenAI",
+    "Anthropomorphism as a structural side effect of conversation design",
+    "Alternative interaction metaphors: delegation, thinking, note-taking",
+    "Metacognition and inner dialog as possible paradigms for human-AI interaction"
+  ],
+  "why-chatgpt-is-bullshit-and-why-we-should-design-for-that": [
+    "LLMs as structurally indifferent to truth, not accidentally wrong",
+    "Grice's cooperative principle as the violated contract",
+    "Cognitive laziness as the human vulnerability that makes this dangerous",
+    "Design as the response: keeping humans caring about truth"
+  ],
+  "conversational-interfaces-are-not-easy": [
+    "Conversational interfaces are poorly suited to non-linear tasks like writing",
+    "Two new AI user behaviors: accordion editing and apple picking",
+    "The articulation barrier as a specific usability threshold",
+    "Direct manipulation as the design response"
+  ],
+  "context-engineering-lets-call-it-design": [
+    "Context engineering is a rebranding of work designers and authors have always done",
+    "Semantic information types as the structural logic behind good context windows",
+    "Design vocabulary maps directly onto prompt engineering: information architecture, instructional design, technical authoring",
+    "Inviting designers and authors to the GenAI table as a practical recommendation"
+  ],
+  "llm-hallucinations-knowledge-as-missing-fundamental": [
+    "LLM hallucinations are structurally unsolvable without changing the underlying mechanism",
+    "Confabulation as a more precise term: filling gaps with plausible fabrications, not random errors",
+    "The missing fundamental as an analogy: truth can only be approximated in LLMs, never caught",
+    "The impossibility of a genuine TRUE/FALSE binary state in probabilistic systems"
+  ],
+  "thinking-in-action-precision-matters": [
+    "Precise terminology as a prerequisite for clear thinking",
+    "Dialectical thinking as the antidote to epistemic bias",
+    "The distinction between opinion, conviction, argument, and rhetoric",
+    "LLMs reinforce rather than correct our tendency to avoid dialectical challenge"
+  ]
+}

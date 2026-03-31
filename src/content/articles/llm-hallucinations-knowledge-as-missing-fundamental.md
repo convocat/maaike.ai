@@ -8,9 +8,18 @@ tags:
   - epistemic-humility
   - llm
   - evaluation
+  - critical-thinking
+  - confabulation
+  - llm-hallucinations
+themes:
+  - "LLM hallucinations are structurally unsolvable without changing the underlying mechanism"
+  - "Confabulation as a more precise term: filling gaps with plausible fabrications, not random errors"
+  - "The missing fundamental as an analogy: truth can only be approximated in LLMs, never caught"
+  - "The impossibility of a genuine TRUE/FALSE binary state in probabilistic systems"
 triples:
   - ["LLMs", "lacks", "Ground truth"]
   - ["LLM hallucinations", "caused-by", "Probabilistic word prediction"]
+  - ["LLM hallucinations", "characterised-as", "Confabulation"]
   - ["Missing fundamental", "metaphor-for", "Ground truth"]
   - ["Ground truth", "inaccessible-via", "Probabilistic word prediction"]
 description: Will we ever solve hallucinations in LLMs?
