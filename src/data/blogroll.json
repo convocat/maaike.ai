@@ -2,6 +2,7 @@
   {
     "name": "Maggie Appleton",
     "url": "https://maggieappleton.com",
+    "feed": "https://maggieappleton.com/rss.xml",
     "description": "Visual essays on digital gardens, AI, and the philosophy of knowledge. One of the best thinkers on how we build and share ideas online.",
     "category": "Digital gardens"
   },
@@ -14,18 +15,21 @@
   {
     "name": "Tom Critchlow",
     "url": "https://tomcritchlow.com",
+    "feed": "https://tomcritchlow.com/feed.xml",
     "description": "Writing on indie consulting, digital gardening, and building a less performative presence on the web.",
     "category": "Digital gardens"
   },
   {
     "name": "Neerlandistiek",
     "url": "https://neerlandistiek.nl",
+    "feed": "https://neerlandistiek.nl/feed/",
     "description": "Online academic journal for Dutch language and literary research. Running since 1992.",
     "category": "Language & linguistics"
   },
   {
     "name": "Ness Labs",
     "url": "https://nesslabs.com",
+    "feed": "https://nesslabs.com/feed/",
     "description": "Mindful productivity, knowledge management, and learning in public. Good thinking on how to tend a mind garden.",
     "category": "Thinking & learning"
   }

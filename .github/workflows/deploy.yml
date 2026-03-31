@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Daily rebuild at 06:00 UTC to refresh RSS feeds in the blogroll sidebar
+    - cron: '0 6 * * *'
 
 permissions:
   contents: read

@@ -9,6 +9,15 @@ tags:
   - design-metaphor
   - conversation-design
   - generative-ai-design
+  - philosophy
+  - llm
+triples:
+  - ["Conversation metaphor", "breaks-down-for", "GenAI"]
+  - ["LLMs", "lacks", "Conversational grounding"]
+  - ["Conversation metaphor", "presupposes", "Conversational grounding"]
+  - ["Delegation metaphor", "better-fits", "Agentic AI"]
+  - ["Conversation design", "risks", "Anthropomorphism"]
+  - ["Indifference to truth", "incompatible-with", "Conversational grounding"]
 description: "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction."
 ai: 100% Maai
 linkedin_url: "https://www.linkedin.com/feed/update/urn:li:share:7440674715867766784/"
@@ -39,10 +48,10 @@ Tended March 21: added sections on the problem with conversation and delegation 
 
 ## Generative AI as a mimicry of human conversation
 
-- Large Language Models don't contain language
+- [[why-chatgpt-is-bullshit-and-why-we-should-design-for-that|Large Language Models don't contain language]]
 - General purpose chatbots like ChatGPT don't have agency, consciousness, an inner locus. Yet the surface form takes the shape of something that is familiar to humans: conversation.
   Without fullfilling the underlying contract that underpins human-human conversation:
-- grounding in truth, shared sense making, sensory experience, deixis
+- grounding in truth, shared sense making, sensory experience, [deixis](https://en.wikipedia.org/wiki/Deixis)
 - so even in chat interfaces, the interaction happening is not a proper conversation.
 
 ## The problem with conversation
@@ -51,7 +60,7 @@ Conversations between humans rely on a lot more than two-way interaction: having
 
 Calling a human interaction with a chatbot a conversation has always been a bit of a misnomer, but with so many different use cases opening up with GenAI, we're really stretching that metaphor beyond usefulness.
 
-There's also the anthropomorphism problem: conversation is inherently human-shaped. For many GenAI use cases, you don't want that. You don't need your code editor to feel like a person. You don't need your document processor to have a personality. Yet the conversation metaphor smuggles in anthropomorphism by default.
+There's also the anthropomorphism problem: conversation is inherently human-shaped. For many GenAI use cases, you don't want that. You don't need your code editor to feel like a person. You don't need your document processor to have a personality. Yet the conversation metaphor smuggles in [anthropomorphism](https://en.wikipedia.org/wiki/Anthropomorphism) by default.
 
 And then there's the emotional labor dimension: when we design chat agents that converse, we're also designing agents that perform emotional work. See Helena Rodemann's [Personality is a labor system](https://thebodycopy.substack.com/p/personality-is-a-labor-system) on emotional labor by chat agents.
 
@@ -75,7 +84,7 @@ What is the voice that we hear in our head when we chat with a textbot? Do we he
 
 ## Metaphor: thinking & inner dialog
 
-What if we build an interaction model metaphor around thinking? With an audience of one: ourselves? What would such an interface look like? Assuming it's language based, a thought-centered interface would be very minimal, with no distractions, so you can focus on capturing thoughts and giving words to them. Thinking activates us, invites us to explore and expand mental models and to find words for new ideas. It helps us reflect on emotions, take actions, keep track, and discern true from false. All this is something that we typically do alone, in an inner dialogue. Not in a conversation. 
+What if we build an interaction model metaphor around thinking? With an audience of one: ourselves? What would such an interface look like? Assuming it's language based, a thought-centered interface would be very minimal, with no distractions, so you can focus on capturing thoughts and giving words to them. Thinking activates us, invites us to explore and expand mental models and to find words for new ideas. It helps us reflect on emotions, take actions, keep track, and discern true from false. All this is something that we typically do alone, in an [[writing-as-a-conversation-with-yourself|inner dialogue]]. Not in a conversation. 
 
 ## Metaphor: note-taking and meta-cognition
 
