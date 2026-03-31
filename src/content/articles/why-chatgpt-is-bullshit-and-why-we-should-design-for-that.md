@@ -6,12 +6,26 @@ maturity: complete
 tags:
   - conversation-design
   - ai-ethics
+  - philosophy
+  - llm
+  - epistemic-humility
+triples:
+  - ["ChatGPT", "instance-of", "LLMs"]
+  - ["LLMs", "characterised-as", "Stochastic parrot"]
+  - ["Stochastic parrot", "coined-by", "Bender and Gebru"]
+  - ["Bullshit", "defined-as", "Indifference to truth"]
+  - ["Harry G. Frankfurt", "theorised-by", "Bullshit"]
+  - ["LLMs", "exhibits", "Indifference to truth"]
+  - ["LLMs", "violates", "Grice's maxim of quality"]
+  - ["Grice's maxim of quality", "attributed-to", "Paul Grice"]
+  - ["Grice's maxim of quality", "presupposes", "Conversational grounding"]
+  - ["Probabilistic word prediction", "leads-to", "Indifference to truth"]
 description: "Surprisingly few people mention the fact that ChatGPT is, in the end, one big word-string-generator on steroids."
 draft: false
 ai: "100% Maai"
 ---
 
-One thing that strikes me in the general communication on ChatGPT, is that surprisingly few people mention the fact that it's, in the end, one big word-string-generator on steroids (or a Stochastic Parrot, as Timnit Gebru and Emily Bender called it in their 2021 paper outlining the risks of LLMs). Much like the autocomplete on your phone, ChatGPT will take a word and calculate which next word is likely to fit best. It does so based on an incredibly huge set of training data.
+One thing that strikes me in the general communication on ChatGPT, is that surprisingly few people mention the fact that it's, in the end, one big word-string-generator on steroids (or a Stochastic Parrot, as [Timnit Gebru](https://en.wikipedia.org/wiki/Timnit_Gebru) and [Emily Bender](https://en.wikipedia.org/wiki/Emily_M._Bender) called it in their 2021 paper outlining the risks of LLMs). Much like the autocomplete on your phone, ChatGPT will take a word and calculate which next word is likely to fit best. It does so based on an incredibly huge set of training data.
 
 The upside of this approach is that ChatGPT is outstandingly conversational: each output is unique, in that it's a probabilistic concatenation of different words. And because ChatGPT has also been trained on conversations, it knows how to talk. Very convincingly. It recalls context, and switches topics so easily that, at times, it's easy to forget that you're not talking to a human.
 
@@ -23,7 +37,7 @@ This will not change with better training. And this should be high on our 'what-
 
 OK, I hear you think, now why is this a problem? I can go and fact check the output myself, right?
 
-In theory, yes, you could. But the conversational talent of ChatGPT will make it very unlikely that you will. That's because when you and I talk, we try to stick to Paul Grice's co-operative principle. Especially maxim number 2, the maxim of quality, which states that we're trying to be truthful, and won't give information that is false or that is not supported by evidence.
+In theory, yes, you could. But the conversational talent of ChatGPT will make it very unlikely that you will. That's because when you and I talk, we try to stick to [Paul Grice](https://en.wikipedia.org/wiki/Paul_Grice)'s [[bard-violates-grices-maxims-again|co-operative principle]]. Especially maxim number 2, the maxim of quality, which states that we're trying to be truthful, and won't give information that is false or that is not supported by evidence.
 
 So in human conversation, we don't feel the need to fact check everything the other person says. Because we don't have to, we can rely on the given that in most of our conversations we'll be talking to someone who cares about truth.
 
@@ -35,7 +49,7 @@ This means that we're left with unreliable information in a format that's evolve
 
 ## But all that doesn't make ChatGPT bullshit! Or…does it?
 
-Well, in a very specific sense, it does. It's the sense of bullshit that Harry G. Frankfurt uses in his lecture and essay *On Bullshit*, that he wrote 20 years ago.
+Well, in a very specific sense, it does. It's the sense of bullshit that [Harry G. Frankfurt](https://en.wikipedia.org/wiki/Harry_Frankfurt) uses in his lecture and essay *On Bullshit*, that he wrote 20 years ago.
 
 > "Bullshit is the lack of concern about the difference between truth and falsity. Motivation of the bullshitter is not to say things that are true, or even to say things that are false. It's serving some other purpose. The question of whether what he says is true or false is irrelevant to that ambition."
 

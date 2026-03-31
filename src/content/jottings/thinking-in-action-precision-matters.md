@@ -4,7 +4,15 @@ description: "On the importance of precise terminology and definition, and a bri
 date: 2026-03-29
 maturity: complete
 draft: false
-tags: ["critical thinking", "philosophy", "thinking tools", "hegel", "dialectic thinking"]
+tags: ["critical thinking", "philosophy", "thinking tools", "hegel", "dialectic thinking", "epistemic-humility", "llm"]
+triples:
+  - ["Dialectical thinking", "attributed-to", "G W F Hegel"]
+  - ["Dialectical thinking", "structured-as", "Thesis-antithesis-synthesis"]
+  - ["Dialectical thinking", "counters", "Epistemic bias"]
+  - ["Andrej Karpathy", "demonstrates", "Dialectical thinking"]
+  - ["LLMs", "reinforces", "Epistemic bias"]
+  - ["Conviction", "contrasted-with", "Opinion"]
+  - ["Rhetoric", "contrasted-with", "Argument"]
 ai: "100% Maai"
 type: post
 linkedin_url: "https://www.linkedin.com/posts/maaikegroenewege_criticalthinking-hegel-dialecticthinking-activity-7443974716555411456-2HLF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs"
@@ -21,9 +29,9 @@ Useful terms:
 🔹 Argument: a logical structure that consists of premises, reasoning, and a conclusion. It builds a case in one direction, there's no inherent truth or factuality in an argument itself.
 🔹 Rhetorical construction: language designed to persuade. It may look like an argument but doesn't have to be one. Typically uses tropes and stylistic devices to persuade and move.
 
-Dialectical thinking comes from the philosopher G W F Hegel (funny, I always call him just Hegel...was he a Georg? Or more of a full Georg Wilhelm Friedrich?) who proposed that we develop our understanding through 3 steps: thesis-antithesis-synthesis. You begin with an initial position, next confront it with a counterposition that challenges it. The tension between thesis and antithesis leads to synthesis: a deepening of your understanding that contains elements of both.
+Dialectical thinking comes from the philosopher [G W F Hegel](https://en.wikipedia.org/wiki/Georg_Wilhelm_Friedrich_Hegel) (funny, I always call him just Hegel...was he a Georg? Or more of a full Georg Wilhelm Friedrich?) who proposed that we develop our understanding through 3 steps: [thesis-antithesis-synthesis](https://en.wikipedia.org/wiki/Thesis,_antithesis,_synthesis). You begin with an initial position, next confront it with a counterposition that challenges it. The tension between thesis and antithesis leads to synthesis: a deepening of your understanding that contains elements of both.
 
-Ironically, it's not so much the LLM that's to blame here, but our own innate tendency to -not- do dialectic thinking, and simply stick to our convictions and opinions instead. Yet another reason to move our focus away from technology to humanity, and start practising critical thinking skills, rhetoric and philosophy.
+Ironically, it's not so much [[llm-hallucinations-knowledge-as-missing-fundamental|the LLM]] that's to blame here, but our own innate tendency to -not- do dialectic thinking, and simply stick to our convictions and opinions instead. Yet another reason to move our focus away from technology to humanity, and start [[stay-calm-and-keep-thinking-for-yourself|practising critical thinking skills, rhetoric and philosophy]].
 
 Fun experiment: instruct your chat app to practise dialectical thinking, and you'll have a little bot that starts challenging you with antitheses, rather than confirm your own convictions and opinions.
 

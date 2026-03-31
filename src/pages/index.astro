@@ -8,6 +8,31 @@ import MosaicCard from '../components/MosaicCard.astro';
 import { getAllContent, sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
 import blogroll from '../data/blogroll.json';
+import Parser from 'rss-parser';
+
+// Fetch latest post from blogroll sites with RSS feeds (at build time)
+const _parser = new Parser({ timeout: 6000 });
+type FeedEntry = { name: string; postTitle: string | null; postUrl: string | null; postDate: Date | null };
+const _feedResults = await Promise.allSettled(
+  blogroll
+    .filter((site): site is typeof site & { feed: string } => Boolean((site as any).feed))
+    .map(async (site) => {
+      const feed = await _parser.parseURL((site as any).feed);
+      const latest = feed.items[0];
+      return {
+        name: site.name,
+        postTitle: latest?.title?.trim() ?? null,
+        postUrl: latest?.link ?? null,
+        postDate: latest?.pubDate ? new Date(latest.pubDate) : null,
+      } satisfies FeedEntry;
+    })
+);
+const latestPosts = new Map<string, FeedEntry>();
+_feedResults.forEach((r) => { if (r.status === 'fulfilled') latestPosts.set(r.value.name, r.value); });
+function formatFeedDate(date: Date | null): string {
+  if (!date) return '';
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+}
 
 const allContent = sortByDate(await getAllContent());
 
@@ -377,6 +402,41 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </article>
         )}
 
+        <!-- Stay updated -->
+        <article class="sidebar-card sidebar-card--follow">
+          <div class="sidebar-strip">
+            <span class="sidebar-strip-title">Stay in the know</span>
+          </div>
+          <div class="sidebar-body">
+            <ul class="follow-list">
+              <li>
+                <a href="/rss.xml" class="follow-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+                  RSS feed
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/maaikegroenewege" class="follow-link" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/convocat" class="follow-link" target="_blank" rel="me noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://www.convo.club" class="follow-link" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L2 22l5.71-.97A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.4 0-2.73-.35-3.9-1l-.28-.16-2.88.49.49-2.88-.17-.28A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+                  Community
+                </a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
         <!-- Blogroll -->
         <article class="sidebar-card sidebar-card--blogroll">
           <div class="sidebar-strip">
@@ -384,14 +444,24 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </div>
           <div class="sidebar-body">
             <ul class="blogroll-sidebar-list">
-              {blogroll.map(site => (
-                <li>
-                  <a href={site.url} target="_blank" rel="noopener noreferrer" class="blogroll-sidebar-link">
-                    {site.name}
-                  </a>
-                </li>
-              ))}
+              {blogroll.map(site => {
+                const latest = latestPosts.get(site.name);
+                return (
+                  <li class="blogroll-sidebar-item">
+                    <a href={site.url} target="_blank" rel="noopener noreferrer" class="blogroll-sidebar-link">
+                      {site.name}
+                    </a>
+                    {latest?.postTitle && latest?.postUrl && (
+                      <a href={latest.postUrl} target="_blank" rel="noopener noreferrer" class="blogroll-latest-post">
+                        <span class="blogroll-latest-title">{latest.postTitle}</span>
+                        {latest.postDate && <span class="blogroll-latest-date">{formatFeedDate(latest.postDate)}</span>}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
+            <a href="/blogroll" class="sidebar-read-more">Full blogroll &rarr;</a>
           </div>
         </article>
 
@@ -400,43 +470,8 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 
   </main>
 
-  <div class="site-footer-zone">
-    <!-- Stay updated -->
-    <section class="stay-updated">
-      <h2 class="stay-updated-heading">Stay updated</h2>
-      <p class="stay-updated-desc">Follow along via RSS, LinkedIn, GitHub, or the community.</p>
-      <div class="stay-updated-links">
-        <a href="/rss.xml" class="btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
-          RSS
-        </a>
-        <a href="https://www.linkedin.com/in/maaikegroenewege" class="btn-outline" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/convocat" class="btn-outline" target="_blank" rel="me noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.convo.club" class="btn-outline" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L2 22l5.71-.97A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.4 0-2.73-.35-3.9-1l-.28-.16-2.88.49.49-2.88-.17-.28A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
-          Community
-        </a>
-      </div>
-    </section>
+  <Footer />
 
-    <!-- IndieWeb Webring -->
-    <section class="footer-webring" aria-label="IndieWeb Webring">
-      <p class="webring-label">IndieWeb Webring</p>
-      <div class="webring-row">
-        <a href="https://xn--sr8hvo.ws/previous" rel="noopener">&larr;</a>
-        <a href="https://xn--sr8hvo.ws" rel="noopener">🕸💍</a>
-        <a href="https://xn--sr8hvo.ws/next" rel="noopener">&rarr;</a>
-      </div>
-    </section>
-
-    <Footer />
-  </div>
 </BaseLayout>
 
 <script>
@@ -897,93 +932,33 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   }
 
   /* ═══════════════════════════════════════════
-     STAY UPDATED
+     SIDEBAR: STAY IN THE KNOW
   ═══════════════════════════════════════════ */
-  .stay-updated {
-    max-width: var(--max-width);
-    margin-inline: auto;
-    padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  .sidebar-card--follow {
+    background: var(--color-bg-card);
   }
 
-  .stay-updated-heading {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: var(--space-xs);
-  }
-
-  .stay-updated-desc {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-lg);
-  }
-
-  .stay-updated-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0.5rem 1rem;
-    border: 1.5px solid var(--color-border);
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    color: var(--color-text);
-    text-decoration: none;
-    transition: border-color 150ms, color 150ms, background 150ms;
-  }
-  .btn-outline:hover {
-    border-color: #0D7C66;
-    color: #0D7C66;
-  }
-
-  /* ═══════════════════════════════════════════
-     FOOTER ZONE
-  ═══════════════════════════════════════════ */
-  .site-footer-zone {
-    background: #F5F4F0;
-    border-top: 1px solid var(--color-border);
-    margin-top: var(--space-xl);
-  }
-  :root[data-theme="dark"] .site-footer-zone { background: #1a1916; }
-
-  .footer-webring {
+  .follow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-md);
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    border-top: 1px solid var(--color-border);
+    gap: 0.1rem;
   }
 
-  .webring-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .webring-row {
+  .follow-link {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-  }
-
-  .webring-row a {
+    gap: 0.5rem;
+    font-size: 0.82rem;
     color: var(--color-text-muted);
     text-decoration: none;
+    padding: 0.25rem 0;
     transition: color 150ms;
   }
-  .webring-row a:hover { color: #0D7C66; }
-  .site-footer-zone .site-footer {
-    border-top: none;
-    margin-block-start: 0;
-  }
+  .follow-link svg { flex-shrink: 0; opacity: 0.7; }
+  .follow-link:hover { color: var(--color-accent); }
 
   .footer-construction {
     display: flex;
@@ -1149,19 +1124,53 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.6rem;
+  }
+
+  .blogroll-sidebar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
   }
 
   .blogroll-sidebar-link {
     font-size: 0.82rem;
+    font-weight: 600;
     color: var(--color-text);
     text-decoration: none;
     display: block;
-    padding: 0.15rem 0;
     transition: color 150ms;
   }
 
   .blogroll-sidebar-link:hover { color: var(--color-accent); }
+
+  .blogroll-latest-post {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+
+  .blogroll-latest-post:hover .blogroll-latest-title { color: var(--color-accent); }
+
+  .blogroll-latest-title {
+    font-size: 0.74rem;
+    color: var(--color-text-muted);
+    transition: color 150ms;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .blogroll-latest-date {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
 
   .sidebar-read-more {
     font-size: 0.78rem;
@@ -1326,13 +1335,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 
     .stream-sidebar { display: none; }
 
-    .stay-updated-links { gap: var(--space-xs); }
-    .btn-outline {
-      padding: 0.3rem 0.65rem;
-      font-size: 0.78rem;
-      gap: 4px;
-    }
-    .btn-outline svg { width: 13px; height: 13px; }
   }
 
 </style>

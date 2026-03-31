@@ -8,8 +8,15 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
-## 🟡 Tagging, triples, and auto-enrichment
-*2026-03-29 · main*
+## 🟡 Review: Thematic-TAO method post
+*2026-03-30 · field-note · draft*
+
+Draft field-note at `src/content/field-notes/thematic-tao-three-pass-method.md`. Documents the three-pass analysis method (thematic wide read → TAO extraction → coherence check) developed during the tagging/graph session. Written as co-created, marked draft. Read, edit if needed, then `/publish` if it's ready.
+
+---
+
+## 🔵 Tagging, triples, and auto-enrichment
+*2026-03-29 · last-touched: 2026-03-29 · main*
 
 Refactored the tagging and linking system: `/auto-tag` now does thematic analysis, extracts named entities, proposes new tags (and creates tag files), extracts subject-predicate-object triples, suggests internal wiki-links semantically, and suggests Wikipedia links for uncovered concepts. Triples are stored in frontmatter and displayed as a "Relations" section in the post footer. Wikipedia links get teal styling with a W superscript and open in a new tab. The `/new-post` Typora template now shows all metadata fields upfront.
 
