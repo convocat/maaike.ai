@@ -7,6 +7,7 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 import MosaicCard from '../components/MosaicCard.astro';
 import { getAllContent, sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
+import blogroll from '../data/blogroll.json';
 
 const allContent = sortByDate(await getAllContent());
 
@@ -376,6 +377,24 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </article>
         )}
 
+        <!-- Blogroll -->
+        <article class="sidebar-card sidebar-card--blogroll">
+          <div class="sidebar-strip">
+            <span class="sidebar-strip-title">Blogroll</span>
+          </div>
+          <div class="sidebar-body">
+            <ul class="blogroll-sidebar-list">
+              {blogroll.map(site => (
+                <li>
+                  <a href={site.url} target="_blank" rel="noopener noreferrer" class="blogroll-sidebar-link">
+                    {site.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
       </aside>
     </div>
 
@@ -402,15 +421,20 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       </div>
     </section>
 
-    <!-- Webring -->
-    <section class="footer-webring" aria-label="Webring">
-      <p class="webring-label">Webring</p>
+    <!-- Webrings -->
+    <section class="footer-webring" aria-label="Webrings">
+      <p class="webring-label">Webrings</p>
       <div class="webring-row">
-        <a href="#">&larr; Previous</a>
-        <span class="webring-sep" aria-hidden="true">|</span>
-        <a href="#">Random</a>
-        <span class="webring-sep" aria-hidden="true">|</span>
-        <a href="#">Next &rarr;</a>
+        <a href="https://xn--sr8hvo.ws/previous" rel="noopener">&larr;</a>
+        <a href="https://xn--sr8hvo.ws" rel="noopener" class="webring-name">IndieWeb</a>
+        <a href="https://xn--sr8hvo.ws/next" rel="noopener">&rarr;</a>
+      </div>
+      <div class="webring-row">
+        <a href="https://webring.xxiivv.com/#maaike" target="_blank" rel="noopener" aria-label="XXIIVV webring">
+          <img src="https://webring.xxiivv.com/icon.black.svg" class="webring-xxiivv-icon webring-xxiivv-light" alt="" width="16" height="16" />
+          <img src="https://webring.xxiivv.com/icon.white.svg" class="webring-xxiivv-icon webring-xxiivv-dark" alt="" width="16" height="16" />
+        </a>
+        <span class="webring-name">XXIIVV</span>
       </div>
     </section>
 
@@ -739,30 +763,31 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   /* === Filter panels with protruding tab === */
   .filter-panel {
     position: relative;
-    background: #EEF3EB;
+    background: transparent;
+    border: 1px solid var(--color-border);
     border-radius: 0 0.75rem 0.75rem 0.75rem;
     padding: var(--space-sm) var(--space-md) var(--space-md);
     margin-top: 1.5rem;
   }
-  :root[data-theme="dark"] .filter-panel { background: #1a2318; }
 
   /* Protruding tab label */
   .filter-panel::before {
     content: attr(data-label);
     position: absolute;
     top: -1.35rem;
-    left: 0;
+    left: -1px;
     padding: 0.22rem 0.75rem;
     font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.09em;
     color: var(--color-text-muted);
-    background: #EEF3EB;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-bottom: none;
     border-radius: 5px 5px 0 0;
     white-space: nowrap;
   }
-  :root[data-theme="dark"] .filter-panel::before { background: #1a2318; }
 
   .filter-panel-header {
     display: flex;
@@ -961,7 +986,15 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   }
   .webring-row a:hover { color: #0D7C66; }
 
-  .webring-sep { opacity: 0.4; }
+  .webring-name {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .webring-xxiivv-icon { display: block; }
+  .webring-xxiivv-dark { display: none; }
+  [data-theme="dark"] .webring-xxiivv-light { display: none; }
+  [data-theme="dark"] .webring-xxiivv-dark { display: block; }
 
   /* ═══════════════════════════════════════════
      LEGEND CARD
@@ -1106,6 +1139,31 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     transition: color 150ms;
   }
   .project-link:hover { color: #0D7C66; }
+
+  .sidebar-card--blogroll {
+    background: #D8E8D0;
+  }
+  :root[data-theme="dark"] .sidebar-card--blogroll { background: #1a2b23; }
+
+  .blogroll-sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .blogroll-sidebar-link {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    text-decoration: none;
+    display: block;
+    padding: 0.15rem 0;
+    transition: color 150ms;
+  }
+
+  .blogroll-sidebar-link:hover { color: var(--color-accent); }
 
   .sidebar-read-more {
     font-size: 0.78rem;

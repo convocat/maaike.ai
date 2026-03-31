@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Maggie Appleton",
+    "url": "https://maggieappleton.com",
+    "description": "Visual essays on digital gardens, AI, and the philosophy of knowledge. One of the best thinkers on how we build and share ideas online.",
+    "category": "Digital gardens"
+  },
+  {
+    "name": "Andy Matuschak",
+    "url": "https://andymatuschak.org",
+    "description": "Working notes on learning, memory, and knowledge architecture. Home of the evergreen notes concept.",
+    "category": "Digital gardens"
+  },
+  {
+    "name": "Tom Critchlow",
+    "url": "https://tomcritchlow.com",
+    "description": "Writing on indie consulting, digital gardening, and building a less performative presence on the web.",
+    "category": "Digital gardens"
+  },
+  {
+    "name": "Neerlandistiek",
+    "url": "https://neerlandistiek.nl",
+    "description": "Online academic journal for Dutch language and literary research. Running since 1992.",
+    "category": "Language & linguistics"
+  },
+  {
+    "name": "Ness Labs",
+    "url": "https://nesslabs.com",
+    "description": "Mindful productivity, knowledge management, and learning in public. Good thinking on how to tend a mind garden.",
+    "category": "Thinking & learning"
+  }
+]
