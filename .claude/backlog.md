@@ -11,9 +11,9 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 ## 🟡 Themes as writing prompts
 *added: 2026-03-31*
 
-The `themes` object in `taxonomy.json` stores per-post thematic summaries from the TAO analysis. These read like writing prompts: concise, opinionated one-liners about what a post argues. Explore using them as: seed ideas for new posts, newsletter prompts, LinkedIn angle generators, or a "what this garden is really about" overview page.
+The `themes` field (now in each post's frontmatter and in `src/data/themes.json`) stores per-post thematic summaries from the TAO analysis. These read like writing prompts: concise, opinionated one-liners about what a post argues. Explore using them as: seed ideas for new posts, newsletter prompts, LinkedIn angle generators, or a "what this garden is really about" overview page.
 
-Key file: `src/data/taxonomy.json` (themes section)
+Key files: `src/data/themes.json`, post frontmatter (`themes:` array)
 
 ---
 
@@ -24,14 +24,10 @@ Draft field-note at `src/content/field-notes/thematic-tao-three-pass-method.md`.
 
 ---
 
-## 🔵 Tagging, triples, and auto-enrichment
-*2026-03-29 · last-touched: 2026-03-29 · main*
+## ✅ Tagging, triples, and auto-enrichment
+*2026-03-29 · completed: 2026-03-31*
 
-Refactored the tagging and linking system: `/auto-tag` now does thematic analysis, extracts named entities, proposes new tags (and creates tag files), extracts subject-predicate-object triples, suggests internal wiki-links semantically, and suggests Wikipedia links for uncovered concepts. Triples are stored in frontmatter and displayed as a "Relations" section in the post footer. Wikipedia links get teal styling with a W superscript and open in a new tab. The `/new-post` Typora template now shows all metadata fields upfront.
-
-Next: run `/auto-tag` on existing posts to start populating triples and backlinks. Good first candidate: the "thinking in action" jotting published today.
-
-Key files: `.claude/commands/auto-tag.md`, `src/content.config.ts`, `src/layouts/PostLayout.astro`, `src/styles/global.css`
+Ran `/auto-tag` on 5 existing articles. Built `src/data/taxonomy.json` (40+ canonical entities with types and term-definitions), `src/data/themes.json` (per-post thematic summaries), and `src/data/triples.json` (30+ topics, 27+ associations). Added `themes:` to content schema. Added **Mycelium** section to PostLayout: a collapsible serif drawer containing tags, Relations, and "What this post argues" — all three collapsed by default. 15 new tag files created.
 
 ---
 
