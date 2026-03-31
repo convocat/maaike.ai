@@ -1,0 +1,321 @@
+{
+  "_note": "Canonical entity registry. Types match the controlled vocabulary in triples.json. 'parent' expresses subtopic relationships. 'definition' is a term-definition pair.",
+
+  "topics": {
+
+    "g-w-f-hegel": {
+      "label": "G W F Hegel",
+      "type": "person",
+      "definition": "19th-century German philosopher, originator of dialectical thinking and the thesis-antithesis-synthesis framework."
+    },
+    "andrej-karpathy": {
+      "label": "Andrej Karpathy",
+      "type": "person",
+      "definition": "AI researcher and former Tesla/OpenAI engineer, known for influential public thinking on LLMs and learning."
+    },
+    "harry-g-frankfurt": {
+      "label": "Harry G. Frankfurt",
+      "type": "person",
+      "definition": "Moral philosopher, author of On Bullshit, which defines bullshit as indifference to the truth-falsity distinction."
+    },
+    "paul-grice": {
+      "label": "Paul Grice",
+      "type": "person",
+      "definition": "Philosopher of language who formulated the cooperative principle and conversational maxims."
+    },
+    "bender-and-gebru": {
+      "label": "Bender and Gebru",
+      "type": "person",
+      "definition": "Emily Bender and Timnit Gebru, co-authors of the 2021 Stochastic Parrots paper on the risks of large language models. (Combined form retained for backward compatibility — see individual entries.)"
+    },
+    "emily-bender": {
+      "label": "Emily Bender",
+      "type": "person",
+      "definition": "Computational linguist at the University of Washington, co-author of the Stochastic Parrots paper."
+    },
+    "timnit-gebru": {
+      "label": "Timnit Gebru",
+      "type": "person",
+      "definition": "AI ethics researcher, founder of DAIR Institute, co-author of the Stochastic Parrots paper."
+    },
+    "herbert-clark": {
+      "label": "Herbert Clark",
+      "type": "person",
+      "definition": "Psycholinguist at Stanford, co-author of the foundational Grounding in Communication framework (1991)."
+    },
+    "susan-brennan": {
+      "label": "Susan Brennan",
+      "type": "person",
+      "definition": "Cognitive scientist, co-author with Herbert Clark of the grounding in communication framework."
+    },
+    "lucy-suchman": {
+      "label": "Lucy Suchman",
+      "type": "person",
+      "definition": "Anthropologist and computer scientist, author of Plans and Situated Actions (1987), arguing that human action is shaped by concrete situations rather than pre-formed plans."
+    },
+    "helena-rodemann": {
+      "label": "Helena Rodemann",
+      "type": "person",
+      "definition": "Design researcher who argues that personality in chat agents constitutes a form of emotional labor."
+    },
+    "jakob-nielsen": {
+      "label": "Jakob Nielsen",
+      "type": "person",
+      "definition": "Usability researcher and co-founder of Nielsen Norman Group, known for heuristic evaluation and foundational web usability research."
+    },
+    "don-norman": {
+      "label": "Don Norman",
+      "type": "person",
+      "definition": "Cognitive scientist and designer, co-founder of Nielsen Norman Group, author of The Design of Everyday Things."
+    },
+
+    "jasper-ai": {
+      "label": "Jasper.ai",
+      "type": "technology",
+      "definition": "AI writing assistant tool, one of the early consumer products for AI-assisted content generation."
+    },
+    "conversational-interface": {
+      "label": "Conversational interface",
+      "type": "technology-category",
+      "definition": "Any interface where interaction is mediated through natural language exchange — chatbots, voice assistants, LLM chat interfaces."
+    },
+    "llms": {
+      "label": "LLMs",
+      "type": "technology",
+      "definition": "Large language models: neural networks trained on large text corpora to predict and generate language."
+    },
+    "chatgpt": {
+      "label": "ChatGPT",
+      "type": "technology",
+      "definition": "OpenAI's conversational AI product, an LLM-based chat interface released in late 2022."
+    },
+    "genai": {
+      "label": "GenAI",
+      "type": "technology",
+      "definition": "Generative AI: AI systems capable of generating text, images, code, and other content from a prompt."
+    },
+    "agentic-ai": {
+      "label": "Agentic AI",
+      "type": "technology",
+      "definition": "AI systems that can autonomously plan and execute multi-step tasks, often using tools and external services."
+    },
+
+    "dialectical-thinking": {
+      "label": "Dialectical thinking",
+      "type": "philosophical-method",
+      "definition": "A method of reasoning that develops understanding by confronting a position with its opposite, and resolving the tension into a synthesis."
+    },
+    "thesis-antithesis-synthesis": {
+      "label": "Thesis-antithesis-synthesis",
+      "type": "philosophical-framework",
+      "parent": "dialectical-thinking",
+      "definition": "Hegel's three-step dialectical process: begin with an initial position (thesis), confront it with a counter-position (antithesis), arrive at a synthesis that integrates both."
+    },
+    "situated-action": {
+      "label": "Situated action",
+      "type": "theoretical-concept",
+      "definition": "Suchman's concept that human action is shaped by the concrete, unfolding situation rather than by pre-formed abstract plans."
+    },
+    "cooperative-principle": {
+      "label": "Cooperative principle",
+      "type": "linguistic-principle",
+      "definition": "Grice's framework: conversational participants implicitly cooperate by following four maxims — quality (be truthful), quantity (be informative), relevance (be relevant), and manner (be clear)."
+    },
+    "grices-maxim-of-quality": {
+      "label": "Grice's maxim of quality",
+      "type": "linguistic-principle",
+      "parent": "cooperative-principle",
+      "definition": "The cooperative principle maxim stating that speakers should only assert what they believe to be true and have adequate evidence for."
+    },
+    "conversational-grounding": {
+      "label": "Conversational grounding",
+      "type": "linguistic-concept",
+      "definition": "The process by which conversation partners establish and maintain mutual understanding, through grounding acts that confirm shared meaning."
+    },
+    "conversation-metaphor": {
+      "label": "Conversation metaphor",
+      "type": "interaction-metaphor",
+      "definition": "The framing of human-machine interaction as a conversation: two parties, turn-taking, natural language exchange."
+    },
+    "delegation-metaphor": {
+      "label": "Delegation metaphor",
+      "type": "interaction-metaphor",
+      "definition": "An alternative framing of human-AI interaction as delegation: the human assigns a task to an agent and receives a deliverable, without ongoing turn-taking."
+    },
+    "note-taking-metaphor": {
+      "label": "Note-taking metaphor",
+      "type": "interaction-metaphor",
+      "definition": "An alternative framing in which AI interaction is an extension of note-taking within a task domain — continuous, marginal, executable — rather than a separate conversation."
+    },
+    "accordion-editing": {
+      "label": "Accordion editing",
+      "type": "interaction-metaphor",
+      "definition": "NN/g term for the AI writing behavior of iteratively shortening or lengthening generated text through prompts."
+    },
+    "apple-picking": {
+      "label": "Apple picking",
+      "type": "interaction-metaphor",
+      "definition": "NN/g term for the behavior of selecting pieces of previously generated content to use as context or material for a new prompt."
+    },
+    "epistemic-bias": {
+      "label": "Epistemic bias",
+      "type": "cognitive-tendency",
+      "definition": "A systematic tendency to evaluate information in ways that preserve existing beliefs rather than revise them in light of evidence."
+    },
+    "anthropomorphism": {
+      "label": "Anthropomorphism",
+      "type": "cognitive-tendency",
+      "definition": "The attribution of human characteristics, emotions, or intentions to non-human entities — a default tendency activated by conversational interfaces."
+    },
+    "cognitive-laziness": {
+      "label": "Cognitive laziness",
+      "type": "cognitive-tendency",
+      "definition": "The human tendency to minimize cognitive effort in communication, defaulting to trust and assuming cooperative intent rather than verifying claims."
+    },
+    "conviction": {
+      "label": "Conviction",
+      "type": "belief-type",
+      "definition": "A firmly held belief that someone considers part of their identity — stronger than opinion, more conscious than a core belief."
+    },
+    "opinion": {
+      "label": "Opinion",
+      "type": "belief-type",
+      "definition": "A personal position that is subjective and requires no reasoning or evidence to support it."
+    },
+    "indifference-to-truth": {
+      "label": "Indifference to truth",
+      "type": "epistemic-stance",
+      "definition": "The property of producing outputs without any concern for whether they are true or false — distinct from lying, which requires knowing the truth."
+    },
+    "ground-truth": {
+      "label": "Ground truth",
+      "type": "epistemological-concept",
+      "definition": "The verified, factual state of reality that claims can be measured against — absent in LLM outputs, which are generated without access to it."
+    },
+    "metacognition": {
+      "label": "Metacognition",
+      "type": "epistemological-concept",
+      "definition": "Thinking about one's own thinking: awareness, monitoring, and regulation of cognitive processes."
+    },
+    "articulation-barrier": {
+      "label": "Articulation barrier",
+      "type": "epistemological-concept",
+      "definition": "NN/g term for the usability threshold in generative AI: to get what you want, you must first be able to express it precisely in a prompt — a skill that is not trivial."
+    },
+    "cognitive-load": {
+      "label": "Cognitive load",
+      "type": "epistemological-concept",
+      "definition": "The mental effort required to process information and complete a task — increases when interfaces force non-linear work into linear formats."
+    },
+    "direct-manipulation": {
+      "label": "Direct manipulation",
+      "type": "design-discipline",
+      "definition": "Shneiderman's interaction design principle: users should be able to act directly on objects of interest rather than through indirect commands or prompts."
+    },
+    "context-engineering": {
+      "label": "Context engineering",
+      "type": "theoretical-concept",
+      "definition": "Karpathy's term for the practice of filling an LLM's context window with precisely the right information for the next step — reframed by Maaike as context design."
+    },
+    "context-design": {
+      "label": "Context design",
+      "type": "design-discipline",
+      "definition": "Maaike's reframing of context engineering: the deliberate, structured design of the information that shapes an LLM's behavior — an evolution of information architecture applied to AI."
+    },
+    "context-window": {
+      "label": "Context window",
+      "type": "technical-mechanism",
+      "definition": "The working memory of an LLM: the total input (prompt, history, system instructions, retrieved context) available to the model at inference time."
+    },
+    "system-prompt": {
+      "label": "System prompt",
+      "type": "technical-mechanism",
+      "definition": "The instruction set passed to an LLM before the user turn, defining its behavior, constraints, persona, and context."
+    },
+    "semantic-information-types": {
+      "label": "Semantic information types",
+      "type": "design-discipline",
+      "definition": "Structured content building blocks with clear semantic labels (instructions, prerequisites, warnings, examples) — the design vocabulary for context engineering."
+    },
+    "information-architecture": {
+      "label": "Information architecture",
+      "type": "design-discipline",
+      "definition": "The structural design of information environments: organizing, labelling, and structuring content so it is findable, usable, and meaningful."
+    },
+    "instructional-design": {
+      "label": "Instructional design",
+      "type": "design-discipline",
+      "definition": "The systematic design of learning experiences and materials, using structured content types to support understanding and task completion."
+    },
+    "information-mapping": {
+      "label": "Information mapping",
+      "type": "design-discipline",
+      "definition": "A structured writing methodology that organizes content into typed, labelled blocks (procedures, concepts, facts) for clarity and reuse."
+    },
+    "topic-based-writing": {
+      "label": "Topic-based writing",
+      "type": "design-discipline",
+      "definition": "A technical writing approach that organizes content into self-contained, typed topics (task, concept, reference) that can be reused across contexts."
+    },
+    "technical-authoring": {
+      "label": "Technical authoring",
+      "type": "design-discipline",
+      "definition": "The professional practice of creating structured, accurate, user-focused documentation for technical products and systems."
+    },
+    "rhetoric": {
+      "label": "Rhetoric",
+      "type": "communication-type",
+      "definition": "Language designed to persuade through stylistic, emotional, or structural means — may resemble an argument but does not require logical validity."
+    },
+    "argument": {
+      "label": "Argument",
+      "type": "communication-type",
+      "definition": "A logical structure consisting of premises, reasoning, and a conclusion — builds a case in one direction without inherent claim to factual truth."
+    },
+    "bullshit": {
+      "label": "Bullshit",
+      "type": "philosophical-concept",
+      "definition": "Frankfurt's term: speech or output that is produced without concern for truth or falsity. The bullshitter is not lying — they simply do not care whether what they say is true."
+    },
+    "designing-for-doubt": {
+      "label": "Designing for doubt",
+      "type": "design-discipline",
+      "definition": "A design approach that builds skepticism, source-tracking, and fact-checking capacity into conversational AI interfaces — countering the user's natural trust in conversational form."
+    },
+    "conversation-design": {
+      "label": "Conversation design",
+      "type": "design-discipline",
+      "definition": "The discipline of designing interactions between humans and conversational interfaces — scripting, flow, persona, and error handling."
+    },
+    "emotional-labor": {
+      "label": "Emotional labor",
+      "type": "theoretical-concept",
+      "definition": "The management of feeling to create a publicly observable expression — applied to chat agents that are designed to perform relational and emotional work."
+    },
+    "stochastic-parrot": {
+      "label": "Stochastic parrot",
+      "type": "theoretical-concept",
+      "definition": "Bender and Gebru's term for LLMs: systems that generate plausible-sounding text by stochastically stitching together patterns, without any understanding of meaning."
+    },
+    "llm-hallucinations": {
+      "label": "LLM hallucinations",
+      "type": "technical-phenomenon",
+      "definition": "Outputs by LLMs that are confidently stated but factually incorrect — a structural consequence of probabilistic word prediction without access to ground truth."
+    },
+    "confabulation": {
+      "label": "Confabulation",
+      "type": "technical-phenomenon",
+      "definition": "The filling of knowledge gaps with plausible-sounding fabrications — a more precise term for LLM hallucinations, borrowed from neuropsychology where it describes unconscious gap-filling without intent to deceive."
+    },
+    "probabilistic-word-prediction": {
+      "label": "Probabilistic word prediction",
+      "type": "technical-mechanism",
+      "definition": "The core mechanism of LLMs: given a context, predict the most likely next token based on patterns in training data."
+    },
+    "missing-fundamental": {
+      "label": "Missing fundamental",
+      "type": "acoustic-concept",
+      "definition": "An acoustic phenomenon where the perceived pitch of a sound is absent from the actual signal — used as a metaphor for how LLMs produce outputs that sound grounded without containing ground truth."
+    }
+  }
+}

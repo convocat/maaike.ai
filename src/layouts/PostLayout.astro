@@ -14,6 +14,7 @@ interface Props {
   maturity: 'draft' | 'developing' | 'solid' | 'complete';
   tags: string[];
   triples?: [string, string, string][];
+  themes?: string[];
   description?: string;
   collection: string;
   slug: string;
@@ -23,7 +24,7 @@ interface Props {
   develops?: string;
 }
 
-const { title, date, updated, maturity, tags, triples, description, collection, slug, url, ai, hub, develops } = Astro.props;
+const { title, date, updated, maturity, tags, triples, themes, description, collection, slug, url, ai, hub, develops } = Astro.props;
 
 const isHub = hub === true;
 const ogImage = `/images/og/${collection}/${slug}.png`;
@@ -129,6 +130,19 @@ const formattedUpdated = updated
                   <span class="triple-predicate">{p}</span>
                   <span class="triple-object">{o}</span>
                 </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {themes && themes.length > 0 && (
+          <div class="post-footer-themes">
+            <h3 class="post-footer-heading">
+              What this post argues
+              <span class="beta-badge">beta</span>
+            </h3>
+            <ul class="themes-list">
+              {themes.map((theme) => (
+                <li class="theme-item">{theme}</li>
               ))}
             </ul>
           </div>
@@ -381,6 +395,62 @@ const formattedUpdated = updated
 
   .post-footer-triples {
     margin-block-end: var(--space-lg);
+  }
+
+  .post-footer-themes {
+    margin-block-end: var(--space-lg);
+    background: var(--color-bg-card);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .post-footer-themes .post-footer-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-sm);
+  }
+
+  .beta-badge {
+    font-size: 0.6rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 3px;
+    padding: 1px 5px;
+    opacity: 0.7;
+    vertical-align: middle;
+  }
+
+  .themes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .theme-item {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    padding-left: var(--space-sm);
+    position: relative;
+  }
+
+  .theme-item::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    opacity: 0.5;
+    font-size: 0.75rem;
+    top: 0.15em;
   }
 
   .triples-list {

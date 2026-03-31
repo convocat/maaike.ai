@@ -11,6 +11,15 @@ tags:
   - generative-ai-design
   - philosophy
   - llm
+  - metacognition
+  - anthropomorphism
+  - conversational-grounding
+  - agentic-ai
+themes:
+  - "Conversation metaphor as increasingly inadequate for GenAI"
+  - "Anthropomorphism as a structural side effect of conversation design"
+  - "Alternative interaction metaphors: delegation, thinking, note-taking"
+  - "Metacognition and inner dialog as possible paradigms for human-AI interaction"
 triples:
   - ["Conversation metaphor", "breaks-down-for", "GenAI"]
   - ["LLMs", "lacks", "Conversational grounding"]
@@ -18,6 +27,13 @@ triples:
   - ["Delegation metaphor", "better-fits", "Agentic AI"]
   - ["Conversation design", "risks", "Anthropomorphism"]
   - ["Indifference to truth", "incompatible-with", "Conversational grounding"]
+  - ["Conversational grounding", "attributed-to", "Herbert Clark"]
+  - ["Conversational grounding", "attributed-to", "Susan Brennan"]
+  - ["Conversation metaphor", "leads-to", "Anthropomorphism"]
+  - ["Conversation design", "leads-to", "Emotional labor"]
+  - ["Note-taking metaphor", "better-fits", "GenAI"]
+  - ["Metacognition", "better-fits", "GenAI"]
+  - ["Situated action", "attributed-to", "Lucy Suchman"]
 description: "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction."
 ai: 100% Maai
 linkedin_url: "https://www.linkedin.com/feed/update/urn:li:share:7440674715867766784/"
