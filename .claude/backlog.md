@@ -8,6 +8,15 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Auto-tag all 100% Maai articles
+*added: 2026-03-31*
+
+Run `/auto-tag` on every article with `ai: "100% Maai"` in frontmatter. Five have already been done (see completed auto-enrichment item). Find the remaining ones, process one by one, and update `taxonomy.json`, `themes.json`, and `triples.json` as each one is tagged.
+
+To find candidates: `grep -rl "100% Maai" src/content/articles/` — then cross-check against posts that already have `triples:` and `themes:` in their frontmatter.
+
+---
+
 ## 🟡 Themes as writing prompts
 *added: 2026-03-31*
 
