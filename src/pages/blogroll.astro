@@ -1,0 +1,109 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import blogroll from '../data/blogroll.json';
+
+const categories = [...new Set(blogroll.map(s => s.category))];
+---
+
+<PageLayout title="Blogroll — Maai & AI">
+  <div class="blogroll">
+    <h1>Blogroll</h1>
+    <p class="blogroll-intro">Sites I read, return to, and think alongside.</p>
+
+    {categories.map(category => (
+      <section class="blogroll-section">
+        <h2 class="blogroll-category">{category}</h2>
+        <ul class="blogroll-list">
+          {blogroll.filter(s => s.category === category).map(site => (
+            <li class="blogroll-item">
+              <a href={site.url} target="_blank" rel="noopener noreferrer" class="blogroll-name">
+                {site.name}
+              </a>
+              <span class="blogroll-url">{site.url.replace('https://', '')}</span>
+              <p class="blogroll-desc">{site.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</PageLayout>
+
+<style>
+  .blogroll {
+    max-width: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .blogroll h1 {
+    margin-block-end: var(--space-s);
+  }
+
+  .blogroll-intro {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-2xl);
+  }
+
+  .blogroll-section {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .blogroll-category {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-m);
+    padding-block-end: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blogroll-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+
+  .blogroll-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-m);
+    align-items: baseline;
+  }
+
+  .blogroll-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .blogroll-name:hover {
+    text-decoration: underline;
+  }
+
+  .blogroll-url {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .blogroll-desc {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin: 0;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-block-start: var(--space-xs);
+  }
+</style>
