@@ -121,7 +121,7 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
         </div>
         <h1 class="hero-heading">Welcome to my<br>digital garden</h1>
       </div>
-      <p class="hero-desc">Hoihoi! I'm Maaike Groenewege: natural language interface designer, linguist, and owner of about 50 fountain pens. This space is where I think in public about language, human machine interaction, AI and stuff.</p>
+      <p class="hero-desc">Hoihoi! I'm <a href="https://www.maaike.ai/" class="h-card" rel="me">Maaike Groenewege</a>: natural language interface designer, linguist, and owner of about 50 fountain pens. This space is where I think in public about language, human machine interaction, AI and stuff.</p>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <svg viewBox="0 0 120 165" fill="none" class="hero-leaf-large">
@@ -673,6 +673,17 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     color: var(--color-text-muted);
     line-height: 1.75;
     max-width: 42rem;
+  }
+
+  .hero-desc .h-card {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+    text-underline-offset: 3px;
+  }
+  .hero-desc .h-card:hover {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
   }
 
 
