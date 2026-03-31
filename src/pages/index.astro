@@ -421,23 +421,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       </div>
     </section>
 
-    <!-- Webrings -->
-    <section class="footer-webring" aria-label="Webrings">
-      <p class="webring-label">Webrings</p>
-      <div class="webring-row">
-        <a href="https://xn--sr8hvo.ws/previous" rel="noopener">&larr;</a>
-        <a href="https://xn--sr8hvo.ws" rel="noopener" class="webring-name">IndieWeb</a>
-        <a href="https://xn--sr8hvo.ws/next" rel="noopener">&rarr;</a>
-      </div>
-      <div class="webring-row">
-        <a href="https://webring.xxiivv.com/#maaike" target="_blank" rel="noopener" aria-label="XXIIVV webring">
-          <img src="https://webring.xxiivv.com/icon.black.svg" class="webring-xxiivv-icon webring-xxiivv-light" alt="" width="16" height="16" />
-          <img src="https://webring.xxiivv.com/icon.white.svg" class="webring-xxiivv-icon webring-xxiivv-dark" alt="" width="16" height="16" />
-        </a>
-        <span class="webring-name">XXIIVV</span>
-      </div>
-    </section>
-
     <Footer />
   </div>
 </BaseLayout>
@@ -956,45 +939,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     margin-top: var(--space-2xl);
   }
 
-  .footer-webring {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-md);
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .webring-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .webring-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  .webring-row a {
-    color: var(--color-text-muted);
-    text-decoration: none;
-    transition: color 150ms;
-  }
-  .webring-row a:hover { color: #0D7C66; }
-
-  .webring-name {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-  }
-
-  .webring-xxiivv-icon { display: block; }
-  .webring-xxiivv-dark { display: none; }
-  [data-theme="dark"] .webring-xxiivv-light { display: none; }
-  [data-theme="dark"] .webring-xxiivv-dark { display: block; }
 
   /* ═══════════════════════════════════════════
      LEGEND CARD
