@@ -100,6 +100,46 @@ Instructing: asking someone else to do something. Out of your hands, out of your
 
 What is the voice that we hear in our head when we chat with a textbot? Do we hear someone else's voice, or our own? And does it matter?
 
+
+
+## And who's listening?
+
+NL: luisterbereidheid: the willingness to listen. Listening is intentional, silence is not. People can be not luisterbereid. Organisations too. LLMs too? If there's no luisterbereidheid, ideas, plans and changes cannot land. 
+
+How do you know someone's listening? It's also different than hearing. Listening is receptive, like an embedding. 
+
+Systems can also be listeners. Listeners poll and ping. Receiver and listener are different. 
+
+## Threadiness
+
+On LinkedIn today (April 1, 2026): Threadiness https://www.linkedin.com/posts/gcadorette_glengorithms-share-7445071189846167552-5d4b?utm_source=share&utm_medium=member_desktop&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs
+
+> Every reply in a real conversation does 3 things:
+>
+> 1️⃣ Semantic expansion: Each response adds new tokens to your post’s topic map. The NLP engine uses them to sharpen who else should see it. The thread is the algorithm learning who your people are.
+>
+> 2️⃣ Session persistence: People stayed, replied, and came back. That’s rare behavior. And rare behavior gets amplified.
+>
+> 3️⃣ Low friction amplification: It’s cheaper for the algorithm to keep pushing a post that’s already proven it can hold attention than to keep testing one that people nodded at and kept scrolling.
+>
+> This is threadiness.
+>
+> It’s a trailing indicator of content that had somewhere to go.
+>
+> Depth can be gamed too. Anyone who’s watched a “first!” comment turn into a 6-reply nothing-thread knows exactly what data-poor engagement looks like.
+>
+> Maybe that’s why LinkedIn decided to prioritize depth over volume.
+>
+> My theory? It’s a response to manufactured engagement. Pods, reciprocal commenting, performance metrics. All that good stuff.
+>
+> By prioritizing thread depth over comment volume, the algorithm can start distinguishing between a real community having a discussion and a group of people just showing up for each other’s numbers.
+
+Bacteria to AI: WOlfe (2024) jagged ontologies:
+
+> creating a densely textured conceptual landscape of high dimensionality that never resolves to a smooth homogeneous surface.
+
+
+
 ## Metaphor: thinking & inner dialog
 
 What if we build an interaction model metaphor around thinking? With an audience of one: ourselves? What would such an interface look like? Assuming it's language based, a thought-centered interface would be very minimal, with no distractions, so you can focus on capturing thoughts and giving words to them. Thinking activates us, invites us to explore and expand mental models and to find words for new ideas. It helps us reflect on emotions, take actions, keep track, and discern true from false. All this is something that we typically do alone, in an [[writing-as-a-conversation-with-yourself|inner dialogue]]. Not in a conversation. 
@@ -129,9 +169,9 @@ Also the notes become executionable.
 - [Interpretative Interfaces](https://arxiv.org/html/2603.15863) (2026, CHI workshop): tangible interaction metaphors as alternatives to chat
 
 **Thinking and metacognition as interaction paradigms:**
-- [Thought as a Substrate in Human-AI Interaction](https://dl.acm.org/doi/10.1145/3746058.3758466) (2024, ACM UIST): thought as a new substrate, challenging chat-as-default
-- [Interacting with Thoughtful AI](https://arxiv.org/html/2502.18676v1) (2025): AI as continuously thinking entity, not reactive prompt-response
-- [Tools for Thought](https://arxiv.org/abs/2508.21036) (2025, CHI workshop): 34 papers on how GenAI affects metacognition
+- [Thought as a Substrate in Human-AI Interaction](https://dl.acm.org/doi/10.1145/3746058.3758466) (2024, ACM UIST): proposes treating thought itself as the primary substrate for human-AI interaction, arguing that interfaces should be built around cognitive processes rather than conversational turn-taking
+- [Interacting with Thoughtful AI](https://arxiv.org/html/2502.18676v1) (2025): proposes a paradigm where AI functions as a continuously thinking entity rather than a passive responder, enabling proactive collaboration through surfacing intermediate thoughts, full-duplex processing, and shared cognitive workspaces
+- [Tools for Thought](https://arxiv.org/abs/2508.21036) (2025, CHI workshop): synthesises research from 34 papers on how GenAI expands automation while simultaneously creating both risks and opportunities for human cognition — memory, creativity, and critical thinking
 
 
 
