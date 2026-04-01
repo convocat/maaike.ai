@@ -1,0 +1,313 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import tao from '../data/triples.json';
+
+// Build nodes: one per topic, collect which posts they appear in (occurrences)
+const occurrences = new Map<string, Set<string>>();
+for (const a of tao.associations) {
+  if (!occurrences.has(a.subject)) occurrences.set(a.subject, new Set());
+  if (!occurrences.has(a.object))  occurrences.set(a.object,  new Set());
+  occurrences.get(a.subject)!.add(a.source);
+  occurrences.get(a.object)!.add(a.source);
+}
+
+const nodes = Object.entries(tao.topics).map(([id, t]) => ({
+  id,
+  label: (t as any).label as string,
+  type:  (t as any).type  as string,
+  posts: [...(occurrences.get(id) ?? [])],
+}));
+
+const links = tao.associations.map(a => ({
+  source:     a.subject,
+  target:     a.object,
+  predicate:  a.predicate,
+  post:       a.source,
+  collection: a.collection,
+}));
+
+const postCount = new Set(tao.associations.map(a => a.source)).size;
+const graphData = { nodes, links };
+---
+
+<PageLayout title="Concept graph" description="Topics, associations, and occurrences extracted from garden posts via /auto-tag.">
+  <div class="graph-header">
+    <h1>Concept graph</h1>
+    <p class="intro">
+      Topics, associations, and occurrences extracted from posts via <code>/auto-tag</code>.
+      Based on the <a href="https://www.ontopia.net/topicmaps/materials/tao.html" target="_blank" rel="noopener">TAO of Topic Mapping</a>.
+      Nodes sized by degree. Hover to see sources. Drag to rearrange, scroll to zoom.
+    </p>
+    <div class="legend">
+      <span class="legend-dot person"></span><span class="legend-label">person</span>
+      <span class="legend-dot technology"></span><span class="legend-label">technology</span>
+      <span class="legend-dot concept"></span><span class="legend-label">concept</span>
+    </div>
+  </div>
+
+  <div id="graph-wrap">
+    <svg id="graph"></svg>
+    <div id="tooltip" class="tooltip hidden"></div>
+  </div>
+
+  <p class="footer-note">
+    {nodes.length} topics · {links.length} associations · {postCount} posts indexed
+  </p>
+</PageLayout>
+
+<style>
+  .graph-header {
+    padding: var(--space-lg) 0 var(--space-md);
+  }
+  .graph-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xs);
+  }
+  .intro {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+    max-width: 52rem;
+    line-height: 1.5;
+  }
+  .intro a { color: var(--color-accent-2); }
+
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 2px;
+  }
+  .legend-label { margin-right: var(--space-md); }
+  .legend-dot.person     { background: var(--color-accent-2); }
+  .legend-dot.technology { background: #B07830; }
+  .legend-dot.concept    { background: var(--color-accent); }
+
+  #graph-wrap {
+    position: relative;
+    width: 100%;
+    height: 72vh;
+    min-height: 480px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    background: var(--color-bg-card);
+    overflow: hidden;
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  #graph { width: 100%; height: 100%; }
+
+  .tooltip {
+    position: absolute;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.8rem;
+    pointer-events: none;
+    max-width: 260px;
+    box-shadow: 0 2px 8px var(--color-shadow);
+    z-index: 10;
+    line-height: 1.6;
+  }
+  .tooltip.hidden { display: none; }
+  .tooltip .node-name  { font-weight: 600; color: var(--color-heading); display: block; }
+  .tooltip .node-type  { color: var(--color-text-muted); font-size: 0.72rem; display: block; margin-bottom: 4px; }
+  .tooltip .post-item  { color: var(--color-accent-2); font-size: 0.75rem; display: block; }
+  .tooltip .assoc-item { color: var(--color-text-muted); font-size: 0.72rem; display: block; font-style: italic; }
+
+  .footer-note {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-top: var(--space-xs);
+  }
+
+  [data-theme="dark"] .legend-dot.technology { background: #E8A84A; }
+</style>
+
+<script is:inline define:vars={{ graphData }}>
+(async () => {
+  const d3 = await import('https://cdn.jsdelivr.net/npm/d3@7/+esm');
+
+  const wrap    = document.getElementById('graph-wrap');
+  const svgEl   = d3.select('#graph');
+  const tooltip = document.getElementById('tooltip');
+
+  let W = wrap.clientWidth;
+  let H = wrap.clientHeight;
+
+  const css = getComputedStyle(document.documentElement);
+  const get = v => css.getPropertyValue(v).trim();
+
+  const COLOR = {
+    person:     get('--color-accent-2')   || '#0D7C66',
+    technology: document.documentElement.dataset.theme === 'dark' ? '#E8A84A' : '#B07830',
+    concept:    get('--color-accent')     || '#D6006C',
+    border:     get('--color-border')     || '#E5E5E5',
+    text:       get('--color-text')       || '#1A1A1A',
+    muted:      get('--color-text-muted') || '#6B6B6B',
+    bgCard:     get('--color-bg-card')    || '#FAFAFA',
+  };
+
+  const nodeColor = d => {
+    if (d.type === 'person') return COLOR.person;
+    if (['technology','technology-category','technical-mechanism','technical-phenomenon'].includes(d.type))
+      return COLOR.technology;
+    return COLOR.concept;
+  };
+
+  // Degree (computed before D3 mutates links)
+  const degree = new Map();
+  for (const l of graphData.links) {
+    degree.set(l.source, (degree.get(l.source) || 0) + 1);
+    degree.set(l.target, (degree.get(l.target) || 0) + 1);
+  }
+  const nodeR = d => 5 + (degree.get(d.id) || 0) * 3;
+
+  // Clone so D3 can mutate
+  const nodes = graphData.nodes.map(d => ({
+    ...d,
+    x: W / 2 + (Math.random() - 0.5) * W * 0.6,
+    y: H / 2 + (Math.random() - 0.5) * H * 0.6,
+  }));
+  const links = graphData.links.map(d => ({ ...d }));
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link',      d3.forceLink(links).id(d => d.id).distance(120).strength(0.5))
+    .force('charge',    d3.forceManyBody().strength(-300))
+    .force('center',    d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide().radius(d => nodeR(d) + 16));
+
+  const svg = svgEl.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+  const g   = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([0.15, 4]).on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  // Links
+  const linkEl = g.append('g').selectAll('line')
+    .data(links).join('line')
+    .attr('stroke', COLOR.border)
+    .attr('stroke-width', 1.5)
+    .attr('stroke-opacity', 0.55);
+
+  // Predicate labels (appear on hover)
+  const linkLabelEl = g.append('g').selectAll('text')
+    .data(links).join('text')
+    .attr('font-size', '8.5px')
+    .attr('fill', COLOR.muted)
+    .attr('text-anchor', 'middle')
+    .attr('opacity', 0)
+    .attr('pointer-events', 'none')
+    .text(d => d.predicate);
+
+  // Nodes
+  const nodeEl = g.append('g').selectAll('circle')
+    .data(nodes).join('circle')
+    .attr('r', nodeR)
+    .attr('fill', nodeColor)
+    .attr('fill-opacity', 0.85)
+    .attr('stroke', COLOR.bgCard)
+    .attr('stroke-width', 2)
+    .style('cursor', 'grab')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  // Topic labels
+  const labelEl = g.append('g').selectAll('text')
+    .data(nodes).join('text')
+    .attr('font-size', '10px')
+    .attr('font-family', 'Roboto, sans-serif')
+    .attr('fill', COLOR.text)
+    .attr('text-anchor', 'middle')
+    .attr('pointer-events', 'none')
+    .text(d => d.label);
+
+  // Hover: highlight neighbourhood, show associations + occurrences
+  nodeEl
+    .on('mouseenter', (event, d) => {
+      const connected = links.filter(l => l.source.id === d.id || l.target.id === d.id);
+      const connectedIds = new Set(connected.flatMap(l => [l.source.id, l.target.id]));
+
+      linkEl.attr('stroke-opacity', l =>
+        (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.08);
+      linkLabelEl.attr('opacity', l =>
+        (l.source.id === d.id || l.target.id === d.id) ? 1 : 0);
+      nodeEl.attr('fill-opacity', n => connectedIds.has(n.id) ? 1 : 0.2);
+      labelEl.attr('opacity', n => connectedIds.has(n.id) ? 1 : 0.3);
+
+      const posts = [...new Set(connected.map(l => l.post))];
+      const assocLines = connected.map(l => {
+        const other = l.source.id === d.id ? l.target.label : l.source.label;
+        const dir   = l.source.id === d.id ? '→' : '←';
+        return `<span class="assoc-item">${dir} ${l.predicate} ${other}</span>`;
+      });
+
+      tooltip.innerHTML =
+        `<span class="node-name">${d.label}</span>` +
+        `<span class="node-type">${d.type}</span>` +
+        assocLines.join('') +
+        (posts.length ? '<hr style="border:none;border-top:1px solid var(--color-border);margin:4px 0">' : '') +
+        posts.map(p => `<span class="post-item">↗ ${p.replace(/-/g, ' ')}</span>`).join('');
+      tooltip.classList.remove('hidden');
+    })
+    .on('mousemove', event => {
+      const rect = wrap.getBoundingClientRect();
+      let x = event.clientX - rect.left + 14;
+      let y = event.clientY - rect.top  - 10;
+      if (x + 260 > W) x -= 280;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    })
+    .on('mouseleave', () => {
+      linkEl.attr('stroke-opacity', 0.55);
+      linkLabelEl.attr('opacity', 0);
+      nodeEl.attr('fill-opacity', 0.85);
+      labelEl.attr('opacity', 1);
+      tooltip.classList.add('hidden');
+    });
+
+  // Tick
+  simulation.on('tick', () => {
+    linkEl
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    linkLabelEl
+      .attr('x', d => (d.source.x + d.target.x) / 2)
+      .attr('y', d => (d.source.y + d.target.y) / 2);
+    nodeEl.attr('cx', d => d.x).attr('cy', d => d.y);
+    labelEl.attr('x', d => d.x).attr('y', d => d.y + nodeR(d) + 12);
+  });
+
+  // Fit to view when simulation settles
+  simulation.on('end', () => {
+    const pad = 52;
+    const xs = nodes.map(d => d.x), ys = nodes.map(d => d.y);
+    const x0 = Math.min(...xs) - pad, x1 = Math.max(...xs) + pad;
+    const y0 = Math.min(...ys) - pad, y1 = Math.max(...ys) + pad;
+    const scale = Math.min(0.92, W / (x1 - x0), H / (y1 - y0));
+    const tx = (W - (x0 + x1) * scale) / 2;
+    const ty = (H - (y0 + y1) * scale) / 2;
+    svg.transition().duration(700)
+      .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+  });
+
+  // Resize
+  new ResizeObserver(() => {
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    svg.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+    simulation.force('center', d3.forceCenter(W / 2, H / 2)).alpha(0.3).restart();
+  }).observe(wrap);
+})();
+</script>
