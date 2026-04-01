@@ -258,7 +258,13 @@
       "Bash(powershell -Command \"Copy-Item -Force ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden\\\\public\\\\images\\\\watercolor-leaf-trimmed.png'' ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment\\\\public\\\\images\\\\watercolor-leaf-trimmed.png''\")",
       "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 4322 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess | ForEach-Object { Stop-Process -Id $_-Force -ErrorAction SilentlyContinue }\")",
       "Bash(powershell -Command \"netstat -ano | findstr '':4322''\")",
-      "Bash(powershell -Command \"Stop-Process -Id 44920 -Force\")"
+      "Bash(powershell -Command \"Stop-Process -Id 44920 -Force\")",
+      "Bash(powershell -Command \"Remove-Item -Recurse -Force ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment''; Write-Host ''Done''\")",
+      "Bash(powershell -Command \"Get-Process node | Where-Object { $_Path -like ''*node*'' } | Select-Object Id, CPU, MainWindowTitle | Format-Table\")",
+      "Bash(powershell -Command \"Get-Process -Name node -ErrorAction SilentlyContinue | Select-Object Id, CPU | Format-Table\")",
+      "Bash(powershell -Command \"Stop-Process -Id 64820 -Force; Start-Sleep -Seconds 2; Remove-Item -Recurse -Force ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment'' -ErrorAction SilentlyContinue; if \\(Test-Path ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment''\\) { ''Still exists'' } else { ''Removed'' }\")",
+      "Bash(powershell -Command \"Stop-Process -Id 12400 -Force -ErrorAction SilentlyContinue; Stop-Process -Id 64820 -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 3; cmd /c ''rd /s /q C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment''; if \\(Test-Path ''C:\\\\Sharing\\\\Maaike\\\\Digital-Garden-leaf-experiment''\\) { ''Still exists'' } else { ''Removed'' }\")",
+      "Bash(powershell -Command \":*)"
     ]
   },
   "hooks": {
