@@ -3,7 +3,6 @@ title: "Reading notes: bacteria to AI"
 description: "Reading notes on cognitive assemblages, anthropocentrism, and the case for extending cognition beyond human consciousness, from bacteria to AI."
 date: 2026-04-01
 maturity: draft
-draft: true
 tags: [philosophy, anthropomorphism, human-machine-interface, cognition, more-than-human]
 ai: "100% Maai"
 triples:
