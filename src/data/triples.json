@@ -92,7 +92,13 @@
     "cognitive-load":               { "label": "Cognitive load",               "type": "epistemological-concept" },
     "situated-action":              { "label": "Situated action",              "type": "theoretical-concept" },
     "accordion-editing":            { "label": "Accordion editing",            "type": "interaction-metaphor" },
-    "apple-picking":                { "label": "Apple picking",                "type": "interaction-metaphor" }
+    "apple-picking":                { "label": "Apple picking",                "type": "interaction-metaphor" },
+
+    "n-katherine-hayles":           { "label": "N. Katherine Hayles",          "type": "person" },
+    "anthropocentrism":             { "label": "Anthropocentrism",             "type": "philosophical-concept" },
+    "cognitive-assemblage":         { "label": "Cognitive assemblage",         "type": "theoretical-concept" },
+    "nonconscious-cognition":       { "label": "Nonconscious cognition",       "type": "theoretical-concept" },
+    "umwelt":                       { "label": "Umwelt",                       "type": "theoretical-concept" }
   },
 
   "associations": [
@@ -159,6 +165,13 @@
     { "subject": "llm-hallucinations",            "predicate": "caused-by",         "object": "probabilistic-word-prediction", "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
     { "subject": "llm-hallucinations",            "predicate": "characterised-as",  "object": "confabulation",                 "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
     { "subject": "missing-fundamental",           "predicate": "metaphor-for",      "object": "ground-truth",                  "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
-    { "subject": "ground-truth",                  "predicate": "inaccessible-via",  "object": "probabilistic-word-prediction", "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" }
+    { "subject": "ground-truth",                  "predicate": "inaccessible-via",  "object": "probabilistic-word-prediction", "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
+
+    { "subject": "anthropocentrism",              "predicate": "presupposes",       "object": "anthropomorphism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+    { "subject": "cognitive-assemblage",          "predicate": "theorised-by",      "object": "n-katherine-hayles",            "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+    { "subject": "nonconscious-cognition",        "predicate": "counters",          "object": "anthropocentrism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+    { "subject": "cognitive-assemblage",          "predicate": "demonstrates",      "object": "nonconscious-cognition",        "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+    { "subject": "llms",                          "predicate": "instance-of",       "object": "cognitive-assemblage",          "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+    { "subject": "umwelt",                        "predicate": "incompatible-with", "object": "anthropocentrism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" }
   ]
 }

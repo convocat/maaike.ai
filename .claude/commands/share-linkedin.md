@@ -15,6 +15,12 @@ Read the target post's full content (frontmatter + body).
 
 ## Step 2: Check the card image
 
+**If the post is a jotting with `type: quote`:** use the quote card instead of the OG card.
+1. Check if the quote card exists at `public/images/quote-cards/<slug>.png`
+2. If not, generate it: `node scripts/generate-quote-card.cjs <slug>`
+3. Use `public/images/quote-cards/<slug>.png` as the image in Step 4.
+
+**For all other posts:**
 1. Check if the OG card exists at `public/images/og/<collection>/<slug>.png`
 2. If not, generate it by deleting any stale version and running `node scripts/generate-og-images.cjs`
 
@@ -53,7 +59,8 @@ Check if the article contains a `<div class="linkedin">` block.
    ```
    If the response is not `200`, stop and tell Maaike: "The page isn't live yet at maaike.ai. Wait for the deploy to finish (~2 min after push) and try again."
 3. Once live, write the text to a temp file
-4. Run: `node scripts/post-to-linkedin.mjs <temp-file> public/images/og/<collection>/<slug>.png "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
+4. Run: `node scripts/post-to-linkedin.mjs <temp-file> <card-image-path> "Read the full article: https://www.maaike.ai/<collection>/<slug>/"`
+   Where `<card-image-path>` is the quote card path (Step 2) for quotes, or the OG card path for all others.
 4. This posts the image + text, then automatically adds a comment with the clickable link
 5. Show the result (post URL) to the user
 6. Delete temp files
