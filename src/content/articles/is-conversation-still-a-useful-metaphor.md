@@ -34,6 +34,8 @@ triples:
   - ["Note-taking metaphor", "better-fits", "GenAI"]
   - ["Metacognition", "better-fits", "GenAI"]
   - ["Situated action", "attributed-to", "Lucy Suchman"]
+  - ["Inner dialog metaphor", "better-fits", "GenAI"]
+  - ["LLMs", "lacks", "Situated action"]
 description: "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction."
 ai: 100% Maai
 linkedin_url: "https://www.linkedin.com/feed/update/urn:li:share:7440674715867766784/"

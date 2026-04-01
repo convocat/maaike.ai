@@ -94,6 +94,8 @@
     "accordion-editing":            { "label": "Accordion editing",            "type": "interaction-metaphor" },
     "apple-picking":                { "label": "Apple picking",                "type": "interaction-metaphor" },
 
+    "inner-dialog-metaphor":         { "label": "Inner dialog metaphor",        "type": "interaction-metaphor" },
+
     "n-katherine-hayles":           { "label": "N. Katherine Hayles",          "type": "person" },
     "anthropocentrism":             { "label": "Anthropocentrism",             "type": "philosophical-concept" },
     "cognitive-assemblage":         { "label": "Cognitive assemblage",         "type": "theoretical-concept" },
@@ -146,6 +148,8 @@
     { "subject": "note-taking-metaphor",          "predicate": "better-fits",       "object": "genai",                         "source": "is-conversation-still-a-useful-metaphor",                 "collection": "articles" },
     { "subject": "metacognition",                 "predicate": "better-fits",       "object": "genai",                         "source": "is-conversation-still-a-useful-metaphor",                 "collection": "articles" },
     { "subject": "situated-action",               "predicate": "attributed-to",     "object": "lucy-suchman",                  "source": "is-conversation-still-a-useful-metaphor",                 "collection": "articles" },
+    { "subject": "inner-dialog-metaphor",         "predicate": "better-fits",       "object": "genai",                         "source": "is-conversation-still-a-useful-metaphor",                 "collection": "articles" },
+    { "subject": "llms",                          "predicate": "lacks",             "object": "situated-action",               "source": "is-conversation-still-a-useful-metaphor",                 "collection": "articles" },
 
     { "subject": "accordion-editing",             "predicate": "attributed-to",     "object": "jakob-nielsen",                 "source": "conversational-interfaces-are-not-easy",                  "collection": "articles" },
     { "subject": "accordion-editing",             "predicate": "attributed-to",     "object": "don-norman",                    "source": "conversational-interfaces-are-not-easy",                  "collection": "articles" },
