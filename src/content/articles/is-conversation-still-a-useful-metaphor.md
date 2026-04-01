@@ -1,7 +1,7 @@
 ---
 title: "Is conversation still a useful metaphor for human-machine interaction?"
 date: 2026-03-15
-updated: 2026-03-21
+updated: 2026-04-01
 maturity: developing
 tags:
   - human-machine-interface
