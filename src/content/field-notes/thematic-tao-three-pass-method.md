@@ -3,9 +3,9 @@ title: "Thematic-TAO: a three-pass method for post analysis"
 description: "Extracting meaningful entities and relations, combining thematic analysis with TAO topic mapping in three passes."
 date: 2026-03-30
 maturity: developing
-draft: true
+draft: false
 tags: ["knowledge-graph", "thinking-tools", "digital-gardens"]
-ai: "co-created"
+ai: "100% Maai"
 develops: claude-features-garden
 ---
 
@@ -13,7 +13,7 @@ When I started building a concept graph for this garden, I ran into a tension be
 
 **Thematic analysis** reads wide. It asks: what is this about? What recurring ideas run through it? It's a great way for first explorations and orientations, because it surfaces emergent themes that I might not have found when just reading at surface level. It basically gives you lists of keywords and categories on different axes (so great taxonomies), but it's a one-sweep action that doesn't necessarily give good, robust an consistent structure. 
 
-**Topic mapping** (Topics, Associations, Occurrences — [Steve Pepper's framework](https://www.ontopia.net/topicmaps/materials/tao.html)) is about very close reading. It's funny, I came acroos topic mapping and the article 'The TAO of topic maps' in my second job, when I was a customer training and information developer. We had these great sessions around knowledge modelling and information mapping with the amazing Joan Hackos (Claude, find wikipedia link), whose book ' Managing Documentation Projects (Claude link)' I found lying in a cupboard in my first job, and literally devoured. 
+**Topic mapping** (Topics, Associations, Occurrences — [Steve Pepper's framework](https://www.ontopia.net/topicmaps/materials/tao.html)) is about very close reading. It's funny, I came across topic mapping and the article 'The TAO of topic maps' in my second job, when I was a customer training and information developer. We had these great sessions around knowledge modelling and information mapping with the amazing [JoAnn Hackos](https://en.wikipedia.org/wiki/JoAnn_Hackos), whose book 'Managing Documentation Projects' I found lying in a cupboard in my first job, and literally devoured. 
 
 Topic mapping asks: what named things appear here, and what does the text claim about them? It gives you typed entities and typed relationships — the trees. Good for building a knowledge graph, but if you go straight to it without reading the forest first, you can end up with technically correct triples that together misrepresent what the post is actually arguing.
 
@@ -59,4 +59,4 @@ This method now drives `/auto-tag`, which uses it to enrich garden posts and upd
 
 The graph grows better when passes 1 and 3 are taken seriously — not just as decoration around the extraction step, but as actual constraints on what gets added.
 
-So yeah, pretty cool how stuff that I've been fond off since my very first job, all of a sudden gets a real base to land!
+So yeah, pretty cool how stuff that I've been fond of since my very first job, all of a sudden gets a real base to land!
