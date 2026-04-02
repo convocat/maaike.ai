@@ -32,5 +32,11 @@
     "feed": "https://nesslabs.com/feed/",
     "description": "Mindful productivity, knowledge management, and learning in public. Good thinking on how to tend a mind garden.",
     "category": "Thinking & learning"
+  },
+  {
+    "name": "Linxpy",
+    "url": "https://about.linxpy.com",
+    "description": "Human-machine symbiosis for curated bookmarks, powered by a serendipity engine. Combines human curation with machine assistance to cut through information overload.",
+    "category": "Thinking & learning"
   }
 ]
