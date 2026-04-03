@@ -21,7 +21,10 @@ Ask the user how they want to proceed (AskUserQuestion):
 
 Run these in order, halting on any error:
 
-1. **Set draft: false** on the selected post(s)
+1. **Detect new vs updated** for each post using `git status`:
+   - Run `git status --short <file>` — `A` (added/untracked) = new post, `M` (modified) = update
+   - If **new**: set `draft: false` only
+   - If **updated**: set `draft: false` and set `updated: <today>` in frontmatter. No need to ask.
 
 2. **Validate frontmatter:**
    ```
@@ -45,6 +48,10 @@ Run these in order, halting on any error:
 Stage only the relevant files (the post, OG image, explore data, release notes). Commit with:
 ```
 Publish <collection>: <title>
+```
+For updates (not new posts), use:
+```
+Tend <collection>: <title>
 ```
 
 ## Step 5: Push

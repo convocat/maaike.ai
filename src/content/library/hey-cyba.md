@@ -6,7 +6,7 @@ status: to-read
 maturity: draft
 tags:
   - conversational-ai
-  - voice
+  - voice-design
 ai: assisted
 book_type: non-fiction
 purpose: professional
