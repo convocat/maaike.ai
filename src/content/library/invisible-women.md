@@ -2,6 +2,7 @@
 title: "Invisible Women"
 author: "Caroline Criado Perez"
 cover: "/images/library/invisible-women.jpg"
+description: "Documents the systemic gender data gap across medicine, urban planning, product design, and public policy, showing how treating men as the default puts women at risk"
 date: 2026-03-12
 status: read
 maturity: draft

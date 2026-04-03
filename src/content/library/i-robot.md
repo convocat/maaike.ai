@@ -2,6 +2,7 @@
 title: "I, robot"
 author: "Isaac Asimov"
 cover: "/images/library/i-robot.jpg"
+description: "Nine linked stories tracing the development of robots from simple servants to beings that outthink humanity, anchored by the Three Laws of Robotics"
 date: 2026-03-12
 status: read
 maturity: draft

@@ -1,6 +1,7 @@
 ---
 title: The Art of Co-design
 author: "Jeremy Kerr et al."
+description: "A practical guide to co-design as a methodology, covering how to involve users and stakeholders as genuine creative partners rather than just research subjects"
 date: 2026-03-18
 maturity: draft
 tags:

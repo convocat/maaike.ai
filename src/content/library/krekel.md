@@ -2,6 +2,7 @@
 title: Krekel
 author: "Annet Schaap"
 cover: "/images/library/krekel.jpg"
+description: "Een prentenboek voor oudere kinderen over een krekel die zingt als er niemand luistert, als een ode aan stille creativiteit en het durven zijn wie je bent"
 date: 2026-03-18
 maturity: draft
 tags:

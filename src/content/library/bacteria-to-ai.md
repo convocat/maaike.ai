@@ -1,6 +1,7 @@
 ---
 title: Bacteria to AI
 author: "N. Katherine Hayles"
+description: "Traces a continuum of cognition from single-celled organisms to artificial intelligence, challenging the idea that thinking is uniquely human"
 date: 2026-03-18
 maturity: draft
 tags:

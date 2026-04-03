@@ -2,6 +2,7 @@
 title: Kies toch niet steeds de kant van de macht
 author: "Kim van Keien, Dielwert Kuijpers"
 cover: "/images/library/kies-toch-niet-steeds-de-kant-van-de-macht.jpg"
+description: "Een politiek essay over de neiging van burgers, journalisten en instituties om de kant van de machthebbers te kiezen in plaats van die van de kwetsbaren"
 date: 2026-03-18
 maturity: draft
 tags:

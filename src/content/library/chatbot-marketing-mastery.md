@@ -1,6 +1,7 @@
 ---
 title: "Chatbot marketing mastery"
 author: "Unknown"
+description: "Practical guide to using chatbots as a marketing channel, covering lead generation, customer journeys, and campaign automation"
 date: 2026-03-12
 status: read
 maturity: draft

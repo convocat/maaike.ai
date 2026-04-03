@@ -17,5 +17,7 @@
   "experimentsTitle": "Experiments",
   "experimentsDescription": "Hands-on explorations you can try yourself.",
   "jottingsTitle": "Jottings",
-  "jottingsDescription": "Quick thoughts and observations. No obligation to develop further."
+  "jottingsDescription": "Quick thoughts and observations. No obligation to develop further.",
+  "toolshedTitle": "Toolshed",
+  "toolshedDescription": "How this garden works: backlog, health, process documents. The work happens in .claude/ — this is the window."
 }

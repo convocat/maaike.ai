@@ -1,0 +1,400 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import settings from '../../data/settings.json';
+
+// --- Parse backlog ---
+const backlogRaw = fs.readFileSync(path.join(process.cwd(), '.claude', 'backlog.md'), 'utf-8');
+
+interface BacklogItem {
+  status: string;
+  title: string;
+  meta: string;
+  body: string;
+}
+
+function parseBacklog(content: string): { ready: BacklogItem[]; inProgress: BacklogItem[]; parked: BacklogItem[] } {
+  const archiveIdx = content.indexOf('\n## Archive');
+  const main = archiveIdx > 0 ? content.slice(0, archiveIdx) : content;
+
+  const items: BacklogItem[] = [];
+  const chunks = main.split(/(?=\n## )/);
+
+  for (const chunk of chunks) {
+    const trimmed = chunk.trim();
+    if (!trimmed.startsWith('## ')) continue;
+
+    const firstNewline = trimmed.indexOf('\n');
+    const heading = firstNewline > 0 ? trimmed.slice(3, firstNewline).trim() : trimmed.slice(3).trim();
+    const rest = firstNewline > 0 ? trimmed.slice(firstNewline + 1) : '';
+
+    let status = '';
+    let title = heading;
+    if (heading.startsWith('🟡')) { status = 'ready'; title = heading.slice(2).trim(); }
+    else if (heading.startsWith('🔵')) { status = 'in-progress'; title = heading.slice(2).trim(); }
+    else if (heading.startsWith('🟠')) { status = 'parked'; title = heading.slice(2).trim(); }
+    else continue;
+
+    const lines = rest.split('\n');
+    const metaLine = lines.find(l => /^\*[^*]/.test(l.trim()) && /\*$/.test(l.trim())) ?? '';
+    const meta = metaLine.replace(/^\*/, '').replace(/\*$/, '').trim();
+    const body = lines
+      .filter(l => l.trim() !== metaLine.trim() && l.trim() !== '---')
+      .join('\n')
+      .trim()
+      .slice(0, 200);
+
+    items.push({ status, title, meta, body });
+  }
+
+  return {
+    ready: items.filter(i => i.status === 'ready'),
+    inProgress: items.filter(i => i.status === 'in-progress'),
+    parked: items.filter(i => i.status === 'parked'),
+  };
+}
+
+const backlog = parseBacklog(backlogRaw);
+
+// --- Parse health report ---
+const healthRaw = fs.readFileSync(path.join(process.cwd(), '.claude', 'health-report.md'), 'utf-8');
+const healthDateMatch = healthRaw.match(/Date: (\d{4}-\d{2}-\d{2})/);
+const healthDate = healthDateMatch ? healthDateMatch[1] : 'unknown';
+
+// Extract broken links
+const brokenLinksMatch = healthRaw.match(/\*\*(\d+) real broken link/);
+const brokenLinkCount = brokenLinksMatch ? parseInt(brokenLinksMatch[1]) : 0;
+
+// Extract tag issues (count rows in near-duplicates table)
+const tagTableRows = (healthRaw.match(/\| `[a-z]/g) || []).length;
+
+// Extract library description count
+const libDescMatch = healthRaw.match(/(\d+) files in `src\/content\/library\/` are missing/);
+const missingDescCount = libDescMatch ? parseInt(libDescMatch[1]) : 0;
+
+// --- Toolshed docs ---
+const docs = (await getCollection('toolshed')).filter(e => !e.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<PageLayout title={`${settings.toolshedTitle} — ${settings.siteTitle}`}>
+  <div class="toolshed">
+    <header class="toolshed-header">
+      <h1>🔧 {settings.toolshedTitle}</h1>
+      <p class="toolshed-desc">{settings.toolshedDescription}</p>
+    </header>
+
+    <!-- Backlog kanban -->
+    <section class="toolshed-section">
+      <h2 class="section-heading">Backlog</h2>
+      <div class="kanban">
+
+        <div class="kanban-col kanban-col--ready">
+          <h3 class="kanban-heading">
+            <span class="kanban-dot">🟡</span> Ready
+            <span class="kanban-count">{backlog.ready.length}</span>
+          </h3>
+          <ul class="kanban-list">
+            {backlog.ready.map(item => (
+              <li class="kanban-card">
+                <p class="kanban-title">{item.title}</p>
+                {item.meta && <p class="kanban-meta">{item.meta}</p>}
+                {item.body && <p class="kanban-body">{item.body}</p>}
+              </li>
+            ))}
+            {backlog.ready.length === 0 && <li class="kanban-empty">Nothing queued</li>}
+          </ul>
+        </div>
+
+        <div class="kanban-col kanban-col--in-progress">
+          <h3 class="kanban-heading">
+            <span class="kanban-dot">🔵</span> In progress
+            <span class="kanban-count">{backlog.inProgress.length}</span>
+          </h3>
+          <ul class="kanban-list">
+            {backlog.inProgress.map(item => (
+              <li class="kanban-card">
+                <p class="kanban-title">{item.title}</p>
+                {item.meta && <p class="kanban-meta">{item.meta}</p>}
+                {item.body && <p class="kanban-body">{item.body}</p>}
+              </li>
+            ))}
+            {backlog.inProgress.length === 0 && <li class="kanban-empty">Nothing in flight</li>}
+          </ul>
+        </div>
+
+        <div class="kanban-col kanban-col--parked">
+          <h3 class="kanban-heading">
+            <span class="kanban-dot">🟠</span> Parked
+            <span class="kanban-count">{backlog.parked.length}</span>
+          </h3>
+          <ul class="kanban-list">
+            {backlog.parked.map(item => (
+              <li class="kanban-card">
+                <p class="kanban-title">{item.title}</p>
+                {item.meta && <p class="kanban-meta">{item.meta}</p>}
+                {item.body && <p class="kanban-body">{item.body}</p>}
+              </li>
+            ))}
+            {backlog.parked.length === 0 && <li class="kanban-empty">Nothing parked</li>}
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Garden health -->
+    <section class="toolshed-section">
+      <h2 class="section-heading">Garden health</h2>
+      <p class="health-date">Last scan: {healthDate}</p>
+      <ul class="health-list">
+        <li class:list={['health-item', { 'health-item--ok': brokenLinkCount === 0, 'health-item--warn': brokenLinkCount > 0 }]}>
+          <span class="health-icon">{brokenLinkCount === 0 ? '✓' : '!'}</span>
+          {brokenLinkCount === 0 ? 'No broken wiki links' : `${brokenLinkCount} broken wiki link${brokenLinkCount > 1 ? 's' : ''}`}
+        </li>
+        <li class:list={['health-item', { 'health-item--ok': tagTableRows === 0, 'health-item--warn': tagTableRows > 0 }]}>
+          <span class="health-icon">{tagTableRows === 0 ? '✓' : '!'}</span>
+          {tagTableRows === 0 ? 'No tag near-duplicates' : `${tagTableRows} tag near-duplicates flagged`}
+        </li>
+        <li class:list={['health-item', { 'health-item--ok': missingDescCount === 0, 'health-item--warn': missingDescCount > 0 }]}>
+          <span class="health-icon">{missingDescCount === 0 ? '✓' : '!'}</span>
+          {missingDescCount === 0 ? 'All library descriptions present' : `${missingDescCount} library entries missing description`}
+        </li>
+      </ul>
+    </section>
+
+    <!-- Toolshed docs -->
+    {docs.length > 0 && (
+      <section class="toolshed-section">
+        <h2 class="section-heading">Documents</h2>
+        <ul class="docs-list">
+          {docs.map(doc => (
+            <li class="doc-item">
+              <a href={`/toolshed/${doc.id}`} class="doc-link">
+                <span class="doc-title">{doc.data.title}</span>
+                {doc.data.description && <span class="doc-desc">{doc.data.description}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</PageLayout>
+
+<style>
+  .toolshed {
+    max-width: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .toolshed-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .toolshed-header h1 {
+    font-size: 1.8rem;
+    margin-block-end: var(--space-xs);
+  }
+
+  .toolshed-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .toolshed-section {
+    margin-block-end: var(--space-3xl);
+  }
+
+  .section-heading {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-block-end: var(--space-lg);
+    padding-block-end: var(--space-xs);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  /* Kanban */
+  .kanban {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  @media (max-width: 700px) {
+    .kanban { grid-template-columns: 1fr; }
+  }
+
+  .kanban-col {
+    border-top: 3px solid;
+    padding-top: var(--space-sm);
+  }
+
+  .kanban-col--ready { border-color: #b59a00; }
+  .kanban-col--in-progress { border-color: #2a6fcf; }
+  .kanban-col--parked { border-color: #c06000; }
+
+  :root[data-theme="dark"] .kanban-col--ready { border-color: #f0cc44; }
+  :root[data-theme="dark"] .kanban-col--in-progress { border-color: #6aabff; }
+  :root[data-theme="dark"] .kanban-col--parked { border-color: #f0a050; }
+
+  .kanban-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-md);
+  }
+
+  .kanban-count {
+    margin-inline-start: auto;
+    background: var(--color-surface-raised, #f3f4f6);
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    padding: 0.1em 0.45em;
+    border-radius: 1em;
+    font-weight: 600;
+  }
+
+  :root[data-theme="dark"] .kanban-count {
+    background: #2a2a2a;
+  }
+
+  .kanban-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .kanban-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  :root[data-theme="dark"] .kanban-card {
+    background: #1a1a1a;
+  }
+
+  .kanban-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0 0 var(--space-xs) 0;
+    line-height: 1.35;
+  }
+
+  .kanban-meta {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .kanban-body {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kanban-empty {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    padding: var(--space-sm) 0;
+  }
+
+  /* Health */
+  .health-date {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-md);
+  }
+
+  .health-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .health-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--color-text);
+  }
+
+  .health-icon {
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 1.2em;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .health-item--ok .health-icon { color: #0D7C66; }
+  .health-item--warn .health-icon { color: #c06000; }
+
+  :root[data-theme="dark"] .health-item--ok .health-icon { color: #2DD4A8; }
+  :root[data-theme="dark"] .health-item--warn .health-icon { color: #f0a050; }
+
+  /* Docs */
+  .docs-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .doc-item {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .doc-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    padding: var(--space-sm) var(--space-md);
+    text-decoration: none;
+    color: inherit;
+    transition: background var(--transition-fast);
+  }
+
+  .doc-link:hover { background: var(--color-surface-raised, #f9f9f9); }
+
+  .doc-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .doc-desc {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -2,6 +2,7 @@
 title: "Thinking fast and slow"
 author: "Daniel Kahneman"
 cover: "/images/library/thinking-fast-and-slow.jpg"
+description: "Kahneman's landmark account of the two systems that drive human thought, one fast and intuitive, the other slow and deliberate, and the cognitive biases that result"
 date: 2026-03-12
 status: read
 maturity: draft

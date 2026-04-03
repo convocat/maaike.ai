@@ -2,6 +2,7 @@
 title: "Discourse, consciousness and time"
 author: "Wallace Chafe"
 cover: "/images/library/discourse-consciousness-and-time.jpg"
+description: "Investigates how language reflects the workings of consciousness, particularly how speakers manage the flow of information across spoken and written discourse"
 date: 2026-03-12
 maturity: draft
 tags:

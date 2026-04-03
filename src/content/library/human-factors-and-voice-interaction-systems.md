@@ -2,6 +2,7 @@
 title: "Human factors and voice interaction systems"
 author: "Unknown"
 cover: "/images/library/human-factors-and-voice-interaction-systems.jpg"
+description: "Applies human factors research to voice interface design, covering cognitive load, error rates, and the ergonomics of spoken interaction"
 date: 2026-03-12
 status: read
 maturity: draft

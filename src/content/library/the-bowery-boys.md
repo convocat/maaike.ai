@@ -2,6 +2,7 @@
 title: The Bowery Boys
 author: "Greg Young, Tom Meyers"
 cover: "/images/library/the-bowery-boys.jpg"
+description: "The companion book to the popular podcast, covering the history of New York City neighbourhood by neighbourhood with the same gritty curiosity as the show"
 date: 2026-03-18
 maturity: draft
 tags:

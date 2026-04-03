@@ -2,6 +2,7 @@
 title: "Voicebot and Chatbot Design"
 author: "Rachel Batish"
 cover: "/images/library/voicebot-and-chatbot-design.jpg"
+description: "Business-oriented guide to designing and deploying voice and chat bots, with a focus on use cases, personas, and getting from prototype to production"
 date: 2026-03-12
 status: read
 maturity: draft

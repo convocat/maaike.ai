@@ -2,6 +2,7 @@
 title: "Gamestorming"
 author: "Dave Gray, Sunni Brown & James Macanufo"
 cover: "/images/library/gamestorming.jpg"
+description: "A collection of over 80 workshop games drawn from innovative organisations, designed to unlock creativity, generate ideas, and move groups toward decisions"
 date: 2026-03-12
 status: read
 maturity: draft

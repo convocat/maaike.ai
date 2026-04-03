@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('toolshed');
+  return docs.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<PostLayout
+  title={entry.data.title}
+  date={entry.data.date}
+  updated={entry.data.updated}
+  maturity={entry.data.maturity}
+  tags={entry.data.tags}
+  description={entry.data.description}
+  collection="toolshed"
+  slug={entry.id}
+  ai={entry.data.ai}
+  hub={entry.data.hub}
+  develops={entry.data.develops}
+  triples={entry.data.triples}
+  themes={entry.data.themes}
+>
+  <Content />
+</PostLayout>

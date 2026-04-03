@@ -2,6 +2,7 @@
 title: "Speech and language processing"
 author: "Dan Jurafsky & James H. Martin"
 cover: "/images/library/speech-and-language-processing.jpg"
+description: "The standard graduate-level textbook for NLP and speech recognition, covering everything from phonetics to dialogue systems with both statistical and symbolic approaches"
 date: 2026-03-12
 status: read
 maturity: draft

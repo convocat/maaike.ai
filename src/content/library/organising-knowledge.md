@@ -2,6 +2,7 @@
 title: "Organising knowledge"
 author: "Jennifer Rowley & Richard Hartley"
 cover: "/images/library/organising-knowledge.jpg"
+description: "Covers the theory and practice of knowledge organisation, including classification systems, indexing, thesauri, and the structures underlying information retrieval"
 date: 2026-03-12
 status: read
 maturity: draft
