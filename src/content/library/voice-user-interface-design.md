@@ -6,7 +6,7 @@ date: 2026-03-12
 status: read
 maturity: draft
 tags:
-  - voice
+  - voice-design
   - design
   - conversation-design
   - voice-user-interfaces

@@ -2,6 +2,7 @@
 title: "Thematic-TAO: a three-pass method for post analysis"
 description: "Extracting meaningful entities and relations, combining thematic analysis with TAO topic mapping in three passes."
 date: 2026-03-30
+updated: 2026-04-02
 maturity: developing
 draft: false
 tags: ["knowledge-graph", "thinking-tools", "digital-gardens"]

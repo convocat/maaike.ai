@@ -18,7 +18,8 @@ Rules for all content Claude generates or helps write for this garden. Non-negot
 
 - No filler phrases ("certainly", "of course", "absolutely", "great question")
 - Keep descriptions concise: one sentence, no trailing period
-- Tags: lowercase, hyphenated, specific. Never `ai` as a standalone tag.
+- Tags: lowercase, hyphenated, specific. **Never use `ai` as a tag.** It is too generic to be useful. Use specific tags like `conversational-ai`, `llm`, `generative-ai`, `machine-learning`, etc.
+- **Never merge tags that express a hyponymy relation.** `chatbots` ⊂ `conversational-ai`. Both are valid and distinct. When in doubt about whether two tags are the same concept, they probably aren't.
 - Frontmatter: always sentence case for `title`, never leave `description` empty before publishing
 
 ## Punctuation reminders

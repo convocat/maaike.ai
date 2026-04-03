@@ -4,7 +4,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-03-29 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-02 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
@@ -25,11 +25,6 @@ The `themes` field (now in each post's frontmatter and in `src/data/themes.json`
 Key files: `src/data/themes.json`, post frontmatter (`themes:` array)
 
 ---
-
-## 🟡 Review: Thematic-TAO method post
-*2026-03-30 · field-note · draft*
-
-Draft field-note at `src/content/field-notes/thematic-tao-three-pass-method.md`. Documents the three-pass analysis method (thematic wide read → TAO extraction → coherence check) developed during the tagging/graph session. Written as co-created, marked draft. Read, edit if needed, then `/publish` if it's ready.
 
 ---
 
@@ -107,6 +102,11 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 ---
 
 ## Archive
+
+### ✅ Review: Thematic-TAO method post
+*2026-03-30 · completed: 2026-04-02*
+
+Published field note at `/field-notes/thematic-tao-three-pass-method`. Typos fixed, ai field promoted to 100% Maai, Hackos Wikipedia link added.
 
 ### ✅ Stream refinement: index card aesthetic, filter sidebar
 *2026-03-29 — completed*

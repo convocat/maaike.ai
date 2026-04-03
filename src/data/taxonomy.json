@@ -77,7 +77,19 @@
     "conversational-interface": {
       "label": "Conversational interface",
       "type": "technology-category",
-      "definition": "Any interface where interaction is mediated through natural language exchange — chatbots, voice assistants, LLM chat interfaces."
+      "definition": "Any interface where interaction is mediated through natural language exchange: chatbots, voice assistants, LLM chat interfaces."
+    },
+    "conversational-ai": {
+      "label": "Conversational AI",
+      "type": "technology-category",
+      "definition": "AI systems designed to conduct natural language dialogue. Encompasses all chatbots, but also voice assistants, LLM-based agents, and other dialogue systems. Chatbots are a subtype.",
+      "broader": "conversational-interface"
+    },
+    "chatbots": {
+      "label": "Chatbots",
+      "type": "technology-category",
+      "definition": "Text-based conversational agents, typically with a defined persona and task scope. A specific subtype of conversational AI.",
+      "broader": "conversational-ai"
     },
     "llms": {
       "label": "LLMs",
