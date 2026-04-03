@@ -2,6 +2,7 @@
 title: "Content strategy at work"
 author: "Margot Bloomstein"
 cover: "/images/library/content-strategy-at-work.jpg"
+description: "Uses real-world case studies to show how messaging architecture and brand voice decisions drive content strategy, from discovery through execution"
 date: 2026-03-12
 status: read
 maturity: draft

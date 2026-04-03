@@ -1,6 +1,7 @@
 ---
 title: "Conversations with things"
 author: "Diana Deibel & Rebecca Evanhoe"
+description: "Practical guide to designing voice, chatbot, and multimodal interfaces, with a strong focus on the craft of writing dialogue and handling the unexpected"
 date: 2026-03-12
 status: read
 maturity: draft

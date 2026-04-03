@@ -95,4 +95,9 @@ const artefacts = defineCollection({
   schema: baseSchema,
 });
 
-export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts };
+const toolshed = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/toolshed' }),
+  schema: baseSchema,
+});
+
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts, toolshed };

@@ -1,6 +1,7 @@
 ---
 title: "Hey Cyba: The inner workings of a virtual personal assistant"
 author: "Unknown"
+description: "Behind-the-scenes look at how virtual personal assistants are built, covering the architecture and design decisions that make them feel responsive and useful"
 date: 2026-03-12
 status: to-read
 maturity: draft

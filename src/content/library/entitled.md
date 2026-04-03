@@ -2,6 +2,7 @@
 title: "Entitled"
 author: "Kate Manne"
 cover: "/images/library/entitled.jpg"
+description: "A philosophical analysis of male entitlement, examining how men are socially conditioned to expect attention, care, and deference from women as a matter of right"
 date: 2026-03-12
 status: read
 maturity: draft

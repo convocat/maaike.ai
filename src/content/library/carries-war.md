@@ -2,6 +2,7 @@
 title: "Carrie's War"
 author: "Nina Bawden"
 cover: "/images/library/carries-war.jpg"
+description: "A British classic about a girl evacuated to Wales during WWII, whose friendship with a local boy leads to an act of guilt she carries into adulthood"
 date: 2026-03-18
 maturity: draft
 tags:

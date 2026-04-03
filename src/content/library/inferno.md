@@ -2,6 +2,7 @@
 title: Inferno
 author: "Dan Brown"
 cover: "/images/library/inferno.jpg"
+description: "Robert Langdon wakes in Florence with no memory and is immediately drawn into a race across Europe to stop a plot inspired by Dante's vision of hell"
 date: 2026-03-18
 maturity: draft
 tags:

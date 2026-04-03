@@ -2,6 +2,7 @@
 title: "Instructional story design"
 author: "Rance Greene"
 cover: "/images/library/instructional-story-design.jpg"
+description: "A practical framework for using narrative in instructional design, showing how to build scenarios that engage learners and transfer to real-world performance"
 date: 2026-03-12
 status: read
 maturity: draft

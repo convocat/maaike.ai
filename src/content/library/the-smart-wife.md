@@ -1,6 +1,7 @@
 ---
 title: "The Smart wife"
 author: "Yolande Strengers & Jenny Kennedy"
+description: "Analyses how smart home technologies are designed around a feminised, servile archetype and what that means for gender equality in domestic life"
 date: 2026-03-12
 status: read
 maturity: draft

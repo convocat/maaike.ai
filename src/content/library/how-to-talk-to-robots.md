@@ -2,6 +2,7 @@
 title: "How to talk to robots"
 author: "Tabitha Goldstaub"
 cover: "/images/library/how-to-talk-to-robots.jpg"
+description: "A practical guide for women and non-technical audiences to understand and shape the AI industry, rather than be shaped by it"
 date: 2026-03-12
 status: read
 maturity: draft

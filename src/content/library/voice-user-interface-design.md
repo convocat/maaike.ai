@@ -2,6 +2,7 @@
 title: "Voice user interface design"
 author: "Michael H. Cohen, James P. Giangola & Jennifer Balogh"
 cover: "/images/library/voice-user-interface-design.jpg"
+description: "The earlier technical-academic standard for VUI design, covering speech recognition, dialogue management, and usability principles for voice systems"
 date: 2026-03-12
 status: read
 maturity: draft

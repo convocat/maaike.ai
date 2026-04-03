@@ -2,6 +2,7 @@
 title: "Language acquisition"
 author: "Jill de Villiers & Peter de Villiers"
 cover: "/images/library/language-acquisition.jpg"
+description: "A classic introduction to how children acquire their first language, covering the progression from babbling to grammar and the debate between nature and nurture"
 date: 2026-03-12
 status: read
 maturity: draft

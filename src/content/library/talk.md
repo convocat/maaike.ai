@@ -2,6 +2,7 @@
 title: "Talk"
 author: "Elizabeth Stokoe"
 cover: "/images/library/talk.jpg"
+description: "Reveals the hidden structures of everyday conversation using conversation analysis, showing how small linguistic choices shape outcomes in negotiation, medicine, and everyday life"
 date: 2026-03-12
 status: read
 maturity: draft

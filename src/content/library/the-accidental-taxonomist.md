@@ -2,6 +2,7 @@
 title: "The accidental Taxonomist"
 author: "Heather Hedden"
 cover: "/images/library/the-accidental-taxonomist.jpg"
+description: "A thorough guide to building and managing taxonomies and controlled vocabularies, aimed at information professionals who find themselves responsible for classification systems"
 date: 2026-03-12
 status: read
 maturity: draft

@@ -2,6 +2,7 @@
 title: "The sense of style"
 author: "Steven Pinker"
 cover: "/images/library/the-sense-of-style.jpg"
+description: "A writing guide grounded in cognitive science and linguistics, explaining what makes prose clear and elegant and why so much professional writing fails on both counts"
 date: 2026-03-12
 status: read
 maturity: draft

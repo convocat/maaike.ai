@@ -1,6 +1,7 @@
 ---
 title: "Voice content and usability"
 author: "Preston So"
+description: "Content strategy for the voice channel: how to write, structure, and test content that works when spoken rather than read"
 date: 2026-03-12
 status: read
 maturity: draft

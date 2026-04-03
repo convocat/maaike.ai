@@ -2,6 +2,7 @@
 title: DallerGut Dream Department
 author: "Sandy Joosun Lee, Miye Lee"
 cover: "/images/library/dallergut-dream-department.jpg"
+description: "A charming Korean novel set in a mysterious shop that sells dreams, following a new employee as she discovers the stories behind the dreams people need most"
 date: 2026-03-18
 maturity: draft
 tags:

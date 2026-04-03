@@ -2,6 +2,7 @@
 title: "Ambiguity in natural language"
 author: "Jan G. Kooij"
 cover: "/images/library/ambiguity-in-natural-language.jpg"
+description: "A linguistic analysis of the types and sources of ambiguity in natural language, examining how multiple meanings arise from syntax, semantics, and context"
 date: 2026-03-12
 status: read
 maturity: draft

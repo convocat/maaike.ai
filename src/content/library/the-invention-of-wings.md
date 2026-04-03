@@ -2,6 +2,7 @@
 title: The Invention of Wings
 author: "Sue Monk Kidd"
 cover: "/images/library/the-invention-of-wings.jpg"
+description: "Alternating between a white abolitionist and the enslaved woman gifted to her as a child, tracing both women's quests for freedom in antebellum Charleston"
 date: 2026-03-18
 maturity: draft
 tags:

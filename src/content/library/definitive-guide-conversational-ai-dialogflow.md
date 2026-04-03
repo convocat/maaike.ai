@@ -1,6 +1,7 @@
 ---
 title: "The Definitive Guide to Conversational AI with Dialogflow"
 author: "Romin Irani"
+description: "Hands-on technical guide to building conversational agents with Google's Dialogflow, from intents and entities to fulfilment and deployment"
 date: 2026-03-12
 status: read
 maturity: draft

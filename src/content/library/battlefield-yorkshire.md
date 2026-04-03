@@ -2,6 +2,7 @@
 title: Battlefield Yorkshire
 author: "David Cooke"
 cover: "/images/library/battlefield-yorkshire.jpg"
+description: "A guide to the major battles fought across Yorkshire from the Viking age to the Civil War, combining military history with landscape and location"
 date: 2026-03-18
 maturity: draft
 tags:

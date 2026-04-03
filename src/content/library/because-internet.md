@@ -2,6 +2,7 @@
 title: "Because Internet"
 author: "Gretchen McCulloch"
 cover: "/images/library/because-internet.jpg"
+description: "Explores how the internet has transformed English, from emoji and capitalization choices to the way different generations learned to communicate online"
 date: 2026-03-12
 status: read
 maturity: draft

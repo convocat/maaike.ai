@@ -2,6 +2,7 @@
 title: "Sequence Organization in Interaction"
 author: "Emanuel A. Schegloff"
 cover: "/images/library/sequence-organization-in-interaction.jpg"
+description: "Schegloff's foundational account of how turns are sequenced in conversation, covering adjacency pairs, pre-sequences, insertions, and the mechanisms that make dialogue coherent"
 date: 2026-03-12
 status: read
 maturity: draft
