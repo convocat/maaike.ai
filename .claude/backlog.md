@@ -125,6 +125,13 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 
 ## Archive
 
+### ✅ Library redesign: stream aesthetic, three views, mobile filters
+*2026-04-04 · completed: 2026-04-04*
+
+Full rewrite of `src/pages/library/index.astro`. Book cards now use the stream index card aesthetic: bookmark strip, double-line meta bar, collection label, maturity emoji. Three display modes (Cards / List / Covers) with pill bar toggle. Filter sidebar with folder-tab panels (Status / Format / Topic). Sort toolbar (Date added / Title / Author / Last tended). Pagination (12 per page desktop, 6 mobile). Mobile filter bar with toggle button and active-count badge, syncing to sidebar via `data-filter-group` / `data-mobile-group`. Fixed view-switch bug where `.view-btn` selector caught sort spans. Live in production.
+
+Key files: `src/pages/library/index.astro`
+
 ### ✅ Rhetoric/Argument: connect to GenAI cluster in triples.json
 *2026-03-30 · completed: 2026-04-04*
 
