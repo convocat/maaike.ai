@@ -2,7 +2,7 @@
 title: "Grounding in communication"
 author: "Herbert H. Clark, Susan E. Brennan"
 date: 2026-04-02
-status: read
+status: to-read
 maturity: developing
 tags:
   - conversational-grounding
@@ -14,6 +14,8 @@ book_type: non-fiction
 genre: research-paper
 url: "https://web.stanford.edu/~clark/1990s/Clark,%20H.H.%20_%20Brennan,%20S.E.%20_Grounding%20in%20communication_%201991.pdf"
 ---
+
+The foundational framework for how conversational participants establish mutual understanding. Clark and Brennan introduce the concept of common ground and the grounding process: the moment-by-moment coordination through which speakers and listeners confirm that they have understood each other well enough to proceed. A prerequisite for thinking clearly about where AI conversation falls short.
 
 Published 1991.
 

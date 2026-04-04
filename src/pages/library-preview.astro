@@ -1,0 +1,866 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SketchyFilter from '../components/SketchyFilter.astro';
+import { sortByDate } from '../utils/collections';
+
+const books = sortByDate(
+  (await getCollection('library')).filter(e => !e.data.draft)
+);
+
+function fmtDate(d?: Date): string {
+  if (!d) return '';
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
+}
+
+const statusMeta: Record<string, { label: string; bg: string; color: string; dot: string }> = {
+  'reading': { label: 'Reading', bg: '#dbeafe', color: '#1e40af', dot: '#2563eb' },
+  'read':    { label: 'Read',    bg: '#dcfce7', color: '#166534', dot: '#16a34a' },
+  'to-read': { label: 'To read', bg: '#f3f4f6', color: '#6b7280', dot: '#9ca3af' },
+};
+
+// Palette of warm colors for cover placeholders
+const placeholderColors = [
+  '#C9B8AE', '#B8C4BE', '#C4B8C9', '#BCBEAD', '#C9BEB8',
+  '#AEC4BC', '#C4AEAE', '#B8C4C4', '#C4C4AE', '#AEB8C4',
+];
+function placeholderColor(title: string): string {
+  let h = 0;
+  for (let i = 0; i < title.length; i++) h = (h * 31 + title.charCodeAt(i)) & 0xffffff;
+  return placeholderColors[Math.abs(h) % placeholderColors.length];
+}
+
+// Category definitions — tag-based matching (same as original FilterBar)
+const categoryDefs = [
+  { key: 'conversation-design', emoji: '🤖', label: 'Conversation design',
+    tags: ['chatbots','conversational-ai','conversation-design','human-computer-interaction','interaction-design','user-interfaces','voice-design','voice-user-interface-design','voice-user-interfaces','voice-ux','human-machine-interface-design','robots'] },
+  { key: 'conversational-analysis', emoji: '🕵️', label: 'Conversational analysis',
+    tags: ['conversation-analysis','conversational-patterns','pragmatics','discourse','sociolinguistics','expandable-sequences','turn-construction-units','linguistics','phonetics','speech-processing','acoustics','conversational-grounding'] },
+  { key: 'content-architecture', emoji: '⛏️', label: 'Content architecture',
+    tags: ['content-architecture','content-strategy','knowledge-management','taxonomy','ontology','personal-knowledge-systems','methodology','semiotics'] },
+  { key: 'nlp-speech', emoji: '🔊', label: 'NLP/NLU & speech',
+    tags: ['natural-language-processing','computational-linguistics','speech-processing','python','phonetics','acoustics','llm','generative-ai'] },
+  { key: 'feminism-ethics', emoji: '🥇', label: 'Feminism, bias, ethics',
+    tags: ['feminism','feminist-literature','ethics','misogyny','social-psychology','sociology','cultural-theory','posthumanism'] },
+  { key: 'accessibility', emoji: '♿', label: 'Accessibility',
+    tags: ['accessibility','human-factors','inclusive-design','design'] },
+  { key: 'writing', emoji: '📝', label: 'Writing',
+    tags: ['writing','typography','rhetoric','internet-language','poetry','media-studies'] },
+  { key: 'general', emoji: '🌐', label: 'General interest',
+    tags: ['fiction','literary-fiction','science-fiction','fantasy','biography','history','ecology','philosophy','memoir','mental-health','self-development','science','economics','leadership','business','cognitive-science','psychology','psychologie','non-fictie','essay','classic','short-stories','future','kinderboek','reizen'] },
+];
+
+// Compute category keys for each book from its tags
+function bookCategories(tags: string[] = []): string {
+  return categoryDefs
+    .filter(cat => tags.some(t => cat.tags.includes(t)))
+    .map(c => c.key)
+    .join(',');
+}
+
+const statuses = [
+  { value: 'reading', label: '📖 Reading' },
+  { value: 'read', label: '✓ Read' },
+  { value: 'to-read', label: '◦ To read' },
+];
+
+const bookTypes = [
+  { value: 'fiction', label: 'Fiction' },
+  { value: 'non-fiction', label: 'Non-fiction' },
+];
+
+const sortOptions = [
+  { value: 'date', label: 'Date added' },
+  { value: 'title', label: 'Title A–Z' },
+  { value: 'author', label: 'Author A–Z' },
+  { value: 'tended', label: 'Last tended' },
+];
+---
+
+<BaseLayout title="Library preview — Maai & AI">
+  <SketchyFilter />
+  <Header />
+
+  <div class="preview-banner">
+    <span class="preview-badge">PREVIEW</span>
+    <span>Design review only. <a href="/library">Go to the real library →</a></span>
+  </div>
+
+  <main class="preview-main">
+
+    <!-- Two-column layout: sidebar + main -->
+    <div class="lib-layout">
+
+      <!-- Sidebar -->
+      <aside class="lib-sidebar">
+
+        <div class="filter-panel" data-label="Status">
+          <div class="filter-items">
+            {statuses.map(s => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only status-cb" value={s.value} />
+                <span class="filter-content"><span>{s.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="filter-panel" data-label="Topic">
+          <div class="filter-items">
+            {categoryDefs.map(cat => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only cat-cb" value={cat.key} />
+                <span class="filter-content"><span>{cat.emoji} {cat.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="filter-panel" data-label="Book type">
+          <div class="filter-items">
+            {bookTypes.map(t => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only type-cb" value={t.value} />
+                <span class="filter-content"><span>{t.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="filter-panel" data-label="Sort by">
+          <div class="filter-items filter-items--radio">
+            {sortOptions.map((s, i) => (
+              <label class="filter-item">
+                <span class="filter-radio-dot" aria-hidden="true"></span>
+                <input type="radio" class="filter-cb-input sr-only sort-rb" name="sort" value={s.value} checked={i === 0} />
+                <span class="filter-content"><span>{s.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="lib-recommender-card">
+          <div class="recommender-strip"></div>
+          <div class="recommender-body">
+            <p class="recommender-heading">Not sure what to read?</p>
+            <button class="recommender-cta">Pick for me →</button>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main content -->
+      <div class="lib-main">
+
+        <!-- Toolbar: count + view toggle -->
+        <div class="lib-toolbar">
+          <span class="lib-count" id="lib-count">{books.length} books</span>
+          <div class="view-toggle" role="group" aria-label="Display mode">
+            <button class="view-btn active" data-view="cards" aria-pressed="true">
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1" y="1" width="6" height="9" rx="1"/><rect x="9" y="1" width="6" height="9" rx="1"/></svg>
+              Cards
+            </button>
+            <button class="view-btn" data-view="list" aria-pressed="false">
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+              List
+            </button>
+            <button class="view-btn" data-view="covers" aria-pressed="false">
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="4" height="6" rx="1"/><rect x="6" y="1" width="4" height="6" rx="1"/><rect x="11" y="1" width="4" height="6" rx="1"/><rect x="1" y="9" width="4" height="6" rx="1"/><rect x="6" y="9" width="4" height="6" rx="1"/><rect x="11" y="9" width="4" height="6" rx="1"/></svg>
+              Covers
+            </button>
+          </div>
+        </div>
+
+        <div class="lib-grid" id="lib-grid" data-view="cards">
+
+          {books.map((book) => {
+            const d = book.data;
+            const sm = statusMeta[d.status as string] ?? statusMeta['to-read'];
+            const bgColor = placeholderColor(d.title);
+            const cats = bookCategories(d.tags ?? []);
+            return (
+              <a
+                href={`/library/${book.id}`}
+                class="book-card"
+                data-status={d.status}
+                data-booktype={d.book_type ?? 'non-fiction'}
+                data-tags={(d.tags ?? []).join(',')}
+                data-categories={cats}
+                data-date={d.date?.toISOString() ?? ''}
+                data-updated={d.updated?.toISOString() ?? ''}
+                data-title={d.title}
+                data-author={d.author ?? ''}
+              >
+                {/* Cards view: stream aesthetic */}
+                <div class="bc-card-inner">
+                  <div class="bc-strip">
+                    <img src="/images/icons/bookmark.svg" alt="" class="bc-strip-icon" width="24" height="24" />
+                  </div>
+                  <div class="bc-main">
+                    <div class="bc-meta-bar">
+                      <span class="bc-status-dot" style={`background:${sm.dot}`}></span>
+                      <span class="bc-meta-status">{sm.label}</span>
+                      <span class="bc-meta-dot">·</span>
+                      <time class="bc-meta-date">{fmtDate(d.date)}</time>
+                      {d.updated && (
+                        <Fragment>
+                          <span class="bc-meta-dot">·</span>
+                          <span class="bc-meta-tended">TENDED {fmtDate(d.updated)}</span>
+                        </Fragment>
+                      )}
+                    </div>
+                    <div class="bc-body">
+                      {d.cover ? (
+                        <img src={d.cover} alt={`Cover of ${d.title}`} class="bc-cover" loading="lazy" />
+                      ) : (
+                        <div class="bc-cover-placeholder" style={`background:${bgColor}`}>
+                          <span>{d.title.charAt(0).toUpperCase()}</span>
+                        </div>
+                      )}
+                      <div class="bc-text">
+                        <h3 class="bc-title">{d.title}</h3>
+                        <span class="bc-author">{d.author}</span>
+                        {d.description && <p class="bc-desc">{d.description}</p>}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* List view: compact row */}
+                <div class="bc-list-row">
+                  {d.cover ? (
+                    <img src={d.cover} alt="" class="bc-list-cover" loading="lazy" />
+                  ) : (
+                    <div class="bc-list-placeholder" style={`background:${bgColor}`}>{d.title.charAt(0).toUpperCase()}</div>
+                  )}
+                  <span class="bc-list-title">{d.title}</span>
+                  <span class="bc-list-author">{d.author}</span>
+                  <span class="bc-list-status" style={`background:${sm.bg};color:${sm.color}`}>{sm.label}</span>
+                  {d.description && <span class="bc-list-desc">{d.description}</span>}
+                </div>
+
+                {/* Covers view: shelf */}
+                <div class="bc-shelf">
+                  {d.cover ? (
+                    <img src={d.cover} alt={`Cover of ${d.title}`} class="bc-shelf-img" loading="lazy" />
+                  ) : (
+                    <div class="bc-shelf-placeholder" style={`background:${bgColor}`}>
+                      <span>{d.title.charAt(0).toUpperCase()}</span>
+                    </div>
+                  )}
+                  <div class="bc-shelf-overlay">
+                    <span class="bc-shelf-title">{d.title}</span>
+                    <span class="bc-shelf-author">{d.author}</span>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+
+        </div>
+
+        <p class="lib-empty" id="lib-empty" hidden>No books match the current filters.</p>
+        <nav class="lib-pagination" id="lib-pagination" aria-label="Library pages" hidden>
+          <button class="page-btn" id="page-prev" aria-label="Previous page">&larr; Previous</button>
+          <span class="page-indicator" id="page-indicator"></span>
+          <button class="page-btn" id="page-next" aria-label="Next page">Next &rarr;</button>
+        </nav>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Recommender drawer (same as real library page) -->
+  <div id="recommenderDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="What to read next?">
+      <div class="drawer-header">
+        <span class="drawer-title">📚 What to read next?</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close">✕</button>
+      </div>
+      <iframe src="/dashboard.html?embed=1" class="drawer-iframe" title="Book recommender"></iframe>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  const PAGE_SIZE = window.innerWidth <= 800 ? 6 : 12;
+
+  function initLibrary() {
+    const grid       = document.getElementById('lib-grid') as HTMLElement | null;
+    const emptyEl    = document.getElementById('lib-empty') as HTMLElement | null;
+    const pagination = document.getElementById('lib-pagination') as HTMLElement | null;
+    const prevBtn    = document.getElementById('page-prev') as HTMLButtonElement | null;
+    const nextBtn    = document.getElementById('page-next') as HTMLButtonElement | null;
+    const indicator  = document.getElementById('page-indicator') as HTMLElement | null;
+    const countEl    = document.getElementById('lib-count') as HTMLElement | null;
+    if (!grid) return;
+
+    const allCards = Array.from(grid.querySelectorAll<HTMLElement>('.book-card'));
+    let currentPage = 1;
+
+    // ── Matching ──
+    function matchesFilters(card: HTMLElement): boolean {
+      const activeStatuses = [...document.querySelectorAll<HTMLInputElement>('.status-cb:checked')].map(i => i.value);
+      const activeCats     = [...document.querySelectorAll<HTMLInputElement>('.cat-cb:checked')].map(i => i.value);
+      const activeTypes    = [...document.querySelectorAll<HTMLInputElement>('.type-cb:checked')].map(i => i.value);
+
+      const statusOk = activeStatuses.length === 0 || activeStatuses.includes(card.dataset.status ?? '');
+      const typeOk   = activeTypes.length === 0   || activeTypes.includes(card.dataset.booktype ?? '');
+      const cardCats = (card.dataset.categories ?? '').split(',').filter(Boolean);
+      const catOk    = activeCats.length === 0    || activeCats.some(c => cardCats.includes(c));
+
+      return statusOk && typeOk && catOk;
+    }
+
+    // ── Render page ──
+    function render() {
+      const matching    = allCards.filter(matchesFilters);
+      const totalPages  = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const end   = start + PAGE_SIZE;
+
+      allCards.forEach(c => { c.style.display = 'none'; });
+      matching.slice(start, end).forEach(c => { c.style.display = ''; });
+
+      if (countEl)   countEl.textContent = `${matching.length} book${matching.length !== 1 ? 's' : ''}`;
+      if (emptyEl)   emptyEl.hidden = matching.length > 0;
+      if (pagination) pagination.hidden = totalPages <= 1;
+      if (indicator) indicator.textContent = `Page ${currentPage} of ${totalPages}`;
+      if (prevBtn)   prevBtn.disabled = currentPage === 1;
+      if (nextBtn)   nextBtn.disabled = currentPage === totalPages;
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      if (currentPage > 1) { currentPage--; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    });
+    nextBtn?.addEventListener('click', () => {
+      currentPage++; render(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── Filters reset page ──
+    document.querySelectorAll('.status-cb, .cat-cb, .type-cb').forEach(cb => {
+      cb.addEventListener('change', () => { currentPage = 1; render(); });
+    });
+
+    // ── Sort re-orders DOM then re-renders ──
+    document.querySelectorAll('.sort-rb').forEach(rb => {
+      rb.addEventListener('change', () => {
+        const sortVal = (document.querySelector<HTMLInputElement>('.sort-rb:checked')?.value) ?? 'date';
+        allCards.sort((a, b) => {
+          if (sortVal === 'title')  return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '');
+          if (sortVal === 'author') return (a.dataset.author ?? '').localeCompare(b.dataset.author ?? '');
+          if (sortVal === 'tended') return (b.dataset.updated ?? b.dataset.date ?? '').localeCompare(a.dataset.updated ?? a.dataset.date ?? '');
+          return (b.dataset.date ?? '').localeCompare(a.dataset.date ?? '');
+        });
+        allCards.forEach(c => grid.appendChild(c));
+        currentPage = 1;
+        render();
+      });
+    });
+
+    // ── View switching ──
+    document.querySelectorAll<HTMLButtonElement>('.view-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.view-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        grid.dataset.view = btn.dataset.view!;
+      });
+    });
+
+    // ── Recommender drawer ──
+    const drawer     = document.getElementById('recommenderDrawer');
+    const backdrop   = document.getElementById('drawerBackdrop');
+    const drawerClose = document.getElementById('drawerClose');
+
+    function openDrawer() {
+      drawer?.classList.add('open');
+      drawer?.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer?.classList.remove('open');
+      drawer?.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelector('.recommender-cta')?.addEventListener('click', openDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+    drawerClose?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    render();
+  }
+
+  initLibrary();
+  document.addEventListener('astro:after-swap', initLibrary);
+</script>
+
+<style>
+  .preview-banner {
+    background: #FEF3C7;
+    border-bottom: 1px solid #F59E0B;
+    padding: 0.4rem 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #92400E;
+  }
+  :root[data-theme="dark"] .preview-banner { background: #2a2000; border-color: #92400E; color: #FCD34D; }
+  .preview-banner a { color: inherit; font-weight: 600; }
+  .preview-badge {
+    font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em;
+    background: #F59E0B; color: #fff; padding: 0.15em 0.5em; border-radius: 3px;
+  }
+
+  .preview-main {
+    max-width: var(--max-width, 75rem);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md) var(--space-3xl);
+  }
+
+  /* ── Layout ── */
+  .lib-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* ── Sidebar ── */
+  .lib-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  /* Folder-tab filter panels — library sand */
+  .filter-panel {
+    position: relative;
+    background: #F0EAE4;
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    margin-top: 1.5rem;
+  }
+  :root[data-theme="dark"] .filter-panel { background: #231e1b; }
+
+  .filter-panel::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -1.35rem;
+    left: 0;
+    padding: 0.22rem 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-muted);
+    background: #F0EAE4;
+    border-radius: 5px 5px 0 0;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .filter-panel::before { background: #231e1b; }
+
+  .filter-items { display: flex; flex-direction: column; gap: 0; }
+
+  .filter-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.18rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+  .filter-item:hover { background: rgba(255,255,255,0.6); }
+  :root[data-theme="dark"] .filter-item:hover { background: rgba(255,255,255,0.06); }
+
+  .filter-checkbox {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    width: 16px; height: 16px;
+    border-radius: 3px;
+    border: 1.5px solid #C4B8B0;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.15s, background 0.15s;
+    flex-shrink: 0;
+  }
+  .filter-item:hover .filter-checkbox { opacity: 1; }
+  .filter-item:has(input:checked) .filter-checkbox {
+    opacity: 1; background: var(--color-accent); border-color: var(--color-accent);
+  }
+
+  .filter-radio-dot {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #C4B8B0;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  .filter-item:hover .filter-radio-dot { opacity: 1; }
+  .filter-item:has(input:checked) .filter-radio-dot {
+    opacity: 1;
+    border-color: var(--color-accent);
+    background: radial-gradient(circle at center, var(--color-accent) 40%, transparent 40%);
+  }
+
+  .filter-content {
+    display: flex; align-items: center; gap: 6px;
+    transition: transform 0.15s ease;
+  }
+  .filter-item:hover .filter-content,
+  .filter-item:has(input:checked) .filter-content { transform: translateX(28px); }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* Recommender CTA */
+  .lib-recommender-card {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-top: var(--space-sm);
+  }
+  .recommender-strip { height: 6px; background: var(--color-accent); }
+  .recommender-body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+  .recommender-heading { font-size: 0.78rem; color: var(--color-text-muted); margin: 0 0 var(--space-sm) 0; }
+  .recommender-cta {
+    background: var(--color-accent); color: #fff; border: none;
+    border-radius: 1rem; padding: 0.3em 0.9em;
+    font-size: 0.78rem; font-weight: 600; font-family: inherit;
+    cursor: pointer; transition: opacity 0.15s;
+  }
+  .recommender-cta:hover { opacity: 0.85; }
+
+  /* ── Toolbar ── */
+  .lib-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: var(--space-md);
+  }
+  .lib-count { font-size: 0.78rem; color: var(--color-text-muted); }
+
+  .view-toggle {
+    display: flex; gap: 2px;
+    background: var(--color-border);
+    border-radius: 0.5rem;
+    padding: 2px;
+  }
+  .view-btn {
+    display: flex; align-items: center; gap: 0.3rem;
+    padding: 0.25rem 0.65rem;
+    border: none; border-radius: 0.35rem;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-family: inherit; font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .view-btn:hover { color: var(--color-text); }
+  .view-btn.active {
+    background: var(--color-bg); color: var(--color-text);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  /* ── Grid layouts ── */
+  .lib-grid[data-view="cards"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+  .lib-grid[data-view="list"] {
+    display: flex; flex-direction: column; gap: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .lib-grid[data-view="covers"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .lib-empty {
+    color: var(--color-text-muted); font-size: 0.9rem; font-style: italic; padding: var(--space-xl) 0;
+  }
+
+  /* ══════════════════════════════════
+     BOOK CARD BASE
+  ══════════════════════════════════ */
+  .book-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+
+  /* All three inner containers hidden by default */
+  .bc-card-inner { display: none; }
+  .bc-list-row   { display: none; }
+  .bc-shelf      { display: none; }
+
+  /* ══════════════════════════════════
+     CARDS VIEW — stream aesthetic
+  ══════════════════════════════════ */
+  .lib-grid[data-view="cards"] .book-card {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #fff;
+  }
+  :root[data-theme="dark"] .lib-grid[data-view="cards"] .book-card { background: var(--color-bg-card, #1a1816); }
+  .lib-grid[data-view="cards"] .book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    border-color: transparent;
+  }
+  .lib-grid[data-view="cards"] .book-card[data-status="reading"] {
+    border-color: var(--color-accent); border-width: 2px;
+  }
+
+  .lib-grid[data-view="cards"] .bc-card-inner {
+    display: flex;
+    height: 100%;
+  }
+
+  .bc-strip {
+    width: 52px;
+    flex-shrink: 0;
+    background: #E5E0DA;
+    display: flex; align-items: center; justify-content: center;
+  }
+  :root[data-theme="dark"] .bc-strip { background: #221e1b; }
+  .bc-strip-icon {
+    width: 24px; height: 24px;
+    filter: invert(25%) sepia(15%) saturate(300%) hue-rotate(0deg);
+    opacity: 0.55;
+  }
+
+  .bc-main {
+    flex: 1;
+    display: flex; flex-direction: column;
+    border-inline-start: 3px double #B8B0AA;
+    min-width: 0;
+  }
+
+  .bc-meta-bar {
+    display: flex; align-items: center; gap: 0.4em;
+    padding: 0.45rem 0.75rem;
+    border-block-end: 4px double rgba(180, 60, 60, 0.3);
+    flex-wrap: wrap;
+  }
+  .bc-status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+  .bc-meta-status {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #6b6258;
+  }
+  :root[data-theme="dark"] .bc-meta-status { color: #a89880; }
+  .bc-meta-dot { font-size: 0.6rem; color: #c4bdb5; }
+  .bc-meta-date, .bc-meta-tended { font-size: 0.6rem; color: var(--color-text-muted); white-space: nowrap; }
+
+  .bc-body {
+    padding: 0.65rem 0.75rem 0.8rem;
+    display: flex; gap: var(--space-sm); align-items: flex-start;
+    flex: 1;
+  }
+  .bc-cover {
+    width: 52px; height: 78px; object-fit: cover; border-radius: 3px; flex-shrink: 0;
+  }
+  .bc-cover-placeholder {
+    width: 52px; height: 78px; border-radius: 3px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; font-weight: 700; font-family: var(--font-heading);
+    color: rgba(0,0,0,0.3);
+  }
+  .bc-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+  .bc-title { font-size: 0.92rem; font-weight: 600; color: var(--color-heading); line-height: 1.3; margin: 0; }
+  .bc-author { font-size: 0.78rem; color: var(--color-text-muted); }
+  .bc-desc {
+    font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.4; margin: 0.1rem 0 0 0;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  /* ══════════════════════════════════
+     LIST VIEW — compact rows
+  ══════════════════════════════════ */
+  .lib-grid[data-view="list"] .book-card {
+    display: block;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .lib-grid[data-view="list"] .book-card:hover { background: var(--color-bg-card, #f9f9f9); }
+  :root[data-theme="dark"] .lib-grid[data-view="list"] .book-card:hover { background: #1a1816; }
+
+  .lib-grid[data-view="list"] .bc-list-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.45rem var(--space-sm);
+    overflow: hidden;
+  }
+  .bc-list-cover {
+    width: 32px; height: 48px; object-fit: cover; border-radius: 2px; flex-shrink: 0;
+  }
+  .bc-list-placeholder {
+    width: 32px; height: 48px; border-radius: 2px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 700; font-family: var(--font-heading);
+    color: rgba(0,0,0,0.3);
+  }
+  .bc-list-title {
+    font-size: 0.85rem; font-weight: 600; color: var(--color-heading);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    flex: 2 1 0; min-width: 0;
+  }
+  .bc-list-author {
+    font-size: 0.75rem; color: var(--color-text-muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    flex: 1 1 0; min-width: 0;
+  }
+  .bc-list-status {
+    font-size: 0.62rem; font-weight: 600; padding: 0.12em 0.45em;
+    border-radius: 1em; white-space: nowrap; flex-shrink: 0;
+  }
+  /* Description hidden in list view — too noisy; it's in the cards view */
+  .lib-grid[data-view="list"] .bc-list-desc { display: none; }
+
+  /* ══════════════════════════════════
+     COVERS VIEW — shelf
+  ══════════════════════════════════ */
+  .lib-grid[data-view="covers"] .book-card {
+    display: block;
+    border: none; background: transparent; padding: 0;
+  }
+  .lib-grid[data-view="covers"] .book-card:hover { transform: none; }
+  .lib-grid[data-view="covers"] .bc-shelf {
+    display: block;
+    position: relative;
+  }
+  .bc-shelf-img {
+    width: 100%; aspect-ratio: 2 / 3; object-fit: cover;
+    border-radius: 4px; display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .lib-grid[data-view="covers"] .book-card:hover .bc-shelf-img {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+  .bc-shelf-placeholder {
+    width: 100%; aspect-ratio: 2 / 3; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; font-weight: 700; font-family: var(--font-heading);
+    color: rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .bc-shelf-overlay {
+    position: absolute; inset: 0;
+    border-radius: 4px;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.2s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0.5rem 0.4rem;
+    pointer-events: none;
+  }
+  .lib-grid[data-view="covers"] .book-card:hover .bc-shelf-overlay { opacity: 1; }
+  .bc-shelf-title {
+    font-size: 0.7rem; font-weight: 600; color: #fff; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .bc-shelf-author {
+    font-size: 0.6rem; color: rgba(255,255,255,0.72); margin-top: 0.1rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* ── Pagination ── */
+  .lib-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+  .page-btn {
+    background: none;
+    border: 1.5px solid var(--color-border);
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: border-color 150ms, color 150ms;
+    font-family: inherit;
+  }
+  .page-btn:hover:not(:disabled) { border-color: var(--color-accent-2, #0D7C66); color: var(--color-accent-2, #0D7C66); }
+  .page-btn:disabled { opacity: 0.35; cursor: default; }
+  .page-indicator { font-size: 0.82rem; color: var(--color-text-muted); }
+
+  /* Mobile */
+  @media (max-width: 700px) {
+    .lib-layout { grid-template-columns: 1fr; }
+    .lib-sidebar { position: static; }
+  }
+
+  /* ── Recommender drawer ── */
+  .drawer {
+    position: fixed; inset: 0; z-index: 200; pointer-events: none;
+  }
+  .drawer.open { pointer-events: auto; }
+
+  .drawer-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .drawer.open .drawer-backdrop { opacity: 1; }
+
+  .drawer-panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 540px; max-width: 100vw;
+    background: var(--color-bg, #fff);
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    border-inline-start: 4px solid #E5E0DA;
+  }
+  .drawer.open .drawer-panel { transform: translateX(0); }
+
+  .drawer-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--color-border); flex-shrink: 0;
+  }
+  .drawer-title { font-size: 0.9rem; font-weight: 600; color: var(--color-heading); }
+  .drawer-close {
+    background: none; border: none; font-size: 1rem;
+    color: var(--color-text-muted); cursor: pointer; padding: 0.25rem;
+    line-height: 1; border-radius: 4px;
+  }
+  .drawer-close:hover { color: var(--color-text); background: var(--color-surface-raised, #f3f4f6); }
+  .drawer-iframe { flex: 1; width: 100%; border: none; display: block; }
+</style>
