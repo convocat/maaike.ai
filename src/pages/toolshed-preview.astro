@@ -1,0 +1,806 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { execSync } from 'node:child_process';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SketchyFilter from '../components/SketchyFilter.astro';
+import settings from '../data/settings.json';
+
+// ── Backlog parser ──────────────────────────────────────────────────────────
+
+interface BacklogItem {
+  status: string;
+  title: string;
+  meta: string;
+  body: string;
+  bodyFull: string;
+}
+
+function parseBacklog(content: string): {
+  ready: BacklogItem[];
+  inProgress: BacklogItem[];
+  parked: BacklogItem[];
+  done: BacklogItem[];
+} {
+  const archiveIdx = content.indexOf('\n## Archive');
+  const main    = archiveIdx > 0 ? content.slice(0, archiveIdx) : content;
+  const archive = archiveIdx > 0 ? content.slice(archiveIdx)    : '';
+
+  function extractItems(src: string, doneMode = false): BacklogItem[] {
+    const items: BacklogItem[] = [];
+    // Active items use ## headings, archive items use ### headings
+    const splitPattern = doneMode ? /(?=\n### )/ : /(?=\n## )/;
+    const headingPrefix = doneMode ? '### ' : '## ';
+    const prefixLen = headingPrefix.length;
+    const chunks = src.split(splitPattern);
+    for (const chunk of chunks) {
+      const trimmed = chunk.trim();
+      if (!trimmed.startsWith(headingPrefix)) continue;
+      const firstNewline = trimmed.indexOf('\n');
+      const heading = firstNewline > 0 ? trimmed.slice(prefixLen, firstNewline).trim() : trimmed.slice(prefixLen).trim();
+      const rest    = firstNewline > 0 ? trimmed.slice(firstNewline + 1) : '';
+
+      let status = '';
+      let title  = heading;
+      if      (heading.startsWith('🟡')) { status = 'ready';       title = heading.slice(2).trim(); }
+      else if (heading.startsWith('🔵')) { status = 'in-progress'; title = heading.slice(2).trim(); }
+      else if (heading.startsWith('🟠')) { status = 'parked';      title = heading.slice(2).trim(); }
+      else if (doneMode && heading.startsWith('✅')) { status = 'done'; title = heading.replace(/^✅\s*/, '').trim(); }
+      else if (doneMode)                 { status = 'done';         title = heading; }
+      else continue;
+
+      const lines    = rest.split('\n');
+      const metaLine = lines.find(l => /^\*[^*]/.test(l.trim()) && /\*$/.test(l.trim())) ?? '';
+      const meta     = metaLine.replace(/^\*/, '').replace(/\*$/, '').trim();
+      const bodyLines = lines.filter(l => l.trim() !== metaLine.trim() && l.trim() !== '---');
+      const bodyFull  = bodyLines.join('\n').trim();
+      const body      = bodyFull.slice(0, 200);
+
+      items.push({ status, title, meta, body, bodyFull });
+    }
+    return items;
+  }
+
+  const activeItems = extractItems(main);
+  const doneItems   = extractItems(archive, true)
+    .filter(i => i.status === 'done')
+    .slice(0, 8);
+
+  return {
+    ready:      activeItems.filter(i => i.status === 'ready'),
+    inProgress: activeItems.filter(i => i.status === 'in-progress'),
+    parked:     activeItems.filter(i => i.status === 'parked'),
+    done:       doneItems,
+  };
+}
+
+const backlogRaw = fs.readFileSync(path.join(process.cwd(), '.claude', 'backlog.md'), 'utf-8');
+const backlog    = parseBacklog(backlogRaw);
+
+// ── Garden health ───────────────────────────────────────────────────────────
+
+const healthRaw       = fs.readFileSync(path.join(process.cwd(), '.claude', 'health-report.md'), 'utf-8');
+const healthDate      = healthRaw.match(/Date: (\d{4}-\d{2}-\d{2})/)?.[1] ?? 'unknown';
+const brokenLinkCount = parseInt(healthRaw.match(/\*\*(\d+) real broken link/)?.[1] ?? '0');
+const tagTableRows    = (healthRaw.match(/\| `[a-z]/g) || []).length;
+const missingDescCount = parseInt(healthRaw.match(/(\d+) files in `src\/content\/library\/` are missing/)?.[1] ?? '0');
+
+// ── Release notes ───────────────────────────────────────────────────────────
+
+interface ReleaseEntry {
+  date: string;
+  title: string;
+  type: 'backlog' | 'git';
+}
+
+// From backlog archive
+const archiveIdx  = backlogRaw.indexOf('\n## Archive');
+const archiveSrc  = archiveIdx > 0 ? backlogRaw.slice(archiveIdx) : '';
+const archiveEntries: ReleaseEntry[] = [];
+const archiveChunks = archiveSrc.split(/(?=\n### )/);
+for (const chunk of archiveChunks) {
+  const trimmed = chunk.trim();
+  if (!trimmed.startsWith('### ')) continue;
+  const firstNl = trimmed.indexOf('\n');
+  const heading = firstNl > 0 ? trimmed.slice(4, firstNl).trim() : trimmed.slice(4).trim();
+  const rest    = firstNl > 0 ? trimmed.slice(firstNl + 1) : '';
+  // Extract completed date from meta line like *2026-03-31 · completed: 2026-04-02*
+  const completedMatch = rest.match(/completed:\s*(\d{4}-\d{2}-\d{2})/);
+  const addedMatch     = rest.match(/^\*(\d{4}-\d{2}-\d{2})/m);
+  const date = completedMatch?.[1] ?? addedMatch?.[1] ?? '';
+  if (date) archiveEntries.push({ date, title: heading, type: 'backlog' });
+}
+archiveEntries.sort((a, b) => b.date.localeCompare(a.date));
+
+// From git log — only commits older than earliest backlog entry
+const earliestBacklog = archiveEntries.length > 0
+  ? archiveEntries[archiveEntries.length - 1].date
+  : '2026-03-27';
+
+let gitEntries: ReleaseEntry[] = [];
+try {
+  const gitLog = execSync(
+    'git log --format="%ad|||%s" --date=short -150',
+    { cwd: process.cwd(), encoding: 'utf-8', timeout: 5000 }
+  );
+  gitEntries = gitLog
+    .trim()
+    .split('\n')
+    .map(line => {
+      const [date, ...rest] = line.split('|||');
+      return { date: date?.trim() ?? '', title: rest.join('|||').trim(), type: 'git' as const };
+    })
+    .filter(e => e.date && e.date < earliestBacklog);
+} catch (_) { /* git not available at build */ }
+
+const releaseNotes = [...archiveEntries, ...gitEntries];
+
+// Group by year
+const byYear: Record<string, ReleaseEntry[]> = {};
+for (const entry of releaseNotes) {
+  const year = entry.date.slice(0, 4);
+  if (!byYear[year]) byYear[year] = [];
+  byYear[year].push(entry);
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+
+// ── Style guide ─────────────────────────────────────────────────────────────
+
+const styleGuideRaw  = fs.readFileSync(path.join(process.cwd(), '.claude', 'style-guide.md'), 'utf-8');
+const styleGuideHtml = await marked(styleGuideRaw);
+
+// ── Process documents ───────────────────────────────────────────────────────
+
+const docs = (await getCollection('toolshed' as any)).filter((e: any) => !e.data.draft)
+  .sort((a: any, b: any) => b.data.date - a.data.date);
+
+// ── Technical specs ─────────────────────────────────────────────────────────
+
+const collections = [
+  'articles', 'field-notes', 'seeds', 'jottings',
+  'weblinks', 'videos', 'library', 'experiments', 'jottings', 'toolshed',
+];
+
+const techSpecs = [
+  { label: 'Framework',    value: 'Astro 5, static output' },
+  { label: 'Hosting',      value: 'GitHub Pages' },
+  { label: 'Branch',       value: 'main (direct push)' },
+  { label: 'Domain',       value: 'maaike.ai' },
+  { label: 'Accent',       value: '#D6006C (hot pink, brand color)' },
+  { label: 'Teal',         value: '#0D7C66 / dark: #2DD4A8' },
+  { label: 'Fonts',        value: 'Lora (headings) · Roboto (body) · JetBrains Mono (code)' },
+  { label: 'Max width',    value: '65rem (content: 42rem)' },
+  { label: 'Collections',  value: 'articles, field-notes, seeds, jottings, weblinks, videos, library, experiments, toolshed' },
+];
+
+// ── Kanban column config ────────────────────────────────────────────────────
+
+const columns = [
+  { key: 'ready',      label: 'Ready',       emoji: '🟡', color: '#b59a00', darkColor: '#f0cc44', items: backlog.ready      },
+  { key: 'inProgress', label: 'In progress', emoji: '🔵', color: '#2a6fcf', darkColor: '#6aabff', items: backlog.inProgress },
+  { key: 'parked',     label: 'Parked',      emoji: '🟠', color: '#c06000', darkColor: '#f0a050', items: backlog.parked     },
+  { key: 'done',       label: 'Done',        emoji: '✅', color: '#2a7a4b', darkColor: '#5ecb8a', items: backlog.done       },
+];
+---
+
+<BaseLayout title="Toolshed preview — Maai & AI">
+  <SketchyFilter />
+  <Header />
+
+  <div class="preview-banner">
+    <span class="preview-badge">PREVIEW</span>
+    <span>Design review only — not live on the site yet.</span>
+  </div>
+
+  <main class="ts-main">
+
+    <div class="ts-heading">
+      <h1>🔧 {settings.toolshedTitle}</h1>
+      <p class="ts-desc">{settings.toolshedDescription}</p>
+    </div>
+
+    <!-- ── Kanban ── -->
+    <section class="ts-section">
+      <h2 class="ts-section-title">Backlog</h2>
+      <div class="ts-kanban">
+        {columns.map(col => (
+          <div class="ts-column" style={`--col-color: ${col.color}; --col-color-dark: ${col.darkColor}`}>
+            <div class="ts-column-header">
+              <span class="ts-column-label">{col.label}</span>
+              <span class="ts-column-count">{col.items.length}</span>
+            </div>
+            <div class="ts-cards">
+              {col.items.length === 0 && (
+                <p class="ts-empty">Nothing here</p>
+              )}
+              {col.items.map((item, idx) => (
+                <button
+                  class="ts-card"
+                  data-title={item.title}
+                  data-meta={item.meta}
+                  data-body={item.bodyFull}
+                  aria-label={`Open: ${item.title}`}
+                >
+                  <span class="ts-card-title">{item.title}</span>
+                  {item.meta && <span class="ts-card-meta">{item.meta}</span>}
+                  {item.body && (
+                    <span class="ts-card-preview">{item.body}{item.bodyFull.length > 200 ? '…' : ''}</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Lower two-column section ── -->
+    <div class="ts-lower">
+
+      <!-- Left: release notes -->
+      <section class="ts-section ts-release-notes">
+        <h2 class="ts-section-title">Release notes</h2>
+        {years.map((year, i) => (
+          <details open={i === 0}>
+            <summary class="ts-year-toggle">{year}</summary>
+            <ul class="ts-release-list">
+              {byYear[year].map(entry => (
+                <li class:list={['ts-release-item', { 'ts-release-git': entry.type === 'git' }]}>
+                  <time class="ts-release-date">{entry.date}</time>
+                  <span class="ts-release-title">{entry.title}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
+      </section>
+
+      <!-- Right sidebar: health + specs + style guide + docs -->
+      <aside class="ts-sidebar">
+
+        <!-- Garden health -->
+        <div class="ts-panel" data-label="Garden health">
+          <ul class="ts-health-list">
+            <li class:list={['ts-health-item', { 'ts-health-warn': brokenLinkCount > 0 }]}>
+              <span class="ts-health-icon">{brokenLinkCount === 0 ? '✓' : '!'}</span>
+              <span>{brokenLinkCount === 0 ? 'No broken wiki links' : `${brokenLinkCount} broken wiki link${brokenLinkCount !== 1 ? 's' : ''}`}</span>
+            </li>
+            <li class:list={['ts-health-item', { 'ts-health-warn': tagTableRows > 0 }]}>
+              <span class="ts-health-icon">{tagTableRows === 0 ? '✓' : '!'}</span>
+              <span>{tagTableRows === 0 ? 'No tag near-duplicates' : `${tagTableRows} tag near-duplicate${tagTableRows !== 1 ? 's' : ''} flagged`}</span>
+            </li>
+            <li class:list={['ts-health-item', { 'ts-health-warn': missingDescCount > 0 }]}>
+              <span class="ts-health-icon">{missingDescCount === 0 ? '✓' : '!'}</span>
+              <span>{missingDescCount === 0 ? 'All library descriptions present' : `${missingDescCount} library descriptions missing`}</span>
+            </li>
+          </ul>
+          <p class="ts-health-date">Last scan: {healthDate}</p>
+        </div>
+
+        <!-- Technical specs -->
+        <div class="ts-panel" data-label="Technical specs">
+          <dl class="ts-spec-list">
+            {techSpecs.map(spec => (
+              <div class="ts-spec-row">
+                <dt>{spec.label}</dt>
+                <dd>{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <!-- Style guide -->
+        <details class="ts-panel ts-style-guide-panel" data-label="Style guide">
+          <summary class="ts-panel-summary">Style guide <span class="ts-toggle-hint">click to expand</span></summary>
+          <div class="ts-style-guide-body" set:html={styleGuideHtml} />
+        </details>
+
+        <!-- Process documents -->
+        <div class="ts-panel" data-label="Process docs">
+          {docs.length === 0 ? (
+            <p class="ts-empty">No documents yet.</p>
+          ) : (
+            <ul class="ts-doc-list">
+              {docs.map((doc: any) => (
+                <li>
+                  <a href={`/toolshed/${doc.id}`} class="ts-doc-link">
+                    {doc.data.title}
+                    {doc.data.description && <span class="ts-doc-desc">{doc.data.description}</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <!-- Modal overlay -->
+  <div class="ts-modal" id="ts-modal" aria-hidden="true" role="dialog" aria-labelledby="ts-modal-title" aria-modal="true">
+    <div class="ts-modal-backdrop" id="ts-modal-backdrop"></div>
+    <div class="ts-modal-panel">
+      <button class="ts-modal-close" id="ts-modal-close" aria-label="Close">×</button>
+      <p class="ts-modal-meta" id="ts-modal-meta"></p>
+      <h2 class="ts-modal-title" id="ts-modal-title"></h2>
+      <div class="ts-modal-body" id="ts-modal-body"></div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  function initToolshed() {
+    // ── Kanban card modal ──
+    const modal    = document.getElementById('ts-modal') as HTMLElement;
+    const backdrop = document.getElementById('ts-modal-backdrop') as HTMLElement;
+    const closeBtn = document.getElementById('ts-modal-close') as HTMLButtonElement;
+    const modalTitle = document.getElementById('ts-modal-title') as HTMLElement;
+    const modalMeta  = document.getElementById('ts-modal-meta') as HTMLElement;
+    const modalBody  = document.getElementById('ts-modal-body') as HTMLElement;
+
+    function openModal(card: HTMLElement) {
+      const title    = card.dataset.title ?? '';
+      const meta     = card.dataset.meta  ?? '';
+      const bodyText = card.dataset.body  ?? '';
+
+      modalTitle.textContent = title;
+      modalMeta.textContent  = meta;
+
+      // Simple markdown → HTML for body (bold, code, newlines)
+      const html = bodyText
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+      modalBody.innerHTML = html;
+
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll<HTMLElement>('.ts-card').forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+    });
+
+    backdrop?.addEventListener('click', closeModal);
+    closeBtn?.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+    });
+  }
+
+  initToolshed();
+  document.addEventListener('astro:after-swap', initToolshed);
+</script>
+
+<style>
+  /* Preview banner */
+  .preview-banner {
+    background: #FEF3C7;
+    border-bottom: 1px solid #F59E0B;
+    padding: 0.4rem 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #92400E;
+  }
+  :root[data-theme="dark"] .preview-banner { background: #2a2000; border-color: #92400E; color: #FCD34D; }
+  .preview-badge {
+    font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em;
+    background: #F59E0B; color: #fff; padding: 0.15em 0.5em; border-radius: 3px;
+  }
+
+  /* ── Layout ── */
+  .ts-main {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md) var(--space-3xl);
+  }
+
+  .ts-heading {
+    margin-bottom: var(--space-2xl);
+  }
+  .ts-heading h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-xs);
+  }
+  .ts-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ── Section ── */
+  .ts-section-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* ── Kanban ── */
+  .ts-kanban {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .ts-column {
+    background: var(--color-bg-card, #f9f9f7);
+    border-radius: 0.75rem;
+    border-top: 3px solid var(--col-color);
+    padding: var(--space-md);
+    min-height: 200px;
+  }
+  :root[data-theme="dark"] .ts-column {
+    background: #1a1816;
+    border-top-color: var(--col-color-dark);
+  }
+
+  .ts-column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+  }
+  .ts-column-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--col-color);
+  }
+  :root[data-theme="dark"] .ts-column-label { color: var(--col-color-dark); }
+  .ts-column-count {
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: var(--color-border);
+    border-radius: 1rem;
+    padding: 0.1em 0.5em;
+    color: var(--color-text-muted);
+  }
+
+  .ts-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* ── Kanban card (button) ── */
+  .ts-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: left;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+    width: 100%;
+  }
+  .ts-card:hover {
+    border-color: var(--col-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+  }
+  :root[data-theme="dark"] .ts-card:hover { border-color: var(--col-color-dark); }
+
+  .ts-card-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.3;
+  }
+  .ts-card-meta {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .ts-card-preview {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 0.1rem;
+  }
+
+  .ts-empty {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* ── Lower section ── */
+  .ts-lower {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* ── Release notes ── */
+  .ts-release-notes details {
+    margin-bottom: var(--space-lg);
+  }
+  .ts-year-toggle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    user-select: none;
+  }
+  .ts-year-toggle::-webkit-details-marker { display: none; }
+  .ts-year-toggle::before {
+    content: '▸';
+    font-size: 0.6rem;
+    transition: transform 0.15s;
+  }
+  details[open] .ts-year-toggle::before { transform: rotate(90deg); }
+
+  .ts-release-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ts-release-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: baseline;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.82rem;
+  }
+  .ts-release-date {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    width: 6.5rem;
+  }
+  .ts-release-title {
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+  .ts-release-git .ts-release-title {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+  }
+  .ts-release-git .ts-release-date {
+    opacity: 0.6;
+  }
+
+  /* ── Right sidebar panels ── */
+  .ts-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .ts-panel {
+    position: relative;
+    background: #F0EAE4;
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    margin-top: 1.5rem;
+  }
+  :root[data-theme="dark"] .ts-panel { background: #231e1b; }
+
+  .ts-panel::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -1.35rem;
+    left: 0;
+    padding: 0.22rem 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-muted);
+    background: #F0EAE4;
+    border-radius: 5px 5px 0 0;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .ts-panel::before { background: #231e1b; }
+
+  /* Health */
+  .ts-health-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: var(--space-xs);
+  }
+  .ts-health-item {
+    display: flex; align-items: baseline; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--color-text-muted);
+  }
+  .ts-health-icon {
+    font-size: 0.7rem; font-weight: 700;
+    color: #2a7a4b;
+    flex-shrink: 0;
+  }
+  .ts-health-warn .ts-health-icon { color: #c06000; }
+  :root[data-theme="dark"] .ts-health-icon { color: #5ecb8a; }
+  :root[data-theme="dark"] .ts-health-warn .ts-health-icon { color: #f0a050; }
+  .ts-health-date {
+    font-size: 0.65rem; color: var(--color-text-muted);
+    margin-top: var(--space-sm); margin-bottom: 0;
+    opacity: 0.7;
+  }
+
+  /* Specs */
+  .ts-spec-list { margin: 0; }
+  .ts-spec-row {
+    display: grid; grid-template-columns: 7rem 1fr;
+    gap: 0.5rem; padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.75rem;
+  }
+  :root[data-theme="dark"] .ts-spec-row { border-bottom-color: rgba(255,255,255,0.06); }
+  .ts-spec-row dt { font-weight: 600; color: var(--color-text-muted); }
+  .ts-spec-row dd { margin: 0; color: var(--color-text); }
+
+  /* Style guide */
+  .ts-style-guide-panel {
+    /* inherits ts-panel */
+  }
+  .ts-panel-summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: var(--space-xs) 0 0;
+  }
+  .ts-panel-summary::-webkit-details-marker { display: none; }
+  .ts-toggle-hint {
+    font-size: 0.65rem; font-weight: 400; opacity: 0.6;
+  }
+  .ts-style-guide-panel[open] .ts-toggle-hint { display: none; }
+  .ts-style-guide-body {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: var(--space-sm);
+  }
+  .ts-style-guide-body h2 {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--color-text-muted);
+    margin: var(--space-sm) 0 var(--space-xs);
+  }
+  .ts-style-guide-body ul { padding-left: 1.2rem; margin: 0 0 var(--space-xs); }
+  .ts-style-guide-body li { margin-bottom: 0.15rem; }
+  .ts-style-guide-body strong { color: var(--color-text); }
+  .ts-style-guide-body code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(0,0,0,0.06);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+
+  /* Docs */
+  .ts-doc-list { list-style: none; padding: 0; margin: 0; }
+  .ts-doc-link {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: var(--color-heading);
+    font-size: 0.82rem; font-weight: 500;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.15s;
+  }
+  .ts-doc-link:hover { color: var(--color-accent); }
+  .ts-doc-desc { font-size: 0.72rem; color: var(--color-text-muted); font-weight: 400; }
+
+  /* ── Modal ── */
+  .ts-modal {
+    position: fixed; inset: 0;
+    z-index: 300; pointer-events: none;
+  }
+  .ts-modal[aria-hidden="false"] { pointer-events: auto; }
+
+  .ts-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .ts-modal[aria-hidden="false"] .ts-modal-backdrop { opacity: 1; }
+
+  .ts-modal-panel {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -40%);
+    opacity: 0;
+    transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), opacity 0.22s;
+    width: min(580px, 92vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    background: var(--color-bg);
+    border-radius: 0.75rem;
+    padding: var(--space-xl) var(--space-xl) var(--space-lg);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+    border-top: 4px solid var(--color-accent);
+  }
+  .ts-modal[aria-hidden="false"] .ts-modal-panel {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  .ts-modal-close {
+    position: absolute; top: var(--space-md); right: var(--space-md);
+    background: none; border: none;
+    font-size: 1.3rem; line-height: 1;
+    color: var(--color-text-muted); cursor: pointer;
+    padding: 0.25rem 0.4rem; border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .ts-modal-close:hover { color: var(--color-text); background: var(--color-border); }
+
+  .ts-modal-meta {
+    font-size: 0.7rem; color: var(--color-text-muted); font-style: italic;
+    margin: 0 0 var(--space-xs);
+  }
+  .ts-modal-title {
+    font-size: 1.05rem; font-weight: 700; color: var(--color-heading);
+    margin: 0 0 var(--space-md);
+    padding-right: var(--space-xl);
+  }
+  .ts-modal-body {
+    font-size: 0.85rem; color: var(--color-text); line-height: 1.65;
+  }
+  .ts-modal-body code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-border);
+    padding: 0.15em 0.35em;
+    border-radius: 3px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1000px) {
+    .ts-kanban { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 800px) {
+    .ts-kanban  { grid-template-columns: 1fr; }
+    .ts-lower   { grid-template-columns: 1fr; }
+    .ts-sidebar { order: -1; }
+  }
+</style>
