@@ -4,7 +4,16 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-02 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-04 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## ✅ Rhetoric/Argument triples + Thematic-TAO field note review
+*2026-04-04*
+
+Closed two loose ends from the TAO graph session. Added 3 bridge associations to `src/data/triples.json` connecting Rhetoric and Argument into the GenAI cluster (LLMs generates Rhetoric, Rhetoric exhibits Indifference to truth, Argument requires Ground truth) plus predicates `generates` and `requires`. Reviewed the Thematic-TAO field note — already published and good as-is. Backlog groomed and archived both items.
+
+Key files: `src/data/triples.json`, `src/content/field-notes/thematic-tao-three-pass-method.md`, `.claude/backlog.md`
 
 ---
 
@@ -102,6 +111,11 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 ---
 
 ## Archive
+
+### ✅ Rhetoric/Argument: connect to GenAI cluster in triples.json
+*2026-03-30 · completed: 2026-04-04*
+
+Added 3 associations to `src/data/triples.json`: LLMs generates Rhetoric, Rhetoric exhibits Indifference to truth, Argument requires Ground truth. Added predicates `generates` and `requires` to `_predicates`. Rhetoric and Argument now connect into the main GenAI cluster rather than hanging as an isolated pair.
 
 ### ✅ Review: Thematic-TAO method post
 *2026-03-30 · completed: 2026-04-02*

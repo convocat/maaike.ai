@@ -22,7 +22,9 @@
     "breaks-down-for",
     "better-fits",
     "risks",
-    "incompatible-with"
+    "incompatible-with",
+    "generates",
+    "requires"
   ],
 
   "topics": {
@@ -111,6 +113,9 @@
     { "subject": "llms",                          "predicate": "reinforces",        "object": "epistemic-bias",                "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
     { "subject": "conviction",                    "predicate": "contrasted-with",   "object": "opinion",                       "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
     { "subject": "rhetoric",                      "predicate": "contrasted-with",   "object": "argument",                      "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
+    { "subject": "llms",                          "predicate": "generates",         "object": "rhetoric",                      "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
+    { "subject": "rhetoric",                      "predicate": "exhibits",          "object": "indifference-to-truth",         "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
+    { "subject": "argument",                      "predicate": "requires",          "object": "ground-truth",                  "source": "thinking-in-action-precision-matters",                    "collection": "jottings" },
 
     { "subject": "llms",                          "predicate": "lacks",             "object": "ground-truth",                  "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
     { "subject": "llm-hallucinations",            "predicate": "caused-by",         "object": "probabilistic-word-prediction", "source": "llm-hallucinations-knowledge-as-missing-fundamental",     "collection": "articles" },
