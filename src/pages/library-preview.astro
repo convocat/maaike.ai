@@ -90,82 +90,92 @@ const sortOptions = [
 
   <main class="preview-main">
 
-    <!-- Two-column layout: sidebar + main -->
+    <!-- Two-column layout: main + sidebar (right) -->
     <div class="lib-layout">
-
-      <!-- Sidebar -->
-      <aside class="lib-sidebar">
-
-        <div class="filter-panel" data-label="Status">
-          <div class="filter-items">
-            {statuses.map(s => (
-              <label class="filter-item">
-                <span class="filter-checkbox" aria-hidden="true">
-                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
-                </span>
-                <input type="checkbox" class="filter-cb-input sr-only status-cb" value={s.value} />
-                <span class="filter-content"><span>{s.label}</span></span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div class="filter-panel" data-label="Topic">
-          <div class="filter-items">
-            {categoryDefs.map(cat => (
-              <label class="filter-item">
-                <span class="filter-checkbox" aria-hidden="true">
-                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
-                </span>
-                <input type="checkbox" class="filter-cb-input sr-only cat-cb" value={cat.key} />
-                <span class="filter-content"><span>{cat.emoji} {cat.label}</span></span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div class="filter-panel" data-label="Book type">
-          <div class="filter-items">
-            {bookTypes.map(t => (
-              <label class="filter-item">
-                <span class="filter-checkbox" aria-hidden="true">
-                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
-                </span>
-                <input type="checkbox" class="filter-cb-input sr-only type-cb" value={t.value} />
-                <span class="filter-content"><span>{t.label}</span></span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div class="filter-panel" data-label="Sort by">
-          <div class="filter-items filter-items--radio">
-            {sortOptions.map((s, i) => (
-              <label class="filter-item">
-                <span class="filter-radio-dot" aria-hidden="true"></span>
-                <input type="radio" class="filter-cb-input sr-only sort-rb" name="sort" value={s.value} checked={i === 0} />
-                <span class="filter-content"><span>{s.label}</span></span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div class="lib-recommender-card">
-          <div class="recommender-strip"></div>
-          <div class="recommender-body">
-            <p class="recommender-heading">Not sure what to read?</p>
-            <button class="recommender-cta">Pick for me →</button>
-          </div>
-        </div>
-
-      </aside>
 
       <!-- Main content -->
       <div class="lib-main">
 
-        <!-- Toolbar: count + view toggle -->
+        <!-- Mobile filter bar (hidden on desktop, shown on mobile instead of sidebar) -->
+        <div class="lib-mobile-filter-bar" id="lib-mobile-filter-bar">
+          <button class="lib-mobile-filter-toggle" id="lib-mobile-filter-toggle" aria-expanded="false" aria-controls="lib-mobile-filter-panel">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="4" x2="14" y2="4"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="6" y1="12" x2="10" y2="12"/></svg>
+            <span>Filters</span>
+            <span class="lib-mobile-filter-count" id="lib-mobile-filter-count" hidden>0</span>
+          </button>
+          <div class="lib-mobile-filter-panel" id="lib-mobile-filter-panel">
+            <div class="lib-mobile-filter-group">
+              <p class="lib-mobile-filter-group-label">Status</p>
+              <div class="lib-mobile-filter-group-options">
+                {statuses.map(s => (
+                  <label class="lib-mobile-filter-option">
+                    <input type="checkbox" data-mobile-group="status" value={s.value} />
+                    <span>{s.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div class="lib-mobile-filter-group">
+              <p class="lib-mobile-filter-group-label">Format</p>
+              <div class="lib-mobile-filter-group-options">
+                <label class="lib-mobile-filter-option">
+                  <input type="checkbox" data-mobile-group="genre" value="book" />
+                  <span>📚 Books</span>
+                </label>
+                <label class="lib-mobile-filter-option">
+                  <input type="checkbox" data-mobile-group="genre" value="research-paper" />
+                  <span>📄 Research papers</span>
+                </label>
+              </div>
+            </div>
+            <div class="lib-mobile-filter-group">
+              <p class="lib-mobile-filter-group-label">Topic</p>
+              <div class="lib-mobile-filter-group-options">
+                {categoryDefs.map(cat => (
+                  <label class="lib-mobile-filter-option">
+                    <input type="checkbox" data-mobile-group="category" value={cat.key} />
+                    <span>{cat.emoji} {cat.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <button class="lib-mobile-filter-clear" id="lib-mobile-filter-clear">Clear all</button>
+          </div>
+        </div>
+
+        <!-- Toolbar: count + sort + view toggle -->
         <div class="lib-toolbar">
           <span class="lib-count" id="lib-count">{books.length} books</span>
+          <div class="view-toggle" role="group" aria-label="Sort by">
+            <label class="sort-option">
+              <input type="radio" class="sr-only sort-rb" name="sort" value="date" checked />
+              <span class="view-btn active" aria-pressed="true">
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><line x1="2" y1="11" x2="14" y2="11"/><line x1="2" y1="14" x2="10" y2="14"/></svg>
+                Date added
+              </span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" class="sr-only sort-rb" name="sort" value="title" />
+              <span class="view-btn">
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="4" x2="9" y2="4"/><line x1="2" y1="8" x2="7" y2="8"/><line x1="2" y1="12" x2="5" y2="12"/><polyline points="11 2 13 12 15 2"/></svg>
+                Title A–Z
+              </span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" class="sr-only sort-rb" name="sort" value="author" />
+              <span class="view-btn">
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+                Author A–Z
+              </span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" class="sr-only sort-rb" name="sort" value="tended" />
+              <span class="view-btn">
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 10"/></svg>
+                Last tended
+              </span>
+            </label>
+          </div>
           <div class="view-toggle" role="group" aria-label="Display mode">
             <button class="view-btn active" data-view="cards" aria-pressed="true">
               <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1" y="1" width="6" height="9" rx="1"/><rect x="9" y="1" width="6" height="9" rx="1"/></svg>
@@ -195,6 +205,7 @@ const sortOptions = [
                 class="book-card"
                 data-status={d.status}
                 data-booktype={d.book_type ?? 'non-fiction'}
+                data-genre={(d as any).genre === 'research-paper' ? 'research-paper' : 'book'}
                 data-tags={(d.tags ?? []).join(',')}
                 data-categories={cats}
                 data-date={d.date?.toISOString() ?? ''}
@@ -278,6 +289,67 @@ const sortOptions = [
         </nav>
 
       </div>
+
+      <!-- Sidebar (right) -->
+      <aside class="lib-sidebar">
+
+        <div class="filter-panel" data-label="Status">
+          <div class="filter-items">
+            {statuses.map(s => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only status-cb" value={s.value} data-filter-group="status" />
+                <span class="filter-content"><span>{s.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="filter-panel" data-label="Format">
+          <div class="filter-items">
+            <label class="filter-item">
+              <span class="filter-checkbox" aria-hidden="true">
+                <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <input type="checkbox" class="filter-cb-input sr-only genre-cb" value="book" data-filter-group="genre" />
+              <span class="filter-content"><span>📚 Books</span></span>
+            </label>
+            <label class="filter-item">
+              <span class="filter-checkbox" aria-hidden="true">
+                <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <input type="checkbox" class="filter-cb-input sr-only genre-cb" value="research-paper" data-filter-group="genre" />
+              <span class="filter-content"><span>📄 Research papers</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-panel" data-label="Topic">
+          <div class="filter-items">
+            {categoryDefs.map(cat => (
+              <label class="filter-item">
+                <span class="filter-checkbox" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+                </span>
+                <input type="checkbox" class="filter-cb-input sr-only cat-cb" value={cat.key} data-filter-group="category" />
+                <span class="filter-content"><span>{cat.emoji} {cat.label}</span></span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="lib-recommender-card">
+          <div class="recommender-strip"></div>
+          <div class="recommender-body">
+            <p class="recommender-heading">Not sure what to read?</p>
+            <button class="recommender-cta">Pick for me →</button>
+          </div>
+        </div>
+
+      </aside>
+
     </div>
   </main>
 
@@ -315,15 +387,15 @@ const sortOptions = [
     // ── Matching ──
     function matchesFilters(card: HTMLElement): boolean {
       const activeStatuses = [...document.querySelectorAll<HTMLInputElement>('.status-cb:checked')].map(i => i.value);
+      const activeGenres   = [...document.querySelectorAll<HTMLInputElement>('.genre-cb:checked')].map(i => i.value);
       const activeCats     = [...document.querySelectorAll<HTMLInputElement>('.cat-cb:checked')].map(i => i.value);
-      const activeTypes    = [...document.querySelectorAll<HTMLInputElement>('.type-cb:checked')].map(i => i.value);
 
       const statusOk = activeStatuses.length === 0 || activeStatuses.includes(card.dataset.status ?? '');
-      const typeOk   = activeTypes.length === 0   || activeTypes.includes(card.dataset.booktype ?? '');
+      const genreOk  = activeGenres.length === 0   || activeGenres.includes(card.dataset.genre ?? 'book');
       const cardCats = (card.dataset.categories ?? '').split(',').filter(Boolean);
-      const catOk    = activeCats.length === 0    || activeCats.some(c => cardCats.includes(c));
+      const catOk    = activeCats.length === 0     || activeCats.some(c => cardCats.includes(c));
 
-      return statusOk && typeOk && catOk;
+      return statusOk && genreOk && catOk;
     }
 
     // ── Render page ──
@@ -354,14 +426,19 @@ const sortOptions = [
     });
 
     // ── Filters reset page ──
-    document.querySelectorAll('.status-cb, .cat-cb, .type-cb').forEach(cb => {
+    document.querySelectorAll('.status-cb, .genre-cb, .cat-cb').forEach(cb => {
       cb.addEventListener('change', () => { currentPage = 1; render(); });
     });
 
     // ── Sort re-orders DOM then re-renders ──
     document.querySelectorAll('.sort-rb').forEach(rb => {
       rb.addEventListener('change', () => {
-        const sortVal = (document.querySelector<HTMLInputElement>('.sort-rb:checked')?.value) ?? 'date';
+        // Sync active class on the visible span
+        document.querySelectorAll<HTMLElement>('.sort-option .view-btn').forEach(s => s.classList.remove('active'));
+        const checkedRb = document.querySelector<HTMLInputElement>('.sort-rb:checked');
+        checkedRb?.closest('.sort-option')?.querySelector<HTMLElement>('.view-btn')?.classList.add('active');
+
+        const sortVal = checkedRb?.value ?? 'date';
         allCards.sort((a, b) => {
           if (sortVal === 'title')  return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '');
           if (sortVal === 'author') return (a.dataset.author ?? '').localeCompare(b.dataset.author ?? '');
@@ -375,9 +452,10 @@ const sortOptions = [
     });
 
     // ── View switching ──
-    document.querySelectorAll<HTMLButtonElement>('.view-btn').forEach(btn => {
+    // Only attach to buttons that have a data-view attribute — NOT sort spans which share .view-btn class
+    document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.view-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        document.querySelectorAll('[data-view]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
         grid.dataset.view = btn.dataset.view!;
@@ -399,6 +477,53 @@ const sortOptions = [
       drawer?.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
+    // ── Mobile filter panel ──
+    const mobileToggle  = document.getElementById('lib-mobile-filter-toggle') as HTMLButtonElement | null;
+    const mobilePanel   = document.getElementById('lib-mobile-filter-panel') as HTMLElement | null;
+    const mobileCount   = document.getElementById('lib-mobile-filter-count') as HTMLElement | null;
+    const mobileClear   = document.getElementById('lib-mobile-filter-clear') as HTMLButtonElement | null;
+    const mobileInputs  = mobilePanel
+      ? Array.from(mobilePanel.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'))
+      : [];
+
+    // All sidebar inputs (to sync with mobile)
+    const sidebarInputs = Array.from(
+      document.querySelectorAll<HTMLInputElement>('.filter-cb-input')
+    );
+
+    function updateMobileCount() {
+      const checked = mobileInputs.filter(i => i.checked).length;
+      if (mobileCount) { mobileCount.textContent = String(checked); mobileCount.hidden = checked === 0; }
+    }
+
+    mobileToggle?.addEventListener('click', () => {
+      const isOpen = mobilePanel?.classList.contains('is-open');
+      mobilePanel?.classList.toggle('is-open', !isOpen);
+      mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    mobileInputs.forEach(mInput => {
+      mInput.addEventListener('change', () => {
+        // Sync to matching sidebar input
+        const group = mInput.dataset.mobileGroup ?? '';
+        const sidebarInput = sidebarInputs.find(
+          i => i.dataset.filterGroup === group && i.value === mInput.value
+        );
+        if (sidebarInput) sidebarInput.checked = mInput.checked;
+        updateMobileCount();
+        currentPage = 1;
+        render();
+      });
+    });
+
+    mobileClear?.addEventListener('click', () => {
+      mobileInputs.forEach(i => { i.checked = false; });
+      sidebarInputs.forEach(i => { i.checked = false; });
+      updateMobileCount();
+      currentPage = 1;
+      render();
+    });
+
     document.querySelector('.recommender-cta')?.addEventListener('click', openDrawer);
     backdrop?.addEventListener('click', closeDrawer);
     drawerClose?.addEventListener('click', closeDrawer);
@@ -438,7 +563,7 @@ const sortOptions = [
   /* ── Layout ── */
   .lib-layout {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 1fr 220px;
     gap: var(--space-2xl);
     align-items: start;
   }
@@ -560,10 +685,16 @@ const sortOptions = [
 
   /* ── Toolbar ── */
   .lib-toolbar {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; gap: var(--space-md);
     margin-bottom: var(--space-md);
+    flex-wrap: wrap;
   }
+  .lib-toolbar .lib-count { flex: 1; min-width: 0; }
   .lib-count { font-size: 0.78rem; color: var(--color-text-muted); }
+
+  /* Sort option: label is invisible wrapper, only the inner .view-btn renders */
+  .sort-option { display: contents; }
+  .sort-option .view-btn { cursor: pointer; }
 
   .view-toggle {
     display: flex; gap: 2px;
@@ -578,6 +709,7 @@ const sortOptions = [
     background: transparent;
     color: var(--color-text-muted);
     font-family: inherit; font-size: 0.75rem;
+    line-height: 1;
     cursor: pointer;
     transition: background 0.15s, color 0.15s;
     white-space: nowrap;
@@ -819,10 +951,133 @@ const sortOptions = [
   .page-btn:disabled { opacity: 0.35; cursor: default; }
   .page-indicator { font-size: 0.82rem; color: var(--color-text-muted); }
 
-  /* Mobile */
-  @media (max-width: 700px) {
+  /* ── Mobile filter bar (hidden on desktop) ── */
+  .lib-mobile-filter-bar { display: none; }
+
+  @media (max-width: 800px) {
+    /* Stack layout: sidebar moves below (but is hidden) */
     .lib-layout { grid-template-columns: 1fr; }
-    .lib-sidebar { position: static; }
+    .lib-sidebar { display: none; }
+
+    /* Toolbar wraps on small screens */
+    .lib-toolbar { flex-wrap: wrap; gap: var(--space-sm); }
+    .lib-toolbar .lib-count { flex: 0 0 auto; }
+
+    /* Show mobile filter bar */
+    .lib-mobile-filter-bar {
+      display: block;
+      margin-bottom: var(--space-md);
+    }
+
+    .lib-mobile-filter-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.4rem;
+      background: var(--color-bg);
+      color: var(--color-text-muted);
+      font-size: 0.82rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: border-color 150ms, color 150ms;
+    }
+    .lib-mobile-filter-toggle:hover,
+    .lib-mobile-filter-toggle[aria-expanded="true"] {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .lib-mobile-filter-count[hidden] { display: none; }
+    .lib-mobile-filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.2rem;
+      height: 1.2rem;
+      padding: 0 0.25rem;
+      border-radius: 1rem;
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .lib-mobile-filter-panel {
+      display: none;
+    }
+    .lib-mobile-filter-panel.is-open {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      background: #F0EAE4;
+    }
+    :root[data-theme="dark"] .lib-mobile-filter-panel.is-open { background: #231e1b; }
+
+    .lib-mobile-filter-group {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .lib-mobile-filter-group-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin: 0;
+      min-width: 4.5rem;
+    }
+
+    .lib-mobile-filter-group-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .lib-mobile-filter-option {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 2rem;
+      background: var(--color-bg);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 150ms;
+    }
+    .lib-mobile-filter-option:has(input:checked) {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+    }
+    .lib-mobile-filter-option input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .lib-mobile-filter-clear {
+      align-self: flex-end;
+      padding: 0;
+      border: none;
+      background: none;
+      font-size: 0.68rem;
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      cursor: pointer;
+      font-family: inherit;
+    }
   }
 
   /* ── Recommender drawer ── */
