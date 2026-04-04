@@ -80,6 +80,37 @@ const currentPath = Astro.url.pathname;
             </div>
           </div>
         </li>
+        <li class="toolshed-dropdown">
+          <button class="toolshed-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Toolshed
+            <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M1 1 L5 5 L9 1" />
+            </svg>
+          </button>
+          <div class="toolshed-mega-menu">
+            <a href="/toolshed" class:list={['toolshed-mega-item', { active: currentPath === '/toolshed' }]}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+              <div>
+                <span class="toolshed-mega-label">Garden ops</span>
+                <span class="toolshed-mega-desc">Backlog, health, release notes</span>
+              </div>
+            </a>
+            <a href="/toolshed/design" class:list={['toolshed-mega-item', { active: currentPath.startsWith('/toolshed/design') }]}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3" /><path d="M3 12h3m12 0h3M12 3v3m0 12v3" /><path d="M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" /></svg>
+              <div>
+                <span class="toolshed-mega-label">Design</span>
+                <span class="toolshed-mega-desc">Patterns, components, decisions</span>
+              </div>
+            </a>
+            <a href="/toolshed/technical" class:list={['toolshed-mega-item', { active: currentPath.startsWith('/toolshed/technical') }]}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+              <div>
+                <span class="toolshed-mega-label">Technical</span>
+                <span class="toolshed-mega-desc">Architecture, schemas, deployment</span>
+              </div>
+            </a>
+          </div>
+        </li>
         {navLinks.map(({ href, label }) => (
           <li>
             <a href={href} class:list={[{ active: href !== '/' && currentPath.startsWith(href) }]}>
@@ -167,9 +198,39 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  function setupToolshedDropdown() {
+    const trigger = document.querySelector('.toolshed-dropdown-trigger') as HTMLButtonElement;
+    const dropdown = document.querySelector('.toolshed-dropdown') as HTMLElement;
+    if (!trigger || !dropdown) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      dropdown.classList.toggle('open');
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target as Node) && !menuToggle?.contains(e.target as Node)) {
+        trigger.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        trigger.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('open');
+        trigger.focus();
+      }
+    });
+  }
+
   setupMenu();
   setupGardenDropdown();
-  document.addEventListener('astro:after-swap', () => { setupMenu(); setupGardenDropdown(); });
+  setupToolshedDropdown();
+  document.addEventListener('astro:after-swap', () => { setupMenu(); setupGardenDropdown(); setupToolshedDropdown(); });
 </script>
 
 <style>
@@ -366,6 +427,93 @@ const currentPath = Astro.url.pathname;
     justify-content: center;
   }
 
+  /* Toolshed dropdown */
+  .toolshed-dropdown {
+    position: relative;
+  }
+  .toolshed-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    padding: 0;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+  }
+  .toolshed-dropdown-trigger:hover {
+    color: var(--color-accent);
+  }
+  .toolshed-dropdown-trigger .chevron {
+    transition: transform var(--transition-fast);
+  }
+  .toolshed-dropdown.open .toolshed-dropdown-trigger .chevron {
+    transform: rotate(180deg);
+  }
+
+  .toolshed-mega-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-md);
+    width: 260px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    display: none;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .toolshed-dropdown.open .toolshed-mega-menu {
+    display: flex;
+  }
+
+  .toolshed-mega-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+    color: var(--color-text-muted);
+  }
+  .toolshed-mega-item:hover {
+    background: var(--color-bg-card);
+  }
+  .toolshed-mega-item svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--color-text-muted);
+  }
+  .toolshed-mega-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toolshed-mega-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .toolshed-mega-item:hover .toolshed-mega-label,
+  .toolshed-mega-item.active .toolshed-mega-label {
+    color: var(--color-accent);
+  }
+  .toolshed-mega-desc {
+    font-size: 0.74rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
   @media (max-width: 640px) {
     .header-search-btn { display: none; }
 
@@ -417,6 +565,14 @@ const currentPath = Astro.url.pathname;
     .mega-views {
       flex-direction: column;
       gap: var(--space-xs);
+    }
+
+    .toolshed-mega-menu {
+      position: static;
+      width: auto;
+      border: none;
+      box-shadow: none;
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
     }
 
     .header-inner {

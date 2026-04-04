@@ -97,7 +97,10 @@ const artefacts = defineCollection({
 
 const toolshed = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/toolshed' }),
-  schema: baseSchema,
+  schema: baseSchema.extend({
+    category: z.enum(['design', 'technical']).optional(),
+    section: z.string().optional(),
+  }),
 });
 
 export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts, toolshed };

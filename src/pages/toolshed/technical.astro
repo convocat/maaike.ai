@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import settings from '../../data/settings.json';
+
+const posts = (await getCollection('toolshed'))
+  .filter((e: any) => !e.data.draft && e.data.category === 'technical')
+  .sort((a: any, b: any) => b.data.date - a.data.date);
+---
+
+<PageLayout title={`Technical — Toolshed — ${settings.siteTitle}`} description="Architecture, content schemas, deployment, and the technical infrastructure behind this garden.">
+
+  <div class="ts-heading">
+    <h1>Technical</h1>
+    <p class="ts-desc">Architecture, content schemas, deployment, and how everything fits together under the hood.</p>
+  </div>
+
+  {posts.length === 0 ? (
+    <p class="ts-empty">No technical documents yet. Coming soon.</p>
+  ) : (
+    <ul class="ts-post-list">
+      {posts.map((post: any) => (
+        <li class="ts-post-item">
+          <a href={`/toolshed/${post.id}`} class="ts-post-link">
+            <span class="ts-post-title">{post.data.title}</span>
+            {post.data.description && (
+              <span class="ts-post-desc">{post.data.description}</span>
+            )}
+          </a>
+          <time class="ts-post-date">{post.data.date.toISOString().slice(0, 10)}</time>
+        </li>
+      ))}
+    </ul>
+  )}
+
+</PageLayout>
+
+<style>
+  .ts-heading {
+    margin-bottom: var(--space-2xl);
+  }
+  .ts-heading h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-xs);
+  }
+  .ts-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .ts-empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  .ts-post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ts-post-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ts-post-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-decoration: none;
+    flex: 1;
+  }
+
+  .ts-post-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    transition: color 0.15s;
+  }
+  .ts-post-link:hover .ts-post-title {
+    color: var(--color-accent);
+  }
+
+  .ts-post-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .ts-post-date {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

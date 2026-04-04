@@ -22,9 +22,11 @@ interface Props {
   ai?: '100% Maai' | 'assisted' | 'co-created' | 'generated';
   hub?: boolean;
   develops?: string;
+  backHref?: string;
+  backLabel?: string;
 }
 
-const { title, date, updated, maturity, tags, triples, themes, description, collection, slug, url, ai, hub, develops } = Astro.props;
+const { title, date, updated, maturity, tags, triples, themes, description, collection, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream' } = Astro.props;
 
 const isHub = hub === true;
 const ogImage = `/images/og/${collection}/${slug}.png`;
@@ -62,7 +64,7 @@ const formattedUpdated = updated
 ---
 
 <PageLayout title={title} description={description} ogImage={ogImage}>
-  <a href="/" class="back-to-stream">&larr; Stream</a>
+  <a href={backHref} class="back-to-stream">&larr; {backLabel}</a>
   <div class="post-with-sidebar">
     <article class="post">
       <header class="post-header">
