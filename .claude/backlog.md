@@ -8,6 +8,19 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Toolshed redesign: three-collection structure
+*2026-04-04*
+
+The toolshed was removed from production (it shipped without design review) and rebuilt as a preview at `/toolshed-preview`. The vision expanded: the Toolshed should be structured like a mini-site with three sections. Garden ops (`/toolshed`): dynamic dashboard with kanban (4 columns incl. Done), health metrics, release notes from backlog archive + git log. Design (`/toolshed/design`): a proper content collection of polished design pattern posts — pill bar, mobile filter, sticky sidebar, pagination, card aesthetic, and a new one on the session/handover workflow. Technical (`/toolshed/technical`): architecture, schemas, deployment. Megamenu entry alongside The Garden with three links.
+
+The preview at `src/pages/toolshed-preview.astro` is the starting point — kanban with clickable modal cards is working. Content collection uses existing `toolshed` schema with a `category` field (`design` | `technical`) to route posts. Memory files in `.claude/memory/` stay as Claude's instructions; Toolshed design posts are polished, readable versions for visitors.
+
+First session task: update the backlog entry for the toolshed, add Toolshed megamenu to header, create the three route pages, then write the first batch of design collection posts (starting with the patterns already in memory).
+
+Key files: `src/pages/toolshed-preview.astro`, `src/components/Header.astro`, `.claude/toolshed-draft/`, `src/content.config.ts`, `.claude/memory/design_pill_bar.md`, `.claude/memory/design_mobile_filter_bar.md`, `.claude/memory/feedback_sticky_sidebar_scroll.md`, `.claude/memory/feedback_pagination_pattern.md`
+
+---
+
 ## ✅ Rhetoric/Argument triples + Thematic-TAO field note review
 *2026-04-04*
 
