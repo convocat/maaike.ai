@@ -4,20 +4,30 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-04 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-05 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
-## 🟡 Toolshed redesign: three-collection structure
-*2026-04-04*
+## 🟡 Growing the digital garden
+*added: 2026-04-05*
 
-The toolshed was removed from production (it shipped without design review) and rebuilt as a preview at `/toolshed-preview`. The vision expanded: the Toolshed should be structured like a mini-site with three sections. Garden ops (`/toolshed`): dynamic dashboard with kanban (4 columns incl. Done), health metrics, release notes from backlog archive + git log. Design (`/toolshed/design`): a proper content collection of polished design pattern posts — pill bar, mobile filter, sticky sidebar, pagination, card aesthetic, and a new one on the session/handover workflow. Technical (`/toolshed/technical`): architecture, schemas, deployment. Megamenu entry alongside The Garden with three links.
+Project hub at `src/content/field-notes/growing-the-digital-garden.md`. Documenting the garden's evolution: how it grows, how it's tended, and what it's becoming.
 
-The preview at `src/pages/toolshed-preview.astro` is the starting point — kanban with clickable modal cards is working. Content collection uses existing `toolshed` schema with a `category` field (`design` | `technical`) to route posts. Memory files in `.claude/memory/` stay as Claude's instructions; Toolshed design posts are polished, readable versions for visitors.
+Deliverables:
+- [x] `articles/garden-as-metaphor` — published
+- [ ] `field-notes/garden-lifecycle-weeds` — formalise the greenhouse/compost/soil lifecycle model
+- [ ] `field-notes/pruning-field-investigation` — how to use the pruning field systematically
 
-First session task: update the backlog entry for the toolshed, add Toolshed megamenu to header, create the three route pages, then write the first batch of design collection posts (starting with the patterns already in memory).
+Use `/new-project-file` to add files, `/complete-project` when done.
 
-Key files: `src/pages/toolshed-preview.astro`, `src/components/Header.astro`, `.claude/toolshed-draft/`, `src/content.config.ts`, `.claude/memory/design_pill_bar.md`, `.claude/memory/design_mobile_filter_bar.md`, `.claude/memory/feedback_sticky_sidebar_scroll.md`, `.claude/memory/feedback_pagination_pattern.md`
+---
+
+## 🟡 Toolshed: missing elements
+*added: 2026-04-05*
+
+The Toolshed content design section is missing posts on: way of working with Claude, Claude skills overview. Maaike to review a list of candidates before any are written.
+
+blocker: review list with Maaike before writing
 
 ---
 
@@ -124,6 +134,11 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 ---
 
 ## Archive
+
+### ✅ Toolshed redesign: three-collection structure
+*2026-04-04 · completed: 2026-04-05*
+
+Full Toolshed mini-site shipped. Three sections: Visual design (`/toolshed/design`, 20+ pattern posts), Content design (`/toolshed/content-design`, garden metaphor + prose/attribution/OG posts), Tech specs (`/toolshed/technical`, 5 architecture posts). Megamenu added to header. Mobile header fixed (no auto-expand, full-width triggers, wrapping views row). Content schema extended with `content` category.
 
 ### ✅ Library redesign: stream aesthetic, three views, mobile filters
 *2026-04-04 · completed: 2026-04-04*
