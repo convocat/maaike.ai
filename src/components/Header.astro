@@ -141,16 +141,6 @@ const currentPath = Astro.url.pathname;
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open');
-
-      if (!expanded) {
-        // Auto-open the garden mega menu on mobile
-        const trigger = nav.querySelector('.garden-dropdown-trigger') as HTMLButtonElement | null;
-        const dropdown = nav.querySelector('.garden-dropdown') as HTMLElement | null;
-        if (trigger && dropdown) {
-          trigger.setAttribute('aria-expanded', 'true');
-          dropdown.classList.add('open');
-        }
-      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -543,11 +533,19 @@ const currentPath = Astro.url.pathname;
     }
 
     .site-nav li a {
-      display: block;
-      padding: var(--space-sm) var(--space-xs);
-      min-height: 44px;
       display: flex;
       align-items: center;
+      padding: var(--space-sm) var(--space-xs);
+      min-height: 44px;
+    }
+
+    /* Full-width trigger buttons with chevron pushed to the right */
+    .garden-dropdown-trigger,
+    .toolshed-dropdown-trigger {
+      width: 100%;
+      justify-content: space-between;
+      padding: var(--space-sm) var(--space-xs);
+      min-height: 44px;
     }
 
     .garden-mega-menu {
@@ -555,15 +553,16 @@ const currentPath = Astro.url.pathname;
       width: auto;
       border: none;
       box-shadow: none;
-      padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+      padding: var(--space-xs) 0 var(--space-sm) var(--space-md);
     }
 
     .mega-collections {
       grid-template-columns: 1fr;
     }
 
+    /* Views stay horizontal, wrap to second row if needed */
     .mega-views {
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: var(--space-xs);
     }
 
@@ -572,7 +571,11 @@ const currentPath = Astro.url.pathname;
       width: auto;
       border: none;
       box-shadow: none;
-      padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+      padding: var(--space-xs) 0 var(--space-sm) var(--space-md);
+    }
+
+    .toolshed-mega-item {
+      padding: var(--space-xs) var(--space-sm);
     }
 
     .header-inner {
