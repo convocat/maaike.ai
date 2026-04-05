@@ -27,14 +27,22 @@ Set up a daily scheduled task at 8:00 AM: check `src/content/_inbox/` for new da
 
 ---
 
-## 🟡 Telegram → weblinks integration
+## 🟡 Telegram → inbox + weblinks integration
 *added: 2026-04-05*
 
-Auto-import links from Telegram Saved Messages into the garden's weblinks collection. Maaike saves links to her Telegram Saved Messages and wants them picked up automatically.
+Use Telegram Saved Messages as a capture inbox from the phone. Two types of content:
 
-Needs a plan session to decide: Telegram Bot API vs user MTProto API, sync frequency (on demand / scheduled), metadata captured per link (url, title, description, tags), and whether this runs as a scheduled task or a manual `/telegram-import` skill.
+- **Links**: auto-import into the weblinks collection (url, title, description, tags)
+- **Notes and thoughts**: append to `src/content/_inbox/` as date-stamped entries, picked up at session start alongside Samsung Notes entries from the tablet
+
+This replaces the need for any manual export step from the phone. Full capture flow: phone via Telegram, tablet via Samsung Notes (S-Pen), both land in `_inbox/` automatically.
+
+Needs a plan session to decide: Telegram Bot API vs user MTProto API, how to distinguish links from notes, sync frequency (on demand / scheduled / morning hook), and whether this runs as a scheduled task or a `/telegram-sync` skill.
 
 blocker: plan the integration approach before writing any code
+
+**Opening message for next session:**
+> Build Telegram → inbox integration: Saved Messages on phone should feed `src/content/_inbox/` (notes) and the weblinks collection (links) automatically. Need to decide on API approach (Bot API vs MTProto), how to distinguish links from notes, and whether it runs on a schedule or as a skill. Plan before coding.
 
 ---
 
