@@ -192,3 +192,7 @@ Use these skills for all content work:
 | Share to LinkedIn | `/share-linkedin` (articles + jottings only) |
 
 **`/publish` handles all housekeeping automatically** (validate, OG images, explore map, release notes). Do not run these manually unless debugging.
+
+**Never commit articles or jottings directly with raw git commands.** Always use `/publish`. Raw commits skip enrichment checks, OG images, and LinkedIn. If a post arrives from outside `/new-post` (e.g. written in Typora and moved manually), run `/auto-tag` before `/publish`.
+
+**Cross-session enrichment check.** When resuming a session and reading a handover, check any recently published articles for missing `triples`. If `triples: []`, the post was never auto-tagged — run `/auto-tag` before doing anything else.

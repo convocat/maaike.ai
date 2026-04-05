@@ -21,6 +21,8 @@ Ask the user how they want to proceed (AskUserQuestion):
 
 Run these in order, halting on any error:
 
+0. **Check enrichment** — read the post's frontmatter. If `triples` is missing or empty `[]` on an article or jotting, run `/auto-tag` before continuing. Do not skip this even if the post was written outside `/new-post`.
+
 1. **Detect new vs updated** for each post using `git status`:
    - Run `git status --short <file>` — `A` (added/untracked) = new post, `M` (modified) = update
    - If **new**: set `draft: false` only
