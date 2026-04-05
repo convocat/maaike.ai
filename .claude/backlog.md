@@ -8,6 +8,15 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🔵 Tablet setup + inbox workflow
+*2026-04-05*
+
+Set up Samsung Notes → GitSync → `_inbox/` pipeline for capturing field notes on tablet. The inbox is a persistent running note with date-stamped entries — never delete it, only process new entries. CLAUDE.md and `/backlog` skill updated to check inbox automatically at session start. Morning inbox schedule could not be set up (connection error) — that's the immediate next step. Toolshed posts for session management, skills overview, and tablet workflow were also written and published this session.
+
+Key files: `src/content/_inbox/`, `src/content/toolshed/obsidian-tablet.md`, `CLAUDE.md`, `.claude/commands/backlog.md`, `.claude/backlog.md`
+
+---
+
 ## 🟡 Morning inbox schedule
 *added: 2026-04-05*
 
