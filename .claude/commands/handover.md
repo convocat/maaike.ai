@@ -13,7 +13,7 @@ Captures what was worked on in this session as a ready-to-paste opening message 
 Ask the user (AskUserQuestion):
 
 1. **What was this session about?** (short title, e.g. "Return of the button article") — pre-fill with a suggestion based on recent conversation if possible
-2. **Status** (single select): Ready to start / In progress / Parked
+2. **When the next session picks this up, what state is it in?** (single select): Ready to start / In progress / Parked — make clear this is about the next session, not the current one
 
 ### Step 2: Generate the handover entry
 
@@ -26,6 +26,9 @@ Write a concise handover in this format:
 [2-4 sentences: what was decided, what the starting point is, what to do first]
 
 Key files: [list any relevant files]
+
+**Opening message for next session:**
+> [1-2 sentence version of the above, ready to paste as the first message in a new thread]
 
 ---
 ```
