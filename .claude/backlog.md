@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Morning inbox schedule + Telegram integration
+*2026-04-05*
+
+Morning inbox schedule couldn't be set up (/schedule connection failed) — retry first. Then plan the Telegram integration: Saved Messages on phone → `_inbox/` (notes) and weblinks collection (links). API approach TBD (Bot API vs MTProto). Full capture flow when done: Telegram from phone, Samsung Notes from tablet, both land in `_inbox/` automatically.
+
+Key files: `src/content/_inbox/`, `.claude/backlog.md`
+
+**Opening message for next session:**
+> Retry /schedule for the morning inbox check, then plan the Telegram → inbox + weblinks integration. Telegram Saved Messages should feed `_inbox/` for notes and the weblinks collection for links. API approach (Bot API vs MTProto) still needs deciding.
+
+---
+
 ## 🔵 Tablet setup + inbox workflow
 *2026-04-05*
 
