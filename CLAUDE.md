@@ -197,4 +197,4 @@ Use these skills for all content work:
 
 **Cross-session enrichment check.** When resuming a session and reading a handover, check any recently published articles for missing `triples`. If `triples: []`, the post was never auto-tagged — run `/auto-tag` before doing anything else.
 
-**Inbox check.** At the start of every session (including `/backlog`), check `src/content/_inbox/` for `.md` and `.txt` files. These are tablet notes written in Obsidian waiting for the `/new-post` treatment. Surface them and offer to process each one into a proper post.
+**Inbox check.** At the start of every session (including `/backlog`), check `src/content/_inbox/` for `.md` and `.txt` files. The inbox contains a persistent running note with date-stamped entries (e.g. `2026-04-05:`). Read the entries, surface any that haven't been processed yet, and offer to turn them into posts or backlog items. Never delete the inbox file — it is permanent.
