@@ -11,6 +11,3 @@ draft: false
 ai: "100% Maai"
 ---
 
-## Related
-
-- [[how-to-make-chatgpt-more-conversational|How to make ChatGPT more conversational]]

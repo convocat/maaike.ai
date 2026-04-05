@@ -48,9 +48,10 @@ const mainFeedEligible = allContent.filter((e) => {
   return true;
 });
 
-// Pinned: latest article sits first
-const latestArticle = mainFeedEligible.find((e) => e.collection === 'articles');
-const feedItems = mainFeedEligible.filter((e) => e !== latestArticle);
+// Pinned: three most recent articles sit first
+const pinnedArticles = mainFeedEligible.filter((e) => e.collection === 'articles').slice(0, 3);
+const pinnedSet = new Set(pinnedArticles.map((e) => e.id));
+const feedItems = mainFeedEligible.filter((e) => !pinnedSet.has(e.id));
 
 // Sidebar: currently reading books
 const library = sortByDate(
@@ -199,12 +200,12 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
         </div>
 
         <div class="stream-feed" id="stream-feed">
-          {latestArticle && (() => {
-            const data = latestArticle.data as any;
+          {pinnedArticles.map((article, i) => {
+            const data = article.data as any;
             return (
               <MosaicCard
                 title={data.title}
-                href={`/articles/${latestArticle.id}`}
+                href={`/articles/${article.id}`}
                 date={data.date}
                 updated={data.updated}
                 maturity={data.maturity}
@@ -212,12 +213,12 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
                 description={data.description}
                 collection="articles"
                 pinned={true}
-                hero={true}
+                hero={i === 0}
                 ai={data.ai}
-                bodyPreview={extractBodyPreview(latestArticle.body, 300)}
+                bodyPreview={extractBodyPreview(article.body, i === 0 ? 300 : 220)}
               />
             );
-          })()}
+          })}
           {feedItems.map((entry) => {
             const data = entry.data as any;
             const col = entry.collection;
