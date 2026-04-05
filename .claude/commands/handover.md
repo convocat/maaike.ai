@@ -4,7 +4,12 @@ Generate a session handover and add it to the backlog.
 
 ## What this does
 
-Captures what was worked on in this session as a ready-to-paste opening message for a new thread. Appends it to `.claude/backlog.md` and commits it so it appears on the garden's `/backlog` page.
+Produces two distinct outputs:
+
+1. **Session sign-off** — what was done, decided, and wrapped up in the current session. This closes out the session.
+2. **Handover to next session** — remaining or new work, framed as a backlog entry with a ready-to-paste opening message for the next thread.
+
+These are kept separate. The session signing off writes its own close. The handover addresses the next session as a distinct recipient.
 
 ## Steps
 
@@ -15,27 +20,33 @@ Ask the user (AskUserQuestion):
 1. **What was this session about?** (short title, e.g. "Return of the button article") — pre-fill with a suggestion based on recent conversation if possible
 2. **When the next session picks this up, what state is it in?** (single select): Ready to start / In progress / Parked — make clear this is about the next session, not the current one
 
-### Step 2: Generate the handover entry
+### Step 2: Generate the two-part handover
 
-Write a concise handover in this format:
+Output both parts clearly labelled:
+
+**Part 1 — Session sign-off**
+
+A short paragraph: what was shipped, what was decided, what was left open. This closes the current session. No backlog entry needed.
+
+**Part 2 — Handover to next session**
+
+A backlog entry in this format:
 
 ```markdown
 ## [STATUS EMOJI] [Title]
-*[Date] · [collection or branch if relevant]*
+*[Date]*
 
-[2-4 sentences: what was decided, what the starting point is, what to do first]
+[2-4 sentences: what the next session should pick up, what to do first, any blockers]
 
 Key files: [list any relevant files]
 
 **Opening message for next session:**
 > [1-2 sentence version of the above, ready to paste as the first message in a new thread]
-
----
 ```
 
 Status emojis: 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done
 
-Show the entry to the user and ask: **"Add to backlog?"**
+Show both parts to the user and ask: **"Add to backlog?"**
 
 ### Step 3: Prepend to backlog
 
