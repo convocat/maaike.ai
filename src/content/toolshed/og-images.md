@@ -4,8 +4,8 @@ date: 2026-04-04
 maturity: solid
 tags: [design, tooling, sharing, social]
 description: How Open Graph images are generated at build time using satori and sharp, composited onto a watercolor background.
-category: content
-section: Publishing
+category: design
+section: Content
 ai: co-created
 ---
 

@@ -14,11 +14,9 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const backHref = entry.data.category === 'design' ? '/toolshed/design'
-  : entry.data.category === 'content' ? '/toolshed/content-design'
   : entry.data.category === 'technical' ? '/toolshed/technical'
   : '/toolshed';
 const backLabel = entry.data.category === 'design' ? 'Visual design'
-  : entry.data.category === 'content' ? 'Content design'
   : entry.data.category === 'technical' ? 'Tech specs'
   : 'Toolshed';
 ---
