@@ -15,7 +15,7 @@ Skills are saved Claude Code prompts that encode multi-step workflows. They are 
 
 | Skill | What it does |
 |---|---|
-| `/new-post` | Drafts a new article, jotting, field note, or seed. Opens Typora, reads the result, runs auto-enrichment, and gets sign-off before writing to the collection. |
+| `/new-post` | Drafts a new article, jotting, field note, seed, or Toolshed post. Opens Typora for content posts; Toolshed posts are drafted inline for review. Runs auto-enrichment and gets sign-off before writing. |
 | `/new-book` | Adds a book to the library. Fetches metadata from Open Library automatically. |
 | `/new-project` | Creates a project hub: a field note marked `hub: true` that appears on the Projects page. |
 | `/new-project-file` | Adds a post that belongs to a project hub via the `develops:` frontmatter field. |
@@ -23,7 +23,7 @@ Skills are saved Claude Code prompts that encode multi-step workflows. They are 
 | `/auto-tag` | Runs the three-pass TAO analysis on a post and enriches it with tags, triples, themes, wiki-links, and Wikipedia links. See [The publishing routine](/toolshed/publishing-routine) for how TAO works. |
 | `/publish` | Full publishing routine: validate frontmatter, generate OG images, rebuild the explore map, commit, push, and share to LinkedIn if applicable. |
 | `/share-linkedin` | Generates and shares a LinkedIn post from a published article or jotting. |
-| `/backlog` | Opens a backlog grooming session: scans for stale items, flags blockers, suggests session focus. |
+| `/backlog` | Opens a backlog grooming session: scans for stale items, flags blockers, checks the tablet inbox for unprocessed notes, and suggests session focus. |
 | `/handover` | Writes a session close and a brief for the next session. |
 | `/update-release-notes` | Appends a summary of recent changes to the release notes. |
 
