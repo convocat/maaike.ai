@@ -4,19 +4,51 @@ Create a new content post. Writing first, metadata later.
 
 ## Step 1: Select type (first question, before opening Typora)
 
-Ask the user using AskUserQuestion with these 4 options:
+Ask the user using AskUserQuestion with these options:
 
 - **Article** — long-form piece, will be shared on LinkedIn
 - **Jotting** — short note, thought, or observation, will be shared on LinkedIn
 - **Field note or seed** — reflection or early idea (no LinkedIn)
+- **Toolshed post** — documents a pattern, component, or workflow for the Toolshed (no Typora, drafted inline)
 - **Other** — weblink, video, book, or project file
 
 **If they choose "Field note or seed":** ask a follow-up with 2 options: Field note / Seed.
+
+**If they choose "Toolshed post":** skip Step 2 entirely. Go straight to **Step 2b: Toolshed draft**.
 
 **If they choose "Other":** ask a follow-up with 4 options: Weblink / Video / Library / File or artefact.
   - If **Library**: tell them "Use `/new-book` to add a book — it fetches metadata from Open Library automatically." Stop here.
   - If **File or artefact**: tell them "Use `/new-project-file` to create a project file — it links it to the right project hub." Stop here.
   - If **Weblink** or **Video**: ask for the URL now before opening Typora.
+
+## Step 2b: Toolshed draft (skip Step 2 for Toolshed posts)
+
+Toolshed posts are co-created (not written by Maaike in Typora). Draft inline.
+
+1. Ask for:
+   - **Section**: Architecture / Components / Content / Foundation / Infrastructure / Interactive controls / Layout / Workflow
+   - **Category**: technical / content / design (matches the three Toolshed sections)
+
+2. Generate the full post content based on the brief provided. Present it to Maaike for review before writing anything.
+
+3. Once approved, write to `src/content/toolshed/<slug>.md` using this frontmatter:
+   ```yaml
+   ---
+   title: "<title>"
+   description: "<description>"
+   date: <YYYY-MM-DD today>
+   maturity: <solid or developing>
+   tags: [<relevant tags>]
+   category: <technical|content|design>
+   section: <Section name>
+   ai: co-created
+   ---
+   ```
+   Note: Toolshed posts do not use `draft: true`, `triples:`, or LinkedIn blocks.
+
+4. Skip to Step 5 (auto-tag).
+
+---
 
 ## Step 2: Open Typora
 
