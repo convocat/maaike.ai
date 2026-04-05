@@ -102,7 +102,13 @@
     "anthropocentrism":             { "label": "Anthropocentrism",             "type": "philosophical-concept" },
     "cognitive-assemblage":         { "label": "Cognitive assemblage",         "type": "theoretical-concept" },
     "nonconscious-cognition":       { "label": "Nonconscious cognition",       "type": "theoretical-concept" },
-    "umwelt":                       { "label": "Umwelt",                       "type": "theoretical-concept" }
+    "umwelt":                       { "label": "Umwelt",                       "type": "theoretical-concept" },
+
+    "digital-garden":               { "label": "Digital garden",               "type": "interaction-metaphor" },
+    "stream-metaphor":              { "label": "Stream",                        "type": "interaction-metaphor" },
+    "maturity-system":              { "label": "Maturity system",               "type": "theoretical-concept" },
+    "thinking-in-public":           { "label": "Thinking in public",            "type": "epistemic-stance" },
+    "maggie-appleton":              { "label": "Maggie Appleton",               "type": "person" }
   },
 
   "associations": [
@@ -181,6 +187,12 @@
     { "subject": "nonconscious-cognition",        "predicate": "counters",          "object": "anthropocentrism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
     { "subject": "cognitive-assemblage",          "predicate": "demonstrates",      "object": "nonconscious-cognition",        "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
     { "subject": "llms",                          "predicate": "instance-of",       "object": "cognitive-assemblage",          "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
-    { "subject": "umwelt",                        "predicate": "incompatible-with", "object": "anthropocentrism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" }
+    { "subject": "umwelt",                        "predicate": "incompatible-with", "object": "anthropocentrism",              "source": "reading-notes-bacteria-to-ai",                            "collection": "seeds" },
+
+    { "subject": "digital-garden",               "predicate": "contrasted-with",   "object": "stream-metaphor",               "source": "garden-as-metaphor",                                      "collection": "articles" },
+    { "subject": "digital-garden",               "predicate": "leads-to",          "object": "thinking-in-public",            "source": "garden-as-metaphor",                                      "collection": "articles" },
+    { "subject": "maturity-system",              "predicate": "instance-of",       "object": "digital-garden",               "source": "garden-as-metaphor",                                      "collection": "articles" },
+    { "subject": "genai",                        "predicate": "risks",             "object": "thinking-in-public",            "source": "garden-as-metaphor",                                      "collection": "articles" },
+    { "subject": "digital-garden",               "predicate": "demonstrates",      "object": "metacognition",                 "source": "garden-as-metaphor",                                      "collection": "articles" }
   ]
 }
