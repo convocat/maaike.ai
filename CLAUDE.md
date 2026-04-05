@@ -196,3 +196,5 @@ Use these skills for all content work:
 **Never commit articles or jottings directly with raw git commands.** Always use `/publish`. Raw commits skip enrichment checks, OG images, and LinkedIn. If a post arrives from outside `/new-post` (e.g. written in Typora and moved manually), run `/auto-tag` before `/publish`.
 
 **Cross-session enrichment check.** When resuming a session and reading a handover, check any recently published articles for missing `triples`. If `triples: []`, the post was never auto-tagged — run `/auto-tag` before doing anything else.
+
+**Inbox check.** At the start of every session (including `/backlog`), check `src/content/_inbox/` for `.md` files. These are tablet notes written in Obsidian waiting for the `/new-post` treatment. Surface them and offer to process each one into a proper post.

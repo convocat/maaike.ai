@@ -20,6 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Obsidian workspace config (device-specific, creates noise)
+src/content/.obsidian/
+
 # jetbrains setting folder
 .idea/
 
