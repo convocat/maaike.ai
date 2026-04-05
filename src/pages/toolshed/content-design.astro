@@ -4,16 +4,16 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import settings from '../../data/settings.json';
 
 const allPosts = (await getCollection('toolshed'))
-  .filter((e: any) => !e.data.draft && e.data.category === 'design')
+  .filter((e: any) => !e.data.draft && e.data.category === 'content')
   .sort((a: any, b: any) => a.data.title.localeCompare(b.data.title));
 
 // Section order and labels
 const sectionOrder = [
-  { key: 'Foundation',          desc: 'Tokens, color, typography, spacing' },
-  { key: 'Layout',              desc: 'Page structure, grids, scrolling' },
-  { key: 'Components',          desc: 'Reusable visual building blocks' },
-  { key: 'Interactive controls', desc: 'Buttons, filters, pagination, navigation' },
-  { key: 'Content',             desc: 'Prose, post formatting, attribution' },
+  { key: 'Concept',      desc: 'What the garden is and why it exists' },
+  { key: 'Voice',        desc: 'How to write for the garden' },
+  { key: 'Patterns',     desc: 'Structural content patterns and prose conventions' },
+  { key: 'Transparency', desc: 'AI attribution, maturity, editorial honesty' },
+  { key: 'Publishing',   desc: 'From draft to live: the publishing workflow' },
 ];
 
 // Group posts by section
@@ -33,16 +33,16 @@ const orderedSections = [
 ];
 ---
 
-<PageLayout title={`Design — Toolshed — ${settings.siteTitle}`} description="Design patterns, component decisions, and interface conventions for this garden.">
+<PageLayout title={`Content design — Toolshed — ${settings.siteTitle}`} description="The garden metaphor, editorial voice, prose patterns, and content conventions behind this garden.">
 
   <div class="ds-heading">
     <a href="/toolshed" class="ds-back">&larr; Toolshed</a>
-    <h1>Visual design</h1>
-    <p class="ds-desc">How this garden's interface works: the components, patterns, and decisions behind it. Each entry is a living document.</p>
+    <h1>Content design</h1>
+    <p class="ds-desc">The garden as a concept, the voice behind the writing, and the patterns that give content its shape.</p>
   </div>
 
   {allPosts.length === 0 ? (
-    <p class="ds-empty">No design documents yet.</p>
+    <p class="ds-empty">No content design documents yet.</p>
   ) : (
     <div class="ds-body">
       {orderedSections.map(sec => (
@@ -115,14 +115,12 @@ const orderedSections = [
     font-size: 0.9rem;
   }
 
-  /* ── Body layout ── */
   .ds-body {
     display: flex;
     flex-direction: column;
     gap: var(--space-3xl);
   }
 
-  /* ── Section ── */
   .ds-section-header {
     display: flex;
     align-items: baseline;
@@ -147,7 +145,6 @@ const orderedSections = [
     margin: 0;
   }
 
-  /* ── Post list ── */
   .ds-post-list {
     list-style: none;
     padding: 0;
@@ -157,7 +154,6 @@ const orderedSections = [
     gap: 2px;
   }
 
-  /* ── Post item: mosaic card style ── */
   .ds-post-item {
     background: #FFFFFF;
     border: 1px solid var(--color-border);
@@ -180,16 +176,14 @@ const orderedSections = [
     min-height: 3.5rem;
   }
 
-  /* Left strip */
   .ds-post-strip {
     width: 10px;
     flex-shrink: 0;
-    background: #E2E4E8;
-    border-inline-end: 2px double rgba(140, 100, 80, 0.2);
+    background: #E8E2D8;
+    border-inline-end: 2px double rgba(120, 90, 60, 0.2);
   }
-  :root[data-theme="dark"] .ds-post-strip { background: #252830; }
+  :root[data-theme="dark"] .ds-post-strip { background: #2a2620; }
 
-  /* Main */
   .ds-post-main {
     flex: 1;
     display: flex;
@@ -215,7 +209,6 @@ const orderedSections = [
     line-height: 1.4;
   }
 
-  /* Right meta */
   .ds-post-meta {
     display: flex;
     align-items: center;
