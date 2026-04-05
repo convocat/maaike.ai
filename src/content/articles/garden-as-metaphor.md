@@ -2,9 +2,21 @@
 title: The garden as a metaphor
 date: 2026-04-05
 maturity: solid
-tags: [content-design, garden, philosophy, publishing]
+tags:
+  - digital-gardens
+  - philosophy
+  - writing
+  - personal-web
+  - non-linear-thinking
+  - thinking-in-public
 description: Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.
 ai: 100% Maai
+triples:
+  - ["Digital garden", "contrasted-with", "Stream"]
+  - ["Digital garden", "leads-to", "Thinking in public"]
+  - ["Maturity system", "instance-of", "Digital garden"]
+  - ["GenAI", "risks", "Thinking in public"]
+  - ["Digital garden", "demonstrates", "Metacognition"]
 ---
 
 A closer look at the garden metaphor and how it works on my site.
@@ -19,7 +31,7 @@ I came across the metaphor of a digital garden in [[The History of Digital Garde
 
 The web's default mode is the stream: a reverse-chronological feed where new content pushes old content out of sight. Streams reward frequency and recency. A post from three years ago is effectively invisible.
 
-A garden is different. It's topological, not chronological; ideas connect to other ideas based on what they're about, not when they were planted. A post from two years ago and one from last week can sit side by side if they're about the same thing.
+A garden is [[digital-gardens-vs-blogs|different]]. It's topological, not chronological; ideas connect to other ideas based on what they're about, not when they were planted. A post from two years ago and one from last week can sit side by side if they're about the same thing.
 
 I started out with just the garden, but did find that I needed some kind of chronology, just to be able to keep track. And stream, of course, is a common web term that fits the garden metaphor really well. Steam started out as a subsidiary, but is now the main entry point for my website.
 
@@ -39,7 +51,7 @@ I also added a `pruning` field, but haven't used it extensively yet.
 
 What's really nice about a garden, is that there's no end state. If we take that to writing, that means that I can give myself permission to share thoughts in progress. And to reflect on the process at the same time. There's literally no prefedined structure, only that which grows organically. And that's ideal for a head like mine: just chase my own thoughts with one of these butterfly nets, try to catch them and pin them down into words.
 
-Side bonus: publishing incomplete thoughts invites collaboration, surfaces blind spots, and creates accountability to develop them further. As such, a digital garden really is my thinking space, much like my physical garden.
+Side bonus: [[thinking-in-public|publishing incomplete thoughts]] invites collaboration, surfaces blind spots, and creates accountability to develop them further. As such, a digital garden really is my thinking space, much like my physical garden.
 
 ## Garden, mycellium, ground & soil
 
@@ -47,7 +59,7 @@ My way of working involves four environments:
 
 - writing in Typora: this is a completely empty space, just a blank screen with nothing.
 - publishing to the website: the actual garden, for anyone to visit and explore
-- the middle layer, where metadata, triples and graphs live. This web of meaning connects everything, that's why I called it the mycellium.
+- the middle layer, where metadata, triples and graphs live. This web of meaning connects everything, that's why I called it the [[knowledge-graph-for-the-garden|mycellium]].
 - the repo where all the content lives - I guess this is the soil, or the roots. The ground truth
 
 ## The toolshed
