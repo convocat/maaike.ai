@@ -8,6 +8,24 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Morning inbox schedule
+*added: 2026-04-05*
+
+Set up a daily scheduled task at 8:00 AM: check `src/content/_inbox/` for new date-stamped entries in the running note, surface them, and suggest turning them into backlog items or posts. Use `/schedule` to create it — connection was unavailable during the session where this was added.
+
+---
+
+## 🟡 Telegram → weblinks integration
+*added: 2026-04-05*
+
+Auto-import links from Telegram Saved Messages into the garden's weblinks collection. Maaike saves links to her Telegram Saved Messages and wants them picked up automatically.
+
+Needs a plan session to decide: Telegram Bot API vs user MTProto API, sync frequency (on demand / scheduled), metadata captured per link (url, title, description, tags), and whether this runs as a scheduled task or a manual `/telegram-import` skill.
+
+blocker: plan the integration approach before writing any code
+
+---
+
 ## 🟡 Garden housekeeping
 *2026-04-05*
 
