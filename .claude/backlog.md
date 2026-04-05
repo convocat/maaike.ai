@@ -8,6 +8,17 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Garden housekeeping
+*2026-04-05*
+
+Weeded the garden (deleted untitled-draft, test-quote, thin ChatGPT article stub), kept Convoclub as living history. Pinned the 3 most recent articles at the top of the stream (first as hero, next two with "Recent" badge). Added the publishing routine to Tech specs in the Toolshed, with a detailed section on the auto-tag enrichment process (TAO method, triples registry, wiki-links). Broken wiki link in chatgpt-presentation-prep was already plain text — backlog item can be closed.
+
+Next: update backlog (close broken-link item, log weed kills), decide on thin seeds, write two Growing the digital garden project files (garden-lifecycle-weeds, pruning-field-investigation), and review Toolshed Workflow section gaps (way of working with Claude, skills overview).
+
+Key files: `.claude/backlog.md`, `src/content/toolshed/publishing-routine.md`, `src/pages/index.astro`, `src/components/MosaicCard.astro`
+
+---
+
 ## 🟡 Growing the digital garden
 *added: 2026-04-05*
 
