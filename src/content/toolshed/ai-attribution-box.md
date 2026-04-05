@@ -4,8 +4,8 @@ date: 2026-04-04
 maturity: solid
 tags: [design, components, transparency, content]
 description: The styled aside shown at the top of posts to declare how much AI was involved in writing them.
-category: content
-section: Transparency
+category: design
+section: Components
 ai: co-created
 ---
 
