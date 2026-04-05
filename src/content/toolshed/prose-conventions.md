@@ -4,8 +4,8 @@ date: 2026-04-04
 maturity: solid
 tags: [design, content, typography, prose]
 description: "The custom prose elements available in garden posts: blockquotes, observation blocks, tended notes, LinkedIn drafts, and the h6 paragraph header."
-category: design
-section: Content
+category: content
+section: Patterns
 ai: co-created
 ---
 
