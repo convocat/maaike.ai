@@ -18,10 +18,13 @@ Read these files in parallel:
 - `.claude/backlog.md`
 - `.claude/health-report.md`
 - Recent git log: `git log --oneline -15`
+- List files in `src/content/_inbox/` (excluding `.gitkeep`)
 
 ### Step 2: Scan and surface
 
 Analyse what you've read. Flag each of the following if present:
+
+**Inbox items**: if any `.md` files exist in `src/content/_inbox/`, list them. These are tablet notes waiting for the `/new-post` treatment. Surface them prominently — they are the highest-priority quick win.
 
 **Stale items** (last-touched date is 14+ days ago from today): list them with their last-touched date.
 
