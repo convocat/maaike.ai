@@ -15,6 +15,9 @@ Set up Samsung Notes → GitSync → `_inbox/` pipeline for capturing field note
 
 Key files: `src/content/_inbox/`, `src/content/toolshed/obsidian-tablet.md`, `CLAUDE.md`, `.claude/commands/backlog.md`, `.claude/backlog.md`
 
+**Opening message for next session:**
+> Set up Samsung Notes → GitSync → `_inbox/` pipeline for capturing field notes on tablet. The inbox is a persistent running note with date-stamped entries — never delete it, only process new entries. CLAUDE.md and `/backlog` skill updated to check inbox automatically at session start. Morning inbox schedule could not be set up (connection error) — that's the immediate next step.
+
 ---
 
 ## 🟡 Morning inbox schedule
