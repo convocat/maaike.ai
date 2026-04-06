@@ -67,6 +67,7 @@ const library = defineCollection({
     review: z.string().optional(),
     recommended: z.boolean().optional(),
     recommended_score: z.number().optional(),
+    file: z.string().optional(),
   }),
 });
 
