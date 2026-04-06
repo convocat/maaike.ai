@@ -47,7 +47,7 @@ A backlog entry in this format:
 Key files: [list any relevant files]
 
 **Opening message for next session:**
-> [1-2 sentence version of the above, ready to paste as the first message in a new thread]
+> Run `/telegram-sync` first, then: [1-2 sentence version of the above, ready to paste as the first message in a new thread]
 ```
 
 Status emojis: 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done

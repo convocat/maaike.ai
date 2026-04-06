@@ -87,7 +87,9 @@ const jottings = defineCollection({
 
 const files = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/files' }),
-  schema: baseSchema,
+  schema: baseSchema.extend({
+    file: z.string().optional(),
+  }),
 });
 
 const artefacts = defineCollection({
