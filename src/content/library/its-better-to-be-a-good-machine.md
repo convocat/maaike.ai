@@ -4,6 +4,7 @@ author: "Various"
 cover: "/images/library/its-better-to-be-a-good-machine.jpg"
 description: "A collection of philosophical essays on machine ethics, exploring what it means for artificial systems to behave well and what moral responsibilities they might carry"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

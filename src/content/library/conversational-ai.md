@@ -3,6 +3,7 @@ title: "Conversational AI"
 author: "Andrew Freed"
 description: "Covers the technical and design sides of building conversational AI systems, useful for keeping understanding of the field current"
 date: 2026-03-12
+updated:
 status: to-read
 maturity: draft
 tags:

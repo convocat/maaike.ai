@@ -3,6 +3,7 @@ title: "Microcopy"
 author: "Kinneret Yifrah"
 description: "A comprehensive reference and practical guide to writing the small, functional texts in digital interfaces: buttons, labels, error messages, and empty states"
 date: 2026-03-12
+updated:
 maturity: draft
 tags:
   - writing

@@ -3,6 +3,7 @@ title: "Online invloed"
 author: "Bas Wouters & Joris Groen"
 description: "A practical guide to online persuasion and behaviour design, showing how digital interfaces can ethically nudge users using psychological principles"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

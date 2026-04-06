@@ -4,6 +4,7 @@ author: "Isaac Asimov"
 cover: "/images/library/the-complete-robot.jpg"
 description: "Thirty-one stories spanning Asimov's entire robot series, from the earliest positronic experiments to the philosophical implications of machine minds"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - science-fiction

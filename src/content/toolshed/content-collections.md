@@ -43,7 +43,7 @@ Each collection extends `baseSchema` with its own additional fields:
 
 | Collection | Extra fields |
 |------------|-------------|
-| `articles` | `pruning?: string` — notes on what to cut |
+| `articles` | `pruning?: string` — notes on what to cut · `image?: string` — path to featured image, drives split OG card |
 | `weblinks` | `url: string` (required URL) |
 | `videos` | `url: string` (required URL) |
 | `library` | `author`, `cover?`, `status`, `genre?`, `book_type?`, `purpose?`, `reason?`, `notes?`, `rating?`, `review?`, `recommended?`, `recommended_score?` |

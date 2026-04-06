@@ -4,6 +4,7 @@ author: "Steven Bird, Ewan Klein & Edward Loper"
 cover: "/images/library/natural-language-processing-with-python.jpg"
 description: "Hands-on introduction to NLP using Python and the NLTK library, covering text classification, parsing, semantics, and the linguistic concepts behind each technique"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

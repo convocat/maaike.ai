@@ -73,6 +73,36 @@ If no image exists (collections not in the generation script, or unpublished dra
 
 `CopyCardImage.astro` (in the post footer share section) lets readers copy the OG image to their clipboard as a PNG — for pasting directly into LinkedIn without uploading. It reads the pre-generated file at the `imagePath` prop and uses the Clipboard API with a Canvas fallback.
 
+## Article images: split layout
+
+When an article contains an image in its body, the OG card uses a split layout instead of the default watercolor background:
+
+- **Left panel (55%, 660px):** sage green wash, wordmark top-left, title and description bottom-left
+- **Right panel (45%, 540px):** white background, article image scaled to fit (no cropping)
+
+### How it works
+
+The generator scans the article body for the first Markdown image (`![...](path)`). If one is found, it calls `generateSplitImage()` instead of the default compositor:
+
+1. Render text panel (660×627) with sage green background via satori
+2. Resize article image to fit within 540×627 using `sharp` `fit: contain`, white background
+3. Composite both panels side by side onto a 1200×627 canvas
+
+No frontmatter field needed. The image in the body drives everything.
+
+### Adding an image to an article
+
+Articles created with `/new-post` include two Typora keys in their frontmatter:
+
+```yaml
+typora-root-url: ../../../public
+typora-copy-images-to: ../../../public/images/articles
+```
+
+When you drop or paste an image into Typora, it automatically copies the file to `public/images/articles/` and inserts the reference as `/images/articles/filename.jpg`. On the next `/publish` run, the split OG card is generated automatically.
+
+For existing articles: drop an image inline in the body using standard Markdown. The generator picks it up on the next publish.
+
 ## When to regenerate
 
 OG images need to be regenerated when:

@@ -4,6 +4,7 @@ author: "Mariana Mazzucato, Rosie Collington"
 cover: "/images/library/the-big-con.jpg"
 description: "Argues that the consulting industry has hollowed out public institutions and corporate strategy, replacing genuine expertise with expensive performative advice"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - economics

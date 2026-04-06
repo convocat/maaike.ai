@@ -4,6 +4,7 @@ author: "Hannah Fry"
 cover: "/images/library/hello-world.jpg"
 description: "Examines the algorithms shaping medicine, crime, art, and justice, asking when it makes sense to hand decisions to machines and when it doesn't"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags: []

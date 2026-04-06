@@ -4,6 +4,7 @@ author: "Pentti Haikonen"
 cover: "/images/library/consciousness-and-robot-sentience.jpg"
 description: "Explores whether machines could be conscious using an associative neural model, proposing a hardware-based architecture for robot sentience"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

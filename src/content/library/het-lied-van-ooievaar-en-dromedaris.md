@@ -4,6 +4,7 @@ author: "Anjet Daanje"
 cover: "/images/library/het-lied-van-ooievaar-en-dromedaris.jpg"
 description: "Een literaire roman over het leven van een Surinaamse familie door meerdere generaties, waarin kolonialisme, verlies en identiteit samenkomen"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - fictie

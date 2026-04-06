@@ -4,6 +4,7 @@ author: "Don Norman"
 cover: "/images/library/the-design-of-everyday-things.jpg"
 description: "Foundational text on human-centred design, arguing that when objects are hard to use the fault lies with the design, not the user"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

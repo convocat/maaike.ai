@@ -4,6 +4,7 @@ author: "Ian McEwan"
 cover: "/images/library/machines-like-me.jpg"
 description: "A literary novel set in an alternate 1980s where a man buys one of the first synthetic humans and finds the android's moral rigidity destabilising his relationship and his life"
 date: 2026-03-12
+updated:
 status: to-read
 maturity: draft
 tags:

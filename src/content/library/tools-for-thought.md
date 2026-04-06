@@ -2,6 +2,7 @@
 title: "Tools for thought"
 author: "Lev Tankelevitch, Elena L. Glassman, Jessica He, Aniket Kittur, Mina Lee, Srishti Palani, Advait Sarkar, Gonzalo Ramos, Yvonne Rogers, Hari Subramonyam"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

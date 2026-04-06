@@ -4,6 +4,7 @@ author: "Daniel Chandler"
 cover: "/images/library/semiotics-the-basics.jpg"
 description: "An accessible introduction to semiotics, explaining how signs, codes, and meaning-making work across language, images, and culture"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - linguistics

@@ -64,6 +64,8 @@ Toolshed posts are co-created (not written by Maaike in Typora). Draft inline.
    ai: "100% Maai"
    tags: []
    triples: []
+   typora-root-url: ../../../public
+   typora-copy-images-to: ../../../public/images/articles
    ---
 
    # Title

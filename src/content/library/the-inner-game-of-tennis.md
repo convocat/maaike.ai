@@ -4,6 +4,7 @@ author: "W. Timothy Gallwey"
 cover: "/images/library/the-inner-game-of-tennis.jpg"
 description: "A groundbreaking book on performance and self-interference, using tennis as a lens to explore how to get out of your own way and let the body do what it already knows"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

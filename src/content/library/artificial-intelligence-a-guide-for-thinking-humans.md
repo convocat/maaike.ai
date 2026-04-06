@@ -4,6 +4,7 @@ author: "Melanie Mitchell"
 cover: "/images/library/artificial-intelligence-a-guide-for-thinking-humans.jpg"
 description: "A balanced and rigorous tour of what AI can and cannot do, cutting through both hype and panic to explain where the field actually stands"
 date: 2026-03-12
+updated:
 status: to-read
 maturity: draft
 tags: []

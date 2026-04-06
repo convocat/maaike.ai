@@ -4,6 +4,7 @@ author: "Carla Diana"
 cover: "/images/library/my-robot-gets-me.jpg"
 description: "On the social design of robots and connected products: how to give them personality and presence without crossing into uncanny territory"
 date: 2026-03-12
+updated:
 status: to-read
 maturity: draft
 tags:

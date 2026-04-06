@@ -2,6 +2,7 @@
 title: "Grounding gaps in language model generations"
 author: "Omar Shaikh, Kristina Gligorić, Ashna Khetan, Matthias Gerstgrasser, Diyi Yang, Dan Jurafsky"
 date: 2026-04-02
+updated: 2026-04-06
 status: read
 maturity: complete
 file: /pdfs/2311.09144v2__1_.pdf

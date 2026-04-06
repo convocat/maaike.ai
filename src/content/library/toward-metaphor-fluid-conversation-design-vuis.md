@@ -2,6 +2,7 @@
 title: "Toward metaphor-fluid conversation design for VUIs"
 author: "Smit Desai, Jessie Chin, Dakuo Wang, Benjamin Cowan, Michael Twidale"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

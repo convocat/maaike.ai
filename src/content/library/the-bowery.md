@@ -4,6 +4,7 @@ author: "Eric Ferrara"
 cover: "/images/library/the-bowery.jpg"
 description: "A detailed history of one of New York City's most storied streets, from its origins as a colonial road to its decades as the capital of cheap entertainment and vice"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - history

@@ -4,6 +4,7 @@ author: "N. Katherine Hayles"
 cover: "/images/library/unthought.jpg"
 description: "Argues that cognition extends beyond conscious human thought into technical systems and biological processes, challenging assumptions about where thinking actually happens"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - philosophy

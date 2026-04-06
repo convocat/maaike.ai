@@ -3,6 +3,7 @@ title: "Tech skills for conversation designers"
 author: "Hans van Dam"
 description: "Demystifies the technical side of conversation design for non-developers: NLU, intents, entities, and how to read and write the underlying logic"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

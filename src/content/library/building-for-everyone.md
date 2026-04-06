@@ -4,6 +4,7 @@ author: "Annie Jean-Baptiste"
 cover: "/images/library/building-for-everyone.jpg"
 description: "A guide to inclusive product design from Google's perspective, showing how centering underrepresented users produces better products for everyone"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

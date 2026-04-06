@@ -35,6 +35,7 @@ const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/articles' }),
   schema: baseSchema.extend({
     pruning: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
