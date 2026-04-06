@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -54,18 +53,6 @@ const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : '
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
-
-    <!-- Persist theme across view transitions -->
-    <script is:inline>
-      document.addEventListener('astro:after-swap', () => {
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = stored || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      });
-    </script>
-
-    <ViewTransitions />
 
   </head>
   <body>
