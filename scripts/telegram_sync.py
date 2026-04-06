@@ -26,6 +26,8 @@ BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
 REPO_ROOT = Path(__file__).parent.parent
 INBOX_FILE = REPO_ROOT / 'src/content/_inbox/telegram.md'
 WEBLINKS_DIR = REPO_ROOT / 'src/content/weblinks'
+FILES_DIR = REPO_ROOT / 'src/content/files'
+PDFS_DIR = REPO_ROOT / 'public/pdfs'
 
 URL_RE = re.compile(r'^https?://\S+', re.IGNORECASE)
 
@@ -113,6 +115,56 @@ def create_weblink(url, date):
     print(f'Weblink: {filepath.name}')
 
 
+def download_pdf(file_id, filename, date):
+    """Download a PDF from Telegram, save to public/pdfs/, create a files entry."""
+    # Get the file path from Telegram
+    r = requests.get(f'{BASE_URL}/getFile', params={'file_id': file_id}, timeout=30)
+    r.raise_for_status()
+    file_path = r.json()['result']['file_path']
+
+    # Download the file
+    pdf_url = f'https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}'
+    r = requests.get(pdf_url, timeout=60)
+    r.raise_for_status()
+
+    # Save PDF
+    PDFS_DIR.mkdir(parents=True, exist_ok=True)
+    safe_name = re.sub(r'[^a-zA-Z0-9._-]', '_', filename)
+    pdf_dest = PDFS_DIR / safe_name
+    counter = 1
+    stem = pdf_dest.stem
+    while pdf_dest.exists():
+        pdf_dest = PDFS_DIR / f'{stem}-{counter}.pdf'
+        counter += 1
+    pdf_dest.write_bytes(r.content)
+
+    # Create files collection entry
+    FILES_DIR.mkdir(parents=True, exist_ok=True)
+    slug = slugify(pdf_dest.stem)
+    date_str = date.strftime('%Y-%m-%d')
+    md_path = FILES_DIR / f'{slug}.md'
+    counter = 1
+    while md_path.exists():
+        md_path = FILES_DIR / f'{slug}-{counter}.md'
+        counter += 1
+
+    content = (
+        f'---\n'
+        f'title: "{pdf_dest.stem}"\n'
+        f'date: {date_str}\n'
+        f'updated: {date_str}\n'
+        f'maturity: draft\n'
+        f'tags: []\n'
+        f'description: ""\n'
+        f'draft: false\n'
+        f'ai: "100% Maai"\n'
+        f'file: /pdfs/{pdf_dest.name}\n'
+        f'---\n'
+    )
+    md_path.write_text(content, encoding='utf-8')
+    print(f'PDF: {pdf_dest.name} -> {md_path.name}')
+
+
 def append_to_inbox(text, date):
     date_str = date.strftime('%Y-%m-%d')
     entry = f'\n{date_str}: {text}\n'
@@ -132,11 +184,18 @@ def main():
     count = 0
     for update in updates:
         msg = update.get('message', {})
+        date = datetime.fromtimestamp(msg['date'], tz=timezone.utc)
+
+        doc = msg.get('document')
+        if doc and doc.get('mime_type') == 'application/pdf':
+            filename = doc.get('file_name', f'document-{date.strftime("%Y%m%d%H%M%S")}.pdf')
+            download_pdf(doc['file_id'], filename, date)
+            count += 1
+            continue
+
         text = (msg.get('text') or '').strip()
         if not text:
             continue
-
-        date = datetime.fromtimestamp(msg['date'], tz=timezone.utc)
 
         if URL_RE.match(text):
             create_weblink(text, date)
