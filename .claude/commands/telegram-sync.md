@@ -72,9 +72,11 @@ For each new stub in `src/content/files/`:
    - `genre: research-paper` (or adjust based on content)
    - `book_type: non-fiction`
 
-6. **Delete the stub** from `src/content/files/`.
+6. **Run `/summarize-pdf`** on the PDF file to generate a structured summary and append it to the library entry, then run `/auto-tag` (using topics as tags too).
 
-7. Show Maaike what was created or updated before committing.
+7. **Delete the stub** from `src/content/files/`.
+
+8. Show Maaike what was created or updated before committing.
 
 ## Step 5: Offer next steps
 
