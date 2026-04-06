@@ -18,11 +18,17 @@ These are kept separate. The session signing off writes its own close. The hando
 Ask the user (AskUserQuestion):
 
 1. **What was this session about?** (short title, e.g. "Return of the button article") — pre-fill with a suggestion based on recent conversation if possible
-2. **When the next session picks this up, what state is it in?** (single select): Ready to start / In progress / Parked — make clear this is about the next session, not the current one
+2. **What's the status of the remaining work?** (single select, no ambiguity — pick the one that fits):
+   - 🟡 **Ready**: there's a clear next step and the next session can start on it immediately
+   - 🔵 **In progress**: work is ongoing and the next session picks up mid-task
+   - 🟠 **Parked**: no follow-up needed right now (blocked, deprioritized, or waiting on something)
+   - ✅ **Done**: everything from this session is wrapped up, no backlog entry needed
 
-### Step 2: Generate the two-part handover
+### Step 2: Generate the handover
 
-Output both parts clearly labelled:
+If the user selected ✅ **Done**: output only Part 1 (sign-off), skip Part 2 and Step 3. No backlog entry needed.
+
+Otherwise output both parts clearly labelled:
 
 **Part 1 — Session sign-off**
 
