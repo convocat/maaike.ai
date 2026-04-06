@@ -1,950 +1,1296 @@
 {
   "mix": {
     "main": {
-      "id": "a-room-of-ones-own",
-      "title": "A Room of One's Own",
-      "author": "Virginia Woolf",
-      "genre": "Essay / Feminist Literature",
-      "status": "unread",
+      "id": "microcopy",
+      "title": "Microcopy",
+      "author": "Kinneret Yifrah",
+      "genre": "UX Writing / Design",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
-      "reason": "Just new",
+      "reason": "More of a reference work. But remind me it's on my ereader though. Hm ereader discoverability is a thing here, don't you think? ",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\a-room-of-ones-own.md",
       "scores": {
-        "topic_match": 33,
+        "topic_match": 50,
         "matched_keywords": [
-          "feminist"
+          "writing",
+          "design"
         ],
         "experience": 65,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "role-of-ai",
-            "essay",
-            "feminist-literature"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 70,
-        "total": 55.1
-      },
-      "estimated_pages": 80,
-      "estimated_days": 2,
-      "is_side_read": true,
-      "why": "Rediscovery"
-    },
-    "side": {
-      "id": "the-witchs-vacuum-cleaner",
-      "title": "The Witch's Vacuum Cleaner",
-      "author": "Terry Pratchett",
-      "genre": "Fantasy / Short Stories",
-      "status": "unread",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "It wasn't on my radar. ",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-witchs-vacuum-cleaner.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 95,
         "garden": {
           "score": 40,
           "matching_tags": [
-            "fantasy",
-            "short-stories"
+            "writing",
+            "design"
           ],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 48.8
+        "freshness": 25,
+        "total": 50
       },
-      "estimated_pages": 350,
-      "estimated_days": 9,
-      "is_side_read": true,
-      "why": "By terry pratchett"
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "design"
+      ]
+    },
+    "side": {
+      "id": "beyond-the-illusion-pragmatic-cues-in-conversation",
+      "title": "Beyond the illusion: pragmatic cues in conversation",
+      "author": "Laura Spillner, Johanna Rockstroh, Paola Raquel Peña",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversation-design",
+          "conversational-ai"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversation-design",
+        "conversational-ai",
+        "voice-design"
+      ]
     },
     "wildcard": {
-      "id": "the-art-of-co-design",
-      "title": "The Art of Co-design",
-      "author": "Jeremy Kerr et al.",
-      "genre": "Design / Methodology",
-      "status": "started",
-      "type": "non-fiction",
-      "purpose": "professional",
-      "reason": "NOt enough time, but I really enjoyed this so far. Might be a high contender",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-art-of-co-design.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 70,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "conversation-design",
-            "role-of-ai",
-            "content-design",
-            "prompt-design",
-            "design",
-            "interaction-design",
-            "human-machine-interface-design",
-            "methodology",
-            "voice-user-interface-design",
-            "voice-design"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 44.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
-    }
-  },
-  "all_scored": [
-    {
-      "id": "a-room-of-ones-own",
-      "title": "A Room of One's Own",
-      "author": "Virginia Woolf",
-      "genre": "Essay / Feminist Literature",
-      "status": "unread",
-      "type": "non-fiction",
-      "purpose": "professional",
-      "reason": "Just new",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\a-room-of-ones-own.md",
-      "scores": {
-        "topic_match": 33,
-        "matched_keywords": [
-          "feminist"
-        ],
-        "experience": 65,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "role-of-ai",
-            "essay",
-            "feminist-literature"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 70,
-        "total": 55.1
-      },
-      "estimated_pages": 80,
-      "estimated_days": 2,
-      "is_side_read": true,
-      "why": "Rediscovery"
-    },
-    {
-      "id": "discourse-consciousness-and-time",
-      "title": "Discourse, consciousness and time",
-      "author": "Wallace Chafe",
-      "genre": "Linguistics / Cognitive Science",
-      "status": "started",
-      "type": "non-fiction",
-      "purpose": "professional",
-      "reason": "A dense read. Might be relevant for now though, with genAI and my garden",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\discourse-consciousness-and-time.md",
-      "scores": {
-        "topic_match": 66,
-        "matched_keywords": [
-          "discourse",
-          "linguistics"
-        ],
-        "experience": 40,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "linguistics",
-            "science",
-            "computational-linguistics",
-            "science-fiction",
-            "cognitive-science"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 53.3
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
-    },
-    {
       "id": "semiotics-the-basics",
       "title": "Semiotics: The Basics",
       "author": "Daniel Chandler",
       "genre": "Linguistics / Semiotics",
-      "status": "unread",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
       "reason": "Felt like a topic I need to ready up on, but too much textbook to read for fun.",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\semiotics-the-basics.md",
       "scores": {
-        "topic_match": 66,
+        "topic_match": 25,
         "matched_keywords": [
-          "linguistics",
-          "semiotics"
+          "linguistics"
         ],
-        "experience": 40,
+        "experience": 65,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "linguistics",
-            "computational-linguistics",
-            "semiotics"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 53.3
+        "freshness": 25,
+        "total": 39
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "semiotics"
+      ]
+    }
+  },
+  "all_scored": [
     {
-      "id": "1q84",
-      "title": "1Q84",
-      "author": "Haruki Murakami",
-      "genre": "Literary Fiction",
-      "status": "unread",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "Not on my radar; I really liked previous Murakami books",
+      "id": "microcopy",
+      "title": "Microcopy",
+      "author": "Kinneret Yifrah",
+      "genre": "UX Writing / Design",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "More of a reference work. But remind me it's on my ereader though. Hm ereader discoverability is a thing here, don't you think? ",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\1q84.md",
       "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 80,
+        "topic_match": 50,
+        "matched_keywords": [
+          "writing",
+          "design"
+        ],
+        "experience": 65,
         "garden": {
-          "score": 60,
+          "score": 40,
           "matching_tags": [
-            "literary-fiction",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction"
+            "writing",
+            "design"
           ],
           "matching_projects": []
         },
-        "freshness": 80,
-        "total": 52.0
+        "freshness": 25,
+        "total": 50
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "By haruki murakami. rediscovery"
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "design"
+      ]
     },
     {
       "id": "earth-emotions",
       "title": "Earth Emotions",
       "author": "Glenn A. Albrecht",
       "genre": "Ecology / Philosophy",
-      "status": "started",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
       "reason": "I remember this being beautiful but somehow it didn't stick. This being on my ereader doesn't help ",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\earth-emotions.md",
       "scores": {
-        "topic_match": 66,
+        "topic_match": 50,
         "matched_keywords": [
           "ecology",
           "philosophy"
         ],
-        "experience": 40,
-        "garden": {
-          "score": 40,
-          "matching_tags": [
-            "philosophy",
-            "ecology"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 49.3
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
-    },
-    {
-      "id": "the-witchs-vacuum-cleaner",
-      "title": "The Witch's Vacuum Cleaner",
-      "author": "Terry Pratchett",
-      "genre": "Fantasy / Short Stories",
-      "status": "unread",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "It wasn't on my radar. ",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-witchs-vacuum-cleaner.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 95,
-        "garden": {
-          "score": 40,
-          "matching_tags": [
-            "fantasy",
-            "short-stories"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 48.8
-      },
-      "estimated_pages": 350,
-      "estimated_days": 9,
-      "is_side_read": true,
-      "why": "By terry pratchett"
-    },
-    {
-      "id": "bacteria-to-ai",
-      "title": "Bacteria to AI",
-      "author": "N. Katherine Hayles",
-      "genre": "Science / Cultural Theory / Posthumanism",
-      "status": "unread",
-      "type": "non-fiction",
-      "purpose": "professional",
-      "reason": "Is on my wishlist, no time yet",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\bacteria-to-ai.md",
-      "scores": {
-        "topic_match": 33,
-        "matched_keywords": [
-          "posthumanism"
-        ],
-        "experience": 40,
-        "garden": {
-          "score": 80,
-          "matching_tags": [
-            "role-of-ai",
-            "ai-ethics",
-            "conversational-ai",
-            "ai",
-            "ai-tools",
-            "science",
-            "cultural-theory",
-            "posthumanism",
-            "science-fiction",
-            "cognitive-science"
-          ],
-          "matching_projects": [
-            "knowledge-graph-for-the-garden"
-          ]
-        },
-        "freshness": 50,
-        "total": 47.4
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Connects to knowledge-graph-for-the-garden"
-    },
-    {
-      "id": "krekel",
-      "title": "Krekel",
-      "author": "Annet Schaap",
-      "genre": "Fictie / Kinderboek",
-      "status": "unread",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "Recent gift from a friend. Feels like a wonderful ready, but also like a waste of time considering the other books that are waiting and might be more relevant",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\krekel.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
         "experience": 65,
         "garden": {
-          "score": 60,
+          "score": 20,
           "matching_tags": [
-            "non-fictie",
-            "fictie",
-            "kinderboek"
+            "philosophy"
           ],
           "matching_projects": []
         },
-        "freshness": 70,
-        "total": 45.2
+        "freshness": 25,
+        "total": 48
       },
-      "estimated_pages": 150,
-      "estimated_days": 4,
-      "is_side_read": true,
-      "why": "Rediscovery"
+      "why": "For your work",
+      "tags": [
+        "ecology",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "my-robot-gets-me",
+      "title": "My Robot Gets Me: How Social Design Can Make New Products More Human",
+      "author": "Carla Diana",
+      "genre": "",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Carla Diana on social design and making products feel more human. Good for thinking about personality and emotional interaction in the interfaces I design.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "design"
+      ]
+    },
+    {
+      "id": "beyond-the-illusion-pragmatic-cues-in-conversation",
+      "title": "Beyond the illusion: pragmatic cues in conversation",
+      "author": "Laura Spillner, Johanna Rockstroh, Paola Raquel Peña",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversation-design",
+          "conversational-ai"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversation-design",
+        "conversational-ai",
+        "voice-design"
+      ]
+    },
+    {
+      "id": "grounding-in-communication",
+      "title": "Grounding in communication",
+      "author": "Herbert H. Clark, Susan E. Brennan",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversation-design",
+          "linguistics"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversational-grounding",
+        "conversation-design",
+        "linguistics"
+      ]
+    },
+    {
+      "id": "plans-and-situated-actions",
+      "title": "Plans and situated actions",
+      "author": "Lucy Suchman",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversation-design",
+          "linguistics"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversation-design",
+        "human-machine-interface-design",
+        "linguistics"
+      ]
+    },
+    {
+      "id": "the-bewitching-ai",
+      "title": "The bewitching AI: the illusion of communication with LLMs",
+      "author": "Emanuele Bottazzi, Roberta Ferrario",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "philosophy"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversational-ai",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "pragmatics-beyond-humans",
+      "title": "Pragmatics beyond humans",
+      "author": "Vít Gvoždiak",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "linguistics"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 44
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversational-ai",
+        "linguistics"
+      ]
     },
     {
       "id": "the-art-of-co-design",
       "title": "The Art of Co-design",
       "author": "Jeremy Kerr et al.",
       "genre": "Design / Methodology",
-      "status": "started",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
       "reason": "NOt enough time, but I really enjoyed this so far. Might be a high contender",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-art-of-co-design.md",
       "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 70,
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
         "garden": {
-          "score": 60,
+          "score": 20,
           "matching_tags": [
-            "conversation-design",
-            "role-of-ai",
-            "content-design",
-            "prompt-design",
-            "design",
-            "interaction-design",
-            "human-machine-interface-design",
-            "methodology",
-            "voice-user-interface-design",
-            "voice-design"
+            "design"
           ],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 44.0
+        "freshness": 25,
+        "total": 41
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
+      "why": "For your work",
+      "tags": [
+        "design",
+        "methodology"
+      ]
+    },
+    {
+      "id": "typography-beyond-borders",
+      "title": "Typography Beyond Borders",
+      "author": [],
+      "genre": "Design / Typography",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Beautifully designed, but not someting you read end-to-end. Remind me occasionally",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design",
+        "typography"
+      ]
     },
     {
       "id": "unthought",
       "title": "Unthought",
       "author": "N. Katherine Hayles",
       "genre": "Philosophy / Cognitive Science",
-      "status": "unread",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
       "reason": "On my wish list no time yet",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\unthought.md",
       "scores": {
-        "topic_match": 33,
+        "topic_match": 25,
         "matched_keywords": [
           "philosophy"
         ],
-        "experience": 40,
+        "experience": 65,
         "garden": {
-          "score": 60,
+          "score": 20,
           "matching_tags": [
-            "philosophy",
-            "science",
-            "science-fiction",
-            "cognitive-science"
+            "philosophy"
           ],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 43.4
+        "freshness": 25,
+        "total": 41
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "For your work",
+      "tags": [
+        "philosophy",
+        "cognitive-science"
+      ]
     },
     {
-      "id": "a-court-of-thorns-and-roses",
-      "title": "A Court of Thorns and Roses",
-      "author": "Sarah J. Maas",
-      "genre": "Fantasy / Romance",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
+      "id": "conversational-ai",
+      "title": "Conversational AI",
+      "author": "Andrew Freed",
+      "genre": "",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Andrew Freed's book covers the technical and design sides of conversational AI. Useful for keeping my understanding of the field current.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai"
+      ]
+    },
+    {
+      "id": "discourse-consciousness-and-time",
+      "title": "Discourse, consciousness and time",
+      "author": "Wallace Chafe",
+      "genre": "Linguistics / Cognitive Science",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "A dense read. Might be relevant for now though, with genAI and my garden",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics"
+      ]
+    },
+    {
+      "id": "hey-cyba",
+      "title": "Hey Cyba: The inner workings of a virtual personal assistant",
+      "author": "Unknown",
+      "genre": "",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "A look inside how a virtual personal assistant is designed and built. Practical insights from the inside of a product team, which is always more interesting than the theoretical stuff.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "voice-design"
+      ]
+    },
+    {
+      "id": "semiotics-the-basics",
+      "title": "Semiotics: The Basics",
+      "author": "Daniel Chandler",
+      "genre": "Linguistics / Semiotics",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Felt like a topic I need to ready up on, but too much textbook to read for fun.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "semiotics"
+      ]
+    },
+    {
+      "id": "the-witchs-vacuum-cleaner",
+      "title": "The Witch's Vacuum Cleaner",
+      "author": "Terry Pratchett",
+      "genre": "Fantasy / Short Stories",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "It wasn't on my radar. ",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 95,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "By Terry Pratchett",
+      "tags": [
+        "fantasy",
+        "short-stories"
+      ]
+    },
+    {
+      "id": "beyond-anthropomorphism-spectrum-interface-metaphors-llms",
+      "title": "Beyond anthropomorphism: a spectrum of interface metaphors for LLMs",
+      "author": "Jianna So, Connie Cheng, Sonia Krishna Murthy",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
       "reason": null,
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\a-court-of-thorns-and-roses.md",
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversation-design"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversation-design",
+        "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "designing-the-mind",
+      "title": "Designing the Mind",
+      "author": "Ryan Bush",
+      "genre": "Psychology / Self-development",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Ryan Bush on deliberate self-development through applied philosophy and psychology. Picked it up out of personal curiosity about cognitive habits and growth.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "psychology"
+        ],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "psychology",
+        "self-development"
+      ]
+    },
+    {
+      "id": "interpretative-interfaces",
+      "title": "Interpretative interfaces",
+      "author": "Gabrielle Benabdallah",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversation-design"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversation-design",
+        "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "thought-as-a-substrate-human-ai-interaction",
+      "title": "Thought as a substrate in human-AI interaction",
+      "author": "Xingyu Bruce Liu",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversation-design"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "human-machine-interface-design",
+        "conversation-design"
+      ]
+    },
+    {
+      "id": "toward-metaphor-fluid-conversation-design-vuis",
+      "title": "Toward metaphor-fluid conversation design for VUIs",
+      "author": "Smit Desai, Jessie Chin, Dakuo Wang, Benjamin Cowan, Michael Twidale",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversation-design"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "voice-design",
+        "conversation-design",
+        "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "bacteria-to-ai",
+      "title": "Bacteria to AI",
+      "author": "N. Katherine Hayles",
+      "genre": "Science / Cultural Theory / Posthumanism",
+      "status": "reading",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Reading now, March 2026",
+      "notes": null,
+      "rating": null,
+      "review": null,
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
         "experience": 65,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "role-of-ai",
-            "fantasy",
-            "romance"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 42.2
+        "freshness": 80,
+        "total": 37
       },
-      "estimated_pages": 350,
-      "estimated_days": 9,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "Already started",
+      "tags": [
+        "science",
+        "cultural-theory",
+        "posthumanism"
+      ]
     },
     {
-      "id": "carries-war",
-      "title": "Carrie's War",
-      "author": "Nina Bawden",
-      "genre": "Children's Fiction / Classic",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
+      "id": "a-room-of-ones-own",
+      "title": "A Room of One's Own",
+      "author": "Virginia Woolf",
+      "genre": "Essay / Feminist Literature",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Just new",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 85,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 36
+      },
+      "why": "By Virginia Woolf",
+      "tags": [
+        "essay",
+        "feminist-literature"
+      ]
+    },
+    {
+      "id": "grounding-gaps-in-language-model-generations",
+      "title": "Grounding gaps in language model generations",
+      "author": "Omar Shaikh, Kristina Gligorić, Ashna Khetan, Matthias Gerstgrasser, Diyi Yang, Dan Jurafsky",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
       "reason": null,
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\carries-war.md",
       "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 65,
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 55,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "literary-fiction",
-            "children's-fiction",
-            "classic",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 42.2
+        "freshness": 25,
+        "total": 36
       },
-      "estimated_pages": 150,
-      "estimated_days": 4,
-      "is_side_read": true,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "conversational-grounding",
+        "conversational-ai"
+      ]
     },
     {
-      "id": "dallergut-dream-department",
-      "title": "DallerGut Dream Department",
-      "author": "Sandy Joosun Lee, Miye Lee",
-      "genre": "Fantasy / Fiction",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
+      "id": "interacting-with-thoughtful-ai",
+      "title": "Interacting with thoughtful AI",
+      "author": "Xingyu Bruce Liu, Haijun Xia, Xiang Anthony Chen",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
       "reason": null,
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\dallergut-dream-department.md",
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 55,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 36
+      },
+      "why": "From your pile",
+      "tags": [
+        "conversational-ai",
+        "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "machines-like-me",
+      "title": "Machines like me",
+      "author": "Ian McEwan",
+      "genre": "",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "professional",
+      "reason": "Ian McEwan imagines what happens when AI becomes indistinguishable from human. Reading literary fiction about AI is a good way to think through the ethics without the jargon.",
+      "notes": null,
+      "rating": null,
+      "review": null,
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 65,
+        "experience": 75,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "literary-fiction",
-            "fantasy",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 42.2
+        "freshness": 25,
+        "total": 34
       },
-      "estimated_pages": 350,
-      "estimated_days": 9,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "For your work",
+      "tags": [
+        "fiction"
+      ]
     },
     {
       "id": "the-complete-robot",
       "title": "The Complete Robot",
       "author": "Isaac Asimov",
       "genre": "Science Fiction",
-      "status": "started",
+      "status": "to-read",
       "type": "fiction",
       "purpose": "professional",
       "reason": "I ocassionally read a story, but wasn't aware that this was on my ereader. Might be a nice on the side book. ",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-complete-robot.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 75,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "literary-fiction",
-            "science",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction",
-            "cognitive-science"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 80,
-        "total": 41.5
+        "freshness": 25,
+        "total": 34
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Rediscovery. already started"
+      "why": "For your work",
+      "tags": [
+        "science-fiction"
+      ]
     },
     {
-      "id": "the-invention-of-wings",
-      "title": "The Invention of Wings",
-      "author": "Sue Monk Kidd",
-      "genre": "Historical Fiction",
-      "status": "unread",
+      "id": "1q84",
+      "title": "1Q84",
+      "author": "Haruki Murakami",
+      "genre": "Literary Fiction",
+      "status": "to-read",
       "type": "fiction",
       "purpose": "personal",
-      "reason": "Recent purchase",
+      "reason": "Not on my radar; I really liked previous Murakami books",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-invention-of-wings.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 70,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "role-of-ai",
-            "literary-fiction",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 70,
-        "total": 40.0
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Rediscovery"
+      "why": "From your pile",
+      "tags": [
+        "literary-fiction"
+      ]
     },
     {
-      "id": "terry-pratchett-biography",
-      "title": "Terry Pratchett (biography)",
-      "author": "Craig Cabell",
-      "genre": "Biography",
-      "status": "unread",
-      "type": "non-fiction",
+      "id": "a-court-of-thorns-and-roses",
+      "title": "A Court of Thorns and Roses",
+      "author": "Sarah J. Maas",
+      "genre": "Fantasy / Romance",
+      "status": "to-read",
+      "type": "fiction",
       "purpose": "personal",
-      "reason": "No on my radar, wasn't aware that this was on my ereader",
+      "reason": "Popular fantasy romance series that keeps appearing on reading lists. Curious what all the fuss is about.",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\terry-pratchett-biography.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 65,
+        "experience": 70,
         "garden": {
-          "score": 20,
-          "matching_tags": [
-            "biography"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 80,
-        "total": 38.8
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 350,
-      "estimated_days": 9,
-      "is_side_read": true,
-      "why": "Rediscovery"
+      "why": "From your pile",
+      "tags": [
+        "fantasy",
+        "romance"
+      ]
+    },
+    {
+      "id": "carries-war",
+      "title": "Carrie's War",
+      "author": "Nina Bawden",
+      "genre": "Children's Fiction / Classic",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "A British children's classic. On my list because of my interest in classic British literature and storytelling.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 70,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 33
+      },
+      "why": "From your pile",
+      "tags": [
+        "children's-fiction",
+        "classic"
+      ]
+    },
+    {
+      "id": "dallergut-dream-department",
+      "title": "DallerGut Dream Department",
+      "author": "Sandy Joosun Lee, Miye Lee",
+      "genre": "Fantasy / Fiction",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Korean novel about a dream shop. Charming premise and exactly the kind of gentle magical realism I enjoy between heavier reads.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 70,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 33
+      },
+      "why": "From your pile",
+      "tags": [
+        "fantasy",
+        "fiction"
+      ]
     },
     {
       "id": "het-lied-van-ooievaar-en-dromedaris",
       "title": "Het lied van ooievaar en dromedaris",
       "author": "Anjet Daanje",
       "genre": "Fictie",
-      "status": "unread",
+      "status": "to-read",
       "type": "fiction",
       "purpose": "personal",
       "reason": "Not on my radar. I feel I should read more on the topic of colonialism but it feels like a chore",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\het-lied-van-ooievaar-en-dromedaris.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 70,
         "garden": {
-          "score": 40,
-          "matching_tags": [
-            "non-fictie",
-            "fictie"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 80,
-        "total": 37.5
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Rediscovery"
+      "why": "From your pile",
+      "tags": [
+        "fictie"
+      ]
     },
     {
-      "id": "battlefield-yorkshire",
-      "title": "Battlefield Yorkshire",
-      "author": "David Cooke",
-      "genre": "History / Military",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\battlefield-yorkshire.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "web-history",
-            "history",
-            "military"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 37.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "last-and-first-men",
-      "title": "Last and First Men",
-      "author": "Olaf Stapledon",
-      "genre": "Science Fiction",
-      "status": "unread",
+      "id": "hoe-duur-was-de-suiker",
+      "title": "Hoe duur was de suiker",
+      "author": "Cynthia McLeod",
+      "genre": "Historische roman",
+      "status": "to-read",
       "type": "fiction",
       "purpose": "personal",
-      "reason": "Scifi from the olden days always feels meh/masculine to me. Might be a bias",
+      "reason": "should read, but theme doesn't appeal at all",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\last-and-first-men.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 70,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "literary-fiction",
-            "science",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction",
-            "cognitive-science"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 37.0
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "min-of-meer-opmerkelijke-gebeurtenissen",
-      "title": "Min of meer opmerkelijke gebeurtenissen...",
-      "author": "Cindy Hoetmer",
-      "genre": "Fictie",
-      "status": "started",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "Didn't like the writing style I think.It's been a while. Might be easy to finish though, for a dopamine hit. ",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\min-of-meer-opmerkelijke-gebeurtenissen.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "role-of-ai",
-            "non-fictie",
-            "fictie"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 37.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
-    },
-    {
-      "id": "the-bowery-boys",
-      "title": "The Bowery Boys",
-      "author": "Greg Young, Tom Meyers",
-      "genre": "History / New York City",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-bowery-boys.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "web-history",
-            "history",
-            "new-york-city"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 37.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "the-bowery",
-      "title": "The Bowery",
-      "author": "Eric Ferrara",
-      "genre": "History / New York City",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-bowery.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 60,
-          "matching_tags": [
-            "web-history",
-            "history",
-            "new-york-city"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 37.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "historische-roman"
+      ]
     },
     {
       "id": "inferno",
       "title": "Inferno",
       "author": "Dan Brown",
       "genre": "Thriller",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Dan Brown is guilty pleasure reading. Fast, plotty, and set in beautiful places. Sometimes that's exactly what you need.",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\inferno.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 65,
+        "experience": 70,
         "garden": {
-          "score": 20,
-          "matching_tags": [
-            "thriller"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 34.2
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 400,
-      "estimated_days": 10,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "thriller"
+      ]
+    },
+    {
+      "id": "krekel",
+      "title": "Krekel",
+      "author": "Annet Schaap",
+      "genre": "Fictie / Kinderboek",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Recent gift from a friend. Feels like a wonderful ready, but also like a waste of time considering the other books that are waiting and might be more relevant",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 70,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 33
+      },
+      "why": "From your pile",
+      "tags": [
+        "fictie",
+        "kinderboek"
+      ]
+    },
+    {
+      "id": "last-and-first-men",
+      "title": "Last and First Men",
+      "author": "Olaf Stapledon",
+      "genre": "Science Fiction",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Scifi from the olden days always feels meh/masculine to me. Might be a bias",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 70,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 33
+      },
+      "why": "From your pile",
+      "tags": [
+        "science-fiction"
+      ]
+    },
+    {
+      "id": "min-of-meer-opmerkelijke-gebeurtenissen",
+      "title": "Min of meer opmerkelijke gebeurtenissen...",
+      "author": "Cindy Hoetmer",
+      "genre": "Fictie",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Didn't like the writing style I think.It's been a while. Might be easy to finish though, for a dopamine hit. ",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 70,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 33
+      },
+      "why": "From your pile",
+      "tags": [
+        "fictie"
+      ]
     },
     {
       "id": "slant",
@@ -958,98 +1304,78 @@
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\slant.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 70,
         "garden": {
-          "score": 60,
-          "matching_tags": [
-            "literary-fiction",
-            "science",
-            "children's-fiction",
-            "fiction",
-            "science-fiction",
-            "non-fiction",
-            "historical-fiction",
-            "cognitive-science"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 30,
-        "total": 34.0
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "fiction"
+      ]
     },
     {
-      "id": "reasons-to-stay-alive",
-      "title": "Reasons to Stay Alive",
-      "author": "Matt Haig",
-      "genre": "Memoir / Mental Health",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
+      "id": "the-invention-of-wings",
+      "title": "The Invention of Wings",
+      "author": "Sue Monk Kidd",
+      "genre": "Historical Fiction",
+      "status": "to-read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Recent purchase",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\reasons-to-stay-alive.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 70,
         "garden": {
-          "score": 40,
-          "matching_tags": [
-            "memoir",
-            "mental-health"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 33.0
+        "freshness": 25,
+        "total": 33
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "historical-fiction"
+      ]
     },
     {
-      "id": "witte-onschuld",
-      "title": "Witte onschuld",
-      "author": "Gloria Wekker",
-      "genre": "Politiek / Postkolonialisme",
-      "status": "unread",
+      "id": "artificial-intelligence-a-guide-for-thinking-humans",
+      "title": "Artificial Intelligence: A guide for thinking humans",
+      "author": "Melanie Mitchell",
+      "genre": "",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
-      "reason": "should read, but topic is so not appealing.",
+      "reason": "Melanie Mitchell cuts through the hype with clear-eyed analysis. I wanted a grounded perspective on AI that doesn't either panic or cheer.",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\witte-onschuld.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 65,
         "garden": {
-          "score": 40,
-          "matching_tags": [
-            "politiek",
-            "postkolonialisme"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 33.0
+        "freshness": 25,
+        "total": 31
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "For your work",
+      "tags": []
     },
     {
       "id": "hostage-at-the-table",
@@ -1063,188 +1389,53 @@
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\hostage-at-the-table.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 50,
+        "experience": 65,
         "garden": {
-          "score": 40,
-          "matching_tags": [
-            "leadership",
-            "business"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 45,
-        "total": 32.2
+        "freshness": 25,
+        "total": 31
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "de-eilanden-van-goed-en-kwaad",
-      "title": "De eilanden van goed en kwaad",
-      "author": "Adwin de Kluyver",
-      "genre": "Non-fictie / Reizen",
-      "status": "unread",
-      "type": "non-fiction",
-      "purpose": "personal",
-      "reason": "Recent purchase",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\de-eilanden-van-goed-en-kwaad.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 20,
-          "matching_tags": [
-            "reizen"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 70,
-        "total": 32.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Rediscovery"
-    },
-    {
-      "id": "designing-the-mind",
-      "title": "Designing the Mind",
-      "author": "Ryan Bush",
-      "genre": "Psychology / Self-development",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
-      "reason": null,
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\designing-the-mind.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 40,
-        "garden": {
-          "score": 40,
-          "matching_tags": [
-            "social-psychology",
-            "psychology"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 29.5
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "For your work",
+      "tags": [
+        "leadership",
+        "business"
+      ]
     },
     {
       "id": "how-we-became-posthuman",
       "title": "How We Became Posthuman",
       "author": "N. Katherine Hayles",
       "genre": "Cultural Theory / Media Studies",
-      "status": "unread",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "professional",
       "reason": "On my wishlist, no time yet",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\how-we-became-posthuman.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 40,
+        "experience": 65,
         "garden": {
-          "score": 40,
-          "matching_tags": [
-            "cultural-theory",
-            "media-studies"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 29.5
+        "freshness": 25,
+        "total": 31
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "hoe-duur-was-de-suiker",
-      "title": "Hoe duur was de suiker",
-      "author": "Cynthia McLeod",
-      "genre": "Historische roman",
-      "status": "unread",
-      "type": "fiction",
-      "purpose": "personal",
-      "reason": "should read, but theme doesn't appeal at all",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\hoe-duur-was-de-suiker.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 20,
-          "matching_tags": [
-            "historische-roman"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 29.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
-    },
-    {
-      "id": "kies-toch-niet-steeds-de-kant-van-de-macht",
-      "title": "Kies toch niet steeds de kant van de macht",
-      "author": "Kim van Keien, Dielwert Kuijpers",
-      "genre": "Politiek",
-      "status": "unread",
-      "type": "non-fiction",
-      "purpose": "personal",
-      "reason": "ONe of my husband's books that happened to end up on my bookshelf",
-      "notes": null,
-      "rating": null,
-      "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\kies-toch-niet-steeds-de-kant-van-de-macht.md",
-      "scores": {
-        "topic_match": 0,
-        "matched_keywords": [],
-        "experience": 50,
-        "garden": {
-          "score": 20,
-          "matching_tags": [
-            "politiek"
-          ],
-          "matching_projects": []
-        },
-        "freshness": 50,
-        "total": 29.0
-      },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "For your work",
+      "tags": [
+        "cultural-theory",
+        "media-studies"
+      ]
     },
     {
       "id": "nouveau-fuck",
@@ -1258,104 +1449,349 @@
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\nouveau-fuck.md",
       "scores": {
-        "topic_match": 33,
-        "matched_keywords": [
-          "poetry"
-        ],
-        "experience": 25,
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
         "garden": {
-          "score": 20,
-          "matching_tags": [
-            "poetry"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 30,
-        "total": 27.1
+        "freshness": 25,
+        "total": 31
       },
-      "estimated_pages": 100,
-      "estimated_days": 2,
-      "is_side_read": true,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "poetry"
+      ]
+    },
+    {
+      "id": "witte-onschuld",
+      "title": "Witte onschuld",
+      "author": "Gloria Wekker",
+      "genre": "Politiek / Postkolonialisme",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "should read, but topic is so not appealing.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "politiek",
+        "postkolonialisme"
+      ]
+    },
+    {
+      "id": "battlefield-yorkshire",
+      "title": "Battlefield Yorkshire",
+      "author": "David Cooke",
+      "genre": "History / Military",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "History of battles fought on English soil, which ties into a personal interest in British history and walks around Yorkshire.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "history",
+        "military"
+      ]
+    },
+    {
+      "id": "de-eilanden-van-goed-en-kwaad",
+      "title": "De eilanden van goed en kwaad",
+      "author": "Adwin de Kluyver",
+      "genre": "Non-fictie / Reizen",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Recent purchase",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "non-fictie",
+        "reizen"
+      ]
+    },
+    {
+      "id": "kies-toch-niet-steeds-de-kant-van-de-macht",
+      "title": "Kies toch niet steeds de kant van de macht",
+      "author": "Kim van Keien, Dielwert Kuijpers",
+      "genre": "Politiek",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "ONe of my husband's books that happened to end up on my bookshelf",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "politiek"
+      ]
+    },
+    {
+      "id": "reasons-to-stay-alive",
+      "title": "Reasons to Stay Alive",
+      "author": "Matt Haig",
+      "genre": "Memoir / Mental Health",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Matt Haig on depression and anxiety, written from the inside. Honest, warm, and accessible in a way that most mental health books aren't.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "memoir",
+        "mental-health"
+      ]
+    },
+    {
+      "id": "terry-pratchett-biography",
+      "title": "Terry Pratchett (biography)",
+      "author": "Craig Cabell",
+      "genre": "Biography",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "No on my radar, wasn't aware that this was on my ereader",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "biography"
+      ]
     },
     {
       "id": "the-big-con",
       "title": "The Big Con",
       "author": "Mariana Mazzucato, Rosie Collington",
       "genre": "Economics",
-      "status": "started",
+      "status": "to-read",
       "type": "non-fiction",
       "purpose": "personal",
       "reason": "Not sure what this is about or whether I started it.",
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\the-big-con.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 40,
+        "experience": 60,
         "garden": {
-          "score": 20,
-          "matching_tags": [
-            "economics"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 25.5
+        "freshness": 25,
+        "total": 30
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Already started"
+      "why": "From your pile",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "the-bowery-boys",
+      "title": "The Bowery Boys",
+      "author": "Greg Young, Tom Meyers",
+      "genre": "History / New York City",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "The Bowery Boys podcast companions in book form. New York City history is a long-running personal interest, and this covers exactly the gritty side I find most interesting.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "history",
+        "new-york-city"
+      ]
+    },
+    {
+      "id": "the-bowery",
+      "title": "The Bowery",
+      "author": "Eric Ferrara",
+      "genre": "History / New York City",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "A focused history of the Bowery neighbourhood in New York. Picked it up out of the same interest in NYC history that led me to the Bowery Boys podcast.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "history",
+        "new-york-city"
+      ]
     },
     {
       "id": "wat-is-je-overkomen",
       "title": "Wat is je overkomen?",
       "author": "Oprah Winfrey, Bruce D. Perry",
       "genre": "Psychologie",
-      "status": "unread",
-      "type": null,
-      "purpose": null,
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Oprah and Bruce Perry on trauma and how it shapes us. A personal read, picked up because I wanted to understand more about how early experiences affect how people communicate.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "psychologie"
+      ]
+    },
+    {
+      "id": "tools-for-thought",
+      "title": "Tools for thought",
+      "author": "Lev Tankelevitch, Elena L. Glassman, Jessica He, Aniket Kittur, Mina Lee, Srishti Palani, Advait Sarkar, Gonzalo Ramos, Yvonne Rogers, Hari Subramonyam",
+      "genre": "research-paper",
+      "status": "to-read",
+      "type": "non-fiction",
+      "purpose": "personal",
       "reason": null,
       "notes": null,
       "rating": null,
       "review": null,
-      "_filepath": "C:\\Users\\MaaikeGroenewege\\Documents\\Pythonprojecten\\digital-garden\\src\\content\\library\\wat-is-je-overkomen.md",
       "scores": {
         "topic_match": 0,
         "matched_keywords": [],
-        "experience": 40,
+        "experience": 55,
         "garden": {
-          "score": 20,
-          "matching_tags": [
-            "psychologie"
-          ],
+          "score": 0,
+          "matching_tags": [],
           "matching_projects": []
         },
-        "freshness": 50,
-        "total": 25.5
+        "freshness": 25,
+        "total": 29
       },
-      "estimated_pages": 300,
-      "estimated_days": 8,
-      "is_side_read": false,
-      "why": "Worth a look"
+      "why": "From your pile",
+      "tags": [
+        "human-machine-interface-design"
+      ]
     }
   ],
-  "garden_context": {
-    "total_tags": 109,
-    "active_projects": [
-      "book-recommender-library-audit",
-      "book-recommender-library-integration",
-      "book-recommender-scoring-algorithm",
-      "book-recommender-user-research",
-      "book-recommender",
-      "design-system-and-content-guidelines",
-      "explore-page-design",
-      "knowledge-graph-for-the-garden"
-    ]
-  }
+  "generated": "2026-04-06T08:41:05.528Z",
+  "total_scored": 54
 }
