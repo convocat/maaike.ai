@@ -476,7 +476,7 @@
     <div class="canvas-hint" id="canvasHint">drag the dot, or pick a preset</div>
   </div>
 </div>
-<div id="content"><div class="no-data">Run <code>python recommend.py</code> to generate scored-books.json first.</div></div>
+<div id="content"><div class="no-data">Loading recommendations…</div></div>
 
 <script>
 // Canvas presets: [label, x, y] where x: 0=play/left, 1=learn/right; y: 0=comfort/bottom, 1=discover/top
@@ -683,12 +683,13 @@ PRESETS.forEach(p => {
 async function loadData() {
   try {
     const resp = await fetch('scored-books.json?t=' + Date.now());
-    if (!resp.ok) throw new Error('No file');
+    if (!resp.ok) throw new Error('Could not load scored-books.json (HTTP ' + resp.status + ')');
     const data = await resp.json();
     currentData = data;
     render(currentData);
   } catch(e) {
-    // No pre-generated file
+    document.getElementById('content').innerHTML = '<div class="no-data">Could not load recommendations: ' + e.message + '</div>';
+    console.error('Book recommender error:', e);
   }
 }
 
