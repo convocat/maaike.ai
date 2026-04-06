@@ -9,7 +9,8 @@
     "astro": "astro",
     "new": "node scripts/new-content.mjs",
     "validate": "node scripts/validate-content.mjs",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:books": "node scripts/test-book-recommendations.cjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
