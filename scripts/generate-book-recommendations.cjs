@@ -158,8 +158,8 @@ for (const file of files) {
 
   books.push({
     id:     file.replace(/\.md$/, ''),
-    title:  fm.title,
-    author: fm.author,
+    title:  String(fm.title || ''),
+    author: String(fm.author || ''),
     genre:  fm.genre || '',
     status: fm.status || 'unread',
     type:   fm.book_type || 'non-fiction',
