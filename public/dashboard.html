@@ -519,7 +519,7 @@ function canvasBonus(book, scores) {
     const abs = Math.abs(nx);
     if (book.purpose === 'personal') bonus += abs * 20;
     if (book.type === 'fiction') bonus += abs * 12;
-    if (LOVED_AUTHORS_LC.some(a => (book.author || '').toLowerCase().includes(a))) bonus += abs * 20;
+    if (LOVED_AUTHORS_LC.some(a => String(book.author || '').toLowerCase().includes(a))) bonus += abs * 20;
   }
 
   // Y axis
