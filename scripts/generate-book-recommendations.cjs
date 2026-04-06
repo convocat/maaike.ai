@@ -47,19 +47,24 @@ function parseFrontmatter(filePath) {
     }
     const kvMatch = line.match(/^(\w[\w-]*):\s*(.*)/);
     if (kvMatch) {
-      const key   = kvMatch[1];
-      let value   = kvMatch[2].trim().replace(/^["']|["']$/g, '');
-      inArray     = false;
-      if (value === '') {
-        fm[key]   = [];
-        inArray   = true;
-        currentKey = key;
-      } else if (value === 'true')  { fm[key] = true; }
-      else if (value === 'false')   { fm[key] = false; }
-      else if (value === 'null')    { fm[key] = null; }
-      else if (!isNaN(Number(value)) && value !== '') { fm[key] = Number(value); }
-      else { fm[key] = value; }
-      if (!inArray) currentKey = key;
+      const key = kvMatch[1];
+      let value = kvMatch[2].trim();
+      inArray = false;
+      currentKey = key;
+      if (value === '' || value === '[]') {
+        fm[key] = [];
+        inArray = value === '';
+        continue;
+      }
+      // Strip quotes after checking for empty
+      if ((value.startsWith('"') && value.endsWith('"')) ||
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      if (value === 'true')       fm[key] = true;
+      else if (value === 'false') fm[key] = false;
+      else if (value === 'null')  fm[key] = null;
+      else                        fm[key] = value;
     }
   }
   return fm;
