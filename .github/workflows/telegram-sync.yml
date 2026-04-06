@@ -26,11 +26,21 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python scripts/telegram_sync.py
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install node dependencies
+        run: npm ci
+
+      - name: Rebuild explore map
+        run: node scripts/build-explore-data.cjs
+
       - name: Commit changes
         run: |
           git config user.name "Maaike"
           git config user.email "maaikevanconvocat@gmail.com"
-          git add src/content/weblinks/
+          git add src/content/weblinks/ public/explore-data.json
           [ -f src/content/_inbox/telegram.md ] && git add src/content/_inbox/telegram.md || true
           if ! git diff --staged --quiet; then
             git commit -m "Telegram sync: $(date +'%Y-%m-%d')"
