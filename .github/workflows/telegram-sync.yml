@@ -31,7 +31,8 @@ jobs:
         run: |
           git config user.name "Maaike"
           git config user.email "maaikevanconvocat@gmail.com"
-          git add --ignore-missing src/content/_inbox/telegram.md src/content/weblinks/
+          git add src/content/weblinks/
+          [ -f src/content/_inbox/telegram.md ] && git add src/content/_inbox/telegram.md || true
           if ! git diff --staged --quiet; then
             git commit -m "Telegram sync: $(date +'%Y-%m-%d')"
             git push
