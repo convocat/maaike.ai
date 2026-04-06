@@ -1,6 +1,6 @@
 ---
 title: "Session management: working with Claude across sessions"
-description: How the garden is tended across sessions: the backlog, handovers, and the editorial moment.
+description: "How the garden is tended across sessions: the backlog, handovers, and the editorial moment."
 date: 2026-04-05
 maturity: solid
 tags: [workflow, process, claude]
