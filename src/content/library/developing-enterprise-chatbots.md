@@ -4,6 +4,7 @@ author: "Boris Galitsky"
 cover: "/images/library/developing-enterprise-chatbots.jpg"
 description: "Technical and academic treatment of building enterprise-grade chatbots, covering NLP pipelines, knowledge representation, and reasoning over dialogue"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

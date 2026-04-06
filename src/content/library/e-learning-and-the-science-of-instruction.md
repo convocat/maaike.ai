@@ -4,6 +4,7 @@ author: "Ruth C. Clark & Richard E. Mayer"
 cover: "/images/library/e-learning-and-the-science-of-instruction.jpg"
 description: "Evidence-based guidelines for designing online instruction, drawing on multimedia learning research to explain what works, what doesn't, and why"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

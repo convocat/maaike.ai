@@ -4,6 +4,7 @@ author: "Terry Pratchett"
 cover: "/images/library/going-postal.jpg"
 description: "A con man is forced to resurrect Ankh-Morpork's postal service and finds himself going up against the clacks network in a story about the power of words and stories to move people"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - fantasy

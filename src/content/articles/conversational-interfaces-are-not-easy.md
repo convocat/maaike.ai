@@ -30,6 +30,8 @@ draft: false
 ai: "100% Maai"
 ---
 
+![Apple Picking diagram by NNgroup](/images/articles/conversational-interfaces-apple-picking.png)
+
 Here's a little bit of fun and a small Sunday afternoon rant on trying to write with AI :-) TLDR: it takes forever before I have Jasper.ai writing me something that even remotely resembles what I have in my head, and by the time I do, I might as well have written the entire thing myself, because, hey, they're not my words.
 
 Interesting, no? What does it mean when I say 'my words'? If ChatGPT writes in 'my style', does that make the words in the text my words? I don't feel like that's the case at all. Also, generating a text requires me an important extra task: I need to read the entire text to check what's in there, what it is that I want to say. This takes forever, especially because I need to do it each time I generate a text. This turns what might have been a 10 minute quick-write up into a long, tedious and totally inefficient 1-hour-long review, re-generate, repeat exercise. And to be honest: I don't enjoy it at all.

@@ -4,6 +4,7 @@ author: "Matt Haig"
 cover: "/images/library/reasons-to-stay-alive.jpg"
 description: "Matt Haig's memoir about his experience of severe depression and anxiety in his twenties and the slow, non-linear process of finding his way back"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - memoir

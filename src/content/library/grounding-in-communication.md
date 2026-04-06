@@ -2,6 +2,7 @@
 title: "Grounding in communication"
 author: "Herbert H. Clark, Susan E. Brennan"
 date: 2026-04-02
+updated: 2026-04-06
 status: read
 maturity: complete
 file: /pdfs/Clark__HH___Brennan__SE__Grounding_in_communic_260406_113953.pdf

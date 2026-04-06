@@ -2,6 +2,7 @@
 title: "Beyond anthropomorphism: a spectrum of interface metaphors for LLMs"
 author: "Jianna So, Connie Cheng, Sonia Krishna Murthy"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

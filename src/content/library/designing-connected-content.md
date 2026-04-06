@@ -4,6 +4,7 @@ author: "Mike Atherton & Carrie Hane"
 cover: "/images/library/designing-connected-content.jpg"
 description: "Introduces content modelling as a discipline, showing how to structure content so it can be reused, combined, and delivered across channels"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

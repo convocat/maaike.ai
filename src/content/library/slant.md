@@ -4,6 +4,7 @@ author: "Greg Bear"
 cover: "/images/library/slant.jpg"
 description: "Set in a near-future Earth transformed by nanotechnology and AI, following characters navigating a society that has more control over the mind than the will to use it wisely"
 date: 2026-03-12
+updated:
 maturity: draft
 tags:
   - fiction

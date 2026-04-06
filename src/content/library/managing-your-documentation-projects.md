@@ -2,6 +2,7 @@
 title: "Managing your documentation projects"
 author: "JoAnn Hackos"
 date: 2026-04-02
+updated:
 status: read
 maturity: developing
 tags:

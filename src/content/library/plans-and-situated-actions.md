@@ -2,6 +2,7 @@
 title: "Plans and situated actions"
 author: "Lucy Suchman"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

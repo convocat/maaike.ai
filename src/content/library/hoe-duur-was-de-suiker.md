@@ -3,6 +3,7 @@ title: Hoe duur was de suiker
 author: "Cynthia McLeod"
 description: "Een historische roman over het leven van een rijke plantagevrouw en een tot slaaf gemaakte vrouw in 18e-eeuws Suriname, geschreven vanuit beide perspectieven"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - historische-roman

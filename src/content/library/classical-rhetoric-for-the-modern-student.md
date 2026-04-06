@@ -4,6 +4,7 @@ author: "Edward P.J. Corbett"
 cover: "/images/library/classical-rhetoric-for-the-modern-student.jpg"
 description: "A comprehensive textbook of classical rhetoric covering argument, arrangement, and style, with analysis of both ancient and modern examples"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

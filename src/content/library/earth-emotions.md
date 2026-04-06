@@ -4,6 +4,7 @@ author: "Glenn A. Albrecht"
 cover: "/images/library/earth-emotions.jpg"
 description: "Coins new words for our emotional relationship with place and the natural world, from solastalgia to topophilia, arguing we need richer language for what we stand to lose"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - ecology

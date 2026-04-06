@@ -2,6 +2,7 @@
 title: "The bewitching AI: the illusion of communication with LLMs"
 author: "Emanuele Bottazzi, Roberta Ferrario"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

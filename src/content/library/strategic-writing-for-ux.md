@@ -4,6 +4,7 @@ author: "Torrey Podmajersky"
 cover: "/images/library/strategic-writing-for-ux.jpg"
 description: "Shows how UX writing decisions connect to product strategy, with practical techniques for writing interface text that guides users and reflects brand voice"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

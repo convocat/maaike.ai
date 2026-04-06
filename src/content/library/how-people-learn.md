@@ -4,6 +4,7 @@ author: "Unknown"
 cover: "/images/library/how-people-learn.jpg"
 description: "Synthesises decades of learning science research to explain how people acquire, organise, and transfer knowledge, with implications for teaching and instructional design"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

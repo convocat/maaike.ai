@@ -4,6 +4,7 @@ author: "Gary Marcus & Ernest Davis"
 cover: "/images/library/rebooting-ai.jpg"
 description: "A sober critique of where current AI falls short of genuine intelligence, and a clear-eyed account of what it would actually take to build systems that understand the world"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags: []

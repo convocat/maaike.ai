@@ -2,6 +2,7 @@
 title: "Pragmatics beyond humans"
 author: "Vít Gvoždiak"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

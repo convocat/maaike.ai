@@ -4,6 +4,7 @@ author: "Robert J. Moore et al."
 cover: "/images/library/studies-in-conversational-ux-design.jpg"
 description: "A collection of IBM Research studies on real-world conversational UX, examining how people actually interact with dialogue systems in deployed contexts"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

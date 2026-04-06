@@ -2,6 +2,7 @@
 title: "Interacting with thoughtful AI"
 author: "Xingyu Bruce Liu, Haijun Xia, Xiang Anthony Chen"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

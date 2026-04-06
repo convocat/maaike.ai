@@ -3,6 +3,7 @@ title: Terry Pratchett (biography)
 author: "Craig Cabell"
 description: "A biography tracing Terry Pratchett's life from his early journalism and first novels to his rise as one of Britain's best-selling authors"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - biography

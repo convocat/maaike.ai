@@ -4,6 +4,7 @@ author: "Terry Pratchett"
 cover: "/images/library/the-shepherds-crown.jpg"
 description: "Pratchett's final novel, in which Tiffany Aching takes on the gravest responsibility yet while the forces of Fairyland gather, suffused with the quiet wisdom of a life's work"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - fantasy

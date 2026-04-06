@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 User manual + Karpathy articles
+*2026-04-06*
+
+Six user manual deliverables are approved and ready to write: TOC, full chapter outline, user/task analysis, persona, pitch deck structure, and JTBD journey. Two Karpathy comparison articles are scoped: Version A "The compiler and the gardener" (metaphor-forward, 600-900 words) and Version B "How we actually compare" (technical side-by-side, 700-1000 words). Start with whichever Maaike wants to write first — both are for articles collection, maturity developing, draft: true.
+
+Key files: `src/content/seeds/how-to-build-a-digital-garden.md`, `src/content/field-notes/building-this-garden.md`, `src/content/field-notes/garden-user-manual.md`, `src/content/articles/` (destination for Karpathy articles), plan file: `C:\Users\mgroe\.claude\plans\smooth-mapping-gizmo.md`
+
+**Opening message for next session:**
+> Two tasks from the previous session, both ready to go. First: write the six user manual deliverables to file (TOC, outline, user/task analysis, persona, pitch deck, JTBD journey) — all were approved last session. Second: draft the two Karpathy comparison articles (Version A: metaphor-forward "The compiler and the gardener"; Version B: technical side-by-side "How we actually compare"). Start with whichever you want first.
+
+---
+
 ## 🟡 Morning inbox schedule
 *2026-04-06*
 

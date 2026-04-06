@@ -2,6 +2,7 @@
 title: "Thought as a substrate in human-AI interaction"
 author: "Xingyu Bruce Liu"
 date: 2026-04-02
+updated:
 status: to-read
 maturity: developing
 tags:

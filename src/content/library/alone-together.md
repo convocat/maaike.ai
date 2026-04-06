@@ -4,6 +4,7 @@ author: "Sherry Turkle"
 cover: "/images/library/alone-together.jpg"
 description: "Argues that always-on connectivity has made us more isolated, as we substitute the managed interactions of social media and robots for the messiness of real relationships"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

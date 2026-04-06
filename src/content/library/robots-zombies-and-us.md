@@ -3,6 +3,7 @@ title: "Robots, zombies and us"
 author: "Robert Kirk"
 description: "Examines the philosophical problems of machine consciousness through questions about intelligence, zombies, and functionalism, offering a case that consciousness consists in performing functions"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags:

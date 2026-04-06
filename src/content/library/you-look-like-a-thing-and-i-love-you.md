@@ -4,6 +4,7 @@ author: "Janelle Shane"
 cover: "/images/library/you-look-like-a-thing-and-i-love-you.jpg"
 description: "Uses funny AI-generated failures to explain how machine learning actually works, revealing what these systems can and cannot understand about the world"
 date: 2026-03-12
+updated:
 status: read
 maturity: draft
 tags: []

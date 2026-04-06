@@ -4,6 +4,7 @@ author: "Virginia Woolf"
 cover: "/images/library/a-room-of-ones-own.jpg"
 description: "Woolf's extended essay on women and fiction, arguing that creative freedom requires material independence: a room, and money enough to think in it"
 date: 2026-03-18
+updated:
 maturity: draft
 tags:
   - essay

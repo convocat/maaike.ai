@@ -126,6 +126,19 @@ const statuses = [
                 ))}
               </div>
             </div>
+            <div class="lib-mobile-filter-group">
+              <p class="lib-mobile-filter-group-label">Tended</p>
+              <div class="lib-mobile-filter-group-options">
+                <label class="lib-mobile-filter-option">
+                  <input type="checkbox" data-mobile-group="tended" value="yes" />
+                  <span>✓ Has been tended</span>
+                </label>
+                <label class="lib-mobile-filter-option">
+                  <input type="checkbox" data-mobile-group="tended" value="no" />
+                  <span>○ Not yet tended</span>
+                </label>
+              </div>
+            </div>
             <button class="lib-mobile-filter-clear" id="lib-mobile-filter-clear">Clear all</button>
           </div>
         </div>
@@ -197,6 +210,7 @@ const statuses = [
                 data-categories={cats}
                 data-date={d.date?.toISOString() ?? ''}
                 data-updated={d.updated?.toISOString() ?? ''}
+                data-tended={d.updated ? 'yes' : 'no'}
                 data-title={d.title}
                 data-author={d.author ?? ''}
               >
@@ -326,6 +340,25 @@ const statuses = [
           </div>
         </div>
 
+        <div class="filter-panel" data-label="Tended">
+          <div class="filter-items">
+            <label class="filter-item">
+              <span class="filter-checkbox" aria-hidden="true">
+                <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <input type="checkbox" class="filter-cb-input sr-only tended-cb" value="yes" data-filter-group="tended" />
+              <span class="filter-content"><span>✓ Has been tended</span></span>
+            </label>
+            <label class="filter-item">
+              <span class="filter-checkbox" aria-hidden="true">
+                <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" width="10" height="10"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <input type="checkbox" class="filter-cb-input sr-only tended-cb" value="no" data-filter-group="tended" />
+              <span class="filter-content"><span>○ Not yet tended</span></span>
+            </label>
+          </div>
+        </div>
+
         <div class="lib-recommender-card">
           <div class="recommender-strip"></div>
           <div class="recommender-body">
@@ -374,13 +407,15 @@ const statuses = [
       const activeStatuses = [...document.querySelectorAll<HTMLInputElement>('.status-cb:checked')].map(i => i.value);
       const activeGenres   = [...document.querySelectorAll<HTMLInputElement>('.genre-cb:checked')].map(i => i.value);
       const activeCats     = [...document.querySelectorAll<HTMLInputElement>('.cat-cb:checked')].map(i => i.value);
+      const activeTended   = [...document.querySelectorAll<HTMLInputElement>('.tended-cb:checked')].map(i => i.value);
 
       const statusOk = activeStatuses.length === 0 || activeStatuses.includes(card.dataset.status ?? '');
       const genreOk  = activeGenres.length === 0   || activeGenres.includes(card.dataset.genre ?? 'book');
       const cardCats = (card.dataset.categories ?? '').split(',').filter(Boolean);
       const catOk    = activeCats.length === 0     || activeCats.some(c => cardCats.includes(c));
+      const tendedOk = activeTended.length === 0   || activeTended.includes(card.dataset.tended ?? 'no');
 
-      return statusOk && genreOk && catOk;
+      return statusOk && genreOk && catOk && tendedOk;
     }
 
     function render() {
@@ -409,7 +444,7 @@ const statuses = [
       currentPage++; render(); window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    document.querySelectorAll('.status-cb, .genre-cb, .cat-cb').forEach(cb => {
+    document.querySelectorAll('.status-cb, .genre-cb, .cat-cb, .tended-cb').forEach(cb => {
       cb.addEventListener('change', () => { currentPage = 1; render(); });
     });
 
