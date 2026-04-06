@@ -1,39 +1,44 @@
 {
   "mix": {
     "main": {
-      "id": "microcopy",
-      "title": "Microcopy",
-      "author": "Kinneret Yifrah",
-      "genre": "UX Writing / Design",
-      "status": "to-read",
+      "id": "voicebot-and-chatbot-design",
+      "title": "Voicebot and Chatbot Design",
+      "author": "Rachel Batish",
+      "genre": "",
+      "status": "read",
       "type": "non-fiction",
       "purpose": "professional",
-      "reason": "More of a reference work. But remind me it's on my ereader though. Hm ereader discoverability is a thing here, don't you think? ",
+      "reason": "Rachel Batish covers both voice and chat from a design perspective. A solid practical overview of the field that I read early in my conversation design work.",
       "notes": null,
       "rating": null,
       "review": null,
       "scores": {
-        "topic_match": 50,
+        "topic_match": 75,
         "matched_keywords": [
-          "writing",
-          "design"
+          "conversational-ai",
+          "design",
+          "conversation-design"
         ],
         "experience": 65,
         "garden": {
           "score": 40,
           "matching_tags": [
-            "writing",
-            "design"
+            "design",
+            "conversation-design"
           ],
           "matching_projects": []
         },
         "freshness": 25,
-        "total": 50
+        "total": 58
       },
-      "why": "For your work",
+      "why": "Matches your interests",
       "tags": [
-        "writing",
-        "design"
+        "conversational-ai",
+        "design",
+        "conversation-design",
+        "voice-user-interface-design",
+        "interaction-design",
+        "chatbots"
       ]
     },
     "side": {
@@ -73,41 +78,122 @@
       ]
     },
     "wildcard": {
-      "id": "thought-as-a-substrate-human-ai-interaction",
-      "title": "Thought as a substrate in human-AI interaction",
-      "author": "Xingyu Bruce Liu",
-      "genre": "research-paper",
-      "status": "to-read",
+      "id": "studies-in-conversational-ux-design",
+      "title": "Studies in conversational UX design",
+      "author": "Robert J. Moore et al.",
+      "genre": "",
+      "status": "read",
       "type": "non-fiction",
-      "purpose": "personal",
-      "reason": null,
+      "purpose": "professional",
+      "reason": "A collection of research and case studies in conversational UX from the IBM group. More rigorous than most books on the topic and useful for thinking beyond simple chatbot patterns.",
       "notes": null,
       "rating": null,
       "review": null,
       "scores": {
-        "topic_match": 25,
+        "topic_match": 50,
         "matched_keywords": [
-          "conversation-design"
+          "conversational-ai",
+          "design"
         ],
-        "experience": 55,
+        "experience": 65,
         "garden": {
           "score": 20,
           "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "design",
+        "user-interfaces",
+        "interaction-design",
+        "human-machine-interface-design"
+      ]
+    }
+  },
+  "all_scored": [
+    {
+      "id": "voicebot-and-chatbot-design",
+      "title": "Voicebot and Chatbot Design",
+      "author": "Rachel Batish",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Rachel Batish covers both voice and chat from a design perspective. A solid practical overview of the field that I read early in my conversation design work.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 75,
+        "matched_keywords": [
+          "conversational-ai",
+          "design",
+          "conversation-design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 40,
+          "matching_tags": [
+            "design",
             "conversation-design"
           ],
           "matching_projects": []
         },
         "freshness": 25,
-        "total": 38
+        "total": 58
       },
-      "why": "From your pile",
+      "why": "Matches your interests",
       "tags": [
-        "human-machine-interface-design",
-        "conversation-design"
+        "conversational-ai",
+        "design",
+        "conversation-design",
+        "voice-user-interface-design",
+        "interaction-design",
+        "chatbots"
       ]
-    }
-  },
-  "all_scored": [
+    },
+    {
+      "id": "instructional-story-design",
+      "title": "Instructional story design",
+      "author": "Rance Greene",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Rance Greene on using story in instructional design. Storytelling and learning design overlap a lot with what I do in conversational interfaces, so this was a natural read.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "writing",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 40,
+          "matching_tags": [
+            "writing",
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 50
+      },
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "design"
+      ]
+    },
     {
       "id": "microcopy",
       "title": "Microcopy",
@@ -141,6 +227,220 @@
       "why": "For your work",
       "tags": [
         "writing",
+        "design"
+      ]
+    },
+    {
+      "id": "strategic-writing-for-ux",
+      "title": "Strategic Writing for UX",
+      "author": "Torrey Podmajersky",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Torrey Podmajersky on UX writing strategy. Practical and focused on the relationship between words and design decisions, which is core to my work.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "writing",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 40,
+          "matching_tags": [
+            "writing",
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 50
+      },
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "design"
+      ]
+    },
+    {
+      "id": "voice-user-interface-design",
+      "title": "Voice user interface design",
+      "author": "Michael H. Cohen, James P. Giangola & Jennifer Balogh",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Cohen, Giangola and Balogh wrote one of the earliest comprehensive guides to VUI design. Dated in some areas but still solid on the fundamentals.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "design",
+          "conversation-design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 40,
+          "matching_tags": [
+            "design",
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 50
+      },
+      "why": "For your work",
+      "tags": [
+        "voice-design",
+        "design",
+        "conversation-design",
+        "voice-user-interfaces"
+      ]
+    },
+    {
+      "id": "classical-rhetoric-for-the-modern-student",
+      "title": "Classical Rhetoric for the Modern Student",
+      "author": "Edward P.J. Corbett",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Classical rhetoric is the foundation of persuasive communication. Understanding argument and style at this level has shaped how I think about voice and tone in conversation design.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "writing",
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "writing"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "linguistics"
+      ]
+    },
+    {
+      "id": "conversational-ux-design",
+      "title": "Conversational UX design",
+      "author": "Robert J. Moore & Raphael Arar",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Moore and Arar approach conversation design from an IBM research background. One of the more rigorous books on the topic and a regular reference.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "design"
+      ]
+    },
+    {
+      "id": "conversations-with-things",
+      "title": "Conversations with things",
+      "author": "Diana Deibel & Rebecca Evanhoe",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Deibel and Evanhoe write for conversation designers specifically. Practical, inclusive, and one of the books I'd recommend to anyone starting out in the field.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "design"
+      ]
+    },
+    {
+      "id": "designing-connected-content",
+      "title": "Designing Connected Content",
+      "author": "Mike Atherton & Carrie Hane",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Atherton and Hane on structured content and content modelling. Very relevant to how I think about knowledge architecture and reusable content.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "content-strategy",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "content-strategy",
         "design"
       ]
     },
@@ -180,6 +480,41 @@
       ]
     },
     {
+      "id": "how-people-learn",
+      "title": "How people learn",
+      "author": "Unknown",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "A foundational text on learning science. Relevant to anything involving instructional design, onboarding, or building products that teach.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "psychology",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "psychology",
+        "design"
+      ]
+    },
+    {
       "id": "my-robot-gets-me",
       "title": "My Robot Gets Me: How Social Design Can Make New Products More Human",
       "author": "Carla Diana",
@@ -212,6 +547,153 @@
       "tags": [
         "conversational-ai",
         "design"
+      ]
+    },
+    {
+      "id": "robots-zombies-and-us",
+      "title": "Robots, zombies and us",
+      "author": "Robert Kirk",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Robert Kirk on machine consciousness and the philosophical problems it raises. Directly relevant to how I think about designing AI with some semblance of a coherent self.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "philosophy",
+          "psychology"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "philosophy",
+        "psychology",
+        "science",
+        "non-fiction"
+      ]
+    },
+    {
+      "id": "studies-in-conversational-ux-design",
+      "title": "Studies in conversational UX design",
+      "author": "Robert J. Moore et al.",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "A collection of research and case studies in conversational UX from the IBM group. More rigorous than most books on the topic and useful for thinking beyond simple chatbot patterns.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "conversational-ai",
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "design",
+        "user-interfaces",
+        "interaction-design",
+        "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "the-sense-of-style",
+      "title": "The sense of style",
+      "author": "Steven Pinker",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Steven Pinker on writing well, grounded in cognitive science and linguistics. One of my go-to references for clear, direct prose.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "writing",
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "writing"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "writing",
+        "linguistics"
+      ]
+    },
+    {
+      "id": "voice-content-and-usability",
+      "title": "Voice content and usability",
+      "author": "Preston So",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Preston So on content strategy for voice interfaces. One of the few books that seriously addresses how content needs to change when there's no screen.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "content-strategy",
+          "conversation-design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "conversation-design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 48
+      },
+      "why": "For your work",
+      "tags": [
+        "voice-design",
+        "content-strategy",
+        "conversation-design",
+        "voice-user-interfaces"
       ]
     },
     {
@@ -287,6 +769,41 @@
       ]
     },
     {
+      "id": "organising-knowledge",
+      "title": "Organising knowledge",
+      "author": "Jennifer Rowley & Richard Hartley",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Rowley and Hartley on knowledge organisation: taxonomies, classification, indexing. Core stuff for anyone working with structured content or knowledge bases.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "content-strategy",
+          "knowledge-management"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "For your work",
+      "tags": [
+        "content-strategy",
+        "knowledge-management",
+        "personal-knowledge-systems",
+        "content-architecture"
+      ]
+    },
+    {
       "id": "plans-and-situated-actions",
       "title": "Plans and situated actions",
       "author": "Lucy Suchman",
@@ -320,6 +837,75 @@
         "conversation-design",
         "human-machine-interface-design",
         "linguistics"
+      ]
+    },
+    {
+      "id": "talk",
+      "title": "Talk",
+      "author": "Elizabeth Stokoe",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Elizabeth Stokoe on conversation and how talk actually works in real interactions. Her CARM approach is fascinating and has practical implications for how I design dialogue.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "linguistics",
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "conversational-ai"
+      ]
+    },
+    {
+      "id": "the-accidental-taxonomist",
+      "title": "The accidental Taxonomist",
+      "author": "Heather Hedden",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Heather Hedden on taxonomy and controlled vocabularies. Very relevant to knowledge management and structured content, which feeds directly into how AI systems find and use information.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 50,
+        "matched_keywords": [
+          "content-strategy",
+          "knowledge-management"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 46
+      },
+      "why": "For your work",
+      "tags": [
+        "content-strategy",
+        "taxonomy",
+        "ontology",
+        "knowledge-management",
+        "content-architecture"
       ]
     },
     {
@@ -391,6 +977,343 @@
       ]
     },
     {
+      "id": "alone-together",
+      "title": "Alone together",
+      "author": "Sherry Turkle",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Sherry Turkle on how technology reshapes our relationships and sense of self. Very relevant to the work I do designing conversational systems that interact with real people.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "philosophy"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "philosophy",
+        "human-computer-interaction",
+        "social-psychology",
+        "ethics"
+      ]
+    },
+    {
+      "id": "building-for-everyone",
+      "title": "Building for everyone",
+      "author": "Annie Jean-Baptiste",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Annie Jean-Baptiste on inclusive product design from a Google perspective. Accessibility and inclusion are things I care about in my work.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "consciousness-and-robot-sentience",
+      "title": "Consciousness and Robot Sentience",
+      "author": "Pentti Haikonen",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Haikonen's take on machine consciousness is directly relevant to the questions I keep running into as a conversation designer: what does it mean for a machine to seem aware?",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "philosophy"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "designing-across-senses",
+      "title": "Designing Across Senses",
+      "author": "Christine W. Park & John Alderman",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Design that works across different senses and modalities is central to accessible conversation and voice design. This book broadened my thinking on that.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "designing-voice-user-interfaces",
+      "title": "Designing Voice User Interfaces",
+      "author": "Cathy Pearl",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Cathy Pearl's book is a practical guide to VUI design and one of the field's classics. I come back to it regularly for reference.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "voice-design",
+        "design"
+      ]
+    },
+    {
+      "id": "e-learning-and-the-science-of-instruction",
+      "title": "e-Learning and the Science of Instruction",
+      "author": "Ruth C. Clark & Richard E. Mayer",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Clark and Mayer on evidence-based e-learning design. The multimedia learning principles in here are directly applicable to how I think about instructional content and conversation flows.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "gamestorming",
+      "title": "Gamestorming",
+      "author": "Dave Gray, Sunni Brown & James Macanufo",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "A toolkit of workshop games for creative collaboration. Very useful when facilitating co-design sessions and ideation workshops.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "inclusive-design-for-a-digital-world",
+      "title": "Inclusive Design for a Digital World",
+      "author": "Regine Gilbert",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Regine Gilbert on accessibility in digital design. A good grounding in why inclusive design matters and what it actually requires in practice.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "its-better-to-be-a-good-machine",
+      "title": "It's better to be a good machine than a bad person",
+      "author": "Various",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Essays on machine ethics and AI from a philosophical angle. The title alone says something useful about where the field is heading.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "philosophy"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "online-invloed",
+      "title": "Online invloed",
+      "author": "Bas Wouters & Joris Groen",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Wouters and Groen on online persuasion and behaviour design. Useful for understanding how digital interfaces nudge people, especially relevant when designing chatbots with a commercial purpose.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design"
+      ]
+    },
+    {
       "id": "the-art-of-co-design",
       "title": "The Art of Co-design",
       "author": "Jeremy Kerr et al.",
@@ -425,9 +1348,42 @@
       ]
     },
     {
+      "id": "the-design-of-everyday-things",
+      "title": "The Design of Everyday Things",
+      "author": "Don Norman",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Don Norman's foundational text on design and usability. Everything I believe about designing for human behaviour traces back somewhere to this book.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "design"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "design"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 41
+      },
+      "why": "For your work",
+      "tags": [
+        "design"
+      ]
+    },
+    {
       "id": "typography-beyond-borders",
       "title": "Typography Beyond Borders",
-      "author": "",
+      "author": "Various",
       "genre": "Design / Typography",
       "status": "to-read",
       "type": "non-fiction",
@@ -493,6 +1449,173 @@
       ]
     },
     {
+      "id": "entitled",
+      "title": "Entitled",
+      "author": "Kate Manne",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Kate Manne on male entitlement and how it operates in everyday life. Important reading for anyone trying to make sense of the world we actually live in.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "philosophy"
+        ],
+        "experience": 60,
+        "garden": {
+          "score": 20,
+          "matching_tags": [
+            "philosophy"
+          ],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 40
+      },
+      "why": "From your pile",
+      "tags": [
+        "feminism",
+        "sociology",
+        "misogyny",
+        "social-psychology",
+        "philosophy",
+        "ethics"
+      ]
+    },
+    {
+      "id": "ambiguity-in-natural-language",
+      "title": "Ambiguity in natural language",
+      "author": "Jan G. Kooij",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Ambiguity is at the heart of every conversation design challenge. Kooij's linguistic take on it is rigorous and directly useful for my work.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "natural-language-processing"
+      ]
+    },
+    {
+      "id": "because-internet",
+      "title": "Because Internet",
+      "author": "Gretchen McCulloch",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Gretchen McCulloch on how the internet has changed language. As someone who designs conversations for digital interfaces, this is genuinely useful and also just a fun read.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "sociolinguistics",
+        "pragmatics",
+        "discourse",
+        "internet-language"
+      ]
+    },
+    {
+      "id": "chatbot-marketing-mastery",
+      "title": "Chatbot marketing mastery",
+      "author": "Unknown",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Read it as background for chatbot-related client work. More marketing-focused than conversation design, but good for understanding the landscape.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai"
+      ]
+    },
+    {
+      "id": "content-strategy-at-work",
+      "title": "Content strategy at work",
+      "author": "Margot Bloomstein",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Margot Bloomstein's take on content strategy is practical and grounded. It helped shape how I think about messaging architecture and brand voice.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "content-strategy"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "content-strategy"
+      ]
+    },
+    {
       "id": "conversational-ai",
       "title": "Conversational AI",
       "author": "Andrew Freed",
@@ -524,6 +1647,71 @@
       ]
     },
     {
+      "id": "definitive-guide-conversational-ai-dialogflow",
+      "title": "The Definitive Guide to Conversational AI with Dialogflow",
+      "author": "Romin Irani",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Romin Irani's guide to Dialogflow. Read it when working with Google's NLP tools and needed a clear technical reference.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "natural-language-processing"
+      ]
+    },
+    {
+      "id": "developing-enterprise-chatbots",
+      "title": "Developing enterprise chatbots",
+      "author": "Boris Galitsky",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Galitsky takes a technical deep-dive into enterprise chatbots. Dense but useful when I needed to understand the NLP side of dialogue management.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai",
+        "natural-language-processing",
+        "computational-linguistics"
+      ]
+    },
+    {
       "id": "discourse-consciousness-and-time",
       "title": "Discourse, consciousness and time",
       "author": "Wallace Chafe",
@@ -552,6 +1740,36 @@
       "why": "For your work",
       "tags": [
         "linguistics"
+      ]
+    },
+    {
+      "id": "going-postal",
+      "title": "Going Postal",
+      "author": "Terry Pratchett",
+      "genre": "Fantasy / Satire",
+      "status": "read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Pratchett at his best. Going Postal is about the power of stories and language, which is very much my territory.",
+      "notes": null,
+      "rating": "loved it",
+      "review": "Pratchett is my favorite author and brings together language, humor, deep insights, philosophy, a world view that's so deep and accurate. ",
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 95,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "By Terry Pratchett",
+      "tags": [
+        "fantasy",
+        "satire"
       ]
     },
     {
@@ -587,6 +1805,68 @@
       ]
     },
     {
+      "id": "how-to-talk-to-robots",
+      "title": "How to talk to robots",
+      "author": "Tabitha Goldstaub",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Tabitha Goldstaub on navigating the AI world, aimed at women and non-technical audiences. A useful reminder that access and legibility matter.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai"
+      ]
+    },
+    {
+      "id": "language-acquisition",
+      "title": "Language acquisition",
+      "author": "Jill de Villiers & Peter de Villiers",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "How children acquire language is surprisingly relevant to how we design systems that process and generate language. A classic in the field, and it shows.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics"
+      ]
+    },
+    {
       "id": "semiotics-the-basics",
       "title": "Semiotics: The Basics",
       "author": "Daniel Chandler",
@@ -619,6 +1899,139 @@
       ]
     },
     {
+      "id": "sequence-organization-in-interaction",
+      "title": "Sequence Organization in Interaction",
+      "author": "Emanuel A. Schegloff",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Schegloff's conversation analysis is foundational for understanding how turns and sequences actually work in dialogue. Essential reading for anyone designing conversational systems seriously.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "linguistics",
+        "conversation-analysis",
+        "conversational-patterns",
+        "expandable-sequences",
+        "turn-construction-units",
+        "sociolinguistics",
+        "pragmatics"
+      ]
+    },
+    {
+      "id": "speech-and-language-processing",
+      "title": "Speech and language processing",
+      "author": "Dan Jurafsky & James H. Martin",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Jurafsky and Martin's textbook is a standard reference in NLP. More technical than I typically work, but essential background for understanding what's happening under the hood.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "linguistics"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "natural-language-processing",
+        "linguistics",
+        "speech-processing",
+        "phonetics",
+        "acoustics",
+        "computational-linguistics"
+      ]
+    },
+    {
+      "id": "tech-skills-for-conversation-designers",
+      "title": "Tech skills for conversation designers",
+      "author": "Hans van Dam",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Hans van Dam addresses the technical skills gap in conversation design. Read it to think through what a designer actually needs to know beyond dialogue writing.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "conversational-ai"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "conversational-ai"
+      ]
+    },
+    {
+      "id": "the-shepherds-crown",
+      "title": "The Shepherd's Crown",
+      "author": "Terry Pratchett",
+      "genre": "Fantasy",
+      "status": "read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": "Pratchett's final book, and it shows. An emotional read for any fan, and a proper send-off for Tiffany Aching.",
+      "notes": null,
+      "rating": "loved it",
+      "review": "See other Pratchett books. This one is extra special: It's his last. ",
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 95,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "By Terry Pratchett",
+      "tags": [
+        "fantasy"
+      ]
+    },
+    {
       "id": "the-witchs-vacuum-cleaner",
       "title": "The Witch's Vacuum Cleaner",
       "author": "Terry Pratchett",
@@ -646,6 +2059,37 @@
       "tags": [
         "fantasy",
         "short-stories"
+      ]
+    },
+    {
+      "id": "thinking-fast-and-slow",
+      "title": "Thinking fast and slow",
+      "author": "Daniel Kahneman",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Kahneman on how we actually make decisions. Understanding cognitive biases is useful in every aspect of design, and this is the most thorough account of them.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "psychology"
+        ],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 39
+      },
+      "why": "For your work",
+      "tags": [
+        "psychology"
       ]
     },
     {
@@ -746,6 +2190,37 @@
       "tags": [
         "conversation-design",
         "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "the-inner-game-of-tennis",
+      "title": "The Inner Game of Tennis",
+      "author": "W. Timothy Gallwey",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Gallwey on the mental game of performance. Ostensibly about tennis but really about how we get in our own way. Applies well beyond sport.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 25,
+        "matched_keywords": [
+          "psychology"
+        ],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 38
+      },
+      "why": "From your pile",
+      "tags": [
+        "psychology"
       ]
     },
     {
@@ -940,6 +2415,67 @@
       "tags": [
         "conversational-ai",
         "human-machine-interface-design"
+      ]
+    },
+    {
+      "id": "shaking-hands-with-death",
+      "title": "Shaking Hands With Death",
+      "author": "Terry Pratchett",
+      "genre": "Essay",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Pratchett's lecture on assisted dying. Short but powerful, and very him.",
+      "notes": null,
+      "rating": "liked it",
+      "review": "Always interesting to read about my favorite author, especially on the topic of freely chosen death.",
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 85,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 36
+      },
+      "why": "By Terry Pratchett",
+      "tags": [
+        "essay"
+      ]
+    },
+    {
+      "id": "i-robot",
+      "title": "I, robot",
+      "author": "Isaac Asimov",
+      "genre": "",
+      "status": "read",
+      "type": "fiction",
+      "purpose": "professional",
+      "reason": "Asimov's robot stories are the starting point for thinking about AI ethics and the Three Laws. Reading it as a conversation designer gives you a completely different angle.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 75,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 34
+      },
+      "why": "For your work",
+      "tags": [
+        "fiction",
+        "robots",
+        "distopia",
+        "future"
       ]
     },
     {
@@ -1380,6 +2916,33 @@
       "tags": []
     },
     {
+      "id": "hello-world",
+      "title": "Hello world",
+      "author": "Hannah Fry",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Hannah Fry explains algorithms and AI to a general audience in a way that's actually fair and nuanced. Exactly the kind of clear thinking about AI that I want more of.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": []
+    },
+    {
       "id": "hostage-at-the-table",
       "title": "Hostage at the Table",
       "author": "George Kohlrieser, Joe W. Forehand",
@@ -1440,6 +3003,128 @@
       ]
     },
     {
+      "id": "human-factors-and-voice-interaction-systems",
+      "title": "Human factors and voice interaction systems",
+      "author": "Unknown",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Technical and human-factors perspective on voice systems. Useful when digging into the ergonomics and cognitive load side of voice interaction design.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "voice-design",
+        "voice-ux",
+        "human-factors",
+        "speech-processing",
+        "voice-user-interfaces"
+      ]
+    },
+    {
+      "id": "id-blush-if-i-could",
+      "title": "I'd blush if I could",
+      "author": "UNESCO",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "UNESCO report on gender bias in AI assistants. Directly relevant to my work: the voice and persona of conversational AI reflects and reinforces cultural assumptions about gender.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "feminism"
+      ]
+    },
+    {
+      "id": "natural-language-processing-with-python",
+      "title": "Natural language processing with Python",
+      "author": "Steven Bird, Ewan Klein & Edward Loper",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "The standard introduction to NLP with Python. Worked through it to get a better technical grounding in how language models and text processing actually work.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "natural-language-processing",
+        "python"
+      ]
+    },
+    {
+      "id": "nlp-with-python-and-spacy",
+      "title": "Natural Language Processing with Python and spaCy",
+      "author": "Yuli Vasiliev",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Hands-on NLP with spaCy, the library I used most when experimenting with text analysis. A practical complement to the NLTK book.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "natural-language-processing",
+        "python"
+      ]
+    },
+    {
       "id": "nouveau-fuck",
       "title": "Nouveau Fuck",
       "author": "Stella Bergsma",
@@ -1466,6 +3151,89 @@
       "why": "From your pile",
       "tags": [
         "poetry"
+      ]
+    },
+    {
+      "id": "rebooting-ai",
+      "title": "Rebooting AI",
+      "author": "Gary Marcus & Ernest Davis",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Marcus and Davis make a sober case for what AI can and can't do, and what it would actually take to get to general intelligence. A grounding read for anyone working in the field.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": []
+    },
+    {
+      "id": "the-overstory",
+      "title": "The Overstory",
+      "author": "Richard Powers",
+      "genre": "Fiction",
+      "status": "read",
+      "type": "fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": "meh",
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "From your pile",
+      "tags": []
+    },
+    {
+      "id": "the-smart-wife",
+      "title": "The Smart wife",
+      "author": "Yolande Strengers & Jenny Kennedy",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Strengers and Kennedy on the gendered design of smart home AI. Essential context for anyone designing voice assistants: who gets to be the default voice, and what that communicates.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": [
+        "feminism"
       ]
     },
     {
@@ -1497,6 +3265,33 @@
         "politiek",
         "postkolonialisme"
       ]
+    },
+    {
+      "id": "you-look-like-a-thing-and-i-love-you",
+      "title": "You Look Like a Thing and I Love You",
+      "author": "Janelle Shane",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "professional",
+      "reason": "Janelle Shane on how AI really works, through funny and illuminating experiments. One of the most enjoyable AI books I've read, and it actually teaches you something.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 65,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 31
+      },
+      "why": "For your work",
+      "tags": []
     },
     {
       "id": "battlefield-yorkshire",
@@ -1556,6 +3351,35 @@
       "tags": [
         "non-fictie",
         "reizen"
+      ]
+    },
+    {
+      "id": "invisible-women",
+      "title": "Invisible Women",
+      "author": "Caroline Criado Perez",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": "Caroline Criado Perez on the gender data gap. An important and infuriating book that changed how I think about whose needs get centred in design.",
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 60,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 30
+      },
+      "why": "From your pile",
+      "tags": [
+        "feminism"
       ]
     },
     {
@@ -1765,6 +3589,36 @@
       ]
     },
     {
+      "id": "managing-your-documentation-projects",
+      "title": "Managing your documentation projects",
+      "author": "JoAnn Hackos",
+      "genre": "",
+      "status": "read",
+      "type": "non-fiction",
+      "purpose": "personal",
+      "reason": null,
+      "notes": null,
+      "rating": null,
+      "review": null,
+      "scores": {
+        "topic_match": 0,
+        "matched_keywords": [],
+        "experience": 55,
+        "garden": {
+          "score": 0,
+          "matching_tags": [],
+          "matching_projects": []
+        },
+        "freshness": 25,
+        "total": 29
+      },
+      "why": "From your pile",
+      "tags": [
+        "technical-writing",
+        "information-design"
+      ]
+    },
+    {
       "id": "tools-for-thought",
       "title": "Tools for thought",
       "author": "Lev Tankelevitch, Elena L. Glassman, Jessica He, Aniket Kittur, Mina Lee, Srishti Palani, Advait Sarkar, Gonzalo Ramos, Yvonne Rogers, Hari Subramonyam",
@@ -1794,6 +3648,6 @@
       ]
     }
   ],
-  "generated": "2026-04-06T08:57:43.905Z",
-  "total_scored": 54
+  "generated": "2026-04-06T09:05:45.174Z",
+  "total_scored": 110
 }

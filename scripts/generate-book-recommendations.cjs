@@ -130,6 +130,8 @@ function whyLabel(book, scores) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
+const includeRead = process.argv.includes('--include-read');
+
 const files = fs.readdirSync(LIBRARY_DIR).filter(f => f.endsWith('.md'));
 
 const books = [];
@@ -138,9 +140,8 @@ for (const file of files) {
   if (!fm) continue;
   if (fm.draft === true) continue;
 
-  // Only recommend unread books
   const status = (fm.status || '').toLowerCase();
-  if (status === 'read') continue;
+  if (status === 'read' && !includeRead) continue;
 
   const tags = Array.isArray(fm.tags) ? fm.tags : [];
   const topicResult   = scoreTopicMatch(tags);
