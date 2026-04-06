@@ -1,0 +1,3 @@
+---
+title: Least collaborative effort
+---

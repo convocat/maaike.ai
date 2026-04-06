@@ -48,14 +48,13 @@ Output as structured Markdown with bold section headers matching the paper's own
 
 For lists of types, constraints, costs, or states: enumerate them exactly as the paper does, with the paper's own labels.
 
-### Step 4: Offer to save
+### Step 4: Save to post body
 
-After presenting the summary, ask:
+Append the summary below the existing body content under a `## Summary` heading. Do not ask — always save to body.
 
-> "Save this as the `notes` field on the library entry, or add it to the post body?"
+### Step 5: Run auto-tag
 
-If saving to frontmatter: write to the `notes:` field in the library markdown file as a single block string.
-If saving to body: append below the existing body content under a `## Summary` heading.
+After saving, run `/auto-tag` on the same file. Use topics as tags in addition to the standard tag suggestions.
 
 ## Conventions
 

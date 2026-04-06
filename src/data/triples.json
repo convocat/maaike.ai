@@ -108,7 +108,11 @@
     "stream-metaphor":              { "label": "Stream",                        "type": "interaction-metaphor" },
     "maturity-system":              { "label": "Maturity system",               "type": "theoretical-concept" },
     "thinking-in-public":           { "label": "Thinking in public",            "type": "epistemic-stance" },
-    "maggie-appleton":              { "label": "Maggie Appleton",               "type": "person" }
+    "maggie-appleton":              { "label": "Maggie Appleton",               "type": "person" },
+
+    "common-ground":               { "label": "Common ground",                "type": "linguistic-concept" },
+    "least-collaborative-effort":  { "label": "Least collaborative effort",   "type": "linguistic-principle" },
+    "communication-medium":        { "label": "Communication medium",         "type": "theoretical-concept" }
   },
 
   "associations": [
@@ -193,6 +197,14 @@
     { "subject": "digital-garden",               "predicate": "leads-to",          "object": "thinking-in-public",            "source": "garden-as-metaphor",                                      "collection": "articles" },
     { "subject": "maturity-system",              "predicate": "instance-of",       "object": "digital-garden",               "source": "garden-as-metaphor",                                      "collection": "articles" },
     { "subject": "genai",                        "predicate": "risks",             "object": "thinking-in-public",            "source": "garden-as-metaphor",                                      "collection": "articles" },
-    { "subject": "digital-garden",               "predicate": "demonstrates",      "object": "metacognition",                 "source": "garden-as-metaphor",                                      "collection": "articles" }
+    { "subject": "digital-garden",               "predicate": "demonstrates",      "object": "metacognition",                 "source": "garden-as-metaphor",                                      "collection": "articles" },
+
+    { "subject": "common-ground",               "predicate": "theorised-by",      "object": "herbert-clark",                 "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "common-ground",               "predicate": "theorised-by",      "object": "susan-brennan",                 "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "conversational-grounding",    "predicate": "presupposes",       "object": "common-ground",                 "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "conversational-grounding",    "predicate": "leads-to",          "object": "common-ground",                 "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "least-collaborative-effort",  "predicate": "counters",          "object": "cooperative-principle",         "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "least-collaborative-effort",  "predicate": "attributed-to",     "object": "herbert-clark",                 "source": "grounding-in-communication",                              "collection": "library" },
+    { "subject": "communication-medium",        "predicate": "structured-as",     "object": "least-collaborative-effort",    "source": "grounding-in-communication",                              "collection": "library" }
   ]
 }
