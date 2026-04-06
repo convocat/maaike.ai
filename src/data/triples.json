@@ -112,7 +112,15 @@
 
     "common-ground":               { "label": "Common ground",                "type": "linguistic-concept" },
     "least-collaborative-effort":  { "label": "Least collaborative effort",   "type": "linguistic-principle" },
-    "communication-medium":        { "label": "Communication medium",         "type": "theoretical-concept" }
+    "communication-medium":        { "label": "Communication medium",         "type": "theoretical-concept" },
+
+    "grounding-gap":               { "label": "Grounding gap",                "type": "technical-phenomenon" },
+    "presumptive-grounding":       { "label": "Presumptive grounding",        "type": "technical-phenomenon" },
+    "preference-optimization":     { "label": "Preference optimization",      "type": "technical-mechanism" },
+    "instruction-tuning":          { "label": "Instruction tuning",           "type": "technical-mechanism" },
+    "omar-shaikh":                 { "label": "Omar Shaikh",                  "type": "person" },
+    "diyi-yang":                   { "label": "Diyi Yang",                    "type": "person" },
+    "dan-jurafsky":                { "label": "Dan Jurafsky",                 "type": "person" }
   },
 
   "associations": [
@@ -205,6 +213,15 @@
     { "subject": "conversational-grounding",    "predicate": "leads-to",          "object": "common-ground",                 "source": "grounding-in-communication",                              "collection": "library" },
     { "subject": "least-collaborative-effort",  "predicate": "counters",          "object": "cooperative-principle",         "source": "grounding-in-communication",                              "collection": "library" },
     { "subject": "least-collaborative-effort",  "predicate": "attributed-to",     "object": "herbert-clark",                 "source": "grounding-in-communication",                              "collection": "library" },
-    { "subject": "communication-medium",        "predicate": "structured-as",     "object": "least-collaborative-effort",    "source": "grounding-in-communication",                              "collection": "library" }
+    { "subject": "communication-medium",        "predicate": "structured-as",     "object": "least-collaborative-effort",    "source": "grounding-in-communication",                              "collection": "library" },
+
+    { "subject": "llms",                        "predicate": "lacks",             "object": "conversational-grounding",      "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "grounding-gap",               "predicate": "caused-by",         "object": "preference-optimization",       "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "preference-optimization",     "predicate": "leads-to",          "object": "indifference-to-truth",         "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "common-ground",               "predicate": "presupposes",       "object": "conversational-grounding",      "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "llms",                        "predicate": "characterised-as",  "object": "presumptive-grounding",         "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "omar-shaikh",                   "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "diyi-yang",                     "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+    { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "dan-jurafsky",                  "source": "grounding-gaps-in-language-model-generations",            "collection": "library" }
   ]
 }
