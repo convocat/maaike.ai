@@ -101,7 +101,7 @@ The page loads a pre-computed JSON with item metadata + 2D coordinates. No runti
 - [x] Legend (collapsible, collection colors + maturity sizes)
 - [x] Tooltip with maturity bar and collection indicator
 - [x] WCAG AA color palette: all collection colors ≥3:1 contrast in both light and dark mode
-- [x] Design system documentation ([[design-system-and-content-guidelines|design system field note]])
+- [x] Design system documentation ([[content-model|content model]])
 - [x] Added to main navigation
 - [x] Auto-generated trails from hub/develops project structure
 - [x] Named territories: semantic regions named by dominant tags, rendered as subtle italic labels
