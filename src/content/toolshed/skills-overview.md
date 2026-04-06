@@ -23,8 +23,10 @@ Skills are saved Claude Code prompts that encode multi-step workflows. They are 
 | `/auto-tag` | Runs the three-pass TAO analysis on a post and enriches it with tags, triples, themes, wiki-links, and Wikipedia links. See [The publishing routine](/toolshed/publishing-routine) for how TAO works. |
 | `/publish` | Full publishing routine: validate frontmatter, generate OG images, rebuild the explore map, commit, push, and share to LinkedIn if applicable. |
 | `/share-linkedin` | Generates and shares a LinkedIn post from a published article or jotting. |
-| `/backlog` | Opens a backlog grooming session: scans for stale items, flags blockers, checks the tablet inbox for unprocessed notes, and suggests session focus. |
+| `/backlog` | Opens a backlog grooming session: scans for stale items, flags blockers, checks the tablet inbox for unprocessed notes, and suggests session focus. Runs `/telegram-sync` automatically at the start. |
 | `/handover` | Writes a session close and a brief for the next session. |
+| `/telegram-sync` | Triggers the GitHub Actions sync workflow, pulls new captures (text notes, weblinks, PDFs) from Telegram, and processes any new PDFs through `/summarize-pdf` and `/auto-tag`. |
+| `/summarize-pdf` | Extracts key concepts and principles from a PDF verbatim, appends a structured summary to the matching library entry, then runs `/auto-tag`. |
 | `/update-release-notes` | Appends a summary of recent changes to the release notes. |
 
 ## Anthropic skills
