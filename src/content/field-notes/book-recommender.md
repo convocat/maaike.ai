@@ -71,3 +71,7 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [x] Add vibe chips: client-side re-ranking with situational chips and a shuffle button
 - [x] Library integration: inline audit editing on library page
 - [x] Library integration: add "get recommendations" trigger on library page
+- [x] Port Python scoring script to Node.js: `scripts/generate-book-recommendations.cjs`
+- [x] Score all 110 library books (previously only 3 were scored)
+- [x] Add "include books I already read" toggle on dashboard
+- [x] Add test suite: `scripts/test-book-recommendations.cjs` — parser edge cases, type safety, output structure
