@@ -73,9 +73,9 @@
       ]
     },
     "wildcard": {
-      "id": "plans-and-situated-actions",
-      "title": "Plans and situated actions",
-      "author": "Lucy Suchman",
+      "id": "thought-as-a-substrate-human-ai-interaction",
+      "title": "Thought as a substrate in human-AI interaction",
+      "author": "Xingyu Bruce Liu",
       "genre": "research-paper",
       "status": "to-read",
       "type": "non-fiction",
@@ -85,10 +85,9 @@
       "rating": null,
       "review": null,
       "scores": {
-        "topic_match": 50,
+        "topic_match": 25,
         "matched_keywords": [
-          "conversation-design",
-          "linguistics"
+          "conversation-design"
         ],
         "experience": 55,
         "garden": {
@@ -99,13 +98,12 @@
           "matching_projects": []
         },
         "freshness": 25,
-        "total": 46
+        "total": 38
       },
       "why": "From your pile",
       "tags": [
-        "conversation-design",
         "human-machine-interface-design",
-        "linguistics"
+        "conversation-design"
       ]
     }
   },
@@ -1796,6 +1794,6 @@
       ]
     }
   ],
-  "generated": "2026-04-06T08:52:55.337Z",
+  "generated": "2026-04-06T08:57:43.905Z",
   "total_scored": 54
 }

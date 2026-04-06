@@ -1,6 +1,6 @@
 ---
 title: Typography Beyond Borders
-author: ""
+author: Various
 description: "A visual survey of typography across cultures and scripts, exploring how letterforms carry meaning beyond the Latin alphabet"
 date: 2026-03-18
 maturity: draft
