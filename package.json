@@ -10,7 +10,9 @@
     "new": "node scripts/new-content.mjs",
     "validate": "node scripts/validate-content.mjs",
     "test": "playwright test",
-    "test:books": "node scripts/test-book-recommendations.cjs"
+    "test:books": "node scripts/test-book-recommendations.cjs",
+    "recommend": "node scripts/generate-book-recommendations.cjs",
+    "recommend:all": "node scripts/generate-book-recommendations.cjs --include-read"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",

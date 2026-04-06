@@ -472,6 +472,9 @@
       <label class="short-session-label">
         <input type="checkbox" id="shortSession" onchange="if(currentData)render(currentData)"> short session
       </label>
+      <label class="short-session-label">
+        <input type="checkbox" id="includeRead" onchange="if(currentData)render(currentData)"> include read
+      </label>
     </div>
     <div class="canvas-hint" id="canvasHint">drag the dot, or pick a preset</div>
   </div>
@@ -543,7 +546,9 @@ function applyCanvasModifiers(books) {
 }
 
 function getSortedBooks(data) {
-  return applyCanvasModifiers([...data.all_scored])
+  const includeRead = document.getElementById('includeRead')?.checked;
+  const pool = includeRead ? data.all_scored : data.all_scored.filter(b => b.status !== 'read');
+  return applyCanvasModifiers([...pool])
     .sort((a, b) => b._vtotal - a._vtotal);
 }
 
