@@ -44,15 +44,39 @@ def acknowledge(last_update_id):
     )
 
 
-def fetch_title(url):
+def decode_html_entities(text):
+    return (text
+        .replace('&#x27;', "'")
+        .replace('&amp;', '&')
+        .replace('&quot;', '"')
+        .replace('&lt;', '<')
+        .replace('&gt;', '>')
+        .replace('&nbsp;', ' '))
+
+
+def fetch_page_meta(url):
+    """Returns (title, description) from a page's meta tags."""
+    title = urlparse(url).netloc
+    description = ''
     try:
         r = requests.get(url, timeout=10, headers={'User-Agent': 'Mozilla/5.0'})
-        match = re.search(r'<title[^>]*>([^<]+)</title>', r.text, re.IGNORECASE)
-        if match:
-            return match.group(1).strip()
+        title_match = re.search(r'<title[^>]*>([^<]+)</title>', r.text, re.IGNORECASE)
+        if title_match:
+            title = decode_html_entities(title_match.group(1).strip())
+        desc_match = re.search(
+            r'<meta[^>]+(?:name=["\']description["\']|property=["\']og:description["\'])[^>]+content=["\']([^"\']+)["\']',
+            r.text, re.IGNORECASE
+        )
+        if not desc_match:
+            desc_match = re.search(
+                r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:name=["\']description["\']|property=["\']og:description["\'])',
+                r.text, re.IGNORECASE
+            )
+        if desc_match:
+            description = decode_html_entities(desc_match.group(1).strip())
     except Exception:
         pass
-    return urlparse(url).netloc
+    return title, description
 
 
 def slugify(text):
@@ -62,7 +86,7 @@ def slugify(text):
 
 
 def create_weblink(url, date):
-    title = fetch_title(url)
+    title, description = fetch_page_meta(url)
     slug = slugify(title) or f'link-{date.strftime("%Y%m%d%H%M%S")}'
     date_str = date.strftime('%Y-%m-%d')
 
@@ -74,14 +98,15 @@ def create_weblink(url, date):
 
     content = (
         f'---\n'
-        f'title: {title}\n'
+        f'title: "{title}"\n'
         f'url: {url}\n'
         f'date: {date_str}\n'
         f'updated: {date_str}\n'
-        f'maturity: draft\n'
+        f'maturity: solid\n'
         f'tags: []\n'
-        f'description: ""\n'
-        f'draft: true\n'
+        f'description: "{description}"\n'
+        f'ai: "100% Maai"\n'
+        f'draft: false\n'
         f'---\n'
     )
     filepath.write_text(content, encoding='utf-8')
