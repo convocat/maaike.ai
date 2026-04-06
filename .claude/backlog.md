@@ -4,57 +4,19 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-05 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
-
----
-
-## 🟡 Morning inbox schedule + Telegram integration
-*2026-04-05*
-
-Morning inbox schedule couldn't be set up (/schedule connection failed) — retry first. Then plan the Telegram integration: Saved Messages on phone → `_inbox/` (notes) and weblinks collection (links). API approach TBD (Bot API vs MTProto). Full capture flow when done: Telegram from phone, Samsung Notes from tablet, both land in `_inbox/` automatically.
-
-Key files: `src/content/_inbox/`, `.claude/backlog.md`
-
-**Opening message for next session:**
-> Retry /schedule for the morning inbox check, then plan the Telegram → inbox + weblinks integration. Telegram Saved Messages should feed `_inbox/` for notes and the weblinks collection for links. API approach (Bot API vs MTProto) still needs deciding.
-
----
-
-## 🔵 Tablet setup + inbox workflow
-*2026-04-05*
-
-Set up Samsung Notes → GitSync → `_inbox/` pipeline for capturing field notes on tablet. The inbox is a persistent running note with date-stamped entries — never delete it, only process new entries. CLAUDE.md and `/backlog` skill updated to check inbox automatically at session start. Morning inbox schedule could not be set up (connection error) — that's the immediate next step. Toolshed posts for session management, skills overview, and tablet workflow were also written and published this session.
-
-Key files: `src/content/_inbox/`, `src/content/toolshed/obsidian-tablet.md`, `CLAUDE.md`, `.claude/commands/backlog.md`, `.claude/backlog.md`
-
-**Opening message for next session:**
-> Set up Samsung Notes → GitSync → `_inbox/` pipeline for capturing field notes on tablet. The inbox is a persistent running note with date-stamped entries — never delete it, only process new entries. CLAUDE.md and `/backlog` skill updated to check inbox automatically at session start. Morning inbox schedule could not be set up (connection error) — that's the immediate next step.
+**Groomed:** 2026-04-06 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
 ## 🟡 Morning inbox schedule
-*added: 2026-04-05*
+*2026-04-06*
 
-Set up a daily scheduled task at 8:00 AM: check `src/content/_inbox/` for new date-stamped entries in the running note, surface them, and suggest turning them into backlog items or posts. Use `/schedule` to create it — connection was unavailable during the session where this was added.
+The `/schedule` connection was unavailable in two consecutive sessions. Retry setting up the daily 8:00 AM inbox check: surface new date-stamped entries from `src/content/_inbox/` and offer to turn them into posts or backlog items. This is the only outstanding setup task from the tablet + Telegram pipeline.
 
----
-
-## 🟡 Telegram → inbox + weblinks integration
-*added: 2026-04-05*
-
-Use Telegram Saved Messages as a capture inbox from the phone. Two types of content:
-
-- **Links**: auto-import into the weblinks collection (url, title, description, tags)
-- **Notes and thoughts**: append to `src/content/_inbox/` as date-stamped entries, picked up at session start alongside Samsung Notes entries from the tablet
-
-This replaces the need for any manual export step from the phone. Full capture flow: phone via Telegram, tablet via Samsung Notes (S-Pen), both land in `_inbox/` automatically.
-
-Needs a plan session to decide: Telegram Bot API vs user MTProto API, how to distinguish links from notes, sync frequency (on demand / scheduled / morning hook), and whether this runs as a scheduled task or a `/telegram-sync` skill.
-
-blocker: plan the integration approach before writing any code
+Key files: `src/content/_inbox/telegram.md`, `src/content/_inbox/`, `.claude/commands/backlog.md`
 
 **Opening message for next session:**
-> Build Telegram → inbox integration: Saved Messages on phone should feed `src/content/_inbox/` (notes) and the weblinks collection (links) automatically. Need to decide on API approach (Bot API vs MTProto), how to distinguish links from notes, and whether it runs on a schedule or as a skill. Plan before coding.
+> Retry /schedule for the morning inbox check — it failed twice due to connection errors. Set up a daily 8:00 AM task to surface new entries from `src/content/_inbox/` and suggest turning them into posts.
 
 ---
 
@@ -195,6 +157,16 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 ---
 
 ## Archive
+
+### ✅ Tablet + Telegram integration
+*2026-04-06*
+
+Full Telegram capture pipeline delivered: @MaaikGardenBot, GitHub Actions sync on 15-min cron, links auto-published as weblinks, text notes to `_inbox/telegram.md`. `/telegram-sync` skill added. Book recommender ported from Python to Node.js, all 110 books scored, "include books I already read" toggle added, 20-test suite written. Tests section added to Toolshed. YAML build failure in `session-management.md` fixed. ViewTransitions removed. Morning inbox schedule still pending (see active item above).
+
+### ✅ Tablet setup + inbox workflow
+*2026-04-05 · completed: 2026-04-06*
+
+Samsung Notes → GitSync → `_inbox/` pipeline set up and working. Telegram pipeline also shipped this session.
 
 ### ✅ Toolshed redesign: three-collection structure
 *2026-04-04 · completed: 2026-04-05*
