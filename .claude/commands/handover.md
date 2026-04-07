@@ -66,11 +66,15 @@ git commit -m "Handover: [title]"
 git push
 ```
 
-### Step 5: Toolshed check
+### Step 5: Update release notes
+
+Run `/update-release-notes` to document what was shipped in this session. This keeps `building-this-garden.md` current and ensures the Garden Ops page reflects the work.
+
+### Step 6: Toolshed check
 
 Briefly scan the Toolshed posts in `src/content/toolshed/` for any that describe features or workflows touched in this session. Flag any that are now outdated and need updating before closing out. Update them if the changes are small; add a backlog note if they need more work.
 
-### Step 6: Done
+### Step 7: Done
 
 Tell the user the handover is in the backlog at `/backlog` on the garden. Remind them to copy the entry text as their opening message for the new thread.
 
