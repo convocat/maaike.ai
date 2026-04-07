@@ -28,7 +28,7 @@ Each collection has a minimum set of required fields. Shared across all: `title`
 
 **Enum validation**
 
-- `maturity` must be one of: `draft`, `developing`, `solid`, `complete`
+- `maturity` must be one of: `draft`, `developing`, `solid`, `complete`, `compost`
 - Library `status` must be one of: `reading`, `read`, `to-read`, `abandoned`
 
 **Unsafe YAML values**
