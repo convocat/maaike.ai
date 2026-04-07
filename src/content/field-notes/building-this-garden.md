@@ -257,13 +257,16 @@ The biggest infrastructure day since March 14: Telegram, PDF pipeline, and OG im
 
 ### 7 April
 
-A jotting, a video post, and several fixes under the hood.
+A jotting, a video post, a full changelog rewrite, and a redesigned Garden Ops page.
 
 - **Jotting published**: "From role to skills: how Claude Code desilos the future of work" -- a reflection on how agentic AI collapses specialist role boundaries; milestone 1 in the Claude Code experiments
 - **First YouTube video post**: welcome video with embedded player; index card in the stream with video icon, no thumbnail
 - **Validator fix**: `compost` added as a valid maturity state for retired content
 - **Video stream card fixed**: a previous session had accidentally introduced a thumbnail that broke the stream layout; removed
-- **Release notes pagination**: Toolshed Garden Ops page now shows the full history from March 9, browsable in pages of 15
+- **Changelog rewrite**: all entries in `building-this-garden.md` rewritten as narrative mini stories -- intro sentence per day plus descriptive bullets, covering March 9 through April 7
+- **Garden Ops release notes redesigned**: sources from `building-this-garden.md` only; grouped by month with collapsible day accordions; no pagination, no raw git commits
+- **`/update-release-notes` skill updated**: now generates intro sentence + bullet format to match the new changelog style
+- **`/handover` skill updated**: now includes a `/update-release-notes` step as part of closing out
 
 ## Related
 
