@@ -35,7 +35,7 @@ const REQUIRED_BY_COLLECTION = {
   tags:         ['title'], // tag definition files only need a title
 };
 
-const VALID_MATURITY = ['draft', 'developing', 'solid', 'complete'];
+const VALID_MATURITY = ['draft', 'developing', 'solid', 'complete', 'compost'];
 const VALID_STATUS   = ['reading', 'read', 'to-read', 'abandoned'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
