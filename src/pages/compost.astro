@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import { sortByDate } from '../utils/collections';
+import CollectionIcon from '../components/CollectionIcon.astro';
+
+const allComposted = sortByDate([
+  ...(await getCollection('articles')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'articles' as const, href: `/articles/${e.id}` })),
+  ...(await getCollection('fieldNotes')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'field-notes' as const, href: `/field-notes/${e.id}` })),
+  ...(await getCollection('seeds')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'seeds' as const, href: `/seeds/${e.id}` })),
+  ...(await getCollection('jottings')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'jottings' as const, href: `/jottings/${e.id}` })),
+  ...(await getCollection('experiments')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'experiments' as const, href: `/experiments/${e.id}` })),
+  ...(await getCollection('weblinks')).filter((e) => !e.data.draft && e.data.maturity === 'compost').map((e) => ({ ...e, collection: 'weblinks' as const, href: `/weblinks/${e.id}` })),
+]);
+
+const formattedDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
+---
+
+<PageLayout title="Compost — Maai & AI">
+  <div class="compost-header">
+    <h1>🍂 Compost</h1>
+    <p class="section-description">Posts that have run their course. No longer growing, but part of what the garden became.</p>
+  </div>
+
+  {allComposted.length === 0 ? (
+    <p class="empty-state">Nothing here yet. The compost heap is empty.</p>
+  ) : (
+    <ul class="compost-list">
+      {allComposted.map((entry) => (
+        <li class="compost-item">
+          <a href={entry.href} class="compost-link">
+            <span class="compost-collection">
+              <CollectionIcon collection={entry.collection} size={14} />
+              <span>{entry.collection.replace(/-/g, ' ')}</span>
+            </span>
+            <span class="compost-title">{entry.data.title}</span>
+            {entry.data.description && (
+              <span class="compost-desc">{entry.data.description}</span>
+            )}
+            <span class="compost-date">{formattedDate(entry.data.date)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</PageLayout>
+
+<style>
+  .compost-header {
+    margin-block-end: var(--space-2xl);
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin-block-end: var(--space-xs);
+  }
+
+  .section-description {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    max-width: 42rem;
+  }
+
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .compost-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .compost-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .compost-link {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-md);
+    row-gap: 2px;
+    align-items: baseline;
+    padding: var(--space-sm) 0;
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+  }
+
+  .compost-link:hover .compost-title {
+    color: var(--color-accent);
+  }
+
+  .compost-collection {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .compost-title {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+  }
+
+  .compost-desc {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+  }
+
+  .compost-date {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+</style>

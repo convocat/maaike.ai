@@ -9,7 +9,7 @@ import settings from '../../data/settings.json';
 import CollectionIcon from '../../components/CollectionIcon.astro';
 
 const articles = sortByDate(
-  (await getCollection('articles')).filter((e) => !e.data.draft)
+  (await getCollection('articles')).filter((e) => !e.data.draft && e.data.maturity !== 'compost')
 );
 const tags = getUniqueTags(articles);
 ---

@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const maturityEnum = z.enum(['draft', 'developing', 'solid', 'complete']);
+const maturityEnum = z.enum(['draft', 'developing', 'solid', 'complete', 'compost']);
 
 const baseSchema = z.object({
   title: z.string(),
