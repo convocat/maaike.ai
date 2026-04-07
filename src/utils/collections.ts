@@ -23,7 +23,7 @@ export async function getAllContent() {
     ...library.map((e) => ({ ...e, collection: 'library' as const })),
     ...experiments.map((e) => ({ ...e, collection: 'experiments' as const })),
     ...jottings.map((e) => ({ ...e, collection: 'jottings' as const })),
-  ].filter((e) => !e.data.draft);
+  ].filter((e) => !e.data.draft && e.data.maturity !== 'compost');
 }
 
 export function sortByDate<T extends { data: { date: Date } }>(entries: T[]): T[] {

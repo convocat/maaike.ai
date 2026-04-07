@@ -9,7 +9,7 @@ import settings from '../../data/settings.json';
 import CollectionIcon from '../../components/CollectionIcon.astro';
 
 const fieldNotes = sortByDate(
-  (await getCollection('fieldNotes')).filter((e) => !e.data.draft)
+  (await getCollection('fieldNotes')).filter((e) => !e.data.draft && e.data.maturity !== 'compost')
 );
 const tags = getUniqueTags(fieldNotes);
 ---

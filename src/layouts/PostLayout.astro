@@ -11,7 +11,7 @@ interface Props {
   title: string;
   date: Date;
   updated?: Date;
-  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  maturity: 'draft' | 'developing' | 'solid' | 'complete' | 'compost';
   tags: string[];
   triples?: [string, string, string][];
   themes?: string[];
@@ -46,6 +46,7 @@ const stages = [
   { key: 'complete', emoji: '🌳', label: 'Tree' },
 ];
 
+const isCompost = maturity === 'compost';
 const currentIndex = stages.findIndex((s) => s.key === maturity);
 
 const formattedDate = new Intl.DateTimeFormat('en-GB', {
@@ -90,16 +91,23 @@ const formattedUpdated = updated
             </>
           )}
         </div>
-        <div class="maturity-track" role="img" aria-label={`Maturity: ${stages[currentIndex].label}`}>
-          {stages.map((stage, i) => (
-            <div class:list={['maturity-step', { 'is-reached': i <= currentIndex, 'is-current': i === currentIndex }]}>
-              <span class="maturity-step-emoji">{stage.emoji}</span>
-              {i < stages.length - 1 && (
-                <span class:list={['maturity-step-line', { 'is-filled': i < currentIndex }]} aria-hidden="true" />
-              )}
-            </div>
-          ))}
-        </div>
+        {isCompost ? (
+          <div class="maturity-compost" role="img" aria-label="Composted">
+            <span class="maturity-compost-emoji">🍂</span>
+            <span class="maturity-compost-label">Composted</span>
+          </div>
+        ) : (
+          <div class="maturity-track" role="img" aria-label={`Maturity: ${stages[currentIndex].label}`}>
+            {stages.map((stage, i) => (
+              <div class:list={['maturity-step', { 'is-reached': i <= currentIndex, 'is-current': i === currentIndex }]}>
+                <span class="maturity-step-emoji">{stage.emoji}</span>
+                {i < stages.length - 1 && (
+                  <span class:list={['maturity-step-line', { 'is-filled': i < currentIndex }]} aria-hidden="true" />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </header>
 
       {ai && aiLabels[ai] && (
@@ -325,6 +333,24 @@ const formattedUpdated = updated
 
   .post-meta-sep {
     opacity: 0.4;
+  }
+
+  .maturity-compost {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-block-start: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .maturity-compost-emoji {
+    font-size: 1.25rem;
+  }
+
+  .maturity-compost-label {
+    font-style: italic;
+    opacity: 0.7;
   }
 
   .maturity-track {

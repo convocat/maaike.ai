@@ -2,7 +2,7 @@
 title: Garden to do list
 date: 2026-03-14
 updated: 2026-03-15
-maturity: draft
+maturity: compost
 tags:
   - digital-gardens
   - developer-experience

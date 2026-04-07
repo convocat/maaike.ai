@@ -1,6 +1,6 @@
 ---
 interface Props {
-  maturity: 'draft' | 'developing' | 'solid' | 'complete';
+  maturity: 'draft' | 'developing' | 'solid' | 'complete' | 'compost';
 }
 
 const { maturity } = Astro.props;
@@ -10,6 +10,7 @@ const config: Record<string, { icon: string; label: string }> = {
   developing: { icon: '\u{1F33F}', label: 'Sprout' },
   solid:      { icon: '\u{1FAB4}', label: 'Plant' },
   complete:   { icon: '\u{1F333}', label: 'Tree' },
+  compost:    { icon: '🍂', label: 'Composted' },
 };
 
 const { icon, label } = config[maturity];

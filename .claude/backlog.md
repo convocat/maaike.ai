@@ -4,7 +4,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-06 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-07 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
@@ -20,15 +20,17 @@ Key files: `src/content/seeds/how-to-build-a-digital-garden.md`, `src/content/fi
 
 ---
 
-## 🟡 Morning inbox schedule
-*2026-04-06*
+## 🟡 Morning inbox + telegram schedule
+*2026-04-07*
 
-The `/schedule` connection was unavailable in two consecutive sessions. Retry setting up the daily 8:00 AM inbox check: surface new date-stamped entries from `src/content/_inbox/` and offer to turn them into posts or backlog items. This is the only outstanding setup task from the tablet + Telegram pipeline.
+Two daily schedules to set up via `/schedule` (connection keeps failing — retry when available):
+1. Daily 8:00 AM: surface new entries from `src/content/_inbox/` and offer to turn them into posts
+2. Daily telegram sync: run `/telegram-sync` to pull new captures (removed from `/backlog` step 0 — now runs independently)
 
 Key files: `src/content/_inbox/telegram.md`, `src/content/_inbox/`, `.claude/commands/backlog.md`
 
 **Opening message for next session:**
-> Retry /schedule for the morning inbox check — it failed twice due to connection errors. Set up a daily 8:00 AM task to surface new entries from `src/content/_inbox/` and suggest turning them into posts.
+> Retry /schedule — it's failed three times due to connection errors. Two tasks: (1) daily 8:00 AM inbox check surfacing new entries from `src/content/_inbox/`; (2) daily telegram sync running `/telegram-sync`. Both were removed from the /backlog skill and need their own schedules.
 
 ---
 

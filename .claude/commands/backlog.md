@@ -12,10 +12,6 @@ This is the process mirror role: reflect what the board actually shows, not what
 
 ## Steps
 
-### Step 0: Telegram sync
-
-Run `/telegram-sync` to surface any new captures before reviewing the board. Do this silently — only report results if something new arrived.
-
 ### Step 1: Gather context
 
 Read these files in parallel:
