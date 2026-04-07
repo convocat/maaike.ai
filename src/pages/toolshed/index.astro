@@ -240,7 +240,7 @@ const columns = [
           {years.map((year, i) => (
             <details open={i === 0}>
               <summary class="ts-year-toggle">{year}</summary>
-              <ul class="ts-release-list">
+              <ul class="ts-release-list" data-paginate="15">
                 {byYear[year].map(entry => (
                   <li class:list={['ts-release-item', { 'ts-release-git': entry.type === 'git' }]}>
                     <time class="ts-release-date">{entry.date}</time>
@@ -248,6 +248,7 @@ const columns = [
                   </li>
                 ))}
               </ul>
+              <div class="ts-pagination" aria-label="Release notes pagination"></div>
             </details>
           ))}
         </section>
@@ -359,6 +360,60 @@ const columns = [
 
   initToolshed();
   document.addEventListener('astro:after-swap', initToolshed);
+
+  // ── Release notes pagination ──────────────────────────────────────────────
+  function initReleasePagination() {
+    document.querySelectorAll<HTMLUListElement>('ul[data-paginate]').forEach(list => {
+      const pageSize = parseInt(list.dataset.paginate ?? '15', 10);
+      const items = Array.from(list.querySelectorAll<HTMLLIElement>(':scope > li'));
+      if (items.length <= pageSize) return; // no pagination needed
+
+      const container = list.nextElementSibling as HTMLElement;
+      if (!container?.classList.contains('ts-pagination')) return;
+
+      let current = 0;
+      const totalPages = Math.ceil(items.length / pageSize);
+
+      function render(page: number) {
+        current = page;
+        items.forEach((item, i) => {
+          item.hidden = i < page * pageSize || i >= (page + 1) * pageSize;
+        });
+
+        container.innerHTML = '';
+
+        const prev = document.createElement('button');
+        prev.textContent = '← Prev';
+        prev.disabled = page === 0;
+        prev.addEventListener('click', () => { render(current - 1); list.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+        container.appendChild(prev);
+
+        for (let p = 0; p < totalPages; p++) {
+          const btn = document.createElement('button');
+          btn.textContent = String(p + 1);
+          if (p === page) btn.setAttribute('aria-current', 'page');
+          btn.addEventListener('click', () => { render(p); list.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+          container.appendChild(btn);
+        }
+
+        const next = document.createElement('button');
+        next.textContent = 'Next →';
+        next.disabled = page === totalPages - 1;
+        next.addEventListener('click', () => { render(current + 1); list.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+        container.appendChild(next);
+
+        const info = document.createElement('span');
+        info.className = 'ts-page-info';
+        info.textContent = `${page * pageSize + 1}–${Math.min((page + 1) * pageSize, items.length)} of ${items.length}`;
+        container.appendChild(info);
+      }
+
+      render(0);
+    });
+  }
+
+  initReleasePagination();
+  document.addEventListener('astro:after-swap', initReleasePagination);
 </script>
 
 <style>
@@ -619,6 +674,41 @@ const columns = [
   .ts-release-title { color: var(--color-text); line-height: 1.4; }
   .ts-release-git .ts-release-title { color: var(--color-text-muted); font-size: 0.75rem; }
   .ts-release-git .ts-release-date { opacity: 0.6; }
+
+  /* ── Pagination ── */
+  .ts-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: var(--space-sm);
+    flex-wrap: wrap;
+  }
+  .ts-pagination button {
+    font-size: 0.72rem;
+    font-family: var(--font-body);
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    line-height: 1.6;
+  }
+  .ts-pagination button:hover {
+    background: var(--color-surface-2, #f5f5f5);
+    color: var(--color-text);
+  }
+  .ts-pagination button[aria-current="page"] {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+  .ts-pagination .ts-page-info {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+  }
 
   /* ── Sidebar ── */
   .ts-sidebar {
