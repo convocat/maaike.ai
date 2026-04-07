@@ -1,186 +1,269 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-03-24
-maturity: developing
+updated: 2026-04-07
+maturity: solid
 tags:
   - about
   - digital-gardens
   - ai-tools
   - developer-experience
 description: A changelog of features and decisions made while building this digital garden.
-ai: generated
+ai: co-created
 ---
 
 For the story behind why this garden exists, read [[a-digital-garden-as-central-space|the origin story]].
+
+## Before the garden
+
+Maaike's writing life predates this garden by two decades: a WordPress blog since 2003, a Substack newsletter running from 2020 to 2025, a YouTube channel under the Convocat name, books collected in Notion, articles on Medium and LinkedIn. Five platforms, five workflows, no single place that felt fully hers.
 
 ## Changelog
 
 ### 9 March
 
-- **Initial setup**: Astro 5, static output, GitHub Pages deployment
-- **Content collections**: 7 collections (articles, field notes, sparks, weblinks, videos, library, principles)
-- **CMS**: Sveltia CMS admin panel
+Everything started at once -- the whole site went from zero to functional in a single sitting.
+
+- **Initial Astro setup**: static output, GitHub Pages, six content collections (articles, field notes, sparks, weblinks, videos, library)
+- **Sveltia CMS**: admin panel for editing content without touching code
+- **Substack import**: 40+ articles from 2020-2025 converted to Markdown, images downloaded locally
+- **Videos collection**: YouTube embed support
+- **Library collection**: migrated from Notion with reading status and topic tags
+- **Homepage redesign**: full-width hero, note preview cards
+- **Filtering and sorting**: interactive filter bar on all collection index pages
 - **Publishing workflow**: `publish.bat` for local push, GitHub Actions for phone link sharing
-- **Content import**: 40+ Substack articles (2020-2025) imported in batches
-- **Tags system**: Dynamic tag collection, tag pages, relation widgets in CMS
-- **Filtering and sorting**: Interactive filter bar on collection index pages
-- **Homepage redesign**: Full-width hero, note preview cards, video thumbnails
-- **Videos collection**: YouTube embed support, thumbnail grid on homepage
-- **Library + Principles**: Two new collections with custom fields (author, status, cover)
-- **Pruning reflections**: Optional retrospective notes on older articles
-- **Collection renaming**: notes to field-notes, links to weblinks, added sparks
-- **Wiki links**: `[[double bracket]]` cross-linking across all collections
-- **Backlinks**: Computed incoming links shown on each post
 
 ### 10 March
 
-- **Wiki link previews**: Hover cards showing title + description
-- **Hand-drawn icons**: SVG collection icons with feTurbulence wobble filter
-- **Sparks content**: First three sparks planted
-- **CLAUDE.md**: Project memory file for persistent AI assistant context
-- **AI transparency**: Four-level indicator (100% Maai, assisted, co-created, generated)
-- **Style rules**: Sentence case titles, no em-dashes
+The garden got its personality -- hover previews, hand-drawn icons, and the first real content.
+
+- **Wiki link hover cards**: hovering any `[[link]]` shows a small card with the post's title and description
+- **Hand-drawn collection icons**: SVG icons with a `feTurbulence` wobble filter, each collection with its own character
+- **First sparks planted**: three early ideas about the garden itself
+- **CLAUDE.md**: project memory file so Claude carries context across sessions
+- **AI transparency**: four-level indicator (100% Maai, assisted, co-created, generated) shown as a labelled box on each post
 
 ### 11 March
 
-- **Post sidebar**: Tags, backlinks, and related posts in a sticky sidebar on desktop
-- **Sidebar refinement**: Removed connection map graph, kept clean text lists
-- **Dark mode logo**: CSS filter (invert + grayscale + lighten blend) for logo visibility in dark mode
-- **AI transparency labels**: Renamed "none" to "100% Maai", set AI status on all posts
-- **Content cleanup**: Deleted 4 posts, reformatted changelog to date headers with bullet lists
-- **Content creation skill**: `/new-post` command opens Typora directly with blank template, metadata added after writing
-- **Typora theme**: Custom "Maaike Garden" theme matching site design (Lora, Roboto, hot pink accent, collapsible frontmatter)
-- **Auto-tag skill**: `/auto-tag` scans content base to suggest tags and wiki-links for any post
-- **Release notes skill**: `/update-release-notes` generates changelog entries from git commits
+The authoring workflow was rebuilt from the ground up, and the post detail page got its permanent shape.
+
+- **Post sidebar**: backlinks, related posts, and suggested reading in a sticky sidebar on desktop
+- **Dark mode logo**: CSS filter approach keeps the logo legible without a separate dark asset
+- **Typora theme**: custom "Maaike Garden" theme matching the site (Lora, Roboto, hot pink accent)
+- **`/new-post` skill**: opens Typora directly with a blank template; metadata added after writing, not before
+- **`/auto-tag` skill**: scans the content base and suggests tags and wiki-links for any post
+- **`/update-release-notes` skill**: generates these very entries from git commits
 
 ### 12 March
 
-- **First original article**: Published "A digital garden as central space for my thoughts and writing" with inline link processing and local image hosting
-- **New sparks**: "The disappearance of authentic voice online" and "Writing as a conversation with yourself"
-- **New tags**: `personal-web`, `non-linear-thinking`, `role-of-ai` for more specific topic tagging
-- **Cross-linking**: Added backlinks from 6 existing posts to the new article
-- **SSL fix**: Updated GitHub Pages custom domain to www.maaike.ai, triggered new cert for both domains
-- **Build fix**: Added required frontmatter to draft file that was blocking all deployments
-- **Notion library import**: Migrated 59 books from Notion to the library collection, with reading status and topic tags
+The first original article was published, and the library became genuinely useful.
+
+- **First original article**: "A digital garden as central space for my thoughts and writing" -- written for the garden, not imported from Substack
+- **SSL fix**: GitHub Pages domain misconfigured; fixed with a DNS change and waited for a new cert
+- **Notion library import**: 59 books migrated with reading status and topic tags
 - **Book covers**: 45 covers fetched from Open Library and stored locally
-- **Suggested reading sidebar**: Posts show up to 3 matching library books based on shared tags
-- **Articles shelf**: Library page includes weblinks as a separate Articles section
+- **Suggested reading sidebar**: up to 3 matching library books shown on each post
 - **LinkedIn sharing skill**: `/share-linkedin` generates LinkedIn-ready text from any post
-- **DNS fix**: Changed www CNAME to point to convocat.github.io for proper SSL provisioning
-- **Book blurbs**: 18 books enriched with official descriptions from Open Library
-- **Smarter book recommendations**: Content-based recommender using keyword similarity, tag synonyms, and blurb matching instead of simple tag overlap
-- **Backlinks fix**: Wiki links with pipe syntax (`[[slug|display text]]`) now correctly generate backlinks
+- **Smarter book recommendations**: moved from simple tag overlap to keyword similarity blending content, tags, and blurbs
 
 ### 14 March
 
-- **Sparks renamed to Seeds**: Collection renamed across the entire codebase to better fit the garden metaphor. New hand-drawn seed icon
-- **LinkedIn integration**: Connected LinkedIn developer app with OAuth, created `post-to-linkedin.mjs` script for direct API posting
-- **Share and tags in post footer**: LinkedIn share button, copy-link button, and tags moved from sidebar to a dedicated post footer section
-- **Sidebar as garden path**: Sidebar stripped down to navigation only: "Linked from" (backlinks), "Related" posts, and "Suggested reading", all with collection icons
-- **`/share-linkedin` skill updated**: Now offers direct API posting in addition to clipboard copy
-- **New seeds**: "Garden to do list" (living roadmap) and "Chatbots without AI" (conversational garden guide without LLMs)
-- **Experiments collection**: New content type for hands-on, reproducible explorations. Beaker icon (#6a8e96), full routing, CMS, and nav integration
-- **Knowledge graph research**: New field note tracking research into automatic semantic backlinks, garden world model, and external content discovery. Inspired by Apple's Saga platform
-- **Projects page**: Cross-collection view showing all content tagged `project`. Added to header nav. No new collection needed: any content tagged `project` becomes a project hub
-- **Saga reading notes**: Detailed field note summarizing both Apple Saga papers (SIGMOD 2022 + 2023), with PDFs stored locally
-- **Project files in sidebar**: Project hub pages show "Project files" instead of "Linked from", listing all content that wiki-links back to the hub. Seeds can link forward to projects they inspired
-- **Embedding model survey**: Field note covering five eras of text embedding, comparison of three local models (nomic-embed-text, bge-m3, embeddinggemma), and model selection criteria for the garden's dataset
-- **Local embedding setup**: Experiment documenting Ollama installation and three-model comparison on 10 garden items (body text vs metadata-enriched)
-- **Full-scale embedding run**: bge-m3 on all 157 garden items, confirming 43/44 existing wiki-links and surfacing 2,771 candidate connections
-- **New seeds**: "Dutch-aware quantization" (language-specific model compression) and "Embeddings for knowledge gardens: a research gap" (PKM embedding research gap)
-- **Crew Resource Management**: Moved from field notes to seeds
+Sparks became Seeds, LinkedIn got real API posting, and the knowledge graph work began in earnest.
+
+- **Seeds rename**: the collection was renamed across the entire codebase; new hand-drawn seed icon
+- **LinkedIn API posting**: direct API publishing added to `/share-linkedin`, not just clipboard copy
+- **Sidebar refinement**: stripped to navigation only -- backlinks, related posts, suggested reading; connection graph removed
+- **Experiments collection**: new content type for hands-on, reproducible explorations with beaker icon
+- **Projects page**: cross-collection hub view for all content tagged `project`
+- **Saga reading notes**: detailed field note summarising both Apple Saga papers (SIGMOD 2022 + 2023)
+- **Embedding survey**: five eras of text embedding, three local models tested on garden content (nomic-embed-text, bge-m3, embeddinggemma)
+- **Full-scale embedding run**: bge-m3 on all 157 items; confirmed 43/44 existing wiki-links and surfaced 2,771 candidate connections
 
 ### 15 March
 
-- **Key phrase extraction write-up**: Field note covering four eras of extraction methods (statistical, graph-based, embedding-based, LLM-based), relationship to embeddings, the short-text problem, and recommended approach for the garden
-- **Observation box**: New `.observation` CSS component (teal accent) for personal meta-notes, added to both garden and Typora theme
-- **Backlinks fix**: Deduplicated backlinks and sorted by date for chronological project file ordering
-- **Experiment reorganization**: Moved analysis out of experiments into field notes, added full inline code to experiment files
-- **Full-scale key phrase extraction**: LLM-based extraction (gemma3:4b) on all 92 garden items. 705 unique phrases, 35% item overlap, short-text padding confirmed as main quality issue
-- **Field-notes icon**: Redesigned from flask to clipboard with checklist, distinguishable from experiments beaker at small sizes
-- **Link review UI**: Standalone tool (`tools/review-links.html`) for reviewing embedding-based link candidates with z-score filtering, keyboard navigation, and export
-- **Candidate pipeline**: Scripts to generate scored link candidates from embeddings + key phrases, and apply approved links as Related sections
-- **100 new cross-links**: First review round applied 50 approved link pairs (bidirectional) across 50 content files, all discovered by the knowledge graph pipeline
-- **Explore page**: Interactive spatial map at `/explore` with three modes (Map, Wander, Paths). UMAP projection of bge-m3 embeddings, Rough.js hand-drawn rendering, d3-zoom pan/zoom. Prototyped in v0 by Vercel, rebuilt as vanilla JS for Astro
-- **Explore data pipeline**: Build-time script (`scripts/build-explore-data.cjs`) computes UMAP positions, k-means clusters, and trail data from embeddings and key phrases
-- **Nightly explore rebuild**: Scheduled task updates embeddings, key phrases, and explore data overnight
-- **WCAG color overhaul**: All collection colors updated to meet WCAG AA (≥3:1 contrast) across explore page, collection icons, and connection map
-- **Design system documentation**: New field note documenting the full visual system: color palette, typography, all 22 components, content rules, and accessibility standards
-- **Principles removed**: Collection deleted entirely (config, pages, content, icons)
-- **Nav cleanup**: Removed Weblinks and Videos from navigation (collections still accessible), added Explore
+A very long day: key phrases, Explore, design system, WCAG, and a collection that got deleted.
+
+- **Key phrase extraction field note**: four eras of methods, the short-text problem, recommended approach for the garden
+- **Observation box**: new `.observation` component in teal for personal meta-notes, in site and Typora theme
+- **Explore page**: interactive spatial map at `/explore` with Map, Wander, and Paths modes; UMAP + Rough.js + d3-zoom
+- **Explore data pipeline**: build-time script computes positions, k-means clusters, and trail data
+- **Nightly rebuild**: scheduled task updates embeddings, key phrases, and explore data overnight
+- **WCAG color overhaul**: all collection colors updated to meet AA contrast (≥3:1)
+- **Design system field note**: all 22 components, full color palette, typography, content rules, and accessibility standards
+- **Principles collection removed**: deleted entirely; never felt right
+- **Nav updated**: Explore replaced weblinks and videos in the main navigation
 
 ### 17 March
 
-- **Book recommender project**: New field note project hub with user research interview and library audit (40 books labeled). Logic-based scoring algorithm designed across 5 dimensions: topic match, experience prediction, mood fit, garden connection, freshness
+The book recommender project formally began, with a scoring model designed across five dimensions.
+
+- **Project hub**: field note with user research framing and library audit (40 books labeled)
+- **Scoring dimensions**: topic match, experience prediction, mood fit, garden connection, freshness
 
 ### 18 March
 
-- **Book recommender: Python script**: `recommend.py` scores all candidate books across 4 mood profiles and outputs a reading mix (main read, side read, wildcard). Reads garden tags and active projects automatically
-- **Book recommender: HTML dashboard**: Interactive single-file dashboard at `dashboard.html`. All 4 moods pre-generated, switch client-side without re-running the script. Score breakdown bars, matched garden tags, estimated pages and reading time per book
-- **Book recommender: library integration design**: New experiment outlining how the recommender will read from and write back to the garden's library collection, making it the single source of truth
-- **Book recommender: learning layer**: Dashboard now shows a mood profile card (what the mood boosts and why), score bar tooltips on hover (dimension explanation + weight), matched interest keywords as pink pills, and a collapsible algorithm explainer
-- **Book recommender: library integration**: Extended Astro library schema with audit fields (genre, book_type, purpose, reason, rating, review, recommended, recommended_score). Migrated 40 books from JSON to markdown frontmatter. Recommender now reads from and writes back to the garden library as single source of truth
-- **Book recommender: vibe chips + mood removal**: Replaced mood selector with four situational vibe chips (short session, feed the work, from the pile, surprise me). Each chip is orthogonal to content preference: short session picks the best-scored short book; feed the work re-ranks by garden connection; from the pile re-ranks by freshness. Python scoring simplified to four mood-independent dimensions (topic 30%, experience 35%, garden 20%, freshness 15%)
-- **Book recommender: 2D positioning canvas**: Replaced vibe chips with a draggable 2D canvas. X axis: play/personal to learn/professional. Y axis: comfort/familiar to discover/challenge. Dot position re-ranks results in real time. Four preset chips snap to named positions. Short session stays as a separate checkbox
-- **Book recommender: library integration**: "What to read next?" link on the library page. Inline audit editor on each book's detail page, saves directly to the markdown file via a local Python server (localhost:8090)
-- **Book recommender: UI cleanup**: Removed scored books list from the dashboard. Removed public inline audit editor from book detail pages (security concern). Recommender drawer moved inside PageLayout so Astro scoped CSS applies correctly. Button redesigned as pink pill
-- **Library: auto-tagging**: All 100 library books tagged with missing metadata (book_type, purpose, reason). Reading status corrected: only "Bacteria to AI" marked as currently reading
-- **Library: metadata display**: Read-only reason, rating, and review shown on book detail pages
-- **Library: category filter**: Tag pills replaced with 8 curated category buttons (Conversation design, Conversational analysis, Content architecture, NLP/NLU & speech, Feminism/bias/ethics, Accessibility, Writing, General interest)
-- **Library: status filter**: Sort buttons replaced with "To be read" and "Finished reading" reading status filter buttons
-- **YAML safety fix**: Four library files had unquoted colon-space sequences in reason fields, breaking production builds silently. Fixed by quoting all affected values
-- **Test strategy**: Three-layer test pyramid: content validator (`scripts/validate-content.mjs`, run via `npm run validate`), build verification via GitHub Actions, and 11 Playwright E2E tests (`tests/library.spec.ts`, run via `npm test`). Pre-commit hook wired up
-- **About tag**: Five field notes about building the garden tagged with `about` for easier filtering
+A genuinely impressive single day -- the book recommender went from algorithm design to a full interactive dashboard with library integration.
+
+- **Python script**: scores all candidate books across 4 mood profiles; outputs main read, side read, wildcard
+- **Interactive dashboard**: single-file HTML, moods switch client-side without re-running the script
+- **Library integration**: recommender reads from and writes back to the garden library as single source of truth
+- **Learning layer**: mood profile cards, score bar tooltips, matched interest keywords as pink pills, collapsible algorithm explainer
+- **2D positioning canvas**: draggable canvas replaced mood selector; X axis play/personal to learn/professional, Y axis comfort to discover; four preset chips snap to named positions
+- **Library auto-tagging**: all 100 books tagged with missing metadata (book_type, purpose, reason)
+- **Library detail pages**: read-only reason, rating, and review shown on each book page
+- **Category filter**: 8 curated buttons (Conversation design, NLP/NLU, Feminism/bias/ethics, etc.)
+- **YAML safety fix**: four books had unquoted colon-space sequences in frontmatter, breaking production builds silently
+- **Test strategy**: content validator, GitHub Actions build verification, 11 Playwright E2E tests
 
 ### 19 March
 
-- **Explore map: 10 territories**: Increased territory count from 6 to 10 with label overrides for awkward auto-labels. New territories include knowledge-graph, ai-ethics, philosophy, developer-experience, conversational-ai
-- **Normalized re-embedding**: All 213 items re-embedded with enriched input: title + description + tags + keyphrases + reason fields. Better semantic discrimination without length bias
-- **Link candidates regenerated**: 269 new candidates at 0.70 threshold (down from 5,583 at 0.50)
-- **Stable map positions**: Pinned item positions and territories in `map-roots.json`. Map no longer reshuffles on every rebuild. New items placed near most similar neighbor. `--recompute` flag for full reset
-- **Manual position overrides**: Items can be moved to a different territory via overrides in `map-roots.json`
-- **Library noise filter**: Unconnected fiction excluded from explore map. 18 professional books given wiki-links to keep them visible
-- **Wiki-links on 18 library books**: Related sections added to professional books that had no connections
-- **External content discovery**: New project hub with constraints and conditions for using the garden's knowledge graph to find relevant external content
-- **Garden lifecycle metaphor**: Field note describing the greenhouse (quarantine for external content), compost heap (decayed content), and soil (pre-stage for seeds) as a full recycle loop
-- **Nav bar updated**: Field Notes and Seeds added back to main navigation
-- **About page rewritten**: Updated from 3 content types to all 7 collections, plus maturity system, AI transparency, connections, and projects sections
+The Explore map stabilised, and the garden started thinking about what lived beyond its walls.
+
+- **10 territories**: expanded from 6 with label overrides; new territories include knowledge-graph, ai-ethics, philosophy
+- **Re-embedding**: all 213 items enriched with title + description + tags + keyphrases + reason; better semantic discrimination without length bias
+- **Stable map positions**: pinned in `map-roots.json`; map no longer reshuffles on every rebuild
+- **Manual overrides**: individual items can be moved to a different territory via overrides
+- **External content discovery**: new project hub with constraints for using the knowledge graph to find relevant content outside the garden
+- **Garden lifecycle metaphor**: greenhouse (quarantine), compost heap (decayed content), soil (pre-stage for seeds)
+- **Nav updated**: field notes and seeds brought back into main navigation
 
 ### 21 March
 
-- **New project: Claude Code features x garden**: Project hub with 5 experiments demonstrating new Claude Code features through practical garden tasks
-- **Experiment 1: scheduled health check**: Automated garden health task using Claude Code's scheduled tasks feature
-- **Experiment 2: thematic analysis with 1M context**: Full-garden reading of all 244 files in a single context window, producing 7 emergent themes plus embedding cluster comparison
-- **Conversation metaphor article updated**: New sections on the problem with conversation (anthropomorphism, emotional labor) and delegation as metaphor (parcel delivery service)
-- **Tended box**: Pink accent box for marking article updates, with Typora theme support
-- **End-of-session housekeeping**: Checklist added to CLAUDE.md for consistent garden maintenance
-- **Prompt scaffolding removed**: AI-generated content that violated garden ethics, cleaned up across articles
-- **Machine migration**: Repo migrated to new machine with memory and scheduled task files
+The Claude Code experiments project launched, and the conversation metaphor article got two new sections.
+
+- **Claude Code features x garden**: project hub with 5 planned experiments demonstrating new Claude Code features
+- **Experiment 1**: scheduled health check -- automated garden monitoring via Claude Code's scheduled tasks
+- **Experiment 2**: thematic analysis using 1M context window on all 244 files; produced 7 emergent themes
+- **Conversation metaphor article tended**: new sections on the problem with anthropomorphism, and delegation as metaphor (parcel delivery service framing)
+- **Tended box**: pink accent component for marking article updates, with Typora theme support
+- **Machine migration**: repo migrated to a new machine
 
 ### 23 March
 
-- **Jottings collection**: New content type with subtypes (note, quote, event, link, post) for casual personal notes, book quotes, and LinkedIn cross-posts. Fountain pen nib icon in ink-blue
-- **Stream page**: New braided feed view mixing articles, field notes, seeds, jottings and weblinks chronologically. Doodle icons per collection, parchment hero card, pinned quote cards in sage green, currently reading sidebar
-- **Explore map mobile fix**: Responsive breakpoints at 768px and 640px, territory label scaling, landscape mode, improved touch targets
-- **/new-book skill**: Slash command for adding library books via Open Library API with automatic cover downloads
-- **Doodle icon set**: Hand-drawn SVG icons for Stream cards (doc, note, bulb, pencil, globe, flask, rocket, calendar, send, message)
-- **UX review**: Three-agent review of Stream page covering visual design, interaction model, and content strategy
-- **Mega-menu navigation**: Garden dropdown replaced with a mega-menu showing all collections with doodle icons and descriptions, plus Overview/Map/Stream view links
-- **Doodle icons everywhere**: Replaced all inline SVG collection icons with the doodle icon set across the entire site
-- **Simplified nav**: Reduced from 9 items to 4: The Garden (mega-dropdown), Projects, Library, About
-- **Stream layout refinements**: Braided content mix with articles at double weight, projects pinned to right column, 2-column main masonry
-- **Dark mode toggle removed**: System preference still applies automatically
+A new content type and a whole new page: jottings and the stream both landed on the same day.
+
+- **Jottings collection**: subtypes note, quote, event, link, post for casual notes, book quotes, and LinkedIn cross-posts; fountain pen nib icon in ink-blue
+- **Stream page**: braided chronological feed mixing articles, field notes, seeds, jottings, and weblinks
+- **Stream design**: parchment hero card, pinned quote cards in sage green, doodle icons per collection, currently-reading sidebar
+- **Mega-menu navigation**: garden dropdown replaced with a mega-menu showing all collections with icons and descriptions
+- **Dark mode simplified**: system preference only; manual toggle removed
+- **`/new-book` skill**: adds library books via Open Library API with automatic cover downloads
 
 ### 24 March
 
-- **Files + artefacts collections**: Two new project-specific content types for project sub-documents (files) and design deliverables (artefacts), with folder and gem icons.
-- **Post layout: description subtitle**: Description shown as subtitle below the post title.
-- **Post layout: books mentioned**: Wiki-linked library books appear in a sidebar section when referenced in body text.
-- **Post layout: h6 styling**: h6 headings styled as bold body-size text for inline labels.
-- **LinkedIn share button**: Fixed to use the correct share-offsite URL; working again.
-- **LinkedIn API posting**: Full posting flow via API: image upload, post creation, URL comment. App verified with Convocat BV company page.
-- **Content workflow redesign**: New /publish, /new-project, /new-project-file, and /complete-project slash commands replace manual housekeeping. /publish handles validate, OG images, explore map, release notes, commit, push, and LinkedIn in one flow.
+The project infrastructure was completed and the content workflow consolidated into a single command.
+
+- **Files and artefacts collections**: two new project-specific content types for sub-documents and design deliverables
+- **Post layout improvements**: description shown as subtitle, wiki-linked library books in a sidebar section, h6 headings styled as inline labels
+- **LinkedIn API posting**: full flow -- image upload, post creation, URL comment; Convocat BV company page verified
+- **`/publish` skill**: validates, generates OG images, rebuilds explore map, updates release notes, commits, pushes, and optionally posts to LinkedIn -- in one command
+
+### 25 March
+
+The first original writing about the garden itself went live, and the stream duplication bug was fixed.
+
+- **Field note published**: "The garden so far: how do I keep the weeds away from my writing"
+- **LinkedIn automation**: GitHub Actions workflows for automatic LinkedIn post on new articles and jottings
+- **Hub post fix**: project hub posts had been appearing twice in the stream; deduplicated
+
+### 27 March
+
+The stream got a full visual redesign, the session handover workflow was formalised, and two new projects were started.
+
+- **Stream redesign**: index card layout with sidebar, cleaner structure
+- **Stack page**: physical card browser at `/stack` with wiki-link connections and A-Z mode
+- **`/handover` skill**: formalises session close-outs with a sign-off and a backlog entry for the next session
+- **Public backlog page**: backlog visible at `/backlog` on the garden
+- **Seeds published**: button metaphor, ultrasmall team, reading log
+- **New projects started**: Claude LabBook and Conversational Patterns for Human-Machine Interaction
+
+### 28 March
+
+Mobile stream refinements -- small changes, but the stream finally felt right on a phone.
+
+- **Stream mobile**: body preview removed from stream cards, sidebar slimmed, compact filter dropdown
+
+### 29 March
+
+The homepage was rebuilt again, more completely, and the triples system was introduced for semantic metadata.
+
+- **Homepage redesign**: new hero with large leaf and blob, doodle library elements, RSS feed, full mobile polish
+- **Stream visual overhaul**: featured hero card, white card backgrounds, subtle greengrey page tint, tabbed filter cards with protruding tabs, hamburger menu on mobile
+- **Triples system**: structured semantic metadata in frontmatter following the TAO method (Topics, Associations, Occurrences), feeding the knowledge graph
+- **Wikipedia link styling** and external link behaviour formalised
+- **First jotting published**: "Thinking in action, precision matters"
+
+### 31 March
+
+The garden joined the IndieWeb, and the TAO system was used for the first time on existing articles.
+
+- **IndieWeb h-card**: added to homepage for level 2 verification
+- **`rel=me` link**: GitHub linked for identity verification
+- **Blogroll**: sidebar card and `/blogroll` page, plus two webrings (later removed)
+- **Auto-tag run**: TAO enrichment applied to 5 articles for the first time
+- **Mycelium section**: collapsible drawer on post pages showing tags, relations, and themes
+
+### 1 April
+
+A concept graph, a tended article, and a new homepage hero.
+
+- **Concept graph**: new page at `/graph` visualising the semantic triples network
+- **Conversation metaphor article tended**: new sections on listening and threadiness, drawing from conversation analysis research
+- **Homepage hero**: watercolor image replaced the SVG leaf design
+- **Reading notes seed**: published from the Bacteria to AI reading
+
+### 2 April
+
+The Thematic-TAO method was written up and the research paper collection began.
+
+- **Thematic-TAO field note published**: documents the three-pass method (themes, TAO extraction, coherence check) that emerged from the auto-tag work
+- **12 research papers added**: to the library collection
+
+### 3 April
+
+The Toolshed appeared for the first time as a place to document how the garden works.
+
+- **Toolshed page**: collects documentation about the garden's own patterns, components, and workflows
+- **Library descriptions**: completed across the full collection
+
+### 4 April
+
+The library was redesigned and the Toolshed structure was designed as a three-section mini-site.
+
+- **Library redesign**: stream aesthetic with filters, sort, and multiple view modes
+- **Toolshed structure designed**: three sections -- Architecture, Components, Workflow
+
+### 5 April
+
+A full day on the Toolshed, plus tablet support and a new article published.
+
+- **Toolshed built out**: technical section, session management docs, skills overview, content design section
+- **`/new-post` updated**: supports Toolshed posts as a first-class type
+- **Tablet support**: Samsung Galaxy Tab with S-Pen set up for inbox notes via Samsung Notes, syncing to the garden's inbox folder
+- **Inbox workflow**: persistent `_inbox/` folder; session start checks for unprocessed notes
+- **Garden-as-metaphor**: moved from field notes to articles and published
+- **Stream pinning**: three most recent articles pinned at the top of the stream
+
+### 6 April
+
+The biggest infrastructure day since March 14: Telegram, PDF pipeline, and OG images.
+
+- **Telegram bot sync**: messages to the garden's bot sync to the inbox (notes) or create weblinks directly; GitHub Action runs every 15 minutes
+- **PDF pipeline**: library `file` field for annotated PDFs, `/summarize-pdf` skill to process academic papers
+- **First papers summarised**: Clark and Brennan on grounding theory, and a paper on grounding gaps in LLMs
+- **OG image redesign**: split layout replacing the previous single-panel format
+- **ViewTransitions removed**: caused interaction bugs; removed
+- **Design system content**: moved from a field note hub into the Toolshed where it belongs
+
+### 7 April
+
+A jotting, a video post, and several fixes under the hood.
+
+- **Jotting published**: "From role to skills: how Claude Code desilos the future of work" -- a reflection on how agentic AI collapses specialist role boundaries; milestone 1 in the Claude Code experiments
+- **First YouTube video post**: welcome video with embedded player; index card in the stream with video icon, no thumbnail
+- **Validator fix**: `compost` added as a valid maturity state for retired content
+- **Video stream card fixed**: a previous session had accidentally introduced a thumbnail that broke the stream layout; removed
+- **Release notes pagination**: Toolshed Garden Ops page now shows the full history from March 9, browsable in pages of 15
 
 ## Related
 
