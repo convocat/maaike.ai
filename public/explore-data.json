@@ -250,7 +250,7 @@
       "x": 0.7864,
       "y": 0.4187,
       "keyphrases": [],
-      "connections": 10
+      "connections": 11
     },
     {
       "slug": "hey-chatgpt-whos-the-boss",
@@ -598,7 +598,7 @@
       "x": 0.757,
       "y": 0.6089,
       "keyphrases": [],
-      "connections": 0
+      "connections": 1
     },
     {
       "slug": "claude-md-project-memory",
@@ -1093,6 +1093,18 @@
       "connections": 1
     },
     {
+      "slug": "do-llms-feel-emotion-circuits-discovery-and-contro",
+      "title": "Do LLMs feel? Emotion circuits discovery and control",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Ben Wigler highlights a paper on emotion circuits in LLMs: discovery and control.",
+      "url": "/weblinks/do-llms-feel-emotion-circuits-discovery-and-contro",
+      "x": 0.8265,
+      "y": 0.3427,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "saga-knowledge-platform",
       "title": "Saga: a platform for continuous construction and serving of knowledge at scale",
       "collection": "weblinks",
@@ -1579,8 +1591,8 @@
       "maturity": "complete",
       "description": "LLMs produce fewer grounding acts than humans and tend to presume common ground rather than actively establishing it, exposing a structural gap between human and machine conversation.",
       "url": "/library/grounding-gaps-in-language-model-generations",
-      "x": 0.5413,
-      "y": 0.4699,
+      "x": 0.5438,
+      "y": 0.4719,
       "keyphrases": [],
       "connections": 3
     },
@@ -1909,6 +1921,18 @@
       "connections": 0
     },
     {
+      "slug": "hallucinated-library-entry-postmortem",
+      "title": "Hallucinated library entry: post-mortem and safeguard",
+      "collection": "experiments",
+      "maturity": "complete",
+      "description": "How Claude invented a book by my competitor, why it happened, and the rule added to prevent it.",
+      "url": "/experiments/hallucinated-library-entry-postmortem",
+      "x": 0.5666,
+      "y": 0.5805,
+      "keyphrases": [],
+      "connections": 4
+    },
+    {
       "slug": "key-phrase-extraction-prototype",
       "title": "Key phrase extraction prototype",
       "collection": "experiments",
@@ -1931,6 +1955,18 @@
       "y": 0.7026,
       "keyphrases": [],
       "connections": 12
+    },
+    {
+      "slug": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "title": "From role to skills: how Claude Code desilos the future of work",
+      "collection": "jottings",
+      "maturity": "draft",
+      "description": "How I submitted my first merge request...after 20 years of trying to code",
+      "url": "/jottings/from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "x": 0.619,
+      "y": 0.8243,
+      "keyphrases": [],
+      "connections": 1
     },
     {
       "slug": "on-the-joy-of-finding-a-good-book",
@@ -1969,40 +2005,16 @@
       "connections": 0
     },
     {
-      "slug": "do-llms-feel-emotion-circuits-discovery-and-contro",
-      "title": "Do LLMs feel? Emotion circuits discovery and control",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Ben Wigler highlights a paper on emotion circuits in LLMs: discovery and control.",
-      "url": "/weblinks/do-llms-feel-emotion-circuits-discovery-and-contro",
-      "x": 0.8265,
-      "y": 0.3427,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "hallucinated-library-entry-postmortem",
-      "title": "Hallucinated library entry: post-mortem and safeguard",
-      "collection": "experiments",
-      "maturity": "complete",
-      "description": "How Claude invented a book by my competitor, why it happened, and the rule added to prevent it.",
-      "url": "/experiments/hallucinated-library-entry-postmortem",
-      "x": 0.5666,
-      "y": 0.5805,
-      "keyphrases": [],
-      "connections": 4
-    },
-    {
-      "slug": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "title": "From role to skills: how Claude Code desilos the future of work",
-      "collection": "jottings",
+      "slug": "video-welcome-to-my-digital-garden",
+      "title": "Video: welcome to my digital garden",
+      "collection": "videos",
       "maturity": "draft",
-      "description": "How I submitted my first merge request...after 20 years of trying to code",
-      "url": "/jottings/from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "x": 0.619,
-      "y": 0.8243,
+      "description": "A chatty intro to my digital garden: how I use Claude Code to build an online space for thinking and writing in public.",
+      "url": "/videos/video-welcome-to-my-digital-garden",
+      "x": 0.516,
+      "y": 0.4494,
       "keyphrases": [],
-      "connections": 0
+      "connections": 3
     }
   ],
   "territories": [
@@ -2034,7 +2046,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 11
+      "itemCount": 12
     },
     {
       "label": "prompt-design",
@@ -2886,95 +2898,95 @@
             ],
             [
               0.742,
-              0.351
+              0.353
             ],
             [
-              0.727,
+              0.734,
               0.355
             ],
             [
               0.71,
-              0.359
+              0.361
             ],
             [
               0.677,
-              0.364
+              0.369
             ],
             [
               0.645,
-              0.373
+              0.382
             ],
             [
-              0.613,
-              0.386
-            ],
-            [
-              0.611,
+              0.636,
               0.387
             ],
             [
-              0.581,
-              0.411
+              0.613,
+              0.406
             ],
             [
-              0.572,
+              0.601,
               0.419
             ],
             [
-              0.556,
+              0.584,
               0.452
             ],
             [
-              0.557,
-              0.484
-            ],
-            [
-              0.574,
-              0.516
+              0.581,
+              0.483
             ],
             [
               0.581,
-              0.523
+              0.484
+            ],
+            [
+              0.581,
+              0.484
+            ],
+            [
+              0.592,
+              0.516
             ],
             [
               0.613,
-              0.548
+              0.536
             ],
             [
-              0.614,
+              0.632,
               0.548
             ],
             [
               0.645,
-              0.558
+              0.554
             ],
             [
               0.677,
-              0.558
+              0.555
             ],
             [
               0.71,
-              0.55
+              0.549
             ],
             [
-              0.714,
+              0.711,
               0.548
             ],
             [
               0.742,
-              0.533
+              0.532
             ],
             [
-              0.771,
+              0.77,
               0.516
             ],
             [
               0.774,
-              0.514
+              0.513
             ],
             [
               0.806,
-              0.495
+              0.494
             ],
             [
               0.836,
