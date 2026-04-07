@@ -8,6 +8,15 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟠 User manual HTML mockup
+*2026-04-07*
+
+`public/user-manual.html` — a work-in-progress mockup for "How to grow your own digital garden". Maaike is finishing it herself. Leave the file in place.
+
+blocker: Maaike finishing the content
+
+---
+
 ## 🟡 User manual + Karpathy articles
 *2026-04-06*
 
