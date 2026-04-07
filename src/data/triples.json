@@ -233,6 +233,9 @@
     { "subject": "genai",                       "predicate": "counters",          "object": "role-based-collaboration",      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
     { "subject": "skill-based-work",            "predicate": "contrasted-with",   "object": "role-based-collaboration",      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
     { "subject": "claude-code",                 "predicate": "leads-to",          "object": "skill-based-work",              "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
-    { "subject": "claude-code",                 "predicate": "demonstrates",      "object": "metacognition",                 "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" }
+    { "subject": "claude-code",                 "predicate": "demonstrates",      "object": "metacognition",                 "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
+
+    { "subject": "claude-code",                 "predicate": "leads-to",          "object": "digital-garden",                "source": "video-welcome-to-my-digital-garden",                            "collection": "videos" },
+    { "subject": "digital-garden",              "predicate": "demonstrates",      "object": "thinking-in-public",            "source": "video-welcome-to-my-digital-garden",                            "collection": "videos" }
   ]
 }
