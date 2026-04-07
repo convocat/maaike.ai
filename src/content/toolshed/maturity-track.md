@@ -11,7 +11,7 @@ ai: co-created
 
 Every post in the garden has a maturity stage. The maturity track visualizes this as a horizontal progression from seedling to tree.
 
-## The four stages
+## The stages
 
 | Emoji | Key | Label | Meaning |
 |---|---|---|---|
@@ -19,6 +19,9 @@ Every post in the garden has a maturity stage. The maturity track visualizes thi
 | 🌿 | `developing` | Sprout | Taking shape, still evolving |
 | 🪴 | `solid` | Plant | Stable, could publish |
 | 🌳 | `complete` | Tree | Done, no further tending expected |
+| 🍂 | `compost` | Composted | No longer active or growing |
+
+Composted posts are excluded from the stream and collection indexes but remain accessible by URL. They appear on the `/compost` page. The 🍂 indicator replaces the maturity track entirely on the post page.
 
 ## Visual design
 
@@ -60,7 +63,7 @@ The maturity emoji appears in the top meta bar of every index card, alongside th
 ## Frontmatter
 
 ```yaml
-maturity: solid   # draft | developing | solid | complete
+maturity: solid   # draft | developing | solid | complete | compost
 ```
 
 Draft posts with `draft: true` are excluded from all collections at build time. A post with `maturity: draft` but `draft: false` is visible — it just signals the content is early-stage.

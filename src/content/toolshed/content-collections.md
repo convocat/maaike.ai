@@ -23,7 +23,7 @@ const baseSchema = z.object({
     (val) => (val === '' || val === null ? undefined : val),
     z.coerce.date().optional(),
   ),
-  maturity: z.enum(['draft', 'developing', 'solid', 'complete']).default('draft'),
+  maturity: z.enum(['draft', 'developing', 'solid', 'complete', 'compost']).default('draft'),
   tags: z.array(z.string()).default([]),
   triples: z.array(z.tuple([z.string(), z.string(), z.string()])).optional(),
   themes: z.array(z.string()).optional(),
