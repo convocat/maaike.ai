@@ -14,7 +14,7 @@ Before publishing, `scripts/validate-content.mjs` runs a set of checks across al
 ## What it checks
 
 - **Required fields present**: `title`, `date`, `maturity`, `tags`
-- **Maturity is a known value**: one of `draft`, `developing`, `solid`, `complete`
+- **Maturity is a known value**: one of `draft`, `developing`, `solid`, `complete`, `compost`
 - **Slug hygiene**: filename is lowercase, hyphenated, no spaces or special characters
 - **Description length**: warns if description is absent or too short (under 30 characters)
 - **AI field**: warns if `ai` is not set (all published posts should declare their AI involvement)
