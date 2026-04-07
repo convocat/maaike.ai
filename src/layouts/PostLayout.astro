@@ -76,7 +76,7 @@ const formattedUpdated = updated
         </div>
         <h1>{title}</h1>
         {description && <p class="post-subtitle">{description}</p>}
-        {url && (
+        {url && collection !== 'videos' && (
           <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
             {new URL(url).hostname.replace('www.', '')} ↗
             <span class="visually-hidden">(opens in new window)</span>
