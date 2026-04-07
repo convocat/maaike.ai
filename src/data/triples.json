@@ -120,7 +120,12 @@
     "instruction-tuning":          { "label": "Instruction tuning",           "type": "technical-mechanism" },
     "omar-shaikh":                 { "label": "Omar Shaikh",                  "type": "person" },
     "diyi-yang":                   { "label": "Diyi Yang",                    "type": "person" },
-    "dan-jurafsky":                { "label": "Dan Jurafsky",                 "type": "person" }
+    "dan-jurafsky":                { "label": "Dan Jurafsky",                 "type": "person" },
+
+    "claude-code":                 { "label": "Claude Code",                  "type": "technology" },
+    "role-based-collaboration":    { "label": "Role-based collaboration",      "type": "theoretical-concept" },
+    "skill-based-work":            { "label": "Skill-based work",              "type": "theoretical-concept" },
+    "building-as-specification":   { "label": "Building as specification",     "type": "design-discipline" }
   },
 
   "associations": [
@@ -222,6 +227,12 @@
     { "subject": "llms",                        "predicate": "characterised-as",  "object": "presumptive-grounding",         "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
     { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "omar-shaikh",                   "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
     { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "diyi-yang",                     "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
-    { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "dan-jurafsky",                  "source": "grounding-gaps-in-language-model-generations",            "collection": "library" }
+    { "subject": "grounding-gap",               "predicate": "attributed-to",     "object": "dan-jurafsky",                  "source": "grounding-gaps-in-language-model-generations",            "collection": "library" },
+
+    { "subject": "claude-code",                 "predicate": "leads-to",          "object": "building-as-specification",     "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
+    { "subject": "genai",                       "predicate": "counters",          "object": "role-based-collaboration",      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
+    { "subject": "skill-based-work",            "predicate": "contrasted-with",   "object": "role-based-collaboration",      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
+    { "subject": "claude-code",                 "predicate": "leads-to",          "object": "skill-based-work",              "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
+    { "subject": "claude-code",                 "predicate": "demonstrates",      "object": "metacognition",                 "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" }
   ]
 }

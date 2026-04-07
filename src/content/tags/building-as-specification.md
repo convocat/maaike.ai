@@ -1,0 +1,3 @@
+---
+title: Building as specification
+---
