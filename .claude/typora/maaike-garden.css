@@ -168,28 +168,27 @@ th {
     background: #FAFAFA;
 }
 
-/* YAML frontmatter — collapsed by default, expands on click */
+/* YAML frontmatter — always visible, with publish hint */
 pre.md-meta-block {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8em;
     background: #FAFAFA;
     border: 1px solid #E5E5E5;
     border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    color: #999;
-    max-height: 1.8em;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    cursor: pointer;
-}
-
-pre.md-meta-block:focus,
-pre.md-meta-block:hover,
-pre.md-meta-block.md-focus {
-    max-height: 50em;
     padding: 1rem;
     color: #6B6B6B;
-    overflow: visible;
+    position: relative;
+}
+
+pre.md-meta-block::after {
+    content: "Ctrl+Alt+P → push latest";
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.75em;
+    color: #D6006C;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 /* Selection */
