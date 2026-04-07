@@ -164,6 +164,18 @@ See `.claude/interaction-examples.md` for a running log of great and meh exchang
 
 When the thread nudge fires and Maaike responds with feedback about how the interaction felt, log it there immediately: date, topic, her words, and whether it was a great or meh exchange. Do not ask for clarification — just log what she said.
 
+## Library integrity — non-negotiable rules
+
+**NEVER generate, hallucinate, or invent factual fields for library entries.** This caused a serious incident: a Claude session invented Hans van Dam (Maaike's direct competitor) as the author of a non-existent book during a Notion import. The root cause was filling in missing data instead of leaving it empty.
+
+Rules that must be followed without exception:
+- **Author:** only use data from Notion, Open Library API, or explicit Maaike input. If the source has no author, write `author: "Unknown"`. Never generate a plausible-sounding name.
+- **Title:** only use the exact title from the source. Never rewrite, infer, or combine titles.
+- **Description:** if writing a description, label it `ai: assisted` — but never invent factual claims about a book's content you have not read.
+- **During Notion imports:** a Notion page title is not a book title. Check that the entry has an Author field populated before treating it as a book.
+- **Verification:** before writing any new library entry, check Open Library (openlibrary.org) to confirm the book and author exist. If the book cannot be verified, stop and ask Maaike.
+- **When in doubt, leave it out.** An empty field is always better than a hallucinated one.
+
 ## Preferences
 
 - **Commit author**: No Co-Authored-By line. Maaike is the sole author.

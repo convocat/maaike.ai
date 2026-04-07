@@ -124,6 +124,17 @@ Key files: `src/pages/about.astro`, `src/pages/index.astro` (sidebar bio)
 
 ---
 
+## 🟠 Telegram weblinks: resolve LinkedIn redirect URLs
+*added: 2026-04-06*
+
+Three weblinks arrived via Telegram sync with LinkedIn safety redirect URLs instead of the actual destination URLs: `linkedin.md`, `linkedin-1.md`, `linkedin-2.md`. The links are real and should be kept, but the URLs need to be resolved to their actual destinations (arxiv.org, x.com, lnkd.in target).
+
+blocker: need to manually resolve the redirect URLs to find the actual destinations
+
+Key files: `src/content/weblinks/linkedin.md`, `src/content/weblinks/linkedin-1.md`, `src/content/weblinks/linkedin-2.md`
+
+---
+
 ## 🟠 Claude LabBook project
 *added: 2026-03-27 · last-touched: 2026-03-28 · new project*
 
