@@ -226,21 +226,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
             const domain = (col === 'jottings' || col === 'weblinks') && data.url
               ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
               : undefined;
-            const videoThumb = col === 'videos' && data.url
-              ? (() => {
-                  const patterns = [
-                    /(?:youtube\.com\/watch\?v=)([^&]+)/,
-                    /(?:youtu\.be\/)([^?]+)/,
-                    /(?:youtube\.com\/embed\/)([^?]+)/,
-                    /(?:youtube\.com\/shorts\/)([^?]+)/,
-                  ];
-                  for (const p of patterns) {
-                    const m = data.url.match(p);
-                    if (m) return `https://img.youtube.com/vi/${m[1]}/mqdefault.jpg`;
-                  }
-                  return null;
-                })()
-              : undefined;
             return (
               <MosaicCard
                 title={data.title}
@@ -255,7 +240,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
                 source={data.source}
                 domain={domain}
                 url={data.url}
-                videoThumb={videoThumb}
                 ai={data.ai}
                 bodyPreview={(col === 'articles' || col === 'jottings') ? extractBodyPreview(entry.body) : undefined}
               />
