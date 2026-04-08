@@ -6,3 +6,6 @@
 2026-04-06: [user manual — audience and approach, verbatim] "We should change our core assumptions. Assume that we're writing this for conversation designers, linguists, content designers, people who don't code. For me, coding became possible with the introduction of Claude Code. So let's assume that as the starting point. In your instructions, take readers through the setup step by step, always using Claude Code as the starting point."
 
 2026-04-06: [user manual — learning philosophy, verbatim] "Claude Code is the interface. You do not need to understand what is happening under the hood. Claude, this is SO missing the point of this whole thing. The entire point is to understand EVENTUALLY, by you making all steps transparent, explaining things along the way, so we can LEARN. The whole point of this garden is to learn by doing. Add that to the user manual too."
+
+2026-04-08: Project Glasswing: Securing critical software for the AI era \ Anthropic
+https://www.anthropic.com/glasswing
