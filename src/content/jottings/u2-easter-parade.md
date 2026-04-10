@@ -16,7 +16,14 @@ triples:
 
 w00t!! 50 years and they still have it
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin-bottom:var(--space-xl)"><iframe src="https://www.youtube.com/embed/8VTBM3AnkTU?si=YV8UVbXOS6_zs2x-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+<a href="https://youtu.be/8VTBM3AnkTU?si=YV8UVbXOS6_zs2x-" target="_blank" rel="noopener" style="display:block;position:relative;border-radius:8px;overflow:hidden;margin-bottom:var(--space-xl);text-decoration:none">
+  <img src="https://img.youtube.com/vi/8VTBM3AnkTU/maxresdefault.jpg" alt="U2 - Easter parade" style="width:100%;display:block;border-radius:8px" onerror="this.src='https://img.youtube.com/vi/8VTBM3AnkTU/hqdefault.jpg'" />
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2)">
+    <div style="width:68px;height:48px;background:#FF0000;border-radius:12px;display:flex;align-items:center;justify-content:center">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><polygon points="9.5,7 18,12 9.5,17"/></svg>
+    </div>
+  </div>
+</a>
 
 Those of you who know me one bit, also know my not-so-guilty-pleasure: I'm a big, big fan of [U2](https://en.wikipedia.org/wiki/U2). Always have been, ever since I heard [The Joshua Tree](https://en.wikipedia.org/wiki/The_Joshua_Tree) album when I was 12, and visiting [Zoo TV](https://en.wikipedia.org/wiki/Zoo_TV_Tour) when I was 16.
 
