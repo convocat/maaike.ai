@@ -53,7 +53,17 @@ def decode_html_entities(text):
         .replace('&quot;', '"')
         .replace('&lt;', '<')
         .replace('&gt;', '>')
-        .replace('&nbsp;', ' '))
+        .replace('&nbsp;', ' ')
+        .replace('&mdash;', '-')
+        .replace('&ndash;', '-')
+        .replace('&hellip;', '...')
+        .replace('&#8212;', '-')
+        .replace('&#8211;', '-'))
+
+
+def yaml_str(text):
+    """Escape a string for use inside a YAML double-quoted scalar."""
+    return text.replace('\\', '\\\\').replace('"', '\\"')
 
 
 def fetch_page_meta(url):
@@ -100,13 +110,13 @@ def create_weblink(url, date):
 
     content = (
         f'---\n'
-        f'title: "{title}"\n'
+        f'title: "{yaml_str(title)}"\n'
         f'url: {url}\n'
         f'date: {date_str}\n'
         f'updated: {date_str}\n'
         f'maturity: solid\n'
         f'tags: []\n'
-        f'description: "{description}"\n'
+        f'description: "{yaml_str(description)}"\n'
         f'ai: "100% Maai"\n'
         f'draft: false\n'
         f'---\n'
