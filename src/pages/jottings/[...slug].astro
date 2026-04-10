@@ -12,13 +12,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-
-const url = entry.data.url ?? '';
-function getYouTubeId(u: string) {
-  const m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([^?&]+)/);
-  return m ? m[1] : null;
-}
-const youtubeId = getYouTubeId(url);
 ---
 
 <PostLayout
@@ -36,18 +29,5 @@ const youtubeId = getYouTubeId(url);
   triples={entry.data.triples}
   themes={entry.data.themes}
 >
-  {youtubeId && (
-    <div class="video-embed" style="margin-bottom: var(--space-xl)">
-      <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px">
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        />
-      </div>
-    </div>
-  )}
   <Content />
 </PostLayout>

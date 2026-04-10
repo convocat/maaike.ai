@@ -16,6 +16,8 @@ triples:
 
 w00t!! 50 years and they still have it
 
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin-bottom:var(--space-xl)"><iframe src="https://www.youtube.com/embed/8VTBM3AnkTU?si=YV8UVbXOS6_zs2x-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div>
+
 Those of you who know me one bit, also know my not-so-guilty-pleasure: I'm a big, big fan of [U2](https://en.wikipedia.org/wiki/U2). Always have been, ever since I heard [The Joshua Tree](https://en.wikipedia.org/wiki/The_Joshua_Tree) album when I was 12, and visiting [Zoo TV](https://en.wikipedia.org/wiki/Zoo_TV_Tour) when I was 16.
 
 Even though I've listened to their later work, it never sparked that same excitement from the early days. Until last Friday...this track has been on repeat ever since. 50 years as a band, and they still have it  <3
