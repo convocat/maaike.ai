@@ -125,7 +125,10 @@
     "claude-code":                 { "label": "Claude Code",                  "type": "technology" },
     "role-based-collaboration":    { "label": "Role-based collaboration",      "type": "theoretical-concept" },
     "skill-based-work":            { "label": "Skill-based work",              "type": "theoretical-concept" },
-    "building-as-specification":   { "label": "Building as specification",     "type": "design-discipline" }
+    "building-as-specification":   { "label": "Building as specification",     "type": "design-discipline" },
+
+    "u2":                          { "label": "U2",                           "type": "person" },
+    "creative-longevity":          { "label": "Creative longevity",           "type": "theoretical-concept" }
   },
 
   "associations": [
@@ -236,6 +239,8 @@
     { "subject": "claude-code",                 "predicate": "demonstrates",      "object": "metacognition",                 "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work", "collection": "jottings" },
 
     { "subject": "claude-code",                 "predicate": "leads-to",          "object": "digital-garden",                "source": "video-welcome-to-my-digital-garden",                            "collection": "videos" },
-    { "subject": "digital-garden",              "predicate": "demonstrates",      "object": "thinking-in-public",            "source": "video-welcome-to-my-digital-garden",                            "collection": "videos" }
+    { "subject": "digital-garden",              "predicate": "demonstrates",      "object": "thinking-in-public",            "source": "video-welcome-to-my-digital-garden",                            "collection": "videos" },
+
+    { "subject": "u2",                          "predicate": "exhibits",           "object": "creative-longevity",            "source": "u2-easter-parade",                                              "collection": "jottings" }
   ]
 }

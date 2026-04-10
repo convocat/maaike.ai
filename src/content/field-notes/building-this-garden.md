@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-07
+updated: 2026-04-10
 maturity: solid
 tags:
   - about
@@ -267,6 +267,13 @@ A jotting, a video post, a full changelog rewrite, and a redesigned Garden Ops p
 - **Garden Ops release notes redesigned**: sources from `building-this-garden.md` only; grouped by month with collapsible day accordions; no pagination, no raw git commits
 - **`/update-release-notes` skill updated**: now generates intro sentence + bullet format to match the new changelog style
 - **`/handover` skill updated**: now includes a `/update-release-notes` step as part of closing out
+
+### 10 April
+
+The garden got its first music post: a personal jotting about U2's new song Easter Parade.
+
+- **Jotting published**: "U2 - Easter parade" -- a link jotting with Wikipedia context for The Joshua Tree and Zoo TV, plus a companion Dutch article from Sonorant.nl
+- **Music tag**: new tag added to the taxonomy
 
 ## Related
 
