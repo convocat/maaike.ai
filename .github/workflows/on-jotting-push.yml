@@ -86,6 +86,12 @@ jobs:
               continue
             fi
 
+            # Skip if no LinkedIn block — post is not intended for LinkedIn
+            if ! grep -q 'class="linkedin"' "$FILE"; then
+              echo "Skipping — no LinkedIn block found: $FILE"
+              continue
+            fi
+
             SLUG=$(basename "$FILE" .md)
             URL="https://maaike.ai/jottings/${SLUG}"
             OG_IMAGE="public/images/og/jottings/${SLUG}.png"
