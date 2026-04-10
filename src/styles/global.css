@@ -191,14 +191,6 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 .prose a[href*="wikipedia.org"]:hover {
   color: var(--color-accent-2-hover);
 }
-.prose a[href*="wikipedia.org"]::after {
-  content: "\00a0W";
-  font-size: 0.65em;
-  font-weight: 700;
-  vertical-align: super;
-  opacity: 0.55;
-  letter-spacing: -0.01em;
-}
 
 /* Wiki link styles */
 .wiki-link {
