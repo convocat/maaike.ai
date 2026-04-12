@@ -35,13 +35,14 @@ const REQUIRED_BY_COLLECTION = {
   tags:         ['title'], // tag definition files only need a title
 };
 
-const VALID_MATURITY       = ['draft', 'developing', 'solid', 'complete', 'compost'];
-const VALID_STATUS         = ['reading', 'read', 'to-read', 'abandoned'];
-const VALID_JOTTING_TYPE   = ['note', 'quote', 'event', 'link', 'post'];
-const VALID_AI             = ['100% Maai', 'assisted', 'co-created', 'generated'];
-const VALID_BOOK_TYPE      = ['fiction', 'non-fiction'];
-const VALID_PURPOSE        = ['personal', 'professional'];
-const VALID_RATING         = ['loved it', 'liked it', 'meh', 'disappointing'];
+const VALID_MATURITY         = ['draft', 'developing', 'solid', 'complete', 'compost'];
+const VALID_STATUS           = ['reading', 'read', 'to-read', 'abandoned'];
+const VALID_JOTTING_TYPE     = ['note', 'quote', 'event', 'link', 'post'];
+const VALID_AI               = ['100% Maai', 'assisted', 'co-created', 'generated'];
+const VALID_BOOK_TYPE        = ['fiction', 'non-fiction'];
+const VALID_PURPOSE          = ['personal', 'professional'];
+const VALID_RATING           = ['loved it', 'liked it', 'meh', 'disappointing'];
+const VALID_TOOLSHED_CATEGORY = ['design', 'technical'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -143,6 +144,9 @@ for (const file of files) {
   }
   if (collection === 'jottings' && data.type && !VALID_JOTTING_TYPE.includes(data.type)) {
     fileErrors.push(`  invalid jotting type: "${data.type}" (expected: ${VALID_JOTTING_TYPE.join(', ')})`);
+  }
+  if (collection === 'toolshed' && data.category && !VALID_TOOLSHED_CATEGORY.includes(data.category)) {
+    fileErrors.push(`  invalid toolshed category: "${data.category}" (expected: ${VALID_TOOLSHED_CATEGORY.join(', ')})`);
   }
   if (collection === 'library') {
     if (data.status && !VALID_STATUS.includes(data.status)) {
