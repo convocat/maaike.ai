@@ -9,3 +9,6 @@
 
 2026-04-08: Project Glasswing: Securing critical software for the AI era \ Anthropic
 https://www.anthropic.com/glasswing
+
+2026-04-12: Symbolic AI for the win (Kurt Cagle, LinkedIn)
+https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-working-on-share-7448869465288626176-PdSi?utm_source=share&utm_medium=member_android&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs

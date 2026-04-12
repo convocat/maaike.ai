@@ -8,6 +8,20 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Reading radar: GenAI directions 2026
+*added: 2026-04-11*
+
+Three articles to read and scan. Personal orientation, not for publishing.
+
+- From generative to agentic AI: a roadmap in 2026
+  https://medium.com/@anicomanesh/from-generative-to-agentic-ai-a-roadmap-in-2026-8e553b43aeda
+- State of RAG & GenAI
+  https://squirro.com/squirro-blog/state-of-rag-genai
+- Agentic AI design patterns: 2026 edition
+  https://medium.com/@dewasheesh.rana/agentic-ai-design-patterns-2026-ed-e3a5125162c5
+
+---
+
 ## 🟠 User manual HTML mockup
 *2026-04-07*
 
@@ -135,16 +149,6 @@ Key files: `src/pages/about.astro`, `src/pages/index.astro` (sidebar bio)
 
 ---
 
-## 🟠 Telegram weblinks: resolve LinkedIn redirect URLs
-*added: 2026-04-06*
-
-Three weblinks arrived via Telegram sync with LinkedIn safety redirect URLs instead of the actual destination URLs: `linkedin.md`, `linkedin-1.md`, `linkedin-2.md`. The links are real and should be kept, but the URLs need to be resolved to their actual destinations (arxiv.org, x.com, lnkd.in target).
-
-blocker: need to manually resolve the redirect URLs to find the actual destinations
-
-Key files: `src/content/weblinks/linkedin.md`, `src/content/weblinks/linkedin-1.md`, `src/content/weblinks/linkedin-2.md`
-
----
 
 ## 🟠 Claude LabBook project
 *added: 2026-03-27 · last-touched: 2026-03-28 · new project*
@@ -191,6 +195,11 @@ Outstanding issues from the last health scan. Run `/health` (or manually inspect
 ---
 
 ## Archive
+
+### ✅ Telegram weblinks: LinkedIn redirect URLs
+*2026-04-06 · completed: 2026-04-07*
+
+Three weblinks arrived via Telegram with LinkedIn safety redirect URLs. Decided to delete rather than resolve — links didn't lead anywhere useful.
 
 ### ✅ Tablet + Telegram integration
 *2026-04-06*
