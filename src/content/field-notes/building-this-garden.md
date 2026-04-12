@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-10
+updated: 2026-04-12
 maturity: solid
 tags:
   - about
@@ -274,6 +274,13 @@ The garden got its first music post: a personal jotting about U2's new song East
 
 - **Jotting published**: "U2 - Easter parade" -- a link jotting with Wikipedia context for The Joshua Tree and Zoo TV, plus a companion Dutch article from Sonorant.nl
 - **Music tag**: new tag added to the taxonomy
+
+### 12 April
+
+A tiny session: one jotting, one lesson about how LinkedIn works.
+
+- **Jotting published**: "AI slop and the Glasswing project" -- a LinkedIn `type` jotting with a styled post card (no iframe -- LinkedIn blocks them) and an Anthropic link card featuring the Glasswing hero video
+- **Reading radar**: three GenAI direction articles added to the backlog as a private to-read list
 
 ## Related
 
