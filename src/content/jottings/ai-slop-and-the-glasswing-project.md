@@ -5,7 +5,7 @@ date: 2026-04-08
 maturity: complete
 draft: false
 ai: "100% Maai"
-type: linkedin
+type: post
 url: "https://www.linkedin.com/posts/maaikegroenewege_project-glasswing-securing-critical-software-activity-7447689073827323904-z94u"
 tags:
   - genai
