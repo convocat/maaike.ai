@@ -35,8 +35,13 @@ const REQUIRED_BY_COLLECTION = {
   tags:         ['title'], // tag definition files only need a title
 };
 
-const VALID_MATURITY = ['draft', 'developing', 'solid', 'complete', 'compost'];
-const VALID_STATUS   = ['reading', 'read', 'to-read', 'abandoned'];
+const VALID_MATURITY       = ['draft', 'developing', 'solid', 'complete', 'compost'];
+const VALID_STATUS         = ['reading', 'read', 'to-read', 'abandoned'];
+const VALID_JOTTING_TYPE   = ['note', 'quote', 'event', 'link', 'post'];
+const VALID_AI             = ['100% Maai', 'assisted', 'co-created', 'generated'];
+const VALID_BOOK_TYPE      = ['fiction', 'non-fiction'];
+const VALID_PURPOSE        = ['personal', 'professional'];
+const VALID_RATING         = ['loved it', 'liked it', 'meh', 'disappointing'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -133,8 +138,25 @@ for (const file of files) {
   if (data.maturity && !VALID_MATURITY.includes(data.maturity)) {
     fileErrors.push(`  invalid maturity: "${data.maturity}" (expected: ${VALID_MATURITY.join(', ')})`);
   }
-  if (collection === 'library' && data.status && !VALID_STATUS.includes(data.status)) {
-    fileErrors.push(`  invalid status: "${data.status}" (expected: ${VALID_STATUS.join(', ')})`);
+  if (data.ai && !VALID_AI.includes(data.ai)) {
+    fileErrors.push(`  invalid ai: "${data.ai}" (expected: ${VALID_AI.join(', ')})`);
+  }
+  if (collection === 'jottings' && data.type && !VALID_JOTTING_TYPE.includes(data.type)) {
+    fileErrors.push(`  invalid jotting type: "${data.type}" (expected: ${VALID_JOTTING_TYPE.join(', ')})`);
+  }
+  if (collection === 'library') {
+    if (data.status && !VALID_STATUS.includes(data.status)) {
+      fileErrors.push(`  invalid status: "${data.status}" (expected: ${VALID_STATUS.join(', ')})`);
+    }
+    if (data.book_type && !VALID_BOOK_TYPE.includes(data.book_type)) {
+      fileErrors.push(`  invalid book_type: "${data.book_type}" (expected: ${VALID_BOOK_TYPE.join(', ')})`);
+    }
+    if (data.purpose && !VALID_PURPOSE.includes(data.purpose)) {
+      fileErrors.push(`  invalid purpose: "${data.purpose}" (expected: ${VALID_PURPOSE.join(', ')})`);
+    }
+    if (data.rating && !VALID_RATING.includes(data.rating)) {
+      fileErrors.push(`  invalid rating: "${data.rating}" (expected: ${VALID_RATING.join(', ')})`);
+    }
   }
 
   // 5. Date sanity
