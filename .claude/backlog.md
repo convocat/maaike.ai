@@ -4,7 +4,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-07 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-12 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
@@ -31,15 +31,36 @@ blocker: Maaike finishing the content
 
 ---
 
-## 🟡 User manual + Karpathy articles
-*2026-04-06*
+## 🟡 User manual deliverables
+*2026-04-06 · last-touched: 2026-04-12*
 
-Six user manual deliverables are approved and ready to write: TOC, full chapter outline, user/task analysis, persona, pitch deck structure, and JTBD journey. Two Karpathy comparison articles are scoped: Version A "The compiler and the gardener" (metaphor-forward, 600-900 words) and Version B "How we actually compare" (technical side-by-side, 700-1000 words). Start with whichever Maaike wants to write first — both are for articles collection, maturity developing, draft: true.
+Six deliverables approved and ready to write: TOC, full chapter outline, user/task analysis, persona, pitch deck structure, and JTBD journey.
 
-Key files: `src/content/seeds/how-to-build-a-digital-garden.md`, `src/content/field-notes/building-this-garden.md`, `src/content/field-notes/garden-user-manual.md`, `src/content/articles/` (destination for Karpathy articles), plan file: `C:\Users\mgroe\.claude\plans\smooth-mapping-gizmo.md`
+Inbox quotes from Maaike (2026-04-06 in `src/content/_inbox/telegram.md`) feed directly into this: why the garden, audience/approach, learning philosophy.
+
+Key files: `src/content/seeds/how-to-build-a-digital-garden.md`, `src/content/field-notes/building-this-garden.md`, `src/content/field-notes/garden-user-manual.md`, plan file: `C:\Users\mgroe\.claude\plans\smooth-mapping-gizmo.md`
 
 **Opening message for next session:**
-> Two tasks from the previous session, both ready to go. First: write the six user manual deliverables to file (TOC, outline, user/task analysis, persona, pitch deck, JTBD journey) — all were approved last session. Second: draft the two Karpathy comparison articles (Version A: metaphor-forward "The compiler and the gardener"; Version B: technical side-by-side "How we actually compare"). Start with whichever you want first.
+> Write the six user manual deliverables to file (TOC, outline, user/task analysis, persona, pitch deck, JTBD journey) — all were approved last session. Three verbatim Maaike quotes in `src/content/_inbox/telegram.md` (dated 2026-04-06) feed directly into the content.
+
+---
+
+## 🔵 Karpathy comparison project
+*added: 2026-04-12 · worktree: `claude/karpathy`*
+
+Project hub at `src/content/field-notes/karpathy-comparison.md`. Two articles comparing Maaike's approach to Andrej Karpathy's, plus a practical implementation on the garden's content.
+
+Deliverables:
+- [ ] Version A: "The compiler and the gardener" — metaphor-forward, 600-900 words
+- [ ] Version B: "How we actually compare" — technical side-by-side, 700-1000 words
+- [ ] LinkedIn post for Version A
+- [ ] LinkedIn post for Version B
+- [ ] Karpathy implementation — apply his approach to the garden's content (separate page)
+
+Work in worktree `C:\Sharing\Maaike\Digital-Garden\.claude\worktrees\karpathy` on branch `claude/karpathy`.
+
+**Opening message for next session:**
+> Continue the Karpathy comparison project. Hub is at `src/content/field-notes/karpathy-comparison.md`. Start with whichever article version you want first — Version A (metaphor-forward: "The compiler and the gardener") or Version B (technical side-by-side: "How we actually compare"). Use `/new-project-file` to add each article.
 
 ---
 
