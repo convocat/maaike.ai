@@ -4,7 +4,21 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-12 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-13 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Convoclub meetup: garden demo topics
+*added: 2026-04-13*
+
+Six demo topics ready to pull during the meetup. Each stands alone — pick one depending on what the audience is most curious about.
+
+- [ ] **The garden as a second brain for conversation designers** — show the seed/field note/article maturity arc as an analogy for how ideas develop in practice
+- [ ] **Wiki-links as a thinking tool** — pick a topic (e.g. "conversation repair") and trace its connections across notes. Visible argument map.
+- [ ] **Auto-tagging with TAO** — show how Claude extracts Topics, Angles, Observations from a piece of writing and turns them into semantic tags. Linguistically interesting.
+- [ ] **B1 checker skill** — paste a bot utterance or content fragment and check it for B1 compliance live. Directly relevant to conversation designers.
+- [ ] **AI transparency field** — show how every post is labeled (100% Maai / assisted / co-created / generated). Opens a conversation about authorship.
+- [ ] **Live: ask the garden a question** — pick a topic Maaike has written about and let Claude synthesize across her notes and respond in her framework.
 
 ---
 
