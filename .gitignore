@@ -23,6 +23,10 @@ pnpm-debug.log*
 # Obsidian workspace config (device-specific, creates noise)
 src/content/.obsidian/
 
+# Claude Code device-specific config (contains OAuth tokens)
+.claude/settings.local.json
+.claude/worktrees/
+
 # jetbrains setting folder
 .idea/
 
