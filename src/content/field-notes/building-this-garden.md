@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-12
+updated: 2026-04-13
 maturity: solid
 tags:
   - about
@@ -281,6 +281,14 @@ A tiny session: one jotting, one lesson about how LinkedIn works.
 
 - **Jotting published**: "AI slop and the Glasswing project" -- a LinkedIn `type` jotting with a styled post card (no iframe -- LinkedIn blocks them) and an Anthropic link card featuring the Glasswing hero video
 - **Reading radar**: three GenAI direction articles added to the backlog as a private to-read list
+
+### 13 April
+
+Housekeeping: auto-tagging the garden origin story, and keeping the stream clean.
+
+- **Auto-tag: digital garden article**: "A digital garden as central space" tagged with new topics (serendipity, writing-as-craft, PKM, indie-web, thinking-in-public) and triples added
+- **Stream cleanup**: Instagram weblink hidden (draft), em-dash fixed in epistemic injustice title
+- **Gitignore**: device-specific Claude config and worktree folders excluded to avoid noisy commits
 
 ## Related
 
