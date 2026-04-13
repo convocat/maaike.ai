@@ -1,6 +1,5 @@
 {
   "_note": "Per-post thematic summaries from TAO analysis. Each entry is a list of theme statements — concise, opinionated one-liners about what the post argues. These also live in each post's frontmatter as 'themes:'.",
-
   "is-conversation-still-a-useful-metaphor": [
     "Conversation metaphor as increasingly inadequate for GenAI",
     "Anthropomorphism as a structural side effect of conversation design",
@@ -36,5 +35,13 @@
     "Dialectical thinking as the antidote to epistemic bias",
     "The distinction between opinion, conviction, argument, and rhetoric",
     "LLMs reinforce rather than correct our tendency to avoid dialectical challenge"
+  ],
+  "a-digital-garden-as-central-space": [
+    "The early web enabled a kind of personal expression that the algorithm era has taken away",
+    "Non-linear thinking needs a non-linear writing environment — not a blog, not a social feed",
+    "A digital garden is the right infrastructure for how my mind actually works",
+    "Serendipity is an organising principle, not a side effect",
+    "Writing as craft requires a space that doesn't talk back and doesn't distract",
+    "AI has a legitimate role in the garden, but only as assistant — never as author"
   ]
 }

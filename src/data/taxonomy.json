@@ -1,8 +1,6 @@
 {
   "_note": "Canonical entity registry. Types match the controlled vocabulary in triples.json. 'parent' expresses subtopic relationships. 'definition' is a term-definition pair.",
-
   "topics": {
-
     "g-w-f-hegel": {
       "label": "G W F Hegel",
       "type": "person",
@@ -68,7 +66,6 @@
       "type": "person",
       "definition": "Cognitive scientist and designer, co-founder of Nielsen Norman Group, author of The Design of Everyday Things."
     },
-
     "jasper-ai": {
       "label": "Jasper.ai",
       "type": "technology",
@@ -111,7 +108,6 @@
       "type": "technology",
       "definition": "AI systems that can autonomously plan and execute multi-step tasks, often using tools and external services."
     },
-
     "dialectical-thinking": {
       "label": "Dialectical thinking",
       "type": "philosophical-method",
@@ -328,6 +324,61 @@
       "label": "Missing fundamental",
       "type": "acoustic-concept",
       "definition": "An acoustic phenomenon where the perceived pitch of a sound is absent from the actual signal — used as a metaphor for how LLMs produce outputs that sound grounded without containing ground truth."
+    },
+    "digital-garden": {
+      "label": "digital-garden",
+      "type": "artefact",
+      "definition": ""
+    },
+    "non-linear-thinking": {
+      "label": "non-linear-thinking",
+      "type": "concept",
+      "definition": ""
+    },
+    "serendipity": {
+      "label": "serendipity",
+      "type": "concept",
+      "definition": ""
+    },
+    "personal-web": {
+      "label": "personal-web",
+      "type": "social-phenomenon",
+      "definition": ""
+    },
+    "algorithmic-feed": {
+      "label": "algorithmic-feed",
+      "type": "artefact",
+      "definition": ""
+    },
+    "writing-as-craft": {
+      "label": "writing-as-craft",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-fragmentation": {
+      "label": "content-fragmentation",
+      "type": "social-phenomenon",
+      "definition": ""
+    },
+    "ai-as-writing-partner": {
+      "label": "ai-as-writing-partner",
+      "type": "interaction-pattern",
+      "definition": ""
+    },
+    "thinking-in-public": {
+      "label": "thinking-in-public",
+      "type": "concept",
+      "definition": ""
+    },
+    "personal-knowledge-management": {
+      "label": "personal-knowledge-management",
+      "type": "methodology",
+      "definition": ""
+    },
+    "maggie-appleton": {
+      "label": "maggie-appleton",
+      "type": "person",
+      "definition": ""
     }
   }
 }

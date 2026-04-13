@@ -1,5 +1,5 @@
 ---
-title: "Algorithmic Epistemic Injustice: AI’s Knowledge Hierarchy &mdash; The Cognitive Privacy Project"
+title: "Algorithmic Epistemic Injustice: AI’s knowledge hierarchy"
 url: https://www.cognitiveprivacyproject.org/research/algorithmic-epistemic-injustice
 date: 2026-04-10
 updated: 2026-04-10

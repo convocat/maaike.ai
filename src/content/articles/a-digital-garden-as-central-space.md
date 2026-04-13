@@ -1,5 +1,5 @@
 ---
-title: "A digital garden as central space for my thoughts and writing"
+title: A digital garden as central space for my thoughts and writing
 date: 2026-03-11
 updated: 2026-03-15
 maturity: solid
@@ -9,9 +9,24 @@ tags:
   - personal-web
   - non-linear-thinking
   - role-of-ai
+  - serendipity
+  - writing-as-craft
+  - pkm
+  - indie-web
+  - thinking-in-public
 description: "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet."
-ai: "100% Maai"
+ai: 100% Maai
+triples:
+  - digital-garden | counters | algorithmic-feed
+  - digital-garden | enables | non-linear-thinking
+  - digital-garden | inspired-by | personal-web
+  - serendipity | characterised-as | organising-principle
+  - writing-as-craft | contrasts-with | algorithmic-feed
+  - personal-web | preceded | algorithmic-feed
+  - ai-as-writing-partner | supports | writing-as-craft
+  - non-linear-thinking | enables | serendipity
 ---
+
 
 One thing that I really miss doing lately, is writing longer pieces that require a bit of thinking, mulling and reordering. I typically resort to videos nowadays, and, to be honest, Claude is a pretty mean writing assistant for factual, functional texts. But I really miss sitting in front of a screen that doesn't talk back, doesn't distract and just offers me space for my own head. 
 
