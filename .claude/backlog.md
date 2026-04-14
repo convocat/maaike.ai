@@ -4,7 +4,46 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-13 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-14 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Ingestion architecture: build the Karpathy layer
+*added: 2026-04-14*
+
+Agreed architecture from today's session. The garden already has the right shape — three concrete things to build:
+
+**1. `sources` section in `triples.json`**
+External references that contribute associations but have no content page. Format:
+```json
+"sources": {
+  "source-id": { "label": "...", "url": "...", "date": "YYYY-MM-DD" }
+}
+```
+Update the concept graph page (`/graph`) to show source nodes alongside post nodes.
+
+**2. Weblink enrichment step**
+When a weblink arrives via Telegram (or on `/publish`), offer to fetch + run TAO extraction and add associations to `triples.json` using a source ID (not a post slug). Optional, per link, never automatic.
+
+**3. `/ingest-source` skill**
+Takes a URL or PDF, extracts TAO, checks overlap with existing topics in `triples.json` (gate: 2+ existing topics must match), creates a source entry, adds associations. Calls existing `/auto-tag` logic internally.
+
+Full architecture in memory: `project_ingestion_architecture.md`.
+
+**Opening message for next session:**
+> Build the Karpathy ingestion layer. Three deliverables: (1) add `sources` section to `triples.json` and update `/graph` page to show source nodes; (2) add optional weblink enrichment step to telegram-sync; (3) build `/ingest-source` skill. Full architecture in `C:\Users\mgroe\.claude\projects\C--Sharing-Maaike-Digital-Garden\memory\project_ingestion_architecture.md`.
+
+---
+
+## 🟡 Newsletter: distribute Creative Prompts, April 2026
+*added: 2026-04-14*
+
+Published to the garden at `/jottings/creative-prompts-april-2026/`. Still needs manual copy-paste to the other channels. Typora has the file open.
+
+- [ ] Substack
+- [ ] Mighty Networks
+- [ ] LinkedIn article
+- [ ] Mailchimp
 
 ---
 
