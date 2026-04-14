@@ -1,14 +1,14 @@
 {
-  "generated": "2026-04-12T17:56:58.995Z",
+  "generated": "2026-04-14T19:04:47.470Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
-      "x": 0.3225,
-      "y": 0.2154
+      "x": 0.3217,
+      "y": 0.2144
     },
     "articles/7-new-skills-for-conversation-designers-2022": {
-      "x": 0.2313,
-      "y": 0.1986
+      "x": 0.2317,
+      "y": 0.1983
     },
     "articles/a-digital-garden-as-central-space": {
       "x": 0.8609,
@@ -35,12 +35,12 @@
       "y": 0.3867
     },
     "articles/an-evening-with-youchat-and-chatsonic": {
-      "x": 0.1074,
-      "y": 0.2467
+      "x": 0.1064,
+      "y": 0.247
     },
     "articles/blender-turned-rogue": {
-      "x": 0.1865,
-      "y": 0.2048
+      "x": 0.1862,
+      "y": 0.2041
     },
     "articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental": {
       "x": 0.3899,
@@ -55,28 +55,28 @@
       "y": 0.3009
     },
     "articles/conversational-interfaces-are-not-easy": {
-      "x": 0.3004,
-      "y": 0.3485
+      "x": 0.3,
+      "y": 0.3486
     },
     "articles/convo-question-should-i-learn-programming": {
       "x": 0.1995,
       "y": 0.2524
     },
     "articles/convoclub-clubhouse": {
-      "x": 0.2606,
-      "y": 0.1642
+      "x": 0.2602,
+      "y": 0.1633
     },
     "articles/corona-is-spreading-and-so-are-the-bots": {
       "x": 0.2029,
       "y": 0.1623
     },
     "articles/de-biassing-dall-e": {
-      "x": 0.2967,
-      "y": 0.3943
+      "x": 0.2966,
+      "y": 0.3955
     },
     "articles/european-chatbot-conference-10-talks": {
-      "x": 0.3992,
-      "y": 0.2116
+      "x": 0.4112,
+      "y": 0.2337
     },
     "articles/fingers-crossed-is-a-figure-of-speech-dall-e": {
       "x": 0.2566,
@@ -91,8 +91,8 @@
       "y": 0.2653
     },
     "articles/hildegard-von-bingen": {
-      "x": 0.4494,
-      "y": 0.1147
+      "x": 0.4512,
+      "y": 0.1131
     },
     "articles/hoe-word-ik-conversation-designer": {
       "x": 0.2769,
@@ -107,8 +107,8 @@
       "y": 0.2787
     },
     "articles/is-conversation-still-a-useful-metaphor": {
-      "x": 0.2513,
-      "y": 0.2507
+      "x": 0.2503,
+      "y": 0.2498
     },
     "articles/llm-hallucinations-knowledge-as-missing-fundamental": {
       "x": 0.334,
@@ -116,23 +116,23 @@
     },
     "articles/microsoft-youre-using-bing-wrong": {
       "x": 0.1518,
-      "y": 0.2343
+      "y": 0.2349
     },
     "articles/nieuwe-editie-voicelunch": {
-      "x": 0.306,
-      "y": 0.16
+      "x": 0.3051,
+      "y": 0.1589
     },
     "articles/off-to-a-good-start": {
-      "x": 0.3703,
-      "y": 0.2518
+      "x": 0.3696,
+      "y": 0.2523
     },
     "articles/online-prompt-workshop-de-biasing-dall-e": {
       "x": 0.2002,
       "y": 0.3822
     },
     "articles/online-uitgeput-pak-een-kruk": {
-      "x": 0.3155,
-      "y": 0.3058
+      "x": 0.3158,
+      "y": 0.3055
     },
     "articles/onthaast-je-voice-action-met-ssml": {
       "x": 0.4397,
@@ -147,40 +147,40 @@
       "y": 0.3384
     },
     "articles/saturday-design-thoughts": {
-      "x": 0.3503,
-      "y": 0.3412
+      "x": 0.35,
+      "y": 0.3425
     },
     "articles/scrum-for-conversational-teams": {
-      "x": 0.2653,
-      "y": 0.3161
+      "x": 0.2648,
+      "y": 0.3175
     },
     "articles/stay-calm-and-keep-thinking-for-yourself": {
       "x": 0.6475,
       "y": 0.3536
     },
     "articles/the-lone-convo-designer": {
-      "x": 0.2816,
-      "y": 0.2735
+      "x": 0.281,
+      "y": 0.2746
     },
     "articles/the-long-and-winding-road": {
-      "x": 0.325,
-      "y": 0.2605
+      "x": 0.3251,
+      "y": 0.2612
     },
     "articles/understanding-speech-part-1": {
-      "x": 0.3564,
-      "y": 0.1265
+      "x": 0.3554,
+      "y": 0.1254
     },
     "articles/understanding-speech-part-2": {
-      "x": 0.4071,
-      "y": 0.1316
+      "x": 0.4083,
+      "y": 0.129
     },
     "articles/visual-notes-brian-roemmele": {
-      "x": 0.349,
-      "y": 0.1769
+      "x": 0.3482,
+      "y": 0.1776
     },
     "articles/what-happens-when-ai-has-read-everything": {
-      "x": 0.5984,
-      "y": 0.342
+      "x": 0.5951,
+      "y": 0.3534
     },
     "articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that": {
       "x": 0.0868,
@@ -347,20 +347,28 @@
       "y": 0.6779
     },
     "seeds/the-disappearance-of-authentic-voice-online": {
-      "x": 0.6239,
-      "y": 0.3169
+      "x": 0.6308,
+      "y": 0.319
     },
     "seeds/the-return-of-the-button": {
       "x": 0.8836,
       "y": 0.6177
     },
     "seeds/thematic-analysis-as-interaction-model-and-research-method": {
-      "x": 0.23,
-      "y": 0.2337
+      "x": 0.2291,
+      "y": 0.2342
     },
     "seeds/writing-as-a-conversation-with-yourself": {
       "x": 0.5242,
       "y": 0.3839
+    },
+    "weblinks/alcpe-a-practitioner-s-guide-r-verity-vabolis": {
+      "x": 0.4857,
+      "y": 0.8532
+    },
+    "weblinks/algorithmic-epistemic-injustice-ai-s-knowledge-hie": {
+      "x": 0.6689,
+      "y": 0.1914
     },
     "weblinks/digital-garden-history": {
       "x": 0.8044,
@@ -763,8 +771,8 @@
       "y": 0.16
     },
     "library/plans-and-situated-actions": {
-      "x": 0.384,
-      "y": 0.1619
+      "x": 0.3791,
+      "y": 0.1556
     },
     "library/pragmatics-beyond-humans": {
       "x": 0.5003,
@@ -907,8 +915,8 @@
       "y": 0.1149
     },
     "library/voice-user-interface-design": {
-      "x": 0.4798,
-      "y": 0.1317
+      "x": 0.4807,
+      "y": 0.1322
     },
     "library/voicebot-and-chatbot-design": {
       "x": 0.4707,
@@ -954,6 +962,14 @@
       "x": 0.5257,
       "y": 0.7026
     },
+    "jottings/ai-slop-and-the-glasswing-project": {
+      "x": 0.8703,
+      "y": 0.2683
+    },
+    "jottings/creative-prompts-april-2026": {
+      "x": 0.3951,
+      "y": 0.1912
+    },
     "jottings/from-role-to-skills-how-claude-code-desilos-the-future-of-work": {
       "x": 0.619,
       "y": 0.8243
@@ -974,13 +990,9 @@
       "x": 0.4187,
       "y": 0.3249
     },
-    "weblinks/algorithmic-epistemic-injustice-ai-s-knowledge-hie": {
-      "x": 0.6689,
-      "y": 0.1914
-    },
-    "jottings/ai-slop-and-the-glasswing-project": {
-      "x": 0.8703,
-      "y": 0.2683
+    "articles/llmops-analyst-conversation-designers-next-career-step": {
+      "x": 0.6002,
+      "y": 0.3098
     }
   },
   "territories": [
@@ -988,7 +1000,7 @@
       "label": "conversation-design",
       "centerX": 0.458,
       "centerY": 0.1815,
-      "itemCount": 26
+      "itemCount": 27
     },
     {
       "label": "ai",
@@ -1012,7 +1024,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 13
+      "itemCount": 14
     },
     {
       "label": "prompt-design",
@@ -1024,7 +1036,7 @@
       "label": "knowledge-graph",
       "centerX": 0.4974,
       "centerY": 0.7123,
-      "itemCount": 44
+      "itemCount": 45
     },
     {
       "label": "philosophy",

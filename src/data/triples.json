@@ -448,6 +448,30 @@
     "consent-design": {
       "label": "Consent design",
       "type": "design-discipline"
+    },
+    "llmops": {
+      "label": "LLMOps",
+      "type": "technology-category"
+    },
+    "llm-evals": {
+      "label": "LLM evals",
+      "type": "methodology"
+    },
+    "llm-observability": {
+      "label": "LLM observability",
+      "type": "technical-mechanism"
+    },
+    "graphrag": {
+      "label": "GraphRAG",
+      "type": "technology"
+    },
+    "systems-thinking": {
+      "label": "Systems thinking",
+      "type": "theoretical-concept"
+    },
+    "linguistics": {
+      "label": "Linguistics",
+      "type": "design-discipline"
     }
   },
   "associations": [
@@ -1205,6 +1229,48 @@
       "object": "consent-design",
       "source": "creative-prompts-april-2026",
       "collection": "jottings"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "leads-to",
+      "object": "llmops",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-evals",
+      "predicate": "characterised-as",
+      "object": "system-prompt",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
+    },
+    {
+      "subject": "llmops",
+      "predicate": "requires",
+      "object": "systems-thinking",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-evals",
+      "predicate": "requires",
+      "object": "linguistics",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-evals",
+      "predicate": "counters",
+      "object": "llm-hallucinations",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-observability",
+      "predicate": "instance-of",
+      "object": "llmops",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
     }
   ]
 }

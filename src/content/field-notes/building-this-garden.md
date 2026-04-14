@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-13
+updated: 2026-04-14
 maturity: solid
 tags:
   - about
@@ -289,6 +289,15 @@ Housekeeping: auto-tagging the garden origin story, and keeping the stream clean
 - **Auto-tag: digital garden article**: "A digital garden as central space" tagged with new topics (serendipity, writing-as-craft, PKM, indie-web, thinking-in-public) and triples added
 - **Stream cleanup**: Instagram weblink hidden (draft), em-dash fixed in epistemic injustice title
 - **Gitignore**: device-specific Claude config and worktree folders excluded to avoid noisy commits
+
+### 14 April
+
+A deployment safety net, a data fix, and a new article on where conversation design is heading.
+
+- **Pre-commit hook + CI validation**: `npm run validate` now blocks commits with frontmatter errors; install once per device with `bash scripts/install-hooks.sh`; GitHub Actions also validates on push
+- **Weekly health check**: new GitHub Actions workflow runs every Monday, builds the full site, and sends an email notification on failure
+- **Triples format fix**: pipe-separated triples in "A digital garden as central space" converted to array format
+- **Article published**: "LLMOps analyst: conversation designer's next career step" -- on conversation designers evolving into LLMOps architects, with full TAO tagging
 
 ## Related
 

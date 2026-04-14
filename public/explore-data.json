@@ -535,8 +535,8 @@
       "maturity": "complete",
       "description": "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!",
       "url": "/articles/what-happens-when-ai-has-read-everything",
-      "x": 0.5984,
-      "y": 0.342,
+      "x": 0.5951,
+      "y": 0.3534,
       "keyphrases": [],
       "connections": 0
     },
@@ -1039,8 +1039,8 @@
       "maturity": "draft",
       "description": "When did we stop caring about who actually wrote the words?",
       "url": "/seeds/the-disappearance-of-authentic-voice-online",
-      "x": 0.6239,
-      "y": 0.3169,
+      "x": 0.6308,
+      "y": 0.319,
       "keyphrases": [],
       "connections": 2
     },
@@ -1079,6 +1079,18 @@
       "y": 0.3839,
       "keyphrases": [],
       "connections": 2
+    },
+    {
+      "slug": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "title": "ALCPE: A Practitioner's Guide â R. Verity Vabolis",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "",
+      "url": "/weblinks/alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "x": 0.4857,
+      "y": 0.8532,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
@@ -1993,6 +2005,18 @@
       "connections": 0
     },
     {
+      "slug": "creative-prompts-april-2026",
+      "title": "Creative prompts, April 2026",
+      "collection": "jottings",
+      "maturity": "complete",
+      "description": "Issue of the Convocat newsletter Creative Prompts: garden updates, news for content professionals, seeds, and what I'm reading.",
+      "url": "/jottings/creative-prompts-april-2026",
+      "x": 0.3951,
+      "y": 0.1912,
+      "keyphrases": [],
+      "connections": 5
+    },
+    {
       "slug": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
       "title": "From role to skills: how Claude Code desilos the future of work",
       "collection": "jottings",
@@ -2053,28 +2077,16 @@
       "connections": 0
     },
     {
-      "slug": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
-      "title": "ALCPE: A Practitioner's Guide â R. Verity Vabolis",
-      "collection": "weblinks",
+      "slug": "llmops-analyst-conversation-designers-next-career-step",
+      "title": "LLMOps analyst: conversation designer's next career step",
+      "collection": "articles",
       "maturity": "solid",
-      "description": "",
-      "url": "/weblinks/alcpe-a-practitioner-s-guide-r-verity-vabolis",
-      "x": 0.4857,
-      "y": 0.8532,
+      "description": "How conversation designers are evolving into LLMOps analysts, and why linguists are uniquely suited for monitoring, evaluating, and improving GenAI systems in production.",
+      "url": "/articles/llmops-analyst-conversation-designers-next-career-step",
+      "x": 0.6002,
+      "y": 0.3098,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "creative-prompts-april-2026",
-      "title": "Creative prompts, April 2026",
-      "collection": "jottings",
-      "maturity": "complete",
-      "description": "Issue of the Convocat newsletter Creative Prompts: garden updates, news for content professionals, seeds, and what I'm reading.",
-      "url": "/jottings/creative-prompts-april-2026",
-      "x": 0.3951,
-      "y": 0.1912,
-      "keyphrases": [],
-      "connections": 5
     }
   ],
   "territories": [
@@ -2106,7 +2118,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 13
+      "itemCount": 14
     },
     {
       "label": "prompt-design",
@@ -2229,7 +2241,7 @@
             ],
             [
               0.581,
-              0.009
+              0.008
             ],
             [
               0.613,
@@ -2882,50 +2894,50 @@
             ],
             [
               0.484,
-              0.091
+              0.09
             ],
             [
               0.516,
-              0.096
+              0.095
             ],
             [
-              0.529,
+              0.54,
               0.097
             ],
             [
               0.548,
-              0.099
+              0.098
             ],
             [
               0.581,
-              0.1
+              0.099
             ],
             [
               0.613,
-              0.101
+              0.099
             ],
             [
               0.645,
-              0.102
+              0.101
             ],
             [
               0.677,
-              0.104
+              0.102
             ],
             [
               0.71,
-              0.107
+              0.106
             ],
             [
               0.742,
-              0.111
+              0.11
             ],
             [
               0.774,
               0.119
             ],
             [
-              0.796,
+              0.797,
               0.129
             ],
             [
@@ -2933,131 +2945,123 @@
               0.135
             ],
             [
-              0.832,
+              0.833,
               0.161
             ],
             [
               0.839,
-              0.173
+              0.171
             ],
             [
               0.848,
               0.194
             ],
             [
-              0.853,
+              0.854,
               0.226
             ],
             [
-              0.851,
+              0.852,
               0.258
             ],
             [
-              0.841,
+              0.842,
               0.29
             ],
             [
               0.839,
-              0.295
+              0.298
             ],
             [
-              0.818,
+              0.821,
               0.323
             ],
             [
               0.806,
-              0.333
+              0.337
             ],
             [
-              0.774,
-              0.35
-            ],
-            [
-              0.758,
+              0.776,
               0.355
             ],
             [
+              0.774,
+              0.356
+            ],
+            [
               0.742,
-              0.359
+              0.367
             ],
             [
               0.71,
-              0.365
+              0.376
             ],
             [
               0.677,
-              0.372
+              0.386
             ],
             [
-              0.645,
-              0.383
-            ],
-            [
-              0.638,
+              0.674,
               0.387
             ],
             [
-              0.613,
-              0.407
+              0.645,
+              0.401
             ],
             [
-              0.601,
+              0.621,
               0.419
             ],
             [
-              0.582,
+              0.613,
+              0.429
+            ],
+            [
+              0.595,
               0.452
             ],
             [
-              0.581,
-              0.461
-            ],
-            [
-              0.577,
+              0.585,
               0.484
             ],
             [
-              0.581,
-              0.497
-            ],
-            [
-              0.587,
+              0.592,
               0.516
             ],
             [
               0.613,
-              0.542
+              0.539
             ],
             [
-              0.623,
+              0.626,
               0.548
             ],
             [
               0.645,
-              0.557
+              0.556
             ],
             [
               0.677,
-              0.559
+              0.558
             ],
             [
               0.71,
               0.552
             ],
             [
-              0.719,
+              0.717,
               0.548
             ],
             [
               0.742,
-              0.536
+              0.535
             ],
             [
               0.774,
               0.517
             ],
             [
-              0.776,
+              0.775,
               0.516
             ],
             [
@@ -3069,7 +3073,7 @@
               0.485
             ],
             [
-              0.846,
+              0.845,
               0.484
             ],
             [
