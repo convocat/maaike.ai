@@ -6,11 +6,14 @@ Personal digital garden for Maaike, deployed at **maaike.ai**. Built with Astro 
 
 ```
 npm install
+bash scripts/install-hooks.sh   # install pre-commit validation hook (once per device)
 npm run dev        # → localhost:4321
 npm run build      # → dist/
 ```
 
 Dev server config lives in `.claude/launch.json` (name: "digital-garden", port 4321).
+
+**Pre-commit hook** runs `npm run validate` before every commit and blocks on errors. Install it once per device with `bash scripts/install-hooks.sh`. The `.git/hooks/` folder is not committed so this must be run after every fresh clone.
 
 ## Architecture
 

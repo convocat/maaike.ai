@@ -91,7 +91,11 @@ function findUnsafeColons(rawYaml) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
-const files = walkDir(CONTENT_DIR);
+const EXCLUDED_DIRS = ['_inbox', '_templates'];
+const files = walkDir(CONTENT_DIR).filter(f => {
+  const rel = relative(CONTENT_DIR, f).replace(/\\/g, '/');
+  return !EXCLUDED_DIRS.some(dir => rel.startsWith(dir + '/'));
+});
 let errors = 0;
 let warnings = 0;
 
@@ -163,7 +167,20 @@ for (const file of files) {
     }
   }
 
-  // 5. Date sanity
+  // 5. Triples format check
+  if (data.triples) {
+    if (!Array.isArray(data.triples)) {
+      fileErrors.push(`  triples: must be an array`);
+    } else {
+      data.triples.forEach((t, i) => {
+        if (!Array.isArray(t) || t.length !== 3 || !t.every(s => typeof s === 'string')) {
+          fileErrors.push(`  triples[${i}]: must be ["subject", "predicate", "object"], got: ${JSON.stringify(t)}`);
+        }
+      });
+    }
+  }
+
+  // 6. Date sanity
   if (data.date && isNaN(new Date(data.date).getTime())) {
     fileWarnings.push(`  invalid date: "${data.date}"`);
   }
