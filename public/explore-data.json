@@ -154,7 +154,7 @@
       "x": 0.189,
       "y": 0.3009,
       "keyphrases": [],
-      "connections": 8
+      "connections": 9
     },
     {
       "slug": "conversational-interfaces-are-not-easy",
@@ -166,7 +166,7 @@
       "x": 0.3,
       "y": 0.3486,
       "keyphrases": [],
-      "connections": 10
+      "connections": 11
     },
     {
       "slug": "convo-question-should-i-learn-programming",
@@ -322,7 +322,7 @@
       "x": 0.2503,
       "y": 0.2498,
       "keyphrases": [],
-      "connections": 11
+      "connections": 13
     },
     {
       "slug": "llm-hallucinations-knowledge-as-missing-fundamental",
@@ -334,7 +334,7 @@
       "x": 0.334,
       "y": 0.4218,
       "keyphrases": [],
-      "connections": 3
+      "connections": 4
     },
     {
       "slug": "llmops-analyst-conversation-designers-next-career-step",
@@ -346,7 +346,7 @@
       "x": 0.6002,
       "y": 0.3098,
       "keyphrases": [],
-      "connections": 0
+      "connections": 5
     },
     {
       "slug": "microsoft-youre-using-bing-wrong",
@@ -562,7 +562,7 @@
       "x": 0.0868,
       "y": 0.2906,
       "keyphrases": [],
-      "connections": 13
+      "connections": 14
     },
     {
       "slug": "youre-not-married-to-your-texts",
@@ -658,7 +658,7 @@
       "x": 0.6865,
       "y": 0.7049,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "experiment-1-scheduled-garden-health-check",
@@ -694,7 +694,7 @@
       "x": 0.9145,
       "y": 0.6771,
       "keyphrases": [],
-      "connections": 14
+      "connections": 15
     },
     {
       "slug": "external-content-discovery",
@@ -706,7 +706,7 @@
       "x": 0.5809,
       "y": 0.4586,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "full-scale-key-phrase-extraction",
@@ -718,7 +718,7 @@
       "x": 0.5475,
       "y": 0.7478,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "garden-lifecycle-greenhouse-compost",
@@ -754,7 +754,7 @@
       "x": 0.7076,
       "y": 0.7273,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -766,7 +766,7 @@
       "x": 0.7598,
       "y": 0.7281,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "reading-notes-saga-knowledge-graph",
@@ -790,7 +790,7 @@
       "x": 0.8216,
       "y": 0.5994,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "testing-strategy",
@@ -826,7 +826,7 @@
       "x": 0.6151,
       "y": 0.6865,
       "keyphrases": [],
-      "connections": 14
+      "connections": 15
     },
     {
       "slug": "thematic-tao-three-pass-method",
@@ -862,7 +862,7 @@
       "x": 0.4984,
       "y": 0.7373,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "typed-relations-as-garden-infrastructure",
@@ -874,7 +874,7 @@
       "x": 0.7334,
       "y": 0.7101,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "a-reading-log-for-bacteria-to-ai",
@@ -958,7 +958,7 @@
       "x": 0.6722,
       "y": 0.7299,
       "keyphrases": [],
-      "connections": 15
+      "connections": 16
     },
     {
       "slug": "garden-to-do-list",
@@ -1489,6 +1489,18 @@
       "connections": 0
     },
     {
+      "slug": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "title": "Video: I implemented Karpathy's LLM wiki method on my digital garden",
+      "collection": "videos",
+      "maturity": "solid",
+      "description": "I rebuilt Karpathy's LLM wiki on top of my digital garden content, with interesting results.",
+      "url": "/videos/video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "x": 0.7353,
+      "y": 0.5084,
+      "keyphrases": [],
+      "connections": 15
+    },
+    {
       "slug": "video-welcome-to-my-digital-garden",
       "title": "Video: welcome to my digital garden",
       "collection": "videos",
@@ -1990,7 +2002,7 @@
       "x": 0.5239,
       "y": 0.7308,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "setting-up-local-embedding-models",
@@ -2002,7 +2014,7 @@
       "x": 0.5257,
       "y": 0.7026,
       "keyphrases": [],
-      "connections": 12
+      "connections": 13
     },
     {
       "slug": "ai-slop-and-the-glasswing-project",
@@ -2026,7 +2038,7 @@
       "x": 0.3951,
       "y": 0.1912,
       "keyphrases": [],
-      "connections": 5
+      "connections": 6
     },
     {
       "slug": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
@@ -2085,18 +2097,6 @@
       "url": "/jottings/u2-easter-parade",
       "x": 0.4187,
       "y": 0.3249,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
-      "title": "Video: I implemented Karpathy's LLM wiki method on my digital garden",
-      "collection": "videos",
-      "maturity": "solid",
-      "description": "I rebuilt Karpathy's LLM wiki on top of my digital garden content, with interesting results.",
-      "url": "/videos/video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
-      "x": 0.7353,
-      "y": 0.5084,
       "keyphrases": [],
       "connections": 0
     }

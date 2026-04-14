@@ -4,7 +4,14 @@ description: "How conversation designers are evolving into LLMOps analysts, and 
 date: 2026-04-14
 maturity: solid
 draft: false
-tags: ["conversation-design", "generative-ai-design", "llm", "evaluation", "systems-thinking", "future-of-work", "llmops"]
+tags:
+  - conversation-design
+  - generative-ai-design
+  - llm
+  - evaluation
+  - systems-thinking
+  - future-of-work
+  - llmops
 triples:
   - ["Conversation design", "leads-to", "LLMOps"]
   - ["LLM evals", "characterised-as", "System prompt"]

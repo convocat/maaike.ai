@@ -5,7 +5,12 @@ url: "https://www.youtube.com/watch?v=sUHg9wHmDqQ"
 date: 2026-04-13
 maturity: solid
 draft: false
-tags: ["digital-gardens", "llm", "knowledge-graph", "agentic-ai", "convocat"]
+tags:
+  - digital-gardens
+  - llm
+  - knowledge-graph
+  - agentic-ai
+  - convocat
 triples:
   - ["LLM Wiki", "attributed-to", "Andrej Karpathy"]
   - ["LLM Wiki", "counters", "Retrieval-augmented generation"]
