@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-14T19:04:47.470Z",
+  "generated": "2026-04-14T19:27:19.401Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -113,6 +113,10 @@
     "articles/llm-hallucinations-knowledge-as-missing-fundamental": {
       "x": 0.334,
       "y": 0.4218
+    },
+    "articles/llmops-analyst-conversation-designers-next-career-step": {
+      "x": 0.6002,
+      "y": 0.3098
     },
     "articles/microsoft-youre-using-bing-wrong": {
       "x": 0.1518,
@@ -990,9 +994,9 @@
       "x": 0.4187,
       "y": 0.3249
     },
-    "articles/llmops-analyst-conversation-designers-next-career-step": {
-      "x": 0.6002,
-      "y": 0.3098
+    "videos/video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden": {
+      "x": 0.7353,
+      "y": 0.5084
     }
   },
   "territories": [
@@ -1048,7 +1052,7 @@
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 19
+      "itemCount": 20
     }
   ]
 }

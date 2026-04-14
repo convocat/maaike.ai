@@ -472,6 +472,14 @@
     "linguistics": {
       "label": "Linguistics",
       "type": "design-discipline"
+    },
+    "llm-wiki": {
+      "label": "LLM Wiki",
+      "type": "technical-mechanism"
+    },
+    "retrieval-augmented-generation": {
+      "label": "Retrieval-augmented generation",
+      "type": "technical-mechanism"
     }
   },
   "associations": [
@@ -1271,6 +1279,41 @@
       "object": "llmops",
       "source": "llmops-analyst-conversation-designers-next-career-step",
       "collection": "articles"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "attributed-to",
+      "object": "andrej-karpathy",
+      "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "collection": "videos"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "counters",
+      "object": "retrieval-augmented-generation",
+      "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "collection": "videos"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "instance-of",
+      "object": "llm-wiki",
+      "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "collection": "videos"
+    },
+    {
+      "subject": "llms",
+      "predicate": "generates",
+      "object": "llm-wiki",
+      "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "collection": "videos"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "leads-to",
+      "object": "personal-knowledge-management",
+      "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
+      "collection": "videos"
     }
   ]
 }
