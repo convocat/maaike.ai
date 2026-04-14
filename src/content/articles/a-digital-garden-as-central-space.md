@@ -17,14 +17,14 @@ tags:
 description: "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet."
 ai: 100% Maai
 triples:
-  - digital-garden | counters | algorithmic-feed
-  - digital-garden | enables | non-linear-thinking
-  - digital-garden | inspired-by | personal-web
-  - serendipity | characterised-as | organising-principle
-  - writing-as-craft | contrasts-with | algorithmic-feed
-  - personal-web | preceded | algorithmic-feed
-  - ai-as-writing-partner | supports | writing-as-craft
-  - non-linear-thinking | enables | serendipity
+  - ["digital-garden", "counters", "algorithmic-feed"]
+  - ["digital-garden", "enables", "non-linear-thinking"]
+  - ["digital-garden", "inspired-by", "personal-web"]
+  - ["serendipity", "characterised-as", "organising-principle"]
+  - ["writing-as-craft", "contrasts-with", "algorithmic-feed"]
+  - ["personal-web", "preceded", "algorithmic-feed"]
+  - ["ai-as-writing-partner", "supports", "writing-as-craft"]
+  - ["non-linear-thinking", "enables", "serendipity"]
 ---
 
 
