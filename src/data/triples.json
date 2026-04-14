@@ -440,6 +440,14 @@
     "personal-knowledge-management": {
       "label": "personal-knowledge-management",
       "type": "methodology"
+    },
+    "structured-input": {
+      "label": "Structured input",
+      "type": "technical-mechanism"
+    },
+    "consent-design": {
+      "label": "Consent design",
+      "type": "design-discipline"
     }
   },
   "associations": [
@@ -1162,6 +1170,41 @@
       "predicate": "enables",
       "object": "serendipity",
       "source": "a-digital-garden-as-central-space"
+    },
+    {
+      "subject": "structured-input",
+      "predicate": "better-fits",
+      "object": "agentic-ai",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "nonconscious-cognition",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "generates",
+      "object": "consent-design",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
     }
   ]
 }
