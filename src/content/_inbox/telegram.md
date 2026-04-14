@@ -14,3 +14,5 @@ https://www.anthropic.com/glasswing
 https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-working-on-share-7448869465288626176-PdSi?utm_source=share&utm_medium=member_android&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs
 
 2026-04-14: Hello
+
+2026-04-14: T3st123
