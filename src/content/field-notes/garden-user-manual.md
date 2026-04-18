@@ -1,6 +1,7 @@
 ---
 title: "Garden user manual"
 date: 2026-03-20
+updated: 2026-04-18
 maturity: developing
 draft: false
 tags: [digital-gardens]
@@ -18,6 +19,22 @@ develops: building-this-garden
 The site rebuilds automatically when you change a file.
 
 To build for production: `npm run build`. The output goes to `dist/`.
+
+---
+
+## How content flows through the garden
+
+Material enters the garden through three paths:
+
+1. **Writing**: you write in Typora via `/new-post`. The post gets filed, auto-tagged (topics, associations, wiki-links), and published.
+2. **Capturing**: links arrive via Telegram (`/telegram-sync`). Each link can be published as a weblink, mined for the knowledge graph (via `/ingest-source`), or skipped for later.
+3. **Reading**: PDFs and books are added via `/new-book` or processed from Telegram stubs. PDFs get summarized and auto-tagged.
+
+All content feeds the knowledge graph in `triples.json`:
+- **Published posts** get enriched through `/auto-tag`, which adds topics and associations with the post slug as the source.
+- **External URLs** that don't need their own page get enriched through `/ingest-source`, which adds topics and associations under a source entry (no content page created).
+
+The knowledge graph powers the concept map at `/graph` and the Mycelium section on each post.
 
 ---
 
@@ -128,6 +145,31 @@ tags: [ai, conversation-design, digital-gardens]
 ### If something goes wrong
 
 - **Tag page 404**: the tag slug must match a file in `src/content/tags/`. Check that the `.md` file exists.
+
+---
+
+## Ingest external sources
+
+External links feed the knowledge graph without becoming published pages in the stream. An individual weblink doesn't establish value on its own: it only becomes knowledge after you write about it. The raw material lives in `triples.json` as sources.
+
+### Via `/ingest-source`
+
+1. Type `/ingest-source` in Claude Code.
+2. Paste a URL, or pick from draft weblinks in the inbox.
+3. Claude fetches the page, runs a three-pass TAO analysis, and extracts topics, associations, and a 2-3 sentence summary.
+4. Overlap gate: at least 2 extracted topics must already exist in the knowledge graph. If fewer match, Claude warns you and asks whether to proceed.
+5. Review the extracted topics and associations. Accept, modify, or skip.
+6. Claude writes the source entry (with summary) and associations to `triples.json`.
+
+### When a link arrives via Telegram
+
+After `/telegram-sync` pulls new links, `/ingest-source` runs automatically on each one. No triage, no questions. The overlap gate inside `/ingest-source` is the only safety valve: if the link has fewer than 2 topics in common with your graph, Claude asks before proceeding.
+
+### The sources page
+
+All ingested sources appear at `/sources`: a three-panel explorer with filter sidebar, interactive graph, and reading pane. The graph shows sources (pink) connected to topics (colored by type). Click a source to see its summary, topics, and associations.
+
+A small link at the bottom of the stream ("What feeds this garden") points to `/sources`.
 
 ---
 
@@ -348,8 +390,18 @@ git push
 | Command | What it does |
 |---|---|
 | `/new-post` | Opens Typora, handles frontmatter and filing when you're done writing. |
-| `/auto-tag` | Suggests tags and wiki-links for a post. |
-| `/share-linkedin` | Drafts a LinkedIn post from garden content. |
+| `/new-book` | Adds a book from Open Library metadata. |
+| `/new-project` | Creates a project hub post with deliverables checklist. |
+| `/new-project-file` | Adds a file (experiment, field note, artefact) to an existing project. |
+| `/auto-tag` | Enriches a post with tags, wiki-links, and semantic triples (TAO method). |
+| `/ingest-source` | Mines an external URL for the knowledge graph (no content page). |
+| `/publish` | Validates, generates OG images, deploys to maaike.ai. Offers enrichment for weblinks. |
+| `/share-linkedin` | Drafts and posts a LinkedIn share for articles and jottings. |
+| `/telegram-sync` | Pulls links and notes from Telegram, offers triage per link. |
+| `/complete-project` | Marks a project done, generates a report and optional slide deck. |
+| `/backlog` | Opens a grooming session: scans the board and surfaces what needs attention. |
+| `/handover` | Generates a session sign-off and handover for the next session. |
+| `/summarize-pdf` | Extracts structured concepts and principles from a PDF. |
 | `/update-release-notes` | Updates the changelog from recent git commits. |
 
 ## Quick reference: build scripts

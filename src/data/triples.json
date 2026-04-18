@@ -480,9 +480,32 @@
     "retrieval-augmented-generation": {
       "label": "Retrieval-augmented generation",
       "type": "technical-mechanism"
+    },
+    "nora-bateson": {
+      "label": "Nora Bateson",
+      "type": "person"
+    },
+    "gregory-bateson": {
+      "label": "Gregory Bateson",
+      "type": "person"
+    },
+    "warm-data": {
+      "label": "Warm data",
+      "type": "epistemological-concept"
+    },
+    "reductionism": {
+      "label": "Reductionism",
+      "type": "epistemic-stance"
     }
   },
-  "sources": {},
+  "sources": {
+    "nora-bateson-ways-of-knowing": {
+      "label": "Nora Bateson: \"How our ways of knowing shape our collective future\"",
+      "url": "https://re-generation.cc/en/longread/nora-bateson/",
+      "date": "2026-04-18",
+      "summary": "Nora Bateson argues that applying static, extractable data to living systems is fundamentally dangerous, and that meaning only emerges through relational context. She proposes \"warm data\" as an alternative epistemology that understands information through interconnection across people, cultures, and ecological systems, rather than through reductionist measurement."
+    }
+  },
   "associations": [
     {
       "subject": "dialectical-thinking",
@@ -1315,6 +1338,42 @@
       "object": "personal-knowledge-management",
       "source": "video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden",
       "collection": "videos"
+    },
+    {
+      "subject": "warm-data",
+      "predicate": "counters",
+      "object": "reductionism",
+      "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "warm-data",
+      "predicate": "coined-by",
+      "object": "nora-bateson",
+      "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "systems-thinking",
+      "predicate": "theorised-by",
+      "object": "gregory-bateson",
+      "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "warm-data",
+      "predicate": "presupposes",
+      "object": "systems-thinking",
+      "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "reductionism",
+      "predicate": "risks",
+      "object": "ground-truth",
+      "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "reductionism",
+      "predicate": "exhibits",
+      "object": "epistemic-bias",
+      "source": "nora-bateson-ways-of-knowing"
     }
   ]
 }

@@ -1,0 +1,743 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import tao from '../data/triples.json';
+import { getAllContent } from '../utils/collections';
+
+// ── Collect all content for internal source lookups ─────────────────────
+const allContent = await getAllContent();
+const postMap = new Map(allContent.map(p => [p.id, {
+  title: p.data.title,
+  collection: p.collection,
+  date: p.data.date,
+  description: p.data.description || '',
+}]));
+
+// ── Helper: build a source object from associations ─────────────────────
+function buildSource(id: string, label: string, url: string, date: string, summary: string, origin: string, collection: string) {
+  const assocs = tao.associations.filter(a => a.source === id);
+  const topicIds = new Set<string>();
+  for (const a of assocs) {
+    topicIds.add(a.subject);
+    topicIds.add(a.object);
+  }
+  const topics = [...topicIds].map(tid => ({
+    id: tid,
+    label: (tao.topics as any)[tid]?.label || tid,
+    type: (tao.topics as any)[tid]?.type || 'concept',
+  }));
+  const types = [...new Set(topics.map(t => t.type))];
+
+  return {
+    id, label, url, date, summary, origin, collection,
+    topics,
+    associations: assocs.map(a => ({
+      subject: (tao.topics as any)[a.subject]?.label || a.subject,
+      predicate: a.predicate,
+      object: (tao.topics as any)[a.object]?.label || a.object,
+    })),
+    types,
+    topicIds: [...topicIds],
+  };
+}
+
+// ── External sources (from sources object) ──────────────────────────────
+const externalSources = Object.entries(tao.sources || {}).map(([id, s]: [string, any]) =>
+  buildSource(id, s.label, s.url, s.date, s.summary || '', 'external', '')
+);
+
+// ── Internal sources (from associations with collection field) ──────────
+const internalSourceIds = [...new Set(
+  tao.associations.filter(a => a.collection).map(a => a.source)
+)];
+const internalSources = internalSourceIds.map(slug => {
+  const post = postMap.get(slug);
+  if (!post) return null;
+  const dateStr = post.date instanceof Date
+    ? post.date.toISOString().slice(0, 10)
+    : String(post.date).slice(0, 10);
+  return buildSource(
+    slug,
+    post.title,
+    `/${post.collection}/${slug}/`,
+    dateStr,
+    post.description,
+    'internal',
+    post.collection
+  );
+}).filter(Boolean) as ReturnType<typeof buildSource>[];
+
+// ── Merge all sources ───────────────────────────────────────────────────
+const sources = [...externalSources, ...internalSources]
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+// ── Filter options ──────────────────────────────────────────────────────
+const allTypes = [...new Set(sources.flatMap(s => s.types))].sort();
+const allCollections = [...new Set(internalSources.map(s => s.collection).filter(Boolean))].sort();
+
+const topicCount = new Map<string, number>();
+for (const s of sources) {
+  for (const tid of s.topicIds) {
+    topicCount.set(tid, (topicCount.get(tid) || 0) + 1);
+  }
+}
+const topTopics = [...topicCount.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 20)
+  .map(([id, count]) => ({
+    id,
+    label: (tao.topics as any)[id]?.label || id,
+    count,
+  }));
+
+// ── Graph data ──────────────────────────────────────────────────────────
+const graphNodes: any[] = [];
+const graphLinks: any[] = [];
+const addedNodes = new Set<string>();
+
+for (const s of sources) {
+  if (!addedNodes.has(s.id)) {
+    graphNodes.push({
+      id: s.id, label: s.label, nodeType: 'source',
+      origin: s.origin, collection: s.collection,
+      assocCount: s.associations.length,
+    });
+    addedNodes.add(s.id);
+  }
+  for (const t of s.topics) {
+    if (!addedNodes.has(t.id)) {
+      graphNodes.push({ id: t.id, label: t.label, nodeType: 'topic', topicType: t.type });
+      addedNodes.add(t.id);
+    }
+    graphLinks.push({ source: s.id, target: t.id });
+  }
+}
+
+const extCount = externalSources.length;
+const intCount = internalSources.length;
+const topicNodeCount = graphNodes.filter(n => n.nodeType === 'topic').length;
+const pageData = { sources, allTypes, topTopics, graphNodes, graphLinks };
+---
+
+<PageLayout title="Sources" description="Everything that feeds the garden's knowledge graph: your own writings and external references.">
+  <div class="sources-header">
+    <h1>Sources</h1>
+    <p class="intro">
+      Everything that feeds the knowledge graph: your own writings and external
+      references mined via <code>/ingest-source</code>. Connected through
+      <a href="/graph">the concept graph</a>.
+    </p>
+    <p class="stats">
+      {sources.length} sources ({intCount} internal, {extCount} external) · {topicNodeCount} topics
+    </p>
+  </div>
+
+  <div class="sources-layout">
+    <!-- Left: Filter sidebar -->
+    <aside class="sources-sidebar" id="sources-sidebar">
+
+      <div class="filter-panel" data-label="Origin">
+        <div class="filter-panel-header">
+          <button class="filter-action" data-action="all" data-group="origin">All</button>
+          <button class="filter-action" data-action="clear" data-group="origin">Clear</button>
+        </div>
+        <div class="filter-items">
+          <label class="filter-item">
+            <input type="checkbox" class="sr-only" data-group="origin" value="internal" checked />
+            <span class="filter-label">My writings</span>
+            <span class="filter-count">{intCount}</span>
+          </label>
+          <label class="filter-item">
+            <input type="checkbox" class="sr-only" data-group="origin" value="external" checked />
+            <span class="filter-label">External</span>
+            <span class="filter-count">{extCount}</span>
+          </label>
+        </div>
+      </div>
+
+      {allTypes.length > 0 && (
+        <div class="filter-panel" data-label="Topic type">
+          <div class="filter-panel-header">
+            <button class="filter-action" data-action="all" data-group="type">All</button>
+            <button class="filter-action" data-action="clear" data-group="type">Clear</button>
+          </div>
+          <div class="filter-items">
+            {allTypes.map(type => (
+              <label class="filter-item">
+                <input type="checkbox" class="sr-only" data-group="type" value={type} checked />
+                <span class="filter-label">{type.replace(/-/g, ' ')}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {topTopics.length > 0 && (
+        <div class="filter-panel" data-label="Topic">
+          <div class="filter-panel-header">
+            <button class="filter-action" data-action="all" data-group="topic">All</button>
+            <button class="filter-action" data-action="clear" data-group="topic">Clear</button>
+          </div>
+          <div class="filter-items">
+            {topTopics.map(topic => (
+              <label class="filter-item">
+                <input type="checkbox" class="sr-only" data-group="topic" value={topic.id} checked />
+                <span class="filter-label">{topic.label}</span>
+                <span class="filter-count">{topic.count}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+    </aside>
+
+    <!-- Center: Graph + Results -->
+    <div class="sources-main">
+      <div class="graph-container" id="graph-container">
+        <svg id="sources-graph"></svg>
+        <div id="graph-tooltip" class="tooltip hidden"></div>
+      </div>
+
+      <div class="results-list" id="results-list">
+        {sources.length === 0 ? (
+          <p class="empty-state">No sources yet. Write a post with <code>/new-post</code> or ingest external references with <code>/ingest-source</code>.</p>
+        ) : (
+          sources.map(s => (
+            <button
+              class="result-row"
+              data-source-id={s.id}
+              data-origin={s.origin}
+              data-types={s.types.join(',')}
+              data-topics={s.topicIds.join(',')}
+            >
+              <span class={`result-origin-dot ${s.origin}`} title={s.origin}></span>
+              <span class="result-title">{s.label}</span>
+              <span class="result-meta">
+                {s.collection && <span class="result-collection">{s.collection}</span>}
+                <span class="result-date">{new Date(s.date + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                <span class="result-badge">{s.topics.length}</span>
+              </span>
+            </button>
+          ))
+        )}
+        <p class="results-empty" id="results-empty" hidden>No sources match the current filters.</p>
+      </div>
+    </div>
+
+    <!-- Right: Reading pane -->
+    <aside class="reading-pane" id="reading-pane">
+      <div class="pane-empty" id="pane-empty">
+        <p>Click a source to see details</p>
+      </div>
+      <div class="pane-content" id="pane-content" hidden>
+        <h2 class="pane-title" id="pane-title"></h2>
+        <a class="pane-url" id="pane-url" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <p class="pane-date" id="pane-date"></p>
+        <p class="pane-summary" id="pane-summary"></p>
+
+        <h3 class="pane-section-title">Topics</h3>
+        <div class="pane-topics" id="pane-topics"></div>
+
+        <h3 class="pane-section-title">Associations</h3>
+        <div class="pane-assocs" id="pane-assocs"></div>
+      </div>
+    </aside>
+  </div>
+</PageLayout>
+
+<style>
+  .sources-header {
+    padding: var(--space-lg) 0 var(--space-md);
+  }
+  .sources-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xs);
+  }
+  .intro {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--space-xs);
+    max-width: 52rem;
+    line-height: 1.5;
+  }
+  .intro a { color: var(--color-accent-2); }
+  .intro code {
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+    background: var(--color-bg-card);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+  .stats { color: var(--color-text-muted); font-size: 0.8rem; }
+
+  /* Layout */
+  .sources-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 280px;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Filter sidebar */
+  .sources-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  .filter-panel {
+    position: relative;
+    background: #F0EBE3;
+    border-radius: 0 6px 6px 6px;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    margin-top: 1.35rem;
+  }
+  :root[data-theme="dark"] .filter-panel { background: #2a2520; }
+  .filter-panel::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -1.35rem; left: 0;
+    background: inherit;
+    padding: 0.2rem 0.75rem;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+  .filter-panel-header {
+    display: flex; justify-content: flex-end;
+    gap: var(--space-xs); margin-bottom: var(--space-xs);
+  }
+  .filter-action {
+    background: none; border: none;
+    font-size: 0.7rem; color: var(--color-text-muted);
+    cursor: pointer; padding: 0;
+    text-decoration: underline; text-decoration-color: transparent;
+    transition: text-decoration-color 150ms;
+  }
+  .filter-action:hover { text-decoration-color: currentColor; }
+  .filter-items { display: flex; flex-direction: column; gap: 0.15rem; }
+  .filter-item {
+    display: flex; align-items: center; gap: var(--space-xs);
+    padding: 0.2rem 0.35rem; border-radius: 3px;
+    cursor: pointer; font-size: 0.8rem; color: var(--color-text);
+    transition: background 150ms, transform 150ms;
+  }
+  .filter-item:hover { background: rgba(0,0,0,0.04); transform: translateX(4px); }
+  :root[data-theme="dark"] .filter-item:hover { background: rgba(255,255,255,0.06); }
+  .filter-item:has(input:checked) .filter-label { font-weight: 600; }
+  .filter-item:has(input:not(:checked)) { opacity: 0.5; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); border: 0;
+  }
+  .filter-label { flex: 1; }
+  .filter-count {
+    font-size: 0.68rem; color: var(--color-text-muted);
+    background: rgba(0,0,0,0.06); padding: 0.05rem 0.35rem; border-radius: 8px;
+  }
+  :root[data-theme="dark"] .filter-count { background: rgba(255,255,255,0.08); }
+
+  /* Graph */
+  .graph-container {
+    position: relative; width: 100%;
+    height: 45vh; min-height: 320px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg-card);
+    overflow: hidden;
+  }
+  #sources-graph { width: 100%; height: 100%; display: block; }
+  .tooltip {
+    position: absolute; background: var(--color-bg-card);
+    border: 1px solid var(--color-border); border-radius: 6px;
+    padding: var(--space-sm) var(--space-md); font-size: 0.8rem;
+    pointer-events: none; max-width: 260px;
+    box-shadow: 0 2px 8px var(--color-shadow, rgba(0,0,0,0.08));
+    z-index: 10; line-height: 1.6;
+  }
+  .tooltip.hidden { display: none; }
+
+  /* Results list */
+  .results-list {
+    display: flex; flex-direction: column; gap: 2px;
+    margin-top: var(--space-md);
+    max-height: 40vh; overflow-y: auto;
+  }
+  .result-row {
+    display: flex; align-items: center;
+    gap: var(--space-sm);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-xs) var(--space-md);
+    cursor: pointer;
+    transition: border-color 150ms, background 150ms;
+    text-align: left; width: 100%;
+    font-family: inherit; font-size: inherit; color: inherit;
+  }
+  .result-row:hover {
+    border-color: var(--color-accent);
+    background: rgba(214, 0, 108, 0.03);
+  }
+  :root[data-theme="dark"] .result-row:hover { background: rgba(255, 77, 166, 0.06); }
+  .result-row.active {
+    border-color: var(--color-accent);
+    background: rgba(214, 0, 108, 0.06);
+  }
+  :root[data-theme="dark"] .result-row.active { background: rgba(255, 77, 166, 0.1); }
+  .result-origin-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .result-origin-dot.internal { background: var(--color-accent-2); }
+  .result-origin-dot.external { background: var(--color-accent); }
+  .result-title {
+    font-size: 0.82rem; font-weight: 500; flex: 1;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .result-meta {
+    display: flex; align-items: center;
+    gap: var(--space-xs); flex-shrink: 0;
+  }
+  .result-collection {
+    font-size: 0.65rem; color: var(--color-text-muted);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .result-date { font-size: 0.68rem; color: var(--color-text-muted); white-space: nowrap; }
+  .result-badge {
+    font-size: 0.65rem; color: var(--color-accent-2);
+    background: rgba(13, 124, 102, 0.08);
+    padding: 0.1rem 0.35rem; border-radius: 8px; white-space: nowrap;
+  }
+  :root[data-theme="dark"] .result-badge { background: rgba(45, 212, 168, 0.12); }
+  .results-empty, .empty-state {
+    color: var(--color-text-muted); font-size: 0.85rem;
+    text-align: center; padding: var(--space-lg); line-height: 1.6;
+  }
+  .empty-state code {
+    font-family: var(--font-mono); font-size: 0.82em;
+    background: var(--color-bg-card); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+
+  /* Reading pane */
+  .reading-pane {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-md) var(--space-lg);
+    max-height: calc(45vh + 40vh + var(--space-md));
+    overflow-y: auto;
+  }
+  .pane-empty {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px; color: var(--color-text-muted); font-size: 0.85rem;
+  }
+  .pane-title {
+    font-family: var(--font-heading); font-size: 1.1rem;
+    margin-bottom: var(--space-xs); line-height: 1.3;
+  }
+  .pane-url {
+    display: inline-block; font-size: 0.75rem;
+    color: var(--color-accent-2); margin-bottom: var(--space-xs);
+  }
+  .pane-date {
+    font-size: 0.72rem; color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+  .pane-summary {
+    font-size: 0.85rem; line-height: 1.6;
+    margin-bottom: var(--space-lg); color: var(--color-text);
+  }
+  .pane-section-title {
+    font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--color-text-muted);
+    margin-bottom: var(--space-xs); margin-top: var(--space-md);
+    font-weight: 600;
+  }
+  .pane-topics { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .topic-badge {
+    font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 10px;
+    background: rgba(0,0,0,0.05); color: var(--color-text);
+  }
+  :root[data-theme="dark"] .topic-badge { background: rgba(255,255,255,0.08); }
+  .pane-assocs { display: flex; flex-direction: column; gap: 0.25rem; }
+  .assoc-line { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.4; }
+  .assoc-subject, .assoc-object { color: var(--color-text); font-weight: 500; }
+  .assoc-predicate { font-style: italic; color: var(--color-accent-2); }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .sources-layout { grid-template-columns: 200px 1fr; }
+    .reading-pane { grid-column: 1 / -1; max-height: none; }
+  }
+  @media (max-width: 800px) {
+    .sources-layout { grid-template-columns: 1fr; }
+    .sources-sidebar { flex-direction: row; overflow-x: auto; gap: var(--space-sm); }
+    .filter-panel { min-width: 180px; flex-shrink: 0; }
+    .graph-container { height: 50vh; }
+    .results-list { max-height: none; }
+  }
+</style>
+
+<script is:inline define:vars={{ pageData }}>
+(async () => {
+  const { sources, allTypes, topTopics, graphNodes, graphLinks } = pageData;
+  if (!graphNodes.length) return;
+
+  const d3 = await import('https://cdn.jsdelivr.net/npm/d3@7/+esm');
+  const wrap    = document.getElementById('graph-container');
+  const svgEl   = d3.select('#sources-graph');
+  const tooltip = document.getElementById('graph-tooltip');
+
+  let W = wrap.clientWidth;
+  let H = wrap.clientHeight;
+
+  const css = getComputedStyle(document.documentElement);
+  const cv  = v => css.getPropertyValue(v).trim();
+  const isDark = document.documentElement.dataset.theme === 'dark';
+
+  const COLOR = {
+    internal: cv('--color-accent-2') || '#0D7C66',
+    external: cv('--color-accent')   || '#D6006C',
+    person:   cv('--color-accent-2') || '#0D7C66',
+    tech:     isDark ? '#E8A84A' : '#B07830',
+    concept:  '#8B6AA8',
+    border:   cv('--color-border')     || '#E5E5E5',
+    text:     cv('--color-text')       || '#1A1A1A',
+    muted:    cv('--color-text-muted') || '#6B6B6B',
+    bgCard:   cv('--color-bg-card')    || '#FAFAFA',
+  };
+
+  function topicColor(type) {
+    if (type === 'person') return COLOR.person;
+    if (['technology','technology-category','technical-mechanism','technical-phenomenon'].includes(type))
+      return COLOR.tech;
+    return COLOR.concept;
+  }
+  function nodeColor(d) {
+    if (d.nodeType === 'source') return d.origin === 'external' ? COLOR.external : COLOR.internal;
+    return topicColor(d.topicType || 'concept');
+  }
+
+  // Degree for sizing
+  const degree = new Map();
+  for (const l of graphLinks) {
+    degree.set(l.source, (degree.get(l.source) || 0) + 1);
+    degree.set(l.target, (degree.get(l.target) || 0) + 1);
+  }
+  function nodeR(d) {
+    const base = d.nodeType === 'source' ? 6 : 4;
+    return base + Math.min((degree.get(d.id) || 0) * 1.5, 20);
+  }
+
+  // Clone data for D3 mutation
+  const nodes = graphNodes.map(d => ({
+    ...d,
+    x: W / 2 + (Math.random() - 0.5) * W * 0.6,
+    y: H / 2 + (Math.random() - 0.5) * H * 0.6,
+  }));
+  const links = graphLinks.map(d => ({ ...d }));
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link',      d3.forceLink(links).id(d => d.id).distance(60).strength(0.3))
+    .force('charge',    d3.forceManyBody().strength(-120))
+    .force('center',    d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide().radius(d => nodeR(d) + 6));
+
+  const svg = svgEl.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+  const g   = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([0.1, 5]).on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  const linkEl = g.append('g').selectAll('line')
+    .data(links).join('line')
+    .attr('stroke', COLOR.border)
+    .attr('stroke-width', 0.8)
+    .attr('stroke-opacity', 0.35);
+
+  const nodeEl = g.append('g').selectAll('circle')
+    .data(nodes).join('circle')
+    .attr('r', nodeR)
+    .attr('fill', nodeColor)
+    .attr('fill-opacity', 0.85)
+    .attr('stroke', COLOR.bgCard)
+    .attr('stroke-width', d => d.nodeType === 'source' ? 2 : 1)
+    .style('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  const labelEl = g.append('g').selectAll('text')
+    .data(nodes.filter(d => d.nodeType === 'source' || (degree.get(d.id) || 0) >= 2))
+    .join('text')
+    .attr('font-size', d => d.nodeType === 'source' ? '8px' : '7px')
+    .attr('font-family', 'Roboto, sans-serif')
+    .attr('fill', COLOR.text)
+    .attr('text-anchor', 'middle')
+    .attr('pointer-events', 'none')
+    .text(d => d.label.length > 20 ? d.label.slice(0, 18) + '...' : d.label);
+
+  // Hover
+  nodeEl
+    .on('mouseenter', (event, d) => {
+      const conn = links.filter(l => l.source.id === d.id || l.target.id === d.id);
+      const ids  = new Set(conn.flatMap(l => [l.source.id, l.target.id]));
+      linkEl.attr('stroke-opacity', l => ids.has(l.source.id) && ids.has(l.target.id) ? 0.7 : 0.04);
+      nodeEl.attr('fill-opacity', n => ids.has(n.id) ? 1 : 0.12);
+      labelEl.attr('opacity', n => ids.has(n.id) ? 1 : 0.15);
+
+      const label = d.nodeType === 'source'
+        ? `<strong>${d.label}</strong><br><span style="font-size:0.7rem;color:${COLOR.muted}">${d.origin} source</span>`
+        : `<strong>${d.label}</strong><br><span style="font-size:0.7rem;color:${COLOR.muted}">${d.topicType}</span>`;
+      tooltip.innerHTML = label;
+      tooltip.classList.remove('hidden');
+    })
+    .on('mousemove', event => {
+      const r = wrap.getBoundingClientRect();
+      let x = event.clientX - r.left + 12;
+      let y = event.clientY - r.top - 8;
+      if (x + 260 > W) x -= 280;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    })
+    .on('mouseleave', () => {
+      linkEl.attr('stroke-opacity', 0.35);
+      nodeEl.attr('fill-opacity', 0.85);
+      labelEl.attr('opacity', 1);
+      tooltip.classList.add('hidden');
+    });
+
+  // Click source -> reading pane
+  nodeEl.on('click', (event, d) => {
+    if (d.nodeType === 'source') selectSource(d.id);
+  });
+
+  simulation.on('tick', () => {
+    linkEl
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    nodeEl.attr('cx', d => d.x).attr('cy', d => d.y);
+    labelEl.attr('x', d => d.x).attr('y', d => d.y + nodeR(d) + 10);
+  });
+
+  simulation.on('end', () => {
+    const pad = 50;
+    const xs = nodes.map(d => d.x), ys = nodes.map(d => d.y);
+    if (!xs.length) return;
+    const x0 = Math.min(...xs) - pad, x1 = Math.max(...xs) + pad;
+    const y0 = Math.min(...ys) - pad, y1 = Math.max(...ys) + pad;
+    const scale = Math.min(0.9, W / (x1 - x0), H / (y1 - y0));
+    const tx = (W - (x0 + x1) * scale) / 2;
+    const ty = (H - (y0 + y1) * scale) / 2;
+    svg.transition().duration(600)
+      .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+  });
+
+  new ResizeObserver(() => {
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    svg.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+    simulation.force('center', d3.forceCenter(W / 2, H / 2)).alpha(0.3).restart();
+  }).observe(wrap);
+
+  // ── Filters ───────────────────────────────────────────────────────────
+  const rows    = document.querySelectorAll('.result-row');
+  const emptyEl = document.getElementById('results-empty');
+
+  function active(group) {
+    return [...document.querySelectorAll(`input[data-group="${group}"]:checked`)].map(c => c.value);
+  }
+
+  function applyFilters() {
+    const origins = active('origin');
+    const types   = active('type');
+    const topics  = active('topic');
+    let vis = 0;
+
+    rows.forEach(row => {
+      const rOrigin = row.dataset.origin;
+      const rTypes  = (row.dataset.types  || '').split(',').filter(Boolean);
+      const rTopics = (row.dataset.topics || '').split(',').filter(Boolean);
+
+      const oMatch = !origins.length || origins.includes(rOrigin);
+      const tMatch = !types.length   || rTypes.some(t => types.includes(t));
+      const pMatch = !topics.length  || rTopics.some(t => topics.includes(t));
+
+      const show = oMatch && tMatch && pMatch;
+      row.hidden = !show;
+      if (show) vis++;
+    });
+    if (emptyEl) emptyEl.hidden = vis > 0;
+
+    // Dim filtered-out source nodes
+    const visIds = new Set();
+    rows.forEach(r => { if (!r.hidden) visIds.add(r.dataset.sourceId); });
+    nodeEl.attr('fill-opacity', d => {
+      if (d.nodeType !== 'source') return 0.85;
+      return visIds.has(d.id) ? 0.85 : 0.08;
+    });
+    labelEl.attr('opacity', d => {
+      if (d.nodeType !== 'source') return 1;
+      return visIds.has(d.id) ? 1 : 0.1;
+    });
+  }
+
+  document.querySelectorAll('input[data-group]').forEach(cb =>
+    cb.addEventListener('change', applyFilters)
+  );
+  document.querySelectorAll('.filter-action').forEach(btn =>
+    btn.addEventListener('click', () => {
+      const g = btn.dataset.group, a = btn.dataset.action;
+      document.querySelectorAll(`input[data-group="${g}"]`).forEach(c => c.checked = a === 'all');
+      applyFilters();
+    })
+  );
+
+  // ── Reading pane ──────────────────────────────────────────────────────
+  const paneEmpty   = document.getElementById('pane-empty');
+  const paneContent = document.getElementById('pane-content');
+  const paneTitle   = document.getElementById('pane-title');
+  const paneUrl     = document.getElementById('pane-url');
+  const paneDate    = document.getElementById('pane-date');
+  const paneSummary = document.getElementById('pane-summary');
+  const paneTopics  = document.getElementById('pane-topics');
+  const paneAssocs  = document.getElementById('pane-assocs');
+  const srcMap = new Map(sources.map(s => [s.id, s]));
+
+  function selectSource(id) {
+    const s = srcMap.get(id);
+    if (!s) return;
+    rows.forEach(r => r.classList.toggle('active', r.dataset.sourceId === id));
+
+    paneEmpty.hidden = true;
+    paneContent.hidden = false;
+    paneTitle.textContent = s.label;
+    paneUrl.href = s.url;
+    paneUrl.textContent = s.origin === 'external' ? 'View original' : `Read on maaike.ai`;
+    if (s.origin === 'internal') paneUrl.removeAttribute('target');
+    else paneUrl.setAttribute('target', '_blank');
+    paneDate.textContent = (s.origin === 'external' ? 'Ingested ' : 'Published ') +
+      new Date(s.date + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    paneSummary.textContent = s.summary || '';
+    paneSummary.hidden = !s.summary;
+
+    paneTopics.innerHTML = s.topics.map(t =>
+      `<span class="topic-badge">${t.label}</span>`
+    ).join('');
+
+    paneAssocs.innerHTML = s.associations.map(a =>
+      `<div class="assoc-line"><span class="assoc-subject">${a.subject}</span> <span class="assoc-predicate">${a.predicate}</span> <span class="assoc-object">${a.object}</span></div>`
+    ).join('');
+
+    // Highlight in graph
+    const ids = new Set([id, ...s.topicIds]);
+    nodeEl.attr('fill-opacity', n => ids.has(n.id) ? 1 : 0.15);
+    labelEl.attr('opacity', n => ids.has(n.id) ? 1 : 0.2);
+    linkEl.attr('stroke-opacity', l =>
+      (l.source.id === id || l.target.id === id) ? 0.7 : 0.04);
+  }
+
+  rows.forEach(r => r.addEventListener('click', () => selectSource(r.dataset.sourceId)));
+})();
+</script>

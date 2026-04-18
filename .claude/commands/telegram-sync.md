@@ -78,8 +78,19 @@ For each new stub in `src/content/files/`:
 
 8. Show Maaike what was created or updated before committing.
 
-## Step 5: Offer next steps
+## Step 5: Ingest new weblinks
+
+For each new draft weblink found in Step 3 (files in `src/content/weblinks/` where `draft: true`):
+
+1. Read the weblink file to get the `url` field.
+2. Run `/ingest-source` with that URL. This fetches the page, runs TAO analysis, and writes topics + associations + summary to `triples.json`.
+3. After successful ingestion, delete the draft weblink file (it served its purpose as a staging mechanism).
+
+If `/ingest-source` skips a link (overlap gate rejection or user chose to skip), leave the draft weblink file in place for next time.
+
+Process each link in sequence.
+
+## Step 6: Offer next steps
 
 - For inbox notes: offer to turn them into posts (use `/new-post`)
-- For weblinks: offer to review and publish them (use `/publish`)
 - For PDF library updates: commit if Maaike approves

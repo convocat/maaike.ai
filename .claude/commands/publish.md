@@ -23,6 +23,11 @@ Run these in order, halting on any error:
 
 0. **Check enrichment** — read the post's frontmatter. If `triples` is missing or empty `[]` on an article or jotting, run `/auto-tag` before continuing. Do not skip this even if the post was written outside `/new-post`.
 
+   For **weblinks**: if `triples` is missing or empty `[]`, check whether the weblink's `url` already exists as a source in `src/data/triples.json` (match by URL in the `sources` object). If it does not exist as a source, ask (AskUserQuestion):
+   - "This weblink has no triples. Run `/ingest-source` to mine it for the knowledge graph before publishing?"
+   If yes: run `/ingest-source` with the weblink's URL, then continue publishing.
+   If no: continue without enrichment.
+
 1. **Detect new vs updated** for each post using `git status`:
    - Run `git status --short <file>` — `A` (added/untracked) = new post, `M` (modified) = update
    - If **new**: set `draft: false` only
