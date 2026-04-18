@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topic wiki: Dashboard</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #FCFCFB;
+    color: #1A1A1A;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+  /* Topic selector */
+  .topic-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 1.5rem;
+  }
+  .topic-selector label { font-size: 0.85rem; color: #6B6B6B; font-weight: 500; }
+  .topic-selector select {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: #fff;
+    color: #1A1A1A;
+    max-width: 400px;
+  }
+
+  /* Header */
+  .topic-header {
+    margin-bottom: 1.5rem;
+  }
+  .topic-header .badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .badge-type { background: #F0F0F0; color: #555; }
+  .badge-domain { color: #fff; }
+  .badge-role { border: 1.5px solid; background: transparent; }
+  .topic-header h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .stats-line { font-size: 0.85rem; color: #6B6B6B; }
+
+  /* Panels */
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 700px) {
+    .panels { grid-template-columns: 1fr; }
+  }
+  .panel {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  .panel-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6B6B6B;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Mycelium radial */
+  #radial-svg { width: 100%; height: 350px; }
+  #radial-svg text { font-family: system-ui, sans-serif; }
+
+  /* Argument context */
+  #argument-svg { width: 100%; height: 350px; }
+  #argument-svg text { font-family: system-ui, sans-serif; }
+  .arg-lane-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    fill: #6B6B6B;
+  }
+
+  /* Relations section */
+  .relations-section {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .relation-line {
+    font-size: 0.9rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .relation-line:last-child { border-bottom: none; }
+  .relation-subject, .relation-object {
+    font-weight: 600;
+  }
+  .relation-predicate {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .relation-source {
+    font-size: 0.7rem;
+    color: #6B6B6B;
+    margin-left: auto;
+    background: #F0F0F0;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* Sources section */
+  .sources-section {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+  }
+  .source-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .source-item:last-child { border-bottom: none; }
+  .source-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.4rem;
+  }
+  .source-dot.internal { background: #0D7C66; }
+  .source-dot.external { background: #D6006C; }
+  .source-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .source-label a {
+    color: #1A1A1A;
+    text-decoration: none;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  .source-label a:hover { border-color: #D6006C; }
+  .source-collection {
+    font-size: 0.75rem;
+    color: #6B6B6B;
+    text-transform: capitalize;
+  }
+  .source-summary {
+    font-size: 0.82rem;
+    color: #6B6B6B;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+  }
+  .source-date {
+    font-size: 0.75rem;
+    color: #999;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #E5E5E5;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    background: #1A1A1A;
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+</style>
+</head>
+<body>
+<div class="tooltip" id="tooltip"></div>
+<div class="container">
+  <div class="topic-selector">
+    <label for="topic-select">Topic</label>
+    <select id="topic-select"></select>
+  </div>
+
+  <div class="topic-header" id="topic-header"></div>
+
+  <div class="panels">
+    <div class="panel">
+      <div class="panel-title">Mycelium</div>
+      <svg id="radial-svg"></svg>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Argument context</div>
+      <svg id="argument-svg"></svg>
+    </div>
+  </div>
+
+  <div class="relations-section">
+    <h3 class="section-title">Relations</h3>
+    <div id="relations-list"></div>
+  </div>
+
+  <div class="sources-section">
+    <h3 class="section-title">Sources</h3>
+    <div id="sources-list"></div>
+  </div>
+</div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+const DOMAIN_COLORS = {
+  people: '#0D7C66', design: '#D6006C', ai: '#B07830',
+  linguistics: '#4A7A50', philosophy: '#8B6AA8', culture: '#5A7A9A'
+};
+const PRED_CATS = {
+  reinforcing: { color: '#2D8B4E', preds: new Set(['presupposes','leads-to','reinforces','generates','demonstrates','enables','supports']) },
+  opposing:    { color: '#C0392B', preds: new Set(['counters','incompatible-with','breaks-down-for','risks','violates','contrasted-with']) },
+  structural:  { color: '#5A7A9A', preds: new Set(['instance-of','structured-as','attributed-to','coined-by','theorised-by','defined-as','characterised-as','metaphor-for','better-fits']) }
+};
+const ROLE_COLORS = { position: '#2D8B4E', 'counter-position': '#C0392B', framework: '#8B6AA8', instrument: '#B07830' };
+
+function predColor(pred) {
+  for (const cat of Object.values(PRED_CATS)) {
+    if (cat.preds.has(pred)) return cat.color;
+  }
+  return '#999';
+}
+function predCat(pred) {
+  for (const [name, cat] of Object.entries(PRED_CATS)) {
+    if (cat.preds.has(pred)) return name;
+  }
+  return 'other';
+}
+function domainColor(topicData) {
+  if (!topicData) return '#999';
+  if (topicData.type === 'person') return DOMAIN_COLORS.people;
+  return DOMAIN_COLORS[topicData.domain] || '#999';
+}
+
+let DATA;
+async function loadData() {
+  const resp = await fetch('./triples.json');
+  DATA = await resp.json();
+  populateSelector();
+  renderTopic('conversational-grounding');
+}
+
+function populateSelector() {
+  const select = document.getElementById('topic-select');
+  const sorted = Object.entries(DATA.topics).sort((a,b) => a[1].label.localeCompare(b[1].label));
+  for (const [id, t] of sorted) {
+    const opt = document.createElement('option');
+    opt.value = id;
+    opt.textContent = t.label;
+    select.appendChild(opt);
+  }
+  select.value = 'conversational-grounding';
+  select.addEventListener('change', () => renderTopic(select.value));
+}
+
+function getRelations(topicId) {
+  return DATA.associations.filter(a => a.subject === topicId || a.object === topicId);
+}
+
+function getConnected(topicId) {
+  const ids = new Set();
+  for (const a of DATA.associations) {
+    if (a.subject === topicId) ids.add(a.object);
+    if (a.object === topicId) ids.add(a.subject);
+  }
+  return ids;
+}
+
+function getSources(topicId) {
+  const rels = getRelations(topicId);
+  const sourceIds = [...new Set(rels.map(r => r.source))];
+  return sourceIds.map(sid => {
+    const rel = rels.find(r => r.source === sid);
+    const ext = DATA.sources?.[sid];
+    return {
+      id: sid,
+      label: ext ? ext.label : sid.replace(/-/g, ' '),
+      collection: rel?.collection || null,
+      url: ext?.url || null,
+      date: ext?.date || null,
+      summary: ext?.summary || null,
+      isExternal: !!ext && !rel?.collection
+    };
+  });
+}
+
+function renderTopic(topicId) {
+  const topic = DATA.topics[topicId];
+  if (!topic) return;
+
+  // Header
+  const rels = getRelations(topicId);
+  const connected = getConnected(topicId);
+  const sources = getSources(topicId);
+  const header = document.getElementById('topic-header');
+
+  let badgesHtml = `<span class="badge badge-type">${topic.type}</span>`;
+  if (topic.domain) {
+    badgesHtml += `<span class="badge badge-domain" style="background:${domainColor(topic)}">${topic.domain}</span>`;
+  }
+  if (topic.role) {
+    const rc = ROLE_COLORS[topic.role] || '#999';
+    badgesHtml += `<span class="badge badge-role" style="color:${rc};border-color:${rc}">${topic.role}</span>`;
+  }
+
+  header.innerHTML = `
+    <div class="badges">${badgesHtml}</div>
+    <h1>${topic.label}</h1>
+    <div class="stats-line">${rels.length} relations · ${sources.length} sources · ${connected.size} connected topics</div>
+  `;
+
+  renderRadial(topicId);
+  renderArgument(topicId);
+  renderRelations(topicId, rels);
+  renderSources(sources);
+}
+
+/* ---- Mycelium radial ---- */
+function renderRadial(topicId) {
+  const svg = d3.select('#radial-svg');
+  svg.selectAll('*').remove();
+  const bbox = svg.node().getBoundingClientRect();
+  const w = bbox.width, h = 350;
+  svg.attr('viewBox', `0 0 ${w} ${h}`);
+
+  const topic = DATA.topics[topicId];
+  const connected = getConnected(topicId);
+  const nodes = [{ id: topicId, ...topic, isCenter: true }];
+  const links = [];
+
+  for (const cid of connected) {
+    nodes.push({ id: cid, ...DATA.topics[cid], isCenter: false });
+  }
+
+  // Get edges between center and 1-hop
+  for (const a of DATA.associations) {
+    if (a.subject === topicId && connected.has(a.object)) {
+      links.push({ source: topicId, target: a.object, predicate: a.predicate });
+    } else if (a.object === topicId && connected.has(a.subject)) {
+      links.push({ source: a.subject, target: topicId, predicate: a.predicate });
+    }
+  }
+
+  // Deduplicate links
+  const linkKey = l => `${l.source}-${l.predicate}-${l.target}`;
+  const seen = new Set();
+  const uniqueLinks = links.filter(l => {
+    const k = linkKey(l);
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+
+  const cx = w / 2, cy = h / 2;
+  const radius = Math.min(w, h) * 0.35;
+
+  // Position nodes in a circle
+  const outerNodes = nodes.filter(n => !n.isCenter);
+  outerNodes.forEach((n, i) => {
+    const angle = (2 * Math.PI * i) / outerNodes.length - Math.PI / 2;
+    n.x = cx + radius * Math.cos(angle);
+    n.y = cy + radius * Math.sin(angle);
+  });
+  nodes.find(n => n.isCenter).x = cx;
+  nodes.find(n => n.isCenter).y = cy;
+
+  const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+  // Draw links
+  svg.selectAll('line.link')
+    .data(uniqueLinks)
+    .join('line')
+    .attr('class', 'link')
+    .attr('x1', d => nodeMap.get(typeof d.source === 'string' ? d.source : d.source.id)?.x || 0)
+    .attr('y1', d => nodeMap.get(typeof d.source === 'string' ? d.source : d.source.id)?.y || 0)
+    .attr('x2', d => nodeMap.get(typeof d.target === 'string' ? d.target : d.target.id)?.x || 0)
+    .attr('y2', d => nodeMap.get(typeof d.target === 'string' ? d.target : d.target.id)?.y || 0)
+    .attr('stroke', d => predColor(d.predicate))
+    .attr('stroke-width', 1.5)
+    .attr('stroke-opacity', 0.5);
+
+  // Draw nodes
+  const g = svg.selectAll('g.node')
+    .data(nodes)
+    .join('g')
+    .attr('class', 'node')
+    .attr('transform', d => `translate(${d.x},${d.y})`)
+    .style('cursor', d => d.isCenter ? 'default' : 'pointer')
+    .on('click', (e, d) => {
+      if (!d.isCenter) {
+        document.getElementById('topic-select').value = d.id;
+        renderTopic(d.id);
+      }
+    });
+
+  g.append('circle')
+    .attr('r', d => d.isCenter ? 18 : 8)
+    .attr('fill', d => domainColor(d))
+    .attr('stroke', d => d.isCenter ? '#1A1A1A' : 'none')
+    .attr('stroke-width', d => d.isCenter ? 2 : 0)
+    .attr('opacity', d => d.isCenter ? 1 : 0.85);
+
+  // Labels
+  g.append('text')
+    .text(d => d.label)
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => d.isCenter ? 32 : -14)
+    .attr('font-size', d => d.isCenter ? 12 : 10)
+    .attr('font-weight', d => d.isCenter ? 700 : 400)
+    .attr('fill', '#1A1A1A');
+
+  // Tooltip on hover
+  const tooltip = document.getElementById('tooltip');
+  g.on('mouseenter', (e, d) => {
+    if (d.isCenter) return;
+    const rels = DATA.associations.filter(a =>
+      (a.subject === topicId && a.object === d.id) ||
+      (a.object === topicId && a.subject === d.id)
+    );
+    const text = rels.map(r => r.predicate.replace(/-/g, ' ')).join(', ');
+    tooltip.textContent = text;
+    tooltip.style.left = e.pageX + 12 + 'px';
+    tooltip.style.top = e.pageY - 10 + 'px';
+    tooltip.style.opacity = 1;
+  })
+  .on('mouseleave', () => { tooltip.style.opacity = 0; });
+}
+
+/* ---- Argument context ---- */
+function renderArgument(topicId) {
+  const svg = d3.select('#argument-svg');
+  svg.selectAll('*').remove();
+  const bbox = svg.node().getBoundingClientRect();
+  const w = bbox.width, h = 350;
+  svg.attr('viewBox', `0 0 ${w} ${h}`);
+
+  const topic = DATA.topics[topicId];
+  const connected = getConnected(topicId);
+  const neighborhood = new Set([topicId, ...connected]);
+
+  // Collect nodes with roles from the neighborhood
+  const roledNodes = [];
+  for (const nid of neighborhood) {
+    const t = DATA.topics[nid];
+    if (t && t.role) {
+      roledNodes.push({ id: nid, ...t });
+    }
+  }
+
+  if (roledNodes.length === 0) {
+    svg.append('text')
+      .attr('x', w/2).attr('y', h/2)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#6B6B6B')
+      .attr('font-size', 13)
+      .text('No argument roles in this neighborhood');
+    return;
+  }
+
+  // Group by role
+  const positions = roledNodes.filter(n => n.role === 'position');
+  const counters = roledNodes.filter(n => n.role === 'counter-position');
+  const frameworks = roledNodes.filter(n => n.role === 'framework');
+  const instruments = roledNodes.filter(n => n.role === 'instrument');
+
+  // Lane layout: positions top, frameworks middle, counters bottom, instruments side
+  const lanes = [
+    { label: 'Positions', items: positions, y: 60, color: '#2D8B4E' },
+    { label: 'Frameworks', items: [...frameworks, ...instruments], y: h / 2, color: '#8B6AA8' },
+    { label: 'Counter-positions', items: counters, y: h - 60, color: '#C0392B' }
+  ];
+
+  // Lane labels
+  for (const lane of lanes) {
+    svg.append('text')
+      .attr('x', 10).attr('y', lane.y - 20)
+      .attr('class', 'arg-lane-label')
+      .attr('fill', lane.color)
+      .text(lane.label);
+
+    // Position items
+    const itemW = Math.min(130, (w - 40) / Math.max(lane.items.length, 1));
+    lane.items.forEach((item, i) => {
+      const x = 30 + i * itemW + itemW / 2;
+      const isThis = item.id === topicId;
+
+      if (isThis) {
+        svg.append('circle')
+          .attr('cx', x).attr('cy', lane.y)
+          .attr('r', 22)
+          .attr('fill', 'none')
+          .attr('stroke', '#D6006C')
+          .attr('stroke-width', 2)
+          .attr('stroke-dasharray', '4,2');
+      }
+
+      svg.append('circle')
+        .attr('cx', x).attr('cy', lane.y)
+        .attr('r', isThis ? 14 : 8)
+        .attr('fill', domainColor(item))
+        .attr('opacity', isThis ? 1 : 0.7)
+        .style('cursor', 'pointer')
+        .on('click', () => {
+          document.getElementById('topic-select').value = item.id;
+          renderTopic(item.id);
+        });
+
+      svg.append('text')
+        .attr('x', x).attr('y', lane.y + (isThis ? 28 : 20))
+        .attr('text-anchor', 'middle')
+        .attr('font-size', isThis ? 11 : 9)
+        .attr('font-weight', isThis ? 700 : 400)
+        .attr('fill', '#1A1A1A')
+        .text(item.label.length > 18 ? item.label.slice(0, 16) + '...' : item.label);
+    });
+  }
+
+  // Draw edges between lanes for topics in neighborhood
+  const allArgNodes = [...positions, ...frameworks, ...instruments, ...counters];
+  const nodePositions = new Map();
+  for (const lane of lanes) {
+    const itemW = Math.min(130, (w - 40) / Math.max(lane.items.length, 1));
+    lane.items.forEach((item, i) => {
+      nodePositions.set(item.id, { x: 30 + i * itemW + itemW / 2, y: lane.y });
+    });
+  }
+
+  for (const a of DATA.associations) {
+    if (nodePositions.has(a.subject) && nodePositions.has(a.object)) {
+      const s = nodePositions.get(a.subject);
+      const o = nodePositions.get(a.object);
+      svg.append('line')
+        .attr('x1', s.x).attr('y1', s.y)
+        .attr('x2', o.x).attr('y2', o.y)
+        .attr('stroke', predColor(a.predicate))
+        .attr('stroke-width', 1)
+        .attr('stroke-opacity', 0.3);
+    }
+  }
+}
+
+/* ---- Relations list ---- */
+function renderRelations(topicId, rels) {
+  const container = document.getElementById('relations-list');
+  container.innerHTML = '';
+
+  // Deduplicate
+  const seen = new Set();
+  const unique = rels.filter(r => {
+    const k = `${r.subject}-${r.predicate}-${r.object}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+
+  for (const r of unique) {
+    const subLabel = DATA.topics[r.subject]?.label || r.subject;
+    const objLabel = DATA.topics[r.object]?.label || r.object;
+    const isSub = r.subject === topicId;
+    const srcLabel = r.source?.replace(/-/g, ' ') || '';
+
+    const div = document.createElement('div');
+    div.className = 'relation-line';
+    div.innerHTML = `
+      <span class="relation-subject" style="color:${isSub ? '#1A1A1A' : domainColor(DATA.topics[r.subject])}">${subLabel}</span>
+      <span class="relation-predicate" style="background:${predColor(r.predicate)}">${r.predicate.replace(/-/g, ' ')}</span>
+      <span class="relation-object" style="color:${!isSub ? '#1A1A1A' : domainColor(DATA.topics[r.object])}">${objLabel}</span>
+      <span class="relation-source">${srcLabel}</span>
+    `;
+    container.appendChild(div);
+  }
+}
+
+/* ---- Sources list ---- */
+function renderSources(sources) {
+  const container = document.getElementById('sources-list');
+  container.innerHTML = '';
+
+  // Sort: internal first, then external
+  const sorted = [...sources].sort((a,b) => {
+    if (a.collection && !b.collection) return -1;
+    if (!a.collection && b.collection) return 1;
+    return a.label.localeCompare(b.label);
+  });
+
+  for (const s of sorted) {
+    const isInternal = !!s.collection;
+    const div = document.createElement('div');
+    div.className = 'source-item';
+
+    let html = `<span class="source-dot ${isInternal ? 'internal' : 'external'}"></span><div>`;
+    if (s.url) {
+      html += `<div class="source-label"><a href="${s.url}" target="_blank">${s.label}</a></div>`;
+    } else {
+      html += `<div class="source-label">${s.label}</div>`;
+    }
+    if (s.collection) {
+      html += `<div class="source-collection">${s.collection}</div>`;
+    }
+    if (s.date) {
+      html += `<span class="source-date">${s.date}</span> `;
+    }
+    if (s.summary) {
+      html += `<div class="source-summary">${s.summary}</div>`;
+    }
+    html += '</div>';
+    div.innerHTML = html;
+    container.appendChild(div);
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>

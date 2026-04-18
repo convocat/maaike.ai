@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argument map</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #FCFCFB;
+  color: #1A1A1A;
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+header p {
+  font-size: 1rem;
+  color: #6B6B6B;
+  margin-top: 0.25rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  background: #FCFCFB;
+  z-index: 100;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.controls button {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #1A1A1A;
+  transition: all 0.15s;
+}
+
+.controls button:hover {
+  border-color: #D6006C;
+  color: #D6006C;
+}
+
+.controls button.active {
+  background: #D6006C;
+  border-color: #D6006C;
+  color: #fff;
+}
+
+.view { display: none; width: 100%; }
+.view.active { display: block; }
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.8rem;
+  color: #6B6B6B;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* ===== VERSION 1: VERTICAL LANES ===== */
+#v1 {
+  padding: 1rem 2rem 2rem;
+}
+
+.lanes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 260px;
+  gap: 1.5rem;
+  min-height: 600px;
+}
+
+.lane {
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+}
+
+.lane h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.lane-position { background: #e8f5ed; }
+.lane-position h3 { color: #2D8B4E; }
+
+.lane-framework { background: #f0eaf5; }
+.lane-framework h3 { color: #8B6AA8; }
+
+.lane-counter { background: #fce8e6; }
+.lane-counter h3 { color: #C0392B; }
+
+.lane-instrument { background: #f5efe6; }
+.lane-instrument h3 { color: #B07830; }
+
+.lane-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-content: flex-start;
+}
+
+.lane-node {
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.8);
+  border: 1.5px solid;
+  cursor: default;
+  position: relative;
+  z-index: 2;
+}
+
+.lane-node[data-role="position"] { border-color: #2D8B4E; color: #2D8B4E; }
+.lane-node[data-role="counter-position"] { border-color: #C0392B; color: #C0392B; }
+.lane-node[data-role="framework"] { border-color: #8B6AA8; color: #8B6AA8; }
+.lane-node[data-role="instrument"] { border-color: #B07830; color: #B07830; }
+
+.unroled-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.75rem 2rem;
+  justify-content: center;
+}
+
+.unroled-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: default;
+}
+
+.unroled-dot:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 10;
+  transform: translateY(-120%);
+}
+
+.unroled-dot {
+  position: relative;
+}
+
+/* SVG overlay for lanes */
+#v1-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.v1-wrapper {
+  position: relative;
+}
+
+/* ===== VERSION 2: FORCE-DIRECTED ===== */
+#v2 {
+  padding: 1rem;
+}
+
+#v2 svg {
+  width: 100%;
+  height: 700px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fff;
+}
+
+#v2 .node-label {
+  font-size: 10px;
+  fill: #1A1A1A;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+#v2 .tooltip {
+  position: absolute;
+  background: #1A1A1A;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  max-width: 320px;
+  pointer-events: none;
+  z-index: 200;
+  line-height: 1.4;
+  display: none;
+}
+
+#v2 .tooltip .tt-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #FF4DA6;
+}
+
+#v2 .tooltip .tt-rel {
+  color: #ccc;
+  font-size: 0.72rem;
+}
+
+/* ===== VERSION 3: TENSION DIAGRAM ===== */
+#v3 {
+  padding: 1rem 2rem 2rem;
+}
+
+.tension-container {
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 0;
+  min-height: 600px;
+  position: relative;
+}
+
+.tension-col {
+  padding: 1rem;
+}
+
+.tension-col h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.tension-left h3 { color: #2D8B4E; }
+.tension-right h3 { color: #C0392B; }
+.tension-middle h3 { color: #8B6AA8; text-align: center; }
+
+.tension-node {
+  padding: 0.45rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1.5px solid;
+  background: #fff;
+}
+
+.tension-node-position { border-color: #2D8B4E; color: #2D8B4E; }
+.tension-node-counter { border-color: #C0392B; color: #C0392B; }
+.tension-node-framework { border-color: #8B6AA8; color: #8B6AA8; }
+
+.tension-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tension-middle .tension-fw-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+#v3-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tension-col { position: relative; z-index: 2; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Argument map</h1>
+  <p>How ideas support, counter, and frame each other</p>
+</header>
+
+<div class="controls">
+  <button class="active" onclick="showView(1)">Vertical lanes</button>
+  <button onclick="showView(2)">Force-directed</button>
+  <button onclick="showView(3)">Tension diagram</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#2D8B4E"></div> Position</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C0392B"></div> Counter-position</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#8B6AA8"></div> Framework</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B07830"></div> Instrument</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ccc"></div> Other</div>
+</div>
+
+<div id="v1" class="view active"></div>
+<div id="v2" class="view"></div>
+<div id="v3" class="view"></div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+const COLORS = {
+  position: '#2D8B4E',
+  'counter-position': '#C0392B',
+  framework: '#8B6AA8',
+  instrument: '#B07830',
+  none: '#aaa'
+};
+
+const EDGE_COLORS = {
+  counters: '#C0392B',
+  presupposes: '#2D8B4E',
+  reinforces: '#2D8B4E',
+  default: '#ccc'
+};
+
+let data;
+
+async function load() {
+  const resp = await fetch('./triples.json');
+  data = await resp.json();
+  buildV1();
+  buildV2();
+  buildV3();
+}
+
+function roleColor(r) { return COLORS[r] || COLORS.none; }
+function edgeColor(pred) { return EDGE_COLORS[pred] || EDGE_COLORS.default; }
+
+function getRole(id) {
+  const t = data.topics[id];
+  return t ? (t.role || 'none') : 'none';
+}
+
+function getLabel(id) {
+  const t = data.topics[id];
+  return t ? t.label : id;
+}
+
+// Collect topics that appear in associations
+function activeTopicIds() {
+  const ids = new Set();
+  for (const a of data.associations) {
+    ids.add(a.subject);
+    ids.add(a.object);
+  }
+  return ids;
+}
+
+// ===== VIEW TOGGLE =====
+window.showView = function(n) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+  document.getElementById('v' + n).classList.add('active');
+  document.querySelectorAll('.controls button')[n - 1].classList.add('active');
+  if (n === 2) {
+    // restart simulation on show
+    if (window._v2sim) window._v2sim.alpha(0.3).restart();
+  }
+};
+
+// ===== VERSION 1: VERTICAL LANES =====
+function buildV1() {
+  const container = document.getElementById('v1');
+  const ids = activeTopicIds();
+
+  const buckets = { position: [], framework: [], 'counter-position': [], instrument: [], none: [] };
+  for (const id of ids) {
+    const role = getRole(id);
+    (buckets[role] || buckets.none).push(id);
+  }
+
+  // Filter associations to those between roled topics
+  const roledIds = new Set([...buckets.position, ...buckets.framework, ...buckets['counter-position'], ...buckets.instrument]);
+
+  let html = '<div class="v1-wrapper"><div class="lanes-container">';
+
+  // Position lane
+  html += '<div class="lane lane-position"><h3>Positions</h3><div class="lane-nodes">';
+  for (const id of buckets.position) {
+    html += `<div class="lane-node" data-role="position" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div></div>';
+
+  // Framework lane
+  html += '<div class="lane lane-framework"><h3>Frameworks</h3><div class="lane-nodes">';
+  for (const id of buckets.framework) {
+    html += `<div class="lane-node" data-role="framework" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div></div>';
+
+  // Counter-position lane
+  html += '<div class="lane lane-counter"><h3>Counter-positions</h3><div class="lane-nodes">';
+  for (const id of buckets['counter-position']) {
+    html += `<div class="lane-node" data-role="counter-position" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div></div>';
+
+  // Instrument lane
+  html += '<div class="lane lane-instrument"><h3>Instruments</h3><div class="lane-nodes">';
+  for (const id of buckets.instrument) {
+    html += `<div class="lane-node" data-role="instrument" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div></div>';
+
+  html += '</div>'; // lanes-container
+
+  // Unroled strip
+  if (buckets.none.length) {
+    html += '<div class="unroled-strip">';
+    for (const id of buckets.none) {
+      html += `<div class="unroled-dot" data-label="${getLabel(id)}" title="${getLabel(id)}"></div>`;
+    }
+    html += '</div>';
+  }
+
+  html += '<svg id="v1-svg"></svg></div>'; // v1-wrapper
+  container.innerHTML = html;
+
+  // Draw arrows after layout
+  requestAnimationFrame(() => drawV1Arrows(roledIds));
+}
+
+function drawV1Arrows(roledIds) {
+  const svg = document.getElementById('v1-svg');
+  const wrapper = svg.parentElement;
+  const rect = wrapper.getBoundingClientRect();
+  svg.setAttribute('width', rect.width);
+  svg.setAttribute('height', rect.height);
+  svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+
+  // Build a map of node positions
+  const nodeEls = wrapper.querySelectorAll('.lane-node');
+  const posMap = {};
+  for (const el of nodeEls) {
+    const id = el.dataset.id;
+    const r = el.getBoundingClientRect();
+    posMap[id] = {
+      x: r.left + r.width / 2 - rect.left,
+      y: r.top + r.height / 2 - rect.top
+    };
+  }
+
+  let arrows = '';
+  const markerId = (color) => 'ah-' + color.replace('#', '');
+
+  // Define arrowhead markers
+  const usedColors = new Set();
+  for (const a of data.associations) {
+    if (posMap[a.subject] && posMap[a.object]) {
+      usedColors.add(edgeColor(a.predicate));
+    }
+  }
+
+  let defs = '<defs>';
+  for (const c of usedColors) {
+    defs += `<marker id="${markerId(c)}" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="${c}" /></marker>`;
+  }
+  defs += '</defs>';
+
+  // Deduplicate
+  const seen = new Set();
+  for (const a of data.associations) {
+    const key = a.subject + '->' + a.object;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const s = posMap[a.subject];
+    const o = posMap[a.object];
+    if (!s || !o) continue;
+
+    const color = edgeColor(a.predicate);
+    const mx = (s.x + o.x) / 2;
+    const my = (s.y + o.y) / 2 - 20;
+    arrows += `<path d="M${s.x},${s.y} Q${mx},${my} ${o.x},${o.y}" fill="none" stroke="${color}" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#${markerId(color)})" />`;
+  }
+
+  svg.innerHTML = defs + arrows;
+}
+
+// ===== VERSION 2: FORCE-DIRECTED =====
+function buildV2() {
+  const container = document.getElementById('v2');
+  const width = container.clientWidth || 1200;
+  const height = 700;
+
+  container.innerHTML = '<div class="tooltip" id="v2-tooltip"></div>';
+
+  const svg = d3.select('#v2').append('svg')
+    .attr('width', '100%')
+    .attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  const ids = activeTopicIds();
+  const nodes = [];
+  const nodeMap = {};
+  let i = 0;
+  for (const id of ids) {
+    const role = getRole(id);
+    let ty;
+    if (role === 'position') ty = height * 0.2;
+    else if (role === 'counter-position') ty = height * 0.8;
+    else if (role === 'framework') ty = height * 0.5;
+    else if (role === 'instrument') ty = height * 0.5;
+    else ty = height * 0.5;
+
+    let tx;
+    if (role === 'instrument') tx = width * 0.8;
+    else tx = width * 0.5;
+
+    const node = { id, label: getLabel(id), role, targetY: ty, targetX: tx, index: i };
+    nodes.push(node);
+    nodeMap[id] = node;
+    i++;
+  }
+
+  // Deduplicate links
+  const linkSeen = new Set();
+  const links = [];
+  for (const a of data.associations) {
+    if (!nodeMap[a.subject] || !nodeMap[a.object]) continue;
+    const key = a.subject + '->' + a.object;
+    if (linkSeen.has(key)) continue;
+    linkSeen.add(key);
+    links.push({ source: a.subject, predicate: a.predicate, target: a.object });
+  }
+
+  // Arrowhead markers
+  const markerPreds = ['counters', 'presupposes', 'reinforces', 'default'];
+  const defs = svg.append('defs');
+  for (const p of markerPreds) {
+    const c = EDGE_COLORS[p] || EDGE_COLORS.default;
+    defs.append('marker')
+      .attr('id', 'arrow-' + p)
+      .attr('viewBox', '0 0 10 7')
+      .attr('refX', 18)
+      .attr('refY', 3.5)
+      .attr('markerWidth', 7)
+      .attr('markerHeight', 5)
+      .attr('orient', 'auto')
+      .append('polygon')
+      .attr('points', '0 0, 10 3.5, 0 7')
+      .attr('fill', c);
+  }
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(90).strength(0.3))
+    .force('charge', d3.forceManyBody().strength(-200))
+    .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05))
+    .force('x', d3.forceX(d => d.targetX).strength(d => d.role === 'instrument' ? 0.15 : 0.02))
+    .force('y', d3.forceY(d => d.targetY).strength(0.12))
+    .force('collision', d3.forceCollide(30));
+
+  window._v2sim = simulation;
+
+  const link = svg.append('g')
+    .selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', d => edgeColor(d.predicate))
+    .attr('stroke-width', 1.5)
+    .attr('stroke-opacity', 0.4)
+    .attr('marker-end', d => {
+      const p = EDGE_COLORS[d.predicate] ? d.predicate : 'default';
+      return `url(#arrow-${p})`;
+    });
+
+  const node = svg.append('g')
+    .selectAll('circle')
+    .data(nodes)
+    .join('circle')
+    .attr('r', d => d.role === 'none' ? 4 : 7)
+    .attr('fill', d => roleColor(d.role))
+    .attr('stroke', '#fff')
+    .attr('stroke-width', 1.5)
+    .style('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end', (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  const label = svg.append('g')
+    .selectAll('text')
+    .data(nodes)
+    .join('text')
+    .attr('class', 'node-label')
+    .attr('dy', d => d.role === 'none' ? -8 : -12)
+    .text(d => d.label)
+    .style('font-size', d => d.role === 'none' ? '8px' : '10px');
+
+  // Tooltip
+  const tooltip = document.getElementById('v2-tooltip');
+
+  node.on('mouseenter', (e, d) => {
+    // Find all relations for this topic
+    const rels = data.associations.filter(a => a.subject === d.id || a.object === d.id);
+    let relHtml = rels.map(a => {
+      const dir = a.subject === d.id;
+      const other = dir ? getLabel(a.object) : getLabel(a.subject);
+      return `${dir ? '' : other + ' '}${a.predicate.replace(/-/g, ' ')}${dir ? ' ' + other : ''}`;
+    }).join('<br>');
+
+    tooltip.innerHTML = `<div class="tt-title">${d.label}</div><div class="tt-rel">${relHtml || 'No relations'}</div>`;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.pageX + 12) + 'px';
+    tooltip.style.top = (e.pageY - 12) + 'px';
+  })
+  .on('mousemove', (e) => {
+    tooltip.style.left = (e.pageX + 12) + 'px';
+    tooltip.style.top = (e.pageY - 12) + 'px';
+  })
+  .on('mouseleave', () => {
+    tooltip.style.display = 'none';
+  });
+
+  simulation.on('tick', () => {
+    link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+    node
+      .attr('cx', d => d.x = Math.max(10, Math.min(width - 10, d.x)))
+      .attr('cy', d => d.y = Math.max(10, Math.min(height - 10, d.y)));
+    label
+      .attr('x', d => d.x)
+      .attr('y', d => d.y);
+  });
+}
+
+// ===== VERSION 3: TENSION DIAGRAM =====
+function buildV3() {
+  const container = document.getElementById('v3');
+  const ids = activeTopicIds();
+
+  const positions = [];
+  const counters = [];
+  const frameworks = [];
+
+  for (const id of ids) {
+    const role = getRole(id);
+    if (role === 'position') positions.push(id);
+    else if (role === 'counter-position') counters.push(id);
+    else if (role === 'framework') frameworks.push(id);
+  }
+
+  // Build connection pairs between positions and counters (through any predicate)
+  // Also position-framework, counter-framework
+  const pairCounts = {};
+  for (const a of data.associations) {
+    const sr = getRole(a.subject);
+    const or = getRole(a.object);
+    // Count pairs between the three role groups
+    const key = a.subject + '::' + a.object;
+    pairCounts[key] = (pairCounts[key] || 0) + 1;
+  }
+
+  let html = '<div class="tension-container">';
+
+  // Left column: positions
+  html += '<div class="tension-col tension-left"><h3>Positions</h3>';
+  for (const id of positions) {
+    html += `<div class="tension-node tension-node-position" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div>';
+
+  // Middle: frameworks
+  html += '<div class="tension-col tension-middle"><h3>Frameworks</h3><div class="tension-fw-strip">';
+  for (const id of frameworks) {
+    html += `<div class="tension-node tension-node-framework" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div></div>';
+
+  // Right column: counters
+  html += '<div class="tension-col tension-right"><h3>Counter-positions</h3>';
+  for (const id of counters) {
+    html += `<div class="tension-node tension-node-counter" data-id="${id}">${getLabel(id)}</div>`;
+  }
+  html += '</div>';
+
+  html += '<svg id="v3-svg"></svg>';
+  html += '</div>'; // tension-container
+
+  container.innerHTML = html;
+
+  requestAnimationFrame(() => drawV3Lines(pairCounts));
+}
+
+function drawV3Lines(pairCounts) {
+  const svg = document.getElementById('v3-svg');
+  const wrapper = svg.parentElement;
+  const rect = wrapper.getBoundingClientRect();
+  svg.setAttribute('width', rect.width);
+  svg.setAttribute('height', rect.height);
+  svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+
+  // Build position map of tension nodes
+  const nodeEls = wrapper.querySelectorAll('.tension-node');
+  const posMap = {};
+  for (const el of nodeEls) {
+    const id = el.dataset.id;
+    const r = el.getBoundingClientRect();
+    posMap[id] = {
+      x: r.left + r.width / 2 - rect.left,
+      y: r.top + r.height / 2 - rect.top,
+      right: r.right - rect.left,
+      left: r.left - rect.left
+    };
+  }
+
+  let paths = '';
+
+  // Deduplicate: merge both directions
+  const drawnPairs = new Set();
+
+  for (const a of data.associations) {
+    const s = posMap[a.subject];
+    const o = posMap[a.object];
+    if (!s || !o) continue;
+
+    const pairKey = [a.subject, a.object].sort().join('::');
+    if (drawnPairs.has(pairKey)) continue;
+    drawnPairs.add(pairKey);
+
+    const count = (pairCounts[a.subject + '::' + a.object] || 0) + (pairCounts[a.object + '::' + a.subject] || 0);
+    const thickness = Math.max(1.5, Math.min(5, count * 1.5));
+    const color = edgeColor(a.predicate);
+
+    // Determine connection points: use left/right edges based on relative position
+    let sx, ox;
+    if (s.x < o.x) {
+      sx = s.right || s.x + 60;
+      ox = o.left || o.x - 60;
+    } else {
+      sx = s.left || s.x - 60;
+      ox = o.right || o.x + 60;
+    }
+
+    // Bezier curve
+    const cpx1 = sx + (ox - sx) * 0.35;
+    const cpx2 = sx + (ox - sx) * 0.65;
+    const curveOffset = (Math.random() - 0.5) * 20;
+
+    paths += `<path d="M${sx},${s.y} C${cpx1},${s.y + curveOffset} ${cpx2},${o.y + curveOffset} ${ox},${o.y}" fill="none" stroke="${color}" stroke-width="${thickness}" stroke-opacity="0.35" />`;
+
+    // Predicate label at midpoint
+    const mx = (sx + ox) / 2;
+    const my = (s.y + o.y) / 2 + curveOffset * 0.5;
+    const predLabel = a.predicate.replace(/-/g, ' ');
+    paths += `<text x="${mx}" y="${my}" text-anchor="middle" fill="#6B6B6B" font-size="9" font-family="system-ui">${predLabel}</text>`;
+  }
+
+  svg.innerHTML = paths;
+}
+
+load();
+</script>
+</body>
+</html>

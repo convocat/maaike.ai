@@ -52,6 +52,8 @@ const graphData = { nodes, links };
 
   <p class="footer-note">
     {nodes.length} topics · {links.length} associations · {postCount} posts indexed
+    · <a href="/topics" class="wiki-link">Browse as wiki</a>
+    · <a href="/sources" class="wiki-link">Sources</a>
   </p>
 </PageLayout>
 
@@ -130,6 +132,7 @@ const graphData = { nodes, links };
     font-size: 0.8rem;
     margin-top: var(--space-xs);
   }
+  .wiki-link { color: var(--color-accent-2); }
 
   [data-theme="dark"] .legend-dot.technology { background: #E8A84A; }
 </style>

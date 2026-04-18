@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topic wiki: Narrative</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #FCFCFB;
+    color: #1A1A1A;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+  /* Topic selector */
+  .topic-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 2rem;
+  }
+  .topic-selector label { font-size: 0.85rem; color: #6B6B6B; font-weight: 500; }
+  .topic-selector select {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: #fff;
+    color: #1A1A1A;
+    max-width: 400px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 3rem;
+  }
+  .hero .badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .badge-type { background: #F0F0F0; color: #555; }
+  .badge-domain { color: #fff; }
+  .badge-role { border: 1.5px solid; background: transparent; }
+  .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero .stats-line {
+    font-size: 0.9rem;
+    color: #6B6B6B;
+  }
+
+  /* Sections */
+  .narrative-section {
+    margin-bottom: 3.5rem;
+  }
+  .narrative-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: #1A1A1A;
+  }
+  .section-number {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #D6006C;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  /* What it is */
+  .what-it-is {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  @media (max-width: 600px) {
+    .what-it-is { flex-direction: column; }
+  }
+  .role-card {
+    flex: 1;
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+  .role-badge-large {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+  .role-explanation {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+  }
+  .domain-block {
+    width: 140px;
+    min-height: 120px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .domain-block .domain-type {
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 0.25rem;
+  }
+
+  /* Radial */
+  #narrative-radial-svg { width: 100%; height: 450px; }
+  #narrative-radial-svg text { font-family: system-ui, sans-serif; }
+
+  /* Relation groups */
+  .relation-groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 700px) {
+    .relation-groups { grid-template-columns: 1fr; }
+  }
+  .rel-group {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+  .rel-group-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid;
+  }
+  .rel-group-item {
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .rel-group-item:last-child { border-bottom: none; }
+  .rel-pred-tag {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .rel-topic-name { font-weight: 600; }
+
+  /* Argument map */
+  #narrative-argument-svg { width: 100%; height: 300px; }
+  #narrative-argument-svg text { font-family: system-ui, sans-serif; }
+
+  /* Sources */
+  .source-card {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .source-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+  }
+  .source-dot.internal { background: #0D7C66; }
+  .source-dot.external { background: #D6006C; }
+  .source-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .source-label a {
+    color: #1A1A1A;
+    text-decoration: none;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  .source-label a:hover { border-color: #D6006C; }
+  .source-collection {
+    font-size: 0.75rem;
+    color: #6B6B6B;
+    text-transform: capitalize;
+  }
+  .source-summary {
+    font-size: 0.85rem;
+    color: #6B6B6B;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+  }
+  .source-date {
+    font-size: 0.75rem;
+    color: #999;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    background: #1A1A1A;
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+</style>
+</head>
+<body>
+<div class="tooltip" id="tooltip"></div>
+<div class="container">
+  <div class="topic-selector">
+    <label for="topic-select">Topic</label>
+    <select id="topic-select"></select>
+  </div>
+
+  <div class="hero" id="hero"></div>
+
+  <div id="section-what" class="narrative-section"></div>
+  <div id="section-connects" class="narrative-section"></div>
+  <div id="section-stands" class="narrative-section"></div>
+  <div id="section-sources" class="narrative-section"></div>
+</div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+const DOMAIN_COLORS = {
+  people: '#0D7C66', design: '#D6006C', ai: '#B07830',
+  linguistics: '#4A7A50', philosophy: '#8B6AA8', culture: '#5A7A9A'
+};
+const PRED_CATS = {
+  reinforcing: { color: '#2D8B4E', label: 'Supports', preds: new Set(['presupposes','leads-to','reinforces','generates','demonstrates','enables','supports']) },
+  opposing:    { color: '#C0392B', label: 'Opposes', preds: new Set(['counters','incompatible-with','breaks-down-for','risks','violates','contrasted-with']) },
+  structural:  { color: '#5A7A9A', label: 'Structures', preds: new Set(['instance-of','structured-as','attributed-to','coined-by','theorised-by','defined-as','characterised-as','metaphor-for','better-fits']) }
+};
+const ROLE_COLORS = { position: '#2D8B4E', 'counter-position': '#C0392B', framework: '#8B6AA8', instrument: '#B07830' };
+const ROLE_EXPLANATIONS = {
+  position: 'This topic takes a stance. It argues for a particular view or approach within its domain.',
+  'counter-position': 'This topic challenges or opposes another stance. It represents the critical voice in an argument.',
+  framework: 'This topic provides a lens for understanding other concepts. It does not take a side, but structures how we think about them.',
+  instrument: 'This topic is a tool or method. It enables or supports other concepts without taking a position itself.'
+};
+
+function predColor(pred) {
+  for (const cat of Object.values(PRED_CATS)) { if (cat.preds.has(pred)) return cat.color; }
+  return '#999';
+}
+function predCatName(pred) {
+  for (const [name, cat] of Object.entries(PRED_CATS)) { if (cat.preds.has(pred)) return name; }
+  return 'other';
+}
+function domainColor(topicData) {
+  if (!topicData) return '#999';
+  if (topicData.type === 'person') return DOMAIN_COLORS.people;
+  return DOMAIN_COLORS[topicData.domain] || '#999';
+}
+
+let DATA;
+async function loadData() {
+  const resp = await fetch('./triples.json');
+  DATA = await resp.json();
+  populateSelector();
+  renderTopic('conversational-grounding');
+}
+
+function populateSelector() {
+  const select = document.getElementById('topic-select');
+  const sorted = Object.entries(DATA.topics).sort((a,b) => a[1].label.localeCompare(b[1].label));
+  for (const [id, t] of sorted) {
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = t.label;
+    select.appendChild(opt);
+  }
+  select.value = 'conversational-grounding';
+  select.addEventListener('change', () => renderTopic(select.value));
+}
+
+function getRelations(topicId) {
+  return DATA.associations.filter(a => a.subject === topicId || a.object === topicId);
+}
+function getConnected(topicId) {
+  const ids = new Set();
+  for (const a of DATA.associations) {
+    if (a.subject === topicId) ids.add(a.object);
+    if (a.object === topicId) ids.add(a.subject);
+  }
+  return ids;
+}
+function getConnected2Hop(topicId) {
+  const hop1 = getConnected(topicId);
+  const hop2 = new Set(hop1);
+  for (const nid of hop1) {
+    for (const a of DATA.associations) {
+      if (a.subject === nid) hop2.add(a.object);
+      if (a.object === nid) hop2.add(a.subject);
+    }
+  }
+  hop2.delete(topicId);
+  return { hop1, hop2 };
+}
+function getSources(topicId) {
+  const rels = getRelations(topicId);
+  const sourceIds = [...new Set(rels.map(r => r.source))];
+  return sourceIds.map(sid => {
+    const rel = rels.find(r => r.source === sid);
+    const ext = DATA.sources?.[sid];
+    return {
+      id: sid,
+      label: ext ? ext.label : sid.replace(/-/g, ' '),
+      collection: rel?.collection || null,
+      url: ext?.url || null,
+      date: ext?.date || null,
+      summary: ext?.summary || null,
+    };
+  });
+}
+
+function renderTopic(topicId) {
+  const topic = DATA.topics[topicId];
+  if (!topic) return;
+
+  const rels = getRelations(topicId);
+  const connected = getConnected(topicId);
+  const sources = getSources(topicId);
+
+  // Hero
+  const hero = document.getElementById('hero');
+  let badgesHtml = `<span class="badge badge-type">${topic.type}</span>`;
+  if (topic.domain) badgesHtml += `<span class="badge badge-domain" style="background:${domainColor(topic)}">${topic.domain}</span>`;
+  if (topic.role) {
+    const rc = ROLE_COLORS[topic.role] || '#999';
+    badgesHtml += `<span class="badge badge-role" style="color:${rc};border-color:${rc}">${topic.role}</span>`;
+  }
+  hero.innerHTML = `
+    <div class="badges">${badgesHtml}</div>
+    <h1>${topic.label}</h1>
+    <div class="stats-line">${rels.length} relations · ${sources.length} sources · ${connected.size} connected topics</div>
+  `;
+
+  // Section 1: What it is
+  renderWhatItIs(topicId, topic);
+  // Section 2: How it connects
+  renderConnections(topicId, rels);
+  // Section 3: Where it stands
+  renderArgumentMap(topicId);
+  // Section 4: Sources
+  renderSourcesSection(sources);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderWhatItIs(topicId, topic) {
+  const section = document.getElementById('section-what');
+  const roleColor = ROLE_COLORS[topic.role] || '#999';
+  const explanation = ROLE_EXPLANATIONS[topic.role] || 'This topic has no assigned argumentative role yet.';
+  const dc = domainColor(topic);
+
+  section.innerHTML = `
+    <div class="section-number">I</div>
+    <h2>What it is</h2>
+    <div class="what-it-is">
+      <div class="role-card">
+        ${topic.role ? `<div class="role-badge-large" style="background:${roleColor}">${topic.role}</div>` : '<div class="role-badge-large" style="background:#999">unassigned</div>'}
+        <div class="role-explanation">${explanation}</div>
+      </div>
+      <div class="domain-block" style="background:${dc}">
+        ${topic.domain || topic.type}
+        <span class="domain-type">${topic.type}</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderConnections(topicId, rels) {
+  const section = document.getElementById('section-connects');
+  section.innerHTML = `
+    <div class="section-number">II</div>
+    <h2>How it connects</h2>
+    <svg id="narrative-radial-svg"></svg>
+    <div class="relation-groups" id="relation-groups"></div>
+  `;
+
+  // Radial with 2 hops
+  renderRadial2Hop(topicId);
+
+  // Grouped relations
+  const groups = { reinforcing: [], opposing: [], structural: [], other: [] };
+  const seen = new Set();
+  for (const r of rels) {
+    const k = `${r.subject}-${r.predicate}-${r.object}`;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    const cat = predCatName(r.predicate);
+    (groups[cat] || groups.other).push(r);
+  }
+
+  const container = document.getElementById('relation-groups');
+  for (const [catName, catDef] of Object.entries(PRED_CATS)) {
+    const items = groups[catName];
+    if (items.length === 0) continue;
+
+    const div = document.createElement('div');
+    div.className = 'rel-group';
+    let html = `<div class="rel-group-title" style="border-color:${catDef.color};color:${catDef.color}">${catDef.label}</div>`;
+    for (const r of items) {
+      const other = r.subject === topicId ? r.object : r.subject;
+      const otherLabel = DATA.topics[other]?.label || other;
+      html += `
+        <div class="rel-group-item">
+          <span class="rel-pred-tag" style="background:${catDef.color}">${r.predicate.replace(/-/g, ' ')}</span>
+          <span class="rel-topic-name">${otherLabel}</span>
+        </div>`;
+    }
+    div.innerHTML = html;
+    container.appendChild(div);
+  }
+}
+
+function renderRadial2Hop(topicId) {
+  const svg = d3.select('#narrative-radial-svg');
+  svg.selectAll('*').remove();
+  const bbox = svg.node().getBoundingClientRect();
+  const w = bbox.width, h = 450;
+  svg.attr('viewBox', `0 0 ${w} ${h}`);
+
+  const { hop1, hop2 } = getConnected2Hop(topicId);
+  const topic = DATA.topics[topicId];
+
+  // Build nodes
+  const nodes = [{ id: topicId, ...topic, ring: 0 }];
+  for (const nid of hop1) nodes.push({ id: nid, ...DATA.topics[nid], ring: 1 });
+  // Add hop2 nodes (not in hop1)
+  const hop2Only = [...hop2].filter(n => !hop1.has(n));
+  // Limit hop2 to avoid overcrowding
+  const hop2Limited = hop2Only.slice(0, 20);
+  for (const nid of hop2Limited) nodes.push({ id: nid, ...DATA.topics[nid], ring: 2 });
+
+  const allIds = new Set(nodes.map(n => n.id));
+  const links = [];
+  const linkSeen = new Set();
+  for (const a of DATA.associations) {
+    if (allIds.has(a.subject) && allIds.has(a.object)) {
+      const k = `${a.subject}-${a.predicate}-${a.object}`;
+      if (!linkSeen.has(k)) {
+        linkSeen.add(k);
+        links.push({ source: a.subject, target: a.object, predicate: a.predicate });
+      }
+    }
+  }
+
+  const cx = w / 2, cy = h / 2;
+  const r1 = Math.min(w, h) * 0.22;
+  const r2 = Math.min(w, h) * 0.4;
+
+  // Position
+  const hop1Arr = nodes.filter(n => n.ring === 1);
+  hop1Arr.forEach((n, i) => {
+    const angle = (2 * Math.PI * i) / hop1Arr.length - Math.PI / 2;
+    n.x = cx + r1 * Math.cos(angle);
+    n.y = cy + r1 * Math.sin(angle);
+  });
+  const hop2Arr = nodes.filter(n => n.ring === 2);
+  hop2Arr.forEach((n, i) => {
+    const angle = (2 * Math.PI * i) / hop2Arr.length - Math.PI / 2 + 0.2;
+    n.x = cx + r2 * Math.cos(angle);
+    n.y = cy + r2 * Math.sin(angle);
+  });
+  nodes.find(n => n.ring === 0).x = cx;
+  nodes.find(n => n.ring === 0).y = cy;
+
+  const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+  // Links
+  svg.selectAll('line.link')
+    .data(links)
+    .join('line')
+    .attr('x1', d => nodeMap.get(d.source)?.x || 0)
+    .attr('y1', d => nodeMap.get(d.source)?.y || 0)
+    .attr('x2', d => nodeMap.get(d.target)?.x || 0)
+    .attr('y2', d => nodeMap.get(d.target)?.y || 0)
+    .attr('stroke', d => predColor(d.predicate))
+    .attr('stroke-width', d => {
+      const s = nodeMap.get(d.source), t = nodeMap.get(d.target);
+      return (s?.ring === 0 || t?.ring === 0) ? 1.5 : 0.8;
+    })
+    .attr('stroke-opacity', d => {
+      const s = nodeMap.get(d.source), t = nodeMap.get(d.target);
+      return (s?.ring === 0 || t?.ring === 0) ? 0.6 : 0.2;
+    });
+
+  // Nodes
+  const tooltip = document.getElementById('tooltip');
+  const g = svg.selectAll('g.node')
+    .data(nodes)
+    .join('g')
+    .attr('class', 'node')
+    .attr('transform', d => `translate(${d.x},${d.y})`)
+    .style('cursor', d => d.ring === 0 ? 'default' : 'pointer')
+    .on('click', (e, d) => {
+      if (d.ring !== 0) {
+        document.getElementById('topic-select').value = d.id;
+        renderTopic(d.id);
+      }
+    })
+    .on('mouseenter', (e, d) => {
+      if (d.ring === 0) return;
+      tooltip.textContent = d.label;
+      tooltip.style.left = e.pageX + 12 + 'px';
+      tooltip.style.top = e.pageY - 10 + 'px';
+      tooltip.style.opacity = 1;
+    })
+    .on('mouseleave', () => { tooltip.style.opacity = 0; });
+
+  g.append('circle')
+    .attr('r', d => d.ring === 0 ? 20 : d.ring === 1 ? 8 : 5)
+    .attr('fill', d => domainColor(d))
+    .attr('stroke', d => d.ring === 0 ? '#1A1A1A' : 'none')
+    .attr('stroke-width', d => d.ring === 0 ? 2 : 0)
+    .attr('opacity', d => d.ring === 2 ? 0.5 : 0.85);
+
+  // Labels for center + hop1
+  g.filter(d => d.ring <= 1)
+    .append('text')
+    .text(d => d.label.length > 20 ? d.label.slice(0, 18) + '...' : d.label)
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => d.ring === 0 ? 34 : -14)
+    .attr('font-size', d => d.ring === 0 ? 13 : 10)
+    .attr('font-weight', d => d.ring === 0 ? 700 : 400)
+    .attr('fill', '#1A1A1A');
+}
+
+function renderArgumentMap(topicId) {
+  const section = document.getElementById('section-stands');
+  section.innerHTML = `
+    <div class="section-number">III</div>
+    <h2>Where it stands</h2>
+    <svg id="narrative-argument-svg"></svg>
+  `;
+
+  const svg = d3.select('#narrative-argument-svg');
+  svg.selectAll('*').remove();
+  const bbox = svg.node().getBoundingClientRect();
+  const w = bbox.width, h = 300;
+  svg.attr('viewBox', `0 0 ${w} ${h}`);
+
+  const connected = getConnected(topicId);
+  const neighborhood = new Set([topicId, ...connected]);
+
+  const roledNodes = [];
+  for (const nid of neighborhood) {
+    const t = DATA.topics[nid];
+    if (t && t.role) roledNodes.push({ id: nid, ...t });
+  }
+
+  if (roledNodes.length === 0) {
+    svg.append('text').attr('x', w/2).attr('y', h/2).attr('text-anchor', 'middle')
+      .attr('fill', '#6B6B6B').attr('font-size', 13).text('No argument roles in this neighborhood');
+    return;
+  }
+
+  const positions = roledNodes.filter(n => n.role === 'position');
+  const counters = roledNodes.filter(n => n.role === 'counter-position');
+  const frameworks = roledNodes.filter(n => n.role === 'framework');
+  const instruments = roledNodes.filter(n => n.role === 'instrument');
+
+  const lanes = [
+    { label: 'Positions', items: positions, y: 55, color: '#2D8B4E' },
+    { label: 'Frameworks', items: [...frameworks, ...instruments], y: h / 2, color: '#8B6AA8' },
+    { label: 'Counter-positions', items: counters, y: h - 55, color: '#C0392B' }
+  ];
+
+  const nodePositions = new Map();
+  for (const lane of lanes) {
+    svg.append('text').attr('x', 8).attr('y', lane.y - 20)
+      .attr('font-size', 10).attr('fill', lane.color).attr('font-weight', 600)
+      .attr('text-transform', 'uppercase').attr('letter-spacing', '0.05em')
+      .text(lane.label);
+
+    const itemW = Math.min(140, (w - 40) / Math.max(lane.items.length, 1));
+    lane.items.forEach((item, i) => {
+      const x = 30 + i * itemW + itemW / 2;
+      const isThis = item.id === topicId;
+      nodePositions.set(item.id, { x, y: lane.y });
+
+      if (isThis) {
+        svg.append('circle').attr('cx', x).attr('cy', lane.y).attr('r', 24)
+          .attr('fill', 'none').attr('stroke', '#D6006C').attr('stroke-width', 2.5)
+          .attr('opacity', 0.4);
+      }
+
+      svg.append('circle').attr('cx', x).attr('cy', lane.y)
+        .attr('r', isThis ? 14 : 7)
+        .attr('fill', domainColor(item))
+        .attr('opacity', isThis ? 1 : 0.7)
+        .style('cursor', 'pointer')
+        .on('click', () => {
+          document.getElementById('topic-select').value = item.id;
+          renderTopic(item.id);
+        });
+
+      svg.append('text').attr('x', x).attr('y', lane.y + (isThis ? 28 : 18))
+        .attr('text-anchor', 'middle')
+        .attr('font-size', isThis ? 11 : 9)
+        .attr('font-weight', isThis ? 700 : 400)
+        .attr('fill', '#1A1A1A')
+        .text(item.label.length > 18 ? item.label.slice(0, 16) + '...' : item.label);
+    });
+  }
+
+  // Edges
+  for (const a of DATA.associations) {
+    if (nodePositions.has(a.subject) && nodePositions.has(a.object)) {
+      const s = nodePositions.get(a.subject);
+      const o = nodePositions.get(a.object);
+      svg.append('line')
+        .attr('x1', s.x).attr('y1', s.y).attr('x2', o.x).attr('y2', o.y)
+        .attr('stroke', predColor(a.predicate))
+        .attr('stroke-width', 1).attr('stroke-opacity', 0.25);
+    }
+  }
+}
+
+function renderSourcesSection(sources) {
+  const section = document.getElementById('section-sources');
+  const sorted = [...sources].sort((a,b) => {
+    if (a.collection && !b.collection) return -1;
+    if (!a.collection && b.collection) return 1;
+    return a.label.localeCompare(b.label);
+  });
+
+  let html = `<div class="section-number">IV</div><h2>Where it comes from</h2>`;
+  for (const s of sorted) {
+    const isInternal = !!s.collection;
+    html += `<div class="source-card">
+      <span class="source-dot ${isInternal ? 'internal' : 'external'}"></span>
+      <div>
+        <div class="source-label">${s.url ? `<a href="${s.url}" target="_blank">${s.label}</a>` : s.label}</div>
+        ${s.collection ? `<div class="source-collection">${s.collection}</div>` : ''}
+        ${s.date ? `<span class="source-date">${s.date}</span>` : ''}
+        ${s.summary ? `<div class="source-summary">${s.summary}</div>` : ''}
+      </div>
+    </div>`;
+  }
+  section.innerHTML = html;
+}
+
+loadData();
+</script>
+</body>
+</html>

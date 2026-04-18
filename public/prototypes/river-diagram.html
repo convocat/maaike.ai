@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River diagram</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #FCFCFB;
+    color: #1A1A1A;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  header p {
+    color: #6B6B6B;
+    font-size: 0.95rem;
+  }
+
+  .toggle-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    background: #FCFCFB;
+    z-index: 10;
+    border-bottom: 1px solid #E8E8E8;
+  }
+
+  .toggle-bar button {
+    padding: 0.5rem 1.25rem;
+    border: 1.5px solid #CCC;
+    border-radius: 6px;
+    background: #FFF;
+    color: #1A1A1A;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .toggle-bar button:hover {
+    border-color: #999;
+  }
+
+  .toggle-bar button.active {
+    background: #1A1A1A;
+    color: #FFF;
+    border-color: #1A1A1A;
+  }
+
+  .view { display: none; padding: 2rem; }
+  .view.active { display: block; }
+
+  svg text {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .tooltip {
+    position: absolute;
+    background: #1A1A1A;
+    color: #FFF;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+    max-width: 220px;
+    line-height: 1.3;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-size: 0.8rem;
+    color: #6B6B6B;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .view-description {
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>River diagram</h1>
+  <p>How knowledge flows between domains</p>
+</header>
+
+<div class="legend" id="legend"></div>
+
+<div class="toggle-bar">
+  <button class="active" data-view="horizontal">Horizontal flow</button>
+  <button data-view="alluvial">Alluvial / Sankey</button>
+  <button data-view="waterfall">Vertical waterfall</button>
+</div>
+
+<div class="view active" id="view-horizontal">
+  <p class="view-description">Ideas flow left to right along domain streams. Arrows show leads-to and presupposes relationships.</p>
+  <div id="svg-horizontal"></div>
+</div>
+
+<div class="view" id="view-alluvial">
+  <p class="view-description">Knowledge flows between domains. Width encodes number of cross-domain associations.</p>
+  <div id="svg-alluvial"></div>
+</div>
+
+<div class="view" id="view-waterfall">
+  <p class="view-description">Topics cascade downward by depth (steps from a root). Counters shown as horizontal clash lines.</p>
+  <div id="svg-waterfall"></div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+const DOMAIN_COLORS = {
+  design: '#D6006C',
+  ai: '#B07830',
+  linguistics: '#4A7A50',
+  philosophy: '#8B6AA8',
+  culture: '#5A7A9A'
+};
+
+const FLOW_PREDICATES = new Set(['leads-to', 'presupposes', 'generates', 'caused-by', 'risks', 'counters']);
+const FORWARD_PREDICATES = new Set(['leads-to', 'presupposes', 'generates']);
+
+const tooltip = document.getElementById('tooltip');
+
+function showTooltip(evt, text) {
+  tooltip.textContent = text;
+  tooltip.style.opacity = 1;
+  tooltip.style.left = evt.pageX + 12 + 'px';
+  tooltip.style.top = evt.pageY - 20 + 'px';
+}
+
+function hideTooltip() {
+  tooltip.style.opacity = 0;
+}
+
+// --- Load data ---
+const data = await d3.json('./triples.json');
+const topics = data.topics;
+const associations = data.associations;
+
+// Build legend
+const legendEl = document.getElementById('legend');
+for (const [domain, color] of Object.entries(DOMAIN_COLORS)) {
+  const item = document.createElement('span');
+  item.className = 'legend-item';
+  item.innerHTML = `<span class="legend-dot" style="background:${color}"></span>${domain}`;
+  legendEl.appendChild(item);
+}
+
+// Filter to only topics with domains and flow associations
+const flowAssocs = associations.filter(a => FLOW_PREDICATES.has(a.predicate));
+const flowTopicIds = new Set();
+flowAssocs.forEach(a => { flowTopicIds.add(a.subject); flowTopicIds.add(a.object); });
+
+function getDomain(id) {
+  return topics[id]?.domain || null;
+}
+
+function getLabel(id) {
+  return topics[id]?.label || id;
+}
+
+function getColor(id) {
+  const d = getDomain(id);
+  return d ? DOMAIN_COLORS[d] : '#999';
+}
+
+// =============================================
+// VERSION 1: HORIZONTAL FLOW
+// =============================================
+function renderHorizontal() {
+  const container = document.getElementById('svg-horizontal');
+  const domains = Object.keys(DOMAIN_COLORS);
+
+  // Get topics per domain that participate in flow
+  const domainTopics = {};
+  domains.forEach(d => { domainTopics[d] = []; });
+
+  for (const id of flowTopicIds) {
+    const dom = getDomain(id);
+    if (dom && domainTopics[dom]) {
+      domainTopics[dom].push(id);
+    }
+  }
+
+  // Layout
+  const margin = { top: 40, right: 60, bottom: 40, left: 60 };
+  const bandH = 80;
+  const width = Math.max(900, window.innerWidth - 80);
+  const activeDomains = domains.filter(d => domainTopics[d].length > 0);
+  const height = margin.top + activeDomains.length * bandH + margin.bottom;
+
+  const svg = d3.create('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  // Domain bands
+  const yScale = d3.scaleBand()
+    .domain(activeDomains)
+    .range([margin.top, height - margin.bottom])
+    .padding(0.3);
+
+  // Position topics along x per domain
+  const topicPositions = {};
+
+  activeDomains.forEach(dom => {
+    const ids = domainTopics[dom];
+    const bandWidth = width - margin.left - margin.right;
+    const xScale = d3.scalePoint()
+      .domain(ids)
+      .range([margin.left + 30, margin.left + bandWidth - 30])
+      .padding(0.5);
+
+    const bandY = yScale(dom);
+    const bandMid = bandY + yScale.bandwidth() / 2;
+
+    // Draw stream band
+    svg.append('rect')
+      .attr('x', margin.left)
+      .attr('y', bandY)
+      .attr('width', bandWidth)
+      .attr('height', yScale.bandwidth())
+      .attr('rx', yScale.bandwidth() / 2)
+      .attr('fill', DOMAIN_COLORS[dom])
+      .attr('opacity', 0.08);
+
+    // Domain label
+    svg.append('text')
+      .attr('x', margin.left - 8)
+      .attr('y', bandMid)
+      .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 11)
+      .attr('fill', DOMAIN_COLORS[dom])
+      .attr('font-weight', 600)
+      .text(dom);
+
+    ids.forEach(id => {
+      const x = xScale(id);
+      topicPositions[id] = { x, y: bandMid, domain: dom };
+    });
+  });
+
+  // Draw edges first (below nodes)
+  const edgeGroup = svg.append('g');
+
+  // Arrows: marker defs
+  svg.append('defs').selectAll('marker')
+    .data(Object.entries(DOMAIN_COLORS))
+    .join('marker')
+    .attr('id', d => `arrow-${d[0]}`)
+    .attr('viewBox', '0 0 10 6')
+    .attr('refX', 10)
+    .attr('refY', 3)
+    .attr('markerWidth', 8)
+    .attr('markerHeight', 6)
+    .attr('orient', 'auto')
+    .append('path')
+    .attr('d', 'M0,0 L10,3 L0,6 Z')
+    .attr('fill', d => d[1])
+    .attr('opacity', 0.6);
+
+  // Generic arrow for cross-domain
+  svg.select('defs').append('marker')
+    .attr('id', 'arrow-generic')
+    .attr('viewBox', '0 0 10 6')
+    .attr('refX', 10)
+    .attr('refY', 3)
+    .attr('markerWidth', 8)
+    .attr('markerHeight', 6)
+    .attr('orient', 'auto')
+    .append('path')
+    .attr('d', 'M0,0 L10,3 L0,6 Z')
+    .attr('fill', '#999')
+    .attr('opacity', 0.5);
+
+  flowAssocs.forEach(a => {
+    const s = topicPositions[a.subject];
+    const o = topicPositions[a.object];
+    if (!s || !o) return;
+
+    if (a.predicate === 'counters') {
+      // Clash: red dashed line
+      edgeGroup.append('line')
+        .attr('x1', s.x).attr('y1', s.y)
+        .attr('x2', o.x).attr('y2', o.y)
+        .attr('stroke', '#CC3333')
+        .attr('stroke-width', 1.5)
+        .attr('stroke-dasharray', '4,3')
+        .attr('opacity', 0.5);
+
+      // Clash mark at midpoint
+      const mx = (s.x + o.x) / 2;
+      const my = (s.y + o.y) / 2;
+      edgeGroup.append('text')
+        .attr('x', mx).attr('y', my)
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
+        .attr('font-size', 14)
+        .attr('fill', '#CC3333')
+        .text('\u2716');
+    } else {
+      // Flow arrow
+      const color = getColor(a.subject);
+      const dom = getDomain(a.subject);
+      const markerId = dom ? `arrow-${dom}` : 'arrow-generic';
+
+      const dx = o.x - s.x;
+      const dy = o.y - s.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 1) return;
+
+      // Curved path
+      const midX = (s.x + o.x) / 2;
+      const midY = (s.y + o.y) / 2;
+      const curvature = s.domain === o.domain ? 0 : (Math.random() * 20 - 10);
+
+      edgeGroup.append('path')
+        .attr('d', `M${s.x},${s.y} Q${midX},${midY + curvature} ${o.x},${o.y}`)
+        .attr('fill', 'none')
+        .attr('stroke', color)
+        .attr('stroke-width', 1.2)
+        .attr('opacity', 0.35)
+        .attr('marker-end', `url(#${markerId})`);
+    }
+  });
+
+  // Draw nodes
+  for (const [id, pos] of Object.entries(topicPositions)) {
+    const g = svg.append('g')
+      .attr('transform', `translate(${pos.x},${pos.y})`)
+      .style('cursor', 'pointer')
+      .on('mouseover', (evt) => showTooltip(evt, `${getLabel(id)} (${getDomain(id)})`))
+      .on('mouseout', hideTooltip);
+
+    g.append('circle')
+      .attr('r', 6)
+      .attr('fill', getColor(id))
+      .attr('stroke', '#FFF')
+      .attr('stroke-width', 1.5);
+
+    g.append('text')
+      .attr('y', -12)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', 9)
+      .attr('fill', '#1A1A1A')
+      .text(getLabel(id).length > 20 ? getLabel(id).slice(0, 18) + '..' : getLabel(id));
+  }
+
+  container.innerHTML = '';
+  container.appendChild(svg.node());
+}
+
+// =============================================
+// VERSION 2: ALLUVIAL / SANKEY
+// =============================================
+function renderAlluvial() {
+  const container = document.getElementById('svg-alluvial');
+  const domains = Object.keys(DOMAIN_COLORS);
+
+  // Build cross-domain flow matrix
+  const flows = [];
+  const flowMap = {};
+
+  flowAssocs.forEach(a => {
+    const sd = getDomain(a.subject);
+    const od = getDomain(a.object);
+    if (!sd || !od || sd === od) return;
+    const key = `${sd}->${od}`;
+    if (!flowMap[key]) {
+      flowMap[key] = { source: sd, target: od, predicates: {}, count: 0 };
+    }
+    flowMap[key].count++;
+    flowMap[key].predicates[a.predicate] = (flowMap[key].predicates[a.predicate] || 0) + 1;
+  });
+
+  Object.values(flowMap).forEach(f => flows.push(f));
+
+  if (flows.length === 0) {
+    container.innerHTML = '<p style="text-align:center;color:#6B6B6B;padding:3rem">No cross-domain associations found.</p>';
+    return;
+  }
+
+  // Layout
+  const margin = { top: 40, right: 180, bottom: 40, left: 180 };
+  const width = Math.max(800, window.innerWidth - 80);
+  const innerW = width - margin.left - margin.right;
+  const colWidth = 20;
+
+  // Source and target domain sets
+  const sourceDomains = [...new Set(flows.map(f => f.source))].sort();
+  const targetDomains = [...new Set(flows.map(f => f.target))].sort();
+
+  // Compute heights
+  const maxFlow = d3.max(flows, f => f.count);
+  const flowScale = d3.scaleLinear().domain([1, maxFlow]).range([8, 40]);
+
+  // Y positions for source domains
+  const totalSourceH = sourceDomains.reduce((sum, d) => {
+    const domFlows = flows.filter(f => f.source === d);
+    return sum + domFlows.reduce((s, f) => s + flowScale(f.count), 0) + 20;
+  }, 0);
+
+  const totalTargetH = targetDomains.reduce((sum, d) => {
+    const domFlows = flows.filter(f => f.target === d);
+    return sum + domFlows.reduce((s, f) => s + flowScale(f.count), 0) + 20;
+  }, 0);
+
+  const height = Math.max(totalSourceH, totalTargetH) + margin.top + margin.bottom + 60;
+
+  const svg = d3.create('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  // Compute source node positions
+  let sy = margin.top + 20;
+  const sourceNodePos = {};
+  sourceDomains.forEach(d => {
+    const domFlows = flows.filter(f => f.source === d);
+    const totalH = domFlows.reduce((s, f) => s + flowScale(f.count), 0);
+    sourceNodePos[d] = { y: sy, h: totalH };
+
+    // Label
+    svg.append('text')
+      .attr('x', margin.left - 10)
+      .attr('y', sy + totalH / 2)
+      .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 12)
+      .attr('font-weight', 600)
+      .attr('fill', DOMAIN_COLORS[d])
+      .text(d);
+
+    // Source bar
+    svg.append('rect')
+      .attr('x', margin.left)
+      .attr('y', sy)
+      .attr('width', colWidth)
+      .attr('height', totalH)
+      .attr('fill', DOMAIN_COLORS[d])
+      .attr('rx', 3)
+      .attr('opacity', 0.8);
+
+    sy += totalH + 30;
+  });
+
+  // Compute target node positions
+  let ty = margin.top + 20;
+  const targetNodePos = {};
+  targetDomains.forEach(d => {
+    const domFlows = flows.filter(f => f.target === d);
+    const totalH = domFlows.reduce((s, f) => s + flowScale(f.count), 0);
+    targetNodePos[d] = { y: ty, h: totalH };
+
+    const xRight = margin.left + innerW;
+
+    // Label
+    svg.append('text')
+      .attr('x', xRight + colWidth + 10)
+      .attr('y', ty + totalH / 2)
+      .attr('text-anchor', 'start')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 12)
+      .attr('font-weight', 600)
+      .attr('fill', DOMAIN_COLORS[d])
+      .text(d);
+
+    // Target bar
+    svg.append('rect')
+      .attr('x', xRight)
+      .attr('y', ty)
+      .attr('width', colWidth)
+      .attr('height', totalH)
+      .attr('fill', DOMAIN_COLORS[d])
+      .attr('rx', 3)
+      .attr('opacity', 0.8);
+
+    ty += totalH + 30;
+  });
+
+  // Draw flows
+  const sourceOffsets = {};
+  sourceDomains.forEach(d => { sourceOffsets[d] = 0; });
+  const targetOffsets = {};
+  targetDomains.forEach(d => { targetOffsets[d] = 0; });
+
+  const xRight = margin.left + innerW;
+
+  flows.sort((a, b) => b.count - a.count).forEach(f => {
+    const fh = flowScale(f.count);
+    const sy0 = sourceNodePos[f.source].y + sourceOffsets[f.source];
+    const ty0 = targetNodePos[f.target].y + targetOffsets[f.target];
+
+    sourceOffsets[f.source] += fh;
+    targetOffsets[f.target] += fh;
+
+    const x0 = margin.left + colWidth;
+    const x1 = xRight;
+    const midX = (x0 + x1) / 2;
+
+    const path = d3.path();
+    path.moveTo(x0, sy0);
+    path.bezierCurveTo(midX, sy0, midX, ty0, x1, ty0);
+    path.lineTo(x1, ty0 + fh);
+    path.bezierCurveTo(midX, ty0 + fh, midX, sy0 + fh, x0, sy0 + fh);
+    path.closePath();
+
+    const predLabels = Object.entries(f.predicates).map(([p, c]) => `${p} (${c})`).join(', ');
+
+    svg.append('path')
+      .attr('d', path.toString())
+      .attr('fill', DOMAIN_COLORS[f.source])
+      .attr('opacity', 0.25)
+      .style('cursor', 'pointer')
+      .on('mouseover', function(evt) {
+        d3.select(this).attr('opacity', 0.5);
+        showTooltip(evt, `${f.source} \u2192 ${f.target}: ${predLabels}`);
+      })
+      .on('mouseout', function() {
+        d3.select(this).attr('opacity', 0.25);
+        hideTooltip();
+      });
+
+    // Label on the flow
+    const labelX = midX;
+    const labelY = (sy0 + ty0) / 2 + fh / 2;
+
+    svg.append('text')
+      .attr('x', labelX)
+      .attr('y', labelY)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 9)
+      .attr('fill', '#6B6B6B')
+      .text(Object.keys(f.predicates).join(', '));
+  });
+
+  container.innerHTML = '';
+  container.appendChild(svg.node());
+}
+
+// =============================================
+// VERSION 3: VERTICAL WATERFALL
+// =============================================
+function renderWaterfall() {
+  const container = document.getElementById('svg-waterfall');
+
+  // Build directed graph from forward predicates (leads-to, presupposes, generates)
+  const graph = {};
+  const inDegree = {};
+  const allNodes = new Set();
+
+  // Also track counters
+  const countersEdges = [];
+
+  flowAssocs.forEach(a => {
+    const sd = getDomain(a.subject);
+    const od = getDomain(a.object);
+    if (!sd || !od) return;
+
+    allNodes.add(a.subject);
+    allNodes.add(a.object);
+
+    if (FORWARD_PREDICATES.has(a.predicate)) {
+      if (!graph[a.subject]) graph[a.subject] = [];
+      graph[a.subject].push(a.object);
+      inDegree[a.object] = (inDegree[a.object] || 0) + 1;
+      if (!inDegree[a.subject]) inDegree[a.subject] = inDegree[a.subject] || 0;
+    } else if (a.predicate === 'caused-by') {
+      // Reverse: object causes subject
+      if (!graph[a.object]) graph[a.object] = [];
+      graph[a.object].push(a.subject);
+      inDegree[a.subject] = (inDegree[a.subject] || 0) + 1;
+      if (!inDegree[a.object]) inDegree[a.object] = inDegree[a.object] || 0;
+    } else if (a.predicate === 'counters') {
+      countersEdges.push(a);
+    } else if (a.predicate === 'risks') {
+      if (!graph[a.subject]) graph[a.subject] = [];
+      graph[a.subject].push(a.object);
+      inDegree[a.object] = (inDegree[a.object] || 0) + 1;
+      if (!inDegree[a.subject]) inDegree[a.subject] = inDegree[a.subject] || 0;
+    }
+  });
+
+  // BFS to compute depth
+  const depth = {};
+  const roots = [...allNodes].filter(n => !inDegree[n] || inDegree[n] === 0);
+
+  // Initialize all to 0
+  allNodes.forEach(n => { depth[n] = 0; });
+
+  // BFS
+  const queue = [...roots];
+  const visited = new Set();
+  while (queue.length > 0) {
+    const node = queue.shift();
+    if (visited.has(node)) continue;
+    visited.add(node);
+    const children = graph[node] || [];
+    children.forEach(c => {
+      depth[c] = Math.max(depth[c], depth[node] + 1);
+      queue.push(c);
+    });
+  }
+
+  // Group by depth
+  const levels = {};
+  allNodes.forEach(n => {
+    const d = depth[n];
+    if (!levels[d]) levels[d] = [];
+    levels[d].push(n);
+  });
+
+  const levelKeys = Object.keys(levels).map(Number).sort((a, b) => a - b);
+
+  // Layout
+  const margin = { top: 60, right: 40, bottom: 60, left: 40 };
+  const rowH = 100;
+  const width = Math.max(900, window.innerWidth - 80);
+  const height = margin.top + levelKeys.length * rowH + margin.bottom;
+
+  const svg = d3.create('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  const nodePositions = {};
+
+  // Draw levels
+  levelKeys.forEach((lvl, li) => {
+    const nodes = levels[lvl];
+    const y = margin.top + li * rowH + rowH / 2;
+
+    // Level label
+    svg.append('text')
+      .attr('x', 16)
+      .attr('y', y)
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', 10)
+      .attr('fill', '#6B6B6B')
+      .attr('opacity', 0.6)
+      .text(`depth ${lvl}`);
+
+    // Faint row line
+    svg.append('line')
+      .attr('x1', margin.left + 50)
+      .attr('y1', y)
+      .attr('x2', width - margin.right)
+      .attr('y2', y)
+      .attr('stroke', '#E8E8E8')
+      .attr('stroke-width', 1);
+
+    const xScale = d3.scalePoint()
+      .domain(nodes)
+      .range([margin.left + 80, width - margin.right - 20])
+      .padding(0.5);
+
+    nodes.forEach(id => {
+      const x = xScale(id);
+      nodePositions[id] = { x, y };
+
+      const dom = getDomain(id);
+      const color = getColor(id);
+
+      // Background tint
+      svg.append('rect')
+        .attr('x', x - 50)
+        .attr('y', y - 16)
+        .attr('width', 100)
+        .attr('height', 32)
+        .attr('rx', 6)
+        .attr('fill', color)
+        .attr('opacity', 0.1);
+
+      // Node circle
+      const g = svg.append('g')
+        .attr('transform', `translate(${x},${y})`)
+        .style('cursor', 'pointer')
+        .on('mouseover', (evt) => showTooltip(evt, `${getLabel(id)} (${dom || 'unknown'})`))
+        .on('mouseout', hideTooltip);
+
+      g.append('circle')
+        .attr('r', 5)
+        .attr('fill', color)
+        .attr('stroke', '#FFF')
+        .attr('stroke-width', 1.5);
+
+      g.append('text')
+        .attr('y', -12)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', 9)
+        .attr('fill', '#1A1A1A')
+        .text(getLabel(id).length > 16 ? getLabel(id).slice(0, 14) + '..' : getLabel(id));
+    });
+  });
+
+  // Arrow marker
+  svg.append('defs').append('marker')
+    .attr('id', 'waterfall-arrow')
+    .attr('viewBox', '0 0 10 6')
+    .attr('refX', 10)
+    .attr('refY', 3)
+    .attr('markerWidth', 7)
+    .attr('markerHeight', 5)
+    .attr('orient', 'auto')
+    .append('path')
+    .attr('d', 'M0,0 L10,3 L0,6 Z')
+    .attr('fill', '#999')
+    .attr('opacity', 0.6);
+
+  // Draw cascade edges
+  const edgeGroup = svg.append('g');
+
+  allNodes.forEach(src => {
+    const children = graph[src] || [];
+    children.forEach(tgt => {
+      const s = nodePositions[src];
+      const t = nodePositions[tgt];
+      if (!s || !t) return;
+
+      const midY = (s.y + t.y) / 2;
+
+      edgeGroup.append('path')
+        .attr('d', `M${s.x},${s.y + 5} C${s.x},${midY} ${t.x},${midY} ${t.x},${t.y - 5}`)
+        .attr('fill', 'none')
+        .attr('stroke', getColor(src))
+        .attr('stroke-width', 1.2)
+        .attr('opacity', 0.3)
+        .attr('marker-end', 'url(#waterfall-arrow)');
+    });
+  });
+
+  // Draw counters as horizontal clash lines
+  countersEdges.forEach(a => {
+    const s = nodePositions[a.subject];
+    const o = nodePositions[a.object];
+    if (!s || !o) return;
+
+    edgeGroup.append('line')
+      .attr('x1', s.x)
+      .attr('y1', s.y)
+      .attr('x2', o.x)
+      .attr('y2', o.y)
+      .attr('stroke', '#CC3333')
+      .attr('stroke-width', 1.5)
+      .attr('stroke-dasharray', '4,3')
+      .attr('opacity', 0.4);
+
+    const mx = (s.x + o.x) / 2;
+    const my = (s.y + o.y) / 2;
+    edgeGroup.append('text')
+      .attr('x', mx)
+      .attr('y', my - 6)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', 8)
+      .attr('fill', '#CC3333')
+      .text('counters');
+  });
+
+  container.innerHTML = '';
+  container.appendChild(svg.node());
+}
+
+// =============================================
+// TOGGLE LOGIC
+// =============================================
+const buttons = document.querySelectorAll('.toggle-bar button');
+const views = document.querySelectorAll('.view');
+
+let rendered = { horizontal: false, alluvial: false, waterfall: false };
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const viewId = btn.dataset.view;
+
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    views.forEach(v => v.classList.remove('active'));
+    document.getElementById(`view-${viewId}`).classList.add('active');
+
+    if (!rendered[viewId]) {
+      rendered[viewId] = true;
+      if (viewId === 'alluvial') renderAlluvial();
+      if (viewId === 'waterfall') renderWaterfall();
+    }
+  });
+});
+
+// Initial render
+renderHorizontal();
+rendered.horizontal = true;
+
+</script>
+</body>
+</html>

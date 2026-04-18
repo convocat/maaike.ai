@@ -1,0 +1,183 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import tao from '../../data/triples.json';
+
+// Count connections per topic
+const degree = new Map<string, number>();
+for (const a of tao.associations) {
+  degree.set(a.subject, (degree.get(a.subject) || 0) + 1);
+  degree.set(a.object, (degree.get(a.object) || 0) + 1);
+}
+
+// Group topics by domain, skip orphans
+const domainOrder = ['design', 'ai', 'linguistics', 'philosophy', 'culture'];
+const domainLabels: Record<string, string> = { design: 'Design', ai: 'AI', linguistics: 'Linguistics', philosophy: 'Philosophy', culture: 'Culture' };
+const byDomain = new Map<string, { id: string; label: string; count: number; type: string }[]>();
+byDomain.set('people', []);
+for (const [id, t] of Object.entries(tao.topics)) {
+  const topic = t as { label: string; type: string; domain?: string };
+  const count = degree.get(id) || 0;
+  if (count === 0) continue;
+  const group = topic.domain || (topic.type === 'person' ? 'people' : 'other');
+  if (!byDomain.has(group)) byDomain.set(group, []);
+  byDomain.get(group)!.push({ id, label: topic.label, count, type: topic.type });
+}
+const groups = ['people', ...domainOrder]
+  .filter(d => byDomain.has(d) && byDomain.get(d)!.length > 0)
+  .map(d => ({
+    domain: d,
+    domainLabel: d === 'people' ? 'People' : (domainLabels[d] || d),
+    topics: byDomain.get(d)!.sort((a, b) => b.count - a.count),
+  }));
+const totalTopics = groups.reduce((sum, g) => sum + g.topics.length, 0);
+---
+
+<PageLayout title="Topics" description="Browse the knowledge graph as a wiki.">
+  <div class="topics-header">
+    <h1>Topics</h1>
+    <p class="intro">
+      The knowledge graph as a wiki. {totalTopics} topics across {groups.length} types.
+      Click a topic to see its relations and sources.
+    </p>
+  </div>
+
+  <div class="topics-layout">
+    <nav class="topics-sidebar">
+      {groups.map((group, i) => (
+        <details class="type-section" open={i < 3}>
+          <summary class="type-heading">
+            <span class={`domain-dot ${group.domain}`}></span>
+            {group.domainLabel}
+            <span class="type-count">{group.topics.length}</span>
+          </summary>
+          <ul class="topic-list">
+            {group.topics.map(topic => (
+              <li>
+                <a href={`/topics/${topic.id}`} class="topic-item">
+                  <span class="topic-name">{topic.label}</span>
+                  <span class="topic-count">{topic.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ))}
+    </nav>
+
+    <main class="topics-main">
+      <div class="select-prompt">
+        <p>Select a topic from the sidebar to see its relations, sources, and connections.</p>
+        <div class="quick-links">
+          <span class="quick-label">Popular:</span>
+          {groups.flatMap(g => g.topics).sort((a, b) => b.count - a.count).slice(0, 8).map(t => (
+            <a href={`/topics/${t.id}`} class="quick-link">{t.label}</a>
+          ))}
+        </div>
+      </div>
+    </main>
+  </div>
+</PageLayout>
+
+<style>
+  .topics-header { padding: var(--space-lg) 0 var(--space-md); }
+  .topics-header h1 { font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: var(--space-xs); }
+  .intro { color: var(--color-text-muted); font-size: 0.875rem; max-width: 52rem; line-height: 1.5; }
+
+  .topics-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .topics-sidebar {
+    display: flex; flex-direction: column; gap: var(--space-md);
+    max-height: 80vh; overflow-y: auto;
+    padding-right: var(--space-sm);
+  }
+  .type-section { margin-bottom: var(--space-xs); }
+  .type-section summary { cursor: pointer; list-style: none; }
+  .type-section summary::-webkit-details-marker { display: none; }
+  .type-section summary::marker { display: none; content: ''; }
+  .type-heading {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs);
+    padding: 0.2rem 0;
+    transition: color 150ms;
+  }
+  .type-heading:hover { color: var(--color-text); }
+  .type-heading::after {
+    content: '+'; margin-left: auto; font-size: 0.8rem; font-weight: 400;
+  }
+  .type-section[open] > .type-heading::after { content: '\2212'; }
+  .type-count { font-size: 0.65rem; color: var(--color-text-muted); font-weight: 400; }
+  .domain-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .domain-dot.people { background: var(--color-accent-2); }
+  .domain-dot.ai { background: #B07830; }
+  :root[data-theme="dark"] .domain-dot.ai { background: #E8A84A; }
+  .domain-dot.design { background: var(--color-accent); }
+  .domain-dot.linguistics { background: #4A7A50; }
+  :root[data-theme="dark"] .domain-dot.linguistics { background: #8ECF94; }
+  .domain-dot.philosophy { background: #8B6AA8; }
+  .domain-dot.culture { background: #5A7A9A; }
+  :root[data-theme="dark"] .domain-dot.culture { background: #8AB4D4; }
+
+  .topic-list { list-style: none; padding: 0; margin: 0; }
+  .topic-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: background 150ms;
+  }
+  .topic-item:hover { background: rgba(0,0,0,0.04); }
+  :root[data-theme="dark"] .topic-item:hover { background: rgba(255,255,255,0.06); }
+  .topic-item.active {
+    background: rgba(214, 0, 108, 0.08);
+    font-weight: 600;
+  }
+  .topic-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topic-count { font-size: 0.68rem; color: var(--color-text-muted); flex-shrink: 0; margin-left: var(--space-xs); }
+
+  .topics-main {
+    min-height: 60vh;
+  }
+  .select-prompt {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 40vh;
+    text-align: center;
+    color: var(--color-text-muted);
+  }
+  .select-prompt p { font-size: 0.9rem; margin-bottom: var(--space-lg); }
+  .quick-links {
+    display: flex; flex-wrap: wrap; gap: var(--space-sm);
+    justify-content: center; align-items: center;
+  }
+  .quick-label { font-size: 0.78rem; color: var(--color-text-muted); }
+  .quick-link {
+    font-size: 0.82rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 1em;
+    background: var(--color-tag-bg, rgba(0,0,0,0.05));
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background 150ms, color 150ms;
+  }
+  :root[data-theme="dark"] .quick-link { background: rgba(255,255,255,0.08); }
+  .quick-link:hover { background: var(--color-accent); color: white; }
+
+  @media (max-width: 800px) {
+    .topics-layout { grid-template-columns: 1fr; }
+    .topics-sidebar { max-height: none; flex-direction: row; flex-wrap: wrap; overflow-x: auto; }
+    .type-section { min-width: 180px; }
+  }
+</style>

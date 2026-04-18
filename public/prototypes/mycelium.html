@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mycelium</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #FCFCFB;
+    color: #1A1A1A;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1A1A1A;
+  }
+
+  header p {
+    font-size: 1rem;
+    color: #6B6B6B;
+    margin-top: 0.25rem;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .controls button {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #1A1A1A;
+    transition: all 0.15s;
+  }
+
+  .controls button:hover {
+    border-color: #999;
+  }
+
+  .controls button.active {
+    background: #1A1A1A;
+    color: #fff;
+    border-color: #1A1A1A;
+  }
+
+  .controls select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    background: #fff;
+    color: #1A1A1A;
+    cursor: pointer;
+    max-width: 260px;
+  }
+
+  .controls .separator {
+    width: 1px;
+    height: 24px;
+    background: #ddd;
+    margin: 0 0.25rem;
+  }
+
+  .view-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  .view-container > div {
+    display: none;
+    width: 100%;
+  }
+
+  .view-container > div.active {
+    display: block;
+  }
+
+  #diagram-area {
+    background: #111;
+    border-radius: 12px;
+    margin: 0 1rem 2rem;
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  svg { display: block; }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: #6B6B6B;
+  }
+
+  .legend-swatch {
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(0,0,0,0.85);
+    color: #eee;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-width: 280px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .tooltip.show { opacity: 1; }
+
+  .tooltip .type-label {
+    color: #999;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tooltip .pred-label {
+    color: #ccc;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Mycelium</h1>
+  <p>How ideas connect, support, and oppose each other</p>
+</header>
+
+<div class="controls">
+  <button class="active" data-view="radial">Radial rings</button>
+  <button data-view="tree">Organic branching</button>
+  <button data-view="chord">Chord diagram</button>
+  <div class="separator"></div>
+  <select id="topic-select"><option value="">Loading...</option></select>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch" style="background:#2D8B4E"></div>Reinforcing</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#C0392B"></div>Opposing</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#5A7A9A"></div>Structural</div>
+</div>
+
+<div id="diagram-area">
+  <div class="view-container">
+    <div id="view-radial" class="active"></div>
+    <div id="view-tree"></div>
+    <div id="view-chord"></div>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+</div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+// --- Data loading and classification ---
+const data = await d3.json('./triples.json');
+const topics = data.topics;
+const associations = data.associations;
+
+const REINFORCING = new Set(['presupposes','leads-to','reinforces','generates','demonstrates','enables','supports']);
+const OPPOSING = new Set(['counters','incompatible-with','breaks-down-for','risks','violates','contrasted-with']);
+const STRUCTURAL = new Set(['instance-of','structured-as','attributed-to','coined-by','theorised-by','defined-as','characterised-as','metaphor-for','better-fits']);
+
+const DOMAIN_COLORS = {
+  design: '#D6006C',
+  ai: '#B07830',
+  linguistics: '#4A7A50',
+  philosophy: '#8B6AA8',
+  culture: '#5A7A9A',
+  people: '#0D7C66'
+};
+
+function predColor(pred) {
+  if (REINFORCING.has(pred)) return '#2D8B4E';
+  if (OPPOSING.has(pred)) return '#C0392B';
+  if (STRUCTURAL.has(pred)) return '#5A7A9A';
+  return '#666';
+}
+
+function predCategory(pred) {
+  if (REINFORCING.has(pred)) return 'reinforcing';
+  if (OPPOSING.has(pred)) return 'opposing';
+  if (STRUCTURAL.has(pred)) return 'structural';
+  return 'other';
+}
+
+function domainColor(id) {
+  const t = topics[id];
+  if (!t) return '#888';
+  if (t.type === 'person') return DOMAIN_COLORS.people;
+  return DOMAIN_COLORS[t.domain] || '#888';
+}
+
+// Build adjacency
+const adj = {};
+for (const id of Object.keys(topics)) adj[id] = [];
+for (const a of associations) {
+  if (topics[a.subject] && topics[a.object]) {
+    adj[a.subject].push({ target: a.object, predicate: a.predicate });
+    adj[a.object].push({ target: a.subject, predicate: a.predicate });
+  }
+}
+
+// Degree count
+const degree = {};
+for (const id of Object.keys(topics)) degree[id] = adj[id]?.length || 0;
+
+// Topic selector: sort by degree descending
+const topicIds = Object.keys(topics).filter(id => degree[id] > 0).sort((a,b) => degree[b] - degree[a]);
+const select = document.getElementById('topic-select');
+select.innerHTML = '';
+for (const id of topicIds) {
+  const opt = document.createElement('option');
+  opt.value = id;
+  opt.textContent = `${topics[id].label} (${degree[id]})`;
+  select.appendChild(opt);
+}
+// Default to a well-connected topic
+const defaultTopic = topicIds.find(id => id === 'llms') || topicIds.find(id => id === 'conversational-grounding') || topicIds[0];
+select.value = defaultTopic;
+
+// Tooltip helper
+const tooltip = document.getElementById('tooltip');
+function showTooltip(evt, html) {
+  tooltip.innerHTML = html;
+  tooltip.classList.add('show');
+  const rect = document.getElementById('diagram-area').getBoundingClientRect();
+  let x = evt.clientX - rect.left + 12;
+  let y = evt.clientY - rect.top - 10;
+  if (x + 200 > rect.width) x = evt.clientX - rect.left - 200;
+  if (y < 10) y = 20;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+function hideTooltip() { tooltip.classList.remove('show'); }
+
+// --- View toggling ---
+let currentView = 'radial';
+const viewBtns = document.querySelectorAll('.controls button[data-view]');
+viewBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    viewBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentView = btn.dataset.view;
+    document.querySelectorAll('.view-container > div').forEach(d => d.classList.remove('active'));
+    document.getElementById('view-' + currentView).classList.add('active');
+    render();
+  });
+});
+
+select.addEventListener('change', () => render());
+
+function render() {
+  if (currentView === 'radial') renderRadial();
+  else if (currentView === 'tree') renderTree();
+  else if (currentView === 'chord') renderChord();
+}
+
+// --- VERSION 1: RADIAL RINGS ---
+function renderRadial() {
+  const container = document.getElementById('view-radial');
+  container.innerHTML = '';
+  const centerId = select.value;
+  if (!centerId) return;
+
+  const width = container.parentElement.clientWidth;
+  const height = Math.max(600, window.innerHeight * 0.7);
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', width).attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  const cx = width / 2, cy = height / 2;
+  const r1 = Math.min(width, height) * 0.22;
+  const r2 = Math.min(width, height) * 0.42;
+
+  // Gather ring 1 (1 hop)
+  const ring1Set = new Set();
+  const ring1Edges = [];
+  for (const e of adj[centerId] || []) {
+    ring1Set.add(e.target);
+    ring1Edges.push({ source: centerId, target: e.target, predicate: e.predicate });
+  }
+
+  // Gather ring 2 (2 hops, excluding center and ring1)
+  const ring2Set = new Set();
+  const ring2Edges = [];
+  for (const n1 of ring1Set) {
+    for (const e of adj[n1] || []) {
+      if (e.target !== centerId && !ring1Set.has(e.target)) {
+        ring2Set.add(e.target);
+        ring2Edges.push({ source: n1, target: e.target, predicate: e.predicate });
+      }
+    }
+  }
+
+  // Position nodes
+  const nodes = {};
+  nodes[centerId] = { x: cx, y: cy, id: centerId };
+
+  const ring1Arr = [...ring1Set];
+  ring1Arr.forEach((id, i) => {
+    const angle = (2 * Math.PI * i) / ring1Arr.length - Math.PI / 2;
+    nodes[id] = { x: cx + r1 * Math.cos(angle), y: cy + r1 * Math.sin(angle), id };
+  });
+
+  const ring2Arr = [...ring2Set];
+  ring2Arr.forEach((id, i) => {
+    const angle = (2 * Math.PI * i) / ring2Arr.length - Math.PI / 2;
+    nodes[id] = { x: cx + r2 * Math.cos(angle), y: cy + r2 * Math.sin(angle), id };
+  });
+
+  // Draw ring circles
+  svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', r1)
+    .attr('fill', 'none').attr('stroke', '#333').attr('stroke-width', 0.5).attr('stroke-dasharray', '4,4');
+  svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', r2)
+    .attr('fill', 'none').attr('stroke', '#333').attr('stroke-width', 0.5).attr('stroke-dasharray', '4,4');
+
+  // Draw edges with curves
+  const allEdges = [...ring1Edges, ...ring2Edges];
+  const linkGen = d3.linkRadial();
+
+  for (const edge of allEdges) {
+    const s = nodes[edge.source];
+    const t = nodes[edge.target];
+    if (!s || !t) continue;
+
+    // Compute a control point offset for organic curve
+    const mx = (s.x + t.x) / 2;
+    const my = (s.y + t.y) / 2;
+    const dx = t.x - s.x;
+    const dy = t.y - s.y;
+    const len = Math.sqrt(dx*dx + dy*dy) || 1;
+    const offset = len * 0.15;
+    const cpx = mx + (-dy / len) * offset;
+    const cpy = my + (dx / len) * offset;
+
+    svg.append('path')
+      .attr('d', `M${s.x},${s.y} Q${cpx},${cpy} ${t.x},${t.y}`)
+      .attr('fill', 'none')
+      .attr('stroke', predColor(edge.predicate))
+      .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.5);
+  }
+
+  // Draw nodes
+  const allNodeIds = [centerId, ...ring1Arr, ...ring2Arr];
+  for (const id of allNodeIds) {
+    const n = nodes[id];
+    const isCenter = id === centerId;
+    const r = isCenter ? 12 : Math.max(4, Math.min(10, 3 + degree[id] * 0.5));
+
+    const g = svg.append('g')
+      .attr('transform', `translate(${n.x},${n.y})`)
+      .style('cursor', 'pointer');
+
+    g.append('circle')
+      .attr('r', r)
+      .attr('fill', domainColor(id))
+      .attr('stroke', isCenter ? '#fff' : 'none')
+      .attr('stroke-width', isCenter ? 2 : 0)
+      .attr('opacity', isCenter ? 1 : 0.85);
+
+    // Label for center and ring 1
+    if (isCenter || ring1Set.has(id)) {
+      g.append('text')
+        .attr('x', 0).attr('y', r + 14)
+        .attr('text-anchor', 'middle')
+        .attr('fill', '#ccc')
+        .attr('font-size', isCenter ? '12px' : '10px')
+        .attr('font-weight', isCenter ? '600' : '400')
+        .text(topics[id]?.label || id);
+    }
+
+    g.on('mouseover', (evt) => {
+      const t = topics[id];
+      // Find predicate connecting this node to center
+      const edgeToCenter = allEdges.find(e =>
+        (e.source === id && e.target === centerId) || (e.target === id && e.source === centerId)
+      );
+      const predText = edgeToCenter ? edgeToCenter.predicate : '';
+      showTooltip(evt,
+        `<strong>${t?.label || id}</strong><br>` +
+        `<span class="type-label">${t?.type || ''}${t?.domain ? ' / ' + t.domain : ''}</span>` +
+        (predText ? `<br><span class="pred-label">${predText}</span>` : '')
+      );
+    });
+    g.on('mousemove', (evt) => {
+      const rect = document.getElementById('diagram-area').getBoundingClientRect();
+      let x = evt.clientX - rect.left + 12;
+      let y = evt.clientY - rect.top - 10;
+      if (x + 200 > rect.width) x = evt.clientX - rect.left - 200;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
+    g.on('mouseout', hideTooltip);
+    g.on('click', () => {
+      if (id !== centerId) {
+        select.value = id;
+        render();
+      }
+    });
+  }
+}
+
+// --- VERSION 2: ORGANIC BRANCHING ---
+function renderTree() {
+  const container = document.getElementById('view-tree');
+  container.innerHTML = '';
+  const centerId = select.value;
+  if (!centerId) return;
+
+  const width = container.parentElement.clientWidth;
+  const height = Math.max(600, window.innerHeight * 0.7);
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', width).attr('height', height);
+
+  // Build tree data: center -> branches by predicate category
+  const edges = adj[centerId] || [];
+  const reinforcing = edges.filter(e => predCategory(e.predicate) === 'reinforcing');
+  const opposing = edges.filter(e => predCategory(e.predicate) === 'opposing');
+  const structural = edges.filter(e => predCategory(e.predicate) === 'structural');
+  const other = edges.filter(e => predCategory(e.predicate) === 'other');
+
+  // Right-growing branches: reinforcing + structural + other
+  // Left-growing branches: opposing
+  const rightEdges = [...reinforcing, ...structural, ...other];
+  const leftEdges = opposing;
+
+  const centerX = width * 0.35;
+  const centerY = height / 2;
+
+  // Draw center node
+  svg.append('circle')
+    .attr('cx', centerX).attr('cy', centerY).attr('r', 14)
+    .attr('fill', domainColor(centerId))
+    .attr('stroke', '#fff').attr('stroke-width', 2);
+
+  svg.append('text')
+    .attr('x', centerX).attr('y', centerY - 22)
+    .attr('text-anchor', 'middle')
+    .attr('fill', '#ccc').attr('font-size', '13px').attr('font-weight', '600')
+    .text(topics[centerId]?.label || centerId);
+
+  function drawBranches(edgeList, direction) {
+    const count = edgeList.length;
+    if (count === 0) return;
+
+    const spacing = Math.min(40, (height - 80) / count);
+    const startY = centerY - ((count - 1) * spacing) / 2;
+
+    edgeList.forEach((edge, i) => {
+      const targetY = startY + i * spacing;
+      const branchLen = 120 + Math.random() * 80;
+      const targetX = direction === 'right'
+        ? centerX + branchLen
+        : centerX - branchLen;
+
+      const col = predColor(edge.predicate);
+
+      // Organic curve
+      const cpx1 = centerX + (targetX - centerX) * 0.3;
+      const cpy1 = centerY + (targetY - centerY) * 0.1;
+      const cpx2 = centerX + (targetX - centerX) * 0.7;
+      const cpy2 = targetY;
+
+      svg.append('path')
+        .attr('d', `M${centerX},${centerY} C${cpx1},${cpy1} ${cpx2},${cpy2} ${targetX},${targetY}`)
+        .attr('fill', 'none')
+        .attr('stroke', col)
+        .attr('stroke-width', 2)
+        .attr('stroke-opacity', 0.6);
+
+      // Predicate label on branch
+      const labelX = (centerX + targetX) / 2;
+      const labelY = (centerY + targetY) / 2 - 6;
+      svg.append('text')
+        .attr('x', labelX).attr('y', labelY)
+        .attr('text-anchor', 'middle')
+        .attr('fill', col)
+        .attr('font-size', '8px')
+        .attr('opacity', 0.7)
+        .text(edge.predicate);
+
+      // Target node
+      const nodeR = Math.max(4, Math.min(9, 3 + degree[edge.target] * 0.4));
+
+      const g = svg.append('g')
+        .attr('transform', `translate(${targetX},${targetY})`)
+        .style('cursor', 'pointer');
+
+      g.append('circle')
+        .attr('r', nodeR)
+        .attr('fill', domainColor(edge.target))
+        .attr('opacity', 0.85);
+
+      g.append('text')
+        .attr('x', direction === 'right' ? nodeR + 6 : -nodeR - 6)
+        .attr('y', 4)
+        .attr('text-anchor', direction === 'right' ? 'start' : 'end')
+        .attr('fill', '#ccc')
+        .attr('font-size', '10px')
+        .text(topics[edge.target]?.label || edge.target);
+
+      // Sub-branches (2nd level, smaller)
+      const subEdges = (adj[edge.target] || []).filter(e => e.target !== centerId);
+      const subCount = Math.min(subEdges.length, 4); // limit sub-branches
+      if (subCount > 0) {
+        const subSpacing = 16;
+        const subStartY = targetY - ((subCount - 1) * subSpacing) / 2;
+        for (let j = 0; j < subCount; j++) {
+          const se = subEdges[j];
+          const sy = subStartY + j * subSpacing;
+          const subLen = 60 + Math.random() * 40;
+          const sx = direction === 'right' ? targetX + subLen : targetX - subLen;
+          const subCol = predColor(se.predicate);
+
+          svg.append('path')
+            .attr('d', `M${targetX},${targetY} Q${(targetX + sx)/2},${sy} ${sx},${sy}`)
+            .attr('fill', 'none')
+            .attr('stroke', subCol)
+            .attr('stroke-width', 1)
+            .attr('stroke-opacity', 0.35);
+
+          const sg = svg.append('g')
+            .attr('transform', `translate(${sx},${sy})`)
+            .style('cursor', 'pointer');
+
+          sg.append('circle')
+            .attr('r', 3)
+            .attr('fill', domainColor(se.target))
+            .attr('opacity', 0.7);
+
+          sg.append('text')
+            .attr('x', direction === 'right' ? 8 : -8)
+            .attr('y', 3)
+            .attr('text-anchor', direction === 'right' ? 'start' : 'end')
+            .attr('fill', '#999')
+            .attr('font-size', '8px')
+            .text(topics[se.target]?.label || se.target);
+
+          sg.on('mouseover', (evt) => {
+            showTooltip(evt,
+              `<strong>${topics[se.target]?.label || se.target}</strong><br>` +
+              `<span class="type-label">${topics[se.target]?.type || ''}</span><br>` +
+              `<span class="pred-label">${se.predicate}</span>`
+            );
+          });
+          sg.on('mouseout', hideTooltip);
+          sg.on('click', () => { select.value = se.target; render(); });
+        }
+      }
+
+      g.on('mouseover', (evt) => {
+        showTooltip(evt,
+          `<strong>${topics[edge.target]?.label || edge.target}</strong><br>` +
+          `<span class="type-label">${topics[edge.target]?.type || ''}${topics[edge.target]?.domain ? ' / ' + topics[edge.target].domain : ''}</span><br>` +
+          `<span class="pred-label">${edge.predicate}</span>`
+        );
+      });
+      g.on('mousemove', (evt) => {
+        const rect = document.getElementById('diagram-area').getBoundingClientRect();
+        tooltip.style.left = (evt.clientX - rect.left + 12) + 'px';
+        tooltip.style.top = (evt.clientY - rect.top - 10) + 'px';
+      });
+      g.on('mouseout', hideTooltip);
+      g.on('click', () => { select.value = edge.target; render(); });
+    });
+  }
+
+  drawBranches(rightEdges, 'right');
+  drawBranches(leftEdges, 'left');
+
+  // Direction labels
+  if (leftEdges.length > 0) {
+    svg.append('text')
+      .attr('x', centerX - 180).attr('y', 30)
+      .attr('fill', '#C0392B').attr('font-size', '11px').attr('opacity', 0.6)
+      .text('opposing');
+  }
+  if (rightEdges.length > 0) {
+    svg.append('text')
+      .attr('x', centerX + 80).attr('y', 30)
+      .attr('fill', '#2D8B4E').attr('font-size', '11px').attr('opacity', 0.6)
+      .text('reinforcing + structural');
+  }
+}
+
+// --- VERSION 3: CHORD DIAGRAM ---
+function renderChord() {
+  const container = document.getElementById('view-chord');
+  container.innerHTML = '';
+
+  const width = container.parentElement.clientWidth;
+  const height = Math.max(700, window.innerHeight * 0.8);
+  const outerRadius = Math.min(width, height) / 2 - 80;
+  const innerRadius = outerRadius - 20;
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', width).attr('height', height)
+    .append('g')
+    .attr('transform', `translate(${width/2},${height/2})`);
+
+  // Only include topics that appear in associations
+  const usedIds = new Set();
+  for (const a of associations) {
+    if (topics[a.subject]) usedIds.add(a.subject);
+    if (topics[a.object]) usedIds.add(a.object);
+  }
+
+  // Group by domain
+  const domainGroups = {};
+  for (const id of usedIds) {
+    const t = topics[id];
+    const dom = t.type === 'person' ? 'people' : (t.domain || 'other');
+    if (!domainGroups[dom]) domainGroups[dom] = [];
+    domainGroups[dom].push(id);
+  }
+
+  // Sort domains and flatten
+  const domainOrder = ['design', 'ai', 'linguistics', 'philosophy', 'culture', 'people', 'other'];
+  const sortedIds = [];
+  const domainRanges = [];
+  let offset = 0;
+  for (const dom of domainOrder) {
+    const ids = domainGroups[dom] || [];
+    if (ids.length === 0) continue;
+    ids.sort((a,b) => (topics[a].label || a).localeCompare(topics[b].label || b));
+    domainRanges.push({ domain: dom, start: offset, count: ids.length });
+    sortedIds.push(...ids);
+    offset += ids.length;
+  }
+
+  const n = sortedIds.length;
+  const idIndex = {};
+  sortedIds.forEach((id, i) => idIndex[id] = i);
+
+  // Build matrix: count associations between pairs
+  const matrix = Array.from({ length: n }, () => new Float32Array(n));
+  // Also track predicate category per pair for coloring
+  const pairPred = {};
+
+  for (const a of associations) {
+    const i = idIndex[a.subject];
+    const j = idIndex[a.object];
+    if (i === undefined || j === undefined) continue;
+    matrix[i][j] += 1;
+    matrix[j][i] += 1;
+    const key = Math.min(i,j) + '-' + Math.max(i,j);
+    pairPred[key] = predCategory(a.predicate);
+  }
+
+  // D3 chord layout
+  const chord = d3.chord()
+    .padAngle(0.02)
+    .sortSubgroups(d3.descending);
+
+  const chords = chord(matrix);
+
+  const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+
+  const ribbon = d3.ribbon().radius(innerRadius - 2);
+
+  // Draw group arcs
+  const groupG = svg.selectAll('.group')
+    .data(chords.groups)
+    .join('g')
+    .attr('class', 'group');
+
+  groupG.append('path')
+    .attr('d', arc)
+    .attr('fill', d => domainColor(sortedIds[d.index]))
+    .attr('stroke', '#222')
+    .attr('stroke-width', 0.5)
+    .attr('opacity', 0.8)
+    .on('mouseover', function(evt, d) {
+      // Highlight connected chords
+      svg.selectAll('.chord-path')
+        .attr('opacity', c =>
+          (c.source.index === d.index || c.target.index === d.index) ? 0.7 : 0.05
+        );
+      const id = sortedIds[d.index];
+      showTooltip(evt,
+        `<strong>${topics[id]?.label || id}</strong><br>` +
+        `<span class="type-label">${topics[id]?.type || ''}${topics[id]?.domain ? ' / ' + topics[id].domain : ''}</span><br>` +
+        `<span class="pred-label">${degree[id]} connections</span>`
+      );
+    })
+    .on('mousemove', (evt) => {
+      const rect = document.getElementById('diagram-area').getBoundingClientRect();
+      tooltip.style.left = (evt.clientX - rect.left + 12) + 'px';
+      tooltip.style.top = (evt.clientY - rect.top - 10) + 'px';
+    })
+    .on('mouseout', function() {
+      svg.selectAll('.chord-path').attr('opacity', 0.45);
+      hideTooltip();
+    });
+
+  // Topic labels on arcs
+  groupG.append('text')
+    .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+    .attr('dy', '0.35em')
+    .attr('transform', d =>
+      `rotate(${(d.angle * 180 / Math.PI - 90)})` +
+      `translate(${outerRadius + 6})` +
+      (d.angle > Math.PI ? 'rotate(180)' : '')
+    )
+    .attr('text-anchor', d => d.angle > Math.PI ? 'end' : 'start')
+    .attr('fill', '#bbb')
+    .attr('font-size', n > 50 ? '7px' : '9px')
+    .text(d => topics[sortedIds[d.index]]?.label || sortedIds[d.index]);
+
+  // Draw chords
+  svg.selectAll('.chord-path')
+    .data(chords)
+    .join('path')
+    .attr('class', 'chord-path')
+    .attr('d', ribbon)
+    .attr('fill', d => {
+      const key = Math.min(d.source.index, d.target.index) + '-' + Math.max(d.source.index, d.target.index);
+      const cat = pairPred[key];
+      if (cat === 'reinforcing') return '#2D8B4E';
+      if (cat === 'opposing') return '#C0392B';
+      if (cat === 'structural') return '#5A7A9A';
+      return '#666';
+    })
+    .attr('opacity', 0.45)
+    .attr('stroke', 'none')
+    .on('mouseover', (evt, d) => {
+      const sId = sortedIds[d.source.index];
+      const tId = sortedIds[d.target.index];
+      // Find the actual predicate(s)
+      const preds = associations.filter(a =>
+        (a.subject === sId && a.object === tId) || (a.subject === tId && a.object === sId)
+      ).map(a => a.predicate);
+      showTooltip(evt,
+        `<strong>${topics[sId]?.label}</strong> &rarr; <strong>${topics[tId]?.label}</strong><br>` +
+        `<span class="pred-label">${[...new Set(preds)].join(', ')}</span>`
+      );
+    })
+    .on('mousemove', (evt) => {
+      const rect = document.getElementById('diagram-area').getBoundingClientRect();
+      tooltip.style.left = (evt.clientX - rect.left + 12) + 'px';
+      tooltip.style.top = (evt.clientY - rect.top - 10) + 'px';
+    })
+    .on('mouseout', function() {
+      svg.selectAll('.chord-path').attr('opacity', 0.45);
+      hideTooltip();
+    });
+
+  // Domain labels along the outside
+  for (const dr of domainRanges) {
+    const startIdx = dr.start;
+    const endIdx = dr.start + dr.count - 1;
+    const startAngle = chords.groups[startIdx]?.startAngle;
+    const endAngle = chords.groups[endIdx]?.endAngle;
+    if (startAngle === undefined || endAngle === undefined) continue;
+
+    const midAngle = (startAngle + endAngle) / 2;
+    const labelR = outerRadius + (n > 50 ? 46 : 54);
+
+    svg.append('text')
+      .attr('x', labelR * Math.cos(midAngle - Math.PI/2))
+      .attr('y', labelR * Math.sin(midAngle - Math.PI/2))
+      .attr('text-anchor', 'middle')
+      .attr('fill', DOMAIN_COLORS[dr.domain] || '#888')
+      .attr('font-size', '11px')
+      .attr('font-weight', '600')
+      .attr('opacity', 0.7)
+      .text(dr.domain.toUpperCase());
+  }
+}
+
+// Hide topic selector for chord view
+function updateSelectVisibility() {
+  select.style.display = currentView === 'chord' ? 'none' : '';
+}
+
+viewBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    updateSelectVisibility();
+  });
+});
+
+// Initial render
+updateSelectVisibility();
+render();
+
+// Re-render on resize
+window.addEventListener('resize', () => render());
+</script>
+</body>
+</html>

@@ -252,7 +252,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           <span class="page-indicator" id="page-indicator"></span>
           <button class="page-btn" id="page-next" aria-label="Next page">Next &rarr;</button>
         </nav>
-        <a href="/sources" class="sources-link">What feeds this garden &rarr;</a>
       </div>
 
       <!-- Sidebar: filter panels -->
@@ -784,17 +783,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   .page-btn:hover:not(:disabled) { border-color: #0D7C66; color: #0D7C66; }
   .page-btn:disabled { opacity: 0.35; cursor: default; }
   .page-indicator { font-size: 0.82rem; color: var(--color-text-muted); }
-
-  .sources-link {
-    display: block;
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    margin-top: var(--space-md);
-    text-decoration: none;
-    transition: color 150ms;
-  }
-  .sources-link:hover { color: var(--color-accent-2); }
 
   /* === Filter panels with protruding tab === */
   .filter-panel {

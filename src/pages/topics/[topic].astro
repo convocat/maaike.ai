@@ -1,0 +1,379 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import tao from '../../data/triples.json';
+import { getAllContent } from '../../utils/collections';
+
+export async function getStaticPaths() {
+  const allContent = await getAllContent();
+  const postMap = new Map(allContent.map(p => [p.id, {
+    title: p.data.title,
+    collection: p.collection,
+    date: p.data.date,
+    description: p.data.description || '',
+  }]));
+
+  return Object.entries(tao.topics).map(([id, t]) => {
+    const topic = t as { label: string; type: string };
+    const associations = tao.associations.filter(a => a.subject === id || a.object === id);
+
+    const relations = associations.map(a => {
+      const isSubject = a.subject === id;
+      const otherId = isSubject ? a.object : a.subject;
+      const otherLabel = (tao.topics as any)[otherId]?.label || otherId;
+      return {
+        predicate: a.predicate,
+        otherLabel, otherId,
+        direction: isSubject ? 'outgoing' : 'incoming',
+        sourceId: a.source,
+        collection: (a as any).collection || null,
+      };
+    });
+
+    const internalSourceIds = [...new Set(associations.filter(a => (a as any).collection).map(a => a.source))];
+    const internalSources = internalSourceIds.map(slug => {
+      const post = postMap.get(slug);
+      if (!post) return null;
+      return {
+        id: slug, label: post.title, collection: post.collection,
+        url: `/${post.collection}/${slug}/`,
+        date: post.date instanceof Date ? post.date.toISOString().slice(0, 10) : String(post.date).slice(0, 10),
+      };
+    }).filter(Boolean);
+
+    const externalSourceIds = [...new Set(associations.filter(a => !(a as any).collection).map(a => a.source))];
+    const externalSources = externalSourceIds.map(srcId => {
+      const src = (tao.sources as any)[srcId];
+      if (!src) return null;
+      return { id: srcId, label: src.label, url: src.url, date: src.date, summary: src.summary || '' };
+    }).filter(Boolean);
+
+    const connectedIds = new Set(associations.flatMap(a => [a.subject, a.object]).filter(x => x !== id));
+    const connected = [...connectedIds].map(cid => ({
+      id: cid,
+      label: (tao.topics as any)[cid]?.label || cid,
+      type: (tao.topics as any)[cid]?.type || 'concept',
+    }));
+
+    return {
+      params: { topic: id },
+      props: { topicId: id, label: topic.label, type: topic.type, typeLabel: topic.type.replace(/-/g, ' '),
+        relations, internalSources, externalSources, connected },
+    };
+  });
+}
+
+const { topicId, label, type, typeLabel, relations, internalSources, externalSources, connected } = Astro.props;
+
+// Build sidebar data grouped by domain
+const degree = new Map<string, number>();
+for (const a of tao.associations) {
+  degree.set(a.subject, (degree.get(a.subject) || 0) + 1);
+  degree.set(a.object, (degree.get(a.object) || 0) + 1);
+}
+const domainOrder = ['design', 'ai', 'linguistics', 'philosophy', 'culture'];
+const domainLabels: Record<string, string> = { design: 'Design', ai: 'AI', linguistics: 'Linguistics', philosophy: 'Philosophy', culture: 'Culture' };
+const byDomain = new Map<string, { id: string; label: string; count: number; type: string }[]>();
+// Add a "People" group for topics without domain (persons)
+byDomain.set('people', []);
+for (const [id, t] of Object.entries(tao.topics)) {
+  const topic = t as { label: string; type: string; domain?: string };
+  const count = degree.get(id) || 0;
+  if (count === 0) continue;
+  const group = topic.domain || (topic.type === 'person' ? 'people' : 'other');
+  if (!byDomain.has(group)) byDomain.set(group, []);
+  byDomain.get(group)!.push({ id, label: topic.label, count, type: topic.type });
+}
+const groups = ['people', ...domainOrder]
+  .filter(d => byDomain.has(d) && byDomain.get(d)!.length > 0)
+  .map(d => ({
+    domain: d,
+    domainLabel: d === 'people' ? 'People' : (domainLabels[d] || d),
+    topics: byDomain.get(d)!.sort((a, b) => b.count - a.count),
+  }));
+---
+
+<PageLayout title={label} description={`Topic page for ${label}: named relations, sources, and connections.`}>
+  <div class="topics-layout">
+    <nav class="topics-sidebar">
+      {groups.map(group => (
+        <details class="type-section" open={group.topics.some(t => t.id === topicId)}>
+          <summary class="type-heading">
+            <span class={`domain-dot ${group.domain}`}></span>
+            {group.domainLabel}
+            <span class="type-count">{group.topics.length}</span>
+          </summary>
+          <ul class="topic-list">
+            {group.topics.map(t => (
+              <li>
+                <a href={`/topics/${t.id}`} class={`topic-item ${t.id === topicId ? 'active' : ''}`}>
+                  <span class="topic-name">{t.label}</span>
+                  <span class="topic-count">{t.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ))}
+    </nav>
+
+    <main class="topics-main">
+      <header class="topic-header">
+        <span class={`type-badge ${type}`}>{typeLabel}</span>
+        <h1>{label}</h1>
+        <p class="relation-count">
+          {relations.length} {relations.length === 1 ? 'relation' : 'relations'} · {internalSources.length + externalSources.length} {internalSources.length + externalSources.length === 1 ? 'source' : 'sources'} · {connected.length} connected
+        </p>
+      </header>
+
+      {relations.length > 0 && (
+        <section class="section">
+          <h2>Relations</h2>
+          <div class="relations-list">
+            {relations.map(r => (
+              <div class="relation-line">
+                {r.direction === 'outgoing' ? (
+                  <span>
+                    <strong>{label}</strong>
+                    {' '}<span class="predicate">{r.predicate.replace(/-/g, ' ')}</span>{' '}
+                    <a href={`/topics/${r.otherId}`} class="topic-ref">{r.otherLabel}</a>
+                  </span>
+                ) : (
+                  <span>
+                    <a href={`/topics/${r.otherId}`} class="topic-ref">{r.otherLabel}</a>
+                    {' '}<span class="predicate">{r.predicate.replace(/-/g, ' ')}</span>{' '}
+                    <strong>{label}</strong>
+                  </span>
+                )}
+                {r.collection ? (
+                  <a href={`/${r.collection}/${r.sourceId}/`} class="source-ref" title={r.sourceId.replace(/-/g, ' ')}>{r.collection}</a>
+                ) : (
+                  <span class="source-ref ext" title={r.sourceId.replace(/-/g, ' ')}>external</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(internalSources.length > 0 || externalSources.length > 0) && (
+        <section class="section">
+          <h2>Sources</h2>
+          {internalSources.length > 0 && (
+            <div class="source-group">
+              <h3>From my writing</h3>
+              {internalSources.map(s => (
+                <a href={s.url} class="source-card">
+                  <span class="source-dot internal"></span>
+                  <span class="source-label">{s.label}</span>
+                  <span class="source-meta">{s.collection} · {s.date}</span>
+                </a>
+              ))}
+            </div>
+          )}
+          {externalSources.length > 0 && (
+            <div class="source-group">
+              <h3>From external references</h3>
+              {externalSources.map(s => (
+                <a href={s.url} class="source-card" target="_blank" rel="noopener noreferrer">
+                  <span class="source-dot external"></span>
+                  <span class="source-label">{s.label}</span>
+                  <span class="source-meta">{s.date}</span>
+                  {s.summary && <span class="source-summary">{s.summary}</span>}
+                </a>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {connected.length > 0 && (
+        <section class="section">
+          <h2>Connected topics</h2>
+          <ul class="connected-cloud">
+            {connected.map(c => (
+              <li>
+                <a href={`/topics/${c.id}`} class="connected-link">
+                  <span class={`type-dot ${c.type}`}></span>
+                  {c.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </main>
+  </div>
+</PageLayout>
+
+<style>
+  /* Layout */
+  .topics-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Sidebar */
+  .topics-sidebar {
+    display: flex; flex-direction: column; gap: var(--space-md);
+    max-height: 80vh; overflow-y: auto;
+    padding-right: var(--space-sm);
+    position: sticky; top: var(--space-lg);
+    align-self: start;
+  }
+  .type-section { margin-bottom: var(--space-xs); }
+  .type-section summary { cursor: pointer; list-style: none; }
+  .type-section summary::-webkit-details-marker { display: none; }
+  .type-section summary::marker { display: none; content: ''; }
+  .type-heading {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs); padding: 0.2rem 0;
+    transition: color 150ms;
+  }
+  .type-heading:hover { color: var(--color-text); }
+  .type-heading::after {
+    content: '+'; margin-left: auto; font-size: 0.8rem; font-weight: 400;
+  }
+  .type-section[open] > .type-heading::after { content: '\2212'; }
+  .type-count { font-size: 0.65rem; color: var(--color-text-muted); font-weight: 400; }
+  .topic-list { list-style: none; padding: 0; margin: 0; }
+  .topic-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.25rem 0.5rem; border-radius: 4px;
+    color: var(--color-text); text-decoration: none;
+    font-size: 0.82rem; transition: background 150ms;
+  }
+  .topic-item:hover { background: rgba(0,0,0,0.04); }
+  :root[data-theme="dark"] .topic-item:hover { background: rgba(255,255,255,0.06); }
+  .topic-item.active {
+    background: rgba(214, 0, 108, 0.08);
+    font-weight: 600;
+  }
+  .topic-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topic-count { font-size: 0.68rem; color: var(--color-text-muted); flex-shrink: 0; margin-left: var(--space-xs); }
+
+  /* Domain dots (sidebar) */
+  .domain-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .domain-dot.people { background: var(--color-accent-2); }
+  .domain-dot.ai { background: #B07830; }
+  :root[data-theme="dark"] .domain-dot.ai { background: #E8A84A; }
+  .domain-dot.design { background: var(--color-accent); }
+  .domain-dot.linguistics { background: #4A7A50; }
+  :root[data-theme="dark"] .domain-dot.linguistics { background: #8ECF94; }
+  .domain-dot.philosophy { background: #8B6AA8; }
+  .domain-dot.culture { background: #5A7A9A; }
+  :root[data-theme="dark"] .domain-dot.culture { background: #8AB4D4; }
+
+  /* Type dots (connected topics) */
+  .type-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .type-dot.person { background: var(--color-accent-2); }
+  .type-dot.technology, .type-dot.mechanism { background: #B07830; }
+  :root[data-theme="dark"] .type-dot.technology, :root[data-theme="dark"] .type-dot.mechanism { background: #E8A84A; }
+  .type-dot.discipline, .type-dot.method, .type-dot.principle { background: var(--color-accent); }
+  .type-dot.concept, .type-dot.phenomenon { background: #8B6AA8; }
+  .type-dot.metaphor { background: #5A7A9A; }
+
+  /* Main content */
+  .topics-main { max-width: 42rem; }
+  .topic-header { margin-bottom: var(--space-xl); padding-top: var(--space-md); }
+  .type-badge {
+    display: inline-block; font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem; border-radius: 10px;
+    margin-bottom: var(--space-sm); color: white; font-weight: 600;
+  }
+  .type-badge.person { background: var(--color-accent-2); }
+  .type-badge.technology, .type-badge.mechanism { background: #B07830; }
+  :root[data-theme="dark"] .type-badge.technology, :root[data-theme="dark"] .type-badge.mechanism { background: #E8A84A; color: #1A1A1A; }
+  .type-badge.discipline, .type-badge.method { background: var(--color-accent); }
+  .type-badge.concept, .type-badge.phenomenon { background: #8B6AA8; }
+  .type-badge.metaphor { background: #5A7A9A; }
+  .type-badge.principle { background: #4A7A50; }
+  :root[data-theme="dark"] .type-badge.principle { background: #8ECF94; color: #1A1A1A; }
+
+  .topic-header h1 { font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: var(--space-xs); }
+  .relation-count { color: var(--color-text-muted); font-size: 0.82rem; }
+
+  .section { margin-bottom: var(--space-xl); }
+  .section h2 {
+    font-family: var(--font-heading); font-size: 1.15rem;
+    margin-bottom: var(--space-md); padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section h3 {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--color-text-muted); margin-bottom: var(--space-sm);
+    margin-top: var(--space-md); font-weight: 600;
+  }
+
+  /* Relations */
+  .relations-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .relation-line {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: var(--space-sm); padding: 0.35rem 0;
+    font-size: 0.88rem; line-height: 1.5;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  :root[data-theme="dark"] .relation-line { border-bottom-color: rgba(255,255,255,0.04); }
+  .predicate { font-style: italic; color: var(--color-accent-2); }
+  .topic-ref {
+    color: var(--color-text); text-decoration: underline;
+    text-decoration-color: var(--color-border); text-underline-offset: 2px;
+    transition: text-decoration-color 150ms;
+  }
+  .topic-ref:hover { text-decoration-color: var(--color-accent); }
+  .source-ref {
+    font-size: 0.68rem; color: var(--color-text-muted); text-decoration: none;
+    background: rgba(0,0,0,0.04); padding: 0.1rem 0.4rem; border-radius: 6px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  :root[data-theme="dark"] .source-ref { background: rgba(255,255,255,0.06); }
+  .source-ref:hover { color: var(--color-accent-2); }
+  .source-ref.ext { color: var(--color-accent); }
+
+  /* Sources */
+  .source-card {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border); border-radius: 6px;
+    text-decoration: none; color: inherit; margin-bottom: 0.35rem;
+    transition: border-color 150ms;
+  }
+  .source-card:hover { border-color: var(--color-accent); }
+  .source-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; position: relative; top: -1px; }
+  .source-dot.internal { background: var(--color-accent-2); }
+  .source-dot.external { background: var(--color-accent); }
+  .source-label { font-size: 0.88rem; font-weight: 500; flex: 1; }
+  .source-meta { font-size: 0.72rem; color: var(--color-text-muted); }
+  .source-summary {
+    width: 100%; font-size: 0.8rem; color: var(--color-text-muted);
+    line-height: 1.5; margin-top: var(--space-xs);
+  }
+
+  /* Connected */
+  .connected-cloud { display: flex; flex-wrap: wrap; gap: var(--space-sm); list-style: none; padding: 0; }
+  .connected-link {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.3rem 0.65rem; border-radius: 1em;
+    background: var(--color-tag-bg, rgba(0,0,0,0.05));
+    color: var(--color-text); text-decoration: none; font-size: 0.85rem;
+    transition: background 150ms, color 150ms;
+  }
+  :root[data-theme="dark"] .connected-link { background: rgba(255,255,255,0.08); }
+  .connected-link:hover { background: var(--color-accent); color: white; }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .topics-layout { grid-template-columns: 1fr; }
+    .topics-sidebar {
+      position: static; max-height: none;
+      flex-direction: row; flex-wrap: wrap; overflow-x: auto;
+    }
+    .type-section { min-width: 180px; }
+  }
+</style>
