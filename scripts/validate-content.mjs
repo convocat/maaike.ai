@@ -180,7 +180,26 @@ for (const file of files) {
     }
   }
 
-  // 6. Date sanity
+  // 6. Weblink quality checks
+  if (collection === 'weblinks' && data.draft === false) {
+    // Redirect wrapper URLs should never be stored as the canonical URL
+    const REDIRECT_PATTERNS = [
+      /linkedin\.com\/safety\/go\//i,
+      /l\.facebook\.com\/l\.php/i,
+      /t\.co\//i,
+    ];
+    if (data.url && REDIRECT_PATTERNS.some(p => p.test(data.url))) {
+      fileErrors.push(`  weblink url is a redirect wrapper (resolve to real URL): ${data.url.slice(0, 80)}`);
+    }
+
+    // Generic platform titles indicate a failed meta-fetch
+    const GENERIC_TITLES = ['linkedin', 'youtube', '- youtube', 'twitter', 'instagram', 'facebook', 'x'];
+    if (data.title && GENERIC_TITLES.includes(data.title.toLowerCase().trim())) {
+      fileErrors.push(`  weblink title "${data.title}" looks like a failed meta-fetch — add a real title`);
+    }
+  }
+
+  // 7. Date sanity
   if (data.date && isNaN(new Date(data.date).getTime())) {
     fileWarnings.push(`  invalid date: "${data.date}"`);
   }

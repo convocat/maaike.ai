@@ -16,7 +16,7 @@ import sys
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs, unquote
 
 BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 if not BOT_TOKEN:
@@ -30,6 +30,27 @@ FILES_DIR = REPO_ROOT / 'src/content/files'
 PDFS_DIR = REPO_ROOT / 'public/pdfs'
 
 URL_RE = re.compile(r'^https?://\S+', re.IGNORECASE)
+
+# Known redirect wrappers — extract the real URL from the query string
+REDIRECT_PATTERNS = [
+    # LinkedIn safety redirect: ?url=<encoded-real-url>
+    (re.compile(r'linkedin\.com/safety/go/\?.*\burl=', re.IGNORECASE), 'url'),
+    # Facebook/Instagram link shim
+    (re.compile(r'l\.facebook\.com/l\.php\?.*\bu=', re.IGNORECASE), 'u'),
+]
+
+
+def resolve_redirect_url(url):
+    """If url is a known redirect wrapper, return the real target URL."""
+    for pattern, param in REDIRECT_PATTERNS:
+        if pattern.search(url):
+            parsed = urlparse(url)
+            qs = parse_qs(parsed.query)
+            if param in qs:
+                real = unquote(qs[param][0])
+                print(f'Redirect resolved: {url[:60]}... → {real[:60]}...')
+                return real
+    return url
 
 
 def get_updates():
@@ -98,6 +119,7 @@ def slugify(text):
 
 
 def create_weblink(url, date):
+    url = resolve_redirect_url(url)
     title, description = fetch_page_meta(url)
     slug = slugify(title) or f'link-{date.strftime("%Y%m%d%H%M%S")}'
     date_str = date.strftime('%Y-%m-%d')
@@ -118,11 +140,11 @@ def create_weblink(url, date):
         f'tags: []\n'
         f'description: "{yaml_str(description)}"\n'
         f'ai: "100% Maai"\n'
-        f'draft: false\n'
+        f'draft: true\n'
         f'---\n'
     )
     filepath.write_text(content, encoding='utf-8')
-    print(f'Weblink: {filepath.name}')
+    print(f'Weblink (draft): {filepath.name}')
 
 
 def download_pdf(file_id, filename, date):
