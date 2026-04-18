@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Periodic table of ideas</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #FCFCFB;
+  color: #222;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+header p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+.controls button {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.controls button:hover { border-color: #999; }
+.controls button.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+#view-container {
+  padding: 1rem 2rem 3rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ===== LEGEND ===== */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+.legend-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.legend-label {
+  font-weight: 600;
+  color: #666;
+  margin-right: 0.25rem;
+}
+
+/* ===== V1: CLASSIC GRID ===== */
+.grid-table {
+  border-collapse: separate;
+  border-spacing: 4px;
+  width: 100%;
+  table-layout: fixed;
+}
+.grid-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.grid-table th.row-header {
+  text-align: right;
+  padding-right: 0.75rem;
+  width: 100px;
+  white-space: nowrap;
+}
+.grid-cell {
+  background: #f5f5f4;
+  border-radius: 6px;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  vertical-align: top;
+  min-height: 60px;
+  position: relative;
+}
+.grid-cell:hover { transform: scale(1.05); z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.grid-cell.empty { background: #fafafa; cursor: default; }
+.grid-cell.empty:hover { transform: none; box-shadow: none; }
+.grid-cell.highlighted { outline: 3px solid #D6006C; outline-offset: -2px; }
+.grid-cell .abbr {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.grid-cell .label {
+  font-size: 0.55rem;
+  color: #555;
+  line-height: 1.2;
+  margin-top: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.grid-cell .count {
+  font-size: 0.6rem;
+  color: #999;
+  margin-top: 0.15rem;
+}
+
+/* Role borders */
+.grid-cell[data-role="position"] { border-left: 3px solid #4A7A50; }
+.grid-cell[data-role="counter-position"] { border-left: 3px solid #C0392B; }
+.grid-cell[data-role="framework"] { border-left: 3px solid #8B6AA8; }
+.grid-cell[data-role="instrument"] { border-left: 3px solid #8B6530; }
+.grid-cell[data-role="none"] { border-left: 3px solid #bbb; }
+
+/* Multi-cell container */
+.multi-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.multi-cell .grid-cell {
+  flex: 1 1 calc(50% - 2px);
+  min-width: 0;
+}
+
+/* ===== V2: HEXAGONAL ===== */
+#hex-view { width: 100%; min-height: 600px; }
+#hex-view svg { width: 100%; height: 100%; }
+
+.hex-tooltip {
+  position: absolute;
+  background: #222;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 100;
+  max-width: 300px;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.hex-tooltip .tt-label { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem; }
+.hex-tooltip .tt-meta { color: #aaa; font-size: 0.75rem; margin-bottom: 0.35rem; }
+.hex-tooltip .tt-rel { color: #ccc; font-size: 0.75rem; }
+
+/* ===== V3: TREEMAP ===== */
+#treemap-view { width: 100%; min-height: 600px; }
+#treemap-view svg { width: 100%; height: 100%; }
+
+.treemap-popup {
+  position: fixed;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.25rem;
+  z-index: 200;
+  max-width: 360px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.treemap-popup h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.treemap-popup .popup-meta { color: #888; font-size: 0.75rem; margin-bottom: 0.5rem; }
+.treemap-popup ul { padding-left: 1rem; margin: 0; }
+.treemap-popup li { margin-bottom: 0.2rem; }
+.treemap-popup .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Periodic table of ideas</h1>
+  <p>Topics organized by domain and type</p>
+</header>
+
+<div class="controls">
+  <button class="active" data-view="grid">Classic grid</button>
+  <button data-view="hex">Hexagonal grid</button>
+  <button data-view="treemap">Treemap</button>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div id="view-container"></div>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+// ── Data ──
+const raw = await fetch('./triples.json').then(r => r.json());
+const topics = raw.topics;
+const associations = raw.associations;
+
+const DOMAINS = ['people', 'design', 'ai', 'linguistics', 'philosophy', 'culture'];
+const TYPES = ['concept', 'discipline', 'mechanism', 'metaphor', 'method', 'phenomenon', 'principle', 'technology', 'person'];
+
+const DOMAIN_COLORS = {
+  people: '#0D7C66', design: '#D6006C', ai: '#B07830',
+  linguistics: '#4A7A50', philosophy: '#8B6AA8', culture: '#5A7A9A'
+};
+const TYPE_COLORS = {
+  concept: '#8B6AA8', technology: '#B07830', mechanism: '#B07830',
+  phenomenon: '#C0392B', discipline: '#D6006C', metaphor: '#5A7A9A',
+  principle: '#4A7A50', method: '#0D7C66', person: '#0D7C66'
+};
+
+// Compute connection counts
+const connCount = {};
+for (const id of Object.keys(topics)) connCount[id] = 0;
+for (const a of associations) {
+  if (connCount[a.subject] !== undefined) connCount[a.subject]++;
+  if (connCount[a.object] !== undefined) connCount[a.object]++;
+}
+
+// Assign domain for people
+function getDomain(id) {
+  const t = topics[id];
+  if (t.type === 'person') return 'people';
+  return t.domain || 'culture';
+}
+
+// Build enriched list
+const topicList = Object.entries(topics).map(([id, t]) => ({
+  id, ...t,
+  domain: getDomain(id),
+  connections: connCount[id] || 0,
+  role: t.role || 'none'
+}));
+
+// Get connections for a topic
+function getRelations(id) {
+  const rels = [];
+  for (const a of associations) {
+    if (a.subject === id) rels.push({ predicate: a.predicate, other: topics[a.object]?.label || a.object, dir: 'out' });
+    if (a.object === id) rels.push({ predicate: a.predicate, other: topics[a.subject]?.label || a.subject, dir: 'in' });
+  }
+  return rels;
+}
+
+// Get connected IDs
+function getConnectedIds(id) {
+  const s = new Set();
+  for (const a of associations) {
+    if (a.subject === id) s.add(a.object);
+    if (a.object === id) s.add(a.subject);
+  }
+  return s;
+}
+
+// Abbreviation
+function abbr(label) {
+  const words = label.replace(/[^a-zA-Z0-9\s]/g, '').split(/\s+/).filter(Boolean);
+  if (words.length === 1) return words[0].substring(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+// ── Legend ──
+function renderLegend(showRoles) {
+  const leg = document.getElementById('legend');
+  let html = '<div class="legend-section"><span class="legend-label">Types:</span>';
+  for (const t of TYPES) {
+    if (t === 'person') continue;
+    html += `<span class="legend-item"><span class="legend-swatch" style="background:${TYPE_COLORS[t]}"></span>${t}</span>`;
+  }
+  html += '</div>';
+  if (showRoles) {
+    html += '<div class="legend-section"><span class="legend-label">Roles:</span>';
+    const roles = [['position','#4A7A50'],['counter-position','#C0392B'],['framework','#8B6AA8'],['instrument','#8B6530'],['none','#bbb']];
+    for (const [r,c] of roles) {
+      html += `<span class="legend-item"><span class="legend-swatch" style="background:${c};width:4px;border-radius:1px"></span>${r}</span>`;
+    }
+    html += '</div>';
+  }
+  html += '<div class="legend-section"><span class="legend-label">Domains:</span>';
+  for (const d of DOMAINS) {
+    html += `<span class="legend-item"><span class="legend-swatch" style="background:${DOMAIN_COLORS[d]}"></span>${d}</span>`;
+  }
+  html += '</div>';
+  leg.innerHTML = html;
+}
+
+// ── V1: Classic Grid ──
+function renderGrid() {
+  renderLegend(true);
+  const container = document.getElementById('view-container');
+
+  // Group topics by domain+type
+  const grid = {};
+  for (const d of DOMAINS) {
+    grid[d] = {};
+    for (const t of TYPES) grid[d][t] = [];
+  }
+  for (const t of topicList) {
+    const col = t.type === 'person' ? 'person' : t.type;
+    if (grid[t.domain] && grid[t.domain][col]) {
+      grid[t.domain][col].push(t);
+    }
+  }
+
+  // Filter out empty columns
+  const activeCols = TYPES.filter(t => DOMAINS.some(d => grid[d][t].length > 0));
+
+  let html = '<table class="grid-table"><thead><tr><th class="row-header"></th>';
+  for (const c of activeCols) html += `<th>${c}</th>`;
+  html += '</tr></thead><tbody>';
+
+  for (const d of DOMAINS) {
+    html += `<tr><th class="row-header" style="color:${DOMAIN_COLORS[d]}">${d}</th>`;
+    for (const c of activeCols) {
+      const items = grid[d][c];
+      if (items.length === 0) {
+        html += '<td class="grid-cell empty"></td>';
+      } else if (items.length === 1) {
+        const t = items[0];
+        html += `<td class="grid-cell" data-id="${t.id}" data-role="${t.role}" style="background:${TYPE_COLORS[t.type]}15">
+          <div class="abbr" style="color:${TYPE_COLORS[t.type]}">${abbr(t.label)}</div>
+          <div class="label">${t.label}</div>
+          <div class="count">${t.connections}</div>
+        </td>`;
+      } else {
+        html += '<td style="padding:0"><div class="multi-cell">';
+        for (const t of items) {
+          html += `<div class="grid-cell" data-id="${t.id}" data-role="${t.role}" style="background:${TYPE_COLORS[t.type]}15">
+            <div class="abbr" style="color:${TYPE_COLORS[t.type]}">${abbr(t.label)}</div>
+            <div class="label">${t.label}</div>
+            <div class="count">${t.connections}</div>
+          </div>`;
+        }
+        html += '</div></td>';
+      }
+    }
+    html += '</tr>';
+  }
+  html += '</tbody></table>';
+  container.innerHTML = html;
+
+  // Click handler
+  let selectedId = null;
+  container.addEventListener('click', e => {
+    const cell = e.target.closest('.grid-cell[data-id]');
+    if (!cell) return;
+    const id = cell.dataset.id;
+
+    // Clear previous
+    container.querySelectorAll('.grid-cell.highlighted').forEach(c => c.classList.remove('highlighted'));
+
+    if (selectedId === id) { selectedId = null; return; }
+    selectedId = id;
+
+    const connected = getConnectedIds(id);
+    connected.add(id);
+    for (const cid of connected) {
+      container.querySelectorAll(`[data-id="${cid}"]`).forEach(c => c.classList.add('highlighted'));
+    }
+  });
+}
+
+// ── V2: Hexagonal Grid ──
+function renderHex() {
+  renderLegend(false);
+  const container = document.getElementById('view-container');
+  container.innerHTML = '<div id="hex-view"></div>';
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'hex-tooltip';
+  tooltip.style.display = 'none';
+  document.body.appendChild(tooltip);
+
+  const width = container.clientWidth || 1100;
+  const height = Math.max(600, topicList.length * 4);
+
+  const svg = d3.select('#hex-view')
+    .append('svg')
+    .attr('viewBox', `0 0 ${width} ${height}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet');
+
+  // Group by domain
+  const byDomain = {};
+  for (const d of DOMAINS) byDomain[d] = [];
+  for (const t of topicList) byDomain[t.domain]?.push(t);
+
+  const hexRadius = d => Math.max(18, Math.min(40, 16 + d.connections * 3));
+
+  // Layout: arrange domain clusters
+  const domainPositions = {};
+  const cols = 3;
+  const clusterW = width / cols;
+  const clusterH = height / Math.ceil(DOMAINS.length / cols);
+
+  DOMAINS.forEach((d, i) => {
+    domainPositions[d] = {
+      cx: (i % cols) * clusterW + clusterW / 2,
+      cy: Math.floor(i / cols) * clusterH + clusterH / 2
+    };
+  });
+
+  // Place hexagons within clusters
+  const hexData = [];
+  for (const d of DOMAINS) {
+    const items = byDomain[d];
+    if (!items.length) continue;
+    const { cx, cy } = domainPositions[d];
+    const n = items.length;
+    const ringLayout = [];
+
+    // Spiral layout
+    let placed = 0;
+    let ring = 0;
+    while (placed < n) {
+      if (ring === 0) {
+        ringLayout.push({ dx: 0, dy: 0 });
+        placed++;
+      } else {
+        const count = ring * 6;
+        for (let j = 0; j < count && placed < n; j++) {
+          const angle = (j / count) * Math.PI * 2 - Math.PI / 2;
+          ringLayout.push({
+            dx: Math.cos(angle) * ring * 52,
+            dy: Math.sin(angle) * ring * 52
+          });
+          placed++;
+        }
+      }
+      ring++;
+    }
+
+    items.sort((a, b) => b.connections - a.connections);
+    items.forEach((t, i) => {
+      hexData.push({
+        ...t,
+        x: cx + ringLayout[i].dx,
+        y: cy + ringLayout[i].dy,
+        r: hexRadius(t)
+      });
+    });
+  }
+
+  // Draw domain labels
+  for (const d of DOMAINS) {
+    const { cx, cy } = domainPositions[d];
+    const items = byDomain[d];
+    if (!items.length) continue;
+
+    svg.append('text')
+      .attr('x', cx)
+      .attr('y', cy - clusterH / 2 + 24)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', '14px')
+      .attr('font-weight', '700')
+      .attr('fill', DOMAIN_COLORS[d])
+      .attr('font-family', 'system-ui')
+      .text(d.charAt(0).toUpperCase() + d.slice(1));
+  }
+
+  // Hex path
+  function hexPath(r) {
+    const pts = [];
+    for (let i = 0; i < 6; i++) {
+      const angle = Math.PI / 3 * i - Math.PI / 6;
+      pts.push([r * Math.cos(angle), r * Math.sin(angle)]);
+    }
+    return pts.map((p, i) => (i === 0 ? 'M' : 'L') + p[0] + ',' + p[1]).join('') + 'Z';
+  }
+
+  const groups = svg.selectAll('.hex-group')
+    .data(hexData)
+    .join('g')
+    .attr('class', 'hex-group')
+    .attr('transform', d => `translate(${d.x},${d.y})`)
+    .style('cursor', 'pointer');
+
+  groups.append('path')
+    .attr('d', d => hexPath(d.r))
+    .attr('fill', d => TYPE_COLORS[d.type] + '30')
+    .attr('stroke', d => TYPE_COLORS[d.type])
+    .attr('stroke-width', 1.5);
+
+  groups.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '-0.15em')
+    .attr('font-size', d => Math.max(9, d.r * 0.4) + 'px')
+    .attr('font-weight', '700')
+    .attr('fill', d => TYPE_COLORS[d.type])
+    .attr('font-family', 'system-ui')
+    .text(d => abbr(d.label));
+
+  groups.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '1em')
+    .attr('font-size', d => Math.max(6, d.r * 0.25) + 'px')
+    .attr('fill', '#555')
+    .attr('font-family', 'system-ui')
+    .text(d => d.label.length > 14 ? d.label.substring(0, 12) + '..' : d.label);
+
+  // Hover
+  groups.on('mouseenter', (e, d) => {
+    const rels = getRelations(d.id);
+    let relHtml = '';
+    if (rels.length) {
+      relHtml = '<div class="tt-rel">' + rels.slice(0, 8).map(r =>
+        r.dir === 'out' ? `${r.predicate} ${r.other}` : `${r.other} ${r.predicate}`
+      ).join('<br>') + (rels.length > 8 ? `<br>+${rels.length - 8} more` : '') + '</div>';
+    }
+    tooltip.innerHTML = `<div class="tt-label">${d.label}</div>
+      <div class="tt-meta">${d.type} / ${d.domain} / ${d.connections} connections</div>${relHtml}`;
+    tooltip.style.display = 'block';
+  })
+  .on('mousemove', e => {
+    tooltip.style.left = (e.pageX + 12) + 'px';
+    tooltip.style.top = (e.pageY - 10) + 'px';
+  })
+  .on('mouseleave', () => { tooltip.style.display = 'none'; });
+}
+
+// ── V3: Treemap ──
+function renderTreemap() {
+  renderLegend(false);
+  const container = document.getElementById('view-container');
+  container.innerHTML = '<div id="treemap-view"></div>';
+
+  // Remove any existing popup
+  document.querySelectorAll('.treemap-popup').forEach(p => p.remove());
+
+  const width = container.clientWidth || 1100;
+  const height = Math.max(600, 500);
+
+  const svg = d3.select('#treemap-view')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+  // Build hierarchy
+  const data = {
+    name: 'root',
+    children: DOMAINS.map(d => ({
+      name: d,
+      children: topicList
+        .filter(t => t.domain === d)
+        .map(t => ({ name: t.label, id: t.id, type: t.type, domain: d, connections: t.connections, value: Math.max(1, t.connections) }))
+    })).filter(d => d.children.length > 0)
+  };
+
+  const root = d3.hierarchy(data)
+    .sum(d => d.value)
+    .sort((a, b) => b.value - a.value);
+
+  d3.treemap()
+    .size([width, height])
+    .paddingOuter(6)
+    .paddingTop(24)
+    .paddingInner(2)
+    .round(true)(root);
+
+  // Domain group backgrounds
+  const domainGroups = svg.selectAll('.domain-group')
+    .data(root.children)
+    .join('g')
+    .attr('class', 'domain-group');
+
+  domainGroups.append('rect')
+    .attr('x', d => d.x0)
+    .attr('y', d => d.y0)
+    .attr('width', d => d.x1 - d.x0)
+    .attr('height', d => d.y1 - d.y0)
+    .attr('fill', d => DOMAIN_COLORS[d.data.name] + '10')
+    .attr('stroke', d => DOMAIN_COLORS[d.data.name] + '40')
+    .attr('rx', 4);
+
+  domainGroups.append('text')
+    .attr('x', d => d.x0 + 6)
+    .attr('y', d => d.y0 + 16)
+    .attr('font-size', '12px')
+    .attr('font-weight', '700')
+    .attr('fill', d => DOMAIN_COLORS[d.data.name])
+    .attr('font-family', 'system-ui')
+    .text(d => d.data.name.charAt(0).toUpperCase() + d.data.name.slice(1));
+
+  // Topic cells
+  const leaves = svg.selectAll('.leaf')
+    .data(root.leaves())
+    .join('g')
+    .attr('class', 'leaf')
+    .style('cursor', 'pointer');
+
+  leaves.append('rect')
+    .attr('x', d => d.x0)
+    .attr('y', d => d.y0)
+    .attr('width', d => Math.max(0, d.x1 - d.x0))
+    .attr('height', d => Math.max(0, d.y1 - d.y0))
+    .attr('fill', d => TYPE_COLORS[d.data.type] + '25')
+    .attr('stroke', d => TYPE_COLORS[d.data.type] + '60')
+    .attr('rx', 3)
+    .on('mouseenter', function() { d3.select(this).attr('stroke-width', 2).attr('stroke', d => TYPE_COLORS[d.data.type]); })
+    .on('mouseleave', function() { d3.select(this).attr('stroke-width', 1).attr('stroke', d => TYPE_COLORS[d.data.type] + '60'); });
+
+  // Abbreviation text
+  leaves.append('text')
+    .attr('x', d => d.x0 + 4)
+    .attr('y', d => d.y0 + 14)
+    .attr('font-size', d => {
+      const w = d.x1 - d.x0;
+      const h = d.y1 - d.y0;
+      return Math.min(12, Math.max(7, Math.min(w, h) * 0.35)) + 'px';
+    })
+    .attr('font-weight', '700')
+    .attr('fill', d => TYPE_COLORS[d.data.type])
+    .attr('font-family', 'system-ui')
+    .text(d => {
+      const w = d.x1 - d.x0;
+      if (w < 25) return '';
+      return abbr(d.data.name);
+    });
+
+  // Label text
+  leaves.append('text')
+    .attr('x', d => d.x0 + 4)
+    .attr('y', d => d.y0 + 26)
+    .attr('font-size', d => {
+      const w = d.x1 - d.x0;
+      return Math.min(9, Math.max(6, w * 0.12)) + 'px';
+    })
+    .attr('fill', '#444')
+    .attr('font-family', 'system-ui')
+    .text(d => {
+      const w = d.x1 - d.x0;
+      if (w < 40) return '';
+      const maxLen = Math.floor(w / 5);
+      return d.data.name.length > maxLen ? d.data.name.substring(0, maxLen - 1) + '..' : d.data.name;
+    });
+
+  // Connection count
+  leaves.append('text')
+    .attr('x', d => d.x1 - 4)
+    .attr('y', d => d.y1 - 4)
+    .attr('text-anchor', 'end')
+    .attr('font-size', '7px')
+    .attr('fill', '#999')
+    .attr('font-family', 'system-ui')
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const h = d.y1 - d.y0;
+      if (w < 30 || h < 25) return '';
+      return d.data.connections;
+    });
+
+  // Click popup
+  leaves.on('click', (e, d) => {
+    document.querySelectorAll('.treemap-popup').forEach(p => p.remove());
+
+    const rels = getRelations(d.data.id);
+    const popup = document.createElement('div');
+    popup.className = 'treemap-popup';
+
+    let relHtml = '';
+    if (rels.length) {
+      relHtml = '<ul>' + rels.map(r =>
+        `<li><strong>${r.predicate}</strong> ${r.dir === 'out' ? r.other : '(' + r.other + ')'}</li>`
+      ).join('') + '</ul>';
+    } else {
+      relHtml = '<p style="color:#999">No relations</p>';
+    }
+
+    popup.innerHTML = `<button class="close-btn">&times;</button>
+      <h3>${d.data.name}</h3>
+      <div class="popup-meta">${d.data.type} / ${d.data.domain} / ${d.data.connections} connections</div>
+      ${relHtml}`;
+
+    document.body.appendChild(popup);
+
+    // Position near click
+    const px = Math.min(e.pageX + 10, window.innerWidth - 380);
+    const py = Math.min(e.pageY - 20, window.innerHeight - 300 + window.scrollY);
+    popup.style.left = px + 'px';
+    popup.style.top = py + 'px';
+
+    popup.querySelector('.close-btn').addEventListener('click', () => popup.remove());
+    e.stopPropagation();
+  });
+
+  // Close popup on outside click
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.treemap-popup') && !e.target.closest('.leaf')) {
+      document.querySelectorAll('.treemap-popup').forEach(p => p.remove());
+    }
+  });
+}
+
+// ── View switching ──
+const views = { grid: renderGrid, hex: renderHex, treemap: renderTreemap };
+let currentView = 'grid';
+
+document.querySelectorAll('.controls button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const view = btn.dataset.view;
+    if (view === currentView) return;
+    currentView = view;
+    document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Clean up tooltips
+    document.querySelectorAll('.hex-tooltip, .treemap-popup').forEach(el => el.remove());
+
+    views[view]();
+  });
+});
+
+// Initial render
+renderGrid();
+</script>
+</body>
+</html>
