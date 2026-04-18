@@ -16,3 +16,6 @@ https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-working-on
 2026-04-14: Hello
 
 2026-04-14: T3st123
+
+2026-04-15: Nora Bateson: “How our ways of knowing shape our collective future”
+https://re-generation.cc/en/longread/nora-bateson/
