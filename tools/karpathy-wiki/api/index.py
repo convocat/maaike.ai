@@ -175,8 +175,10 @@ class handler(BaseHTTPRequestHandler):
                 }).encode("utf-8"))
                 return
 
-            # Strip any client-supplied `key` — in public mode only the server's env var is trusted.
-            sanitized = json.dumps({"question": question}).encode("utf-8")
+            # Pass conversation history through (server sanitizes it further). Strip
+            # any client-supplied `key` — in public mode only the server's env var is trusted.
+            history = data.get("history") if isinstance(data.get("history"), list) else []
+            sanitized = json.dumps({"question": question, "history": history}).encode("utf-8")
 
             # Stream: headers first, then token-by-token JSON-lines.
             self.send_response(200)

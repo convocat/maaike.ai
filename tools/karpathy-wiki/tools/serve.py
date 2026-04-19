@@ -875,10 +875,14 @@ _ASK_SYSTEM_PROMPT = _load_system_prompt()
 def _build_ask_request(body):
     """Parse body, load content, build the Anthropic request.
 
-    Returns (client, model_args, wiki_sources, article_sources) or raises.
-    The large context is marked cache_control=ephemeral so Anthropic caches
-    it across calls (first hit pays full cost, subsequent hits are ~10x cheaper
-    and faster). Only the question varies between calls.
+    Accepts optional conversation history so follow-ups like "yes" or "go on"
+    can be interpreted in context.
+
+    Body shape: {"question": str, "history": [{"role": "user"|"assistant", "content": str}, ...]}
+
+    The large wiki+article context is marked cache_control=ephemeral so Anthropic
+    caches it across calls (first hit pays full cost, subsequent hits within
+    ~5 minutes are ~10x cheaper and faster). Only the history and question vary.
     """
     import anthropic
     data = json.loads(body)
@@ -886,6 +890,18 @@ def _build_ask_request(body):
     api_key = data.get("key", "").strip() or None
     if not question:
         raise ValueError("No question provided")
+
+    # Sanitize conversation history. Cap at last 10 messages to bound payload.
+    raw_history = data.get("history", [])
+    history = []
+    if isinstance(raw_history, list):
+        for msg in raw_history[-10:]:
+            if not isinstance(msg, dict):
+                continue
+            role = msg.get("role")
+            content = msg.get("content", "")
+            if role in ("user", "assistant") and isinstance(content, str) and content.strip():
+                history.append({"role": role, "content": content[:4000]})
 
     pages = get_all_pages()
     context_parts = []
@@ -929,19 +945,33 @@ def _build_ask_request(body):
     context_text = "Context:\n\n" + "\n".join(context_parts)
     client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
 
+    # Build message list:
+    #   1. Preamble: user turn containing the cacheable wiki/article context.
+    #      Marking it with cache_control keeps the cached prefix stable
+    #      across turns (prior-turn additions come AFTER this in the list).
+    #   2. Fixed assistant ack — keeps the cacheable prefix identical each call.
+    #   3. Prior conversation turns from history.
+    #   4. The new user question.
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": context_text, "cache_control": {"type": "ephemeral"}},
+            ],
+        },
+        {
+            "role": "assistant",
+            "content": "Understood. I've read Maaike's garden. What would you like to explore?",
+        },
+    ]
+    messages.extend(history)
+    messages.append({"role": "user", "content": question})
+
     model_args = {
         "model": "claude-sonnet-4-6",
         "max_tokens": 1024,
         "system": _ASK_SYSTEM_PROMPT,
-        "messages": [{
-            "role": "user",
-            "content": [
-                # Big, stable context — cached across calls.
-                {"type": "text", "text": context_text, "cache_control": {"type": "ephemeral"}},
-                # Just the question — fresh each call.
-                {"type": "text", "text": f"\n\n---\n\nQuestion: {question}"},
-            ],
-        }],
+        "messages": messages,
     }
     return client, model_args, wiki_sources, article_sources
 

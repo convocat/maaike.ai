@@ -524,6 +524,11 @@ let ARTICLES = [];     // raw articles / field-notes / seeds
 let drawerFilter = 'all';
 let drawerSearch = '';
 let activeSlug = null;
+// Conversation history: prior user/assistant turns sent with each question so
+// the backend can interpret short follow-ups ("yes", "go on") in context.
+// Capped at the last 10 messages (5 exchanges) to bound payload size.
+let conversation = [];
+const CONVERSATION_MAX = 10;
 
 // ── Drawer ──
 function toggleDrawer() { document.getElementById('drawer').classList.toggle('closed'); }
@@ -896,10 +901,15 @@ async function askQuestion() {
   let firstToken = true;
 
   try {
+    // Snapshot conversation BEFORE appending the current user turn;
+    // that snapshot is the "history" the backend receives.
+    const historyToSend = conversation.slice();
+    conversation.push({ role: 'user', content: q });
+
     const r = await fetch(`${API}/api/ask`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: q }),
+      body: JSON.stringify({ question: q, history: historyToSend }),
       signal: AbortSignal.timeout(60000),
     });
     if (!r.ok || !r.body) {
@@ -949,6 +959,16 @@ async function askQuestion() {
       loadEl.innerHTML = '';
       while (linkedFragment.firstChild) loadEl.appendChild(linkedFragment.firstChild);
       if (sources.length) showSourcesCtx(sources, q);
+
+      // Append the assistant turn to the conversation so follow-ups get context.
+      conversation.push({ role: 'assistant', content: fullText });
+      // Cap length (keep the last N messages)
+      if (conversation.length > CONVERSATION_MAX) {
+        conversation = conversation.slice(-CONVERSATION_MAX);
+      }
+    } else if (errored) {
+      // Roll back the user turn we appended so errors don't poison context.
+      conversation.pop();
     }
   } catch(e) {
     loadEl.className = 'chat-a';
