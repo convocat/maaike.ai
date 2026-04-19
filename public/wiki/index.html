@@ -229,9 +229,171 @@ button, input, textarea { font-family: inherit; }
   #chat-input { font-size: 16px; } /* 16px avoids iOS auto-zoom */
   .chat-hint { display: none; }
 
-  /* Context panel: tighter title */
-  .ctx-title { font-size: 1.3rem; }
-  .ctx-article-title { font-size: 1.1rem; }
+  /* ── Mobile reading layout for Wiki + Article tabs ── */
+  .ctx-pane-body { padding: 1.5rem 1.25rem 2rem; }
+
+  /* Overlines / category labels */
+  .ctx-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .ctx-cat {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Topic title: bold, large, confident */
+  .ctx-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    color: var(--color-heading);
+  }
+  .ctx-type {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Wiki body: reading typography */
+  .wiki-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  .wiki-body p { margin: 0 0 1rem; }
+  .wiki-body > p:first-child {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    color: var(--color-heading);
+    margin-bottom: 1.25rem;
+  }
+  .wiki-body h1, .wiki-body h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin: 1.75rem 0 0.55rem;
+    line-height: 1.25;
+  }
+  .wiki-body h3 {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 1.25rem 0 0.4rem;
+  }
+  .wiki-body ul, .wiki-body ol {
+    padding-left: 1.3rem;
+    margin: 0.4rem 0 1.1rem;
+  }
+  .wiki-body li { margin: 0.35rem 0; line-height: 1.55; }
+  .wiki-body strong { font-weight: 600; color: var(--color-heading); }
+  .wiki-body em { font-style: italic; }
+  .wiki-body code {
+    background: #F2F0EE;
+    padding: 0.08rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  .wiki-body blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 0.2rem 0 0.2rem 0.85rem;
+    margin: 1rem 0;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* Article tab: editorial reading mode */
+  .ctx-article-hdr {
+    display: block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ctx-article-meta {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .ctx-article-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-heading);
+    margin: 0 0 0.6rem;
+  }
+  .ctx-article-sub {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+  .ctx-article-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+  }
+  .ctx-article-body p { margin: 0 0 1.05rem; }
+  .ctx-article-body h1,
+  .ctx-article-body h2 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin: 2rem 0 0.65rem;
+    line-height: 1.2;
+  }
+  .ctx-article-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .ctx-article-body ul,
+  .ctx-article-body ol {
+    padding-left: 1.35rem;
+    margin: 0.45rem 0 1.1rem;
+  }
+  .ctx-article-body li { margin: 0.35rem 0; line-height: 1.6; }
+  .ctx-article-body img {
+    margin: 1.25rem 0;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: auto;
+  }
+  .ctx-article-body blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 0.3rem 0 0.3rem 1rem;
+    margin: 1.25rem 0;
+    color: var(--color-text);
+    font-style: italic;
+  }
+
+  /* "Read on maaike.ai" as a button instead of a faint link */
+  .open-on-site {
+    display: inline-block;
+    margin-top: 1.75rem;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    background: white;
+    color: var(--color-accent);
+  }
+  .open-on-site:hover { background: var(--color-bg-card); text-decoration: none; }
 
   /* Bottom tab bar */
   #bottom-tabs {
@@ -503,8 +665,12 @@ async function showTopic(slug) {
       `;
       return;
     }
-    // Strip the H1 (we show it styled above) — the wiki page starts with "# Title"
-    const body = d.markdown.replace(/^#\s+.+\n/, '').trim();
+    // Strip the H1 title (shown above) and the redundant **Type:** / **First seen:** /
+    // **Last updated:** metadata block (we already show type in the header).
+    const body = d.markdown
+      .replace(/^#\s+.+\n/, '')
+      .replace(/^\s*(?:\*\*(?:Type|First seen|Last updated)\*\*[^\n]*\n)+\s*/m, '')
+      .trim();
     // Render with markdown + linkify wiki-links ([[...]]) and internal refs
     const rendered = renderWikiMarkdown(body);
     w.innerHTML = `
@@ -686,8 +852,9 @@ function linkifyEntities(html) {
       }
       if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
       node.parentNode.replaceChild(frag, node);
-    } else if (node.nodeType === 1 && !['A','CODE','PRE','SCRIPT','STYLE'].includes(node.tagName)) {
-      // walk children (copy list to avoid live collection issues)
+    } else if (node.nodeType === 1 && !['A','CODE','PRE','SCRIPT','STYLE','H1','H2','H3','H4','H5','H6'].includes(node.tagName)) {
+      // walk children (copy list to avoid live collection issues).
+      // Skip headers: no entity links inside H1-H6.
       Array.from(node.childNodes).forEach(walk);
     }
   }
@@ -758,8 +925,9 @@ async function askQuestion() {
             firstToken = false;
           }
           fullText += msg.text;
-          // Show raw text progressively (fast). Final markdown+linkify happens after stream ends.
-          loadEl.textContent = fullText;
+          // Render markdown progressively so layout appears as the answer streams.
+          // Entity-linkification is skipped during streaming (runs once at the end).
+          loadEl.innerHTML = renderMarkdown(fullText);
           history.scrollTop = history.scrollHeight;
         } else if (msg.type === 'sources') {
           sources = msg.sources || [];
