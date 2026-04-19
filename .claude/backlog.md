@@ -8,21 +8,30 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
-## 🟡 Publish wiki chat frontend to maaike.ai
-*added: 2026-04-19*
+## 🔵 Sources ingestion layer + topic wiki
+*2026-04-18*
 
-Backend is deployed and working at `https://maaike-ai.vercel.app/api/*`. Next session: wire the v6 frontend to the deployed API and publish it as part of the garden. Three small steps: (1) add custom domain `wiki.maaike.ai` to the Vercel project and add the CNAME at the domain registrar, (2) change `const API = 'http://localhost:8780'` in wiki-v6.html to the deployed URL, (3) decide where v6 lives in the Astro site (e.g., `src/pages/wiki.astro`) and publish.
+The ingestion pipeline and topic wiki are live but the wiki page design isn't finalized. Three redesign prototypes are in `public/prototypes/` (dashboard, narrative, hub): pick one, adapt it into `src/pages/topics/[topic].astro`. The current topic page works but uses a plain text layout without the mycelium radial or argument map visualizations. Also: `/telegram-sync` now auto-runs `/ingest-source` on new links, but this hasn't been tested end-to-end with a real Telegram sync yet.
 
-Key files:
-- `public/wiki-v6.html` — frontend, still uncommitted, points at localhost
-- `tools/karpathy-wiki/api/index.py` — Vercel entry point (CORS whitelist already includes `https://wiki.maaike.ai`)
-- `tools/karpathy-wiki/tools/serve.py` — local dev server, unchanged
-
-Live backend: `https://maaike-ai.vercel.app` (confirmed working with real data)
-Safety tag: `pre-wiki-session` → commit `721ddce`
+Key files: `src/pages/topics/[topic].astro`, `src/pages/topics/index.astro`, `src/pages/sources.astro`, `.claude/commands/ingest-source.md`, `.claude/commands/telegram-sync.md`, `src/data/triples.json`, `public/prototypes/wiki-redesign-*.html`
 
 **Opening message for next session:**
-> Run `/telegram-sync` first, then: publish the wiki chat frontend. Backend is live at `https://maaike-ai.vercel.app`. Wire up `wiki.maaike.ai` custom domain in Vercel + DNS, update the `API` constant in `public/wiki-v6.html`, and decide where v6 lives in the Astro site so it ships with the next garden deploy.
+> Pick a wiki page redesign (dashboard, narrative, or hub) from `public/prototypes/` and implement it as the real `/topics/[topic].astro` page. Prototypes are at `localhost:4321/prototypes/wiki-redesign-*.html`. Also test `/telegram-sync` end-to-end with a real Telegram link to verify the auto-ingest flow works.
+
+---
+
+## 🟡 Wiki chat: polish items after launch
+*added: 2026-04-19*
+
+Chat is live at maaike.ai/wiki. Four small follow-ups, any order: (1) point the frontend `API` constant at `https://wiki.maaike.ai` instead of `https://maaike-ai.vercel.app` — one-line edit, kills Chrome's lookalike warning for good; (2) decide where the chat gets a nav link on maaike.ai (footer? header?); (3) upgrade in-memory rate limiter to Upstash Redis so it survives Vercel cold starts (free tier, ~2 hrs, rationale in `tools/karpathy-wiki/API.md`); (4) self-host Lora + Roboto in the chat instead of Google Fonts, or add SRI hashes.
+
+Key files:
+- `public/wiki/index.html` — frontend, line with `const API = ...` near the top of the `<script>` block
+- `tools/karpathy-wiki/api/index.py` — current in-memory rate limiter (`_rate_state` + `_check_rate_limit`)
+- `tools/karpathy-wiki/SYSTEM_PROMPT.md` — editable prompt; test on the live chat after each push
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: polish items on the wiki chat. Swap the frontend `API` constant in `public/wiki/index.html` to `https://wiki.maaike.ai`, decide on a nav link to `/wiki` somewhere on maaike.ai, and (if time) upgrade the in-memory rate limiter in `tools/karpathy-wiki/api/index.py` to Upstash Redis.
 
 ---
 
