@@ -8,6 +8,24 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Publish wiki chat frontend to maaike.ai
+*added: 2026-04-19*
+
+Backend is deployed and working at `https://maaike-ai.vercel.app/api/*`. Next session: wire the v6 frontend to the deployed API and publish it as part of the garden. Three small steps: (1) add custom domain `wiki.maaike.ai` to the Vercel project and add the CNAME at the domain registrar, (2) change `const API = 'http://localhost:8780'` in wiki-v6.html to the deployed URL, (3) decide where v6 lives in the Astro site (e.g., `src/pages/wiki.astro`) and publish.
+
+Key files:
+- `public/wiki-v6.html` — frontend, still uncommitted, points at localhost
+- `tools/karpathy-wiki/api/index.py` — Vercel entry point (CORS whitelist already includes `https://wiki.maaike.ai`)
+- `tools/karpathy-wiki/tools/serve.py` — local dev server, unchanged
+
+Live backend: `https://maaike-ai.vercel.app` (confirmed working with real data)
+Safety tag: `pre-wiki-session` → commit `721ddce`
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: publish the wiki chat frontend. Backend is live at `https://maaike-ai.vercel.app`. Wire up `wiki.maaike.ai` custom domain in Vercel + DNS, update the `API` constant in `public/wiki-v6.html`, and decide where v6 lives in the Astro site so it ships with the next garden deploy.
+
+---
+
 ## 🟡 Ingestion architecture: build the Karpathy layer
 *added: 2026-04-14*
 
