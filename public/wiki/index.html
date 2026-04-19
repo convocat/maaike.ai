@@ -215,10 +215,12 @@ button, input, textarea { font-family: inherit; }
   /* The Wiki/Article sub-tabs inside ctx-pane are replaced by the bottom bar on mobile */
   .ctx-tabs { display: none; }
   .ctx-pane-body { padding: 1rem; }
-  body.mobile-tab-wiki #pane-wiki { display: flex !important; }
-  body.mobile-tab-wiki #pane-article { display: none !important; }
-  body.mobile-tab-article #pane-article { display: flex !important; }
-  body.mobile-tab-article #pane-wiki { display: none !important; }
+  /* Panes are block-level so title → body stacks vertically.
+     (display: flex without flex-direction defaults to row, which was the bug.) */
+  body.mobile-tab-wiki #pane-wiki { display: block; }
+  body.mobile-tab-wiki #pane-article { display: none; }
+  body.mobile-tab-article #pane-article { display: block; }
+  body.mobile-tab-article #pane-wiki { display: none; }
 
   /* Chat compressions */
   .chat-hero h1 { font-size: 1.15rem; }
