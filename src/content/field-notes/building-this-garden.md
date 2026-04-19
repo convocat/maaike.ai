@@ -312,15 +312,16 @@ A structural push: faceted classification, topic pages, and a dozen visualizatio
 
 ### 19 April
 
-The day the chat went live: a browser chat that answers questions from Maaike's actual writing, deployed to Vercel.
+A chat over Maaike's garden: shipped to production, then the whole day spent making it actually feel right.
 
-- **Wiki chat v6**: chat-primary layout, tabbed right pane (Wiki concepts + full Article view), slide-away topic drawer
+- **Wiki chat live** at `maaike.ai/wiki` with backend on Vercel (`wiki.maaike.ai`); chat-primary layout, tabbed right pane (Wiki concepts + full Article view), slide-away topic drawer
 - **Real content**: answers draw on 99 wiki concepts plus 90 articles, field notes, and seeds; cites actual article titles with clickable links back to maaike.ai
-- **Markdown + entity links**: answers render as structured markdown; concept and article mentions become inline links (concepts open the Wiki tab, articles open in the Article tab)
-- **Structured responses**: system prompt rewritten for paragraphs, headers, epistemic humility, and a closing "Further reading" or "Question worth sitting with" section
-- **Vercel deploy**: Python serverless function at `https://maaike-ai.vercel.app/api/*`, CORS whitelist, 500-char input cap, read-only routes only
-- **Key rotation**: old Anthropic key revoked, new key lives in Vercel env vars (never in git or frontend)
-- **Directory move**: `karpathy-wiki` relocated into `Digital-Garden/tools/` so it deploys cleanly
+- **Streaming + prompt caching**: first words appear in ~1 s (was 3-5 s), follow-up calls within 5 min are ~10× cheaper on input tokens; markdown renders progressively as tokens arrive
+- **Conversation history**: short follow-ups like "yes" or "go on" now get interpreted against the prior turn instead of in a vacuum
+- **Editable system prompt**: extracted to `tools/karpathy-wiki/SYSTEM_PROMPT.md`, rewritten from "research assistant" to "interlocutor" with turn-taking, length calibration, warmer tone, and a role-override defense
+- **Mobile**: bottom tab bar (Chat / Wiki / Article), drawer as overlay, reading typography for Wiki and Article tabs
+- **Security**: per-IP rate limit (in-memory), hashed-IP usage logging, Vercel preview deployments walled, Anthropic account-level spend cap
+- **Docs**: `ARCHITECTURE.md` + `API.md` alongside the code; safety tag `pre-wiki-session` on commit `721ddce`
 
 ## Related
 
