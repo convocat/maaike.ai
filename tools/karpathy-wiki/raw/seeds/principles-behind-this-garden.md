@@ -1,0 +1,20 @@
+---
+title: Principles behind this garden
+date: 2026-03-10
+updated: 2026-03-15
+maturity: draft
+tags:
+  - digital-gardens
+  - philosophy
+description: What design principles shaped this site — and why do they matter?
+draft: false
+ai: generated
+---
+
+This garden wasn't built randomly. There are principles underneath: thinking in public, embracing imperfection, connecting ideas over time, making room for growth. I want to articulate these explicitly, building on [[a-digital-garden-as-central-space|the origin story]] — not as rules, but as a living set of beliefs about how knowledge grows when you tend to it openly.
+
+## Related
+
+- [[thinking-in-public|Thinking in Public]]
+- [[digital-garden-history|The History of Digital Gardens]]
+- [[digital-gardens-vs-blogs|Digital Gardens vs Blogs]]
