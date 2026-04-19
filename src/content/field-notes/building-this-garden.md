@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-14
+updated: 2026-04-19
 maturity: solid
 tags:
   - about
@@ -298,6 +298,29 @@ A deployment safety net, a data fix, and a new article on where conversation des
 - **Weekly health check**: new GitHub Actions workflow runs every Monday, builds the full site, and sends an email notification on failure
 - **Triples format fix**: pipe-separated triples in "A digital garden as central space" converted to array format
 - **Article published**: "LLMOps analyst: conversation designer's next career step" -- on conversation designers evolving into LLMOps architects, with full TAO tagging
+
+### 18 April
+
+A structural push: faceted classification, topic pages, and a dozen visualization prototypes.
+
+- **Faceted classification**: every topic now tagged across 9 entity types, 5 domains, 4 argumentative roles
+- **Topic pages** (`/topics/`): sidebar grouped by domain, topic detail with named relations and connected topics
+- **Visualization prototypes**: 12 in `public/prototypes/` -- argument map, river diagram, periodic table, mycelium variants
+- **Wiki redesign prototypes**: three takes (dashboard, narrative, hub) in `public/`
+- **Sources page**: simplified to external-only
+- **Graph page**: "Browse as wiki" link added
+
+### 19 April
+
+The day the chat went live: a browser chat that answers questions from Maaike's actual writing, deployed to Vercel.
+
+- **Wiki chat v6**: chat-primary layout, tabbed right pane (Wiki concepts + full Article view), slide-away topic drawer
+- **Real content**: answers draw on 99 wiki concepts plus 90 articles, field notes, and seeds; cites actual article titles with clickable links back to maaike.ai
+- **Markdown + entity links**: answers render as structured markdown; concept and article mentions become inline links (concepts open the Wiki tab, articles open in the Article tab)
+- **Structured responses**: system prompt rewritten for paragraphs, headers, epistemic humility, and a closing "Further reading" or "Question worth sitting with" section
+- **Vercel deploy**: Python serverless function at `https://maaike-ai.vercel.app/api/*`, CORS whitelist, 500-char input cap, read-only routes only
+- **Key rotation**: old Anthropic key revoked, new key lives in Vercel env vars (never in git or frontend)
+- **Directory move**: `karpathy-wiki` relocated into `Digital-Garden/tools/` so it deploys cleanly
 
 ## Related
 
