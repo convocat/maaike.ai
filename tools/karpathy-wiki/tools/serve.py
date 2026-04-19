@@ -858,103 +858,175 @@ def handle_topics_api():
     return json.dumps({"topics": topics, "articles": articles})
 
 
-def handle_ask_api(body):
-    try:
-        import anthropic
-        data = json.loads(body)
-        question = data.get("question", "").strip()
-        api_key = data.get("key", "").strip() or None
-        if not question:
-            return json.dumps({"error": "No question provided"})
+_ASK_SYSTEM_PROMPT = (
+    "You are a research assistant helping a reader explore Maaike Groenewege's body of work "
+    "on conversation design, generative AI, language, thinking, and technology. "
+    "You have access to wiki concept summaries AND excerpts from Maaike's actual articles, field notes, and seeds. "
+    "When the question is addressed directly in her writing, cite her work: articles by their EXACT title, "
+    "concepts by their exact name.\n\n"
+    "## How to format responses\n"
+    "Use markdown. One idea per paragraph; separate paragraphs with a blank line. "
+    "For multi-part answers, use `##` subheadings to give structure. "
+    "Use **bold** for key terms, bulleted lists (`- `) for enumerations. "
+    "Quote article titles verbatim so they can be linked.\n\n"
+    "## Epistemic stance\n"
+    "Be precise about what is explicitly in her work versus what you are inferring. "
+    "If the source material is thin on a topic, say so — do not stretch to fill gaps or invent positions she hasn't taken. "
+    "Distinguish Maaike's framing (often sharper or more specific than common usage) from generic framings of the same term. "
+    "Where an interpretation is genuinely open, name the ambiguity instead of forcing resolution. "
+    "Acknowledge when two of her pieces are in tension rather than flattening them.\n\n"
+    "## Closing\n"
+    "Always end with ONE of the following sections — pick whichever fits the answer better, never both:\n"
+    "- **Further reading** — 2–3 related articles, concepts, or thinkers from her wiki that build on or complicate the answer.\n"
+    "- **Question worth sitting with** — one open question her work invites but does not fully resolve.\n"
+)
 
-        pages = get_all_pages()
-        context_parts = []
-        wiki_sources = []
-        article_sources = []
 
-        # Wiki pages: concise concept/person summaries
-        for section, items in pages.items():
-            for item in items:
-                text = item["path"].read_text(encoding="utf-8", errors="ignore")
-                summary_m = re.search(r'## Summary\n(.+?)(?=\n##|\Z)', text, re.DOTALL)
-                how_m = re.search(r'## How Maaike.+?\n(.+?)(?=\n##|\Z)', text, re.DOTALL)
-                snippet = f"### WIKI {item['title']} ({section})\n"
-                if summary_m:
-                    snippet += summary_m.group(1).strip()[:280] + "\n"
-                if how_m:
-                    snippet += how_m.group(1).strip()[:180] + "\n"
-                context_parts.append(snippet)
-                wiki_sources.append({
-                    "title": item["title"],
-                    "href": f"/{section}/{item['slug']}",
-                    "section": section,
-                    "kind": "wiki",
-                })
+def _build_ask_request(body):
+    """Parse body, load content, build the Anthropic request.
 
-        # Raw articles: Maaike's own writing in her own words
-        articles = _load_raw_articles()
-        for a in articles:
-            snippet = f"### ARTICLE \"{a['title']}\" ({a['section']}, {a['date']})\n"
-            if a["desc"]:
-                snippet += f"Description: {a['desc']}\n"
-            snippet += a["snippet"] + "\n"
+    Returns (client, model_args, wiki_sources, article_sources) or raises.
+    The large context is marked cache_control=ephemeral so Anthropic caches
+    it across calls (first hit pays full cost, subsequent hits are ~10x cheaper
+    and faster). Only the question varies between calls.
+    """
+    import anthropic
+    data = json.loads(body)
+    question = data.get("question", "").strip()
+    api_key = data.get("key", "").strip() or None
+    if not question:
+        raise ValueError("No question provided")
+
+    pages = get_all_pages()
+    context_parts = []
+    wiki_sources = []
+    article_sources = []
+
+    for section, items in pages.items():
+        for item in items:
+            text = item["path"].read_text(encoding="utf-8", errors="ignore")
+            summary_m = re.search(r'## Summary\n(.+?)(?=\n##|\Z)', text, re.DOTALL)
+            how_m = re.search(r'## How Maaike.+?\n(.+?)(?=\n##|\Z)', text, re.DOTALL)
+            snippet = f"### WIKI {item['title']} ({section})\n"
+            if summary_m:
+                snippet += summary_m.group(1).strip()[:280] + "\n"
+            if how_m:
+                snippet += how_m.group(1).strip()[:180] + "\n"
             context_parts.append(snippet)
-            article_sources.append({
-                "title": a["title"],
-                "href": a["href"],
-                "url": a["url"],
-                "section": a["section"],
-                "date": a["date"],
-                "kind": "article",
+            wiki_sources.append({
+                "title": item["title"],
+                "href": f"/{section}/{item['slug']}",
+                "section": section,
+                "kind": "wiki",
             })
 
-        system = (
-            "You are a research assistant helping a reader explore Maaike Groenewege's body of work "
-            "on conversation design, generative AI, language, thinking, and technology. "
-            "You have access to wiki concept summaries AND excerpts from Maaike's actual articles, field notes, and seeds. "
-            "When the question is addressed directly in her writing, cite her work: articles by their EXACT title, "
-            "concepts by their exact name.\n\n"
-            "## How to format responses\n"
-            "Use markdown. One idea per paragraph; separate paragraphs with a blank line. "
-            "For multi-part answers, use `##` subheadings to give structure. "
-            "Use **bold** for key terms, bulleted lists (`- `) for enumerations. "
-            "Quote article titles verbatim so they can be linked.\n\n"
-            "## Epistemic stance\n"
-            "Be precise about what is explicitly in her work versus what you are inferring. "
-            "If the source material is thin on a topic, say so — do not stretch to fill gaps or invent positions she hasn't taken. "
-            "Distinguish Maaike's framing (often sharper or more specific than common usage) from generic framings of the same term. "
-            "Where an interpretation is genuinely open, name the ambiguity instead of forcing resolution. "
-            "Acknowledge when two of her pieces are in tension rather than flattening them.\n\n"
-            "## Closing\n"
-            "Always end with ONE of the following sections — pick whichever fits the answer better, never both:\n"
-            "- **Further reading** — 2–3 related articles, concepts, or thinkers from her wiki that build on or complicate the answer.\n"
-            "- **Question worth sitting with** — one open question her work invites but does not fully resolve.\n"
-        )
+    articles = _load_raw_articles()
+    for a in articles:
+        snippet = f"### ARTICLE \"{a['title']}\" ({a['section']}, {a['date']})\n"
+        if a["desc"]:
+            snippet += f"Description: {a['desc']}\n"
+        snippet += a["snippet"] + "\n"
+        context_parts.append(snippet)
+        article_sources.append({
+            "title": a["title"],
+            "href": a["href"],
+            "url": a["url"],
+            "section": a["section"],
+            "date": a["date"],
+            "kind": "article",
+        })
 
-        client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
-        message = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=1024,
-            system=system,
-            messages=[{
-                "role": "user",
-                "content": f"Context:\n\n{chr(10).join(context_parts)}\n\n---\n\nQuestion: {question}"
-            }]
-        )
-        answer = message.content[0].text
+    context_text = "Context:\n\n" + "\n".join(context_parts)
+    client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
 
-        # Pick sources the answer actually mentions (by title substring); prefer articles
-        answer_lower = answer.lower()
-        matched_articles = [s for s in article_sources if s["title"].lower() in answer_lower]
-        matched_wiki = [s for s in wiki_sources if s["title"].lower() in answer_lower]
-        # If the answer mentions nothing explicitly, fall back to the first few articles
-        sources = matched_articles + matched_wiki
-        if not sources:
-            sources = article_sources[:6]
-        return json.dumps({"answer": answer, "sources": sources[:10]})
+    model_args = {
+        "model": "claude-sonnet-4-6",
+        "max_tokens": 1024,
+        "system": _ASK_SYSTEM_PROMPT,
+        "messages": [{
+            "role": "user",
+            "content": [
+                # Big, stable context — cached across calls.
+                {"type": "text", "text": context_text, "cache_control": {"type": "ephemeral"}},
+                # Just the question — fresh each call.
+                {"type": "text", "text": f"\n\n---\n\nQuestion: {question}"},
+            ],
+        }],
+    }
+    return client, model_args, wiki_sources, article_sources
 
-    except Exception as e:
-        return json.dumps({"error": str(e)})
+
+def _pick_sources(answer_text, wiki_sources, article_sources):
+    """Return a prioritized source list: articles mentioned first, then wiki concepts,
+    then fall back to the first few articles if the answer cites nothing."""
+    answer_lower = answer_text.lower()
+    matched_articles = [s for s in article_sources if s["title"].lower() in answer_lower]
+    matched_wiki = [s for s in wiki_sources if s["title"].lower() in answer_lower]
+    sources = matched_articles + matched_wiki
+    if not sources:
+        sources = article_sources[:6]
+    return sources[:10]
+
+
+def handle_ask_api_stream(body, writer):
+    """Stream the Anthropic response to `writer` as JSON-lines.
+
+    writer(chunk_str) is called with each line ending in '\\n'. Emits:
+      {"type":"token","text":"..."}   one per streamed chunk
+      {"type":"sources","sources":[]} once after the stream completes
+      {"type":"done"}                 terminator
+      {"type":"error","error":"..."}  on failure
+    """
+    try:
+        client, model_args, wiki_sources, article_sources = _build_ask_request(body)
+    except ValueError as e:
+        writer(json.dumps({"type": "error", "error": str(e)}) + "\n")
+        return
+    except Exception:
+        writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+        return
+
+    try:
+        full_text_parts = []
+        with client.messages.stream(**model_args) as stream:
+            for text in stream.text_stream:
+                full_text_parts.append(text)
+                writer(json.dumps({"type": "token", "text": text}) + "\n")
+        full_text = "".join(full_text_parts)
+        sources = _pick_sources(full_text, wiki_sources, article_sources)
+        writer(json.dumps({"type": "sources", "sources": sources}) + "\n")
+        writer(json.dumps({"type": "done"}) + "\n")
+    except Exception:
+        writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+
+
+def handle_ask_api(body):
+    """Non-streaming wrapper — buffers the stream and returns a single JSON."""
+    chunks = []
+    def _buffer_writer(c):
+        chunks.append(c)
+    handle_ask_api_stream(body, _buffer_writer)
+
+    answer_parts = []
+    sources = []
+    error = None
+    for line in "".join(chunks).split("\n"):
+        if not line:
+            continue
+        try:
+            msg = json.loads(line)
+        except Exception:
+            continue
+        kind = msg.get("type")
+        if kind == "token":
+            answer_parts.append(msg.get("text", ""))
+        elif kind == "sources":
+            sources = msg.get("sources", [])
+        elif kind == "error":
+            error = msg.get("error", "unknown")
+    if error:
+        return json.dumps({"error": error})
+    return json.dumps({"answer": "".join(answer_parts), "sources": sources})
 
 
 # ── Review: proposals ────────────────────────────────────────────────────────
@@ -1497,8 +1569,28 @@ class WikiHandler(http.server.BaseHTTPRequestHandler):
         body = self.rfile.read(length)
 
         if path == "/api/ask":
-            result = handle_ask_api(body)
-        elif path == "/api/apply":
+            # Streaming response: JSON-lines as tokens arrive from Anthropic.
+            self.send_response(200)
+            self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+            self.send_header("Cache-Control", "no-cache, no-transform")
+            self.send_header("X-Accel-Buffering", "no")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+
+            def write(chunk):
+                try:
+                    self.wfile.write(chunk.encode("utf-8"))
+                    self.wfile.flush()
+                except (BrokenPipeError, ConnectionResetError):
+                    pass
+
+            try:
+                handle_ask_api_stream(body, write)
+            except Exception:
+                write(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+            return
+
+        if path == "/api/apply":
             result = handle_apply_api(body)
         else:
             self.send_response(404)

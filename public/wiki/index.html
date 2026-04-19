@@ -570,24 +570,66 @@ async function askQuestion() {
 
   const btn = document.getElementById('chat-send');
   btn.disabled = true;
+
+  // Streaming: consume JSON-lines from the server, append tokens as they arrive.
+  let fullText = '';
+  let sources = [];
+  let errored = false;
+  let firstToken = true;
+
   try {
     const r = await fetch(`${API}/api/ask`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: q }), signal: AbortSignal.timeout(45000)
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q }),
+      signal: AbortSignal.timeout(60000),
     });
-    const d = await r.json();
-    loadEl.className = 'chat-a';
-    if (d.error) {
-      loadEl.textContent = '';
-      loadEl.innerHTML = `<em style="color:#c00">${escapeHtml(d.error)}</em>`;
-    } else {
-      // Render markdown, then linkify entities
-      const mdHtml = renderMarkdown(d.answer);
+    if (!r.ok || !r.body) {
+      throw new Error(`HTTP ${r.status}`);
+    }
+
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();  // keep incomplete line for next chunk
+      for (const line of lines) {
+        if (!line) continue;
+        let msg;
+        try { msg = JSON.parse(line); } catch { continue; }
+        if (msg.type === 'token') {
+          if (firstToken) {
+            loadEl.className = 'chat-a';
+            loadEl.innerHTML = '';
+            firstToken = false;
+          }
+          fullText += msg.text;
+          // Show raw text progressively (fast). Final markdown+linkify happens after stream ends.
+          loadEl.textContent = fullText;
+          history.scrollTop = history.scrollHeight;
+        } else if (msg.type === 'sources') {
+          sources = msg.sources || [];
+        } else if (msg.type === 'error') {
+          errored = true;
+          loadEl.className = 'chat-a';
+          loadEl.innerHTML = `<em style="color:#c00">${escapeHtml(msg.error || 'backend error')}</em>`;
+        }
+        // msg.type === 'done' — nothing to do, loop will exit on reader close
+      }
+    }
+
+    if (!errored && fullText) {
+      // Stream done: apply markdown rendering + entity linkification to the final text.
+      const mdHtml = renderMarkdown(fullText);
       const linkedFragment = linkifyEntities(mdHtml);
       loadEl.innerHTML = '';
       while (linkedFragment.firstChild) loadEl.appendChild(linkedFragment.firstChild);
-      // Show sources in the top ctx pane too (so the user sees both answer-linked AND source-list)
-      if (d.sources?.length) showSourcesCtx(d.sources, q);
+      if (sources.length) showSourcesCtx(sources, q);
     }
   } catch(e) {
     loadEl.className = 'chat-a';

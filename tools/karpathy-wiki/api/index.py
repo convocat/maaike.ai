@@ -111,12 +111,27 @@ class handler(BaseHTTPRequestHandler):
 
             # Strip any client-supplied `key` — in public mode only the server's env var is trusted.
             sanitized = json.dumps({"question": question}).encode("utf-8")
+
+            # Stream: headers first, then token-by-token JSON-lines.
+            self.send_response(200)
+            self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+            self.send_header("Cache-Control", "no-cache, no-transform")
+            self.send_header("X-Accel-Buffering", "no")  # hint to any buffering proxy
+            self._send_cors()
+            self.end_headers()
+
+            def write(chunk):
+                try:
+                    self.wfile.write(chunk.encode("utf-8"))
+                    self.wfile.flush()
+                except (BrokenPipeError, ConnectionResetError):
+                    pass  # client disconnected
+
             try:
-                answer_json = serve.handle_ask_api(sanitized)
-                return self._send_json(200, answer_json)
-            except Exception as e:
-                # Don't leak internals
-                return self._send_json(500, json.dumps({"error": "backend error"}))
+                serve.handle_ask_api_stream(sanitized, write)
+            except Exception:
+                write(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+            return
 
         return self._send_json(404, json.dumps({"error": "not found"}))
 
