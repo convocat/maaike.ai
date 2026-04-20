@@ -1,6 +1,5 @@
 {
   "_note": "Per-post thematic summaries from TAO analysis. Each entry is a list of theme statements — concise, opinionated one-liners about what the post argues. These also live in each post's frontmatter as 'themes:'.",
-
   "is-conversation-still-a-useful-metaphor": [
     "Conversation metaphor as increasingly inadequate for GenAI",
     "Anthropomorphism as a structural side effect of conversation design",
@@ -36,5 +35,34 @@
     "Dialectical thinking as the antidote to epistemic bias",
     "The distinction between opinion, conviction, argument, and rhetoric",
     "LLMs reinforce rather than correct our tendency to avoid dialectical challenge"
+  ],
+  "a-digital-garden-as-central-space": [
+    "The early web enabled a kind of personal expression that the algorithm era has taken away",
+    "Non-linear thinking needs a non-linear writing environment — not a blog, not a social feed",
+    "A digital garden is the right infrastructure for how my mind actually works",
+    "Serendipity is an organising principle, not a side effect",
+    "Writing as craft requires a space that doesn't talk back and doesn't distract",
+    "AI has a legitimate role in the garden, but only as assistant — never as author"
+  ],
+  "chatgpt-presentation-prep": [
+    "The value of AI as a feedback loop lies not in the quality of its output but in the quality of articulation it provokes from the user.",
+    "Procrastination and presentation anxiety are often articulation problems, not motivation problems — and that reframes what a useful tool looks like.",
+    "Voice-mode AI works because it removes the pressure of judgment while preserving the benefit of an audience, a combination humans rarely offer.",
+    "Iterative spoken rehearsal with transcription is a legitimate structured methodology, even when the AI's analytical feedback is mediocre.",
+    "Fitting a tool to a cognitive style is more powerful than forcing a cognitive style to fit a tool."
+  ],
+  "7-new-skills-for-conversation-designers-2022": [
+    "The content/code boundary is a false constraint: conversation designers who learn NLU and Python become fundamentally more capable, not just more versatile.",
+    "Entities, not intents, are the underexploited building block of robust conversational systems — a systematic entity model is the conversation designer's equivalent of an information architecture.",
+    "Knowledge graphs represent the logical ceiling of entity thinking: they transform a conversational interface from a command-and-response tool into a navigable semantic universe.",
+    "Conversational AI sits uncomfortably between IT and content, and that organisational ambiguity is itself a design problem that practitioners must learn to solve.",
+    "Skill expansion for conversation designers in 2022 is not about chasing trends but about closing the gap between what language professionals know and what the technology now demands."
+  ],
+  "air-canadas-bot-mishap-pre-dates-chatgpt": [
+    "The Air Canada chatbot story is routinely misread as an LLM failure, when it was actually a mundane content governance failure that predates generative AI entirely.",
+    "Content siloes are the real enemy of reliable conversational AI — not model capability or hallucination.",
+    "Single sourcing — write once, configure for many — is the structural solution to cross-channel content inconsistency, whether your bot is NLU-based or LLM-based.",
+    "Content should be treated as structured, granular, metadated data rather than freeform prose, to enable omnichannel consistency.",
+    "The tooling problem in conversational AI is not just about the model; it's about dashboards that expose content component relationships, channel dependencies, and release provenance."
   ]
 }

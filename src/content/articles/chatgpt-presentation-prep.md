@@ -4,10 +4,23 @@ date: 2024-02-04
 maturity: complete
 tags:
   - prompt-design
+  - chatgpt
+  - generative-ai-design
+  - non-linear-thinking
+  - cognition
+  - prompting
 description: Stress-free preparation...could it really work?
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
+triples:
+  - ["Articulation barrier", "caused-by", "Non-linear thinking"]
+  - ["AI feedback loop", "leads-to", "Iterative refinement"]
+  - ["ChatGPT voice mode", "lacks", "High-quality analytical feedback"]
+  - ["Presentation preparation", "inaccessible-via", "Desk-based writing"]
+  - ["Voice mode", "demonstrates", "AI feedback loop"]
+  - ["Procrastination", "characterised-as", "Articulation barrier"]
 ---
+
 
 OK, I'm pretty skeptical when it comes to using generative AI (I believe that's quite a healthy attitude when you work with the technology on a daily basis, and possibly also a result of that same activity), but there's one use case where ChatGPT not only saves me time, but a lot of stress and frustration. And that's when I need to prepare a presentation.
 

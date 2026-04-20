@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truth and verification in the wiki Q&A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:      #D6006C;
+  --accent-h:    #B0005A;
+  --teal:        #0D7C66;
+  --bg:          #FCFCFB;
+  --card:        #FAFAFA;
+  --text:        #1A1A1A;
+  --muted:       #6B6B6B;
+  --heading:     #111111;
+  --border:      #E5E5E5;
+  --tag-bg:      #F5E6F0;
+  --tag-text:    #5A2D4A;
+  --font-h:      'Lora', Georgia, serif;
+  --font-b:      'Roboto', -apple-system, sans-serif;
+  --font-m:      'JetBrains Mono', monospace;
+  --r:           0.5rem;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-b); background: var(--bg); color: var(--text);
+  line-height: 1.75; font-size: 1rem; font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────── */
+.page {
+  max-width: 760px; margin: 0 auto;
+  padding: 3.5rem 2rem 6rem;
+}
+.top {
+  font-size: 0.72rem; color: var(--muted);
+  font-family: var(--font-m); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 0.6rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.top a { color: var(--accent); text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+h1 {
+  font-family: var(--font-h); font-weight: 700;
+  font-size: 2.1rem; line-height: 1.2; color: var(--heading);
+  margin-bottom: 0.6rem; letter-spacing: -0.01em;
+}
+.subtitle {
+  font-size: 1.02rem; color: var(--muted); line-height: 1.6;
+  margin-bottom: 2.5rem; font-style: italic;
+  padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
+}
+h2 {
+  font-family: var(--font-h); font-weight: 600;
+  font-size: 1.5rem; line-height: 1.3; color: var(--heading);
+  margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.005em;
+  padding-bottom: 0.35rem; border-bottom: 2px solid var(--accent);
+}
+h2 .num {
+  color: var(--accent); font-weight: 700; font-family: var(--font-m);
+  font-size: 1.05rem; margin-right: 0.5rem; vertical-align: 0.15em;
+}
+h3 {
+  font-family: var(--font-h); font-weight: 600;
+  font-size: 1.12rem; color: var(--heading);
+  margin-top: 1.75rem; margin-bottom: 0.55rem;
+}
+h3 .tag {
+  display: inline-block; font-family: var(--font-m); font-weight: 500;
+  font-size: 0.7rem; background: var(--tag-bg); color: var(--tag-text);
+  padding: 0.12rem 0.55rem; border-radius: 1rem;
+  vertical-align: 0.2em; margin-left: 0.5rem; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+p { margin-bottom: 1rem; }
+p + p { margin-top: 0.3rem; }
+
+/* ── Inline ─────────────────────────────────────────────────────────── */
+strong { color: var(--heading); font-weight: 600; }
+em { font-style: italic; color: var(--text); }
+code {
+  font-family: var(--font-m); font-size: 0.86em;
+  background: var(--tag-bg); color: var(--tag-text);
+  padding: 0.12rem 0.4rem; border-radius: 0.25rem;
+}
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+a:hover { border-bottom-color: var(--accent); }
+
+/* ── Lists ──────────────────────────────────────────────────────────── */
+ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.35rem; padding-left: 0.2rem; }
+li::marker { color: var(--accent); }
+
+/* ── Tables ─────────────────────────────────────────────────────────── */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 1.25rem 0; font-size: 0.93rem;
+  background: var(--card); border-radius: var(--r); overflow: hidden;
+  border: 1px solid var(--border);
+}
+th, td {
+  text-align: left; padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+th {
+  background: #F3F3F0;
+  font-weight: 600; font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--muted);
+}
+tr:last-child td { border-bottom: none; }
+td code { font-size: 0.8em; }
+
+/* ── Blockquote ─────────────────────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  padding: 0.85rem 1.2rem;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: var(--text);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+
+/* ── Preformatted diagrams ──────────────────────────────────────────── */
+pre {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1rem 1.25rem;
+  overflow-x: auto; margin: 1.5rem 0;
+  font-family: var(--font-m); font-size: 0.82rem;
+  line-height: 1.55; color: var(--text);
+}
+pre code {
+  background: transparent; color: inherit; padding: 0;
+  font-size: inherit;
+}
+
+/* ── Callout (summary) ──────────────────────────────────────────────── */
+.callout {
+  background: #fff0f6; border: 1px solid #f4b3d0;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--r); padding: 1.1rem 1.25rem;
+  margin: 2rem 0 0; font-size: 1.03rem; font-family: var(--font-h);
+  color: var(--heading); line-height: 1.55; font-style: italic;
+}
+.callout strong { font-style: normal; color: var(--accent); }
+
+/* ── Bucket cards ───────────────────────────────────────────────────── */
+.buckets {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem; margin: 1rem 0 1.5rem;
+}
+.bucket {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 0.85rem 1rem;
+  border-top: 3px solid var(--border);
+}
+.bucket.verified   { border-top-color: #2e7d32; }
+.bucket.inferred   { border-top-color: #f57f17; }
+.bucket.unverified { border-top-color: #c62828; }
+.bucket .bname {
+  font-family: var(--font-m); font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.bucket.verified .bname   { color: #2e7d32; }
+.bucket.inferred .bname   { color: #f57f17; }
+.bucket.unverified .bname { color: #c62828; }
+.bucket .bdesc {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-top: 0.3rem;
+}
+
+/* ── TOC sidebar ────────────────────────────────────────────────────── */
+@media (min-width: 1100px) {
+  .toc {
+    position: fixed; top: 3.5rem; right: 2rem; width: 200px;
+    font-size: 0.77rem; padding: 0.75rem 0;
+  }
+  .toc-label {
+    font-family: var(--font-m); font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin-bottom: 0.5rem; font-weight: 600;
+  }
+  .toc a {
+    display: block; padding: 0.25rem 0; color: var(--muted);
+    border-bottom: none; line-height: 1.4;
+  }
+  .toc a:hover { color: var(--accent); }
+}
+@media (max-width: 1099px) { .toc { display: none; } }
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--muted);
+  display: flex; justify-content: space-between;
+}
+
+/* ── Print ──────────────────────────────────────────────────────────── */
+@media print {
+  .toc, .top a { display: none; }
+  body { font-size: 10.5pt; }
+  h2 { page-break-after: avoid; }
+  pre, table, .callout, .buckets { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <div class="toc-label">On this page</div>
+  <a href="#problem">1 · The problem</a>
+  <a href="#built">2 · What was built</a>
+  <a href="#flow">3 · How they fit</a>
+  <a href="#use">4 · How to use</a>
+  <a href="#gaps">5 · Remaining gaps</a>
+  <a href="#summary">6 · Summary</a>
+</nav>
+
+<div class="page">
+
+<div class="top">
+  <span>Wiki Q&amp;A · Architecture report</span>
+  <span><a href="eval.html">← back to eval dashboard</a></span>
+</div>
+
+<h1>Truth and verification in the wiki Q&amp;A</h1>
+<p class="subtitle">How the system distinguishes grounded answers from hallucinations — what was built, how it works, and what still isn't prevented.</p>
+
+<h2 id="problem"><span class="num">1</span>The problem</h2>
+<p>When a user asks the wiki a question, the server retrieves articles from Maaike's garden and sends them to Claude, which synthesises an answer. The natural question is: <strong>how do we know the answer is true?</strong></p>
+<p>The honest answer used to be <em>we don't</em>. Three soft layers were all that stood between the user and hallucination:</p>
+<ol>
+  <li><strong>Retrieval</strong> — hopefully pulled the right articles, so Claude had material to draw from.</li>
+  <li><strong>System prompt</strong> — told Claude to stick to the sources and refuse if it didn't know.</li>
+  <li><strong>Source attribution</strong> — listed the retrieved articles, not the ones the answer actually used.</li>
+</ol>
+<p>Each layer can fail silently. Claude can invent content and cite any article; the UI doesn't know the difference. For Maaike's garden — where the whole point is <em>"this is what Maaike says"</em> — confabulation is the single worst failure mode.</p>
+
+<h2 id="built"><span class="num">2</span>What was built</h2>
+<p>Three additions. Two prevent or flag hallucination at runtime. One evaluates the whole system offline.</p>
+
+<h3>Defense A — Refuse when retrieval is weak <span class="tag">Prevention</span></h3>
+<p><code>tools/karpathy-wiki/tools/serve.py</code> → <code>_build_ask_request</code></p>
+<p>Before Claude is even called, the server checks the retrieval result. If <strong>zero topics matched</strong>, <strong>zero articles were retrieved</strong>, and <strong>zero themes hit any keywords</strong>, the server returns a canned refusal without making an API call:</p>
+<blockquote>I don't have material on this in Maaike's garden. The knowledge graph didn't surface any relevant articles…</blockquote>
+<p>This catches the worst hallucination mode: Claude free-styling on its training data when Maaike's corpus has nothing relevant. Cost: zero tokens, zero latency penalty. Visible in the dashboard as a green <strong>"Defense A: retrieval refused"</strong> banner above the evaluation panel.</p>
+<p>The threshold is intentionally conservative — it only fires when the graph is completely empty. If <em>any</em> theme keyword matched, the LLM still gets called. This avoids over-refusal on plausible questions where retrieval is partial.</p>
+
+<h3>Defense B — Verify claims after the answer <span class="tag">Detection</span></h3>
+<p><code>serve.py</code> → <code>/api/verify</code>, <code>handle_verify_api</code> · <code>eval.html</code> → Verify button, render panel</p>
+<p>After an answer is produced, a second Claude call (the "judge") reads the original source articles and classifies every factual claim in the answer into one of three buckets:</p>
+
+<div class="buckets">
+  <div class="bucket verified">
+    <div class="bname">Verified</div>
+    <div class="bdesc">Directly supported by source material, with a supporting quote.</div>
+  </div>
+  <div class="bucket inferred">
+    <div class="bname">Inferred</div>
+    <div class="bdesc">Reasonable inference from sources, not explicit.</div>
+  </div>
+  <div class="bucket unverified">
+    <div class="bname">Unverified</div>
+    <div class="bdesc">No basis in sources — possible hallucination.</div>
+  </div>
+</div>
+
+<p>Output is structured JSON with an overall verdict: <code>grounded</code> (≥80% verified), <code>mixed</code>, or <code>hallucinating</code>.</p>
+<p>The dashboard shows a compact summary (counts per bucket + verdict badge) followed by every claim, colour-coded, with its supporting quote when available.</p>
+<p><strong>This doesn't suppress the answer</strong> — the user still sees everything — but it makes hallucination visible per-claim. Transparency over suppression.</p>
+
+<h3>Phase 1 — LLM-as-judge evaluation <span class="tag">Measurement</span></h3>
+<p><code>eval.html</code> → Verify all button, Report aggregation</p>
+<p>Verification isn't only for individual answers. A <strong>Verify all</strong> button runs the judge across every question in the golden test set. The report view then aggregates:</p>
+<ul>
+  <li>Verified claim rate across the corpus</li>
+  <li>Unverified claim rate (the actual hallucination metric)</li>
+  <li>Per-category breakdown (relevant / ambiguous / adversarial)</li>
+  <li>Specific unverified claims, so failures are inspectable</li>
+</ul>
+<p>This turns the 55-question test set from "vibes" into a real quality metric that drifts measurably when the system changes.</p>
+
+<h2 id="flow"><span class="num">3</span>How the three work together</h2>
+<pre>User question
+      │
+      ▼
+┌─────────────────────────────────┐
+│   Retrieval (graph + themes)    │
+└──────────┬──────────────────────┘
+           │
+           ▼
+   ┌───────────────┐  nothing matched  ┌──────────────────┐
+   │   Defense A   │ ────────────────▶ │  Canned refusal  │
+   │ check strength│                   │  (no LLM call)   │
+   └───────┬───────┘                   └──────────────────┘
+           │ retrieval OK
+           ▼
+┌─────────────────────────────────┐
+│   Claude generates answer       │
+│   streamed to user              │
+└──────────┬──────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────┐
+│   Defense B — judge pass        │
+│   classifies every claim        │
+│   (verified/inferred/unverified)│
+└──────────┬──────────────────────┘
+           │
+           ▼
+User sees answer + per-claim grounding overlay</pre>
+<p>Offline: run Verify-all over the 55-question test set → aggregate metrics → track over time.</p>
+
+<h2 id="use"><span class="num">4</span>How to use it</h2>
+
+<h3>Everyday</h3>
+<ol>
+  <li><code>bash scripts/eval-dev.sh</code> — starts everything.</li>
+  <li>Open <a href="http://localhost:8782/eval.html">http://localhost:8782/eval.html</a>.</li>
+  <li>Run a question. If Defense A kicks in, you'll see the green banner and no LLM cost.</li>
+  <li>Click <strong>Verify claims</strong> in the right panel. The Evaluation panel grows a claim-verification section.</li>
+  <li>Score by hand as before — the automated checks are a cross-reference, not a replacement.</li>
+</ol>
+
+<h3>Baseline → improvement → regression</h3>
+<ol>
+  <li>Run all 55 questions, score them, click <strong>Verify all</strong>.</li>
+  <li>Export JSON — this is your baseline.</li>
+  <li>Change something (prompt, triples, taxonomy).</li>
+  <li>Clear localStorage, re-run all 55, re-verify.</li>
+  <li>Compare unverified-claim rate between runs.</li>
+  <li>If regression — pin the specific question, inspect the claim list.</li>
+</ol>
+
+<h3>Canonical commands</h3>
+<pre>bash scripts/eval-dev.sh          # start
+bash scripts/eval-dev.sh --stop   # stop
+bash scripts/eval-dev.sh --check  # is it running?
+bash scripts/eval-smoke-test.sh   # 7 checks, all should be green</pre>
+
+<h2 id="gaps"><span class="num">5</span>What is still not prevented</h2>
+<p>These defenses help but don't close every gap. Worth naming explicitly:</p>
+
+<table>
+  <thead>
+    <tr><th>Gap</th><th>What can slip through</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Plausible-but-wrong paraphrase</strong></td>
+      <td>If Claude paraphrases Maaike accurately the judge says "verified"; if it paraphrases in a way that subtly shifts meaning, the judge may miss it too. Same blind spots.</td>
+    </tr>
+    <tr>
+      <td><strong>Missing-source confabulation</strong></td>
+      <td>If retrieval returns article A but the answer draws from Claude's training data about article B, the judge — seeing only A — might flag a claim as "unverified" even when it's factually correct elsewhere. (This is mostly a feature: groundedness in Maaike's garden, not general knowledge.)</td>
+    </tr>
+    <tr>
+      <td><strong>Meta-statements and tone</strong></td>
+      <td>"This is an important question" is not a factual claim; the judge classifies these as "inferred". That's fine, but it means style drift isn't caught here — that's what the HITL rubric is for.</td>
+    </tr>
+    <tr>
+      <td><strong>Strategic hallucination</strong></td>
+      <td>A determined adversary can craft prompts that induce content that looks sourced but isn't. The adversarial test questions (45–55) exist partly to probe this.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Further steps, if those gaps matter more later:</p>
+<ul>
+  <li><strong>Citation-per-claim at generation time.</strong> Force Claude to inline <code>[cite: slug]</code> after each claim; verify in post-processing. Stricter, more invasive.</li>
+  <li><strong>Strict mode toggle.</strong> For high-stakes uses: buffer the answer, run the judge, replace with "not confident" if unverified claims exceed a threshold. Costs latency and UX.</li>
+  <li><strong>Dual-judge consensus.</strong> Run verification twice with different prompts; disagreements get surfaced to the human for review.</li>
+</ul>
+<p>None of those are needed today. They're on the shelf if the current defenses prove insufficient.</p>
+
+<h2 id="summary"><span class="num">6</span>Summary</h2>
+<div class="callout">
+  <strong>Bottom line —</strong> the system cannot guarantee truth, but it can now make hallucination visible, measurable, and refusable when evidence is thin.
+</div>
+
+<footer>
+  <span>tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md</span>
+  <span><a href="eval.html">→ Eval dashboard</a></span>
+</footer>
+
+</div>
+</body>
+</html>

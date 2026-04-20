@@ -1,15 +1,30 @@
 ---
-title: "Air Canada's bot mishap pre-dates ChatGPT"
+title: Air Canada's bot mishap pre-dates ChatGPT
 date: 2024-02-18
 updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
   - content-design
+  - content-governance
+  - llm-hallucinations
+  - generative-ai-design
+  - information-architecture
+  - single-sourcing
 description: So if it's not a case of LLM hallucination, what did happen?
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
+triples:
+  - ["Air Canada chatbot", "instance-of", "NLU-based bot"]
+  - ["Air Canada chatbot", "counters", "LLM hallucinations"]
+  - ["Air Canada chatbot", "caused-by", "Content silos"]
+  - ["Content silos", "leads-to", "Content lifecycle management"]
+  - ["Single sourcing", "defined-as", "Omnichannel content management"]
+  - ["Structured content", "requires", "Content as data"]
+  - ["Single sourcing", "reinforces", "Conversation design"]
+  - ["Content lifecycle management", "requires", "Change management"]
 ---
+
 
 The Air Canada chatbot mishap happened on 11 November 2022. That's two weeks before the release of ChatGPT. This is not an LLM bot gone haywire and making stuff up. In all likelihood, this was a traditional, NLU-based bot, where conversational AI is used for question recognition and where humans write the actual answers.
 

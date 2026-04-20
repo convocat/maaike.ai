@@ -8,6 +8,30 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🔵 Wiki eval dashboard: run the baseline
+*added: 2026-04-20*
+
+Full eval stack shipped this session. What got built:
+
+- **Server side** (`tools/karpathy-wiki/tools/serve.py`): graph-based retrieval using the existing semantic layer (triples, taxonomy, themes — no embeddings); **Defense A** (refuse-weak-retrieval: zero LLM call when nothing matched); **Defense B** (`/api/verify` — LLM-as-judge claim classification returning verified/inferred/unverified buckets with a verdict); `/api/health` with feature flags; ThreadingTCPServer, no `SO_REUSEADDR`, so zombies become loud errors.
+- **Dashboard** (`tools/karpathy-wiki/eval.html`): 55-question golden test set across 7 categories (relevant topics + people, ambiguous, out-of-scope, adjacent, adversarial injection + hallucination); live retrieval trace per question (topics matched, triples fired, score breakdown, themes matched); sources with type columns; 10-criterion yes/no HITL rubric; claim verification UI; **automated diagnosis** from the methodology decision tree (retrieval miss / prompt issue / grounding drift / tone-scoping / healthy); editable `expected_source` per question (my original guesses are editable from the UI — if one feels wrong, fix it in place, don't touch Python); **Start fresh** with auto-backup.
+- **Infrastructure**: `scripts/eval-dev.sh` (canonical start, kills-before-start, health-gated), `scripts/eval-smoke-test.sh` (7 checks including dead-DOM detector — catches the class of bug that broke the Run button mid-session).
+- **Docs** all served at `localhost:8782`: `manual.html` (task-based, Information Mapping), `methodology.html` (how to actually evaluate with worked examples), `truth-report.html` (architecture of the three defenses), `TRUTH-AND-VERIFICATION.md`.
+
+**Loose ends:**
+- The `runCurrent` race-condition fix landed late in the session. Verify it in a fresh browser session before trusting results. Any Q3-style cross-contaminated localStorage from earlier should be caught by Start fresh + re-run.
+- Expected-source values are my guesses; correct them from the UI as you evaluate.
+- Dashboard state is in `localStorage`, not committed. Export JSON before big changes.
+
+**Next session should:** run the 55-question baseline, hand-score it, click Verify all, read the Report view. The headline metric for any future system change is the **unverified-claim rate** from Verify-all. First real test of whether Defense A + B actually work in practice.
+
+Key files: `tools/karpathy-wiki/eval.html`, `tools/karpathy-wiki/tools/serve.py`, `tools/karpathy-wiki/tools/eval.py`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `tools/karpathy-wiki/{manual,methodology,truth-report}.html`, `tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md`
+
+**Opening message for next session:**
+> Run the wiki eval dashboard baseline. Start the stack with `bash scripts/eval-dev.sh`, open http://localhost:8782/eval.html, click **Run all** to fire all 55 questions, hand-score with 1/2/3 + rubric, click **Verify all**, then open **Report** for aggregates and the diagnosis breakdown. If any of my expected-source guesses feel wrong, correct them inline (edit button next to the expected source). Export JSON when done — that's your baseline for any future system change. Read `tools/karpathy-wiki/methodology.html` before scoring if you want the calibration guide.
+
+---
+
 ## 🔵 Sources ingestion layer + topic wiki
 *2026-04-18*
 

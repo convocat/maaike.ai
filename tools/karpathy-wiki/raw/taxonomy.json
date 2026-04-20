@@ -1,8 +1,6 @@
 {
   "_note": "Canonical entity registry. Types match the controlled vocabulary in triples.json. 'parent' expresses subtopic relationships. 'definition' is a term-definition pair.",
-
   "topics": {
-
     "g-w-f-hegel": {
       "label": "G W F Hegel",
       "type": "person",
@@ -68,7 +66,6 @@
       "type": "person",
       "definition": "Cognitive scientist and designer, co-founder of Nielsen Norman Group, author of The Design of Everyday Things."
     },
-
     "jasper-ai": {
       "label": "Jasper.ai",
       "type": "technology",
@@ -111,7 +108,6 @@
       "type": "technology",
       "definition": "AI systems that can autonomously plan and execute multi-step tasks, often using tools and external services."
     },
-
     "dialectical-thinking": {
       "label": "Dialectical thinking",
       "type": "philosophical-method",
@@ -328,6 +324,226 @@
       "label": "Missing fundamental",
       "type": "acoustic-concept",
       "definition": "An acoustic phenomenon where the perceived pitch of a sound is absent from the actual signal — used as a metaphor for how LLMs produce outputs that sound grounded without containing ground truth."
+    },
+    "digital-garden": {
+      "label": "digital-garden",
+      "type": "artefact",
+      "definition": ""
+    },
+    "non-linear-thinking": {
+      "label": "non-linear-thinking",
+      "type": "concept",
+      "definition": ""
+    },
+    "serendipity": {
+      "label": "serendipity",
+      "type": "concept",
+      "definition": ""
+    },
+    "personal-web": {
+      "label": "personal-web",
+      "type": "social-phenomenon",
+      "definition": ""
+    },
+    "algorithmic-feed": {
+      "label": "algorithmic-feed",
+      "type": "artefact",
+      "definition": ""
+    },
+    "writing-as-craft": {
+      "label": "writing-as-craft",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-fragmentation": {
+      "label": "content-fragmentation",
+      "type": "social-phenomenon",
+      "definition": ""
+    },
+    "ai-as-writing-partner": {
+      "label": "ai-as-writing-partner",
+      "type": "interaction-pattern",
+      "definition": ""
+    },
+    "thinking-in-public": {
+      "label": "thinking-in-public",
+      "type": "concept",
+      "definition": ""
+    },
+    "personal-knowledge-management": {
+      "label": "personal-knowledge-management",
+      "type": "methodology",
+      "definition": ""
+    },
+    "maggie-appleton": {
+      "label": "maggie-appleton",
+      "type": "person",
+      "definition": ""
+    },
+    "ai-feedback-loop": {
+      "label": "AI feedback loop",
+      "type": "technical-phenomenon",
+      "definition": ""
+    },
+    "procrastination": {
+      "label": "Procrastination",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "transcription": {
+      "label": "Transcription",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "iterative-refinement": {
+      "label": "Iterative refinement",
+      "type": "methodology",
+      "definition": ""
+    },
+    "prompt-design": {
+      "label": "Prompt design",
+      "type": "discipline",
+      "definition": ""
+    },
+    "natural-language-understanding": {
+      "label": "Natural Language Understanding",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "python": {
+      "label": "Python",
+      "type": "technology",
+      "definition": ""
+    },
+    "spacy": {
+      "label": "spaCy",
+      "type": "technology",
+      "definition": ""
+    },
+    "intent-classification": {
+      "label": "Intent classification",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "utterance": {
+      "label": "Utterance",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "intent": {
+      "label": "Intent",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "entity": {
+      "label": "Entity",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "entity-model": {
+      "label": "Entity model",
+      "type": "artefact",
+      "definition": ""
+    },
+    "ontology": {
+      "label": "Ontology",
+      "type": "technical-concept",
+      "definition": ""
+    },
+    "knowledge-graph": {
+      "label": "Knowledge graph",
+      "type": "technology",
+      "definition": ""
+    },
+    "topic-discovery": {
+      "label": "Topic discovery",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "intent-discovery": {
+      "label": "Intent discovery",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "agile": {
+      "label": "Agile",
+      "type": "methodology",
+      "definition": ""
+    },
+    "scrum": {
+      "label": "Scrum",
+      "type": "methodology",
+      "definition": ""
+    },
+    "content-lifecycle": {
+      "label": "Content lifecycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "software-lifecycle": {
+      "label": "Software lifecycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "conversational-team": {
+      "label": "Conversational team",
+      "type": "concept",
+      "definition": ""
+    },
+    "system-thinking": {
+      "label": "System thinking",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "air-canada-chatbot": {
+      "label": "Air Canada chatbot",
+      "type": "artefact",
+      "definition": ""
+    },
+    "nlu-based-bot": {
+      "label": "NLU-based bot",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "content-lifecycle-management": {
+      "label": "Content lifecycle management",
+      "type": "concept",
+      "definition": ""
+    },
+    "single-sourcing": {
+      "label": "Single sourcing",
+      "type": "principle",
+      "definition": ""
+    },
+    "omnichannel-content-management": {
+      "label": "Omnichannel content management",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-silos": {
+      "label": "Content silos",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "structured-content": {
+      "label": "Structured content",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-as-data": {
+      "label": "Content as data",
+      "type": "concept",
+      "definition": ""
+    },
+    "change-management": {
+      "label": "Change management",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-governance": {
+      "label": "Content governance",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

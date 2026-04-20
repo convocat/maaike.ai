@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eval dashboard — user manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #D6006C; --teal: #0D7C66;
+  --bg: #FCFCFB; --card: #FAFAFA; --text: #1A1A1A; --muted: #6B6B6B;
+  --heading: #111111; --border: #E5E5E5;
+  --tag-bg: #F5E6F0; --tag-text: #5A2D4A;
+  --font-h: 'Lora', Georgia, serif;
+  --font-b: 'Roboto', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+  --r: 0.5rem;
+  /* Information Mapping type colours */
+  --im-concept:    #5C6BC0;  /* purple-blue */
+  --im-structure:  #26A69A;  /* teal */
+  --im-procedure:  #D6006C;  /* accent */
+  --im-principle:  #7CB342;  /* green */
+  --im-process:    #FB8C00;  /* orange */
+  --im-fact:       #8D6E63;  /* brown */
+  --im-classification: #AB47BC; /* violet */
+  --im-definition: #0097A7;  /* cyan */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-b); background: var(--bg); color: var(--text);
+       line-height: 1.7; font-size: 1rem; -webkit-font-smoothing: antialiased; }
+.page { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+.top { font-size: 0.72rem; color: var(--muted); font-family: var(--font-m);
+       text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem;
+       display: flex; justify-content: space-between; align-items: center; }
+.top a { color: var(--accent); text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+
+h1 { font-family: var(--font-h); font-weight: 700; font-size: 2.1rem; line-height: 1.2;
+     color: var(--heading); margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+.subtitle { font-size: 1.02rem; color: var(--muted); line-height: 1.6;
+            margin-bottom: 2rem; font-style: italic;
+            padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+
+h2.part {
+  font-family: var(--font-h); font-weight: 700; font-size: 1.8rem;
+  color: var(--accent); margin: 3.25rem 0 1rem;
+  padding-bottom: 0.25rem;
+}
+h2.part .part-num {
+  font-family: var(--font-m); font-size: 0.9rem; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+h2.section {
+  font-family: var(--font-h); font-weight: 600; font-size: 1.25rem;
+  color: var(--heading); margin: 2.25rem 0 0.5rem;
+}
+
+/* Information Mapping block — label + title + content */
+.im-block {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1rem 1.3rem;
+  margin: 0.75rem 0 1.25rem; border-left: 4px solid var(--border);
+}
+.im-label {
+  display: inline-block; font-family: var(--font-m); font-size: 0.65rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 0.15rem 0.55rem; border-radius: 1rem; margin-bottom: 0.4rem;
+  color: #fff;
+}
+.im-label.concept       { background: var(--im-concept); }
+.im-label.structure     { background: var(--im-structure); }
+.im-label.procedure     { background: var(--im-procedure); }
+.im-label.principle     { background: var(--im-principle); }
+.im-label.process       { background: var(--im-process); }
+.im-label.fact          { background: var(--im-fact); }
+.im-label.classification{ background: var(--im-classification); }
+.im-label.definition    { background: var(--im-definition); }
+
+.im-block.concept        { border-left-color: var(--im-concept); }
+.im-block.structure      { border-left-color: var(--im-structure); }
+.im-block.procedure      { border-left-color: var(--im-procedure); }
+.im-block.principle      { border-left-color: var(--im-principle); }
+.im-block.process        { border-left-color: var(--im-process); }
+.im-block.fact           { border-left-color: var(--im-fact); }
+.im-block.classification { border-left-color: var(--im-classification); }
+.im-block.definition     { border-left-color: var(--im-definition); }
+
+.im-title {
+  font-family: var(--font-h); font-size: 1.08rem; font-weight: 600;
+  color: var(--heading); margin-bottom: 0.55rem; line-height: 1.35;
+}
+
+.im-block p { margin: 0.4rem 0; font-size: 0.94rem; }
+.im-block ol, .im-block ul { padding-left: 1.4rem; margin: 0.5rem 0; }
+.im-block ol li, .im-block ul li { margin-bottom: 0.3rem; font-size: 0.93rem; }
+.im-block ol li::marker, .im-block ul li::marker { color: currentColor; }
+
+/* Signal sentence at the start of each block — "This is what it is" */
+.im-signal {
+  font-size: 0.88rem; color: var(--muted); font-style: italic;
+  margin-bottom: 0.55rem; line-height: 1.55;
+}
+
+/* Procedure-specific: numbered steps */
+.im-block.procedure ol { counter-reset: step; list-style: none; padding-left: 0; }
+.im-block.procedure ol li {
+  counter-increment: step; padding-left: 2rem; position: relative;
+  margin-bottom: 0.45rem;
+}
+.im-block.procedure ol li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 1.45rem; height: 1.45rem; line-height: 1.45rem;
+  background: var(--im-procedure); color: #fff; border-radius: 50%;
+  font-family: var(--font-m); font-size: 0.72rem; text-align: center;
+  font-weight: 700;
+}
+
+/* Classification table */
+.im-block.classification .class-rows {
+  display: grid; grid-template-columns: 110px 1fr; gap: 0.5rem 1rem;
+  align-items: start;
+}
+.class-badge {
+  font-family: var(--font-m); font-size: 0.78rem; font-weight: 700;
+  padding: 0.15rem 0.6rem; border-radius: 1rem; text-align: center;
+  justify-self: start;
+}
+.class-badge.s1 { background: #FFEBEE; color: #C62828; }
+.class-badge.s2 { background: #FFF8E1; color: #F57F17; }
+.class-badge.s3 { background: #E8F5E9; color: #2E7D32; }
+
+/* Tip / warning callouts inside procedure */
+.im-tip {
+  margin-top: 0.65rem; padding: 0.5rem 0.75rem;
+  background: #fff7ea; border-left: 3px solid #f57f17; border-radius: 0 3px 3px 0;
+  font-size: 0.85rem; color: #555;
+}
+.im-tip strong { color: #e65100; }
+.im-warning {
+  margin-top: 0.65rem; padding: 0.5rem 0.75rem;
+  background: #ffebee; border-left: 3px solid #c62828; border-radius: 0 3px 3px 0;
+  font-size: 0.85rem; color: #555;
+}
+.im-warning strong { color: #c62828; }
+
+code { font-family: var(--font-m); font-size: 0.86em;
+       background: var(--tag-bg); color: var(--tag-text);
+       padding: 0.12rem 0.4rem; border-radius: 0.25rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+strong { color: var(--heading); font-weight: 600; }
+em { font-style: italic; }
+
+/* Anatomy diagram (STRUCTURE) */
+.anatomy {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6rem; margin-top: 0.75rem;
+}
+.anatomy-panel {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 4px; padding: 0.7rem 0.85rem;
+}
+.anatomy-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--im-structure); font-weight: 700; margin-bottom: 0.3rem;
+  font-family: var(--font-m);
+}
+.anatomy-panel p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin: 0; }
+
+/* Keyboard shortcut table (FACT) */
+.kbd-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem;
+             font-size: 0.9rem; }
+.kbd-table td { padding: 0.45rem 0.6rem 0.45rem 0; border-bottom: 1px solid var(--border); }
+.kbd-table tr:last-child td { border-bottom: none; }
+.kbd-table td:first-child { width: 150px; }
+.kbd {
+  display: inline-block; font-family: var(--font-m); font-size: 0.76rem;
+  padding: 0.12rem 0.5rem; background: #fff; border: 1px solid var(--border);
+  border-radius: 4px; box-shadow: 0 1px 0 var(--border);
+  min-width: 24px; text-align: center; font-weight: 500;
+}
+
+/* Glossary */
+.gloss-grid {
+  display: grid; grid-template-columns: 180px 1fr; gap: 0.6rem 1rem;
+  align-items: baseline;
+}
+.gloss-term {
+  font-weight: 600; color: var(--heading); font-size: 0.92rem;
+}
+.gloss-def { font-size: 0.9rem; color: var(--text); line-height: 1.55; }
+
+/* Summary callout */
+.callout { background: #fff0f6; border: 1px solid #f4b3d0;
+           border-left: 4px solid var(--accent); border-radius: var(--r);
+           padding: 1rem 1.2rem; margin: 1.75rem 0;
+           font-family: var(--font-h); font-style: italic; color: var(--heading); }
+.callout strong { font-style: normal; color: var(--accent); }
+
+/* TOC — both inline at top and sticky on wide screens */
+.toc-main {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.toc-main h3 {
+  font-family: var(--font-m); font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--muted); margin-bottom: 0.75rem;
+}
+.toc-main .toc-cols {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.25rem 1.25rem;
+}
+.toc-main .toc-part {
+  grid-column: span 1;
+}
+.toc-main .toc-part-head {
+  font-family: var(--font-h); font-size: 0.82rem; font-weight: 700;
+  color: var(--accent); margin: 0.5rem 0 0.25rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.toc-main a {
+  display: block; padding: 0.18rem 0; font-size: 0.85rem;
+  color: var(--text); border-bottom: none; line-height: 1.4;
+}
+.toc-main a:hover { color: var(--accent); }
+.toc-main a .im-micro {
+  font-family: var(--font-m); font-size: 0.6rem; text-transform: uppercase;
+  color: var(--muted); letter-spacing: 0.05em; margin-right: 0.35rem;
+  display: inline-block; min-width: 44px;
+}
+
+@media (min-width: 1200px) {
+  .toc-side { position: fixed; top: 3rem; right: 1.5rem; width: 205px;
+              font-size: 0.77rem; padding: 0.5rem 0; max-height: 90vh; overflow-y: auto; }
+  .toc-side h3 { font-family: var(--font-m); font-size: 0.62rem; font-weight: 700;
+                 text-transform: uppercase; letter-spacing: 0.08em;
+                 color: var(--muted); margin-bottom: 0.4rem; }
+  .toc-side .toc-part-head { font-family: var(--font-h); font-size: 0.75rem;
+                             color: var(--accent); margin: 0.45rem 0 0.2rem;
+                             text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+  .toc-side a { display: block; padding: 0.18rem 0; color: var(--muted);
+                border-bottom: none; line-height: 1.35; font-size: 0.75rem; }
+  .toc-side a:hover { color: var(--accent); }
+}
+@media (max-width: 1199px) { .toc-side { display: none; } }
+
+footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+         font-size: 0.78rem; color: var(--muted);
+         display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+/* Info-type legend */
+.im-legend {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0;
+  font-family: var(--font-m); font-size: 0.67rem;
+}
+.im-legend span {
+  padding: 0.15rem 0.55rem; border-radius: 1rem; color: #fff;
+  text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<nav class="toc-side">
+  <h3>Navigate</h3>
+  <div class="toc-part-head">Understand</div>
+  <a href="#what-is">What the dashboard is</a>
+  <a href="#anatomy">Anatomy of the screen</a>
+  <a href="#defenses">Three defenses</a>
+  <a href="#scoring-scale">Score meanings</a>
+
+  <div class="toc-part-head">Do</div>
+  <a href="#start">Start the stack</a>
+  <a href="#run-one">Run one question</a>
+  <a href="#run-all">Run baseline</a>
+  <a href="#score-quick">Score quickly</a>
+  <a href="#score-rubric">Score with rubric</a>
+  <a href="#verify-one">Verify one</a>
+  <a href="#verify-all">Verify all</a>
+  <a href="#report">Read the Report</a>
+  <a href="#snapshot">Snapshot state</a>
+  <a href="#compare">Compare before/after</a>
+  <a href="#reset">Start fresh</a>
+
+  <div class="toc-part-head">Reference</div>
+  <a href="#shortcuts">Shortcuts</a>
+  <a href="#troubleshoot">Troubleshooting</a>
+  <a href="#glossary">Glossary</a>
+</nav>
+
+<div class="page">
+
+<div class="top">
+  <span>Eval dashboard · User manual</span>
+  <span><a href="eval.html">Dashboard</a> · <a href="methodology.html">Methodology</a> · <a href="truth-report.html">Truth report</a></span>
+</div>
+
+<h1>Eval dashboard — user manual</h1>
+<p class="subtitle">A task-based guide for evaluating what the wiki Q&amp;A does with your garden. Structured using Information Mapping principles — every block has a labelled information type so you can scan for what you need.</p>
+
+<!-- TOC -->
+<div class="toc-main">
+  <h3>Contents</h3>
+  <div class="toc-cols">
+    <div class="toc-part">
+      <div class="toc-part-head">Part A · Understand</div>
+      <a href="#what-is"><span class="im-micro">Concept</span>What the dashboard is</a>
+      <a href="#anatomy"><span class="im-micro">Struct</span>Anatomy of the screen</a>
+      <a href="#defenses"><span class="im-micro">Princ</span>Three defenses against hallucination</a>
+      <a href="#defense-a"><span class="im-micro">Proc</span>Defense A in action</a>
+      <a href="#defense-b"><span class="im-micro">Proc</span>Defense B in action</a>
+      <a href="#scoring-scale"><span class="im-micro">Class</span>What the scores mean</a>
+    </div>
+    <div class="toc-part">
+      <div class="toc-part-head">Part B · Do</div>
+      <a href="#start"><span class="im-micro">Proc</span>Start the stack</a>
+      <a href="#run-one"><span class="im-micro">Proc</span>Run one question</a>
+      <a href="#run-all"><span class="im-micro">Proc</span>Run the baseline</a>
+      <a href="#score-quick"><span class="im-micro">Proc</span>Score an answer</a>
+      <a href="#score-rubric"><span class="im-micro">Proc</span>Score with rubric</a>
+      <a href="#verify-one"><span class="im-micro">Proc</span>Verify one answer</a>
+      <a href="#verify-all"><span class="im-micro">Proc</span>Verify all answers</a>
+      <a href="#report"><span class="im-micro">Proc</span>Read the Report</a>
+      <a href="#snapshot"><span class="im-micro">Proc</span>Snapshot state</a>
+      <a href="#compare"><span class="im-micro">Proc</span>Compare before/after</a>
+      <a href="#reset"><span class="im-micro">Proc</span>Start fresh</a>
+    </div>
+    <div class="toc-part">
+      <div class="toc-part-head">Part C · Reference</div>
+      <a href="#shortcuts"><span class="im-micro">Fact</span>Keyboard shortcuts</a>
+      <a href="#troubleshoot"><span class="im-micro">Proc</span>Troubleshooting</a>
+      <a href="#glossary"><span class="im-micro">Def</span>Glossary</a>
+    </div>
+  </div>
+  <div class="im-legend">
+    <span style="background:var(--im-concept)">Concept</span>
+    <span style="background:var(--im-structure)">Structure</span>
+    <span style="background:var(--im-principle)">Principle</span>
+    <span style="background:var(--im-process)">Process</span>
+    <span style="background:var(--im-classification)">Classification</span>
+    <span style="background:var(--im-procedure)">Procedure</span>
+    <span style="background:var(--im-fact)">Fact</span>
+    <span style="background:var(--im-definition)">Definition</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<h2 class="part"><span class="part-num">Part A</span>Understand</h2>
+
+<div id="what-is" class="im-block concept">
+  <span class="im-label concept">Concept</span>
+  <div class="im-title">What the dashboard is</div>
+  <p class="im-signal">The dashboard is a test harness for the wiki Q&amp;A.</p>
+  <p>It holds 55 fixed questions across seven categories (relevant, ambiguous, out-of-scope, adjacent, and two kinds of adversarial) and lets you fire them at the real wiki server. You see the answer, the retrieval trace, and the judged grounding of each claim. You score by hand; the machine judges in parallel.</p>
+  <p>The output is a record of "how good is the system right now, and did my last change make it better or worse?"</p>
+</div>
+
+<div id="anatomy" class="im-block structure">
+  <span class="im-label structure">Structure</span>
+  <div class="im-title">Anatomy of the screen</div>
+  <p class="im-signal">Three panes, one top bar.</p>
+  <div class="anatomy">
+    <div class="anatomy-panel">
+      <div class="anatomy-label">Left sidebar</div>
+      <p>All 55 questions grouped by category. Coloured dot shows state: grey (unrun), dark-grey (run but unscored), red/amber/green (scored 1/2/3).</p>
+    </div>
+    <div class="anatomy-panel">
+      <div class="anatomy-label">Centre pane</div>
+      <p>The question, expected source, streamed answer, then the Evaluation table: retrieval, knowledge-graph usage, sources cited, answer characteristics, claim verification, latency.</p>
+    </div>
+    <div class="anatomy-panel">
+      <div class="anatomy-label">Right panel</div>
+      <p>Summary score (1/2/3), the 10-criterion rubric, notes, and action buttons: Run, Verify, Prev/Next.</p>
+    </div>
+  </div>
+  <p style="margin-top:0.75rem">The top bar holds the Wiki URL field (with health dot), progress counter, and five global buttons: <strong>Run all</strong>, <strong>Verify all</strong>, <strong>Report</strong>, <strong>Export JSON</strong>, <strong>Start fresh</strong>.</p>
+</div>
+
+<div id="defenses" class="im-block principle">
+  <span class="im-label principle">Principle</span>
+  <div class="im-title">Three defenses against hallucination</div>
+  <p class="im-signal">The system cannot guarantee truth, but it makes hallucination visible, measurable, and refusable when evidence is thin.</p>
+  <p>The wiki Q&amp;A uses three layered defenses. Understanding what each one does will tell you how to interpret what you see.</p>
+  <ol>
+    <li><strong>Defense A — refuse when retrieval is weak.</strong> If zero topics, triples, and themes match the question, the server returns a canned refusal without calling the LLM. Zero tokens, zero hallucination risk on truly out-of-scope questions.</li>
+    <li><strong>Defense B — verify claims after the answer.</strong> A second LLM call reads the source articles and classifies every claim in the answer as verified, inferred, or unverified. Makes hallucination visible per claim.</li>
+    <li><strong>Phase 1 — LLM-as-judge across the whole test set.</strong> Run Defense B on all 55 questions to get a corpus-wide hallucination rate.</li>
+  </ol>
+  <p>None of these suppress the answer to the user. They annotate. <strong>You</strong> are still the final ground truth.</p>
+</div>
+
+<div id="defense-a" class="im-block process">
+  <span class="im-label process">Process</span>
+  <div class="im-title">Defense A — what happens when retrieval is weak</div>
+  <p class="im-signal">A retrieval gate before the LLM is ever called.</p>
+  <ol>
+    <li>The server runs graph retrieval on the question.</li>
+    <li>If <strong>zero</strong> topics, triples, <strong>and</strong> themes match: short-circuit.</li>
+    <li>Return a canned refusal: "I don't have material on this in Maaike's garden…"</li>
+    <li>No Anthropic API call is made.</li>
+    <li>The dashboard shows a green banner in the Evaluation panel labelled "Defense A: retrieval refused".</li>
+  </ol>
+  <p>This catches the worst failure mode (Claude making things up when the garden has nothing relevant) with zero cost.</p>
+</div>
+
+<div id="defense-b" class="im-block process">
+  <span class="im-label process">Process</span>
+  <div class="im-title">Defense B — what happens when you click Verify</div>
+  <p class="im-signal">A second LLM reads the sources and classifies each claim.</p>
+  <ol>
+    <li>The dashboard POSTs <code>{question, answer, source_slugs}</code> to <code>/api/verify</code>.</li>
+    <li>The server loads the full text of the retrieved articles.</li>
+    <li>A judge Claude is asked: for each factual claim in the answer, is it supported by the sources?</li>
+    <li>The judge returns JSON with three buckets: <em>verified</em> (quote-matched), <em>inferred</em> (reasonable extension), <em>unverified</em> (no basis).</li>
+    <li>The dashboard renders the counts, an overall verdict (<em>grounded</em>, <em>mixed</em>, <em>hallucinating</em>), and every claim colour-coded with its supporting quote.</li>
+  </ol>
+  <p>The cost is ~$0.003 per verification. Running on all 55 is ~$0.15.</p>
+</div>
+
+<div id="scoring-scale" class="im-block classification">
+  <span class="im-label classification">Classification</span>
+  <div class="im-title">What the score values mean</div>
+  <p class="im-signal">Three scores. Use the one that fits the overall judgement; use the rubric for <em>why</em>.</p>
+  <div class="class-rows">
+    <span class="class-badge s1">1 · wrong</span>
+    <div>Any of: invents facts, attributes opinions Maaike doesn't hold, engages with an adversarial trap, or contradicts what's in the sources. One clearly fabricated sentence is enough for a 1.</div>
+
+    <span class="class-badge s2">2 · partial</span>
+    <div>On-topic and not wrong, but something's off: too generic, misses nuance, overstates confidence, or tonally flat. Reader can't tell the answer came from Maaike's garden specifically.</div>
+
+    <span class="class-badge s3">3 · correct</span>
+    <div>Grounded in the sources, accurate to Maaike's actual position, reads like her voice, invites a follow-up. Traceable to a specific article if asked.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<h2 class="part"><span class="part-num">Part B</span>Do</h2>
+
+<div id="start" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Start the eval stack</div>
+  <p class="im-signal">One command starts both servers and refuses to silently stack zombies.</p>
+  <ol>
+    <li>Open a terminal in the repo root.</li>
+    <li>Run <code>bash scripts/eval-dev.sh</code>.</li>
+    <li>Wait for the green "Stack is up" message.</li>
+    <li>Open <a href="http://localhost:8782/eval.html">http://localhost:8782/eval.html</a>.</li>
+    <li>Check the coloured dot next to the Wiki URL field.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — green dot = all features present; yellow = server up but outdated (restart it); red = no server.</div>
+</div>
+
+<div id="run-one" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Run one question</div>
+  <p class="im-signal">See what the system does with a single prompt.</p>
+  <ol>
+    <li>Click a question in the left sidebar.</li>
+    <li>Click <strong>Run</strong> in the right panel.</li>
+    <li>The answer streams into the middle pane.</li>
+    <li>Scroll down: the Evaluation section shows which topics matched, which triples fired, which articles went to Claude, and how long it took.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — if an answer feels off, check <em>Topics matched</em> and <em>Articles retrieved</em> first. Nine failures out of ten are retrieval misses, not generation failures.</div>
+</div>
+
+<div id="run-all" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Run the full baseline (all 55)</div>
+  <p class="im-signal">Creates the reference point you compare every future change against.</p>
+  <ol>
+    <li>Click <strong>Run all</strong> in the top bar.</li>
+    <li>It skips questions already run. Progress shows <code>n/55</code>.</li>
+    <li>Wait ~5 minutes. You can peek at partial results while it runs.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — do this once before any system change. It becomes your <em>before</em>.</div>
+</div>
+
+<div id="score-quick" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Score an answer quickly</div>
+  <p class="im-signal">Assign the overall 1/2/3 score.</p>
+  <ol>
+    <li>Select the question.</li>
+    <li>Read the answer.</li>
+    <li>Click <strong>1</strong>, <strong>2</strong>, or <strong>3</strong> in the Score block, or press those keys.</li>
+    <li>Click an active score button to clear.</li>
+    <li>Dashboard auto-saves and advances to the next unscored question.</li>
+  </ol>
+  <p>For what each score means, see <a href="#scoring-scale">Score meanings</a>. For deeper thinking about how to score consistently, see the <a href="methodology.html">Methodology document</a>.</p>
+</div>
+
+<div id="score-rubric" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Score with the rubric</div>
+  <p class="im-signal">Decompose the single score into 10 concrete, actionable criteria.</p>
+  <ol>
+    <li>With a question selected, go to the <strong>Quality rubric</strong> block in the right panel.</li>
+    <li>For each criterion, click ✓ (pass) or ✗ (fail). Skip criteria that don't apply.</li>
+    <li>Click an active button to clear it.</li>
+    <li>The summary line shows <code>N/10 rated · P pass · F fail</code>.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — if "Invites a follow-up" fails across many questions, that's a concrete fix: tune the system prompt's closing ritual. The single 1/2/3 doesn't give you that.</div>
+</div>
+
+<div id="verify-one" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Verify claims for one answer</div>
+  <p class="im-signal">Runs Defense B on the current question.</p>
+  <ol>
+    <li>With a question that's been run, click <strong>Verify claims</strong> in the right panel.</li>
+    <li>Wait a few seconds.</li>
+    <li>The Evaluation panel grows a <strong>Claim verification</strong> section.</li>
+    <li>Read the verdict: <em>grounded</em>, <em>mixed</em>, or <em>hallucinating</em>.</li>
+    <li>Unverified claims are listed first, in red — the specific things the answer said that aren't in the sources.</li>
+  </ol>
+  <div class="im-warning"><strong>Warning</strong> — low verified-count with a long answer usually means Claude padded with training-data knowledge. That's a prompt or retrieval problem, not a verification problem.</div>
+</div>
+
+<div id="verify-all" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Verify claims across the whole test set</div>
+  <p class="im-signal">Runs Defense B on every question that has an answer.</p>
+  <ol>
+    <li>Click <strong>Verify all</strong> in the top bar.</li>
+    <li>It skips questions already verified.</li>
+    <li>Roughly ~$0.15 and ~3 minutes for 55 questions.</li>
+    <li>When it finishes, open <strong>Report</strong> for aggregates.</li>
+  </ol>
+</div>
+
+<div id="report" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Read the Report</div>
+  <p class="im-signal">Summary across all questions — pass/fail against acceptance criteria.</p>
+  <ol>
+    <li>Click <strong>Report</strong> in the top bar.</li>
+    <li>Check <strong>Acceptance criteria</strong> — each row is a pass/partial/fail pill against a concrete threshold.</li>
+    <li>Scroll to <strong>Failures</strong> — every question that failed, with an auto-diagnosis ("retrieval miss", "generation issue", "trap not refused").</li>
+    <li>Read <strong>Next steps</strong> — generated from your current results.</li>
+  </ol>
+</div>
+
+<div id="snapshot" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Snapshot state before changes</div>
+  <p class="im-signal">Save the current run as a comparable baseline.</p>
+  <ol>
+    <li>Click <strong>Export JSON</strong> in the top bar.</li>
+    <li>A file downloads named <code>eval-YYYY-MM-DD.json</code>.</li>
+    <li>Rename it to something meaningful: <code>eval-baseline-before-prompt-tune.json</code>.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — the <strong>Start fresh</strong> button auto-exports a timestamped backup before wiping. You won't lose data to accidental resets.</div>
+</div>
+
+<div id="compare" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Compare before/after a system change</div>
+  <p class="im-signal">Did the change improve things, regress, or neither?</p>
+  <ol>
+    <li>Snapshot current state (see above).</li>
+    <li>Make your change (add triples, tune system prompt, etc).</li>
+    <li>Click <strong>Start fresh</strong> in the top bar (auto-backup + wipe).</li>
+    <li>Re-run all 55 (see <a href="#run-all">Run the baseline</a>).</li>
+    <li>Re-score (see <a href="#score-quick">Score an answer</a>).</li>
+    <li>Re-verify all (see <a href="#verify-all">Verify across the test set</a>).</li>
+    <li>Compare: did mean score go up? did unverified-claim rate go down? did any question regress from 3 → 2?</li>
+  </ol>
+  <div class="im-warning"><strong>Warning</strong> — always check for regressions, not just improvements. A 1-point drop on one relevant question can negate a win elsewhere.</div>
+</div>
+
+<div id="reset" class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Start fresh (wipe all results)</div>
+  <p class="im-signal">Deletes answers, scores, rubrics, and verifications with an automatic backup first.</p>
+  <ol>
+    <li>Click <strong>Start fresh</strong> in the top bar.</li>
+    <li>A confirmation dialog shows how many answers and scores will be deleted.</li>
+    <li>Click OK.</li>
+    <li>A JSON backup downloads automatically (filename includes a timestamp).</li>
+    <li>localStorage is cleared; the dashboard redraws with all dots grey.</li>
+  </ol>
+  <div class="im-tip"><strong>Tip</strong> — to restore from a backup, open DevTools → Application → Local Storage → localhost:8782 → paste the exported JSON back into <code>eval_results_v1</code>.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<h2 class="part"><span class="part-num">Part C</span>Reference</h2>
+
+<div id="shortcuts" class="im-block fact">
+  <span class="im-label fact">Fact</span>
+  <div class="im-title">Keyboard shortcuts</div>
+  <table class="kbd-table">
+    <tr><td><span class="kbd">1</span> <span class="kbd">2</span> <span class="kbd">3</span></td>
+        <td>Score the current answer. Click active key to clear.</td></tr>
+    <tr><td><span class="kbd">r</span></td>
+        <td>Run the current question.</td></tr>
+    <tr><td><span class="kbd">n</span> / <span class="kbd">→</span></td>
+        <td>Next question.</td></tr>
+    <tr><td><span class="kbd">p</span> / <span class="kbd">←</span></td>
+        <td>Previous question.</td></tr>
+  </table>
+</div>
+
+<h2 class="section" id="troubleshoot">Troubleshooting</h2>
+
+<div class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Symptom: Nothing happens when I click Run</div>
+  <p class="im-signal">Usually the wiki server is stuck or the button is frozen from an earlier failed call.</p>
+  <ol>
+    <li>In terminal: <code>bash scripts/eval-dev.sh --stop</code></li>
+    <li>Then: <code>bash scripts/eval-dev.sh</code></li>
+    <li>Hard-refresh the dashboard: <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">R</span>.</li>
+  </ol>
+</div>
+
+<div class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Symptom: Health dot is yellow</div>
+  <p class="im-signal">Server is up but missing expected features (old serve.py running).</p>
+  <ol>
+    <li><code>bash scripts/eval-dev.sh --stop &amp;&amp; bash scripts/eval-dev.sh</code></li>
+    <li>Check the dot again.</li>
+  </ol>
+</div>
+
+<div class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Symptom: "No knowledge-graph trace" banner</div>
+  <p class="im-signal">The cached result pre-dates the server's current version.</p>
+  <ol>
+    <li>Click <strong>Run</strong> in the right panel to re-run that question.</li>
+  </ol>
+</div>
+
+<div class="im-block procedure">
+  <span class="im-label procedure">Procedure</span>
+  <div class="im-title">Symptom: Smoke test reports failures</div>
+  <p class="im-signal">At least one check in <code>scripts/eval-smoke-test.sh</code> is red.</p>
+  <ol>
+    <li>Run <code>bash scripts/eval-smoke-test.sh</code> and read the red lines.</li>
+    <li>Each failing check names exactly what's broken (port, feature flag, DOM reference, CORS).</li>
+    <li>If wiki-related, restart the stack.</li>
+  </ol>
+</div>
+
+<div id="glossary" class="im-block definition">
+  <span class="im-label definition">Definition</span>
+  <div class="im-title">Glossary</div>
+  <div class="gloss-grid">
+    <span class="gloss-term">Expected source</span>
+    <span class="gloss-def">The article I think the answer <em>should</em> cite, coded into the test set. Used for the automated "found in retrieval" check.</span>
+
+    <span class="gloss-term">Graph retrieval</span>
+    <span class="gloss-def">Retrieval mode when at least one topic or triple matched. Strong signal.</span>
+
+    <span class="gloss-term">Fallback</span>
+    <span class="gloss-def">Retrieval mode when nothing matched; the server sends the whole corpus as short snippets. Weaker signal, more hallucination-prone.</span>
+
+    <span class="gloss-term">Defense A</span>
+    <span class="gloss-def">Server-side refusal when retrieval finds zero matches. No LLM call. Visible as a green banner.</span>
+
+    <span class="gloss-term">Defense B</span>
+    <span class="gloss-def">Post-answer claim verification. A second LLM classifies each claim as verified / inferred / unverified.</span>
+
+    <span class="gloss-term">Rubric</span>
+    <span class="gloss-def">The 10 yes/no criteria in the right panel. Decomposes the single 1–3 score into actionable dimensions.</span>
+
+    <span class="gloss-term">Verdict</span>
+    <span class="gloss-def">Overall judgement from Defense B. <em>grounded</em> = ≥80% verified claims. <em>mixed</em> = 50–79%. <em>hallucinating</em> = &lt;50%.</span>
+
+    <span class="gloss-term">Unverified claim</span>
+    <span class="gloss-def">A factual statement in the answer that the judge could not find in the source articles. Potential hallucination.</span>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>The one thing to remember —</strong> the dashboard doesn't prevent hallucination. It makes hallucination visible, measurable, and refusable when evidence is thin. <em>You</em> are still the final judge.
+</div>
+
+<footer>
+  <span>tools/karpathy-wiki/manual.html</span>
+  <span><a href="eval.html">→ Dashboard</a> · <a href="methodology.html">Methodology</a> · <a href="truth-report.html">Truth report</a></span>
+</footer>
+
+</div>
+</body>
+</html>
