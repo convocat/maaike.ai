@@ -37,6 +37,36 @@
     "generates",
     "requires"
   ],
+  "_lenses": [
+    "philosophy",
+    "epistemology",
+    "linguistics",
+    "rhetoric",
+    "design",
+    "interaction",
+    "cognition",
+    "culture",
+    "personal"
+  ],
+  "_subjects": [
+    "conversation",
+    "content",
+    "writing",
+    "voice",
+    "language",
+    "linguistics",
+    "llm",
+    "prompt",
+    "agent"
+  ],
+  "_roles": [
+    "instrument",
+    "position",
+    "framework",
+    "counter-position",
+    "stance",
+    "tendency"
+  ],
   "topics": {
     "g-w-f-hegel": {
       "label": "G W F Hegel",
@@ -615,6 +645,142 @@
       "type": "concept",
       "domain": "philosophy",
       "role": "counter-position"
+    },
+    "ai-feedback-loop": {
+      "label": "AI feedback loop",
+      "type": "technical-phenomenon"
+    },
+    "procrastination": {
+      "label": "Procrastination",
+      "type": "cognitive-tendency"
+    },
+    "transcription": {
+      "label": "Transcription",
+      "type": "technical-mechanism"
+    },
+    "iterative-refinement": {
+      "label": "Iterative refinement",
+      "type": "methodology"
+    },
+    "prompt-design": {
+      "label": "Prompt design",
+      "type": "discipline"
+    },
+    "natural-language-understanding": {
+      "label": "Natural Language Understanding",
+      "type": "technology-category"
+    },
+    "python": {
+      "label": "Python",
+      "type": "technology"
+    },
+    "spacy": {
+      "label": "spaCy",
+      "type": "technology"
+    },
+    "intent-classification": {
+      "label": "Intent classification",
+      "type": "technical-mechanism"
+    },
+    "utterance": {
+      "label": "Utterance",
+      "type": "linguistic-concept"
+    },
+    "intent": {
+      "label": "Intent",
+      "type": "linguistic-concept"
+    },
+    "entity": {
+      "label": "Entity",
+      "type": "linguistic-concept"
+    },
+    "entity-model": {
+      "label": "Entity model",
+      "type": "artefact"
+    },
+    "ontology": {
+      "label": "Ontology",
+      "type": "technical-concept"
+    },
+    "knowledge-graph": {
+      "label": "Knowledge graph",
+      "type": "technology"
+    },
+    "topic-discovery": {
+      "label": "Topic discovery",
+      "type": "technical-mechanism"
+    },
+    "intent-discovery": {
+      "label": "Intent discovery",
+      "type": "technical-mechanism"
+    },
+    "agile": {
+      "label": "Agile",
+      "type": "methodology"
+    },
+    "scrum": {
+      "label": "Scrum",
+      "type": "methodology"
+    },
+    "content-lifecycle": {
+      "label": "Content lifecycle",
+      "type": "concept"
+    },
+    "software-lifecycle": {
+      "label": "Software lifecycle",
+      "type": "concept"
+    },
+    "conversational-team": {
+      "label": "Conversational team",
+      "type": "concept"
+    },
+    "system-thinking": {
+      "label": "System thinking",
+      "type": "epistemological-concept"
+    },
+    "air-canada-chatbot": {
+      "label": "Air Canada chatbot",
+      "type": "artefact"
+    },
+    "nlu-based-bot": {
+      "label": "NLU-based bot",
+      "type": "technology-category"
+    },
+    "content-lifecycle-management": {
+      "label": "Content lifecycle management",
+      "type": "concept"
+    },
+    "single-sourcing": {
+      "label": "Single sourcing",
+      "type": "principle"
+    },
+    "omnichannel-content-management": {
+      "label": "Omnichannel content management",
+      "type": "concept"
+    },
+    "content-silos": {
+      "label": "Content silos",
+      "type": "phenomenon"
+    },
+    "structured-content": {
+      "label": "Structured content",
+      "type": "concept"
+    },
+    "content-as-data": {
+      "label": "Content as data",
+      "type": "concept"
+    },
+    "change-management": {
+      "label": "Change management",
+      "type": "concept"
+    },
+    "content-governance": {
+      "label": "Content governance",
+      "type": "concept"
+    },
+    "conversational-ai": {
+      "label": "Conversational AI",
+      "type": "technology-category"
     }
   },
   "sources": {
@@ -1493,6 +1659,138 @@
       "predicate": "exhibits",
       "object": "epistemic-bias",
       "source": "nora-bateson-ways-of-knowing"
+    },
+    {
+      "subject": "Articulation barrier",
+      "predicate": "caused-by",
+      "object": "Non-linear thinking",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "AI feedback loop",
+      "predicate": "leads-to",
+      "object": "Iterative refinement",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "ChatGPT voice mode",
+      "predicate": "lacks",
+      "object": "High-quality analytical feedback",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "Presentation preparation",
+      "predicate": "inaccessible-via",
+      "object": "Desk-based writing",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "Voice mode",
+      "predicate": "demonstrates",
+      "object": "AI feedback loop",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "Procrastination",
+      "predicate": "characterised-as",
+      "object": "Articulation barrier",
+      "source": "chatgpt-presentation-prep"
+    },
+    {
+      "subject": "Conversation design",
+      "predicate": "requires",
+      "object": "Natural Language Understanding",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Entity model",
+      "predicate": "reinforces",
+      "object": "Information architecture",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Knowledge graph",
+      "predicate": "leads-to",
+      "object": "Conversational interface",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Entity",
+      "predicate": "leads-to",
+      "object": "Ontology",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Intent classification",
+      "predicate": "requires",
+      "object": "Utterance",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Agile",
+      "predicate": "breaks-down-for",
+      "object": "Conversational team",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Entity model",
+      "predicate": "contrasted-with",
+      "object": "Intent",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Natural Language Understanding",
+      "predicate": "generates",
+      "object": "System thinking",
+      "source": "7-new-skills-for-conversation-designers-2022"
+    },
+    {
+      "subject": "Air Canada chatbot",
+      "predicate": "instance-of",
+      "object": "NLU-based bot",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Air Canada chatbot",
+      "predicate": "counters",
+      "object": "LLM hallucinations",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Air Canada chatbot",
+      "predicate": "caused-by",
+      "object": "Content silos",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Content silos",
+      "predicate": "leads-to",
+      "object": "Content lifecycle management",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Single sourcing",
+      "predicate": "defined-as",
+      "object": "Omnichannel content management",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Structured content",
+      "predicate": "requires",
+      "object": "Content as data",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Single sourcing",
+      "predicate": "reinforces",
+      "object": "Conversation design",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
+    },
+    {
+      "subject": "Content lifecycle management",
+      "predicate": "requires",
+      "object": "Change management",
+      "source": "air-canadas-bot-mishap-pre-dates-chatgpt"
     }
   ]
 }

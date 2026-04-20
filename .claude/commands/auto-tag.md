@@ -18,6 +18,8 @@ Use the post that was just created (if called from `/new-post`), or ask the user
 
 4. **What the post already has**: Note existing tags, triples, and `[[...]]` wiki-links in the body.
 
+**Note on controlled vocabulary:** the allowed lists for `type`, `lens`, `subject`, `role`, and `predicate` are hardcoded below in Step 3 Pass 2, not read from `triples.json`. This is deliberate — the vocabulary is a design decision, and hardcoding in the skill prompt keeps it audited, guardrail-strong, and decoupled from whatever happens to be in the JSON. The lists here must stay byte-for-byte identical to those in `/ingest-source`.
+
 ## Step 3: Three-pass analysis
 
 ### Pass 1 — Thematic read (wide angle)
@@ -39,20 +41,31 @@ Re-read carefully for entities and relationships.
 - Concepts (theories, frameworks, methods, principles, phenomena)
 - Design elements (metaphors, interaction models, disciplines)
 
-For each topic, assign a **type** from this controlled vocabulary:
-`person` · `technology` · `technology-category` · `technical-mechanism` · `technical-phenomenon` ·
-`philosophical-method` · `philosophical-framework` · `philosophical-concept` ·
-`epistemological-concept` · `epistemic-stance` · `cognitive-tendency` · `belief-type` ·
-`linguistic-concept` · `linguistic-principle` · `communication-type` · `theoretical-concept` ·
-`interaction-metaphor` · `design-discipline` · `acoustic-concept`
+Each topic is classified on four faceted dimensions (hardcoded — must stay in sync with `/ingest-source`):
+
+**`type`** (required, single value) — the *kind of thing* the topic is:
+`person` · `technology` · `mechanism` · `phenomenon` · `discipline` · `concept` · `metaphor` · `principle` · `method`
+
+**`lens`** (required, array — one or more) — the *discipline(s) through which the topic is understood*:
+`philosophy` · `epistemology` · `linguistics` · `rhetoric` · `design` · `interaction` · `cognition` · `culture` · `personal`
+
+Use `personal` when the topic reflects Maaike's own view or lived experience rather than a disciplinary framework. Use `culture` as the catchall for cultural figures/objects without a clearer disciplinary home. Most topics have one lens; some (e.g. `anthropomorphism` as design + cognition) legitimately have two.
+
+**`subject`** (optional, array — zero or more) — the *topic area(s) the concept is about*:
+`conversation` · `content` · `writing` · `voice` · `language` · `linguistics` · `llm` · `prompt` · `agent`
+
+Subject is what the topic is *about*. Lens is the discipline through which it is *examined*. These are different axes. Do NOT use `ai` — it was retired as too broad; specify `llm`, `prompt`, or `agent` instead. Leave empty when the topic isn't about a specific subject area (bare technology, cultural figures, general-purpose concepts).
+
+**`role`** (optional, single value) — the *function the topic plays in your arguments*:
+`instrument` · `position` · `framework` · `counter-position` · `stance` · `tendency`
 
 Check existing topics in `triples.json` first — reuse canonical IDs and labels where the concept matches.
 
-**Associations (A):** Extract 3–7 typed relationships between topics. Use **only** predicates from this controlled vocabulary:
+**Associations (A):** Extract 3–7 typed relationships between topics. Use **only** predicates from this controlled vocabulary (hardcoded — must stay in sync with `/ingest-source`):
 `attributed-to` · `structured-as` · `counters` · `reinforces` · `contrasted-with` · `demonstrates` ·
 `lacks` · `caused-by` · `metaphor-for` · `inaccessible-via` · `instance-of` · `characterised-as` ·
 `coined-by` · `defined-as` · `theorised-by` · `exhibits` · `violates` · `presupposes` ·
-`leads-to` · `breaks-down-for` · `better-fits` · `risks` · `incompatible-with` · `generates`
+`leads-to` · `breaks-down-for` · `better-fits` · `risks` · `incompatible-with` · `generates` · `requires`
 
 If a needed predicate is genuinely absent (not just a synonym), propose adding it.
 
@@ -106,28 +119,43 @@ Suggest: `[display text](https://en.wikipedia.org/wiki/Article_title)`.
 
 Higher bar than internal links. Only suggest where Wikipedia is the natural reference.
 
-## Step 7: Present all suggestions
+## Step 7: Present all suggestions (canonical review block)
 
-Show in one block:
+Use this exact block shape — same field order and labels as `/ingest-source`. Fields that don't apply are shown as `n/a` but never reordered or removed.
 
 ```
-**Pass 1 — Themes:**
-- theme 1, theme 2, …
+**Identity**
+- slug: <post-slug>
+- collection: articles | field-notes | seeds | jottings | ...
+- date: <YYYY-MM-DD>
 
-**Topics (n new, n reused from graph):**
-- `topic-id` | Label | type [NEW] or [reused: existing-id]
+**Description / Summary**
+<existing frontmatter description, or a proposed one to refine>
 
-**Associations:**
-- ["Subject label", "predicate", "Object label"]
+**Themes**
+- theme 1
+- theme 2
 
-**Suggested tags** (n new, n existing):
-- `tag-slug` — reason [NEW] or [existing]
+**Topics (n new, n reused)**
+- topic-id | Label | type · [lens(es)] · [subject(s)] · role     [NEW]
+- topic-id | Label | type · [lens(es)] · [subject(s)] · role     [reused]
 
-**Wiki-links (internal):**
-- "phrase in text" → [[slug|phrase]] (collection: title)
+**Associations (n)**
+- [Subject label, predicate, Object label]
 
-**Wikipedia links:**
-- "concept" → [concept](https://en.wikipedia.org/wiki/Concept) — why it's worth linking
+**Tags (n new, n existing)**
+- tag-slug — reason               [NEW]
+- tag-slug — reason               [existing]
+
+**Internal wiki-links**
+- "phrase" → [[slug|phrase]] (collection: title)
+
+**Wikipedia links**
+- "concept" → [concept](https://en.wikipedia.org/wiki/Concept) — reason
+
+**Graph fit**
+- Overlap with existing graph: n topics
+- Related garden posts: slug (collection), ...
 ```
 
 Ask: "Accept all, or tell me what to skip/change."
@@ -149,7 +177,17 @@ Ask: "Accept all, or tell me what to skip/change."
 
 **Triples (central registry):**
 - Read `src/data/triples.json`
-- For each NEW topic: add an entry to the `topics` object: `"topic-id": { "label": "...", "type": "..." }`
+- For each NEW topic: add an entry to the `topics` object with the faceted schema:
+  ```json
+  "topic-id": {
+    "label": "...",
+    "type": "...",
+    "lens": ["..."],
+    "subject": ["..."],
+    "role": "..."
+  }
+  ```
+  Omit `subject` and `role` when empty/not applicable. `lens` is always present (array, minimum one value).
 - For each accepted association: append to the `associations` array:
   `{ "subject": "topic-id", "predicate": "...", "object": "topic-id", "source": "<post-slug>", "collection": "<collection>" }`
 - If associations for this post already exist (same source slug), remove the old ones first
