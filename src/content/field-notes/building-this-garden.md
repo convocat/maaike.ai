@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-19
+updated: 2026-04-20
 maturity: solid
 tags:
   - about
@@ -322,6 +322,17 @@ A chat over Maaike's garden: shipped to production, then the whole day spent mak
 - **Mobile**: bottom tab bar (Chat / Wiki / Article), drawer as overlay, reading typography for Wiki and Article tabs
 - **Security**: per-IP rate limit (in-memory), hashed-IP usage logging, Vercel preview deployments walled, Anthropic account-level spend cap
 - **Docs**: `ARCHITECTURE.md` + `API.md` alongside the code; safety tag `pre-wiki-session` on commit `721ddce`
+
+### 20 April
+
+An eval harness for the wiki chat: graph retrieval grounded in the garden's own triples, two defenses against hallucination, and a 55-question test set.
+
+- **Graph retrieval**: the chat now uses triples, taxonomy, and themes to pick articles instead of sending all 90 as snippets; context drops from ~40k to ~10-14k tokens
+- **Defense A -- refuse weak retrieval**: if the graph matches nothing, the server returns a canned refusal without calling Claude; zero tokens, zero hallucination risk on out-of-scope questions
+- **Defense B -- verify claims**: new `/api/verify` runs a second Claude call to classify every claim as verified, inferred, or unverified against the source articles; the first real hallucination metric
+- **Eval dashboard** at `localhost:8782/eval.html`: 55-question golden test set across 7 categories, auto plus human scoring with a 10-criterion rubric, claim verification UI, automated diagnosis from the methodology decision tree, editable expected-source per question
+- **Canonical start and zombie prevention**: `scripts/eval-dev.sh` kills listeners before starting and verifies health; `scripts/eval-smoke-test.sh` runs 7 regression checks; `/start-eval` and `/stop-eval` skills plus double-click `.bat` launchers; serve.py hardened with ThreadingTCPServer, no SO_REUSEADDR, `/api/health`, and `/api/control` for Restart/Stop from the UI
+- **Docs** at `localhost:8782`: `manual.html` (task-based, Information Mapping), `methodology.html` (how to evaluate, worked examples), `truth-report.html` (architecture of the defenses), `TRUTH-AND-VERIFICATION.md`
 
 ## Related
 
