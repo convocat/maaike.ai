@@ -8,7 +8,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
-## 🔵 Wiki eval dashboard: run the baseline
+## 🟡 Wiki eval dashboard: run the baseline
 *added: 2026-04-20*
 
 Full eval stack shipped this session. What got built:
