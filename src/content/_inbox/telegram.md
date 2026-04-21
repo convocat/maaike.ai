@@ -19,3 +19,6 @@ https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-working-on
 
 2026-04-15: Nora Bateson: “How our ways of knowing shape our collective future”
 https://re-generation.cc/en/longread/nora-bateson/
+
+2026-04-21: Why LLMs Can’t Read Your Graph
+https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph?r=82niz&utm_campaign=post&utm_medium=web
