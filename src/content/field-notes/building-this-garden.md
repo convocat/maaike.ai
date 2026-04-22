@@ -1,7 +1,7 @@
 ---
 title: "Building this garden: change log"
 date: 2026-03-12
-updated: 2026-04-20
+updated: 2026-04-22
 maturity: solid
 tags:
   - about
@@ -333,6 +333,24 @@ An eval harness for the wiki chat: graph retrieval grounded in the garden's own 
 - **Eval dashboard** at `localhost:8782/eval.html`: 55-question golden test set across 7 categories, auto plus human scoring with a 10-criterion rubric, claim verification UI, automated diagnosis from the methodology decision tree, editable expected-source per question
 - **Canonical start and zombie prevention**: `scripts/eval-dev.sh` kills listeners before starting and verifies health; `scripts/eval-smoke-test.sh` runs 7 regression checks; `/start-eval` and `/stop-eval` skills plus double-click `.bat` launchers; serve.py hardened with ThreadingTCPServer, no SO_REUSEADDR, `/api/health`, and `/api/control` for Restart/Stop from the UI
 - **Docs** at `localhost:8782`: `manual.html` (task-based, Information Mapping), `methodology.html` (how to evaluate, worked examples), `truth-report.html` (architecture of the defenses), `TRUTH-AND-VERIFICATION.md`
+
+### 21 April
+
+A ritual for ingesting the world. The two enrichment skills share one vocabulary now, and external sources flow through the same routine as internal posts.
+
+- **Unified enrichment vocab**: `/auto-tag` (for garden content) and `/ingest-source` (for external URLs) now draw from the same controlled list of types, lenses, subjects, roles, and predicates
+- **Ingest publishes weblinks**: `/ingest-source` now creates a full weblink entry with extracted tags and an AI-generated description, instead of stopping at the knowledge graph
+- **First external source**: Nora Bateson's "How our ways of knowing shape our collective future" added, with 6 triples linking warm data, reductionism, systems thinking, and epistemic bias
+
+### 22 April
+
+Normalizing the graph. Every topic converted to a richer classification, so filters actually mean something.
+
+- **Faceted knowledge graph**: 144 topics reclassified on four axes (type, lens, subject, role); the `ai` bucket that lumped 25 topics into one useless filter is gone, replaced by specific subjects like `llm`, `prompt`, `agent`, `pragmatics`, `psycholinguistics`, `digital-garden`, `future-of-work`, and more
+- **Sources and weblinks merged**: the parallel `sources` object was retired; every external URL is now just a weblink, and associations point to the weblink slug
+- **Mycelium on weblinks**: the Bateson weblink now renders its triples and themes in the Mycelium drawer, same as articles
+- **/sources page**: repurposed to read weblinks + associations, keeping the rich card view with summary + topic badges + graph edges
+- **Dashboard project scoped**: integrated admin dashboard added to the backlog as a requirements-first scoping item with six open questions
 
 ## Related
 
