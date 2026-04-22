@@ -1,7 +1,6 @@
 
 ✅ 2026-04-06: Test2
 
-✅ 2026-04-06: [user manual — why a digital garden, verbatim] "It's a way for me to explore thinking as the central concept in human-machine interaction, and what the place of generative AI should be. I would like to read more, but traditional blogs presuppose that everything should first be finished before you can publish. I'm more interested in thinking in public, and share my thoughts with my audience before it's fully polished and refined."
 
 
 
