@@ -1751,6 +1751,26 @@
     "drs-2022": {
       "label": "DRS 2022",
       "type": "event"
+    },
+    "cognitive-vulnerability": {
+      "label": "Cognitive vulnerability",
+      "type": "phenomenon",
+      "lens": ["cognition"],
+      "subject": ["mind"]
+    },
+    "ai-regulation": {
+      "label": "AI regulation",
+      "type": "concept",
+      "lens": ["culture"],
+      "subject": ["llm"],
+      "role": "framework"
+    },
+    "ai-safety": {
+      "label": "AI safety",
+      "type": "concept",
+      "lens": ["design", "epistemology"],
+      "subject": ["llm"],
+      "role": "framework"
     }
   },
   "associations": [
@@ -2870,6 +2890,41 @@
       "predicate": "instance-of",
       "object": "agentic-ai",
       "source": "instagram",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "anthropomorphism",
+      "predicate": "leads-to",
+      "object": "cognitive-vulnerability",
+      "source": "china-s-approach-to-ai-anthropomorphism",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "risks",
+      "object": "cognitive-vulnerability",
+      "source": "china-s-approach-to-ai-anthropomorphism",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-regulation",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "china-s-approach-to-ai-anthropomorphism",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-safety",
+      "predicate": "counters",
+      "object": "cognitive-vulnerability",
+      "source": "china-s-approach-to-ai-anthropomorphism",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-regulation",
+      "predicate": "requires",
+      "object": "ai-safety",
+      "source": "china-s-approach-to-ai-anthropomorphism",
       "collection": "weblinks"
     }
   ]

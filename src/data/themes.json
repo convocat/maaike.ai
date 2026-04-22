@@ -67,6 +67,11 @@
     "Claude Code's plugin ecosystem frames AI capabilities as professional team roles",
     "Plugins as delegation: assigning developer responsibilities to specialized agentic tools"
   ],
+  "china-s-approach-to-ai-anthropomorphism": [
+    "China's AI law frames human cognitive vulnerability to anthropomorphism as a harm worth regulating",
+    "AI regulation as a design context: law sets requirements that shape technical choices",
+    "Anthropomorphism as a legal category, not just a design risk"
+  ],
   "air-canadas-bot-mishap-pre-dates-chatgpt": [
     "The Air Canada chatbot story is routinely misread as an LLM failure, when it was actually a mundane content governance failure that predates generative AI entirely.",
     "Content siloes are the real enemy of reliable conversational AI — not model capability or hallucination.",
