@@ -63,6 +63,10 @@
     "Conversational AI sits uncomfortably between IT and content, and that organisational ambiguity is itself a design problem that practitioners must learn to solve.",
     "Skill expansion for conversation designers in 2022 is not about chasing trends but about closing the gap between what language professionals know and what the technology now demands."
   ],
+  "instagram": [
+    "Claude Code's plugin ecosystem frames AI capabilities as professional team roles",
+    "Plugins as delegation: assigning developer responsibilities to specialized agentic tools"
+  ],
   "air-canadas-bot-mishap-pre-dates-chatgpt": [
     "The Air Canada chatbot story is routinely misread as an LLM failure, when it was actually a mundane content governance failure that predates generative AI entirely.",
     "Content siloes are the real enemy of reliable conversational AI — not model capability or hallucination.",

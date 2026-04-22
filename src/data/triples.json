@@ -1026,6 +1026,18 @@
       ],
       "role": "instrument"
     },
+    "llm-plugins": {
+      "label": "LLM plugins",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "agent",
+        "tooling"
+      ],
+      "role": "instrument"
+    },
     "role-based-collaboration": {
       "label": "Role-based collaboration",
       "type": "concept",
@@ -2837,6 +2849,27 @@
       "predicate": "presupposes",
       "object": "conceptual-foundations-of-ai",
       "source": "metaphors-for-designers-working-with-ai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "generates",
+      "object": "llm-plugins",
+      "source": "instagram",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llm-plugins",
+      "predicate": "demonstrates",
+      "object": "role-based-collaboration",
+      "source": "instagram",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "instance-of",
+      "object": "agentic-ai",
+      "source": "instagram",
       "collection": "weblinks"
     }
   ]
