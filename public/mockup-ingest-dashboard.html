@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingest dashboard — mockup</title>
+<title>Garden ingest dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Roboto:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -63,6 +63,13 @@ input, textarea { font: inherit; color: inherit; }
 .tab.active { background: var(--accent-2); color: #fff; font-weight: 600; }
 .tab:not(.active):hover { background: var(--rule-soft); color: var(--ink); }
 #topbar .spacer { flex: 1; }
+#sync-btn {
+  padding: 5px 12px; font-size: 13px; font-weight: 500; cursor: pointer;
+  background: transparent; border: 1px solid var(--rule); border-radius: var(--radius-md);
+  color: var(--ink-3); font-family: var(--font-b); transition: all 150ms ease;
+}
+#sync-btn:hover { border-color: var(--accent); color: var(--accent); }
+#sync-btn:disabled { opacity: 0.5; cursor: default; }
 .queue-count {
   font-family: var(--font-b); font-size: 12.5px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
@@ -79,11 +86,19 @@ input, textarea { font: inherit; color: inherit; }
   display: flex; flex-direction: column; overflow: hidden; background: var(--bg-rail);
 }
 #queue-head {
-  padding: 14px 16px 10px;
+  padding: 10px 16px 10px;
   font-family: var(--font-b); font-size: 12.5px; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
   border-bottom: 1px solid var(--rule); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: space-between;
 }
+#btn-clear-processed {
+  font-size: 11.5px; font-weight: 400; letter-spacing: 0; text-transform: none;
+  padding: 3px 9px; border-radius: var(--radius-md); cursor: pointer;
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-3);
+  font-family: var(--font-b); transition: all 150ms ease; display: none;
+}
+#btn-clear-processed:hover { border-color: #c0392b; color: #c0392b; }
 /* Queue filters */
 #queue-filters {
   padding: 10px 12px; border-bottom: 1px solid var(--rule); flex-shrink: 0;
@@ -247,12 +262,25 @@ input, textarea { font: inherit; color: inherit; }
 #preview-close:hover { background: var(--rule-soft); color: var(--ink); }
 #preview-frame { flex: 1; border: none; width: 100%; background: #fff; }
 
+/* Extract button */
+.btn-extract {
+  padding: 6px 16px; border-radius: var(--radius-md); font-size: 13.5px;
+  font-weight: 500; cursor: pointer; font-family: var(--font-b);
+  background: transparent; border: 1px solid var(--accent); color: var(--accent);
+  transition: all 150ms ease;
+}
+.btn-extract:hover { background: var(--accent); color: #fff; }
+.btn-extract:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Review content container */
+#review-content { display: flex; flex-direction: column; gap: 32px; flex: 1; }
+
 /* Action bar — sticky footer, right-aligned */
 #action-strip {
   position: sticky; bottom: 0;
   padding: 12px 0; background: var(--bg-card);
   border-top: 1px solid var(--rule); display: flex; align-items: center;
-  justify-content: flex-end; gap: 10px; margin-top: auto;
+  justify-content: flex-end; gap: 10px; margin-top: auto; flex-shrink: 0;
 }
 .btn-approve {
   padding: 7px 20px; border-radius: var(--radius-md); font-size: 14px;
@@ -267,7 +295,60 @@ input, textarea { font: inherit; color: inherit; }
   transition: all 150ms ease;
 }
 .btn-dismiss:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.btn-delete {
+  padding: 7px 14px; border-radius: var(--radius-md); font-size: 14px;
+  font-weight: 400; cursor: pointer; font-family: var(--font-b);
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-3);
+  transition: all 150ms ease; display: none;
+}
+.btn-delete:hover { border-color: #c0392b; color: #c0392b; }
 .action-hint { font-family: var(--font-b); font-size: 12.5px; color: var(--ink-3); margin-right: auto; }
+
+/* Extraction status bar */
+#extraction-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 22px; font-size: 13px; font-family: var(--font-b);
+  background: var(--bg-card); border-bottom: 1px solid var(--rule);
+  color: var(--ink-3); flex-shrink: 0;
+  animation: slidein 200ms ease;
+}
+#extraction-bar.hidden { display: none; }
+@keyframes slidein { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 40px; } }
+.exbar-spinner {
+  width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--rule); border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+#exbar-label { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#exbar-count { font-size: 12px; color: var(--ink-3); flex-shrink: 0; opacity: 0.7; }
+
+/* Scan modal */
+#scan-modal {
+  position: fixed; inset: 0; background: rgba(252,252,251,0.92);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; backdrop-filter: blur(3px);
+}
+#scan-modal.hidden { display: none; }
+#scan-box {
+  background: var(--bg-card); border: 1px solid var(--rule);
+  border-radius: var(--radius-lg); padding: 32px 40px;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.spinner {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 3px solid var(--rule); border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#scan-label {
+  font-family: var(--font-d); font-size: 16px; font-style: italic;
+  color: var(--accent); font-weight: 500;
+}
+#scan-detail {
+  font-family: var(--font-b); font-size: 13px; color: var(--ink-3);
+  max-width: 280px; text-align: center; line-height: 1.5;
+}
 
 /* Toast */
 .toast {
@@ -281,6 +362,7 @@ input, textarea { font: inherit; color: inherit; }
 </head>
 <body>
 
+<!-- Scan modal -->
 <!-- Top bar -->
 <div id="topbar">
   <img src="/images/watercolor-leaf-trimmed.png" alt="Garden logo" style="height:28px;width:auto;flex-shrink:0;">
@@ -292,6 +374,7 @@ input, textarea { font: inherit; color: inherit; }
     <button class="tab">KPIs</button>
   </div>
   <div class="spacer"></div>
+  <button id="sync-btn" onclick="syncTelegram()" title="Pull new messages from Telegram">Sync Telegram</button>
   <span class="queue-count">3 pending</span>
 </div>
 
@@ -300,7 +383,9 @@ input, textarea { font: inherit; color: inherit; }
 
   <!-- Queue -->
   <div id="queue">
-    <div id="queue-head">Inbox queue</div>
+    <div id="queue-head">
+      <span>Draft weblinks</span>
+    </div>
 
     <div id="queue-filters">
       <input id="filter-search" type="text" placeholder="Search by name…">
@@ -308,8 +393,7 @@ input, textarea { font: inherit; color: inherit; }
         <select id="filter-status">
           <option value="">All statuses</option>
           <option value="pending">Pending</option>
-          <option value="approved">Approved</option>
-          <option value="dismissed">Dismissed</option>
+          <option value="processed">Processed</option>
         </select>
         <select id="sort-select">
           <option value="date-desc">Date ↓</option>
@@ -320,140 +404,21 @@ input, textarea { font: inherit; color: inherit; }
       </div>
     </div>
 
-    <div id="queue-list">
-
-      <div class="queue-item active" data-title="Why LLMs Can't Read Your Graph" data-status="pending" data-date="2026-04-21" onclick="showItem(0)">
-        <span class="qi-strip"></span>
-        <div class="qi-body">
-<span class="qi-title">Why LLMs Can't Read Your Graph</span>
-          <span class="qi-status pending">Pending</span>
-        </div>
-      </div>
-
-      <div class="queue-item" data-title="Nora Bateson: How our ways of knowing shape our collective future" data-status="extracting" data-date="2026-04-15" onclick="showItem(1)">
-        <span class="qi-strip"></span>
-        <div class="qi-body">
-<span class="qi-title">Nora Bateson: How our ways of knowing shape our collective future</span>
-          <span class="qi-status extracting">Extracting…</span>
-        </div>
-      </div>
-
-      <div class="queue-item" data-title="Project Glasswing: Securing critical software for the AI era" data-status="approved" data-date="2026-04-08" onclick="showItem(2)">
-        <span class="qi-strip"></span>
-        <div class="qi-body">
-<span class="qi-title">Project Glasswing: Securing critical software for the AI era</span>
-          <span class="qi-status approved">Approved</span>
-        </div>
-      </div>
-
-      <div class="queue-item done" data-title="Symbolic AI for the win (Kurt Cagle)" data-status="dismissed" data-date="2026-04-12" onclick="showItem(3)">
-        <span class="qi-strip"></span>
-        <div class="qi-body">
-<span class="qi-title">Symbolic AI for the win (Kurt Cagle)</span>
-          <span class="qi-status dismissed">Dismissed</span>
-        </div>
-      </div>
-
-    </div>
+    <div id="queue-list"></div>
   </div>
 
   <div class="drag-handle" id="drag-left"></div>
 
-  <!-- Review panel: item 0 (active) -->
-  <div id="review" data-item="0">
-
-    <div>
-      <div class="section-head">Source</div>
-      <div class="inbox-line">
-        <span class="inbox-date">2026-04-21</span>
-        <span class="inbox-link" onclick="openPreview('https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph', 'open.substack.com')">
-          https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph
-        </span>
-      </div>
+  <!-- Review panel: populated dynamically by JS -->
+  <div id="review">
+    <div id="review-content">
+      <p style="color:var(--ink-3);font-size:14px;padding:8px 0;">Select an item from the queue.</p>
     </div>
-
-    <div class="meta-card">
-      <div class="section-head">Metadata — edit before approving</div>
-
-      <div class="meta-row">
-        <label class="meta-label">Title</label>
-        <input class="meta-input" type="text" value="Why LLMs can't read your graph">
-      </div>
-
-      <div class="meta-row">
-        <label class="meta-label">URL</label>
-        <div class="meta-url">https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph</div>
-      </div>
-
-      <div class="meta-row">
-        <label class="meta-label">Description</label>
-        <textarea class="meta-input" rows="2">Argues that graph-structured knowledge doesn't translate well into LLM context windows — the relational structure is lost in serialisation. Proposes structured retrieval over raw graph traversal.</textarea>
-      </div>
-
-      <div class="meta-row">
-        <label class="meta-label">Tags</label>
-        <input class="meta-input" type="text" value="knowledge-graph, llm, retrieval, ai">
-      </div>
+    <div id="action-strip">
+      <span class="action-hint">Select an item to review</span>
+      <button class="btn-dismiss" onclick="dismissItem()" disabled>Dismiss</button>
+      <button class="btn-approve" onclick="approveItem()" disabled>Approve and publish</button>
     </div>
-
-    <div>
-      <div class="section-head">Extracted topics</div>
-      <div class="topics-wrap">
-        <span class="topic-chip">Knowledge graph <span class="remove">×</span></span>
-        <span class="topic-chip">LLMs <span class="remove">×</span></span>
-        <span class="topic-chip">Graph retrieval <span class="remove">×</span></span>
-        <span class="topic-chip">Serialisation <span class="remove">×</span></span>
-        <span class="topic-chip">RAG <span class="remove">×</span></span>
-        <button class="add-topic">+ add topic</button>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-head">Associations — uncheck to exclude</div>
-      <table class="assoc-table">
-        <thead>
-          <tr>
-            <th style="width:1.5rem"></th>
-            <th>Subject</th>
-            <th>Predicate</th>
-            <th>Object</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="checkbox" class="assoc-check" checked></td>
-            <td>LLMs</td>
-            <td><code>struggles-with</code></td>
-            <td>Graph retrieval</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="assoc-check" checked></td>
-            <td>Knowledge graph</td>
-            <td><code>loses-structure-in</code></td>
-            <td>Serialisation</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="assoc-check" checked></td>
-            <td>Graph retrieval</td>
-            <td><code>outperforms</code></td>
-            <td>RAG</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="assoc-check"></td>
-            <td>LLMs</td>
-            <td><code>requires</code></td>
-            <td>Structured context</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  <div id="action-strip">
-    <span class="action-hint">Writes weblink + updates triples.json on approve</span>
-    <button class="btn-dismiss" onclick="dismissItem()">Dismiss</button>
-    <button class="btn-approve" onclick="approveItem()">Approve and publish</button>
-  </div>
-
   </div><!-- /review -->
 
   <div class="drag-handle" id="drag-right"></div>
@@ -471,34 +436,287 @@ input, textarea { font: inherit; color: inherit; }
 
 
 <script>
+// ── State ──────────────────────────────────────────────────────────────────
+let queueItems = [];
+let currentIdx = -1;
+
+// ── Preview pane ───────────────────────────────────────────────────────────
 function openPreview(url, label) {
   document.getElementById('preview-url').textContent = label || url;
   document.getElementById('preview-frame').src = url;
 }
-
 function closePreview() {
   document.getElementById('preview-url').textContent = '';
   document.getElementById('preview-frame').src = '';
 }
 
-// Load first item on start
-window.addEventListener('DOMContentLoaded', () => {
-  openPreview('https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph', 'open.substack.com');
-});
+// ── Utilities ──────────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
-// Drag-to-resize
+function toast(msg, isError) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  if (isError) t.style.background = '#B0005A';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+function setBusy(busy) {
+  document.querySelectorAll('.btn-approve, .btn-dismiss').forEach(b => b.disabled = busy);
+}
+
+// ── Queue loader ───────────────────────────────────────────────────────────
+async function loadInbox() {
+  const res = await fetch('/api/inbox');
+  queueItems = await res.json();
+  renderQueue();
+  updateQueueCount();
+  const firstPending = queueItems.findIndex(it => !it.processed);
+  if (firstPending >= 0) showItem(firstPending);
+}
+
+function renderQueue() {
+  const list = document.getElementById('queue-list');
+  const search = document.getElementById('filter-search').value.toLowerCase();
+  const statusVal = document.getElementById('filter-status').value;
+  const sortVal = document.getElementById('sort-select').value;
+
+  let visible = queueItems.filter(it => {
+    const matchSearch = !search || it.title.toLowerCase().includes(search);
+    const itStatus = it.processed ? 'processed' : 'pending';
+    const matchStatus = !statusVal || itStatus === statusVal;
+    return matchSearch && matchStatus;
+  });
+
+  visible = [...visible].sort((a, b) => {
+    if (sortVal === 'date-desc') return b.date.localeCompare(a.date);
+    if (sortVal === 'date-asc')  return a.date.localeCompare(b.date);
+    if (sortVal === 'alpha-asc') return a.title.localeCompare(b.title);
+    if (sortVal === 'alpha-desc') return b.title.localeCompare(a.title);
+    return 0;
+  });
+
+  list.innerHTML = visible.map(it => {
+    const realIdx = queueItems.indexOf(it);
+    const status = it.processed ? 'processed' : 'pending';
+    const statusLabel = it.processed ? 'Done' : 'Pending';
+    const active = realIdx === currentIdx ? 'active' : '';
+    const done = it.processed ? 'done' : '';
+    return `<div class="queue-item ${active} ${done}" onclick="showItem(${realIdx})">
+      <span class="qi-strip"></span>
+      <div class="qi-body">
+        <span class="qi-title">${escHtml(it.title)}</span>
+        <span class="qi-status ${status}">${statusLabel}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updateQueueCount() {
+  document.querySelector('.queue-count').textContent = `${queueItems.length} drafts`;
+}
+
+// ── Review panel ───────────────────────────────────────────────────────────
+function showItem(idx) {
+  currentIdx = idx;
+  renderQueue();
+  const item = queueItems[idx];
+  if (!item) return;
+  renderReviewPanel(item);
+  if (item.url) {
+    try { openPreview(item.url, new URL(item.url).hostname); } catch (e) {}
+  }
+}
+
+function renderReviewPanel(item) {
+  const el = document.getElementById('review-content');
+  const enriched = item.enriched;
+  const triplesHtml = enriched ? renderTriplesHtml(item) : `
+    <div class="meta-card" style="border-style:dashed">
+      <div class="section-head">Awaiting enrichment</div>
+      <p style="color:var(--ink-3);font-size:13.5px;">
+        This draft has no triples yet. The telegram-sync workflow will run /auto-tag on the next scheduled pass (every 15 min) or when you click Sync Telegram.
+      </p>
+    </div>`;
+
+  el.innerHTML = `
+    <div>
+      <div class="section-head">Source</div>
+      <div class="inbox-line">
+        <span class="inbox-date">${escHtml(item.date)}</span>
+        ${item.url
+          ? `<a class="inbox-link" href="${escHtml(item.url)}" onclick="openPreview('${escHtml(item.url)}','${escHtml(new URL(item.url).hostname)}');return false;">${escHtml(item.url)}</a>`
+          : escHtml(item.title)}
+      </div>
+    </div>
+    <div class="meta-card">
+      <div class="section-head">Metadata</div>
+      <div class="meta-row">
+        <label class="meta-label">Title</label>
+        <input id="meta-title" class="meta-input" type="text" value="${escHtml(item.title)}" readonly>
+      </div>
+      ${item.url ? `<div class="meta-row">
+        <label class="meta-label">URL</label>
+        <div class="meta-url">${escHtml(item.url)}</div>
+      </div>` : ''}
+      <div class="meta-row">
+        <label class="meta-label">Description</label>
+        <textarea id="meta-desc" class="meta-input" rows="3" readonly>${escHtml(item.description || '')}</textarea>
+      </div>
+      <div class="meta-row">
+        <label class="meta-label">Tags</label>
+        <input id="meta-tags" class="meta-input" type="text" value="${escHtml((item.tags || []).join(', '))}" readonly>
+      </div>
+      ${item.themes && item.themes.length ? `<div class="meta-row">
+        <label class="meta-label">Themes</label>
+        <div style="font-size:13.5px;color:var(--ink-2);">${item.themes.map(escHtml).join(' · ')}</div>
+      </div>` : ''}
+      <div style="font-size:12px;color:var(--ink-3);margin-top:4px;">
+        To edit this draft, open <code>${escHtml(item.path)}</code> in your editor and rerun the sync.
+      </div>
+    </div>
+    ${triplesHtml}`;
+
+  const hint = document.querySelector('.action-hint');
+  if (hint) hint.textContent = enriched
+    ? 'Approve → flips draft:false and commits'
+    : 'Draft not yet enriched — approve will publish without triples';
+
+  document.querySelector('.btn-approve').disabled = false;
+  document.querySelector('.btn-dismiss').disabled = false;
+}
+
+function renderTriplesHtml(item) {
+  const rows = (item.associations || []).map(a =>
+    `<tr>
+      <td>${escHtml(a.subject)}</td>
+      <td><code>${escHtml(a.predicate)}</code></td>
+      <td>${escHtml(a.object)}</td>
+    </tr>`
+  ).join('');
+  return `
+    <div>
+      <div class="section-head">Triples (${item.associations.length})</div>
+      <table class="assoc-table">
+        <thead><tr><th>Subject</th><th>Predicate</th><th>Object</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+// ── Approve / Dismiss ──────────────────────────────────────────────────────
+async function approveItem() {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+
+  setBusy(true);
+  try {
+    const res = await fetch('/api/approve', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({slug: item.slug})
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    queueItems.splice(currentIdx, 1);
+    currentIdx = -1;
+    toast('Published: ' + item.slug);
+    renderQueue();
+    updateQueueCount();
+    setTimeout(advanceQueue, 500);
+  } catch (e) {
+    toast('Approve failed: ' + e.message, true);
+  }
+  setBusy(false);
+}
+
+async function dismissItem() {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+  if (!confirm(`Dismiss "${item.title}"? The draft will be deleted.`)) return;
+
+  setBusy(true);
+  try {
+    const res = await fetch('/api/dismiss', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({slug: item.slug})
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    queueItems.splice(currentIdx, 1);
+    currentIdx = -1;
+    toast('Dismissed');
+    renderQueue();
+    updateQueueCount();
+    setTimeout(advanceQueue, 500);
+  } catch (e) {
+    toast('Dismiss failed: ' + e.message, true);
+  }
+  setBusy(false);
+}
+
+async function syncTelegram() {
+  const btn = document.getElementById('sync-btn');
+  btn.disabled = true;
+  btn.textContent = 'Triggering…';
+  try {
+    const res = await fetch('/api/sync-telegram', { method: 'POST' });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    btn.textContent = 'Queued…';
+    // Poll GitHub Actions until the run completes
+    for (let i = 0; i < 90; i++) {
+      await new Promise(r => setTimeout(r, 4000));
+      const s = await fetch('/api/telegram-sync-status').then(r => r.json());
+      if (s.status === 'in_progress') { btn.textContent = 'Enriching…'; }
+      if (s.status === 'completed') {
+        if (s.conclusion === 'success') {
+          btn.textContent = 'Pulling…';
+          await fetch('/api/git-pull', { method: 'POST' });
+          toast('Sync + auto-tag complete. Reloading…');
+          await loadInbox();
+        } else {
+          toast('Workflow finished: ' + (s.conclusion || 'unknown'), true);
+        }
+        break;
+      }
+    }
+  } catch (e) {
+    toast('Sync failed: ' + e.message, true);
+  }
+  btn.textContent = 'Sync Telegram';
+  btn.disabled = false;
+}
+
+function advanceQueue() {
+  const nextIdx = queueItems.findIndex((_, i) => i !== currentIdx);
+  if (nextIdx >= 0) showItem(nextIdx);
+  else toast('Queue empty — all drafts reviewed');
+}
+
+// ── Filters ────────────────────────────────────────────────────────────────
+document.getElementById('filter-search').addEventListener('input', renderQueue);
+document.getElementById('filter-status').addEventListener('change', renderQueue);
+document.getElementById('sort-select').addEventListener('change', renderQueue);
+
+// ── Drag-to-resize ─────────────────────────────────────────────────────────
 function makeDraggable(handleId, getTarget, getSide) {
   const handle = document.getElementById(handleId);
+  if (!handle) return;
   let startX, startW;
   handle.addEventListener('mousedown', e => {
-    startX = e.clientX;
-    startW = getTarget().offsetWidth;
+    startX = e.clientX; startW = getTarget().offsetWidth;
     handle.classList.add('dragging');
     document.body.style.cursor = 'col-resize';
     document.body.style.userSelect = 'none';
     const onMove = e => {
-      const delta = e.clientX - startX;
-      const newW = Math.max(160, Math.min(600, startW + getSide() * delta));
+      const newW = Math.max(160, Math.min(600, startW + getSide() * (e.clientX - startX)));
       getTarget().style.width = newW + 'px';
       getTarget().style.transition = 'none';
     };
@@ -517,95 +735,8 @@ function makeDraggable(handleId, getTarget, getSide) {
 makeDraggable('drag-left', () => document.getElementById('queue'), () => 1);
 makeDraggable('drag-right', () => document.getElementById('preview-pane'), () => -1);
 
-const items = [
-  { domain: 'open.substack.com', title: 'Why LLMs Can\'t Read Your Graph', status: 'pending' },
-  { domain: 're-generation.cc', title: 'Nora Bateson: How our ways of knowing shape…', status: 'extracting' },
-  { domain: 'anthropic.com', title: 'Project Glasswing', status: 'approved' },
-  { domain: 'linkedin.com', title: 'Symbolic AI for the win', status: 'dismissed' },
-];
-
-let current = 0;
-
-function showItem(i) {
-  current = i;
-  document.querySelectorAll('.queue-item').forEach((el, idx) => {
-    el.classList.toggle('active', idx === i);
-  });
-}
-
-function toast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 2500);
-}
-
-function advanceQueue() {
-  const qItems = [...document.querySelectorAll('.queue-item')];
-  const next = qItems.find((el, idx) =>
-    idx !== current &&
-    el.style.display !== 'none' &&
-    ['pending', 'extracting'].includes(el.dataset.status)
-  );
-  if (next) {
-    showItem(qItems.indexOf(next));
-  } else {
-    toast('All items reviewed');
-  }
-}
-
-function approveItem() {
-  const qItems = document.querySelectorAll('.queue-item');
-  const chip = qItems[current].querySelector('.qi-status');
-  chip.className = 'qi-status approved';
-  chip.textContent = 'Approved';
-  qItems[current].dataset.status = 'approved';
-  toast('✓ Published to weblinks + triples.json updated');
-  setTimeout(advanceQueue, 600);
-}
-
-function dismissItem() {
-  const qItems = document.querySelectorAll('.queue-item');
-  const item = qItems[current];
-  const chip = item.querySelector('.qi-status');
-  chip.className = 'qi-status dismissed';
-  chip.textContent = 'Dismissed';
-  item.classList.add('done');
-  item.dataset.status = 'dismissed';
-  toast('Dismissed — marked ✅ in inbox');
-  setTimeout(advanceQueue, 600);
-}
-
-// Filter + sort
-function applyFilters() {
-  const search = document.getElementById('filter-search').value.toLowerCase();
-  const statusVal = document.getElementById('filter-status').value;
-  const sortVal = document.getElementById('sort-select').value;
-  const list = document.getElementById('queue-list');
-  const items = [...list.querySelectorAll('.queue-item')];
-
-  items.forEach(item => {
-    const title = (item.dataset.title || '').toLowerCase();
-    const status = item.dataset.status || '';
-    const matchSearch = !search || title.includes(search);
-    const matchStatus = !statusVal || status === statusVal;
-    item.style.display = matchSearch && matchStatus ? '' : 'none';
-  });
-
-  items.sort((a, b) => {
-    if (sortVal === 'date-desc') return (b.dataset.date || '').localeCompare(a.dataset.date || '');
-    if (sortVal === 'date-asc')  return (a.dataset.date || '').localeCompare(b.dataset.date || '');
-    if (sortVal === 'alpha-asc') return (a.dataset.title || '').localeCompare(b.dataset.title || '');
-    if (sortVal === 'alpha-desc') return (b.dataset.title || '').localeCompare(a.dataset.title || '');
-    return 0;
-  });
-  items.forEach(item => list.appendChild(item));
-}
-
-document.getElementById('filter-search').addEventListener('input', applyFilters);
-document.getElementById('filter-status').addEventListener('change', applyFilters);
-document.getElementById('sort-select').addEventListener('change', applyFilters);
+// ── Init ───────────────────────────────────────────────────────────────────
+loadInbox();
 </script>
 
 </body>
