@@ -20,5 +20,5 @@ triples:
   - ["AI regulation", "requires", "AI safety"]
 description: "China's proposed AI law acknowledges AI-related human vulnerabilities and establishes contextual technical measures to prevent AI harms | Edition #264"
 ai: "100% Maai"
-draft: true
+draft: false
 ---
