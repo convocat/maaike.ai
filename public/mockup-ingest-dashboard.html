@@ -541,12 +541,28 @@ function toast(msg) {
   setTimeout(() => t.remove(), 2500);
 }
 
+function advanceQueue() {
+  const qItems = [...document.querySelectorAll('.queue-item')];
+  const next = qItems.find((el, idx) =>
+    idx !== current &&
+    el.style.display !== 'none' &&
+    ['pending', 'extracting'].includes(el.dataset.status)
+  );
+  if (next) {
+    showItem(qItems.indexOf(next));
+  } else {
+    toast('All items reviewed');
+  }
+}
+
 function approveItem() {
   const qItems = document.querySelectorAll('.queue-item');
   const chip = qItems[current].querySelector('.qi-status');
   chip.className = 'qi-status approved';
   chip.textContent = 'Approved';
+  qItems[current].dataset.status = 'approved';
   toast('✓ Published to weblinks + triples.json updated');
+  setTimeout(advanceQueue, 600);
 }
 
 function dismissItem() {
@@ -558,6 +574,7 @@ function dismissItem() {
   item.classList.add('done');
   item.dataset.status = 'dismissed';
   toast('Dismissed — marked ✅ in inbox');
+  setTimeout(advanceQueue, 600);
 }
 
 // Filter + sort
