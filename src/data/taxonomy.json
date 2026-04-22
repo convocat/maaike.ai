@@ -544,6 +544,38 @@
       "label": "Content governance",
       "type": "concept",
       "definition": ""
+    },
+    "machine-learning-metaphors": {
+      "label": "Machine learning metaphors",
+      "type": "theoretical-concept"
+    },
+    "black-box-metaphor": {
+      "label": "Black box metaphor",
+      "type": "interaction-metaphor"
+    },
+    "design-thinking": {
+      "label": "Design thinking",
+      "type": "methodology"
+    },
+    "conceptual-foundations-of-ai": {
+      "label": "Conceptual foundations of AI",
+      "type": "theoretical-concept"
+    },
+    "dave-murray-rust": {
+      "label": "Dave Murray-Rust",
+      "type": "person"
+    },
+    "irene-nicenboim": {
+      "label": "Irene Nicenboim",
+      "type": "person"
+    },
+    "dan-lockton": {
+      "label": "Dan Lockton",
+      "type": "person"
+    },
+    "drs-2022": {
+      "label": "DRS 2022",
+      "type": "event"
     }
   }
 }
