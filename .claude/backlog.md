@@ -8,6 +8,20 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Formal ontology layer research (RDF / SKOS)
+*2026-04-22*
+
+Flagged two days ago as "tomorrow's research" and never picked up. Research-only task, no implementation: what's the effort and benefit of publishing the faceted knowledge graph as formal linked data (RDF / SKOS / schema.org)? Tradeoffs to weigh: interoperability and linked-data-cloud participation vs. tooling/serialization/maintenance overhead for a personal garden. Output is a short written recommendation, not code.
+
+Context: the graph is now in a clean faceted shape (types, lenses obligatory-array, subjects obligatory-array, roles optional, 25 predicates). That makes a formal serialization more feasible than before, since topics already have structured metadata that maps onto RDF classes and properties.
+
+Key files: `src/data/triples.json`, `.claude/commands/auto-tag.md`, `.claude/commands/ingest-source.md`
+
+**Opening message for next session:**
+> Research the effort and benefits of formalising the garden's faceted knowledge graph as RDF / SKOS / schema.org linked data. Output is a written recommendation with tradeoffs, not implementation. The graph schema is now clean (faceted, fully migrated) so the analysis can use the real structure. Draw conclusions on whether it's worth doing for a personal garden.
+
+---
+
 ## 🟡 Integrated admin dashboard (requirements scoping)
 *added: 2026-04-22*
 
