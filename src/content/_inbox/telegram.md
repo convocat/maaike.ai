@@ -1,23 +1,4 @@
 
-
-
-
-
-✅ 2026-04-08: Project Glasswing: Securing critical software for the AI era \ Anthropic
-https://www.anthropic.com/glasswing
-
-✅ 2026-04-12: Symbolic AI for the win (Kurt Cagle, LinkedIn)
-
-✅ 2026-04-14: Hello
-
-✅ 2026-04-14: T3st123
-
-✅ 2026-04-15: Nora Bateson: “How our ways of knowing shape our collective future”
-https://re-generation.cc/en/longread/nora-bateson/
-
-✅ 2026-04-21: Why LLMs Can’t Read Your Graph
-https://open.substack.com/pub/inferenceengineer/p/why-llms-cant-read-your-graph?r=82niz&utm_campaign=post&utm_medium=web
-
 2026-04-22: EPRS_ATA(2021)690024_EN.pdf
 https://www.europarl.europa.eu/RegData/etudes/ATAG/2021/690024/EPRS_ATA(2021)690024_EN.pdf
 
