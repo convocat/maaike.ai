@@ -207,7 +207,17 @@ def append_to_inbox(text, date):
     print(f'Inbox: {text[:60]}')
 
 
+def clear_webhook():
+    r = requests.post(f'{BASE_URL}/deleteWebhook', timeout=10)
+    info = r.json()
+    if info.get('result'):
+        print('Webhook cleared (was set).')
+    else:
+        print(f'deleteWebhook: {info.get("description", "ok")}')
+
+
 def main():
+    clear_webhook()
     updates = get_updates()
     if not updates:
         print('No new messages.')
