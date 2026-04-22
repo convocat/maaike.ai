@@ -5,6 +5,21 @@ updated: 2026-03-15
 maturity: complete
 tags:
   - ai-ethics
+  - writing
+  - llm
+  - critical-thinking
+themes:
+  - "Books as high-quality training data: what makes human writing irreplaceable for LLMs"
+  - "Training data scarcity as a structural threat to LLM development"
+  - "Synthetic data and surveillance as dystopian non-solutions"
+  - "The humanistic argument: lived experience is the beating heart of good writing"
+triples:
+  - ["LLMs", "requires", "Training data"]
+  - ["Training data scarcity", "caused-by", "LLMs"]
+  - ["writing-as-craft", "reinforces", "LLMs"]
+  - ["Training data scarcity", "leads-to", "Synthetic training data"]
+  - ["Synthetic training data", "leads-to", "AI feedback loop"]
+  - ["LLMs", "lacks", "writing-as-craft"]
 description: "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!"
 draft: false
 ai: "100% Maai"
@@ -33,7 +48,7 @@ Suppose that AI is able to create billions of novels, what's the point if they'l
 
 Sure, I get it, from a machine learning point of view, it may sound logical that if LLMs perform best on books, we should give them books. But from a humanistic point of view, I really wonder what it means to basically have no human in the loop in adding to what's possibly the most important data set out there: our collective human knowledge.
 
-What would it mean to generate billions of novels and feed them to an AI, without any human having seen, read, or evaluated those texts? Especially when we don't know yet how AI will be used in the future? Right now, ChatGPT is clearly recognisable as an app. And you can choose to use it or not. But what if these AIs get more integrated in our lives? More ambient? Would you like to base your information consumption, your decision making, and disclosure of your personal data based on a background algorithm that's basically feeding home-grown fiction back into itself?
+What would it mean to generate billions of novels and feed them to an AI, without any human having seen, read, or evaluated those texts? Especially when we don't know yet how AI will be used in the future? Right now, [[hey-chatgpt-whos-the-boss|ChatGPT]] is clearly recognisable as an app. And you can choose to use it or not. But what if these AIs get more integrated in our lives? More ambient? Would you like to base your information consumption, your decision making, and disclosure of your personal data based on a background algorithm that's basically feeding home-grown fiction back into itself?
 
 And what does it say about us humans, when we're willing to let algorithms produce the very thing that writers struggle to earn a living with, and fewer and fewer people read for their own pleasure, benefit or learning? Books as cheap, replaceable mass fodder for machines. Is this really something we should aspire?
 
@@ -51,7 +66,7 @@ Might it be that book-trained LLMs perform better because books were written by 
 
 ## Nick Cave: a grotesque mockery of what is to be human
 
-Two weeks ago, Nick Cave made the news with his blog on a ChatGPT song "written in the style of Nick Cave", calling it "a grotesque mockery of what it is to be human".
+Two weeks ago, [Nick Cave](https://en.wikipedia.org/wiki/Nick_Cave) made the news with his blog on a ChatGPT song "written in the style of Nick Cave", calling it "a grotesque mockery of what it is to be human".
 
 ## So now what?
 

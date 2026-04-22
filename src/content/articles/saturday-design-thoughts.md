@@ -6,14 +6,28 @@ maturity: complete
 tags:
   - conversation-design
   - philosophy
+  - interaction-model
+  - music
+  - generative-ai-design
 description: Designing for negative space
 draft: false
 ai: "100% Maai"
+themes:
+  - "LLMs are trained to fill silence, making negative space a structural absence"
+  - "Negative space in music as a model for what conversational AI lacks"
+  - "Meaningful friction as a design response to LLM over-fluency"
+  - "The conversational interface as a conscious design choice, not a necessity"
+triples:
+  - ["LLMs", "lacks", "Negative space"]
+  - ["LLMs", "exhibits", "Conviction"]
+  - ["Meaningful friction", "counters", "Conviction"]
+  - ["Designing for doubt", "requires", "Meaningful friction"]
+  - ["System prompt", "generates", "Meaningful friction"]
 ---
 
 LLMs are impossible to shut up. They always have the last word, not unlike when you were on the phone with your crush and kept telling each other 'I'm really hanging up now'. They're trained to fill, to complete. No questions asked, just spit out something as soon as you can, even if it doesn't know the real question yet. They're basically allergic to silence.
 
-From a design perspective, I'm wondering a lot about where negative space lives in an LLM. Because human conversation lives in the unspoken, as much as the spoken. So I'm asking myself, what does it mean to design for negative space when a machine is trained to avoid it?
+From a design perspective, I'm wondering a lot about where [negative space](https://en.wikipedia.org/wiki/Negative_space) lives in an LLM. Because human conversation lives in the unspoken, as much as the spoken. So I'm asking myself, what does it mean to design for negative space when a machine is trained to avoid it?
 
 This is what I'm researching in my personal pet project '[[designing-for-doubt]]'. What if we move away from sleek and easy interaction, and instead introduce meaningful friction as a designed invitation for reflection? What if we design constraint into an LLM's interaction model? A model that asks you what you think, and tells you that it's not going to fill that in for you? That is silence-informed?
 
@@ -23,4 +37,4 @@ In singing, making room is physically enforced: at a certain point in time, you 
 
 LLMs don't have a sense of silence. Or rhythm, for that matter. Or deliberately making room. Or do they? I'm playing around with concepts of philosophy to see if I can system prompt our way to a more nuanced, receptive interaction model, and it's interesting to see what's possible in that respect.
 
-At the end of the day, LLMs in themselves are interface and interaction model agnostic. The fact that big tech choose to present them as the conversational interfaces that they are now, including their gift of the gab and overpowering conviction, is a conscious design choice. That's good news, because it means that we can design our way out of the current challenges. Perhaps it's not about designing better conversations, but about better silences :-)
+At the end of the day, LLMs in themselves are interface and interaction model agnostic. The fact that big tech choose to present them as the [[conversational-interfaces-are-not-easy|conversational interfaces]] that they are now, including their gift of the gab and overpowering conviction, is a conscious design choice. That's good news, because it means that we can design our way out of the current challenges. Perhaps it's not about designing better conversations, but about better silences :-)

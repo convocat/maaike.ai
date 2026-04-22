@@ -1755,22 +1755,191 @@
     "cognitive-vulnerability": {
       "label": "Cognitive vulnerability",
       "type": "phenomenon",
-      "lens": ["cognition"],
-      "subject": ["mind"]
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ]
     },
     "ai-regulation": {
       "label": "AI regulation",
       "type": "concept",
-      "lens": ["culture"],
-      "subject": ["llm"],
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "llm"
+      ],
       "role": "framework"
     },
     "ai-safety": {
       "label": "AI safety",
       "type": "concept",
-      "lens": ["design", "epistemology"],
-      "subject": ["llm"],
+      "lens": [
+        "design",
+        "epistemology"
+      ],
+      "subject": [
+        "llm"
+      ],
       "role": "framework"
+    },
+    "negative-space": {
+      "label": "Negative space",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "conversation-design",
+        "interaction-design"
+      ],
+      "role": "position"
+    },
+    "meaningful-friction": {
+      "label": "Meaningful friction",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "conversation-design"
+      ],
+      "role": "position"
+    },
+    "training-cutoff": {
+      "label": "Training cutoff",
+      "type": "concept",
+      "lens": [
+        "development",
+        "epistemology"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "slot-filling": {
+      "label": "Slot filling",
+      "type": "mechanism",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "conversation-design",
+        "conversation"
+      ],
+      "role": "instrument"
+    },
+    "roleplay-prompting": {
+      "label": "Roleplay prompting",
+      "type": "method",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "prompt-design",
+        "conversation-design"
+      ],
+      "role": "instrument"
+    },
+    "dall-e-3": {
+      "label": "DALL-E 3",
+      "type": "technology",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "prompt-design"
+      ]
+    },
+    "prompt-augmentation": {
+      "label": "Prompt augmentation",
+      "type": "mechanism",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "prompt-design",
+        "llm"
+      ]
+    },
+    "image-generation": {
+      "label": "Image generation",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "emotional-prompting": {
+      "label": "Emotional prompting",
+      "type": "method",
+      "lens": [
+        "rhetoric",
+        "interaction"
+      ],
+      "subject": [
+        "prompt-design",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "training-data": {
+      "label": "Training data",
+      "type": "concept",
+      "lens": [
+        "development",
+        "epistemology"
+      ],
+      "subject": [
+        "llm",
+        "knowledge"
+      ],
+      "role": "instrument"
+    },
+    "training-data-scarcity": {
+      "label": "Training data scarcity",
+      "type": "phenomenon",
+      "lens": [
+        "development",
+        "epistemology"
+      ],
+      "subject": [
+        "llm",
+        "knowledge"
+      ]
+    },
+    "synthetic-training-data": {
+      "label": "Synthetic training data",
+      "type": "concept",
+      "lens": [
+        "development",
+        "epistemology"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "counter-position"
+    },
+    "nick-cave": {
+      "label": "Nick Cave",
+      "type": "person",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "music"
+      ]
     }
   },
   "associations": [
@@ -2926,6 +3095,188 @@
       "object": "ai-safety",
       "source": "china-s-approach-to-ai-anthropomorphism",
       "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "negative-space",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "conviction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "meaningful-friction",
+      "predicate": "counters",
+      "object": "conviction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "designing-for-doubt",
+      "predicate": "requires",
+      "object": "meaningful-friction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "system-prompt",
+      "predicate": "generates",
+      "object": "meaningful-friction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "characterized-as",
+      "object": "probabilistic-word-prediction",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "training-cutoff",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "ground-truth",
+      "predicate": "inaccessible-via",
+      "object": "training-cutoff",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "probabilistic-word-prediction",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "demonstrates",
+      "object": "slot-filling",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "roleplay-prompting",
+      "predicate": "leads-to",
+      "object": "conversation-design",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "contrasted-with",
+      "object": "nlu-based-bot",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "exhibits",
+      "object": "conversational-grounding",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "probabilistic-word-prediction",
+      "predicate": "risks",
+      "object": "conversational-grounding",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "instance-of",
+      "object": "llms",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "exhibits",
+      "object": "prompt-augmentation",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-augmentation",
+      "predicate": "counters",
+      "object": "prompt-design",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "emotional-prompting",
+      "predicate": "leads-to",
+      "object": "anthropomorphism",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "lacks",
+      "object": "context-window",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "image-generation",
+      "predicate": "exhibits",
+      "object": "llm-hallucinations",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "requires",
+      "object": "training-data",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "training-data-scarcity",
+      "predicate": "caused-by",
+      "object": "llms",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "reinforces",
+      "object": "llms",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "training-data-scarcity",
+      "predicate": "leads-to",
+      "object": "synthetic-training-data",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "synthetic-training-data",
+      "predicate": "leads-to",
+      "object": "ai-feedback-loop",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "writing-as-craft",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
     }
   ]
 }

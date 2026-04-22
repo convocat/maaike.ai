@@ -78,5 +78,22 @@
     "Single sourcing — write once, configure for many — is the structural solution to cross-channel content inconsistency, whether your bot is NLU-based or LLM-based.",
     "Content should be treated as structured, granular, metadated data rather than freeform prose, to enable omnichannel consistency.",
     "The tooling problem in conversational AI is not just about the model; it's about dashboards that expose content component relationships, channel dependencies, and release provenance."
+  ],
+  "saturday-design-thoughts": [
+    "LLMs are trained to fill silence, making negative space a structural absence",
+    "Negative space in music as a model for what conversational AI lacks",
+    "Meaningful friction as a design response to LLM over-fluency",
+    "The conversational interface as a conscious design choice, not a necessity"
+  ],
+  "hey-chatgpt-whos-the-boss": [
+    "ChatGPT's apparent knowledge of post-cutoff events is best explained by probabilistic co-occurrence, not by internet access or deliberate training",
+    "Understanding LLMs as probabilistic models demystifies seemingly surprising outputs",
+    "Million-to-one probabilistic coincidences are an underexplored explanation for AI behavior"
+  ],
+  "what-happens-when-ai-has-read-everything": [
+    "Books as high-quality training data: what makes human writing irreplaceable for LLMs",
+    "Training data scarcity as a structural threat to LLM development",
+    "Synthetic data and surveillance as dystopian non-solutions",
+    "The humanistic argument: lived experience is the beating heart of good writing"
   ]
 }

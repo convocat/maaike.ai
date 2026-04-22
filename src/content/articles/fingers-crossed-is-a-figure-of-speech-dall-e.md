@@ -6,7 +6,17 @@ maturity: complete
 tags:
   - prompt-design
   - ai-ethics
+  - generative-ai-design
+  - llm
+  - anthropomorphism
 description: DALL-E 3 is still digitally challenged.
+triples:
+  - ["DALL-E 3", "instance-of", "LLMs"]
+  - ["DALL-E 3", "exhibits", "Prompt augmentation"]
+  - ["Prompt augmentation", "counters", "Prompt design"]
+  - ["Emotional prompting", "leads-to", "Anthropomorphism"]
+  - ["DALL-E 3", "lacks", "Context window"]
+  - ["Image generation", "exhibits", "LLM hallucinations"]
 draft: false
 ai: "100% Maai"
 ---
@@ -59,7 +69,7 @@ From here onwards, I tried a slightly different approach, one that came quite na
 
 And sure enough, I finally got something that looked slightly normal. Until I counted the fingers…sigh.
 
-The appeal to emotions is a well-known rethorical device to persuade people to your point of view. Recent research has shown that LLMs, too, can be influenced this way, something that I find fascinating and worrying at the same time. Because let's face it: there's a thin line between urging someone to do something better for your sake, and manipulation, or even worse, abuse. Shouting at an LLM to improve your results? Don't know if that's the interaction model we want to reinforce on humanity. Source: [Large Language Models Understand and Can be Enhanced by Emotional Stimuli](https://arxiv.org/pdf/2307.11760.pdf)
+The [appeal to emotion](https://en.wikipedia.org/wiki/Appeal_to_emotion) is a well-known rethorical device to persuade people to your point of view. Recent research has shown that LLMs, too, can be influenced this way, something that I find fascinating and worrying at the same time. Because let's face it: there's a thin line between urging someone to do something better for your sake, and manipulation, or even worse, abuse. Shouting at an LLM to improve your results? Don't know if that's the [[is-conversation-still-a-useful-metaphor|interaction model]] we want to reinforce on humanity. Source: [Large Language Models Understand and Can be Enhanced by Emotional Stimuli](https://arxiv.org/pdf/2307.11760.pdf)
 
 ## More emotions
 

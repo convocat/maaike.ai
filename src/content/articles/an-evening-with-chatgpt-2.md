@@ -6,7 +6,15 @@ maturity: complete
 tags:
   - conversation-design
   - prompt-design
+  - llm
+  - generative-ai-design
 description: "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?"
+triples:
+  - ["ChatGPT", "demonstrates", "Slot filling"]
+  - ["Roleplay prompting", "leads-to", "Conversation design"]
+  - ["ChatGPT", "contrasted-with", "NLU-based bot"]
+  - ["ChatGPT", "exhibits", "Conversational grounding"]
+  - ["Probabilistic word prediction", "risks", "Conversational grounding"]
 draft: false
 ai: "100% Maai"
 ---
@@ -15,9 +23,9 @@ In my first encounters with ChatGPT, I had a look at that convo design classic: 
 
 ## I'd like to order a pizza
 
-I'd like to order pizza — computer says no. OK, so I guess that ended quickly. But remember our syllogisms from the last article? I asked Assistant to imagine that pigs could fly, and it reluctantly solved our syllogism. What if I try the same thing here?
+I'd like to order pizza — computer says no. OK, so I guess that ended quickly. But remember our syllogisms from [[an-evening-with-chatgpt|the last article]]? I asked Assistant to imagine that pigs could fly, and it reluctantly solved our syllogism. What if I try the same thing here?
 
-So how do you explain someone that they're a Pizza Bot? Well, I guess the same way you build a traditional bot from scratch. You tell it something about its scope, and hey, why not try some slot filling while we're at it?
+So how do you explain someone that they're a Pizza Bot? Well, I guess the same way you build a traditional bot from scratch. You tell it something about its scope, and hey, why not try some [slot filling](https://en.wikipedia.org/wiki/Slot_filling) while we're at it?
 
 And then, this happened. The script was impeccable, and the explanation of how Assistant got to the result was great for troubleshooting and refining my input. But it's not really what I was after: I wanted an interactive simulation. Perhaps I shouldn't ask, but just start?
 

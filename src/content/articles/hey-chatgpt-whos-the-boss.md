@@ -6,6 +6,17 @@ maturity: complete
 tags:
   - conversation-design
   - prompt-design
+  - llm
+  - critical-thinking
+themes:
+  - "ChatGPT's apparent knowledge of post-cutoff events is best explained by probabilistic co-occurrence, not by internet access or deliberate training"
+  - "Understanding LLMs as probabilistic models demystifies seemingly surprising outputs"
+  - "Million-to-one probabilistic coincidences are an underexplored explanation for AI behavior"
+triples:
+  - ["ChatGPT", "characterized-as", "Probabilistic word prediction"]
+  - ["LLMs", "exhibits", "Training cutoff"]
+  - ["Ground truth", "inaccessible-via", "Training cutoff"]
+  - ["Probabilistic word prediction", "counters", "Anthropomorphism"]
 description: "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think."
 draft: false
 ai: "100% Maai"
@@ -13,7 +24,7 @@ ai: "100% Maai"
 
 Something interesting has happened this week. How can ChatGPT return that Elon Musk is Twitter's CEO when that happened long after its training cut-off date?
 
-Let's start with my usual disclaimer: ChatGPT is a probabilistic model. It strings together words based on the probability that they may occur together. It doesn't know anything of the outside world. It doesn't understand.
+Let's start with my usual disclaimer: ChatGPT is a [[why-chatgpt-is-bullshit-and-why-we-should-design-for-that|probabilistic model]]. It strings together words based on the probability that they may occur together. It doesn't know anything of the outside world. It doesn't understand.
 
 OK, rephrase: why does ChatGPT generate this particular sequence of words?
 
@@ -25,14 +36,14 @@ Human error on the AI trainer side might be a more probable cause. There seems t
 
 ## Or might it be chance?
 
-One cause that I haven't seen mentioned yet, is that this might be a case of pure chance (or rather probabilistic distribution). ChatGPT is a probabilistic model, which means that it strings words together, based on the likelihood that these words occur together in certain contexts in the training data.
+One cause that I haven't seen mentioned yet, is that this might be a case of pure chance (or rather probabilistic distribution). ChatGPT is a probabilistic model, which means that it strings words together, based on the likelihood that these words occur together in certain contexts in the [[llm-hallucinations-knowledge-as-missing-fundamental|training data]].
 
 Mightn't it be that CEO, Twitter and Elon Musk simply co-occur a lot in ChatGPT's training set?
 
 - Elon Musk is a CEO of several companies, so there's definitely a high probability of those words co-occurring together.
 - When I ask ChatGPT about Elon Musk, it spontaneously starts about how active Musk is on Twitter and how controversial his tweets often are. This too, is a sign that there's probably a lot of training data about Musk's Twitter behavior.
 
-Could it be that a chance combination of these three words accidentally corresponded to a real life fact in 2023? The chances might be a million in one, but as my favorite author Terry Pratchett stated:
+Could it be that a chance combination of these three words accidentally corresponded to a real life fact in 2023? The chances might be a million in one, but as my favorite author [Terry Pratchett](https://en.wikipedia.org/wiki/Terry_Pratchett) stated:
 
 > Scientists have calculated that the chances of something so patently absurd actually existing are millions to one. But magicians have calculated that million-to-one chances crop up nine times out of ten.
 
