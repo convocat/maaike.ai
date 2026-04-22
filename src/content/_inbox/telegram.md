@@ -7,17 +7,17 @@
 
 2026-04-06: [user manual — learning philosophy, verbatim] "Claude Code is the interface. You do not need to understand what is happening under the hood. Claude, this is SO missing the point of this whole thing. The entire point is to understand EVENTUALLY, by you making all steps transparent, explaining things along the way, so we can LEARN. The whole point of this garden is to learn by doing. Add that to the user manual too."
 
-2026-04-08: Project Glasswing: Securing critical software for the AI era \ Anthropic
+✅ 2026-04-08: Project Glasswing: Securing critical software for the AI era \ Anthropic
 https://www.anthropic.com/glasswing
 
-2026-04-12: Symbolic AI for the win (Kurt Cagle, LinkedIn)
+✅ 2026-04-12: Symbolic AI for the win (Kurt Cagle, LinkedIn)
 https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-working-on-share-7448869465288626176-PdSi?utm_source=share&utm_medium=member_android&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs
 
-2026-04-14: Hello
+✅ 2026-04-14: Hello
 
-2026-04-14: T3st123
+✅ 2026-04-14: T3st123
 
-2026-04-15: Nora Bateson: “How our ways of knowing shape our collective future”
+✅ 2026-04-15: Nora Bateson: “How our ways of knowing shape our collective future”
 https://re-generation.cc/en/longread/nora-bateson/
 
 2026-04-21: Why LLMs Can’t Read Your Graph

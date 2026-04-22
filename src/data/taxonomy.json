@@ -379,6 +379,171 @@
       "label": "maggie-appleton",
       "type": "person",
       "definition": ""
+    },
+    "ai-feedback-loop": {
+      "label": "AI feedback loop",
+      "type": "technical-phenomenon",
+      "definition": ""
+    },
+    "procrastination": {
+      "label": "Procrastination",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "transcription": {
+      "label": "Transcription",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "iterative-refinement": {
+      "label": "Iterative refinement",
+      "type": "methodology",
+      "definition": ""
+    },
+    "prompt-design": {
+      "label": "Prompt design",
+      "type": "discipline",
+      "definition": ""
+    },
+    "natural-language-understanding": {
+      "label": "Natural Language Understanding",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "python": {
+      "label": "Python",
+      "type": "technology",
+      "definition": ""
+    },
+    "spacy": {
+      "label": "spaCy",
+      "type": "technology",
+      "definition": ""
+    },
+    "intent-classification": {
+      "label": "Intent classification",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "utterance": {
+      "label": "Utterance",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "intent": {
+      "label": "Intent",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "entity": {
+      "label": "Entity",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "entity-model": {
+      "label": "Entity model",
+      "type": "artefact",
+      "definition": ""
+    },
+    "ontology": {
+      "label": "Ontology",
+      "type": "technical-concept",
+      "definition": ""
+    },
+    "knowledge-graph": {
+      "label": "Knowledge graph",
+      "type": "technology",
+      "definition": ""
+    },
+    "topic-discovery": {
+      "label": "Topic discovery",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "intent-discovery": {
+      "label": "Intent discovery",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "agile": {
+      "label": "Agile",
+      "type": "methodology",
+      "definition": ""
+    },
+    "scrum": {
+      "label": "Scrum",
+      "type": "methodology",
+      "definition": ""
+    },
+    "content-lifecycle": {
+      "label": "Content lifecycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "software-lifecycle": {
+      "label": "Software lifecycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "conversational-team": {
+      "label": "Conversational team",
+      "type": "concept",
+      "definition": ""
+    },
+    "system-thinking": {
+      "label": "System thinking",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "air-canada-chatbot": {
+      "label": "Air Canada chatbot",
+      "type": "artefact",
+      "definition": ""
+    },
+    "nlu-based-bot": {
+      "label": "NLU-based bot",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "content-lifecycle-management": {
+      "label": "Content lifecycle management",
+      "type": "concept",
+      "definition": ""
+    },
+    "single-sourcing": {
+      "label": "Single sourcing",
+      "type": "principle",
+      "definition": ""
+    },
+    "omnichannel-content-management": {
+      "label": "Omnichannel content management",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-silos": {
+      "label": "Content silos",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "structured-content": {
+      "label": "Structured content",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-as-data": {
+      "label": "Content as data",
+      "type": "concept",
+      "definition": ""
+    },
+    "change-management": {
+      "label": "Change management",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-governance": {
+      "label": "Content governance",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

@@ -42,7 +42,7 @@ export async function getStaticPaths() {
 
     const externalSourceIds = [...new Set(associations.filter(a => !(a as any).collection).map(a => a.source))];
     const externalSources = externalSourceIds.map(srcId => {
-      const src = (tao.sources as any)[srcId];
+      const src = (tao.sources as any)?.[srcId];
       if (!src) return null;
       return { id: srcId, label: src.label, url: src.url, date: src.date, summary: src.summary || '' };
     }).filter(Boolean);

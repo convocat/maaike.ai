@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-14T19:27:19.401Z",
+  "generated": "2026-04-14T19:42:33.134Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -498,6 +498,10 @@
       "x": 0.4203,
       "y": 0.523
     },
+    "videos/video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden": {
+      "x": 0.7353,
+      "y": 0.5084
+    },
     "videos/video-welcome-to-my-digital-garden": {
       "x": 0.516,
       "y": 0.4494
@@ -993,10 +997,6 @@
     "jottings/u2-easter-parade": {
       "x": 0.4187,
       "y": 0.3249
-    },
-    "videos/video-i-implemented-karpathys-llm-wiki-method-on-my-digital-garden": {
-      "x": 0.7353,
-      "y": 0.5084
     }
   },
   "territories": [

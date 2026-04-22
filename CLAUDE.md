@@ -62,6 +62,23 @@ src/styles/        tokens.css (design tokens), global.css, fonts.css, utilities.
 src/utils/         collections.ts, backlinks.ts
 ```
 
+### TAO enrichment: data architecture
+
+Posts are semantically enriched via a three-pass TAO (Thematic-Objects-Associations) process, run by `/auto-tag`. Enrichment data lives in **two places simultaneously** — this is intentional, not a bug:
+
+| Field | Frontmatter | Central JSON file | Purpose |
+|---|---|---|---|
+| `tags` | ✅ required | — | Astro collection filtering, tag pages |
+| `themes` | ✅ required | `src/data/themes.json` | Post-level rendering (Mycelium section) + themes index |
+| `triples` | ✅ required | `src/data/triples.json` (associations) | Post-level rendering (Mycelium section) + knowledge graph |
+| topics/entities | — | `src/data/taxonomy.json` + `triples.json` (topics) | Topics index, graph pages |
+
+**Why the duplication:** `PostLayout.astro` reads `themes` and `triples` from frontmatter to render the "Mycelium" collapsible section on every post. The central JSON files serve a different purpose: they power the cross-cutting topics index (`/topics/`), the knowledge graph (`/graph`), and the sources page. Neither can substitute for the other.
+
+**Rule for any apply/write step:** always write to **both** frontmatter and the relevant JSON file. Writing to only one leaves the site in an inconsistent state.
+
+**Untagged articles** (missing `triples: []` or no triples field) have no Mycelium section and are excluded from the knowledge graph. As of 2026-04-19, 40 of 48 articles are untagged.
+
 ## Design system
 
 ### Colors (src/styles/tokens.css)
@@ -160,6 +177,22 @@ npm run new    # interactive content creation script
 ```
 
 Or create a `.md` file directly in the appropriate `src/content/<collection>/` folder with the required frontmatter.
+
+## Experimental tools
+
+### Karpathy wiki (`tools/karpathy-wiki/`)
+
+An LLM-maintained knowledge base compiled from Maaike's garden content, following Andrej Karpathy's LLM-knowledge-base pattern: raw sources are ingested and compiled into structured markdown pages by an LLM. Experiment: applying this approach to Maaike's own published writing to see what it surfaces.
+
+```
+tools/karpathy-wiki/
+  wiki/         Compiled pages: concepts/, people/, entities/, index.md, _log.md
+  raw/          Source extracts used to compile the wiki
+  tools/        serve.py — viewer + /api/ask (Q&A) + /api/apply (proposal review)
+  .env          ANTHROPIC_API_KEY for /api/ask
+```
+
+Run: `python tools/karpathy-wiki/tools/serve.py` → http://localhost:8780. Requires `.env` with `ANTHROPIC_API_KEY`. See `tools/karpathy-wiki/README.md` for the wiki schema and ingest workflow.
 
 ## Interaction examples
 
