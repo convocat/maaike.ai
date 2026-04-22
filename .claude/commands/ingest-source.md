@@ -72,14 +72,16 @@ Each topic is classified on four faceted dimensions (hardcoded — must stay in 
 `person` · `technology` · `mechanism` · `phenomenon` · `discipline` · `concept` · `metaphor` · `principle` · `method`
 
 **`lens`** (required, array — one or more) — the *discipline(s) through which the topic is understood*:
-`philosophy` · `epistemology` · `linguistics` · `rhetoric` · `design` · `interaction` · `cognition` · `culture` · `personal`
+`philosophy` · `epistemology` · `linguistics` · `rhetoric` · `design` · `interaction` · `cognition` · `culture` · `personal` · `observability` · `analytics` · `development`
+
+The last three are tech-specific lenses: `development` for engineered/built-artifact framing, `observability` for the "can-you-see-inside" angle, `analytics` for data/metrics framing.
 
 Use `personal` when the topic reflects Maaike's own view or lived experience rather than a disciplinary framework. Use `culture` as the catchall for cultural figures/objects without a clearer disciplinary home. Most topics have one lens; some (e.g. `anthropomorphism` as design + cognition) legitimately have two.
 
-**`subject`** (optional, array — zero or more) — the *topic area(s) the concept is about*:
-`conversation` · `content` · `writing` · `voice` · `language` · `linguistics` · `llm` · `prompt` · `agent`
+**`subject`** (required, array — one or more) — the *topic area(s) the concept is about*:
+`conversation` · `content` · `writing` · `voice` · `language` · `linguistics` · `llm` · `prompt` · `agent` · `knowledge` · `mind` · `pragmatics` · `psycholinguistics` · `content-design` · `conversation-design` · `prompt-design` · `information-architecture` · `structured-authoring` · `interaction-design` · `future-of-work` · `digital-garden` · `music` · `tooling`
 
-Subject is what the topic is *about*. Lens is the discipline through which it is *examined*. These are different axes. Do NOT use `ai` — it was retired as too broad; specify `llm`, `prompt`, or `agent` instead. Leave empty when the topic isn't about a specific subject area (bare technology, cultural figures, general-purpose concepts).
+Subject is what the topic is *about*. Lens is the discipline through which it is *examined*. These are different axes. Do NOT use `ai` — it was retired as too broad; specify `llm`, `prompt`, or `agent` instead. If none of the above fits the topic, propose a new subject for Maaike to review rather than skipping the field.
 
 **`role`** (optional, single value) — the *function the topic plays in your arguments*:
 `instrument` · `position` · `framework` · `counter-position` · `stance` · `tendency`
@@ -125,7 +127,7 @@ can add them to her own posts when she next edits them.
 
 Based on the three-pass read, generate a 2-3 sentence summary of what this source argues or contributes. Focus on the central claim, not a description of the article. Write it as if explaining to someone who hasn't read it.
 
-This summary will be stored in `triples.json` and displayed on the `/sources` page.
+This summary becomes the weblink's `description` field in Step 10.
 
 ## Step 6: Overlap gate
 
@@ -140,19 +142,21 @@ Count how many of the extracted topics already exist in `triples.json`
 
 **If 2 or more overlap:** proceed.
 
-## Step 7: Generate source ID
+## Step 7: Generate weblink slug
 
-Create a source ID by slugifying the page title:
+Create the weblink slug by slugifying the page title:
 - Lowercase
 - Replace non-alphanumeric characters with hyphens
 - Trim leading/trailing hyphens
 - Collapse consecutive hyphens
-- Truncate to 60 characters
+- No length cap (weblink filenames can be long)
 
-Check that the ID does not already exist in `sources`. If it does:
-- Ask: "This source was already ingested. Re-ingest (replaces old associations) or skip?"
+This slug is the filename for Step 10 AND the `source` value in the Step 9 associations.
+
+Check if a weblink with this slug already exists at `src/content/weblinks/<slug>.md`. If it does:
+- Ask: "This source was already ingested. Re-ingest (replaces old associations + overwrites frontmatter) or skip?"
 - If skip: stop.
-- If re-ingest: continue (Step 8 will remove old associations).
+- If re-ingest: continue (Step 9 will remove old associations).
 
 ## Step 8: Present everything for approval (canonical review block)
 
@@ -200,12 +204,9 @@ Ask: "Accept all, or tell me what to skip/change."
 
 Read `src/data/triples.json`.
 
-1. **Source entry**: Add to the `sources` object:
-   ```json
-   "source-id": { "label": "Page title", "url": "https://...", "date": "YYYY-MM-DD", "summary": "2-3 sentence summary." }
-   ```
+Associations reference the weblink that will be created in Step 10 — no separate `sources` object is used (retired: every external URL becomes a weblink, so associations point to the weblink slug with `collection: "weblinks"`).
 
-2. **New topics**: For each NEW topic, add to the `topics` object with the faceted schema:
+1. **New topics**: For each NEW topic, add to the `topics` object with the faceted schema:
    ```json
    "topic-id": {
      "label": "Topic label",
@@ -217,14 +218,12 @@ Read `src/data/triples.json`.
    ```
    Omit `subject` and `role` when empty/not applicable. `lens` is always present (array, minimum one value).
 
-3. **Associations**: For each accepted association, append to the `associations` array:
+2. **Associations**: For each accepted association, append to the `associations` array. The `source` field is the weblink slug that will be created in Step 10, and `collection: "weblinks"` matches it:
    ```json
-   { "subject": "topic-id", "predicate": "predicate", "object": "topic-id", "source": "source-id" }
+   { "subject": "topic-id", "predicate": "predicate", "object": "topic-id", "source": "<weblink-slug>", "collection": "weblinks" }
    ```
-   Note: NO `collection` field. Sources are not a content collection.
 
-4. **Re-ingestion**: If associations for this source ID already exist
-   (matching `"source": "source-id"`), remove the old ones before adding new ones.
+3. **Re-ingestion**: If associations for this weblink slug already exist (matching `"source": "<weblink-slug>"`), remove the old ones before adding new ones.
 
 Write the updated file back.
 
@@ -248,11 +247,23 @@ maturity: solid
 tags:
   - <topic-id>
   - ...
+themes:
+  - "<theme 1 from Step 5 / Pass 1>"
+  - "<theme 2>"
+triples:
+  - ["<Subject label>", "<predicate>", "<Object label>"]
+  - ...
 description: "<the 2-3 sentence summary from Step 5>"
-ai: "100% Maai"
+ai: "generated"
 draft: false
 ---
 ```
+
+**Dual-write rule (per CLAUDE.md architecture):** the `triples` and `themes` fields in frontmatter mirror the central JSON data. PostLayout reads them from frontmatter to render the Mycelium section. Skipping these fields leaves the weblink with an empty Mycelium — the associations exist in `triples.json` but don't render on the page. ALWAYS include both.
+
+**Also write themes to `src/data/themes.json`:** read the file, add an entry keyed by the weblink slug with the themes array. This powers the `/themes/` index page.
+
+**On the `ai` field:** when the weblink is created through this skill, the description is always AI-generated (the Step 5 summary). So `ai: "generated"` is the correct value — NEVER `"100% Maai"`. The "100% Maai" value is reserved for weblinks Maaike writes by hand outside of this skill.
 
 **If the source came from a draft weblink** (selected in Step 1): overwrite that file in place with the enriched frontmatter above (keep the same filename).
 

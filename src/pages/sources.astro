@@ -1,31 +1,43 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
 import tao from '../data/triples.json';
 
-// External sources only
-const sources = Object.entries(tao.sources || {}).map(([id, s]: [string, any]) => {
-  const assocs = tao.associations.filter(a => a.source === id);
+// External sources = weblinks with at least one association in the knowledge graph.
+// (The old tao.sources object was retired — every external URL is now a weblink.)
+const weblinks = await getCollection('weblinks', (entry) => !entry.data.draft);
+
+const sources = weblinks.map((entry) => {
+  const slug = entry.id;
+  const assocs = tao.associations.filter((a: any) => a.source === slug);
   const topicIds = new Set<string>();
   for (const a of assocs) {
     topicIds.add(a.subject);
     topicIds.add(a.object);
   }
-  const topics = [...topicIds].map(tid => ({
+  const topics = [...topicIds].map((tid) => ({
     id: tid,
     label: (tao.topics as any)[tid]?.label || tid,
     type: (tao.topics as any)[tid]?.type || 'concept',
   }));
   return {
-    id, label: s.label, url: s.url, date: s.date, summary: s.summary || '',
+    id: slug,
+    label: entry.data.title,
+    url: entry.data.url,
+    date: (entry.data.date as Date).toISOString().slice(0, 10),
+    summary: entry.data.description || '',
     topics,
-    associations: assocs.map(a => ({
+    associations: assocs.map((a: any) => ({
       subject: (tao.topics as any)[a.subject]?.label || a.subject,
       predicate: a.predicate,
       object: (tao.topics as any)[a.object]?.label || a.object,
     })),
-    topicIds: [...topicIds],
+    assocCount: assocs.length,
   };
-}).sort((a, b) => b.date.localeCompare(a.date));
+})
+  // Only show weblinks that actually contribute to the graph
+  .filter((s) => s.assocCount > 0)
+  .sort((a, b) => b.date.localeCompare(a.date));
 ---
 
 <PageLayout title="Sources" description="Ingested external references feeding the knowledge graph.">

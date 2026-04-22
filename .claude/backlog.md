@@ -4,7 +4,28 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-18 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-22 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Integrated admin dashboard (requirements scoping)
+*added: 2026-04-22*
+
+Big multi-feature project. Four functions brought together in one admin surface:
+
+1. **Inbox watcher + ingest review** — actively monitors `src/content/_inbox/`, runs `/ingest-source` on new URLs, presents each ingestion (metadata, summary, topics, associations) for review, Maaike corrects/approves before anything is written
+2. **Chatbot eval** — embed the existing `tools/karpathy-wiki/eval.html` dashboard (no new functionality, just integration)
+3. **Interactive data model inspector** — visual of the full pipeline (inbox → ingest → triples.json → frontmatter → Mycelium → graph → chat retrieval), per-step detail panel, intended as learning/onboarding tool
+4. **Conversation logs + business KPIs** — persistent chat logs (net-new, chat is currently stateless), KPI panel (questions, verified-claim rate, refusal rate, retrieval-miss rate, return visitors, most-asked topics), privacy-aware
+
+**Rules of engagement set by Maaike:** requirements first, involve her every step, document everything, no code without permission. Each sub-feature gets its own mini-spec signed off before anything is built.
+
+**Six open questions block the first spec session:** hosting model (main domain, subdomain, local-only), auth (magic-link, password, IP allowlist, none), chat-log storage (Vercel KV, Upstash, SQLite, JSON), framework (Astro page, separate app, plain HTML, SPA), priority order (proposed: 2 → 1 → 4 → 3), and scope of feature 3 (internal tool vs public-facing).
+
+**Full project framing:** `C:\Users\mgroe\.claude\plans\first-lets-do-a-eventual-zephyr.md` — existing building blocks, what's reusable, what's net-new.
+
+**Opening message for next session:**
+> Answer the six open questions in the dashboard scoping plan (`C:\Users\mgroe\.claude\plans\first-lets-do-a-eventual-zephyr.md`). Once answered, pick one sub-feature (2 is smallest, suggested first) and we'll write the mini-spec together. No code this session.
 
 ---
 

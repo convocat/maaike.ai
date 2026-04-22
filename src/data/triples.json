@@ -46,7 +46,10 @@
     "interaction",
     "cognition",
     "culture",
-    "personal"
+    "personal",
+    "observability",
+    "analytics",
+    "development"
   ],
   "_subjects": [
     "conversation",
@@ -57,7 +60,21 @@
     "linguistics",
     "llm",
     "prompt",
-    "agent"
+    "agent",
+    "knowledge",
+    "mind",
+    "pragmatics",
+    "psycholinguistics",
+    "content-design",
+    "conversation-design",
+    "prompt-design",
+    "information-architecture",
+    "structured-authoring",
+    "interaction-design",
+    "future-of-work",
+    "digital-garden",
+    "music",
+    "tooling"
   ],
   "_roles": [
     "instrument",
@@ -70,725 +87,912 @@
   "topics": {
     "g-w-f-hegel": {
       "label": "G W F Hegel",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy"],
+      "subject": ["mind"]
     },
     "andrej-karpathy": {
       "label": "Andrej Karpathy",
-      "type": "person"
+      "type": "person",
+      "lens": ["development"],
+      "subject": ["llm"]
     },
     "harry-g-frankfurt": {
       "label": "Harry G. Frankfurt",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy"],
+      "subject": ["knowledge", "mind"]
     },
     "paul-grice": {
       "label": "Paul Grice",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics", "philosophy"],
+      "subject": ["pragmatics", "language"]
     },
     "bender-and-gebru": {
       "label": "Bender and Gebru",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics", "philosophy"],
+      "subject": ["llm"]
     },
     "timnit-gebru": {
       "label": "Timnit Gebru",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy", "development"],
+      "subject": ["llm"]
     },
     "emily-bender": {
       "label": "Emily Bender",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics", "philosophy"],
+      "subject": ["llm", "language"]
     },
     "herbert-clark": {
       "label": "Herbert Clark",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics"],
+      "subject": ["psycholinguistics", "conversation"]
     },
     "susan-brennan": {
       "label": "Susan Brennan",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics"],
+      "subject": ["psycholinguistics", "conversation"]
     },
     "lucy-suchman": {
       "label": "Lucy Suchman",
-      "type": "person"
+      "type": "person",
+      "lens": ["interaction", "cognition"],
+      "subject": ["interaction-design", "mind"]
     },
     "helena-rodemann": {
       "label": "Helena Rodemann",
-      "type": "person"
+      "type": "person",
+      "lens": ["design"],
+      "subject": ["conversation-design"]
     },
     "jakob-nielsen": {
       "label": "Jakob Nielsen",
-      "type": "person"
+      "type": "person",
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design"]
     },
     "don-norman": {
       "label": "Don Norman",
-      "type": "person"
+      "type": "person",
+      "lens": ["design", "cognition"],
+      "subject": ["interaction-design", "mind"]
     },
     "llms": {
       "label": "LLMs",
       "type": "technology",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "chatgpt": {
       "label": "ChatGPT",
       "type": "technology",
-      "domain": "ai"
+      "lens": ["design", "development"],
+      "subject": ["llm"]
     },
     "genai": {
       "label": "GenAI",
       "type": "technology",
-      "domain": "ai"
+      "lens": ["development"],
+      "subject": ["llm"]
     },
     "agentic-ai": {
       "label": "Agentic AI",
       "type": "technology",
-      "domain": "ai"
+      "lens": ["development"],
+      "subject": ["agent"]
     },
     "jasper-ai": {
       "label": "Jasper.ai",
       "type": "technology",
-      "domain": "ai"
+      "lens": ["design"],
+      "subject": ["llm", "writing"]
     },
     "conversational-interface": {
       "label": "Conversational interface",
       "type": "technology",
-      "domain": "linguistics"
+      "lens": ["linguistics", "design"],
+      "subject": ["conversation"]
     },
     "context-window": {
       "label": "Context window",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["prompt", "llm"],
       "role": "instrument"
     },
     "system-prompt": {
       "label": "System prompt",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["design"],
+      "subject": ["prompt"],
       "role": "instrument"
     },
     "context-engineering": {
       "label": "Context engineering",
       "type": "concept",
-      "domain": "ai"
+      "lens": ["design", "development"],
+      "subject": ["prompt"]
     },
     "context-design": {
       "label": "Context design",
       "type": "discipline",
-      "domain": "design",
+      "lens": ["design"],
+      "subject": ["prompt-design"],
       "role": "position"
     },
     "semantic-information-types": {
       "label": "Semantic information types",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["information-architecture", "structured-authoring"]
     },
     "information-architecture": {
       "label": "Information architecture",
       "type": "discipline",
-      "domain": "design",
+      "lens": ["design"],
+      "subject": ["information-architecture"],
       "role": "instrument"
     },
     "instructional-design": {
       "label": "Instructional design",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["content-design", "structured-authoring"]
     },
     "information-mapping": {
       "label": "Information mapping",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["information-architecture", "structured-authoring"]
     },
     "topic-based-writing": {
       "label": "Topic-based writing",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["structured-authoring"]
     },
     "technical-authoring": {
       "label": "Technical authoring",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["structured-authoring"]
     },
     "dialectical-thinking": {
       "label": "Dialectical thinking",
       "type": "method",
-      "domain": "philosophy",
+      "lens": ["philosophy"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "thesis-antithesis-synthesis": {
       "label": "Thesis-antithesis-synthesis",
       "type": "method",
-      "domain": "philosophy",
+      "lens": ["philosophy"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "epistemic-bias": {
       "label": "Epistemic bias",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["epistemology"],
+      "subject": ["knowledge"],
       "role": "framework"
     },
     "conviction": {
       "label": "Conviction",
       "type": "concept",
-      "domain": "philosophy"
+      "lens": ["philosophy"],
+      "subject": ["mind"]
     },
     "opinion": {
       "label": "Opinion",
       "type": "concept",
-      "domain": "philosophy"
+      "lens": ["philosophy"],
+      "subject": ["mind"]
     },
     "rhetoric": {
       "label": "Rhetoric",
       "type": "method",
-      "domain": "linguistics"
+      "lens": ["rhetoric"],
+      "subject": ["language"]
     },
     "argument": {
       "label": "Argument",
       "type": "method",
-      "domain": "linguistics"
+      "lens": ["rhetoric", "philosophy"],
+      "subject": ["language", "knowledge"]
     },
     "ground-truth": {
       "label": "Ground truth",
       "type": "concept",
-      "domain": "philosophy"
+      "lens": ["epistemology"],
+      "subject": ["knowledge"]
     },
     "indifference-to-truth": {
       "label": "Indifference to truth",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["epistemology"],
+      "subject": ["knowledge"],
       "role": "counter-position"
     },
     "bullshit": {
       "label": "Bullshit",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy"],
+      "subject": ["knowledge", "language"],
       "role": "counter-position"
     },
     "stochastic-parrot": {
       "label": "Stochastic parrot",
       "type": "concept",
-      "domain": "ai",
+      "lens": ["philosophy", "epistemology"],
+      "subject": ["llm"],
       "role": "framework"
     },
     "llm-hallucinations": {
       "label": "LLM hallucinations",
       "type": "phenomenon",
-      "domain": "ai"
+      "lens": ["epistemology"],
+      "subject": ["llm"]
     },
     "confabulation": {
       "label": "Confabulation",
       "type": "phenomenon",
-      "domain": "ai"
+      "lens": ["epistemology", "cognition"],
+      "subject": ["llm"]
     },
     "probabilistic-word-prediction": {
       "label": "Probabilistic word prediction",
       "type": "mechanism",
-      "domain": "ai"
+      "lens": ["epistemology", "development"],
+      "subject": ["llm"]
     },
     "missing-fundamental": {
       "label": "Missing fundamental",
       "type": "concept",
-      "domain": "philosophy"
+      "lens": ["philosophy", "epistemology"],
+      "subject": ["knowledge", "llm"]
     },
     "grices-maxim-of-quality": {
       "label": "Grice's maxim of quality",
       "type": "principle",
-      "domain": "linguistics",
+      "lens": ["linguistics"],
+      "subject": ["pragmatics"],
       "role": "framework"
     },
     "conversational-grounding": {
       "label": "Conversational grounding",
       "type": "principle",
-      "domain": "linguistics",
+      "lens": ["linguistics"],
+      "subject": ["psycholinguistics", "conversation"],
       "role": "framework"
     },
     "conversation-metaphor": {
       "label": "Conversation metaphor",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design", "interaction"],
+      "subject": ["conversation-design"]
     },
     "delegation-metaphor": {
       "label": "Delegation metaphor",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design", "interaction"],
+      "subject": ["conversation-design"]
     },
     "note-taking-metaphor": {
       "label": "Note-taking metaphor",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design", "interaction"],
+      "subject": ["conversation-design", "writing"]
     },
     "anthropomorphism": {
       "label": "Anthropomorphism",
       "type": "concept",
-      "domain": "design",
+      "lens": ["design", "cognition"],
+      "subject": ["conversation-design", "mind"],
       "role": "counter-position"
     },
     "conversation-design": {
       "label": "Conversation design",
       "type": "discipline",
-      "domain": "design",
+      "lens": ["design", "interaction"],
+      "subject": ["conversation-design"],
       "role": "instrument"
     },
     "designing-for-doubt": {
       "label": "Designing for doubt",
       "type": "discipline",
-      "domain": "design",
-      "role": "position"
+      "lens": ["design"],
+      "subject": ["conversation-design", "knowledge"],
+      "role": "stance"
     },
     "direct-manipulation": {
       "label": "Direct manipulation",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["interaction"],
+      "subject": ["interaction-design"]
     },
     "cooperative-principle": {
       "label": "Cooperative principle",
       "type": "principle",
-      "domain": "linguistics",
+      "lens": ["linguistics"],
+      "subject": ["pragmatics", "conversation"],
       "role": "framework"
     },
     "cognitive-laziness": {
       "label": "Cognitive laziness",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["cognition"],
+      "subject": ["mind"],
       "role": "counter-position"
     },
     "emotional-labor": {
       "label": "Emotional labor",
       "type": "concept",
-      "domain": "design"
+      "lens": ["design", "personal"],
+      "subject": ["conversation-design"]
     },
     "metacognition": {
       "label": "Metacognition",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["cognition"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "articulation-barrier": {
       "label": "Articulation barrier",
       "type": "concept",
-      "domain": "design"
+      "lens": ["design", "cognition"],
+      "subject": ["prompt-design", "mind"]
     },
     "cognitive-load": {
       "label": "Cognitive load",
       "type": "concept",
-      "domain": "design"
+      "lens": ["cognition", "design"],
+      "subject": ["interaction-design", "mind"]
     },
     "situated-action": {
       "label": "Situated action",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy", "cognition"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "accordion-editing": {
       "label": "Accordion editing",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["content-design", "writing"]
     },
     "apple-picking": {
       "label": "Apple picking",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design", "llm"]
     },
     "inner-dialog-metaphor": {
       "label": "Inner dialog metaphor",
       "type": "metaphor",
-      "domain": "design"
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design", "mind"]
     },
     "n-katherine-hayles": {
       "label": "N. Katherine Hayles",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy", "culture"],
+      "subject": ["mind", "knowledge"]
     },
     "anthropocentrism": {
       "label": "Anthropocentrism",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy"],
+      "subject": ["mind"],
       "role": "counter-position"
     },
     "cognitive-assemblage": {
       "label": "Cognitive assemblage",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy", "cognition"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "nonconscious-cognition": {
       "label": "Nonconscious cognition",
       "type": "concept",
-      "domain": "philosophy"
+      "lens": ["cognition", "philosophy"],
+      "subject": ["mind"]
     },
     "umwelt": {
       "label": "Umwelt",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy", "cognition"],
+      "subject": ["mind"],
       "role": "framework"
     },
     "digital-garden": {
       "label": "Digital garden",
       "type": "metaphor",
-      "domain": "culture",
+      "lens": ["personal", "culture"],
+      "subject": ["digital-garden", "writing"],
       "role": "position"
     },
     "stream-metaphor": {
       "label": "Stream",
       "type": "metaphor",
-      "domain": "culture"
+      "lens": ["design", "culture"],
+      "subject": ["digital-garden", "information-architecture"]
     },
     "maturity-system": {
       "label": "Maturity system",
       "type": "concept",
-      "domain": "culture"
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
     },
     "thinking-in-public": {
       "label": "Thinking in public",
       "type": "method",
-      "domain": "culture",
+      "lens": ["personal"],
+      "subject": ["digital-garden", "writing"],
       "role": "position"
     },
     "maggie-appleton": {
       "label": "Maggie Appleton",
-      "type": "person"
+      "type": "person",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
     },
     "common-ground": {
       "label": "Common ground",
       "type": "principle",
-      "domain": "linguistics",
+      "lens": ["linguistics"],
+      "subject": ["pragmatics", "psycholinguistics"],
       "role": "framework"
     },
     "least-collaborative-effort": {
       "label": "Least collaborative effort",
       "type": "principle",
-      "domain": "linguistics"
+      "lens": ["linguistics"],
+      "subject": ["psycholinguistics", "conversation"]
     },
     "communication-medium": {
       "label": "Communication medium",
       "type": "concept",
-      "domain": "culture"
+      "lens": ["culture"],
+      "subject": ["content"]
     },
     "grounding-gap": {
       "label": "Grounding gap",
       "type": "phenomenon",
-      "domain": "ai"
+      "lens": ["linguistics", "epistemology"],
+      "subject": ["psycholinguistics", "conversation", "llm"]
     },
     "presumptive-grounding": {
       "label": "Presumptive grounding",
       "type": "phenomenon",
-      "domain": "ai"
+      "lens": ["linguistics"],
+      "subject": ["psycholinguistics", "conversation", "llm"]
     },
     "preference-optimization": {
       "label": "Preference optimization",
       "type": "mechanism",
-      "domain": "ai"
+      "lens": ["development"],
+      "subject": ["llm"]
     },
     "instruction-tuning": {
       "label": "Instruction tuning",
       "type": "mechanism",
-      "domain": "ai"
+      "lens": ["development"],
+      "subject": ["llm"]
     },
     "omar-shaikh": {
       "label": "Omar Shaikh",
-      "type": "person"
+      "type": "person",
+      "lens": ["development", "linguistics"],
+      "subject": ["llm"]
     },
     "diyi-yang": {
       "label": "Diyi Yang",
-      "type": "person"
+      "type": "person",
+      "lens": ["development", "linguistics"],
+      "subject": ["llm"]
     },
     "dan-jurafsky": {
       "label": "Dan Jurafsky",
-      "type": "person"
+      "type": "person",
+      "lens": ["linguistics", "development"],
+      "subject": ["llm", "language"]
     },
     "claude-code": {
       "label": "Claude Code",
       "type": "technology",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["agent"],
       "role": "instrument"
     },
     "role-based-collaboration": {
       "label": "Role-based collaboration",
       "type": "concept",
-      "domain": "culture",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"],
       "role": "counter-position"
     },
     "skill-based-work": {
       "label": "Skill-based work",
       "type": "concept",
-      "domain": "culture",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"],
       "role": "position"
     },
     "building-as-specification": {
       "label": "Building as specification",
       "type": "discipline",
-      "domain": "design",
-      "role": "position"
+      "lens": ["design", "development"],
+      "subject": ["prompt-design", "conversation-design"],
+      "role": "stance"
     },
     "u2": {
       "label": "U2",
-      "type": "person"
+      "type": "person",
+      "lens": ["personal"],
+      "subject": ["music"]
     },
     "creative-longevity": {
       "label": "Creative longevity",
       "type": "concept",
-      "domain": "culture"
+      "lens": ["personal"],
+      "subject": ["writing", "future-of-work"]
     },
     "non-linear-thinking": {
       "label": "non-linear-thinking",
       "type": "concept",
-      "domain": "culture",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind", "writing"],
       "role": "position"
     },
     "serendipity": {
       "label": "serendipity",
       "type": "concept",
-      "domain": "culture"
+      "lens": ["personal", "culture"],
+      "subject": ["knowledge"]
     },
     "personal-web": {
       "label": "personal-web",
       "type": "method",
-      "domain": "culture"
+      "lens": ["culture", "personal"],
+      "subject": ["digital-garden", "writing"]
     },
     "algorithmic-feed": {
       "label": "algorithmic-feed",
       "type": "metaphor",
-      "domain": "culture",
+      "lens": ["culture"],
+      "subject": ["digital-garden", "content"],
       "role": "counter-position"
     },
     "writing-as-craft": {
       "label": "writing-as-craft",
       "type": "concept",
-      "domain": "culture",
+      "lens": ["personal"],
+      "subject": ["writing"],
       "role": "position"
     },
     "content-fragmentation": {
       "label": "content-fragmentation",
       "type": "phenomenon",
-      "domain": "culture",
+      "lens": ["culture", "personal"],
+      "subject": ["content", "digital-garden"],
       "role": "counter-position"
     },
     "ai-as-writing-partner": {
       "label": "ai-as-writing-partner",
       "type": "metaphor",
-      "domain": "ai"
+      "lens": ["design", "personal"],
+      "subject": ["writing", "llm"]
     },
     "personal-knowledge-management": {
       "label": "personal-knowledge-management",
       "type": "method",
-      "domain": "culture",
+      "lens": ["personal", "culture"],
+      "subject": ["digital-garden", "knowledge"],
       "role": "position"
     },
     "structured-input": {
       "label": "Structured input",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["design"],
+      "subject": ["prompt"],
       "role": "instrument"
     },
     "consent-design": {
       "label": "Consent design",
       "type": "discipline",
-      "domain": "design"
+      "lens": ["design"],
+      "subject": ["content-design"]
     },
     "llmops": {
       "label": "LLMOps",
       "type": "technology",
-      "domain": "ai"
+      "lens": ["development", "observability"],
+      "subject": ["llm"]
     },
     "llm-evals": {
       "label": "LLM evals",
       "type": "discipline",
-      "domain": "ai",
+      "lens": ["observability", "analytics"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "llm-observability": {
       "label": "LLM observability",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["observability"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "graphrag": {
       "label": "GraphRAG",
       "type": "technology",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "systems-thinking": {
       "label": "Systems thinking",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy"],
+      "subject": ["knowledge"],
       "role": "framework"
     },
     "linguistics": {
       "label": "Linguistics",
       "type": "discipline",
-      "domain": "linguistics"
+      "lens": ["linguistics"],
+      "subject": ["linguistics"]
     },
     "llm-wiki": {
       "label": "LLM Wiki",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "retrieval-augmented-generation": {
       "label": "Retrieval-augmented generation",
       "type": "mechanism",
-      "domain": "ai",
+      "lens": ["development"],
+      "subject": ["llm"],
       "role": "instrument"
     },
     "nora-bateson": {
       "label": "Nora Bateson",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy", "personal"],
+      "subject": ["knowledge"]
     },
     "gregory-bateson": {
       "label": "Gregory Bateson",
-      "type": "person"
+      "type": "person",
+      "lens": ["philosophy", "cognition"],
+      "subject": ["mind", "knowledge"]
     },
     "warm-data": {
       "label": "Warm data",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy", "epistemology"],
+      "subject": ["knowledge"],
       "role": "position"
     },
     "reductionism": {
       "label": "Reductionism",
       "type": "concept",
-      "domain": "philosophy",
+      "lens": ["philosophy", "epistemology"],
+      "subject": ["knowledge"],
       "role": "counter-position"
     },
     "ai-feedback-loop": {
       "label": "AI feedback loop",
-      "type": "technical-phenomenon"
+      "type": "phenomenon",
+      "lens": ["epistemology", "development"],
+      "subject": ["llm", "knowledge"]
     },
     "procrastination": {
       "label": "Procrastination",
-      "type": "cognitive-tendency"
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"],
+      "role": "tendency"
     },
     "transcription": {
       "label": "Transcription",
-      "type": "technical-mechanism"
+      "type": "mechanism",
+      "lens": ["linguistics", "development"],
+      "subject": ["language", "voice"]
     },
     "iterative-refinement": {
       "label": "Iterative refinement",
-      "type": "methodology"
+      "type": "method",
+      "lens": ["design", "personal"],
+      "subject": ["writing"]
     },
     "prompt-design": {
       "label": "Prompt design",
-      "type": "discipline"
+      "type": "discipline",
+      "lens": ["design", "development"],
+      "subject": ["prompt-design"]
     },
     "natural-language-understanding": {
       "label": "Natural Language Understanding",
-      "type": "technology-category"
+      "type": "technology",
+      "lens": ["linguistics", "development"],
+      "subject": ["language", "llm"]
     },
     "python": {
       "label": "Python",
-      "type": "technology"
+      "type": "technology",
+      "lens": ["development"],
+      "subject": ["tooling"]
     },
     "spacy": {
       "label": "spaCy",
-      "type": "technology"
+      "type": "technology",
+      "lens": ["linguistics", "development"],
+      "subject": ["tooling", "language"]
     },
     "intent-classification": {
       "label": "Intent classification",
-      "type": "technical-mechanism"
+      "type": "mechanism",
+      "lens": ["linguistics", "development"],
+      "subject": ["language", "conversation"]
     },
     "utterance": {
       "label": "Utterance",
-      "type": "linguistic-concept"
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["language"]
     },
     "intent": {
       "label": "Intent",
-      "type": "linguistic-concept"
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["language", "conversation"]
     },
     "entity": {
       "label": "Entity",
-      "type": "linguistic-concept"
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["language", "information-architecture"]
     },
     "entity-model": {
       "label": "Entity model",
-      "type": "artefact"
+      "type": "concept",
+      "lens": ["linguistics", "design"],
+      "subject": ["information-architecture", "conversation"]
     },
     "ontology": {
       "label": "Ontology",
-      "type": "technical-concept"
+      "type": "concept",
+      "lens": ["philosophy", "design"],
+      "subject": ["information-architecture", "knowledge"]
     },
     "knowledge-graph": {
       "label": "Knowledge graph",
-      "type": "technology"
+      "type": "technology",
+      "lens": ["design", "development"],
+      "subject": ["information-architecture", "knowledge"]
     },
     "topic-discovery": {
       "label": "Topic discovery",
-      "type": "technical-mechanism"
+      "type": "mechanism",
+      "lens": ["linguistics", "development"],
+      "subject": ["content", "llm"]
     },
     "intent-discovery": {
       "label": "Intent discovery",
-      "type": "technical-mechanism"
+      "type": "mechanism",
+      "lens": ["linguistics", "development"],
+      "subject": ["conversation", "language"]
     },
     "agile": {
       "label": "Agile",
-      "type": "methodology"
+      "type": "method",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"]
     },
     "scrum": {
       "label": "Scrum",
-      "type": "methodology"
+      "type": "method",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"]
     },
     "content-lifecycle": {
       "label": "Content lifecycle",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content"]
     },
     "software-lifecycle": {
       "label": "Software lifecycle",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["development"],
+      "subject": ["future-of-work"]
     },
     "conversational-team": {
       "label": "Conversational team",
-      "type": "concept"
-    },
-    "system-thinking": {
-      "label": "System thinking",
-      "type": "epistemological-concept"
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["conversation-design", "future-of-work"]
     },
     "air-canada-chatbot": {
       "label": "Air Canada chatbot",
-      "type": "artefact"
+      "type": "technology",
+      "lens": ["design"],
+      "subject": ["conversation-design", "conversation"]
     },
     "nlu-based-bot": {
       "label": "NLU-based bot",
-      "type": "technology-category"
+      "type": "technology",
+      "lens": ["linguistics", "design"],
+      "subject": ["conversation-design", "conversation"]
     },
     "content-lifecycle-management": {
       "label": "Content lifecycle management",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content"]
     },
     "single-sourcing": {
       "label": "Single sourcing",
-      "type": "principle"
+      "type": "principle",
+      "lens": ["design"],
+      "subject": ["structured-authoring", "content"]
     },
     "omnichannel-content-management": {
       "label": "Omnichannel content management",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content"]
     },
     "content-silos": {
       "label": "Content silos",
-      "type": "phenomenon"
+      "type": "phenomenon",
+      "lens": ["design", "culture"],
+      "subject": ["content"]
     },
     "structured-content": {
       "label": "Structured content",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["structured-authoring", "content"]
     },
     "content-as-data": {
       "label": "Content as data",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design", "development"],
+      "subject": ["content", "information-architecture"]
     },
     "change-management": {
       "label": "Change management",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
     },
     "content-governance": {
       "label": "Content governance",
-      "type": "concept"
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content"]
     },
     "conversational-ai": {
       "label": "Conversational AI",
-      "type": "technology-category"
-    }
-  },
-  "sources": {
-    "nora-bateson-ways-of-knowing": {
-      "label": "Nora Bateson: \"How our ways of knowing shape our collective future\"",
-      "url": "https://re-generation.cc/en/longread/nora-bateson/",
-      "date": "2026-04-18",
-      "summary": "Nora Bateson argues that applying static, extractable data to living systems is fundamentally dangerous, and that meaning only emerges through relational context. She proposes \"warm data\" as an alternative epistemology that understands information through interconnection across people, cultures, and ecological systems, rather than through reductionist measurement."
+      "type": "technology",
+      "lens": ["linguistics", "design"],
+      "subject": ["conversation-design", "llm"]
     }
   },
   "associations": [
@@ -1628,37 +1832,43 @@
       "subject": "warm-data",
       "predicate": "counters",
       "object": "reductionism",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "warm-data",
       "predicate": "coined-by",
       "object": "nora-bateson",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "systems-thinking",
       "predicate": "theorised-by",
       "object": "gregory-bateson",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "warm-data",
       "predicate": "presupposes",
       "object": "systems-thinking",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "reductionism",
       "predicate": "risks",
       "object": "ground-truth",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "reductionism",
       "predicate": "exhibits",
       "object": "epistemic-bias",
-      "source": "nora-bateson-ways-of-knowing"
+      "source": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "collection": "weblinks"
     },
     {
       "subject": "Articulation barrier",

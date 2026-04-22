@@ -47,14 +47,16 @@ Each topic is classified on four faceted dimensions (hardcoded — must stay in 
 `person` · `technology` · `mechanism` · `phenomenon` · `discipline` · `concept` · `metaphor` · `principle` · `method`
 
 **`lens`** (required, array — one or more) — the *discipline(s) through which the topic is understood*:
-`philosophy` · `epistemology` · `linguistics` · `rhetoric` · `design` · `interaction` · `cognition` · `culture` · `personal`
+`philosophy` · `epistemology` · `linguistics` · `rhetoric` · `design` · `interaction` · `cognition` · `culture` · `personal` · `observability` · `analytics` · `development`
+
+The last three are tech-specific lenses: `development` for engineered/built-artifact framing, `observability` for the "can-you-see-inside" angle, `analytics` for data/metrics framing.
 
 Use `personal` when the topic reflects Maaike's own view or lived experience rather than a disciplinary framework. Use `culture` as the catchall for cultural figures/objects without a clearer disciplinary home. Most topics have one lens; some (e.g. `anthropomorphism` as design + cognition) legitimately have two.
 
-**`subject`** (optional, array — zero or more) — the *topic area(s) the concept is about*:
-`conversation` · `content` · `writing` · `voice` · `language` · `linguistics` · `llm` · `prompt` · `agent`
+**`subject`** (required, array — one or more) — the *topic area(s) the concept is about*:
+`conversation` · `content` · `writing` · `voice` · `language` · `linguistics` · `llm` · `prompt` · `agent` · `knowledge` · `mind` · `pragmatics` · `psycholinguistics` · `content-design` · `conversation-design` · `prompt-design` · `information-architecture` · `structured-authoring` · `interaction-design` · `future-of-work` · `digital-garden` · `music` · `tooling`
 
-Subject is what the topic is *about*. Lens is the discipline through which it is *examined*. These are different axes. Do NOT use `ai` — it was retired as too broad; specify `llm`, `prompt`, or `agent` instead. Leave empty when the topic isn't about a specific subject area (bare technology, cultural figures, general-purpose concepts).
+Subject is what the topic is *about*. Lens is the discipline through which it is *examined*. These are different axes. Do NOT use `ai` — it was retired as too broad; specify `llm`, `prompt`, or `agent` instead. If none of the above fits the topic, propose a new subject for Maaike to review rather than skipping the field.
 
 **`role`** (optional, single value) — the *function the topic plays in your arguments*:
 `instrument` · `position` · `framework` · `counter-position` · `stance` · `tendency`
