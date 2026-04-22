@@ -29,13 +29,18 @@ Before a post is published — usually right after it's written — `/auto-tag` 
 
 Every named thing worth knowing about is extracted as a topic: people, technologies, tools, frameworks, concepts, theories, design elements, interaction metaphors.
 
-Each topic is assigned a type from a controlled vocabulary: `person`, `technology`, `technology-category`, `technical-mechanism`, `technical-phenomenon`, `philosophical-method`, `philosophical-framework`, `philosophical-concept`, `epistemological-concept`, `epistemic-stance`, `cognitive-tendency`, `belief-type`, `linguistic-concept`, `linguistic-principle`, `communication-type`, `theoretical-concept`, `interaction-metaphor`, `design-discipline`, `acoustic-concept`.
+Each topic is classified on four faceted dimensions from controlled vocabularies:
+
+- **type** (one value, required) — what kind of thing: `person`, `technology`, `mechanism`, `phenomenon`, `discipline`, `concept`, `metaphor`, `principle`, `method`
+- **lens** (one or more, required) — the discipline(s) through which the topic is understood: `philosophy`, `epistemology`, `linguistics`, `rhetoric`, `design`, `interaction`, `cognition`, `culture`, `personal`, `observability`, `analytics`, `development`
+- **subject** (one or more, required) — the topic area(s) the concept is about: `conversation`, `content`, `writing`, `voice`, `language`, `linguistics`, `llm`, `prompt`, `agent`, `knowledge`, `mind`, `pragmatics`, `psycholinguistics`, `content-design`, `conversation-design`, `prompt-design`, `information-architecture`, `structured-authoring`, `interaction-design`, `future-of-work`, `digital-garden`, `music`, `tooling`
+- **role** (optional) — the function the topic plays in arguments: `instrument`, `position`, `framework`, `counter-position`, `stance`, `tendency`
 
 Before creating a new topic, the existing topic registry in `src/data/triples.json` is checked for near-duplicates. Canonical IDs and labels are reused rather than creating fragmented duplicates of the same concept.
 
 ### TAO: Associations
 
-3-7 typed relationships between topics are extracted, using only predicates from a controlled vocabulary: `attributed-to`, `structured-as`, `counters`, `reinforces`, `contrasted-with`, `demonstrates`, `lacks`, `caused-by`, `metaphor-for`, `inaccessible-via`, `instance-of`, `characterised-as`, `coined-by`, `defined-as`, `theorised-by`, `exhibits`, `violates`, `presupposes`, `leads-to`, `breaks-down-for`, `better-fits`, `risks`, `incompatible-with`, `generates`.
+3-7 typed relationships between topics are extracted, using only predicates from a controlled vocabulary: `attributed-to`, `structured-as`, `counters`, `reinforces`, `contrasted-with`, `demonstrates`, `lacks`, `caused-by`, `metaphor-for`, `inaccessible-via`, `instance-of`, `characterised-as`, `coined-by`, `defined-as`, `theorised-by`, `exhibits`, `violates`, `presupposes`, `leads-to`, `breaks-down-for`, `better-fits`, `risks`, `incompatible-with`, `generates`, `requires`.
 
 If a genuinely needed predicate is absent (not just a synonym for an existing one), it can be proposed for addition to the vocabulary.
 
