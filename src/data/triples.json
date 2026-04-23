@@ -3009,27 +3009,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "claude-code",
-      "predicate": "generates",
-      "object": "llm-plugins",
-      "source": "instagram",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "llm-plugins",
-      "predicate": "demonstrates",
-      "object": "role-based-collaboration",
-      "source": "instagram",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "claude-code",
-      "predicate": "instance-of",
-      "object": "agentic-ai",
-      "source": "instagram",
-      "collection": "weblinks"
-    },
-    {
       "subject": "anthropomorphism",
       "predicate": "leads-to",
       "object": "cognitive-vulnerability",
@@ -3301,6 +3280,27 @@
       "object": "llmops",
       "source": "llmops-analyst-conversation-designers-next-career-step",
       "collection": "articles"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "generates",
+      "object": "llm-plugins",
+      "source": "instagram",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llm-plugins",
+      "predicate": "demonstrates",
+      "object": "role-based-collaboration",
+      "source": "instagram",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "instance-of",
+      "object": "agentic-ai",
+      "source": "instagram",
+      "collection": "weblinks"
     }
   ]
 }
