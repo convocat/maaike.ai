@@ -5,6 +5,17 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - knowledge-graph
+  - community
+themes:
+  - A field moving from intent-only bots toward semantic and graph-based approaches
+  - Chatbots for social good in underserved languages and mental health contexts
+  - Incremental semantic parsing as a frontier for accessibility
+triples:
+  - ["Conversation design", "leads-to", "Graph-based NLU"]
+  - ["Incremental semantic parser", "instance-of", "Semantic parsing"]
+  - ["Semantic parsing", "requires", "Knowledge graph"]
+  - ["Conversational AI", "demonstrates", "Social good"]
 description: "My personal highlights from the European Chatbot and Conversational AI summit."
 draft: false
 ai: "100% Maai"

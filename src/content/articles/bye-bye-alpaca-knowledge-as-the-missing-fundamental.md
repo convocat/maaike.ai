@@ -6,6 +6,18 @@ maturity: complete
 tags:
   - ai-ethics
   - prompt-design
+  - llm-hallucinations
+  - confabulation
+themes:
+  - Hallucinations as a structural property of LLMs, not a solvable bug
+  - Knowledge as a missing fundamental in probabilistic text generation
+  - The timpani metaphor for tuning a system that has no clear pitch to tune to
+triples:
+  - ["Stanford Alpaca", "instance-of", "LLMs"]
+  - ["Stanford Alpaca", "exhibits", "LLM hallucinations"]
+  - ["LLM hallucinations", "caused-by", "Probabilistic word prediction"]
+  - ["LLMs", "lacks", "Ground truth"]
+  - ["Missing fundamental", "metaphor-for", "Ground truth"]
 description: "Wow, that went down fast!"
 draft: false
 ai: "100% Maai"

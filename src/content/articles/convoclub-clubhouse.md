@@ -5,6 +5,15 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - convocat
+  - community
+themes:
+  - Community building for a young design discipline
+  - Social audio as a medium for professional exchange
+triples:
+  - ["Convoclub", "instance-of", "Community of practice"]
+  - ["Clubhouse", "characterised-as", "Social audio platform"]
+  - ["Convoclub", "demonstrates", "Conversation design"]
 description: "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!"
 draft: false
 ai: "100% Maai"

@@ -6,6 +6,17 @@ maturity: complete
 tags:
   - ai-ethics
   - conversation-design
+  - llm
+  - data-consent
+themes:
+  - Data collection hidden inside feature toggles in consumer AI products
+  - Feature access tied to consent for model training
+  - The gap between what a new capability promises and what it actually delivers
+triples:
+  - ["ChatGPT browse feature", "requires", "Data consent toggle"]
+  - ["Data consent toggle", "leads-to", "Training data collection"]
+  - ["ChatGPT", "violates", "Consent design"]
+  - ["ChatGPT browse feature", "lacks", "Usability"]
 description: Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?
 draft: false
 ai: "100% Maai"

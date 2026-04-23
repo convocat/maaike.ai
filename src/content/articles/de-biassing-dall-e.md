@@ -6,6 +6,18 @@ maturity: complete
 tags:
   - prompt-design
   - ai-ethics
+  - cultural-bias
+  - image-generation
+themes:
+  - Silent prompt rewriting as a hidden form of authorship
+  - Debiasing mechanisms that introduce their own layer of stereotype
+  - US-centred defaults made visible by prompting for other nationalities
+triples:
+  - ["DALL-E 3", "exhibits", "Prompt augmentation"]
+  - ["Prompt augmentation", "leads-to", "Cultural stereotyping"]
+  - ["DALL-E 3", "exhibits", "US-centred bias"]
+  - ["Debiasing", "risks", "Cultural stereotyping"]
+  - ["Prompt augmentation", "violates", "User authorship"]
 description: Do we really want US moderators to rewrite Dall-e's prompts?
 draft: false
 ai: "100% Maai"

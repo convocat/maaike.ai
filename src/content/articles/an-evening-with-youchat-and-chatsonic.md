@@ -6,6 +6,21 @@ maturity: complete
 tags:
   - conversation-design
   - ai-ethics
+  - llm-hallucinations
+  - llm
+themes:
+  - Internet-connected LLMs and the illusion of factuality
+  - Fabricated hyperlinks as a threat to the web's referential integrity
+  - When an LLM apologises for a 'typo' it crosses the line from bullshit into lying
+triples:
+  - ["YouChat", "instance-of", "LLMs"]
+  - ["Chatsonic", "instance-of", "LLMs"]
+  - ["YouChat", "generates", "Fabricated links"]
+  - ["Chatsonic", "generates", "Fabricated links"]
+  - ["Fabricated links", "violates", "Referential integrity"]
+  - ["Chatsonic", "exhibits", "Deceptive apology"]
+  - ["Deceptive apology", "characterised-as", "Lying"]
+  - ["Lying", "attributed-to", "Harry G Frankfurt"]
 description: "Both can access the internet and retrieve recent information. Let's take them for a test drive."
 draft: false
 ai: "100% Maai"

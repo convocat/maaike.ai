@@ -5,6 +5,19 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - ai-ethics
+  - llm
+themes:
+  - Chatbots without a fixed persona mirror whatever bias the user brings to them
+  - Moral values belong inside the bot persona, not bolted on as a filter
+  - Training data bias is real but lack of internal coherence is the deeper problem
+triples:
+  - ["Blenderbot", "instance-of", "LLMs"]
+  - ["Blenderbot", "lacks", "Bot persona"]
+  - ["Blenderbot", "exhibits", "Sycophancy"]
+  - ["Bot persona", "requires", "Moral values"]
+  - ["Safety filter", "contrasted-with", "Ethics in persona"]
+  - ["Bot persona", "metaphor-for", "Golem"]
 description: "Facebook's AI chatbot might just be saying what you want it to say…"
 draft: false
 ai: "100% Maai"

@@ -5,6 +5,18 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - ai-ethics
+  - crisis-communication
+themes:
+  - Crisis communication asks for fewer bots with stronger governance, not more bots
+  - Content strategy, source ownership and maintenance are the real work of a crisis bot
+  - Good intentions are not enough when information is life-critical
+triples:
+  - ["Crisis communication", "requires", "Content strategy"]
+  - ["Crisis chatbot", "requires", "Source ownership"]
+  - ["Crisis chatbot", "requires", "Content maintenance"]
+  - ["Unverified chatbots", "risks", "Misinformation"]
+  - ["Official bodies", "better-fits", "Crisis communication"]
 description: "How to build Coronabots responsibly — if you want to build one at all."
 draft: false
 ai: "100% Maai"

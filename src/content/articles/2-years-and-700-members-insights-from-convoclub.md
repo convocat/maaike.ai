@@ -5,6 +5,21 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - convocat
+  - future-of-work
+  - community
+  - evaluation
+themes:
+  - Conversation design as an emerging, still-maturing profession
+  - Community as a way to surface shared challenges in a young discipline
+  - The gap between design ambition and the tooling and analytics that are actually available
+triples:
+  - ["Convoclub", "demonstrates", "Conversation design"]
+  - ["Conversation design", "characterised-as", "Emerging discipline"]
+  - ["Conversation designers", "exhibits", "Imposter syndrome"]
+  - ["Conversation design", "lacks", "Mature tooling"]
+  - ["Conversation design", "requires", "Stakeholder alignment"]
+  - ["Conversation design", "lacks", "Evaluation analytics"]
 description: "The top 5 challenges that conversation designers face, based on 300 real answers."
 draft: false
 ai: "100% Maai"

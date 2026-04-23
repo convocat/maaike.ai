@@ -6,6 +6,19 @@ maturity: complete
 tags:
   - conversation-design
   - prompt-design
+  - llm
+  - anthropomorphism
+themes:
+  - First-encounter testing of ChatGPT from a conversation designer's perspective
+  - Persona consistency as a source of trust in conversational AI
+  - How context tracking and refusal to confabulate create the illusion of reasoning
+triples:
+  - ["ChatGPT", "instance-of", "LLMs"]
+  - ["Bot persona", "reinforces", "Trust"]
+  - ["ChatGPT", "exhibits", "Coreference handling"]
+  - ["ChatGPT", "exhibits", "Context tracking"]
+  - ["ChatGPT", "counters", "Syllogism"]
+  - ["Blenderbot", "contrasted-with", "ChatGPT"]
 description: "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT."
 draft: false
 ai: "100% Maai"

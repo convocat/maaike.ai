@@ -5,6 +5,19 @@ updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design
+  - skill-based-work
+  - future-of-work
+  - writing
+themes:
+  - Conversation design as a rising career assembled from older disciplines
+  - The skill stack: curiosity, conversational writing, instructional design, structured thinking
+  - Why the job title lags behind the actual work
+triples:
+  - ["Conversation design", "instance-of", "Design discipline"]
+  - ["Conversation design", "requires", "Conversational writing"]
+  - ["Conversation design", "requires", "Instructional design"]
+  - ["Conversation design", "requires", "Structured thinking"]
+  - ["Bot persona", "structured-as", "Design artefact"]
 description: "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!"
 draft: false
 ai: "100% Maai"

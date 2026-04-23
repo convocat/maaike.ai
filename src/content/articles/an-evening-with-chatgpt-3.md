@@ -6,6 +6,18 @@ maturity: complete
 tags:
   - conversation-design
   - prompt-design
+  - llm
+  - conversational-ai
+themes:
+  - Using an LLM as a first-draft tool for conversation design artefacts like intents and entities
+  - The gap between producing plausible output and producing logically consistent output
+  - ChatGPT's surface competence in grammar and its failures in reasoning about it
+triples:
+  - ["ChatGPT", "generates", "Intent model"]
+  - ["ChatGPT", "generates", "Training phrases"]
+  - ["ChatGPT", "lacks", "Logical consistency"]
+  - ["LLMs", "exhibits", "Surface competence"]
+  - ["Intent model", "instance-of", "Conversational AI"]
 description: "Can ChatGPT take over some of my work as a conversation designer? Can it create an intent model for me?"
 draft: false
 ai: "100% Maai"

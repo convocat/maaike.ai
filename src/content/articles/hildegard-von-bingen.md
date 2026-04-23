@@ -4,7 +4,18 @@ date: 2020-03-08
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
+  - music
+  - women-in-voice
+  - history
+themes:
+  - Hildegard von Bingen as the first named composer in written history
+  - A 12th-century woman running an incubator for science, theology and music
+  - Voice, literally and figuratively, as a site of women's authorship
+triples:
+  - ["Hildegard von Bingen", "instance-of", "Composer"]
+  - ["Hildegard von Bingen", "demonstrates", "Women in voice"]
+  - ["Female monastery", "characterised-as", "Early incubator"]
+  - ["Scivias", "attributed-to", "Hildegard von Bingen"]
 description: "The original woman in voice. On international women's day, a tribute to the first named composer in history."
 draft: false
 ai: "100% Maai"
