@@ -208,6 +208,18 @@ def append_to_inbox(text, date):
 
 
 def clear_webhook():
+    # Diagnostics: fetch webhook state first so the log shows who keeps setting it
+    try:
+        info_r = requests.get(f'{BASE_URL}/getWebhookInfo', timeout=10)
+        info = info_r.json().get('result', {})
+        url = info.get('url') or ''
+        pending = info.get('pending_update_count', 0)
+        last_err = info.get('last_error_message') or ''
+        if url or pending or last_err:
+            print(f'[webhook] url={url!r} pending={pending} last_err={last_err!r}')
+    except Exception as e:
+        print(f'[webhook] getWebhookInfo failed: {e}')
+    # Then delete it so polling works
     r = requests.post(f'{BASE_URL}/deleteWebhook', timeout=10)
     info = r.json()
     if info.get('result'):
