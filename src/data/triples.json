@@ -2674,41 +2674,6 @@
       "source": "a-digital-garden-as-central-space"
     },
     {
-      "subject": "structured-input",
-      "predicate": "better-fits",
-      "object": "agentic-ai",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
-      "subject": "llms",
-      "predicate": "exhibits",
-      "object": "nonconscious-cognition",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "counters",
-      "object": "algorithmic-feed",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
-      "subject": "personal-web",
-      "predicate": "counters",
-      "object": "algorithmic-feed",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
-      "subject": "agentic-ai",
-      "predicate": "generates",
-      "object": "consent-design",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
       "subject": "llm-wiki",
       "predicate": "attributed-to",
       "object": "andrej-karpathy",
@@ -3301,6 +3266,13 @@
       "object": "agentic-ai",
       "source": "instagram",
       "collection": "weblinks"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
     }
   ]
 }

@@ -1,26 +1,22 @@
 ---
-title: "Creative prompts, April 2026"
+reviewed: 2026-04-23
+title: Creative prompts, April 2026
 date: 2026-04-14
 type: post
 maturity: complete
 tags:
-  - newsletter
-  - convocat
-  - digital-gardens
-  - conversation-design
-  - agentic-ai
-  - personal-web
-  - thinking-in-public
-description: "Issue of the Convocat newsletter Creative Prompts: garden updates, news for content professionals, seeds, and what I'm reading."
+- newsletter
+- convocat
+- digital-gardens
+- conversation-design
+- agentic-ai
+- personal-web
+- thinking-in-public
+description: 'Issue of the Convocat newsletter Creative Prompts: garden updates, news for content professionals, seeds, and what I''m reading.'
 ai: 100% Maai
 triples:
-  - ["Structured input", "better-fits", "Agentic AI"]
-  - ["LLMs", "exhibits", "Nonconscious cognition"]
-  - ["Digital garden", "counters", "Algorithmic feed"]
-  - ["Personal web", "counters", "Algorithmic feed"]
-  - ["Agentic AI", "generates", "Consent design"]
+- [Personal web, counters, Algorithmic feed]
 ---
-
 Dear Convofriends!
 
 I'm so happy to reconnect with you all, and yesterday's Convoclub really left me energised. So I thought, why not try a newsletter of some sorts. Probably going to be highly irregular, but hey, let's go with the flow.
