@@ -6,6 +6,15 @@ maturity: developing
 tags:
   - writing
   - digital-gardens
+  - thinking-in-public
+themes:
+  - Sharing unfinished thoughts invites collaboration and accountability.
+  - Digital gardens make maturity legible through explicit stages.
+  - The practice inverts the traditional peer-reviewed publishing model.
+triples:
+  - ["Thinking in public", "better-fits", "Digital garden"]
+  - ["Digital garden", "requires", "Maturity system"]
+  - ["Thinking in public", "counters", "Traditional peer review"]
 description: The practice of sharing unfinished thoughts openly.
 ai: generated
 ---

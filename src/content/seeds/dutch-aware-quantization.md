@@ -5,6 +5,18 @@ updated: 2026-03-15
 maturity: draft
 tags:
   - knowledge-management
+  - llm
+  - quantization
+  - dutch
+themes:
+  - Standard quantization uses English as reference and silently damages other languages.
+  - Combining language-specific calibration with component vulnerability data protects both.
+  - Local, non-English AI requires taking quantization seriously as a quality step.
+triples:
+  - ["Quantization", "risks", "Language quality loss"]
+  - ["Dutch calibration", "counters", "English-default quantization"]
+  - ["Dutch calibration", "requires", "Leesplank corpus"]
+  - ["Dutch calibration", "attributed-to", "Michiel Buisman"]
 description: Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.
 draft: false
 ai: co-created

@@ -7,6 +7,17 @@ tags:
   - digital-gardens
   - information-architecture
   - ontology
+  - typed-relations
+themes:
+  - Tags conflate topic and structure; typed relations separate them.
+  - The hub/develops pair encodes project structure as an explicit ontology.
+  - The garden now has three distinct connection layers: laid paths, root systems, wind-seeded links.
+triples:
+  - ["Typed relations", "counters", "Tags as structure"]
+  - ["Hub develops", "instance-of", "Typed relations"]
+  - ["Hub develops", "structured-as", "Ontology"]
+  - ["Typed relations", "reinforces", "Knowledge graph for garden"]
+  - ["Wiki links", "contrasted-with", "Typed relations"]
 description: "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden."
 ai: co-created
 develops: knowledge-graph-for-the-garden

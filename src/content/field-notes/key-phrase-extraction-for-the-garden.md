@@ -5,8 +5,19 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - llm
+  - key-phrases
+themes:
+  - Key phrase extraction sits between tags and embeddings as a human-readable middle layer.
+  - Four eras of keyphrase extraction each break down on short, multilingual text.
+  - LLM-based extraction via local models best fits a small multilingual garden.
+triples:
+  - ["Key phrase extraction", "better-fits", "Knowledge graph for garden"]
+  - ["KeyBERT", "breaks-down-for", "Short text problem"]
+  - ["YAKE", "instance-of", "Key phrase extraction"]
+  - ["LLM-based keyphrase extraction", "better-fits", "Short text problem"]
+  - ["Key phrase extraction", "contrasted-with", "Text embeddings"]
 description: What key phrase extraction is, how it evolved from word counting to LLM prompting, and which approach fits a small multilingual knowledge garden.
 ai: co-created
 develops: knowledge-graph-for-the-garden

@@ -7,6 +7,15 @@ tags:
   - testing
   - developer-experience
   - digital-gardens
+themes:
+  - Silent production failures motivate layered testing for a static content site.
+  - Three layers (content validation, build, Playwright) each catch different classes of breakage.
+  - Behavioural E2E tests outlast implementation-detail tests.
+triples:
+  - ["Content validation", "counters", "YAML frontmatter errors"]
+  - ["Test pyramid", "structured-as", "Layered testing"]
+  - ["Playwright tests", "better-fits", "Interactive components"]
+  - ["Astro build", "lacks", "Runtime alerting"]
 description: "Three layers of automated testing: content validation, build verification, and Playwright E2E. Why each layer exists and what it catches."
 ai: co-created
 ---

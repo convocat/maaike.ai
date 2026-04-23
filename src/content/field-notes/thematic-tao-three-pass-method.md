@@ -5,7 +5,17 @@ date: 2026-03-30
 updated: 2026-04-02
 maturity: developing
 draft: false
-tags: ["knowledge-graph", "thinking-tools", "digital-gardens"]
+tags: ["knowledge-graph", "thinking-tools", "digital-gardens", "thematic-analysis", "tao-topic-mapping"]
+themes:
+  - Thematic analysis reads wide while TAO topic mapping reads close.
+  - A three-pass rhythm (wide, close, wide again) prevents locally-correct but globally-wrong triples.
+  - The method grounds auto-tag and the concept graph in qualitative research practice.
+triples:
+  - ["TAO topic mapping", "attributed-to", "Steve Pepper"]
+  - ["Thematic TAO method", "structured-as", "Three-pass method"]
+  - ["Thematic TAO method", "reinforces", "Thematic analysis"]
+  - ["Thematic TAO method", "requires", "Controlled predicate vocabulary"]
+  - ["Thematic TAO method", "better-fits", "Knowledge graph for garden"]
 ai: "100% Maai"
 develops: claude-features-garden
 ---

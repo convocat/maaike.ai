@@ -5,8 +5,19 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - embeddings
+  - similarity-threshold
+themes:
+  - A single global similarity threshold hides the gap between same-collection and cross-collection pairs.
+  - Four approaches (normalisation, spectral, blocking, empirical) each trade cost for discrimination.
+  - A layered approach with per-document normalisation and blocking beats guessing a cutoff.
+triples:
+  - ["Similarity threshold", "requires", "Per-document normalisation"]
+  - ["Token blocking", "counters", "False positives"]
+  - ["Spectral thresholding", "instance-of", "Similarity threshold"]
+  - ["Knowledge graph for garden", "requires", "Similarity threshold"]
+  - ["Text embeddings", "exhibits", "Score incomparability"]
 description: How to go from "everything is related to everything" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.
 ai: co-created
 develops: knowledge-graph-for-the-garden

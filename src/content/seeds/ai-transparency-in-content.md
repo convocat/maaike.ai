@@ -6,6 +6,14 @@ maturity: draft
 tags:
   - ai-ethics
   - writing
+  - ai-transparency
+themes:
+  - Transparency about AI involvement can be an invitation rather than a disclaimer.
+  - Sharing the actual prompts turns radical transparency into a design choice.
+triples:
+  - ["AI transparency", "reinforces", "Thinking in public"]
+  - ["AI transparency", "counters", "Ghostwriting"]
+  - ["AI transparency", "instance-of", "Design choice"]
 description: How should I indicate when content was made with AI — and share the prompts?
 draft: false
 ai: generated

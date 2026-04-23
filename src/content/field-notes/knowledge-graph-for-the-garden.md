@@ -6,7 +6,16 @@ maturity: developing
 tags:
   - digital-gardens
   - knowledge-graph
-
+themes:
+  - The garden can discover its own structure through embeddings and entity extraction.
+  - Apple's Saga platform offers transferable patterns even at personal-garden scale.
+  - A layered pipeline (blocking, similarity, confidence) beats a single monolithic graph.
+triples:
+  - ["Knowledge graph for garden", "structured-as", "Saga"]
+  - ["Knowledge graph for garden", "requires", "Text embeddings"]
+  - ["Knowledge graph for garden", "requires", "Key phrase extraction"]
+  - ["Knowledge graph for garden", "requires", "Provenance metadata"]
+  - ["Knowledge graph for garden", "leads-to", "Gap detection"]
 hub: true
 description: Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.
 ai: co-created

@@ -7,6 +7,16 @@ tags:
   - digital-gardens
   - design
   - philosophy
+  - conversational-ai
+themes:
+  - A chatbot UI can be deterministic: branching dialogue and hyperlinks, no LLM.
+  - Removing AI centres content and curation instead of the technology.
+  - Serendipity can be designed rather than hallucinated.
+triples:
+  - ["Deterministic chatbot", "counters", "LLM hallucinations"]
+  - ["Deterministic chatbot", "instance-of", "Conversational interface"]
+  - ["Deterministic chatbot", "demonstrates", "Serendipity"]
+  - ["Deterministic chatbot", "better-fits", "Digital garden"]
 description: Can a chatbot-style UI work without generative AI, using decision trees, hyperlinking, and serendipity instead?
 draft: false
 ai: co-created

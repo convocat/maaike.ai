@@ -7,6 +7,16 @@ tags:
   - digital-gardens
   - 1m-context
   - knowledge-graph
+  - embeddings
+themes:
+  - Embedding clusters confirm obvious topical structure but miss stance and argument.
+  - Format contamination shows embeddings encode content type alongside meaning.
+  - A combined approach (embeddings plus full-context reading) complements strengths.
+triples:
+  - ["K-means clustering", "instance-of", "Text embeddings"]
+  - ["Text embeddings", "exhibits", "Format contamination"]
+  - ["Thematic analysis", "better-fits", "Cross-cutting themes"]
+  - ["Text embeddings", "breaks-down-for", "Cross-cutting themes"]
 description: "What happens when you start from embeddings instead of reading? Comparing cluster-based discovery against the fresh thematic analysis."
 ai: co-created
 develops: experiment-2-thematic-analysis-with-1m-context

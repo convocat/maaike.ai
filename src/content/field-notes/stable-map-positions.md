@@ -5,6 +5,15 @@ maturity: solid
 tags:
   - digital-gardens
   - knowledge-graph
+  - explore-map
+themes:
+  - A stable map needs memory so territories don't rearrange on every rebuild.
+  - Pinned positions give the garden a learnable geography.
+  - New items are placed near their nearest neighbour without disturbing the whole.
+triples:
+  - ["Explore map", "requires", "Pinned positions"]
+  - ["Pinned positions", "counters", "UMAP projection"]
+  - ["Explore map", "exhibits", "Stable geography"]
 develops: explore-page-design
 description: How the explore map got stable positions and pinned territories, so the landscape doesn't shift on every rebuild.
 ai: co-created

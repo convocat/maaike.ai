@@ -5,6 +5,13 @@ updated: 2026-03-15
 maturity: draft
 tags:
   - writing
+  - ai-as-writing-partner
+themes:
+  - The right metaphor for AI's role in writing is neither ghostwriter nor autocomplete.
+  - Sparring partner, editor, or thinking companion frames a co-authored process.
+triples:
+  - ["AI as writing partner", "contrasted-with", "Writing as craft"]
+  - ["AI as writing partner", "characterised-as", "Thinking companion"]
 description: What's the right metaphor for AI's role in my writing process?
 ai: 100% Maai
 ---

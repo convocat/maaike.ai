@@ -5,7 +5,17 @@ updated: 2026-03-19
 maturity: solid
 tags:
   - knowledge-graph
-
+  - digital-gardens
+themes:
+  - Saga layers batch, streaming, and human curation rather than choosing one.
+  - Extended triples with provenance make auto-generated links auditable.
+  - Blocking plus lightweight similarity is the pattern that scales down as well as up.
+triples:
+  - ["Saga", "structured-as", "Hybrid batch incremental"]
+  - ["Saga", "requires", "Delta processing"]
+  - ["Saga", "requires", "Provenance metadata"]
+  - ["Saga", "requires", "Entity linking"]
+  - ["Knowledge graph for garden", "reinforces", "Saga"]
 description: Reading notes from Apple's Saga papers on building knowledge graphs at scale, and what transfers to a personal digital garden.
 ai: co-created
 develops: knowledge-graph-for-the-garden

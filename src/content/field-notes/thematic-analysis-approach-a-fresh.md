@@ -6,6 +6,16 @@ tags:
   - thematic-analysis
   - digital-gardens
   - 1m-context
+  - non-linear-thinking
+themes:
+  - Reading all 244 garden files in one context surfaces themes embeddings cannot see.
+  - The garden holds a sustained concern about truth, authenticity, and voice.
+  - Non-linear thinking and bilingual critique emerge as the garden's deeper origin.
+triples:
+  - ["Thematic analysis", "requires", "One million context window"]
+  - ["Thematic analysis", "contrasted-with", "Text embeddings"]
+  - ["Digital garden", "exhibits", "Non-linear thinking"]
+  - ["Designing for doubt", "reinforces", "Indifference to truth"]
 description: "Seven themes and one emerging pattern discovered by loading all 244 garden files into a single context window with no prior structure."
 ai: co-created
 develops: experiment-2-thematic-analysis-with-1m-context
