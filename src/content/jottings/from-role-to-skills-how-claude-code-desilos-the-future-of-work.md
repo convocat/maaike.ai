@@ -1,27 +1,26 @@
 ---
-title: "From role to skills: how Claude Code desilos the future of work"
-description: "How I submitted my first merge request...after 20 years of trying to code"
+reviewed: 2026-04-23
+title: 'From role to skills: how Claude Code desilos the future of work'
+description: How I submitted my first merge request...after 20 years of trying to code
 date: 2026-04-07
 maturity: draft
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 type: post
 tags:
-  - agentic-ai
-  - thinking-in-public
-  - future-of-work
-  - claude-code
-  - role-based-collaboration
-  - skill-based-work
-  - building-as-specification
+- thinking-in-public
+- future-of-work
+- claude-code
+- role-based-collaboration
+- skill-based-work
+- building-as-specification
 triples:
-  - ["Claude Code", "leads-to", "Building as specification"]
-  - ["GenAI", "counters", "Role-based collaboration"]
-  - ["Skill-based work", "contrasted-with", "Role-based collaboration"]
-  - ["Claude Code", "leads-to", "Skill-based work"]
-  - ["Claude Code", "demonstrates", "Metacognition"]
+- [Claude Code, leads-to, Building as specification]
+- [GenAI, counters, Role-based collaboration]
+- [Skill-based work, contrasted-with, Role-based collaboration]
+- [Claude Code, leads-to, Skill-based work]
+- [Claude Code, demonstrates, Metacognition]
 ---
-
 # From role to skills: how Claude Code desilos the future of work
 
 Proud milestone: so I submitted my first merge request to a software repo the other week. A real one, to a repo with real code, designed and built by real developers.
