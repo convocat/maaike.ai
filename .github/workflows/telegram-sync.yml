@@ -18,25 +18,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
       - name: Install dependencies
-        run: |
-          pip install requests pyyaml
-          npm install -g @anthropic-ai/claude-code
+        run: pip install requests pyyaml
 
       - name: Run Telegram sync
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python scripts/telegram_sync.py
 
-      - name: Auto-tag new draft weblinks
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          python scripts/run_auto_tag_on_drafts.py
+      # Note: auto-tag runs in Claude Code sessions, never via API. See memory/feedback_no_api_for_enrichment.md
 
       - name: Commit changes
         run: |

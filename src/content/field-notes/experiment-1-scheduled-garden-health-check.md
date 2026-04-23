@@ -5,9 +5,20 @@ maturity: developing
 tags:
   - claude-code
   - scheduled-tasks
+  - evaluation
+  - agentic-ai
 description: "Testing Claude Code's new scheduled tasks feature by automating weekly garden health checks."
 ai: co-created
 develops: claude-code-whats-new-for-the-garden
+themes:
+  - Scheduled tasks as open-loop automation
+  - Natural language prompts trade consistency for serendipity
+  - Feature validation through real-world use
+triples:
+  - ["Scheduled tasks", "instance-of", "Claude Code"]
+  - ["Scheduled tasks", "exhibits", "Open-loop automation"]
+  - ["Scheduled tasks", "risks", "Open-loop automation"]
+  - ["Scheduled tasks", "generates", "serendipity"]
 ---
 
 # Experiment 1: scheduled garden health check

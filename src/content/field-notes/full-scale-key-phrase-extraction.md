@@ -5,11 +5,21 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - key-phrases
+  - llm
 description: Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.
 ai: co-created
 develops: knowledge-graph-for-the-garden
+themes:
+  - LLM-based key phrase extraction at full garden scale
+  - Short-text padding and model hallucination
+  - Combining embeddings with phrases for explainable links
+triples:
+  - ["Key phrase extraction", "breaks-down-for", "Short-text problem"]
+  - ["Key phrase extraction", "reinforces", "Text embeddings"]
+  - ["Knowledge graph for the garden", "requires", "Key phrase extraction"]
+  - ["Key phrase extraction", "risks", "LLM hallucinations"]
 ---
 
 This is the third step in building a knowledge graph for the garden. After [[setting-up-local-embedding-models|computing embeddings]] and [[tuning-the-similarity-threshold|tuning the similarity threshold]], I now have key phrases for every item. The idea: use phrases alongside embeddings to make link suggestions more interpretable and filterable.

@@ -5,11 +5,20 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-
   - embeddings
+  - digital-gardens
 description: Why embedding models cluster documents by format instead of topic when content lengths vary, and what to do about it.
 ai: co-created
 develops: knowledge-graph-for-the-garden
+themes:
+  - Embeddings encode format and style alongside meaning
+  - Short-text problem for video and book blurbs
+  - Normalising input before embedding
+triples:
+  - ["Text embeddings", "exhibits", "Format contamination"]
+  - ["Format contamination", "caused-by", "Short-text problem"]
+  - ["BGE-M3", "exhibits", "Format contamination"]
+  - ["Knowledge graph for the garden", "requires", "Text embeddings"]
 ---
 
 ## The problem

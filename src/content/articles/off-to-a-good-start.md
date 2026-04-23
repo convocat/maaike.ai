@@ -5,6 +5,18 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - remote-work
+  - community
+  - onboarding
+themes:
+  - Remote onboarding is a community-building problem, not just an HR process
+  - Building a contextual mini-network accelerates productivity
+  - Over-communication is a remote affordance substitute
+triples:
+  - ["Remote onboarding", "requires", "Contextual community"]
+  - ["Onboarding tour", "instance-of", "Network building"]
+  - ["Remote onboarding", "lacks", "Ambient affordances"]
+  - ["Onboarding checklist", "structured-as", "Role-based collaboration"]
 description: An onboarding checklist for conversation designers.
 draft: false
 ai: "100% Maai"

@@ -5,6 +5,19 @@ updated: 2026-03-15
 maturity: complete
 tags:
   - prompt-design
+  - llm
+  - writing
+  - summarization
+themes:
+  - LLMs work better from concepts than from condensing source text
+  - Human summarisation intuitions mislead prompt design
+  - Constructive prompting outperforms reductive prompting
+triples:
+  - ["Summarisation", "characterised-as", "Key-concept extraction"]
+  - ["Constructive prompting", "better-fits", "LLMs"]
+  - ["LLMs", "breaks-down-for", "Reductive summarisation"]
+  - ["Keyword-first prompting", "counters", "Source-text summarisation"]
+  - ["Chain of Density", "instance-of", "Summarisation method"]
 description: Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.
 draft: false
 ai: "100% Maai"

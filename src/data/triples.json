@@ -2414,6 +2414,879 @@
       "type": "concept",
       "lens": ["design"],
       "subject": ["content-design", "conversation-design"]
+    },
+    "content-quality-audit": {
+      "label": "Content quality audit",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["content", "content-design"],
+      "role": "instrument"
+    },
+    "feedback-loop": {
+      "label": "Feedback loop",
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["content-design", "future-of-work"]
+    },
+    "content-quality": {
+      "label": "Content quality",
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content", "content-design"]
+    },
+    "audience-modelling": {
+      "label": "Audience modelling",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["content-design", "writing"]
+    },
+    "expert-centric-writing": {
+      "label": "Expert-centric writing",
+      "type": "phenomenon",
+      "lens": ["design"],
+      "subject": ["writing"],
+      "role": "counter-position"
+    },
+    "trade-off": {
+      "label": "Trade-off",
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "feedback": {
+      "label": "Feedback",
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["content-design"]
+    },
+    "critical-appraisal": {
+      "label": "Critical appraisal",
+      "type": "method",
+      "lens": ["epistemology", "personal"],
+      "subject": ["knowledge"]
+    },
+    "bing-chat": {
+      "label": "Bing Chat",
+      "type": "technology",
+      "lens": ["design", "development"],
+      "subject": ["llm", "conversation"]
+    },
+    "collaborative-effort": {
+      "label": "Collaborative effort",
+      "type": "concept",
+      "lens": ["linguistics", "interaction"],
+      "subject": ["conversation"]
+    },
+    "conversation": {
+      "label": "Conversation",
+      "type": "concept",
+      "lens": ["linguistics", "interaction"],
+      "subject": ["conversation", "language"]
+    },
+    "moral-commitment": {
+      "label": "Moral commitment",
+      "type": "concept",
+      "lens": ["philosophy", "linguistics"],
+      "subject": ["conversation", "mind"]
+    },
+    "conversational-interface": {
+      "label": "Conversational interface",
+      "type": "technology",
+      "lens": ["design", "interaction"],
+      "subject": ["conversation-design"]
+    },
+    "voicelunch-language-and-linguistics": {
+      "label": "Voicelunch Language and Linguistics",
+      "type": "phenomenon",
+      "lens": ["culture", "design"],
+      "subject": ["conversation-design", "language"]
+    },
+    "voicelunch": {
+      "label": "Voicelunch",
+      "type": "phenomenon",
+      "lens": ["culture", "design"],
+      "subject": ["conversation-design", "voice"]
+    },
+    "remote-onboarding": {
+      "label": "Remote onboarding",
+      "type": "phenomenon",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "contextual-community": {
+      "label": "Contextual community",
+      "type": "concept",
+      "lens": ["culture", "design"],
+      "subject": ["future-of-work"]
+    },
+    "onboarding-tour": {
+      "label": "Onboarding tour",
+      "type": "method",
+      "lens": ["personal", "design"],
+      "subject": ["future-of-work"],
+      "role": "instrument"
+    },
+    "network-building": {
+      "label": "Network building",
+      "type": "method",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "ambient-affordances": {
+      "label": "Ambient affordances",
+      "type": "concept",
+      "lens": ["interaction", "design"],
+      "subject": ["interaction-design"]
+    },
+    "onboarding-checklist": {
+      "label": "Onboarding checklist",
+      "type": "method",
+      "lens": ["design", "personal"],
+      "subject": ["future-of-work"],
+      "role": "instrument"
+    },
+    "prompt-workshop": {
+      "label": "Prompt workshop",
+      "type": "phenomenon",
+      "lens": ["design", "culture"],
+      "subject": ["prompt-design"]
+    },
+    "conscious-prompting": {
+      "label": "Conscious prompting",
+      "type": "method",
+      "lens": ["design", "epistemology"],
+      "subject": ["prompt-design"],
+      "role": "stance"
+    },
+    "online-meetings": {
+      "label": "Online meetings",
+      "type": "phenomenon",
+      "lens": ["culture", "interaction"],
+      "subject": ["future-of-work"]
+    },
+    "online-fatigue": {
+      "label": "Online fatigue",
+      "type": "phenomenon",
+      "lens": ["personal", "cognition"],
+      "subject": ["future-of-work", "mind"]
+    },
+    "postural-collapse": {
+      "label": "Postural collapse",
+      "type": "phenomenon",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"]
+    },
+    "embodied-awareness": {
+      "label": "Embodied awareness",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"],
+      "role": "stance"
+    },
+    "postural-alignment": {
+      "label": "Postural alignment",
+      "type": "concept",
+      "lens": ["personal"],
+      "subject": ["mind"]
+    },
+    "bodily-grounding": {
+      "label": "Bodily grounding",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"]
+    },
+    "ssml": {
+      "label": "SSML",
+      "type": "technology",
+      "lens": ["design", "linguistics"],
+      "subject": ["voice", "conversation-design"],
+      "role": "instrument"
+    },
+    "speech-synthesis-markup-language": {
+      "label": "Speech Synthesis Markup Language",
+      "type": "concept",
+      "lens": ["linguistics", "development"],
+      "subject": ["voice"]
+    },
+    "voice-markup": {
+      "label": "Voice markup",
+      "type": "concept",
+      "lens": ["design", "development"],
+      "subject": ["voice", "structured-authoring"]
+    },
+    "voice-action": {
+      "label": "Voice action",
+      "type": "technology",
+      "lens": ["design"],
+      "subject": ["voice", "conversation-design"]
+    },
+    "prosody": {
+      "label": "Prosody",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice", "language"]
+    },
+    "monotone-synthesis": {
+      "label": "Monotone synthesis",
+      "type": "phenomenon",
+      "lens": ["design", "development"],
+      "subject": ["voice"],
+      "role": "counter-position"
+    },
+    "voice-design": {
+      "label": "Voice design",
+      "type": "discipline",
+      "lens": ["design"],
+      "subject": ["voice", "conversation-design"]
+    },
+    "summarisation": {
+      "label": "Summarisation",
+      "type": "method",
+      "lens": ["design", "linguistics"],
+      "subject": ["writing", "content-design"]
+    },
+    "key-concept-extraction": {
+      "label": "Key-concept extraction",
+      "type": "method",
+      "lens": ["linguistics", "design"],
+      "subject": ["content", "llm"]
+    },
+    "constructive-prompting": {
+      "label": "Constructive prompting",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["prompt-design", "llm"],
+      "role": "position"
+    },
+    "reductive-summarisation": {
+      "label": "Reductive summarisation",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["content-design", "llm"],
+      "role": "counter-position"
+    },
+    "keyword-first-prompting": {
+      "label": "Keyword-first prompting",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["prompt-design"],
+      "role": "position"
+    },
+    "source-text-summarisation": {
+      "label": "Source-text summarisation",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["content-design", "llm"]
+    },
+    "chain-of-density": {
+      "label": "Chain of Density",
+      "type": "method",
+      "lens": ["design", "development"],
+      "subject": ["prompt-design", "llm"]
+    },
+    "summarisation-method": {
+      "label": "Summarisation method",
+      "type": "concept",
+      "lens": ["design"],
+      "subject": ["content-design"]
+    },
+    "blind-prompting": {
+      "label": "Blind prompting",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["prompt-design"],
+      "role": "counter-position"
+    },
+    "prompt-engineering": {
+      "label": "Prompt engineering",
+      "type": "discipline",
+      "lens": ["design", "development"],
+      "subject": ["prompt-design"],
+      "role": "position"
+    },
+    "mitchell-hashimoto": {
+      "label": "Mitchell Hashimoto",
+      "type": "person",
+      "lens": ["development", "design"],
+      "subject": ["prompt-design"]
+    },
+    "demonstration-set": {
+      "label": "Demonstration set",
+      "type": "method",
+      "lens": ["design", "analytics"],
+      "subject": ["prompt-design"],
+      "role": "instrument"
+    },
+    "input-output-pairs": {
+      "label": "Input-output pairs",
+      "type": "concept",
+      "lens": ["design", "development"],
+      "subject": ["prompt-design"]
+    },
+    "two-week-sprint": {
+      "label": "Two-week sprint",
+      "type": "concept",
+      "lens": ["development", "culture"],
+      "subject": ["future-of-work"]
+    },
+    "content-sprint": {
+      "label": "Content sprint",
+      "type": "concept",
+      "lens": ["design", "culture"],
+      "subject": ["content", "future-of-work"]
+    },
+    "process-copy-paste": {
+      "label": "Process copy-paste",
+      "type": "phenomenon",
+      "lens": ["culture"],
+      "subject": ["future-of-work"],
+      "role": "counter-position"
+    },
+    "ai-hype": {
+      "label": "AI hype",
+      "type": "phenomenon",
+      "lens": ["culture"],
+      "subject": ["llm"],
+      "role": "counter-position"
+    },
+    "on-bullshit": {
+      "label": "On Bullshit",
+      "type": "concept",
+      "lens": ["philosophy"],
+      "subject": ["knowledge"]
+    },
+    "algorithms-of-oppression": {
+      "label": "Algorithms of oppression",
+      "type": "concept",
+      "lens": ["culture", "epistemology"],
+      "subject": ["knowledge"]
+    },
+    "safiya-noble": {
+      "label": "Safiya Noble",
+      "type": "person",
+      "lens": ["culture", "epistemology"],
+      "subject": ["knowledge"]
+    },
+    "algorithmic-bias": {
+      "label": "Algorithmic bias",
+      "type": "phenomenon",
+      "lens": ["culture", "epistemology"],
+      "subject": ["llm", "knowledge"]
+    },
+    "systemic-racism": {
+      "label": "Systemic racism",
+      "type": "phenomenon",
+      "lens": ["culture"],
+      "subject": ["knowledge"]
+    },
+    "hands-on-experimentation": {
+      "label": "Hands-on experimentation",
+      "type": "method",
+      "lens": ["personal", "development"],
+      "subject": ["llm", "tooling"]
+    },
+    "critical-thinking": {
+      "label": "Critical thinking",
+      "type": "method",
+      "lens": ["epistemology", "personal"],
+      "subject": ["knowledge", "mind"],
+      "role": "stance"
+    },
+    "lone-designer": {
+      "label": "Lone designer",
+      "type": "phenomenon",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work", "conversation-design"]
+    },
+    "allies": {
+      "label": "Allies",
+      "type": "concept",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "conversation-designer": {
+      "label": "Conversation designer",
+      "type": "concept",
+      "lens": ["design", "culture"],
+      "subject": ["conversation-design", "future-of-work"]
+    },
+    "self-designed-process": {
+      "label": "Self-designed process",
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "growth-mindset": {
+      "label": "Growth mindset",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"],
+      "role": "stance"
+    },
+    "release-rhythm": {
+      "label": "Release rhythm",
+      "type": "method",
+      "lens": ["design", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "self-imposed-structure": {
+      "label": "Self-imposed structure",
+      "type": "concept",
+      "lens": ["personal"],
+      "subject": ["future-of-work"]
+    },
+    "content-person-trap": {
+      "label": "Content person trap",
+      "type": "phenomenon",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"],
+      "role": "counter-position"
+    },
+    "role-dilution": {
+      "label": "Role dilution",
+      "type": "phenomenon",
+      "lens": ["culture"],
+      "subject": ["future-of-work"]
+    },
+    "convocat": {
+      "label": "Convocat",
+      "type": "phenomenon",
+      "lens": ["personal", "culture"],
+      "subject": ["conversation-design", "future-of-work"]
+    },
+    "freelance-practice": {
+      "label": "Freelance practice",
+      "type": "concept",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"]
+    },
+    "exit-strategy": {
+      "label": "Exit strategy",
+      "type": "method",
+      "lens": ["personal"],
+      "subject": ["future-of-work"]
+    },
+    "financial-runway": {
+      "label": "Financial runway",
+      "type": "concept",
+      "lens": ["personal"],
+      "subject": ["future-of-work"]
+    },
+    "community-building": {
+      "label": "Community building",
+      "type": "method",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "core-work": {
+      "label": "Core work",
+      "type": "concept",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"]
+    },
+    "covid-lockdown": {
+      "label": "COVID lockdown",
+      "type": "phenomenon",
+      "lens": ["culture"],
+      "subject": ["future-of-work"]
+    },
+    "online-community-building": {
+      "label": "Online community building",
+      "type": "method",
+      "lens": ["culture", "personal"],
+      "subject": ["future-of-work"]
+    },
+    "synesthetic-thinking": {
+      "label": "Synesthetic thinking",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"],
+      "role": "position"
+    },
+    "freelance-work": {
+      "label": "Freelance work",
+      "type": "concept",
+      "lens": ["personal", "culture"],
+      "subject": ["future-of-work"]
+    },
+    "speech": {
+      "label": "Speech",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice", "language"]
+    },
+    "written-text": {
+      "label": "Written text",
+      "type": "concept",
+      "lens": ["linguistics", "design"],
+      "subject": ["writing", "content"]
+    },
+    "breath": {
+      "label": "Breath",
+      "type": "concept",
+      "lens": ["linguistics", "personal"],
+      "subject": ["voice"]
+    },
+    "utterance-level-sound-properties": {
+      "label": "Utterance-level sound properties",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice", "language"]
+    },
+    "pitch": {
+      "label": "Pitch",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice"]
+    },
+    "perceived-fundamental-frequency": {
+      "label": "Perceived fundamental frequency",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice"]
+    },
+    "intonation": {
+      "label": "Intonation",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice", "language"]
+    },
+    "sentence-melody": {
+      "label": "Sentence melody",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["voice", "language"]
+    },
+    "backchanneling": {
+      "label": "Backchanneling",
+      "type": "concept",
+      "lens": ["linguistics", "interaction"],
+      "subject": ["conversation", "pragmatics"]
+    },
+    "victor-yngve": {
+      "label": "Victor Yngve",
+      "type": "person",
+      "lens": ["linguistics"],
+      "subject": ["conversation", "pragmatics"]
+    },
+    "listener-side-signalling": {
+      "label": "Listener-side signalling",
+      "type": "concept",
+      "lens": ["linguistics", "interaction"],
+      "subject": ["conversation"]
+    },
+    "discourse-markers": {
+      "label": "Discourse markers",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["conversation", "pragmatics"]
+    },
+    "deixis": {
+      "label": "Deixis",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["language", "pragmatics"]
+    },
+    "reference-relative-to-speaker": {
+      "label": "Reference relative to speaker",
+      "type": "concept",
+      "lens": ["linguistics"],
+      "subject": ["language", "pragmatics"]
+    },
+    "voice-bot": {
+      "label": "Voice bot",
+      "type": "technology",
+      "lens": ["design", "development"],
+      "subject": ["voice", "conversation-design"]
+    },
+    "backchanneling-strategy": {
+      "label": "Backchanneling strategy",
+      "type": "method",
+      "lens": ["design", "linguistics"],
+      "subject": ["conversation-design"],
+      "role": "instrument"
+    },
+    "brian-roemmele": {
+      "label": "Brian Roemmele",
+      "type": "person",
+      "lens": ["culture", "design"],
+      "subject": ["voice", "conversation-design"]
+    },
+    "sketchnotes": {
+      "label": "Sketchnotes",
+      "type": "method",
+      "lens": ["design", "personal"],
+      "subject": ["writing", "content-design"],
+      "role": "instrument"
+    },
+    "text-detachment": {
+      "label": "Text detachment",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["writing"],
+      "role": "position"
+    },
+    "feedback-resilience": {
+      "label": "Feedback resilience",
+      "type": "concept",
+      "lens": ["personal"],
+      "subject": ["writing", "content-design"]
+    },
+    "book-recommender-tool": {
+      "label": "Book recommender",
+      "type": "technology",
+      "lens": ["development", "personal"],
+      "subject": ["tooling", "digital-garden"],
+      "role": "instrument"
+    },
+    "scoring-algorithm": {
+      "label": "Scoring algorithm",
+      "type": "mechanism",
+      "lens": ["development", "design"],
+      "subject": ["tooling"],
+      "role": "instrument"
+    },
+    "vibe-chips": {
+      "label": "Vibe chips",
+      "type": "mechanism",
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design", "tooling"],
+      "role": "instrument"
+    },
+    "claude-md": {
+      "label": "CLAUDE.md",
+      "type": "mechanism",
+      "lens": ["development"],
+      "subject": ["tooling", "prompt"],
+      "role": "instrument"
+    },
+    "persistent-context": {
+      "label": "Persistent context",
+      "type": "concept",
+      "lens": ["development", "design"],
+      "subject": ["prompt", "tooling"],
+      "role": "position"
+    },
+    "text-embeddings": {
+      "label": "Text embeddings",
+      "type": "mechanism",
+      "lens": ["development"],
+      "subject": ["tooling", "language"],
+      "role": "instrument"
+    },
+    "bge-m3": {
+      "label": "BGE-M3",
+      "type": "technology",
+      "lens": ["development", "linguistics"],
+      "subject": ["tooling", "language"]
+    },
+    "umap-projection": {
+      "label": "UMAP projection",
+      "type": "mechanism",
+      "lens": ["development", "analytics"],
+      "subject": ["tooling", "knowledge"],
+      "role": "instrument"
+    },
+    "rough-js": {
+      "label": "Rough.js",
+      "type": "technology",
+      "lens": ["design", "development"],
+      "subject": ["tooling"]
+    },
+    "explore-map": {
+      "label": "Explore map",
+      "type": "mechanism",
+      "lens": ["design", "interaction"],
+      "subject": ["digital-garden", "information-architecture"],
+      "role": "instrument"
+    },
+    "wander-mode": {
+      "label": "Wander mode",
+      "type": "concept",
+      "lens": ["design", "interaction"],
+      "subject": ["digital-garden", "interaction-design"]
+    },
+    "garden-paths": {
+      "label": "Garden paths",
+      "type": "metaphor",
+      "lens": ["design", "interaction"],
+      "subject": ["digital-garden", "information-architecture"]
+    },
+    "vannevar-bush": {
+      "label": "Vannevar Bush",
+      "type": "person",
+      "lens": ["culture", "design"],
+      "subject": ["knowledge", "information-architecture"]
+    },
+    "memex-trails": {
+      "label": "Memex trails",
+      "type": "concept",
+      "lens": ["design", "culture"],
+      "subject": ["knowledge", "information-architecture"],
+      "role": "framework"
+    },
+    "format-contamination": {
+      "label": "Format contamination",
+      "type": "phenomenon",
+      "lens": ["development", "linguistics"],
+      "subject": ["tooling", "language"]
+    },
+    "short-text-problem": {
+      "label": "Short-text problem",
+      "type": "phenomenon",
+      "lens": ["development", "linguistics"],
+      "subject": ["language", "tooling"]
+    },
+    "key-phrase-extraction": {
+      "label": "Key phrase extraction",
+      "type": "mechanism",
+      "lens": ["linguistics", "development"],
+      "subject": ["language", "content"],
+      "role": "instrument"
+    },
+    "matryoshka-embeddings": {
+      "label": "Matryoshka embeddings",
+      "type": "mechanism",
+      "lens": ["development"],
+      "subject": ["tooling"]
+    },
+    "local-first-tooling": {
+      "label": "Local-first tooling",
+      "type": "principle",
+      "lens": ["development", "personal"],
+      "subject": ["tooling"],
+      "role": "stance"
+    },
+    "scheduled-tasks-feature": {
+      "label": "Scheduled tasks",
+      "type": "technology",
+      "lens": ["development"],
+      "subject": ["tooling", "agent"],
+      "role": "instrument"
+    },
+    "backend-bias": {
+      "label": "Backend bias",
+      "type": "phenomenon",
+      "lens": ["personal", "cognition"],
+      "subject": ["future-of-work"],
+      "role": "tendency"
+    },
+    "one-million-context-window": {
+      "label": "1M context window",
+      "type": "mechanism",
+      "lens": ["development"],
+      "subject": ["llm", "prompt"],
+      "role": "instrument"
+    },
+    "thematic-analysis": {
+      "label": "Thematic analysis",
+      "type": "method",
+      "lens": ["epistemology", "analytics"],
+      "subject": ["knowledge", "content"],
+      "role": "framework"
+    },
+    "open-loop-automation": {
+      "label": "Open-loop automation",
+      "type": "phenomenon",
+      "lens": ["design", "development"],
+      "subject": ["tooling"],
+      "role": "counter-position"
+    },
+    "greenhouse-stage": {
+      "label": "Greenhouse stage",
+      "type": "metaphor",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
+    },
+    "compost-stage": {
+      "label": "Compost stage",
+      "type": "metaphor",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
+    },
+    "soil-stage": {
+      "label": "Soil stage",
+      "type": "metaphor",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
+    },
+    "content-lifecycle-metaphor": {
+      "label": "Content lifecycle metaphor",
+      "type": "metaphor",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden", "content"],
+      "role": "framework"
+    },
+    "external-content-discovery-project": {
+      "label": "External content discovery",
+      "type": "concept",
+      "lens": ["design", "development"],
+      "subject": ["digital-garden", "knowledge"]
+    },
+    "gap-detection": {
+      "label": "Gap detection",
+      "type": "mechanism",
+      "lens": ["epistemology", "design"],
+      "subject": ["knowledge"],
+      "role": "instrument"
+    },
+    "task-based-documentation": {
+      "label": "Task-based documentation",
+      "type": "method",
+      "lens": ["design"],
+      "subject": ["content-design", "structured-authoring"],
+      "role": "framework"
+    },
+    "knowledge-graph-for-garden": {
+      "label": "Knowledge graph for the garden",
+      "type": "concept",
+      "lens": ["design", "development"],
+      "subject": ["digital-garden", "information-architecture"]
+    },
+    "blog-format": {
+      "label": "Blog",
+      "type": "metaphor",
+      "lens": ["culture"],
+      "subject": ["writing", "digital-garden"],
+      "role": "counter-position"
+    },
+    "imperfection-principle": {
+      "label": "Imperfection principle",
+      "type": "principle",
+      "lens": ["personal"],
+      "subject": ["writing", "digital-garden"],
+      "role": "stance"
+    },
+    "building-this-garden-project": {
+      "label": "Building this garden",
+      "type": "concept",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden"]
+    },
+    "astro-framework": {
+      "label": "Astro",
+      "type": "technology",
+      "lens": ["development"],
+      "subject": ["tooling"]
+    },
+    "sveltia-cms": {
+      "label": "Sveltia CMS",
+      "type": "technology",
+      "lens": ["development", "design"],
+      "subject": ["tooling", "content"]
+    },
+    "wiki-links": {
+      "label": "Wiki-links",
+      "type": "mechanism",
+      "lens": ["design", "development"],
+      "subject": ["digital-garden", "information-architecture"],
+      "role": "instrument"
+    },
+    "iterative-building": {
+      "label": "Iterative building",
+      "type": "method",
+      "lens": ["development", "personal"],
+      "subject": ["tooling", "digital-garden"]
     }
   },
   "associations": [
@@ -3861,6 +4734,182 @@
     { "subject": "conversation-design", "predicate": "requires", "object": "conversational-writing", "source": "how-do-i-become-a-conversation-designer", "collection": "articles" },
     { "subject": "conversation-design", "predicate": "requires", "object": "instructional-design", "source": "how-do-i-become-a-conversation-designer", "collection": "articles" },
     { "subject": "conversation-design", "predicate": "requires", "object": "structured-thinking", "source": "how-do-i-become-a-conversation-designer", "collection": "articles" },
-    { "subject": "bot-persona", "predicate": "structured-as", "object": "design-artefact", "source": "how-do-i-become-a-conversation-designer", "collection": "articles" }
+    { "subject": "bot-persona", "predicate": "structured-as", "object": "design-artefact", "source": "how-do-i-become-a-conversation-designer", "collection": "articles" },
+
+    { "subject": "content-quality-audit", "predicate": "structured-as", "object": "feedback-loop", "source": "how-to-create-your-own-content-quality-audit", "collection": "articles" },
+    { "subject": "content-quality", "predicate": "requires", "object": "stakeholder-alignment", "source": "how-to-create-your-own-content-quality-audit", "collection": "articles" },
+    { "subject": "audience-modelling", "predicate": "counters", "object": "expert-centric-writing", "source": "how-to-create-your-own-content-quality-audit", "collection": "articles" },
+    { "subject": "content-quality", "predicate": "characterised-as", "object": "trade-off", "source": "how-to-create-your-own-content-quality-audit", "collection": "articles" },
+    { "subject": "feedback", "predicate": "requires", "object": "critical-appraisal", "source": "how-to-create-your-own-content-quality-audit", "collection": "articles" },
+
+    { "subject": "bing-chat", "predicate": "instance-of", "object": "llms", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+    { "subject": "conversational-interface", "predicate": "presupposes", "object": "conversational-grounding", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+    { "subject": "bing-chat", "predicate": "lacks", "object": "conversational-grounding", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+    { "subject": "conversation", "predicate": "characterised-as", "object": "collaborative-effort", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+    { "subject": "bing-chat", "predicate": "risks", "object": "anthropomorphism", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+    { "subject": "conversation", "predicate": "requires", "object": "moral-commitment", "source": "microsoft-youre-using-bing-wrong", "collection": "articles" },
+
+    { "subject": "voicelunch-language-and-linguistics", "predicate": "instance-of", "object": "community-of-practice", "source": "nieuwe-editie-voicelunch", "collection": "articles" },
+    { "subject": "voicelunch-language-and-linguistics", "predicate": "requires", "object": "linguistics", "source": "nieuwe-editie-voicelunch", "collection": "articles" },
+    { "subject": "voicelunch", "predicate": "demonstrates", "object": "conversation-design", "source": "nieuwe-editie-voicelunch", "collection": "articles" },
+    { "subject": "community-of-practice", "predicate": "counters", "object": "imposter-syndrome", "source": "nieuwe-editie-voicelunch", "collection": "articles" },
+
+    { "subject": "remote-onboarding", "predicate": "requires", "object": "contextual-community", "source": "off-to-a-good-start", "collection": "articles" },
+    { "subject": "onboarding-tour", "predicate": "instance-of", "object": "network-building", "source": "off-to-a-good-start", "collection": "articles" },
+    { "subject": "remote-onboarding", "predicate": "lacks", "object": "ambient-affordances", "source": "off-to-a-good-start", "collection": "articles" },
+    { "subject": "onboarding-checklist", "predicate": "structured-as", "object": "role-based-collaboration", "source": "off-to-a-good-start", "collection": "articles" },
+
+    { "subject": "prompt-workshop", "predicate": "demonstrates", "object": "debiasing", "source": "online-prompt-workshop-de-biasing-dall-e", "collection": "articles" },
+    { "subject": "dall-e-3", "predicate": "exhibits", "object": "cultural-stereotyping", "source": "online-prompt-workshop-de-biasing-dall-e", "collection": "articles" },
+    { "subject": "debiasing", "predicate": "requires", "object": "conscious-prompting", "source": "online-prompt-workshop-de-biasing-dall-e", "collection": "articles" },
+    { "subject": "prompt-design", "predicate": "counters", "object": "us-centred-bias", "source": "online-prompt-workshop-de-biasing-dall-e", "collection": "articles" },
+
+    { "subject": "online-meetings", "predicate": "leads-to", "object": "online-fatigue", "source": "online-uitgeput-pak-een-kruk", "collection": "articles" },
+    { "subject": "online-fatigue", "predicate": "caused-by", "object": "postural-collapse", "source": "online-uitgeput-pak-een-kruk", "collection": "articles" },
+    { "subject": "embodied-awareness", "predicate": "counters", "object": "online-fatigue", "source": "online-uitgeput-pak-een-kruk", "collection": "articles" },
+    { "subject": "postural-alignment", "predicate": "requires", "object": "bodily-grounding", "source": "online-uitgeput-pak-een-kruk", "collection": "articles" },
+
+    { "subject": "ssml", "predicate": "defined-as", "object": "speech-synthesis-markup-language", "source": "onthaast-je-voice-action-met-ssml", "collection": "articles" },
+    { "subject": "ssml", "predicate": "instance-of", "object": "voice-markup", "source": "onthaast-je-voice-action-met-ssml", "collection": "articles" },
+    { "subject": "voice-action", "predicate": "requires", "object": "prosody", "source": "onthaast-je-voice-action-met-ssml", "collection": "articles" },
+    { "subject": "ssml", "predicate": "counters", "object": "monotone-synthesis", "source": "onthaast-je-voice-action-met-ssml", "collection": "articles" },
+    { "subject": "voice-design", "predicate": "requires", "object": "ssml", "source": "onthaast-je-voice-action-met-ssml", "collection": "articles" },
+
+    { "subject": "summarisation", "predicate": "characterised-as", "object": "key-concept-extraction", "source": "prompt-thought-summaries", "collection": "articles" },
+    { "subject": "constructive-prompting", "predicate": "better-fits", "object": "llms", "source": "prompt-thought-summaries", "collection": "articles" },
+    { "subject": "llms", "predicate": "breaks-down-for", "object": "reductive-summarisation", "source": "prompt-thought-summaries", "collection": "articles" },
+    { "subject": "keyword-first-prompting", "predicate": "counters", "object": "source-text-summarisation", "source": "prompt-thought-summaries", "collection": "articles" },
+    { "subject": "chain-of-density", "predicate": "instance-of", "object": "summarisation-method", "source": "prompt-thought-summaries", "collection": "articles" },
+
+    { "subject": "blind-prompting", "predicate": "contrasted-with", "object": "prompt-engineering", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+    { "subject": "prompt-engineering", "predicate": "attributed-to", "object": "mitchell-hashimoto", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+    { "subject": "prompt-engineering", "predicate": "requires", "object": "demonstration-set", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+    { "subject": "prompt-design", "predicate": "requires", "object": "llm-evals", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+    { "subject": "conversation-design", "predicate": "reinforces", "object": "prompt-design", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+    { "subject": "prompt-design", "predicate": "structured-as", "object": "input-output-pairs", "source": "putting-the-design-in-prompt-design", "collection": "articles" },
+
+    { "subject": "two-week-sprint", "predicate": "better-fits", "object": "software-lifecycle", "source": "scrum-for-conversational-teams", "collection": "articles" },
+    { "subject": "two-week-sprint", "predicate": "breaks-down-for", "object": "conversational-team", "source": "scrum-for-conversational-teams", "collection": "articles" },
+    { "subject": "content-sprint", "predicate": "requires", "object": "content-lifecycle", "source": "scrum-for-conversational-teams", "collection": "articles" },
+    { "subject": "scrum", "predicate": "risks", "object": "process-copy-paste", "source": "scrum-for-conversational-teams", "collection": "articles" },
+    { "subject": "agile", "predicate": "contrasted-with", "object": "scrum", "source": "scrum-for-conversational-teams", "collection": "articles" },
+
+    { "subject": "critical-thinking", "predicate": "counters", "object": "ai-hype", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+    { "subject": "on-bullshit", "predicate": "attributed-to", "object": "harry-g-frankfurt", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+    { "subject": "algorithms-of-oppression", "predicate": "attributed-to", "object": "safiya-noble", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+    { "subject": "stochastic-parrot", "predicate": "coined-by", "object": "emily-bender", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+    { "subject": "algorithmic-bias", "predicate": "reinforces", "object": "systemic-racism", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+    { "subject": "hands-on-experimentation", "predicate": "reinforces", "object": "critical-thinking", "source": "stay-calm-and-keep-thinking-for-yourself", "collection": "articles" },
+
+    { "subject": "lone-designer", "predicate": "requires", "object": "allies", "source": "the-lone-convo-designer", "collection": "articles" },
+    { "subject": "conversation-designer", "predicate": "requires", "object": "self-designed-process", "source": "the-lone-convo-designer", "collection": "articles" },
+    { "subject": "growth-mindset", "predicate": "counters", "object": "imposter-syndrome", "source": "the-lone-convo-designer", "collection": "articles" },
+    { "subject": "release-rhythm", "predicate": "instance-of", "object": "self-imposed-structure", "source": "the-lone-convo-designer", "collection": "articles" },
+    { "subject": "content-person-trap", "predicate": "risks", "object": "role-dilution", "source": "the-lone-convo-designer", "collection": "articles" },
+
+    { "subject": "convocat", "predicate": "instance-of", "object": "freelance-practice", "source": "the-long-and-winding-road", "collection": "articles" },
+    { "subject": "exit-strategy", "predicate": "requires", "object": "financial-runway", "source": "the-long-and-winding-road", "collection": "articles" },
+    { "subject": "remote-onboarding", "predicate": "requires", "object": "contextual-community", "source": "the-long-and-winding-road", "collection": "articles" },
+    { "subject": "community-building", "predicate": "characterised-as", "object": "core-work", "source": "the-long-and-winding-road", "collection": "articles" },
+    { "subject": "covid-lockdown", "predicate": "leads-to", "object": "online-community-building", "source": "the-long-and-winding-road", "collection": "articles" },
+    { "subject": "synesthetic-thinking", "predicate": "better-fits", "object": "freelance-work", "source": "the-long-and-winding-road", "collection": "articles" },
+
+    { "subject": "speech", "predicate": "contrasted-with", "object": "written-text", "source": "understanding-speech-part-1", "collection": "articles" },
+    { "subject": "speech", "predicate": "requires", "object": "breath", "source": "understanding-speech-part-1", "collection": "articles" },
+    { "subject": "prosody", "predicate": "defined-as", "object": "utterance-level-sound-properties", "source": "understanding-speech-part-1", "collection": "articles" },
+    { "subject": "voice-design", "predicate": "requires", "object": "prosody", "source": "understanding-speech-part-1", "collection": "articles" },
+    { "subject": "pitch", "predicate": "characterised-as", "object": "perceived-fundamental-frequency", "source": "understanding-speech-part-1", "collection": "articles" },
+    { "subject": "intonation", "predicate": "characterised-as", "object": "sentence-melody", "source": "understanding-speech-part-1", "collection": "articles" },
+
+    { "subject": "backchanneling", "predicate": "attributed-to", "object": "victor-yngve", "source": "understanding-speech-part-2", "collection": "articles" },
+    { "subject": "backchanneling", "predicate": "defined-as", "object": "listener-side-signalling", "source": "understanding-speech-part-2", "collection": "articles" },
+    { "subject": "discourse-markers", "predicate": "contrasted-with", "object": "backchanneling", "source": "understanding-speech-part-2", "collection": "articles" },
+    { "subject": "deixis", "predicate": "defined-as", "object": "reference-relative-to-speaker", "source": "understanding-speech-part-2", "collection": "articles" },
+    { "subject": "deixis", "predicate": "reinforces", "object": "bot-persona", "source": "understanding-speech-part-2", "collection": "articles" },
+    { "subject": "voice-bot", "predicate": "requires", "object": "backchanneling-strategy", "source": "understanding-speech-part-2", "collection": "articles" },
+
+    { "subject": "sketchnotes", "predicate": "attributed-to", "object": "brian-roemmele", "source": "visual-notes-brian-roemmele", "collection": "articles" },
+    { "subject": "sketchnotes", "predicate": "instance-of", "object": "note-taking-metaphor", "source": "visual-notes-brian-roemmele", "collection": "articles" },
+    { "subject": "voicelunch", "predicate": "demonstrates", "object": "community-of-practice", "source": "visual-notes-brian-roemmele", "collection": "articles" },
+    { "subject": "sketchnotes", "predicate": "reinforces", "object": "voicelunch", "source": "visual-notes-brian-roemmele", "collection": "articles" },
+
+    { "subject": "text-detachment", "predicate": "counters", "object": "emotional-labor", "source": "youre-not-married-to-your-texts", "collection": "articles" },
+    { "subject": "feedback-resilience", "predicate": "requires", "object": "text-detachment", "source": "youre-not-married-to-your-texts", "collection": "articles" },
+    { "subject": "content-quality", "predicate": "requires", "object": "feedback", "source": "youre-not-married-to-your-texts", "collection": "articles" },
+    { "subject": "writing-as-craft", "predicate": "leads-to", "object": "feedback-resilience", "source": "youre-not-married-to-your-texts", "collection": "articles" },
+
+    { "subject": "book-recommender-tool", "predicate": "instance-of", "object": "scoring-algorithm", "source": "book-recommender", "collection": "field-notes" },
+    { "subject": "book-recommender-tool", "predicate": "counters", "object": "algorithmic-feed", "source": "book-recommender", "collection": "field-notes" },
+    { "subject": "vibe-chips", "predicate": "reinforces", "object": "book-recommender-tool", "source": "book-recommender", "collection": "field-notes" },
+    { "subject": "book-recommender-tool", "predicate": "requires", "object": "personal-knowledge-management", "source": "book-recommender", "collection": "field-notes" },
+    { "subject": "scoring-algorithm", "predicate": "contrasted-with", "object": "text-embeddings", "source": "book-recommender", "collection": "field-notes" },
+
+    { "subject": "building-this-garden-project", "predicate": "demonstrates", "object": "digital-garden", "source": "building-this-garden", "collection": "field-notes" },
+    { "subject": "digital-garden", "predicate": "requires", "object": "astro-framework", "source": "building-this-garden", "collection": "field-notes" },
+    { "subject": "building-this-garden-project", "predicate": "exhibits", "object": "iterative-building", "source": "building-this-garden", "collection": "field-notes" },
+    { "subject": "digital-garden", "predicate": "counters", "object": "content-fragmentation", "source": "building-this-garden", "collection": "field-notes" },
+    { "subject": "building-this-garden-project", "predicate": "reinforces", "object": "thinking-in-public", "source": "building-this-garden", "collection": "field-notes" },
+
+    { "subject": "claude-code", "predicate": "demonstrates", "object": "scheduled-tasks-feature", "source": "claude-code-whats-new-for-the-garden", "collection": "field-notes" },
+    { "subject": "claude-code", "predicate": "exhibits", "object": "one-million-context-window", "source": "claude-code-whats-new-for-the-garden", "collection": "field-notes" },
+    { "subject": "backend-bias", "predicate": "risks", "object": "digital-garden", "source": "claude-code-whats-new-for-the-garden", "collection": "field-notes" },
+    { "subject": "claude-code", "predicate": "better-fits", "object": "skill-based-work", "source": "claude-code-whats-new-for-the-garden", "collection": "field-notes" },
+
+    { "subject": "claude-md", "predicate": "generates", "object": "persistent-context", "source": "claude-md-project-memory", "collection": "field-notes" },
+    { "subject": "persistent-context", "predicate": "counters", "object": "articulation-barrier", "source": "claude-md-project-memory", "collection": "field-notes" },
+    { "subject": "claude-md", "predicate": "instance-of", "object": "context-engineering", "source": "claude-md-project-memory", "collection": "field-notes" },
+    { "subject": "claude-md", "predicate": "reinforces", "object": "claude-code", "source": "claude-md-project-memory", "collection": "field-notes" },
+
+    { "subject": "text-embeddings", "predicate": "exhibits", "object": "format-contamination", "source": "content-chunk-size-and-embeddings", "collection": "field-notes" },
+    { "subject": "format-contamination", "predicate": "caused-by", "object": "short-text-problem", "source": "content-chunk-size-and-embeddings", "collection": "field-notes" },
+    { "subject": "bge-m3", "predicate": "exhibits", "object": "format-contamination", "source": "content-chunk-size-and-embeddings", "collection": "field-notes" },
+    { "subject": "knowledge-graph-for-garden", "predicate": "requires", "object": "text-embeddings", "source": "content-chunk-size-and-embeddings", "collection": "field-notes" },
+
+    { "subject": "digital-garden", "predicate": "contrasted-with", "object": "blog-format", "source": "digital-gardens-vs-blogs", "collection": "field-notes" },
+    { "subject": "digital-garden", "predicate": "presupposes", "object": "imperfection-principle", "source": "digital-gardens-vs-blogs", "collection": "field-notes" },
+    { "subject": "digital-garden", "predicate": "leads-to", "object": "thinking-in-public", "source": "digital-gardens-vs-blogs", "collection": "field-notes" },
+    { "subject": "blog-format", "predicate": "structured-as", "object": "stream-metaphor", "source": "digital-gardens-vs-blogs", "collection": "field-notes" },
+
+    { "subject": "bge-m3", "predicate": "instance-of", "object": "text-embeddings", "source": "embedding-models-for-the-garden", "collection": "field-notes" },
+    { "subject": "bge-m3", "predicate": "better-fits", "object": "knowledge-graph-for-garden", "source": "embedding-models-for-the-garden", "collection": "field-notes" },
+    { "subject": "matryoshka-embeddings", "predicate": "instance-of", "object": "text-embeddings", "source": "embedding-models-for-the-garden", "collection": "field-notes" },
+    { "subject": "text-embeddings", "predicate": "requires", "object": "local-first-tooling", "source": "embedding-models-for-the-garden", "collection": "field-notes" },
+    { "subject": "text-embeddings", "predicate": "breaks-down-for", "object": "short-text-problem", "source": "embedding-models-for-the-garden", "collection": "field-notes" },
+
+    { "subject": "scheduled-tasks-feature", "predicate": "instance-of", "object": "claude-code", "source": "experiment-1-scheduled-garden-health-check", "collection": "field-notes" },
+    { "subject": "scheduled-tasks-feature", "predicate": "exhibits", "object": "open-loop-automation", "source": "experiment-1-scheduled-garden-health-check", "collection": "field-notes" },
+    { "subject": "scheduled-tasks-feature", "predicate": "risks", "object": "open-loop-automation", "source": "experiment-1-scheduled-garden-health-check", "collection": "field-notes" },
+    { "subject": "scheduled-tasks-feature", "predicate": "generates", "object": "serendipity", "source": "experiment-1-scheduled-garden-health-check", "collection": "field-notes" },
+
+    { "subject": "one-million-context-window", "predicate": "instance-of", "object": "claude-code", "source": "experiment-2-thematic-analysis-with-1m-context", "collection": "field-notes" },
+    { "subject": "thematic-analysis", "predicate": "requires", "object": "one-million-context-window", "source": "experiment-2-thematic-analysis-with-1m-context", "collection": "field-notes" },
+    { "subject": "thematic-analysis", "predicate": "contrasted-with", "object": "text-embeddings", "source": "experiment-2-thematic-analysis-with-1m-context", "collection": "field-notes" },
+    { "subject": "text-embeddings", "predicate": "exhibits", "object": "format-contamination", "source": "experiment-2-thematic-analysis-with-1m-context", "collection": "field-notes" },
+
+    { "subject": "explore-map", "predicate": "instance-of", "object": "umap-projection", "source": "explore-page-design", "collection": "field-notes" },
+    { "subject": "explore-map", "predicate": "requires", "object": "rough-js", "source": "explore-page-design", "collection": "field-notes" },
+    { "subject": "wander-mode", "predicate": "demonstrates", "object": "serendipity", "source": "explore-page-design", "collection": "field-notes" },
+    { "subject": "garden-paths", "predicate": "metaphor-for", "object": "memex-trails", "source": "explore-page-design", "collection": "field-notes" },
+    { "subject": "memex-trails", "predicate": "attributed-to", "object": "vannevar-bush", "source": "explore-page-design", "collection": "field-notes" },
+
+    { "subject": "external-content-discovery-project", "predicate": "requires", "object": "knowledge-graph-for-garden", "source": "external-content-discovery", "collection": "field-notes" },
+    { "subject": "external-content-discovery-project", "predicate": "requires", "object": "gap-detection", "source": "external-content-discovery", "collection": "field-notes" },
+    { "subject": "external-content-discovery-project", "predicate": "leads-to", "object": "greenhouse-stage", "source": "external-content-discovery", "collection": "field-notes" },
+    { "subject": "gap-detection", "predicate": "requires", "object": "key-phrase-extraction", "source": "external-content-discovery", "collection": "field-notes" },
+
+    { "subject": "key-phrase-extraction", "predicate": "breaks-down-for", "object": "short-text-problem", "source": "full-scale-key-phrase-extraction", "collection": "field-notes" },
+    { "subject": "key-phrase-extraction", "predicate": "reinforces", "object": "text-embeddings", "source": "full-scale-key-phrase-extraction", "collection": "field-notes" },
+    { "subject": "knowledge-graph-for-garden", "predicate": "requires", "object": "key-phrase-extraction", "source": "full-scale-key-phrase-extraction", "collection": "field-notes" },
+    { "subject": "key-phrase-extraction", "predicate": "risks", "object": "llm-hallucinations", "source": "full-scale-key-phrase-extraction", "collection": "field-notes" },
+
+    { "subject": "content-lifecycle-metaphor", "predicate": "structured-as", "object": "digital-garden", "source": "garden-lifecycle-greenhouse-compost", "collection": "field-notes" },
+    { "subject": "greenhouse-stage", "predicate": "instance-of", "object": "content-lifecycle-metaphor", "source": "garden-lifecycle-greenhouse-compost", "collection": "field-notes" },
+    { "subject": "compost-stage", "predicate": "instance-of", "object": "content-lifecycle-metaphor", "source": "garden-lifecycle-greenhouse-compost", "collection": "field-notes" },
+    { "subject": "soil-stage", "predicate": "instance-of", "object": "content-lifecycle-metaphor", "source": "garden-lifecycle-greenhouse-compost", "collection": "field-notes" },
+    { "subject": "content-lifecycle-metaphor", "predicate": "leads-to", "object": "external-content-discovery-project", "source": "garden-lifecycle-greenhouse-compost", "collection": "field-notes" },
+
+    { "subject": "task-based-documentation", "predicate": "better-fits", "object": "digital-garden", "source": "garden-user-manual", "collection": "field-notes" },
+    { "subject": "task-based-documentation", "predicate": "instance-of", "object": "information-mapping", "source": "garden-user-manual", "collection": "field-notes" },
+    { "subject": "task-based-documentation", "predicate": "reinforces", "object": "building-this-garden-project", "source": "garden-user-manual", "collection": "field-notes" }
   ]
 }

@@ -5,6 +5,19 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - career
+  - community
+  - imposter-syndrome
+themes:
+  - Solo practitioners need self-designed processes and allies
+  - Identity as a designer is claimed, not certified
+  - Growth mindset replaces seeking external validation
+triples:
+  - ["Lone designer", "requires", "Allies"]
+  - ["Conversation designer", "requires", "Self-designed process"]
+  - ["Growth mindset", "counters", "Imposter syndrome"]
+  - ["Release rhythm", "instance-of", "Self-imposed structure"]
+  - ["Content person trap", "risks", "Role dilution"]
 description: "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!"
 draft: false
 ai: "100% Maai"

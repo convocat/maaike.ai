@@ -4,9 +4,21 @@ date: 2026-03-19
 maturity: draft
 tags:
   - digital-gardens
+  - content-lifecycle
+  - design-metaphor
 develops: external-content-discovery
 description: A lifecycle metaphor for how content enters, matures, decays, and recycles in the garden.
 ai: co-created
+themes:
+  - A full lifecycle for garden content, not just a publish-and-forget pipeline
+  - Greenhouse, compost, soil as named stages
+  - Decay as raw material for new seeds
+triples:
+  - ["Content lifecycle metaphor", "structured-as", "Digital garden"]
+  - ["Greenhouse stage", "instance-of", "Content lifecycle metaphor"]
+  - ["Compost stage", "instance-of", "Content lifecycle metaphor"]
+  - ["Soil stage", "instance-of", "Content lifecycle metaphor"]
+  - ["Content lifecycle metaphor", "leads-to", "External content discovery"]
 ---
 
 > Greenhouse for new content: needs to be quarantined and matured before it can go to the garden beds. Decayed stuff goes into the composter to become soil. Soil could be a pre-stage for seeds? That way, we have a full recycle loop. The greenhouse and compost heap should have their own place on the map.

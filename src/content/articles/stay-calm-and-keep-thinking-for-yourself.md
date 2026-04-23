@@ -5,6 +5,20 @@ updated: 2026-03-15
 maturity: complete
 tags:
   - ai-ethics
+  - critical-thinking
+  - reading-list
+  - epistemic-humility
+themes:
+  - Curiosity and critique must travel together in AI discourse
+  - Bias in AI extends the bias of search engines
+  - Building hands-on literacy counters hype narratives
+triples:
+  - ["Critical thinking", "counters", "AI hype"]
+  - ["On Bullshit", "attributed-to", "Harry G. Frankfurt"]
+  - ["Algorithms of oppression", "attributed-to", "Safiya Noble"]
+  - ["Stochastic parrot", "coined-by", "Emily Bender"]
+  - ["Algorithmic bias", "reinforces", "Systemic racism"]
+  - ["Hands-on experimentation", "reinforces", "Critical thinking"]
 description: My favorite resources for building a curious and critical frame of mind.
 draft: false
 ai: "100% Maai"

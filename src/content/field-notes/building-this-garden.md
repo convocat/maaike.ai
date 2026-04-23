@@ -8,8 +8,19 @@ tags:
   - digital-gardens
   - ai-tools
   - developer-experience
+  - claude-code
 description: A changelog of features and decisions made while building this digital garden.
 ai: co-created
+themes:
+  - Iterative, session-by-session construction of a personal website
+  - Claude Code as co-builder of the garden itself
+  - Consolidating five platforms into one home
+triples:
+  - ["Building this garden", "demonstrates", "Digital garden"]
+  - ["Digital garden", "requires", "Astro"]
+  - ["Building this garden", "exhibits", "Iterative building"]
+  - ["Digital garden", "counters", "content-fragmentation"]
+  - ["Building this garden", "reinforces", "Thinking in public"]
 ---
 
 For the story behind why this garden exists, read [[a-digital-garden-as-central-space|the origin story]].

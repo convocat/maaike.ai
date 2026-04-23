@@ -5,11 +5,21 @@ updated: 2026-03-19
 maturity: developing
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - embeddings
 description: A non-coder's guide to text embedding models, from word counting to semantic understanding, surveyed for use in a personal knowledge garden.
 ai: co-created
 develops: knowledge-graph-for-the-garden
+themes:
+  - Five eras of text embedding, from word counting to contextual vectors
+  - Local-first multilingual embedding models
+  - Choosing a model by discrimination, languages, and robustness
+triples:
+  - ["BGE-M3", "instance-of", "Text embeddings"]
+  - ["BGE-M3", "better-fits", "Knowledge graph for the garden"]
+  - ["Matryoshka embeddings", "instance-of", "Text embeddings"]
+  - ["Text embeddings", "requires", "Local-first tooling"]
+  - ["Text embeddings", "breaks-down-for", "Short-text problem"]
 ---
 
 Research for the [[knowledge-graph-for-the-garden|knowledge graph project]]: what embedding model should power the garden's semantic linking? This surveys the landscape from simple to sophisticated, with a focus on models that run locally without API calls.

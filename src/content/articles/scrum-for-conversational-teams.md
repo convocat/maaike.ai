@@ -5,6 +5,19 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - agile
+  - scrum
+  - content-lifecycle
+themes:
+  - Content cycles are not software cycles
+  - Borrowed process frameworks can misfit conversational teams
+  - Empirical rhythm beats imported sprint lengths
+triples:
+  - ["Two-week sprint", "better-fits", "Software lifecycle"]
+  - ["Two-week sprint", "breaks-down-for", "Conversational team"]
+  - ["Content sprint", "requires", "Content lifecycle"]
+  - ["Scrum", "risks", "Process copy-paste"]
+  - ["Agile", "contrasted-with", "Scrum"]
 description: "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams."
 draft: false
 ai: "100% Maai"

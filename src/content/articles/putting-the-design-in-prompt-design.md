@@ -6,6 +6,19 @@ maturity: complete
 tags:
   - prompt-design
   - conversation-design
+  - evaluation
+  - systems-thinking
+themes:
+  - Prompting is a design discipline, not a trial-and-error craft
+  - Verification and demonstration sets turn prompts into engineered artefacts
+  - Conversation design skills transfer directly to prompt design
+triples:
+  - ["Blind prompting", "contrasted-with", "Prompt engineering"]
+  - ["Prompt engineering", "attributed-to", "Mitchell Hashimoto"]
+  - ["Prompt engineering", "requires", "Demonstration set"]
+  - ["Prompt design", "requires", "Evaluation"]
+  - ["Conversation design", "reinforces", "Prompt design"]
+  - ["Prompt design", "structured-as", "Input-output pairs"]
 description: "Blind prompting vs. prompt engineering — and what it means for conversation designers."
 draft: false
 ai: "100% Maai"

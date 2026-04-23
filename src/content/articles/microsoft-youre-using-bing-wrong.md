@@ -6,6 +6,20 @@ maturity: complete
 tags:
   - conversation-design
   - ai-ethics
+  - conversational-grounding
+  - anthropomorphism
+  - common-ground
+themes:
+  - Designing a conversational interface creates conversational expectations
+  - LLM chatbots mirror rather than cooperate
+  - Conversation is moral and intentional, not just task-based
+triples:
+  - ["Bing Chat", "instance-of", "LLMs"]
+  - ["Conversational interface", "presupposes", "Conversational grounding"]
+  - ["Bing Chat", "lacks", "Conversational grounding"]
+  - ["Conversation", "characterised-as", "Collaborative effort"]
+  - ["Bing Chat", "risks", "Anthropomorphism"]
+  - ["Conversation", "requires", "Moral commitment"]
 description: "You built a conversational interface and then expected people to use it just for search?"
 draft: false
 ai: "100% Maai"

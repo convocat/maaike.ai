@@ -5,6 +5,20 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - voice
+  - linguistics
+  - prosody
+themes:
+  - Speech is bounded by breath in ways text is not
+  - Prosody carries meaning beyond words
+  - Voice design requires physical and phonetic literacy
+triples:
+  - ["Speech", "contrasted-with", "Written text"]
+  - ["Speech", "requires", "Breath"]
+  - ["Prosody", "defined-as", "Utterance-level sound properties"]
+  - ["Voice design", "requires", "Prosody"]
+  - ["Pitch", "characterised-as", "Perceived fundamental frequency"]
+  - ["Intonation", "characterised-as", "Sentence melody"]
 description: "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation."
 draft: false
 ai: "100% Maai"

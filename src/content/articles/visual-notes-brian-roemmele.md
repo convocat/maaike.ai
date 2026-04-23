@@ -5,9 +5,21 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - voicelunch
+  - sketchnotes
+  - community
 description: "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended."
 draft: false
 ai: "100% Maai"
+themes:
+  - Sketchnotes as a way to participate in a conversation you missed
+  - Communities of practice around voice and conversation design
+  - The value of ephemeral, unrecorded gatherings
+triples:
+  - ["Sketchnotes", "attributed-to", "Brian Roemmele"]
+  - ["Sketchnotes", "instance-of", "Note-taking metaphor"]
+  - ["Voicelunch", "demonstrates", "Community of practice"]
+  - ["Sketchnotes", "reinforces", "Voicelunch"]
 ---
 
 Last @voicelunch with Brian Roemmele was without a doubt the best voicelunch I never attended. Fortunately, @afirstenberg tweeted notes & quotes, so I could still make some sketchnotes.

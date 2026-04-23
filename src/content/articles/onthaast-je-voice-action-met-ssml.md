@@ -5,6 +5,19 @@ updated: 2026-03-15
 maturity: complete
 tags:
   - conversation-design
+  - voice
+  - ssml
+  - prosody
+themes:
+  - Spoken dialogue needs breath, pace and prosody, not just words
+  - Markup gives designers control over how synthetic voices sound
+  - Voice UX lives in the gap between text and speech
+triples:
+  - ["SSML", "defined-as", "Speech Synthesis Markup Language"]
+  - ["SSML", "instance-of", "Voice markup"]
+  - ["Voice action", "requires", "Prosody"]
+  - ["SSML", "counters", "Monotone synthesis"]
+  - ["Voice design", "requires", "SSML"]
 description: Klinkt jouw Google Assistant ook zo buiten adem? SSML helpt!
 pruning: "This was written in the era of Dialogflow and Google Assistant. SSML is still relevant for voice interfaces, but the landscape has shifted dramatically since then. Today, I'd add a section on how LLM-based voice interfaces handle prosody differently."
 draft: false

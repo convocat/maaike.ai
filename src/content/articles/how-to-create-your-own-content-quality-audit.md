@@ -5,6 +5,19 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - content-strategy
+  - content-quality
+  - stakeholder-alignment
+themes:
+  - Content quality is negotiated, not absolute
+  - Feedback is a signal for alignment, not a correction to accept blindly
+  - Writers in complex domains design content as much as they write it
+triples:
+  - ["Content quality audit", "structured-as", "Feedback loop"]
+  - ["Content quality", "requires", "Stakeholder alignment"]
+  - ["Audience modelling", "counters", "Expert-centric writing"]
+  - ["Content quality", "characterised-as", "Trade-off"]
+  - ["Feedback", "requires", "Critical appraisal"]
 description: "5 checks to keep your content on track — and your clients happy."
 draft: false
 ai: "100% Maai"

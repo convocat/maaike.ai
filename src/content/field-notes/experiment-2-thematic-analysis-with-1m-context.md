@@ -6,9 +6,19 @@ tags:
   - claude-code
   - 1m-context
   - thematic-analysis
+  - knowledge-graph
 description: "Testing the 1M context window by loading the entire garden and running thematic analysis, comparing fresh analysis against graph-augmented analysis."
 ai: co-created
 develops: claude-code-whats-new-for-the-garden
+themes:
+  - Holding an entire garden in one context window
+  - Fresh reading versus graph-augmented reading
+  - Embeddings map topics, fresh reading finds threads
+triples:
+  - ["1M context window", "instance-of", "Claude Code"]
+  - ["Thematic analysis", "requires", "1M context window"]
+  - ["Thematic analysis", "contrasted-with", "Text embeddings"]
+  - ["Text embeddings", "exhibits", "Format contamination"]
 ---
 
 # Experiment 2: thematic analysis with 1M context

@@ -7,9 +7,21 @@ tags:
   - python
   - knowledge-management
   - digital-gardens
+  - reading-list
+  - project
 hub: true
 description: A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.
 ai: co-created
+themes:
+  - Scoring books against personal interests without algorithmic recommendations
+  - Situational re-ranking with vibe chips
+  - Library as single source of truth
+triples:
+  - ["Book recommender", "instance-of", "Scoring algorithm"]
+  - ["Book recommender", "counters", "algorithmic-feed"]
+  - ["Vibe chips", "reinforces", "Book recommender"]
+  - ["Book recommender", "requires", "personal-knowledge-management"]
+  - ["Scoring algorithm", "contrasted-with", "Text embeddings"]
 ---
 
 A mini project to help me decide what to read next. The idea: score all my unread books against my interests and garden context, then let situational vibe chips re-rank the results based on what I actually need right now.

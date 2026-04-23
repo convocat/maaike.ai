@@ -5,6 +5,18 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - prompt-design
+  - image-generation
+  - cultural-bias
+  - community
+themes:
+  - Conscious prompting surfaces bias in both tool and user
+  - Inclusive representation is a design choice, not a default
+  - Learning through collective experiment
+triples:
+  - ["Prompt workshop", "demonstrates", "Debiasing"]
+  - ["DALL-E 3", "exhibits", "Cultural stereotyping"]
+  - ["Debiasing", "requires", "Conscious prompting"]
+  - ["Prompt design", "counters", "US-centred bias"]
 description: "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us."
 draft: false
 ai: "100% Maai"

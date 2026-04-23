@@ -6,8 +6,19 @@ maturity: developing
 tags:
   - writing
   - digital-gardens
+  - thinking-in-public
+  - personal-web
 description: What makes a digital garden different from a traditional blog?
 ai: generated
+themes:
+  - Topology over chronology
+  - Imperfection as a publishing stance
+  - Permission to plant half-formed ideas
+triples:
+  - ["Digital garden", "contrasted-with", "Blog"]
+  - ["Digital garden", "presupposes", "Imperfection principle"]
+  - ["Digital garden", "leads-to", "Thinking in public"]
+  - ["Blog", "structured-as", "Stream"]
 ---
 
 A blog is chronological. [[a-digital-garden-as-central-space|A garden is topological]].

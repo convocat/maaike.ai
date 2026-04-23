@@ -8,8 +8,18 @@ tags:
   - ai-tools
   - claude-code
   - developer-experience
+  - context-engineering
 description: How a CLAUDE.md file gives your AI coding assistant persistent project context.
 ai: co-created
+themes:
+  - Persistent project memory across sessions and machines
+  - AI docs optimised for assistants, not humans
+  - Continuity beats convenience
+triples:
+  - ["CLAUDE.md", "generates", "Persistent context"]
+  - ["Persistent context", "counters", "Articulation barrier"]
+  - ["CLAUDE.md", "instance-of", "Context engineering"]
+  - ["CLAUDE.md", "reinforces", "Claude Code"]
 ---
 
 ## What

@@ -7,10 +7,22 @@ tags:
   - about
   - digital-gardens
   - knowledge-graph
+  - project
+  - information-architecture
 hub: true
 develops: knowledge-graph-for-the-garden
 description: Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.
 ai: co-created
+themes:
+  - Walking through a knowledge base as a spatial landscape
+  - Serendipity as constrained randomness with value
+  - Memex trails applied to a personal garden
+triples:
+  - ["Explore map", "instance-of", "UMAP projection"]
+  - ["Explore map", "requires", "Rough.js"]
+  - ["Wander mode", "demonstrates", "serendipity"]
+  - ["Garden paths", "metaphor-for", "Memex trails"]
+  - ["Memex trails", "attributed-to", "Vannevar Bush"]
 ---
 
 ## The idea

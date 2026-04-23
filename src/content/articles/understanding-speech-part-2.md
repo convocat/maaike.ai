@@ -5,6 +5,20 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - voice
+  - linguistics
+  - pragmatics
+themes:
+  - Listeners shape conversation through backchannel signals
+  - Discourse markers structure turn-taking
+  - Deixis anchors speech to shared space and time
+triples:
+  - ["Backchanneling", "attributed-to", "Victor Yngve"]
+  - ["Backchanneling", "defined-as", "Listener-side signalling"]
+  - ["Discourse markers", "contrasted-with", "Backchanneling"]
+  - ["Deixis", "defined-as", "Reference relative to speaker"]
+  - ["Deixis", "reinforces", "Bot persona"]
+  - ["Voice bot", "requires", "Backchanneling strategy"]
 description: "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis."
 draft: false
 ai: "100% Maai"

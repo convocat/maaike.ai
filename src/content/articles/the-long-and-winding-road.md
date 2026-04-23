@@ -5,6 +5,20 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - entrepreneurship
+  - community
+  - convocat
+themes:
+  - Freelance transitions are gradual detachments, not sudden leaps
+  - Community building is core work, not a sideline
+  - Connecting disparate topics is a consulting superpower, not a weakness
+triples:
+  - ["Convocat", "instance-of", "Freelance practice"]
+  - ["Exit strategy", "requires", "Financial runway"]
+  - ["Remote onboarding", "requires", "Contextual community"]
+  - ["Community building", "characterised-as", "Core work"]
+  - ["COVID lockdown", "leads-to", "Online community building"]
+  - ["Synesthetic thinking", "better-fits", "Freelance work"]
 description: "Looking back at 2 years of freelance work as a conversation designer and community builder."
 draft: false
 ai: "100% Maai"

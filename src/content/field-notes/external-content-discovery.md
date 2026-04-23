@@ -5,11 +5,21 @@ maturity: draft
 tags:
   - knowledge-graph
   - digital-gardens
-
+  - project
+  - content-lifecycle
 hub: true
 develops: knowledge-graph-for-the-garden
 description: Using the garden's own knowledge graph to find relevant external content, papers, and articles.
 ai: co-created
+themes:
+  - Using the garden's self-knowledge to look outward
+  - Quarantine, decay, and recycle as content lifecycle
+  - Gap detection as a filtering principle
+triples:
+  - ["External content discovery", "requires", "Knowledge graph for the garden"]
+  - ["External content discovery", "requires", "Gap detection"]
+  - ["External content discovery", "leads-to", "Greenhouse stage"]
+  - ["Gap detection", "requires", "Key phrase extraction"]
 ---
 
 This project explores the third goal from the [[knowledge-graph-for-the-garden|knowledge graph project]]: using the garden's world model to look outward and discover relevant external content.

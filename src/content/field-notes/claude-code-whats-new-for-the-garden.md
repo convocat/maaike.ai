@@ -5,10 +5,21 @@ maturity: draft
 tags:
   - claude-code
   - digital-gardens
-
+  - project
+  - agentic-ai
+  - evaluation
 hub: true
 description: "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers."
 ai: co-created
+themes:
+  - Testing new AI features on real garden tasks rather than changelogs
+  - Five experiments mapped to specific Claude capabilities
+  - Backend bias as a pattern to notice when prompting
+triples:
+  - ["Claude Code", "demonstrates", "Scheduled tasks"]
+  - ["Claude Code", "exhibits", "1M context window"]
+  - ["Backend bias", "risks", "Digital garden"]
+  - ["Claude Code", "better-fits", "Skill-based work"]
 ---
 
 # Claude Code: what's new for the garden

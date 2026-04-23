@@ -5,6 +5,18 @@ updated: 2026-03-11
 maturity: complete
 tags:
   - conversation-design
+  - community
+  - linguistics
+  - voicelunch
+themes:
+  - Communities of practice form around shared craft
+  - Informal, un-recorded spaces enable deeper participation
+  - Linguistics and conversation design belong together
+triples:
+  - ["Voicelunch Language and Linguistics", "instance-of", "Community of practice"]
+  - ["Voicelunch Language and Linguistics", "requires", "Linguistics"]
+  - ["Voicelunch", "demonstrates", "Conversation design"]
+  - ["Community of practice", "counters", "Imposter syndrome"]
 description: "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!"
 draft: false
 ai: "100% Maai"

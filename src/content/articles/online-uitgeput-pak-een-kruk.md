@@ -4,7 +4,18 @@ date: 2020-05-01
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
+  - remote-work
+  - embodiment
+  - well-being
+themes:
+  - Online fatigue is physical, not just cognitive
+  - Embodied awareness supports sustained attention
+  - Small postural shifts restore energy in remote meetings
+triples:
+  - ["Online meetings", "leads-to", "Online fatigue"]
+  - ["Online fatigue", "caused-by", "Postural collapse"]
+  - ["Embodied awareness", "counters", "Online fatigue"]
+  - ["Postural alignment", "requires", "Bodily grounding"]
 description: "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering."
 draft: false
 ai: "100% Maai"

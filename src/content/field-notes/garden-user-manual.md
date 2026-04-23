@@ -4,10 +4,22 @@ date: 2026-03-20
 updated: 2026-04-18
 maturity: developing
 draft: false
-tags: [digital-gardens]
+tags:
+  - digital-gardens
+  - about
+  - instructional-design
+  - information-architecture
 ai: "co-created"
 description: "Task-based reference for maintaining this digital garden: writing, tagging, linking, mapping, sharing, publishing."
 develops: building-this-garden
+themes:
+  - Task-based reference for the garden's own workflow
+  - Documenting publishing, tagging, mapping, and validation
+  - Skill commands as the main interface to the garden
+triples:
+  - ["Task-based documentation", "better-fits", "Digital garden"]
+  - ["Task-based documentation", "instance-of", "Information mapping"]
+  - ["Task-based documentation", "reinforces", "Building this garden"]
 ---
 
 ## Start the dev server
