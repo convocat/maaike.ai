@@ -1,24 +1,24 @@
 ---
+reviewed: 2026-04-23
 title: The garden as a metaphor
 date: 2026-04-05
 maturity: solid
 tags:
-  - digital-gardens
-  - philosophy
-  - writing
-  - personal-web
-  - non-linear-thinking
-  - thinking-in-public
+- digital-gardens
+- philosophy
+- writing
+- personal-web
+- non-linear-thinking
+- thinking-in-public
 description: Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.
 ai: 100% Maai
 triples:
-  - ["Digital garden", "contrasted-with", "Stream"]
-  - ["Digital garden", "leads-to", "Thinking in public"]
-  - ["Maturity system", "instance-of", "Digital garden"]
-  - ["GenAI", "risks", "Thinking in public"]
-  - ["Digital garden", "demonstrates", "Metacognition"]
+- [Digital garden, contrasted-with, Stream]
+- [Digital garden, leads-to, Thinking in public]
+- [Maturity system, instance-of, Digital garden]
+- [GenAI, risks, Thinking in public]
+- [Digital garden, demonstrates, Metacognition]
 ---
-
 A closer look at the garden metaphor and how it works on my site.
 
 

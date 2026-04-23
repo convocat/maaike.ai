@@ -2430,41 +2430,6 @@
       "collection": "seeds"
     },
     {
-      "subject": "digital-garden",
-      "predicate": "contrasted-with",
-      "object": "stream-metaphor",
-      "source": "garden-as-metaphor",
-      "collection": "articles"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "leads-to",
-      "object": "thinking-in-public",
-      "source": "garden-as-metaphor",
-      "collection": "articles"
-    },
-    {
-      "subject": "maturity-system",
-      "predicate": "instance-of",
-      "object": "digital-garden",
-      "source": "garden-as-metaphor",
-      "collection": "articles"
-    },
-    {
-      "subject": "genai",
-      "predicate": "risks",
-      "object": "thinking-in-public",
-      "source": "garden-as-metaphor",
-      "collection": "articles"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "demonstrates",
-      "object": "metacognition",
-      "source": "garden-as-metaphor",
-      "collection": "articles"
-    },
-    {
       "subject": "common-ground",
       "predicate": "theorised-by",
       "object": "herbert-clark",
@@ -3273,6 +3238,41 @@
       "object": "metacognition",
       "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
       "collection": "jottings"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "contrasted-with",
+      "object": "stream",
+      "source": "garden-as-metaphor",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "leads-to",
+      "object": "thinking-in-public",
+      "source": "garden-as-metaphor",
+      "collection": "articles"
+    },
+    {
+      "subject": "maturity-system",
+      "predicate": "instance-of",
+      "object": "digital-garden",
+      "source": "garden-as-metaphor",
+      "collection": "articles"
+    },
+    {
+      "subject": "genai",
+      "predicate": "risks",
+      "object": "thinking-in-public",
+      "source": "garden-as-metaphor",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "demonstrates",
+      "object": "metacognition",
+      "source": "garden-as-metaphor",
+      "collection": "articles"
     }
   ]
 }
