@@ -1,17 +1,18 @@
 ---
-title: "U2 - Easter parade"
-description: "w00t!! 50 years and they still have it"
+reviewed: 2026-04-23
+title: U2 - Easter parade
+description: 'w00t!! 50 years and they still have it. '
 date: 2026-04-10
 maturity: complete
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 type: link
-url: "https://youtu.be/8VTBM3AnkTU?si=BPo_vJrceteVAPxA"
-tags: [music]
+url: https://youtu.be/8VTBM3AnkTU?si=BPo_vJrceteVAPxA
+tags:
+- music
 triples:
-  - ["U2", "exhibits", "Creative longevity"]
+- [U2, exhibits, Creative longevity]
 ---
-
 # U2 - Easter parade
 
 w00t!! 50 years and they still have it

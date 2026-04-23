@@ -2619,13 +2619,6 @@
       "collection": "videos"
     },
     {
-      "subject": "u2",
-      "predicate": "exhibits",
-      "object": "creative-longevity",
-      "source": "u2-easter-parade",
-      "collection": "jottings"
-    },
-    {
       "subject": "digital-garden",
       "predicate": "counters",
       "object": "algorithmic-feed",
@@ -3272,6 +3265,13 @@
       "predicate": "counters",
       "object": "algorithmic-feed",
       "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "u2",
+      "predicate": "exhibits",
+      "object": "creative-longevity",
+      "source": "u2-easter-parade",
       "collection": "jottings"
     }
   ]
