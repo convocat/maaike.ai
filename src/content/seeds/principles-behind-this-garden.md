@@ -6,6 +6,15 @@ maturity: draft
 tags:
   - digital-gardens
   - philosophy
+  - thinking-in-public
+themes:
+  - Garden design principles
+  - Imperfection and growth
+  - Thinking in public
+triples:
+  - ["Digital garden", "exhibits", "Thinking in public"]
+  - ["Digital garden", "exhibits", "Imperfection principle"]
+  - ["Digital garden", "structured-as", "Maturity system"]
 description: What design principles shaped this site — and why do they matter?
 draft: false
 ai: generated

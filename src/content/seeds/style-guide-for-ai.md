@@ -5,6 +5,16 @@ updated: 2026-03-17
 maturity: draft
 tags:
   - writing
+  - ai-transparency
+  - generative-ai-design
+themes:
+  - Language rules around AI
+  - Authorship and agency
+  - AI transparency in practice
+triples:
+  - ["AI transparency", "counters", "Ghostwriting"]
+  - ["Writing as craft", "requires", "AI transparency"]
+  - ["AI as writing partner", "contrasted-with", "Ghostwriting"]
 description: Language rules for how I talk about AI in my work.
 draft: false
 ai: 100% Maai

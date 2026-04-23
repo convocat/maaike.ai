@@ -4,7 +4,21 @@ description: "Being PO, scrum master, prompt designer, tester, eval writer and U
 date: 2026-03-27
 maturity: draft
 draft: false
-tags: []
+tags:
+  - future-of-work
+  - role-based-collaboration
+  - skill-based-work
+  - claude-code
+  - building-as-specification
+themes:
+  - Role blur in tiny teams
+  - Claude Code as de-siloer
+  - Review and hand-off patterns
+triples:
+  - ["Tiny team", "requires", "Skill-based work"]
+  - ["Claude Code", "leads-to", "Building as specification"]
+  - ["Role-based collaboration", "breaks-down-for", "Tiny team"]
+  - ["Claude Code", "demonstrates", "Skill-based work"]
 ai: "100% Maai"
 ---
 

@@ -7,6 +7,19 @@ tags:
   - digital-gardens
   - knowledge-management
   - philosophy
+  - serendipity
+  - non-linear-thinking
+  - personal-web
+themes:
+  - Serendipity versus searchability
+  - Flat ontology over hierarchy
+  - Personal web as exploration space
+triples:
+  - ["Digital garden", "generates", "Serendipity"]
+  - ["Digital garden", "counters", "Algorithmic feed"]
+  - ["Personal web", "exhibits", "Serendipity"]
+  - ["Non-linear thinking", "better-fits", "Digital garden"]
+  - ["Digital garden", "characterised-as", "Thinking in public"]
 description: Should a digital garden be searchable and useful, or is there beauty in letting people explore?
 draft: false
 ai: 100% Maai

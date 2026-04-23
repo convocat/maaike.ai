@@ -6,6 +6,15 @@ maturity: draft
 tags:
   - writing
   - philosophy
+  - personal-web
+themes:
+  - Loss of authentic voice
+  - AI-templated content
+  - Early web personality
+triples:
+  - ["Authentic voice", "counters", "Algorithmic feed"]
+  - ["Authentic voice", "attributed-to", "Personal web"]
+  - ["Writing as craft", "requires", "Authentic voice"]
 description: "When did we stop caring about who actually wrote the words?"
 ai: "100% Maai"
 ---

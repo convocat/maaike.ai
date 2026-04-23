@@ -4823,6 +4823,46 @@
         "llm",
         "language"
       ]
+    },
+    "pkm-research-gap": {
+      "label": "PKM research gap",
+      "type": "phenomenon",
+      "lens": ["epistemology", "development"],
+      "subject": ["knowledge", "digital-garden"],
+      "role": "position"
+    },
+    "tiny-team": {
+      "label": "Tiny team",
+      "type": "concept",
+      "lens": ["development", "personal"],
+      "subject": ["future-of-work"],
+      "role": "position"
+    },
+    "authentic-voice": {
+      "label": "Authentic voice",
+      "type": "concept",
+      "lens": ["rhetoric", "culture", "personal"],
+      "subject": ["writing", "voice"],
+      "role": "position"
+    },
+    "ivr": {
+      "label": "IVR",
+      "type": "technology",
+      "lens": ["interaction", "design"],
+      "subject": ["conversation", "voice"]
+    },
+    "prompt-injection": {
+      "label": "Prompt injection",
+      "type": "phenomenon",
+      "lens": ["development", "design"],
+      "subject": ["prompt", "llm"],
+      "role": "tendency"
+    },
+    "garden-tending": {
+      "label": "Garden tending",
+      "type": "method",
+      "lens": ["design", "personal"],
+      "subject": ["digital-garden", "writing"]
     }
   },
   "associations": [
@@ -8148,6 +8188,48 @@
       "object": "michiel-buisman",
       "source": "dutch-aware-quantization",
       "collection": "seeds"
-    }
+    },
+    { "subject": "text-embeddings", "predicate": "lacks", "object": "pkm-research-gap", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
+    { "subject": "personal-knowledge-management", "predicate": "requires", "object": "text-embeddings", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
+    { "subject": "text-embeddings", "predicate": "generates", "object": "serendipity", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "instance-of", "object": "personal-knowledge-management", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "structured-as", "object": "wiki-links", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "requires", "object": "astro-framework", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "exhibits", "object": "maturity-system", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "generates", "object": "serendipity", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "counters", "object": "algorithmic-feed", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
+    { "subject": "personal-web", "predicate": "exhibits", "object": "serendipity", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
+    { "subject": "non-linear-thinking", "predicate": "better-fits", "object": "digital-garden", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "characterised-as", "object": "thinking-in-public", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
+    { "subject": "tiny-team", "predicate": "requires", "object": "skill-based-work", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
+    { "subject": "claude-code", "predicate": "leads-to", "object": "building-as-specification", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
+    { "subject": "role-based-collaboration", "predicate": "breaks-down-for", "object": "tiny-team", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
+    { "subject": "claude-code", "predicate": "demonstrates", "object": "skill-based-work", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "exhibits", "object": "thinking-in-public", "source": "principles-behind-this-garden", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "exhibits", "object": "imperfection-principle", "source": "principles-behind-this-garden", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "structured-as", "object": "maturity-system", "source": "principles-behind-this-garden", "collection": "seeds" },
+    { "subject": "ai-transparency", "predicate": "counters", "object": "ghostwriting", "source": "style-guide-for-ai", "collection": "seeds" },
+    { "subject": "writing-as-craft", "predicate": "requires", "object": "ai-transparency", "source": "style-guide-for-ai", "collection": "seeds" },
+    { "subject": "ai-as-writing-partner", "predicate": "contrasted-with", "object": "ghostwriting", "source": "style-guide-for-ai", "collection": "seeds" },
+    { "subject": "authentic-voice", "predicate": "counters", "object": "algorithmic-feed", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
+    { "subject": "authentic-voice", "predicate": "attributed-to", "object": "personal-web", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
+    { "subject": "writing-as-craft", "predicate": "requires", "object": "authentic-voice", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
+    { "subject": "claude-code", "predicate": "demonstrates", "object": "structured-input", "source": "the-return-of-the-button", "collection": "seeds" },
+    { "subject": "structured-input", "predicate": "counters", "object": "prompt-injection", "source": "the-return-of-the-button", "collection": "seeds" },
+    { "subject": "ivr", "predicate": "metaphor-for", "object": "structured-input", "source": "the-return-of-the-button", "collection": "seeds" },
+    { "subject": "structured-input", "predicate": "contrasted-with", "object": "conversational-interface", "source": "the-return-of-the-button", "collection": "seeds" },
+    { "subject": "thematic-analysis", "predicate": "contrasted-with", "object": "conversation-metaphor", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
+    { "subject": "thematic-analysis", "predicate": "better-fits", "object": "one-million-context-window", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
+    { "subject": "thematic-analysis", "predicate": "demonstrates", "object": "metacognition", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
+    { "subject": "writing-as-craft", "predicate": "metaphor-for", "object": "inner-dialog-metaphor", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
+    { "subject": "writing-as-craft", "predicate": "demonstrates", "object": "metacognition", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
+    { "subject": "digital-garden", "predicate": "exhibits", "object": "inner-dialog-metaphor", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
+    { "subject": "n-katherine-hayles", "predicate": "counters", "object": "anthropocentrism", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
+    { "subject": "nonconscious-cognition", "predicate": "theorised-by", "object": "n-katherine-hayles", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
+    { "subject": "nonconscious-cognition", "predicate": "contrasted-with", "object": "anthropocentrism", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
+    { "subject": "garden-tending", "predicate": "contrasted-with", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
+    { "subject": "ai-as-writing-partner", "predicate": "risks", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
+    { "subject": "claude-code", "predicate": "generates", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
+    { "subject": "digital-garden", "predicate": "requires", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" }
   ]
 }

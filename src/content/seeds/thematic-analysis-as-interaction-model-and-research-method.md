@@ -7,6 +7,15 @@ tags:
   - design-metaphor
   - conversation-design
   - research-methods
+  - thematic-analysis
+themes:
+  - Thematic analysis as research method
+  - Alternatives to conversation metaphor
+  - Collaborative human-AI analysis
+triples:
+  - ["Thematic analysis", "contrasted-with", "Conversation metaphor"]
+  - ["Thematic analysis", "better-fits", "One million context window"]
+  - ["Thematic analysis", "demonstrates", "Metacognition"]
 description: "What if we modeled human-AI interaction on thematic analysis rather than conversation? And what if we used that same method to discover themes in a knowledge garden?"
 ai: co-created
 draft: false

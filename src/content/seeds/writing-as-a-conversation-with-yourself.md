@@ -6,6 +6,14 @@ maturity: draft
 tags:
   - writing
   - philosophy
+  - metacognition
+themes:
+  - Writing as inner dialogue
+  - Thinking through writing
+triples:
+  - ["Writing as craft", "metaphor-for", "Inner dialog metaphor"]
+  - ["Writing as craft", "demonstrates", "Metacognition"]
+  - ["Digital garden", "exhibits", "Inner dialog metaphor"]
 description: "A mechanism that catches your train of thought. Something that responds in another space."
 ai: "100% Maai"
 ---

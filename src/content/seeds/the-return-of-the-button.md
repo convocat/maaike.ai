@@ -4,7 +4,20 @@ description: "Claude Code is reintroducing structured, constrained input: button
 date: 2026-03-27
 maturity: draft
 draft: false
-tags: []
+tags:
+  - conversation-design
+  - generative-ai-design
+  - prompt-design
+  - claude-code
+themes:
+  - Structured input as safety measure
+  - Constraints versus open chat
+  - IVR patterns returning in GenAI
+triples:
+  - ["Claude Code", "demonstrates", "Structured input"]
+  - ["Structured input", "counters", "Prompt injection"]
+  - ["IVR", "metaphor-for", "Structured input"]
+  - ["Structured input", "contrasted-with", "Conversational interface"]
 ai: "100% Maai"
 ---
 

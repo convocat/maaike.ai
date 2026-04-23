@@ -9,6 +9,16 @@ tags:
   - digital-gardens
   - writing
   - non-linear-thinking
+  - claude-code
+themes:
+  - Garden tending versus writing
+  - AI chaos in the background
+  - Cultivation versus wildness
+triples:
+  - ["Garden tending", "contrasted-with", "Writing as craft"]
+  - ["AI as writing partner", "risks", "Writing as craft"]
+  - ["Claude Code", "generates", "Garden tending"]
+  - ["Digital garden", "requires", "Garden tending"]
 ai: "100% Maai"
 ---
 

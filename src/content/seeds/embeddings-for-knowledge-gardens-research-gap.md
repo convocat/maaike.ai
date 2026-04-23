@@ -6,8 +6,18 @@ maturity: draft
 tags:
   - digital-gardens
   - knowledge-graph
-
   - knowledge-management
+  - text-embeddings
+  - serendipity
+themes:
+  - Embeddings for personal knowledge management
+  - Research gap between tooling and academia
+  - Serendipity through similarity
+triples:
+  - ["Text embeddings", "lacks", "PKM research gap"]
+  - ["Personal knowledge management", "requires", "Text embeddings"]
+  - ["Text embeddings", "generates", "Serendipity"]
+  - ["Digital garden", "instance-of", "Personal knowledge management"]
 description: Academic research on embeddings hasn't caught up with how PKM tools actually use them. There might be something worth writing here.
 draft: false
 ai: co-created

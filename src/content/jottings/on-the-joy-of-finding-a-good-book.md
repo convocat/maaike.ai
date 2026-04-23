@@ -2,7 +2,15 @@
 title: "O joy!"
 date: 2026-03-24
 maturity: developing
-tags: [reading, books, hayles, bacteria-to-ai]
+tags: [reading, books, hayles, bacteria-to-ai, more-than-human, cognition]
+themes:
+  - Reading as practice
+  - Hayles on non-anthropocentric cognition
+  - Vocabulary for describing AI encounters
+triples:
+  - ["N. Katherine Hayles", "counters", "Anthropocentrism"]
+  - ["Nonconscious cognition", "theorised-by", "N. Katherine Hayles"]
+  - ["Nonconscious cognition", "contrasted-with", "Anthropocentrism"]
 description: "On the joy of finding a book that speaks to you"
 type: note
 draft: false

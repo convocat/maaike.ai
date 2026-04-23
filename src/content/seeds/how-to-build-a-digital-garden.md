@@ -6,6 +6,14 @@ maturity: draft
 tags:
   - digital-gardens
   - writing
+  - thinking-in-public
+themes:
+  - Building a digital garden
+  - Tutorial as reflection on craft
+triples:
+  - ["Digital garden", "structured-as", "Wiki links"]
+  - ["Digital garden", "requires", "Astro framework"]
+  - ["Digital garden", "exhibits", "Maturity system"]
 description: What if I wrote a comprehensive guide on how I built this site?
 draft: false
 ai: co-created
