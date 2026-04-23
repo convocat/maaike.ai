@@ -2709,48 +2709,6 @@
       "collection": "jottings"
     },
     {
-      "subject": "conversation-design",
-      "predicate": "leads-to",
-      "object": "llmops",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
-      "subject": "llm-evals",
-      "predicate": "characterised-as",
-      "object": "system-prompt",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
-      "subject": "llmops",
-      "predicate": "requires",
-      "object": "systems-thinking",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
-      "subject": "llm-evals",
-      "predicate": "requires",
-      "object": "linguistics",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
-      "subject": "llm-evals",
-      "predicate": "counters",
-      "object": "llm-hallucinations",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
-      "subject": "llm-observability",
-      "predicate": "instance-of",
-      "object": "llmops",
-      "source": "llmops-analyst-conversation-designers-next-career-step",
-      "collection": "articles"
-    },
-    {
       "subject": "llm-wiki",
       "predicate": "attributed-to",
       "object": "andrej-karpathy",
@@ -3308,6 +3266,13 @@
       "object": "digital-garden",
       "source": "linkedin",
       "collection": "weblinks"
+    },
+    {
+      "subject": "a",
+      "predicate": "requires",
+      "object": "b",
+      "source": "llmops-analyst-conversation-designers-next-career-step",
+      "collection": "articles"
     }
   ]
 }
