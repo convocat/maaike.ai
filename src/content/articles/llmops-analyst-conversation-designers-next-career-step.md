@@ -1,14 +1,24 @@
 ---
-reviewed: 2026-04-23
 title: "LLMOps analyst: conversation designer's next career step"
-description: "test"
+description: "How conversation designers are evolving into LLMOps analysts, and why linguists are uniquely suited for monitoring, evaluating, and improving GenAI systems in production."
 date: 2026-04-14
 maturity: solid
 draft: false
 tags:
-  - test
+  - conversation-design
+  - generative-ai-design
+  - llm
+  - evaluation
+  - systems-thinking
+  - future-of-work
+  - llmops
 triples:
-  - ["A", "requires", "B"]
+  - ["Conversation design", "leads-to", "LLMOps"]
+  - ["LLM evals", "characterised-as", "System prompt"]
+  - ["LLMOps", "requires", "Systems thinking"]
+  - ["LLM evals", "requires", "Linguistics"]
+  - ["LLM evals", "counters", "LLM hallucinations"]
+  - ["LLM observability", "instance-of", "LLMOps"]
 ai: "100% Maai"
 ---
 
