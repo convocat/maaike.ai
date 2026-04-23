@@ -5,6 +5,13 @@ maturity: draft
 tags:
   - knowledge-management
   - digital-gardens
+themes:
+  - Garden library as single source of truth for reading data
+  - Frontmatter as the integration point between garden and tools
+triples:
+  - ["Book recommender", "requires", "Digital garden"]
+  - ["Library audit", "structured-as", "YAML frontmatter errors"]
+  - ["Book recommender", "generates", "Scoring algorithm"]
 description: Design for integrating the book recommender with the garden library, making it the single source of truth for all book data.
 ai: co-created
 develops: book-recommender

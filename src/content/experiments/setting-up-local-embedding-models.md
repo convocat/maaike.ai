@@ -4,8 +4,15 @@ date: 2026-03-14
 maturity: developing
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - embeddings
+themes:
+  - Local embedding models as infrastructure for a personal graph
+  - Model comparison as groundwork for similarity tuning
+triples:
+  - ["Text embeddings", "requires", "Ollama"]
+  - ["BGE-M3", "instance-of", "Text embeddings"]
+  - ["Similarity threshold", "demonstrates", "Text embeddings"]
 description: How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.
 ai: co-created
 develops: knowledge-graph-for-the-garden

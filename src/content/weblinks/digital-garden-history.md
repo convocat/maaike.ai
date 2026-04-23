@@ -7,6 +7,13 @@ maturity: solid
 tags:
   - digital-gardens
   - web-history
+themes:
+  - Digital gardens as a lineage older than blogs
+  - The personal web as the substrate for knowledge gardens
+triples:
+  - ["Digital garden", "attributed-to", "Maggie Appleton"]
+  - ["Digital garden", "characterised-as", "Thinking in public"]
+  - ["Personal web", "instance-of", "Digital garden"]
 description: A comprehensive overview of the digital garden concept and its evolution.
 ai: generated
 ---

@@ -4,6 +4,14 @@ date: 2026-03-17
 maturity: draft
 tags:
   - knowledge-management
+  - research-methods
+themes:
+  - Topic match alone is insufficient for reading recommendations
+  - A reading mix beats a single pick when focus is low
+triples:
+  - ["Book recommender", "requires", "Reading calibration"]
+  - ["Reading calibration", "attributed-to", "Book recommender"]
+  - ["Reading mix", "better-fits", "Book recommender"]
 description: Interview about book selection habits, reading patterns, and what makes a book work or fail. Input for the book recommender scoring algorithm.
 ai: co-created
 develops: book-recommender

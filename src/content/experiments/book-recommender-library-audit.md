@@ -4,6 +4,14 @@ date: 2026-03-17
 maturity: draft
 tags:
   - knowledge-management
+  - digital-gardens
+themes:
+  - Book discovery breaks down at the edges of a personal library
+  - Calibration data needs lived reading patterns, not metadata alone
+triples:
+  - ["Book recommender", "requires", "Library audit"]
+  - ["Library audit", "generates", "Reading calibration"]
+  - ["Ereader invisibility", "breaks-down-for", "Digital garden"]
 description: Audit of 40 unread and in-progress books with status labels, reading patterns, and calibration data for the recommender.
 ai: co-created
 develops: book-recommender

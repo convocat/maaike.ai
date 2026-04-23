@@ -6,6 +6,15 @@ tags:
   - ai-tools
   - digital-gardens
   - developer-experience
+  - ai-transparency
+themes:
+  - Confident hallucination as a professional integrity risk
+  - Transparency labels cannot substitute for provenance checks
+triples:
+  - ["Library hallucination", "attributed-to", "Confabulation"]
+  - ["Confabulation", "risks", "Digital garden"]
+  - ["AI transparency", "lacks", "Library hallucination"]
+  - ["Open Library verification", "counters", "Confabulation"]
 description: "How Claude invented a book by my competitor, why it happened, and the rule added to prevent it."
 draft: false
 ai: "co-created"

@@ -4,6 +4,14 @@ date: 2026-03-17
 maturity: draft
 tags:
   - knowledge-management
+  - tooling
+themes:
+  - Logic-based scoring as an alternative to embeddings
+  - Mood as a runtime dimension for book recommendation
+triples:
+  - ["Scoring algorithm", "structured-as", "Reading calibration"]
+  - ["Book recommender", "requires", "Scoring algorithm"]
+  - ["Scoring algorithm", "contrasted-with", "Text embeddings"]
 description: Design for the logic-based scoring algorithm that powers the book recommender. Five dimensions, no AI.
 ai: co-created
 develops: book-recommender

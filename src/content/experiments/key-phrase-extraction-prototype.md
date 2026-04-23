@@ -4,8 +4,15 @@ date: 2026-03-15
 maturity: draft
 tags:
   - knowledge-graph
-
   - digital-gardens
+  - key-phrases
+themes:
+  - LLM-based extraction compared against statistical baselines
+  - Local-first tooling for garden-scale experiments
+triples:
+  - ["Key phrase extraction", "demonstrates", "Ollama"]
+  - ["YAKE", "contrasted-with", "Key phrase extraction"]
+  - ["Key phrase extraction", "requires", "LLMs"]
 description: Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.
 ai: co-created
 develops: knowledge-graph-for-the-garden

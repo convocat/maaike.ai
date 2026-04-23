@@ -4863,6 +4863,48 @@
       "type": "method",
       "lens": ["design", "personal"],
       "subject": ["digital-garden", "writing"]
+    },
+    "library-audit": {
+      "label": "Library audit",
+      "type": "method",
+      "lens": ["personal", "design"],
+      "subject": ["digital-garden", "tooling"],
+      "role": "instrument"
+    },
+    "reading-calibration": {
+      "label": "Reading calibration",
+      "type": "concept",
+      "lens": ["personal", "design"],
+      "subject": ["tooling", "digital-garden"],
+      "role": "framework"
+    },
+    "ereader-invisibility": {
+      "label": "Ereader invisibility",
+      "type": "phenomenon",
+      "lens": ["personal", "interaction"],
+      "subject": ["tooling", "digital-garden"],
+      "role": "tendency"
+    },
+    "reading-mix": {
+      "label": "Reading mix",
+      "type": "concept",
+      "lens": ["personal", "design"],
+      "subject": ["tooling", "digital-garden"],
+      "role": "position"
+    },
+    "library-hallucination": {
+      "label": "Library hallucination",
+      "type": "phenomenon",
+      "lens": ["development", "design"],
+      "subject": ["llm", "digital-garden"],
+      "role": "tendency"
+    },
+    "open-library-verification": {
+      "label": "Open Library verification",
+      "type": "method",
+      "lens": ["development", "design"],
+      "subject": ["tooling", "digital-garden"],
+      "role": "instrument"
     }
   },
   "associations": [
@@ -8230,6 +8272,31 @@
     { "subject": "garden-tending", "predicate": "contrasted-with", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
     { "subject": "ai-as-writing-partner", "predicate": "risks", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
     { "subject": "claude-code", "predicate": "generates", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
-    { "subject": "digital-garden", "predicate": "requires", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" }
+    { "subject": "digital-garden", "predicate": "requires", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
+    { "subject": "book-recommender-tool", "predicate": "requires", "object": "library-audit", "source": "book-recommender-library-audit", "collection": "experiments" },
+    { "subject": "library-audit", "predicate": "generates", "object": "reading-calibration", "source": "book-recommender-library-audit", "collection": "experiments" },
+    { "subject": "ereader-invisibility", "predicate": "breaks-down-for", "object": "digital-garden", "source": "book-recommender-library-audit", "collection": "experiments" },
+    { "subject": "book-recommender-tool", "predicate": "requires", "object": "digital-garden", "source": "book-recommender-library-integration", "collection": "experiments" },
+    { "subject": "library-audit", "predicate": "structured-as", "object": "yaml-frontmatter-errors", "source": "book-recommender-library-integration", "collection": "experiments" },
+    { "subject": "book-recommender-tool", "predicate": "generates", "object": "scoring-algorithm", "source": "book-recommender-library-integration", "collection": "experiments" },
+    { "subject": "scoring-algorithm", "predicate": "structured-as", "object": "reading-calibration", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
+    { "subject": "book-recommender-tool", "predicate": "requires", "object": "scoring-algorithm", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
+    { "subject": "scoring-algorithm", "predicate": "contrasted-with", "object": "text-embeddings", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
+    { "subject": "book-recommender-tool", "predicate": "requires", "object": "reading-calibration", "source": "book-recommender-user-research", "collection": "experiments" },
+    { "subject": "reading-calibration", "predicate": "attributed-to", "object": "book-recommender-tool", "source": "book-recommender-user-research", "collection": "experiments" },
+    { "subject": "reading-mix", "predicate": "better-fits", "object": "book-recommender-tool", "source": "book-recommender-user-research", "collection": "experiments" },
+    { "subject": "library-hallucination", "predicate": "attributed-to", "object": "confabulation", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
+    { "subject": "confabulation", "predicate": "risks", "object": "digital-garden", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
+    { "subject": "ai-transparency", "predicate": "lacks", "object": "library-hallucination", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
+    { "subject": "open-library-verification", "predicate": "counters", "object": "confabulation", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
+    { "subject": "key-phrase-extraction", "predicate": "demonstrates", "object": "ollama", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
+    { "subject": "yake", "predicate": "contrasted-with", "object": "key-phrase-extraction", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
+    { "subject": "key-phrase-extraction", "predicate": "requires", "object": "llms", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
+    { "subject": "text-embeddings", "predicate": "requires", "object": "ollama", "source": "setting-up-local-embedding-models", "collection": "experiments" },
+    { "subject": "bge-m3", "predicate": "instance-of", "object": "text-embeddings", "source": "setting-up-local-embedding-models", "collection": "experiments" },
+    { "subject": "similarity-threshold", "predicate": "demonstrates", "object": "text-embeddings", "source": "setting-up-local-embedding-models", "collection": "experiments" },
+    { "subject": "digital-garden", "predicate": "attributed-to", "object": "maggie-appleton", "source": "digital-garden-history", "collection": "weblinks" },
+    { "subject": "digital-garden", "predicate": "characterised-as", "object": "thinking-in-public", "source": "digital-garden-history", "collection": "weblinks" },
+    { "subject": "personal-web", "predicate": "instance-of", "object": "digital-garden", "source": "digital-garden-history", "collection": "weblinks" }
   ]
 }
