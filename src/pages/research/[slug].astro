@@ -1,0 +1,174 @@
+---
+/**
+ * /research/[slug] — Reading view for a topic.
+ *
+ * Pulls real data live from the garden's triples.json + taxonomy.json +
+ * post frontmatter. Uses the cached topic-view if available for the
+ * grounded synthesis sections (Summary / How Maaike uses / Open questions).
+ *
+ * Matches prototype ReadingView / WikiRichPage shape (see SPEC § View: Read).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+
+export async function getStaticPaths() {
+  const triplesPath = path.resolve('src/data/triples.json');
+  let topics: Record<string, any> = {};
+  try {
+    topics = JSON.parse(fs.readFileSync(triplesPath, 'utf-8')).topics || {};
+  } catch (_) {}
+  return Object.keys(topics).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+
+// Load the topic + its relations + its posts
+const triples = JSON.parse(fs.readFileSync(path.resolve('src/data/triples.json'), 'utf-8'));
+const allTopics = triples.topics || {};
+const allAssocs = triples.associations || [];
+const topic = allTopics[slug as string];
+if (!topic) return Astro.redirect('/research/');
+
+const label = topic.label || slug;
+const topicType = topic.type || '';
+const lens = topic.lens || [];
+const subject = topic.subject || [];
+
+const incoming: any[] = [];
+const outgoing: any[] = [];
+const postSlugs = new Set<string>();
+for (const a of allAssocs) {
+  if (a.subject === slug) {
+    outgoing.push({ ...a, obj_label: allTopics[a.object]?.label || a.object });
+    if (a.source) postSlugs.add(a.source);
+  }
+  if (a.object === slug) {
+    incoming.push({ ...a, subj_label: allTopics[a.subject]?.label || a.subject });
+    if (a.source) postSlugs.add(a.source);
+  }
+}
+
+const posts: Array<{ slug: string; collection: string; title: string; description: string; date: string }> = [];
+for (const coll of ['articles', 'field-notes', 'seeds', 'experiments', 'jottings', 'weblinks']) {
+  const d = path.resolve(`src/content/${coll}`);
+  if (!fs.existsSync(d)) continue;
+  for (const pslug of Array.from(postSlugs)) {
+    const p = path.join(d, `${pslug}.md`);
+    if (!fs.existsSync(p)) continue;
+    const text = fs.readFileSync(p, 'utf-8');
+    const m = text.match(/^---\s*\n([\s\S]*?)\n---/);
+    let fm: any = {};
+    if (m) {
+      for (const line of m[1].split('\n')) {
+        const km = line.match(/^(title|description|date):\s*["']?(.+?)["']?\s*$/);
+        if (km) fm[km[1]] = km[2];
+      }
+    }
+    posts.push({
+      slug: pslug,
+      collection: coll,
+      title: fm.title || pslug,
+      description: fm.description || '',
+      date: String(fm.date || ''),
+    });
+    postSlugs.delete(pslug);
+  }
+}
+posts.sort((a, b) => a.collection.localeCompare(b.collection) || a.title.localeCompare(b.title));
+
+// Try to load the cached topic-view for grounded synthesis sections
+const viewCache = path.resolve(`tools/karpathy-wiki/cache/topic-views/${slug}.json`);
+let view: any = {};
+if (fs.existsSync(viewCache)) {
+  try { view = JSON.parse(fs.readFileSync(viewCache, 'utf-8')); } catch (_) {}
+}
+---
+
+<ResearchLayout title={label} view="read">
+  <article class="read">
+    <header class="read-head">
+      <div class="read-eyebrow">{topicType}{lens.length ? ' · lens: ' + lens.join(', ') : ''}{subject.length ? ' · about: ' + subject.join(', ') : ''}</div>
+      <h1 class="read-title">{label}</h1>
+      {view.summary && <p class="summary">{view.summary}</p>}
+    </header>
+
+    <div class="derived-note">
+      Interpretive view. Source of truth is the linked posts below.
+    </div>
+
+    {view.how_maaike_uses && (
+      <section class="read-section">
+        <h2>How Maaike uses this</h2>
+        <p>{view.how_maaike_uses}</p>
+      </section>
+    )}
+
+    {view.open_questions && view.open_questions.length > 0 && (
+      <section class="read-section">
+        <h2>Open questions</h2>
+        <ul class="open-q-list">
+          {view.open_questions.map((q: string) => <li>{q}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {posts.length > 0 && (
+      <section class="read-section">
+        <h2>Appears in ({posts.length})</h2>
+        <ul class="appears-list">
+          {posts.map(p => (
+            <li>
+              <span class="appears-coll">{p.collection}</span>
+              <a href={`/${p.collection}/${p.slug}`}>{p.title}</a>
+              {p.description && <span class="appears-desc">{p.description}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {(incoming.length > 0 || outgoing.length > 0) && (
+      <section class="read-section">
+        <h2>Relations</h2>
+        {outgoing.length > 0 && (
+          <div class="rel-group">
+            <div class="rel-label">From {label}</div>
+            <ul>
+              {outgoing.map(r => (
+                <li><code>{r.predicate}</code> → <a href={`/research/${r.object}`}>{r.obj_label}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {incoming.length > 0 && (
+          <div class="rel-group">
+            <div class="rel-label">About {label}</div>
+            <ul>
+              {incoming.map(r => (
+                <li><a href={`/research/${r.subject}`}>{r.subj_label}</a> <code>{r.predicate}</code></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+    )}
+  </article>
+
+  <div slot="rightRail" class="rail-r-inner">
+    <div class="rail-r-section">
+      <div class="rail-r-label">On this page</div>
+      <ul class="rail-r-toc">
+        {view.summary && <li><a href="#top">Summary</a></li>}
+        {view.how_maaike_uses && <li><a>How Maaike uses this</a></li>}
+        {view.open_questions?.length > 0 && <li><a>Open questions</a></li>}
+        {posts.length > 0 && <li><a>Appears in ({posts.length})</a></li>}
+        {(incoming.length || outgoing.length) > 0 && <li><a>Relations</a></li>}
+      </ul>
+    </div>
+    <div class="rail-r-section">
+      <div class="rail-r-label">Degree</div>
+      <p class="rail-r-body">{incoming.length + outgoing.length} typed relations · {posts.length} posts</p>
+    </div>
+  </div>
+</ResearchLayout>

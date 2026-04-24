@@ -1,0 +1,95 @@
+---
+/**
+ * /research/stream — Stream feed as index cards.
+ *
+ * Reads real content from the garden's collections and renders them in the
+ * StreamCard shape from the prototype (see SPEC § View: Stream).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+
+type Item = { slug: string; collection: string; title: string; description: string; date: string; maturity: string; tags: string[] };
+
+const items: Item[] = [];
+for (const coll of ['articles', 'field-notes', 'seeds', 'experiments', 'jottings', 'weblinks']) {
+  const d = path.resolve(`src/content/${coll}`);
+  if (!fs.existsSync(d)) continue;
+  for (const f of fs.readdirSync(d)) {
+    if (!f.endsWith('.md')) continue;
+    const text = fs.readFileSync(path.join(d, f), 'utf-8');
+    const m = text.match(/^---\s*\n([\s\S]*?)\n---/);
+    if (!m) continue;
+    let fm: any = {};
+    const fmText = m[1];
+    for (const line of fmText.split('\n')) {
+      const km = line.match(/^(title|description|date|maturity|draft):\s*["']?(.+?)["']?\s*$/);
+      if (km) fm[km[1]] = km[2];
+    }
+    if (String(fm.draft).toLowerCase() === 'true') continue;
+    // tags: simple parse
+    const tagsMatch = fmText.match(/^tags:\s*\n((?:\s+-\s+.+\n)+)/m);
+    const tags: string[] = tagsMatch
+      ? tagsMatch[1].split('\n').map(l => l.replace(/^\s+-\s+/, '').trim()).filter(Boolean)
+      : [];
+    items.push({
+      slug: f.replace(/\.md$/, ''),
+      collection: coll,
+      title: fm.title || f,
+      description: fm.description || '',
+      date: String(fm.date || ''),
+      maturity: fm.maturity || 'draft',
+      tags,
+    });
+  }
+}
+items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+// Collection → accent colour (for the card spine)
+const collColor: Record<string, string> = {
+  articles:       '#8A4A22',  // terracotta
+  'field-notes':  '#5A7A4D',  // sage
+  seeds:          '#B8935A',  // ochre
+  experiments:    '#3B5A8A',  // slate blue
+  jottings:       '#7A5A8A',  // plum
+  weblinks:       '#5F7A58',  // moss
+};
+---
+
+<ResearchLayout title="Stream" view="stream">
+  <div class="stream">
+    <div class="stream-head">
+      <h1 class="stream-title">Stream</h1>
+      <p class="stream-sub">Everything in the garden, newest first. {items.length} entries.</p>
+    </div>
+
+    <div class="stream-list">
+      {items.map(it => (
+        <a class="stream-card" href={`/${it.collection}/${it.slug}`} style={`--card-accent: ${collColor[it.collection] || '#888'}`}>
+          <div class="stream-card-spine"></div>
+          <div class="stream-card-body">
+            <div class="stream-card-meta">
+              <span class="stream-card-coll">{it.collection}</span>
+              {it.date && <span class="stream-card-date">{it.date}</span>}
+              {it.maturity && <span class={`stream-card-mat mat-${it.maturity}`}>{it.maturity}</span>}
+            </div>
+            <h2 class="stream-card-title">{it.title}</h2>
+            {it.description && <p class="stream-card-desc">{it.description}</p>}
+            {it.tags.length > 0 && (
+              <div class="stream-card-tags">
+                {it.tags.slice(0, 4).map(t => <span class="stream-card-tag">{t}</span>)}
+              </div>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div slot="rightRail" class="rail-r-inner">
+    <div class="rail-r-section">
+      <div class="rail-r-label">Filter</div>
+      <p class="rail-r-body">Filter / sort UI to come.</p>
+    </div>
+  </div>
+</ResearchLayout>

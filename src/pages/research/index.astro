@@ -1,0 +1,120 @@
+---
+/**
+ * /research/ — Dashboard view.
+ * Mirrors prototype Dashboard (app.jsx:167). Stats come from real triples.json;
+ * recent/continuing/themes use sample content for v1 (to wire later).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+
+// Real stats
+let pageCount = 0, topicCount = 0, linkCount = 0;
+try {
+  const triples = JSON.parse(fs.readFileSync(path.resolve('src/data/triples.json'), 'utf-8'));
+  topicCount = Object.keys(triples.topics || {}).length;
+  linkCount = (triples.associations || []).length;
+} catch (_) {}
+try {
+  for (const coll of ['articles', 'field-notes', 'seeds', 'experiments', 'jottings', 'weblinks']) {
+    const d = path.resolve(`src/content/${coll}`);
+    if (fs.existsSync(d)) pageCount += fs.readdirSync(d).filter(f => f.endsWith('.md')).length;
+  }
+} catch (_) {}
+
+const themes = [
+  { name: 'Designing for doubt', note: 'Interfaces that preserve the reader\'s scepticism', count: 14 },
+  { name: 'Conversational grounding', note: 'What LLMs lack that humans give freely', count: 9 },
+  { name: 'Anthropomorphism', note: 'The hidden costs of the chat metaphor', count: 11 },
+  { name: 'Bullshit as mechanism', note: 'Frankfurt at scale', count: 7 },
+];
+
+const recent = [
+  { date: 'Today',       title: 'Conversation design as a career',  kind: 'article',    meta: 'enriched' },
+  { date: 'Yesterday',   title: 'Metaphors for designers',          kind: 'weblink',    meta: 'new source' },
+  { date: '2 days ago',  title: 'Knowledge graph for the garden',   kind: 'field note', meta: 'revised' },
+];
+---
+
+<ResearchLayout title="Dashboard" view="home">
+  <div class="dash">
+    <div class="dash-hello">
+      <div class="hello-text">
+        <h1>Good afternoon, Maaike. <br/>Your thinking is <em>tended</em>.</h1>
+        <p>{pageCount} pages compiled from your garden: {topicCount} topics, {linkCount} typed relations. Picking up where you left off.</p>
+      </div>
+      <div class="hello-stats">
+        <div class="stat"><div class="stat-n">{pageCount}</div><div class="stat-l">Pages</div></div>
+        <div class="stat"><div class="stat-n">{topicCount}</div><div class="stat-l">Topics</div></div>
+        <div class="stat"><div class="stat-n">{linkCount}</div><div class="stat-l">Links</div></div>
+      </div>
+    </div>
+
+    <div class="continue-card">
+      <div class="eyebrow">Continue reading · today</div>
+      <h2>Conversation design as a career still without a fixed name</h2>
+      <p>A rising discipline assembled from older ones. The job title lags the work.</p>
+      <div class="progress"><span style="width: 45%"></span></div>
+      <div class="continue-foot">
+        <span>45% through · 2 open questions</span>
+        <a href="/articles/how-do-i-become-a-conversation-designer" style="font-family:var(--font-ui);font-size:12px;color:var(--accent);border-bottom:1px solid var(--accent)">Resume →</a>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div>
+        <div class="sec-title"><span>Themes in your work</span><a href="/topics/">All themes</a></div>
+        <div class="theme-list">
+          {themes.map(t => (
+            <div class="theme-row">
+              <div>
+                <div class="theme-name">{t.name}</div>
+                <div class="theme-note">{t.note}</div>
+              </div>
+              <div class="theme-count">{t.count}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style="margin-top:32px">
+          <div class="sec-title"><span>Recently surfaced</span><a href="/research/log">Full history</a></div>
+          <div class="recent-list">
+            {recent.map(r => (
+              <a class="recent-row" href="/research/stream">
+                <div class="recent-date">{r.date}</div>
+                <div class="recent-title">{r.title}<small>{r.kind}</small></div>
+                <div class="recent-meta">{r.meta}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-title"><span>Open questions</span></div>
+        <ul class="open-q-list">
+          <li>If the conversation metaphor smuggles in anthropomorphism, what does note-taking smuggle in?</li>
+          <li>Can grounded retrieval survive paraphrase, or does it only catch verbatim overlap?</li>
+          <li>Which of these topics are ready for an article, and which need more time as a seed?</li>
+        </ul>
+
+        <div style="margin-top:32px">
+          <div class="sec-title"><span>Jump back in</span></div>
+          <div class="jumpback-list">
+            <a class="jumpback-row" href="/research/ask">Ask a question across the garden</a>
+            <a class="jumpback-row" href="/research/stream">Browse the stream</a>
+            <a class="jumpback-row" href="/research/map">Open the map</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- default right rail: research assistant placeholder -->
+  <div slot="rightRail" class="rail-r-inner">
+    <div class="rail-r-section">
+      <div class="rail-r-label">Research assistant</div>
+      <p class="rail-r-body">Open a topic or start an ask to anchor the assistant. It follows what you're reading.</p>
+    </div>
+  </div>
+</ResearchLayout>

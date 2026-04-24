@@ -1,0 +1,68 @@
+---
+/**
+ * ResearchLayout — three-pane shell for /research/*
+ *
+ * Matches prototype structure (handoff v0.5 SPEC.md):
+ *   .app { grid: rail-left | center | rail-right }
+ *     .rail-l  → LeftRail (brand + collections + pinned)
+ *     .center  → TopBar (inside center) + view content
+ *     .rail-r  → ReadingAssistant / AskRail
+ *
+ * Routes slot their content into `default`. Routes that need a custom
+ * right rail pass it via the `rightRail` slot; otherwise the default
+ * assistant renders.
+ */
+import '../styles/research.css';
+import '../styles/research-port.css';
+import ResearchLeftRail from '../components/research/ResearchLeftRail.astro';
+import ResearchTopBar from '../components/research/ResearchTopBar.astro';
+
+interface Props {
+  title: string;
+  view: 'home' | 'stream' | 'read' | 'ask' | 'graph' | 'log';
+  askRail?: boolean;
+}
+
+const { title, view, askRail = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="garden" data-density="comfortable">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Research wiki — Maai & AI" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title} — Maai & AI research</title>
+
+  <link rel="preload" href="/fonts/lora-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/roboto-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+  <div class="app" data-screen-label={`01 ${view}`} data-ask-rail={askRail ? 'true' : undefined}>
+    <ResearchLeftRail view={view} />
+    <main class="center">
+      <ResearchTopBar view={view} />
+      <slot />
+    </main>
+    <aside class="rail-r" aria-label={askRail ? 'Ask rail' : 'Research assistant'}>
+      <slot name="rightRail" />
+    </aside>
+  </div>
+
+  <script>
+    // Restore persisted tweaks (theme, density, rail widths)
+    try {
+      const root = document.documentElement;
+      const theme = localStorage.getItem('rw:theme');
+      const density = localStorage.getItem('rw:density');
+      if (theme) root.setAttribute('data-theme', theme);
+      if (density) root.setAttribute('data-density', density);
+      const leftW = localStorage.getItem('rw:left-rail-w');
+      const rightW = localStorage.getItem('rw:right-rail-w');
+      if (leftW) root.style.setProperty('--rail-left', leftW);
+      if (rightW) root.style.setProperty('--rail-right', rightW);
+    } catch (e) { /* storage blocked */ }
+  </script>
+</body>
+</html>

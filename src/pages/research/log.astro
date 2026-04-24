@@ -1,0 +1,60 @@
+---
+/**
+ * /research/log — Today's log: chronological trace of reads / asks / notes.
+ *
+ * Placeholder implementation. Wires to localStorage so entries persist across
+ * reloads. The real implementation would read from server-side event storage
+ * once that exists.
+ */
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+---
+
+<ResearchLayout title="Log" view="log">
+  <div class="log">
+    <div class="log-head">
+      <h1 class="log-title">Today's log</h1>
+      <p class="log-sub">Reads, asks, and notes — in order. Cleared at the end of the day.</p>
+    </div>
+
+    <ol class="log-list" id="log-list" aria-live="polite">
+      <li class="log-empty">No events yet today.</li>
+    </ol>
+  </div>
+
+  <div slot="rightRail" class="rail-r-inner">
+    <div class="rail-r-section">
+      <div class="rail-r-label">Log settings</div>
+      <p class="rail-r-body">Events are stored locally in your browser until server-side logging lands.</p>
+      <button type="button" id="log-clear" style="margin-top:12px;padding:6px 12px;border:1px solid var(--rule);border-radius:6px;cursor:pointer;background:transparent;color:var(--ink-2)">Clear today's log</button>
+    </div>
+  </div>
+</ResearchLayout>
+
+<script>
+  type Event = { when: string; kind: 'read' | 'ask' | 'note'; label: string; href?: string };
+  const KEY = 'rw:log:' + new Date().toISOString().slice(0, 10);
+
+  function load(): Event[] {
+    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; }
+  }
+  function render() {
+    const list = document.getElementById('log-list')!;
+    const events = load();
+    if (!events.length) {
+      list.innerHTML = `<li class="log-empty">No events yet today.</li>`;
+      return;
+    }
+    list.innerHTML = events.slice().reverse().map(e => {
+      const t = new Date(e.when);
+      const tm = t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const linked = e.href ? `<a href="${e.href}">${e.label}</a>` : e.label;
+      return `<li class="log-row log-${e.kind}"><span class="log-time">${tm}</span><span class="log-kind">${e.kind}</span><span class="log-label">${linked}</span></li>`;
+    }).join('');
+  }
+  render();
+
+  document.getElementById('log-clear')!.onclick = () => {
+    localStorage.removeItem(KEY);
+    render();
+  };
+</script>

@@ -1,0 +1,113 @@
+---
+/**
+ * Research left rail — brand + nav (collections + pinned) + footer.
+ * Matches prototype LeftRail (app.jsx:33).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  view: string;
+}
+const { view: _view } = Astro.props;
+
+// Load real topics from triples.json
+const triplesPath = path.resolve('src/data/triples.json');
+let topics: Record<string, any> = {};
+let topicCount = 0;
+try {
+  const raw = JSON.parse(fs.readFileSync(triplesPath, 'utf-8'));
+  topics = raw.topics || {};
+  topicCount = Object.keys(topics).length;
+} catch (_) {}
+
+// Group by type
+const collections: Record<string, Array<{ id: string; title: string }>> = {
+  Concepts: [],
+  People: [],
+  Entities: [],
+};
+for (const [slug, t] of Object.entries(topics) as [string, any][]) {
+  const type = (t.type || '').toLowerCase();
+  const entry = { id: slug, title: t.label || slug };
+  if (type === 'person') collections.People.push(entry);
+  else if (type === 'technology' || type === 'mechanism') collections.Entities.push(entry);
+  else collections.Concepts.push(entry);
+}
+for (const k of Object.keys(collections)) collections[k].sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<aside class="rail-l">
+  <div class="brand">
+    <div class="brand-mark"><img src="/images/watercolor-leaf-trimmed.png" alt="" width="38" height="48"/></div>
+    <div>
+      <div class="brand-name">Maai & AI <em>wiki</em></div>
+      <div class="brand-sub">research assistant</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-group">
+      <div class="nav-label">Pinned</div>
+      <ul class="nav-coll-list" id="pinned-list">
+        <li><span class="nav-coll-topic nav-coll-empty">No pins yet.</span></li>
+      </ul>
+    </div>
+
+    {Object.entries(collections).map(([name, items]) => (
+      <div class="nav-group">
+        <div class="nav-coll" data-open="false">
+          <button type="button" class="nav-item nav-coll-head" data-collection={name.toLowerCase()}>
+            <span class="nav-chev" aria-hidden="true">
+              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M3.5 2.5 L6.5 5 L3.5 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="label-text">{name}</span>
+            <span class="count">{items.length}</span>
+          </button>
+          <div class="nav-coll-body" hidden>
+            <ul class="nav-coll-list">
+              {items.slice(0, 50).map(it => (
+                <li><a class="nav-coll-topic" href={`/research/${it.id}`}><span class="nav-coll-title">{it.title}</span></a></li>
+              ))}
+              {items.length > 50 && <li><span class="nav-coll-topic" style="color:var(--ink-3);font-style:italic">+{items.length - 50} more</span></li>}
+            </ul>
+          </div>
+        </div>
+      </div>
+    ))}
+  </nav>
+
+  <div class="rail-foot">
+    <div class="avatar">M</div>
+    <div>
+      <div style="color:var(--ink-2)">Maaike</div>
+      <div>{topicCount} topics · research mode</div>
+    </div>
+  </div>
+</aside>
+
+<script>
+  // Expand/collapse collections — toggle siblings via data-open
+  document.querySelectorAll<HTMLButtonElement>('.nav-coll-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const coll = btn.closest('.nav-coll') as HTMLElement;
+      if (!coll) return;
+      const open = coll.getAttribute('data-open') === 'true';
+      coll.setAttribute('data-open', open ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', (!open).toString());
+      const body = coll.querySelector<HTMLElement>('.nav-coll-body');
+      if (body) body.hidden = open;
+    });
+  });
+
+  // Restore pinned
+  try {
+    const pins = JSON.parse(localStorage.getItem('rw:pinned') || '[]');
+    const list = document.getElementById('pinned-list');
+    if (list && pins.length) {
+      list.innerHTML = pins.map((p: any) =>
+        `<li><a class="nav-coll-topic" href="/research/${p.slug}"><span class="nav-coll-title">${p.label}</span></a></li>`
+      ).join('');
+    }
+  } catch (e) {}
+</script>

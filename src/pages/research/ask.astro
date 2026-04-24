@@ -1,0 +1,265 @@
+---
+/**
+ * /research/ask — Ask view.
+ *
+ * Vanilla-JS port of prototype AskView + AskReadingRail (app.jsx:616, 769).
+ * Streams tokens from /api/ask, parses inline [n] / [sN] citations into
+ * numbered chips, and accumulates cited topics + sources in the right rail
+ * across the whole thread.
+ */
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+
+// Ask endpoint lives on the karpathy server in dev; same-origin in prod
+const apiHint = 'Configured at runtime: localhost:8780 in dev, same-origin in prod';
+
+const suggestions = [
+  { q: 'What does Maaike mean by bullshit?',                           tag: 'core' },
+  { q: 'Where does conversational grounding break down in LLMs?',      tag: 'mechanism' },
+  { q: 'Why does anthropomorphism matter for design?',                 tag: 'design' },
+  { q: "What's the difference between prompt design and prompting?",   tag: 'craft' },
+];
+---
+
+<ResearchLayout title="Ask" view="ask" askRail={true}>
+  <div class="ask-view">
+    <div class="ask-head">
+      <h1 class="ask-title"><em>Ask</em> the wiki</h1>
+      <p class="ask-sub">Ask your own writing. Every answer cites the topics and articles it leans on.</p>
+    </div>
+
+    <div class="ask-thread" id="ask-thread" role="log" aria-live="polite"></div>
+
+    <div class="ask-suggest" id="ask-suggest">
+      <div class="ask-suggest-label">Try asking</div>
+      <div class="ask-suggest-grid">
+        {suggestions.map(s => (
+          <button class="ask-suggest-card" data-q={s.q}>
+            <span class="ask-suggest-q">{s.q}</span>
+            {s.tag && <span class="ask-suggest-tag">{s.tag}</span>}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <form class="ask-composer" id="ask-form">
+      <div class="ask-composer-bar">
+        <svg class="ask-composer-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <path d="M12 2l3 7 7 1-5.5 4.5L18 22l-6-4-6 4 1.5-7.5L2 10l7-1z"/>
+        </svg>
+        <input id="ask-input" type="text" placeholder="Ask your wiki…" autocomplete="off" />
+        <button type="submit" class="ask-composer-send" id="ask-send" disabled>Ask</button>
+      </div>
+      <div class="ask-composer-foot">
+        <span>Answers draw on your topic pages. Click any [n] to open the source.</span>
+      </div>
+    </form>
+  </div>
+
+  <!-- Right rail: triage pane that accumulates citations -->
+  <div slot="rightRail" class="ask-rail">
+    <div class="ask-rail-tabs" role="tablist">
+      <button type="button" class="ask-rail-tab is-active" data-tab="sources" role="tab" aria-selected="true">
+        Sources <span class="ask-rail-count" id="count-sources">0</span>
+      </button>
+      <button type="button" class="ask-rail-tab" data-tab="topics" role="tab" aria-selected="false">
+        Topics <span class="ask-rail-count" id="count-topics">0</span>
+      </button>
+      <button type="button" class="ask-rail-tab" data-tab="articles" role="tab" aria-selected="false">
+        Articles <span class="ask-rail-count" id="count-articles">0</span>
+      </button>
+    </div>
+    <div class="ask-rail-body" id="ask-rail-body">
+      <div class="ask-rail-empty">Ask a question to start collecting citations.</div>
+    </div>
+  </div>
+</ResearchLayout>
+
+<script>
+  const API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? 'http://localhost:8780'
+    : location.origin;
+
+  const threadEl = document.getElementById('ask-thread')!;
+  const suggestEl = document.getElementById('ask-suggest')!;
+  const formEl = document.getElementById('ask-form') as HTMLFormElement;
+  const inputEl = document.getElementById('ask-input') as HTMLInputElement;
+  const sendBtn = document.getElementById('ask-send') as HTMLButtonElement;
+  const railBody = document.getElementById('ask-rail-body')!;
+
+  // Thread-wide source accumulator (cid → source)
+  const railMap: Record<string, any> = {};
+  let activeTab = 'sources';
+
+  function escHtml(s: string) {
+    return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'} as any)[c]);
+  }
+
+  function renderMarkdown(md: string) {
+    let h = escHtml(md || '');
+    h = h.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+    h = h.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+    h = h.replace(/^#\s+(.+)$/gm, '<h2>$1</h2>');
+    h = h.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    h = h.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
+    h = h.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+    const parts = h.split(/\n{2,}/);
+    return parts.map(p => p.trim() ? (/^<(h\d|ul|ol|blockquote)/.test(p) ? p : `<p>${p.replace(/\n/g,'<br>')}</p>`) : '').join('\n');
+  }
+
+  function applyChips(rootEl: HTMLElement, sources: any[]) {
+    const map: Record<string, any> = {};
+    for (const s of sources) if (s.cid) map[s.cid] = s;
+    const pattern = /\[(s?\d+)\]/g;
+    const walk = (node: Node) => {
+      if (node.nodeType === 3) {
+        const text = node.textContent || '';
+        if (!pattern.test(text)) return;
+        pattern.lastIndex = 0;
+        const frag = document.createDocumentFragment();
+        let last = 0; let m;
+        while ((m = pattern.exec(text))) {
+          if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+          const cid = m[1];
+          const src = map[cid];
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'ask-cite ' + (cid.startsWith('s') ? 'src' : 'topic');
+          chip.textContent = cid.replace(/^s/, '');
+          chip.title = src ? src.title : `Citation ${cid}`;
+          chip.onclick = () => {
+            activeTab = cid.startsWith('s') ? 'sources' : 'topics';
+            switchTab(activeTab);
+            renderRail();
+          };
+          frag.appendChild(chip);
+          last = m.index + m[0].length;
+        }
+        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        node.parentNode!.replaceChild(frag, node);
+        return;
+      }
+      if (node.nodeType === 1 && (node as Element).tagName !== 'CODE') {
+        [...node.childNodes].forEach(walk);
+      }
+    };
+    walk(rootEl);
+  }
+
+  function switchTab(tab: string) {
+    activeTab = tab;
+    document.querySelectorAll<HTMLButtonElement>('.ask-rail-tab').forEach(b => {
+      const on = b.dataset.tab === tab;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  function updateRailCounts() {
+    const all = Object.values(railMap) as any[];
+    const sources = all.filter(s => s.kind === 'article');
+    const topics = all.filter(s => s.kind === 'topic');
+    (document.getElementById('count-sources') as HTMLElement).textContent = String(sources.length);
+    (document.getElementById('count-topics') as HTMLElement).textContent = String(topics.length);
+    (document.getElementById('count-articles') as HTMLElement).textContent = String(sources.length);
+  }
+
+  function renderRail() {
+    const all = Object.values(railMap) as any[];
+    let items: any[];
+    if (activeTab === 'topics') items = all.filter(s => s.kind === 'topic');
+    else items = all.filter(s => s.kind === 'article');
+    if (!items.length) {
+      railBody.innerHTML = `<div class="ask-rail-empty">No ${activeTab} yet in this thread.</div>`;
+      return;
+    }
+    railBody.innerHTML = items.map(s => `
+      <article class="ask-rail-card">
+        <div class="ask-rail-card-num">${escHtml(s.cid.replace(/^s/, ''))}</div>
+        <div class="ask-rail-card-body">
+          <div class="ask-rail-card-title">${escHtml(s.title)}</div>
+          ${s.section ? `<div class="ask-rail-card-meta">${escHtml(s.section)}${s.date ? ' · ' + escHtml(s.date) : ''}</div>` : ''}
+          ${s.url ? `<a class="ask-rail-card-link" href="${escHtml(s.url)}" target="_blank" rel="noopener">Open ↗</a>` : ''}
+        </div>
+      </article>`).join('');
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.ask-rail-tab').forEach(b => {
+    b.onclick = () => { switchTab(b.dataset.tab || 'sources'); renderRail(); };
+  });
+
+  inputEl.addEventListener('input', () => { sendBtn.disabled = !inputEl.value.trim(); });
+
+  document.querySelectorAll<HTMLButtonElement>('.ask-suggest-card').forEach(b => {
+    b.onclick = () => {
+      const q = b.dataset.q || '';
+      inputEl.value = q;
+      sendBtn.disabled = false;
+      ask(q);
+    };
+  });
+
+  formEl.onsubmit = (e) => { e.preventDefault(); if (inputEl.value.trim()) ask(inputEl.value.trim()); };
+
+  async function ask(q: string) {
+    if (suggestEl) suggestEl.style.display = 'none';
+    const meTurn = document.createElement('div');
+    meTurn.className = 'ask-turn ask-turn-me';
+    meTurn.innerHTML = `<div class="ask-bubble ask-bubble-me">${escHtml(q)}</div>`;
+    threadEl.appendChild(meTurn);
+
+    const aiTurn = document.createElement('div');
+    aiTurn.className = 'ask-turn ask-turn-ai';
+    aiTurn.innerHTML = `<div class="ask-turn-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 C8 6 6 10 12 22 C18 10 16 6 12 2 Z"/></svg></div><div class="ask-turn-body"><div class="ask-bubble ask-bubble-ai">Drafting…</div></div>`;
+    threadEl.appendChild(aiTurn);
+    const bubble = aiTurn.querySelector('.ask-bubble-ai') as HTMLElement;
+
+    inputEl.value = ''; sendBtn.disabled = true;
+    threadEl.scrollTop = threadEl.scrollHeight;
+
+    try {
+      const r = await fetch(`${API}/api/ask`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q }),
+        signal: AbortSignal.timeout(120000),
+      });
+      const reader = r.body!.getReader();
+      const decoder = new TextDecoder();
+      let buf = ''; let answer = ''; let sources: any[] = []; let err: string | null = null;
+      bubble.textContent = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split('\n'); buf = lines.pop() || '';
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          let msg: any;
+          try { msg = JSON.parse(line); } catch { continue; }
+          if (msg.type === 'token' && msg.text) {
+            answer += msg.text;
+            bubble.innerHTML = renderMarkdown(answer);
+            threadEl.scrollTop = threadEl.scrollHeight;
+          } else if (msg.type === 'sources') {
+            sources = msg.sources || [];
+          } else if (msg.type === 'error') {
+            err = msg.error;
+          }
+        }
+      }
+      if (err) {
+        bubble.innerHTML = `<em style="color:#c00">${escHtml(err)}</em>`;
+      } else {
+        // Final render: apply chips
+        bubble.innerHTML = renderMarkdown(answer);
+        applyChips(bubble, sources);
+        // Accumulate in rail
+        for (const s of sources) if (s.cid) railMap[s.cid] = s;
+        updateRailCounts();
+        renderRail();
+      }
+    } catch (e: any) {
+      bubble.innerHTML = `<em style="color:#c00">${escHtml(e.message || String(e))}</em>`;
+    }
+  }
+</script>
