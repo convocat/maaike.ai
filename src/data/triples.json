@@ -7844,41 +7844,6 @@
       "collection": "field-notes"
     },
     {
-      "subject": "building-this-garden-project",
-      "predicate": "demonstrates",
-      "object": "digital-garden",
-      "source": "building-this-garden",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "requires",
-      "object": "astro-framework",
-      "source": "building-this-garden",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "building-this-garden-project",
-      "predicate": "exhibits",
-      "object": "iterative-building",
-      "source": "building-this-garden",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "counters",
-      "object": "content-fragmentation",
-      "source": "building-this-garden",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "building-this-garden-project",
-      "predicate": "reinforces",
-      "object": "thinking-in-public",
-      "source": "building-this-garden",
-      "collection": "field-notes"
-    },
-    {
       "subject": "claude-code",
       "predicate": "demonstrates",
       "object": "scheduled-tasks-feature",
@@ -9500,6 +9465,41 @@
       "predicate": "better-fits",
       "object": "knowledge-graph-for-garden",
       "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "building-this-garden",
+      "predicate": "demonstrates",
+      "object": "digital-garden",
+      "source": "building-this-garden",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "requires",
+      "object": "astro",
+      "source": "building-this-garden",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "building-this-garden",
+      "predicate": "exhibits",
+      "object": "iterative-building",
+      "source": "building-this-garden",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "counters",
+      "object": "content-fragmentation",
+      "source": "building-this-garden",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "building-this-garden",
+      "predicate": "reinforces",
+      "object": "thinking-in-public",
+      "source": "building-this-garden",
       "collection": "field-notes"
     }
   ]
