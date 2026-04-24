@@ -324,6 +324,16 @@
 .mat-complete { background: color-mix(in oklab, var(--accent-2) 14%, transparent); color: var(--accent-2); }
 .mat-solid    { background: color-mix(in oklab, var(--accent) 10%, transparent); color: var(--accent); }
 
+/* View-toggle — Astro port uses <a> instead of <button>. Mirror button styling. */
+.view-toggle a {
+  padding: 6px 12px; font-family: var(--font-ui); font-size: 12px;
+  color: var(--ink-2); border-right: 1px solid var(--rule);
+  text-decoration: none; cursor: pointer;
+}
+.view-toggle a:last-child { border-right: 0; }
+.view-toggle a[data-active="true"] { background: var(--accent); color: var(--bg-card); }
+.view-toggle a:hover:not([data-active="true"]) { background: var(--rule-soft); color: var(--ink); }
+
 /* Left-rail nav additions */
 .nav-coll-list { list-style: none; padding: 0; margin: 0; }
 .nav-coll-body[hidden] { display: none; }
