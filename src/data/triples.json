@@ -9230,34 +9230,6 @@
       "collection": "seeds"
     },
     {
-      "subject": "project-glasswing",
-      "predicate": "counters",
-      "object": "ai-slop",
-      "source": "ai-slop-and-the-glasswing-project",
-      "collection": "jottings"
-    },
-    {
-      "subject": "ai-slop",
-      "predicate": "risks",
-      "object": "critical-software",
-      "source": "ai-slop-and-the-glasswing-project",
-      "collection": "jottings"
-    },
-    {
-      "subject": "project-glasswing",
-      "predicate": "attributed-to",
-      "object": "anthropic",
-      "source": "ai-slop-and-the-glasswing-project",
-      "collection": "jottings"
-    },
-    {
-      "subject": "agentic-ai",
-      "predicate": "generates",
-      "object": "ai-slop",
-      "source": "ai-slop-and-the-glasswing-project",
-      "collection": "jottings"
-    },
-    {
       "subject": "personal-web",
       "predicate": "counters",
       "object": "algorithmic-feed",
@@ -9501,6 +9473,34 @@
       "object": "cognitive-outsourcing",
       "source": "the-machines-are-fine-i-x27-m-worried-about-us",
       "collection": "weblinks"
+    },
+    {
+      "subject": "project-glasswing",
+      "predicate": "counters",
+      "object": "ai-slop",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "ai-slop",
+      "predicate": "risks",
+      "object": "critical-software",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "project-glasswing",
+      "predicate": "attributed-to",
+      "object": "anthropic",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "generates",
+      "object": "ai-slop",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
     }
   ]
 }

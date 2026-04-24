@@ -1,17 +1,18 @@
 ---
-title: "AI slop and the Glasswing project"
-description: "Anthropic's project to secure critical software for the AI era — and why AI slop might be the bigger threat."
+reviewed: 2026-04-24
+title: AI slop and the Glasswing project
+description: Anthropic's project to secure critical software for the AI era — and why AI slop might be the bigger threat.
 date: 2026-04-08
 maturity: complete
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 type: post
-url: "https://www.linkedin.com/posts/maaikegroenewege_project-glasswing-securing-critical-software-activity-7447689073827323904-z94u"
+url: https://www.linkedin.com/posts/maaikegroenewege_project-glasswing-securing-critical-software-activity-7447689073827323904-z94u
 tags:
-  - genai
-  - agentic-ai
-  - security
-  - ai-ethics
+- genai
+- agentic-ai
+- security
+- ai-ethics
 themes:
 - AI slop as an emerging systemic risk in critical software
 - Anthropic's Project Glasswing as an attempt to secure open-source infrastructure
@@ -21,7 +22,6 @@ triples:
 - [Project Glasswing, attributed-to, Anthropic]
 - [Agentic AI, generates, AI slop]
 ---
-
 # AI slop and the Glasswing project
 
 <div style="border:1px solid #e0e0e0;border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-family:sans-serif">
