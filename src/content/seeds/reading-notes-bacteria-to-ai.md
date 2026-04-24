@@ -1,19 +1,24 @@
 ---
-title: "Reading notes: bacteria to AI"
-description: "Reading notes on cognitive assemblages, anthropocentrism, and the case for extending cognition beyond human consciousness, from bacteria to AI."
+reviewed: 2026-04-24
+title: 'Reading notes: bacteria to AI'
+description: Reading notes on cognitive assemblages, anthropocentrism, and the case for extending cognition beyond human consciousness, from bacteria to AI.
 date: 2026-04-01
 maturity: draft
-tags: [philosophy, anthropomorphism, human-machine-interface, cognition, more-than-human]
-ai: "100% Maai"
+tags:
+- philosophy
+- anthropomorphism
+- human-machine-interface
+- cognition
+- more-than-human
+ai: 100% Maai
 triples:
-  - ["Anthropocentrism", "presupposes", "Anthropomorphism"]
-  - ["Cognitive assemblage", "theorised-by", "N. Katherine Hayles"]
-  - ["Nonconscious cognition", "counters", "Anthropocentrism"]
-  - ["Cognitive assemblage", "demonstrates", "Nonconscious cognition"]
-  - ["LLMs", "instance-of", "Cognitive assemblage"]
-  - ["Umwelt", "incompatible-with", "Anthropocentrism"]
+- [Anthropocentrism, presupposes, Anthropomorphism]
+- [Cognitive assemblage, theorised-by, N. Katherine Hayles]
+- [Nonconscious cognition, counters, Anthropocentrism]
+- [Cognitive assemblage, demonstrates, Nonconscious cognition]
+- [LLMs, instance-of, Cognitive assemblage]
+- [Umwelt, incompatible-with, Anthropocentrism]
 ---
-
 # Reading notes: Bacteria to AI
 
 Quotes, summaries and observations from [[bacteria-to-ai]].

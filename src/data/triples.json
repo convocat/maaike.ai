@@ -5858,48 +5858,6 @@
       "collection": "articles"
     },
     {
-      "subject": "anthropocentrism",
-      "predicate": "presupposes",
-      "object": "anthropomorphism",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
-      "subject": "cognitive-assemblage",
-      "predicate": "theorised-by",
-      "object": "n-katherine-hayles",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
-      "subject": "nonconscious-cognition",
-      "predicate": "counters",
-      "object": "anthropocentrism",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
-      "subject": "cognitive-assemblage",
-      "predicate": "demonstrates",
-      "object": "nonconscious-cognition",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
-      "subject": "llms",
-      "predicate": "instance-of",
-      "object": "cognitive-assemblage",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
-      "subject": "umwelt",
-      "predicate": "incompatible-with",
-      "object": "anthropocentrism",
-      "source": "reading-notes-bacteria-to-ai",
-      "collection": "seeds"
-    },
-    {
       "subject": "common-ground",
       "predicate": "theorised-by",
       "object": "herbert-clark",
@@ -9501,6 +9459,48 @@
       "object": "confabulation",
       "source": "hallucinated-library-entry-postmortem",
       "collection": "experiments"
+    },
+    {
+      "subject": "anthropocentrism",
+      "predicate": "presupposes",
+      "object": "anthropomorphism",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "cognitive-assemblage",
+      "predicate": "theorised-by",
+      "object": "n-katherine-hayles",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "nonconscious-cognition",
+      "predicate": "counters",
+      "object": "anthropocentrism",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "cognitive-assemblage",
+      "predicate": "demonstrates",
+      "object": "nonconscious-cognition",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "llms",
+      "predicate": "instance-of",
+      "object": "cognitive-assemblage",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "umwelt",
+      "predicate": "incompatible-with",
+      "object": "anthropocentrism",
+      "source": "reading-notes-bacteria-to-ai",
+      "collection": "seeds"
     }
   ]
 }
