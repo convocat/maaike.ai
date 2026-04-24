@@ -9076,34 +9076,6 @@
       "collection": "experiments"
     },
     {
-      "subject": "library-hallucination",
-      "predicate": "attributed-to",
-      "object": "confabulation",
-      "source": "hallucinated-library-entry-postmortem",
-      "collection": "experiments"
-    },
-    {
-      "subject": "confabulation",
-      "predicate": "risks",
-      "object": "digital-garden",
-      "source": "hallucinated-library-entry-postmortem",
-      "collection": "experiments"
-    },
-    {
-      "subject": "ai-transparency",
-      "predicate": "lacks",
-      "object": "library-hallucination",
-      "source": "hallucinated-library-entry-postmortem",
-      "collection": "experiments"
-    },
-    {
-      "subject": "open-library-verification",
-      "predicate": "counters",
-      "object": "confabulation",
-      "source": "hallucinated-library-entry-postmortem",
-      "collection": "experiments"
-    },
-    {
       "subject": "key-phrase-extraction",
       "predicate": "demonstrates",
       "object": "ollama",
@@ -9501,6 +9473,34 @@
       "object": "ai-slop",
       "source": "ai-slop-and-the-glasswing-project",
       "collection": "jottings"
+    },
+    {
+      "subject": "library-hallucination",
+      "predicate": "attributed-to",
+      "object": "confabulation",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "confabulation",
+      "predicate": "risks",
+      "object": "digital-garden",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "ai-transparency",
+      "predicate": "lacks",
+      "object": "library-hallucination",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "open-library-verification",
+      "predicate": "counters",
+      "object": "confabulation",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
     }
   ]
 }

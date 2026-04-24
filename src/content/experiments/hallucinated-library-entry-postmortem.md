@@ -1,26 +1,26 @@
 ---
-title: "Hallucinated library entry: post-mortem and safeguard"
+reviewed: 2026-04-24
+title: 'Hallucinated library entry: post-mortem and safeguard'
 date: 2026-04-07
 maturity: complete
 tags:
-  - ai-tools
-  - digital-gardens
-  - developer-experience
-  - ai-transparency
+- ai-tools
+- digital-gardens
+- developer-experience
+- ai-transparency
 themes:
-  - Confident hallucination as a professional integrity risk
-  - Transparency labels cannot substitute for provenance checks
+- Confident hallucination as a professional integrity risk
+- Transparency labels cannot substitute for provenance checks
 triples:
-  - ["Library hallucination", "attributed-to", "Confabulation"]
-  - ["Confabulation", "risks", "Digital garden"]
-  - ["AI transparency", "lacks", "Library hallucination"]
-  - ["Open Library verification", "counters", "Confabulation"]
-description: "How Claude invented a book by my competitor, why it happened, and the rule added to prevent it."
+- [Library hallucination, attributed-to, Confabulation]
+- [Confabulation, risks, Digital garden]
+- [AI transparency, lacks, Library hallucination]
+- [Open Library verification, counters, Confabulation]
+description: How Claude invented a book by my competitor, why it happened, and the rule added to prevent it.
 draft: false
-ai: "co-created"
+ai: co-created
 develops: building-this-garden
 ---
-
 ## What happened
 
 During a library import session in March 2026, a Claude session added a book entry to the garden library titled "Tech skills for conversation designers" with author "Hans van Dam." Neither the book nor the author attribution is real. Hans van Dam is a direct competitor of mine in the conversation design space.
