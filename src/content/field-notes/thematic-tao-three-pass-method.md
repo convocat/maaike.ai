@@ -1,25 +1,30 @@
 ---
-title: "Thematic-TAO: a three-pass method for post analysis"
-description: "Extracting meaningful entities and relations, combining thematic analysis with TAO topic mapping in three passes."
+reviewed: 2026-04-24
+title: 'Thematic-TAO: a three-pass method for post analysis'
+description: Extracting meaningful entities and relations, combining thematic analysis with TAO topic mapping in three passes.
 date: 2026-03-30
 updated: 2026-04-02
 maturity: developing
 draft: false
-tags: ["knowledge-graph", "thinking-tools", "digital-gardens", "thematic-analysis", "tao-topic-mapping"]
+tags:
+- knowledge-graph
+- thinking-tools
+- digital-gardens
+- thematic-analysis
+- tao-topic-mapping
 themes:
-  - Thematic analysis reads wide while TAO topic mapping reads close.
-  - A three-pass rhythm (wide, close, wide again) prevents locally-correct but globally-wrong triples.
-  - The method grounds auto-tag and the concept graph in qualitative research practice.
+- Thematic analysis reads wide while TAO topic mapping reads close.
+- A three-pass rhythm (wide, close, wide again) prevents locally-correct but globally-wrong triples.
+- The method grounds auto-tag and the concept graph in qualitative research practice.
 triples:
-  - ["TAO topic mapping", "attributed-to", "Steve Pepper"]
-  - ["Thematic TAO method", "structured-as", "Three-pass method"]
-  - ["Thematic TAO method", "reinforces", "Thematic analysis"]
-  - ["Thematic TAO method", "requires", "Controlled predicate vocabulary"]
-  - ["Thematic TAO method", "better-fits", "Knowledge graph for garden"]
-ai: "100% Maai"
+- [TAO topic mapping, attributed-to, Steve Pepper]
+- [Thematic TAO method, structured-as, Three-pass method]
+- [Thematic TAO method, reinforces, Thematic analysis]
+- [Thematic TAO method, requires, Controlled predicate vocabulary]
+- [Thematic TAO method, better-fits, Knowledge graph for garden]
+ai: 100% Maai
 develops: claude-features-garden
 ---
-
 When I started building a concept graph for this garden, I ran into a tension between two ways of reading a text.
 
 **Thematic analysis** reads wide. It asks: what is this about? What recurring ideas run through it? It's a great way for first explorations and orientations, because it surfaces emergent themes that I might not have found when just reading at surface level. It basically gives you lists of keywords and categories on different axes (so great taxonomies), but it's a one-sweep action that doesn't necessarily give good, robust an consistent structure. 

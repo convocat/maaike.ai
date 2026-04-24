@@ -8439,41 +8439,6 @@
       "collection": "field-notes"
     },
     {
-      "subject": "tao-topic-mapping",
-      "predicate": "attributed-to",
-      "object": "steve-pepper",
-      "source": "thematic-tao-three-pass-method",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "thematic-tao-method",
-      "predicate": "structured-as",
-      "object": "three-pass-method",
-      "source": "thematic-tao-three-pass-method",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "thematic-tao-method",
-      "predicate": "reinforces",
-      "object": "thematic-analysis",
-      "source": "thematic-tao-three-pass-method",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "thematic-tao-method",
-      "predicate": "requires",
-      "object": "controlled-predicate-vocabulary",
-      "source": "thematic-tao-three-pass-method",
-      "collection": "field-notes"
-    },
-    {
-      "subject": "thematic-tao-method",
-      "predicate": "better-fits",
-      "object": "knowledge-graph-for-garden",
-      "source": "thematic-tao-three-pass-method",
-      "collection": "field-notes"
-    },
-    {
       "subject": "thinking-in-public",
       "predicate": "better-fits",
       "object": "digital-garden",
@@ -9501,6 +9466,41 @@
       "object": "anthropocentrism",
       "source": "reading-notes-bacteria-to-ai",
       "collection": "seeds"
+    },
+    {
+      "subject": "tao-topic-mapping",
+      "predicate": "attributed-to",
+      "object": "steve-pepper",
+      "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "thematic-tao-method",
+      "predicate": "structured-as",
+      "object": "three-pass-method",
+      "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "thematic-tao-method",
+      "predicate": "reinforces",
+      "object": "thematic-analysis",
+      "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "thematic-tao-method",
+      "predicate": "requires",
+      "object": "controlled-predicate-vocabulary",
+      "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "thematic-tao-method",
+      "predicate": "better-fits",
+      "object": "knowledge-graph-for-garden",
+      "source": "thematic-tao-three-pass-method",
+      "collection": "field-notes"
     }
   ]
 }
