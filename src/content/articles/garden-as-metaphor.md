@@ -12,6 +12,10 @@ tags:
 - thinking-in-public
 description: Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.
 ai: 100% Maai
+themes:
+- The garden metaphor as editorial stance against the stream
+- Ideas as living things with stages of maturity
+- Thinking in public as a generative practice
 triples:
 - [Digital garden, contrasted-with, Stream]
 - [Digital garden, leads-to, Thinking in public]

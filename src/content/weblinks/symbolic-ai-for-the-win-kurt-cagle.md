@@ -4,7 +4,20 @@ url: https://www.linkedin.com/posts/kurtcagle_symbolic-ai-for-the-win-i-am-worki
 date: 2026-04-12
 updated: 2026-04-12
 maturity: solid
-tags: []
+tags:
+  - knowledge-graph
+  - ontology
+  - llm
+  - systems-thinking
+themes:
+- Neurosymbolic architectures as a corrective to pure LLM pattern-matching
+- Holons as structural units of meaning
+triples:
+- [Symbolic AI, reinforces, Neurosymbolic AI]
+- [Neurosymbolic AI, counters, Probabilistic word prediction]
+- [Holons, characterised-as, Semantic structure]
+- [Symbolic AI, attributed-to, Kurt Cagle]
+- [Claude Code, demonstrates, Neurosymbolic AI]
 description: ""
 ai: "100% Maai"
 draft: false

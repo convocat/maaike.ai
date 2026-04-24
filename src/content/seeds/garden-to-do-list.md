@@ -6,7 +6,16 @@ maturity: compost
 tags:
   - digital-gardens
   - developer-experience
+  - serendipity
+  - conversational-ai
 description: A living list of ideas and plans for this garden.
+themes:
+- Running scratchpad for garden upkeep
+- Serendipity by design over generative chat
+triples:
+- [Conversational garden guide, counters, Generative chat]
+- [Conversational garden guide, demonstrates, Serendipity]
+- [Garden to-do list, instance-of, Thinking in public]
 draft: false
 ai: co-created
 ---

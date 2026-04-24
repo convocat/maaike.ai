@@ -14,6 +14,10 @@ tags:
 - role-based-collaboration
 - skill-based-work
 - building-as-specification
+themes:
+- Claude Code as a de-siloing force across traditional roles
+- Building as specification replacing intermediary deliverables
+- From static roles to fluid skill configurations
 triples:
 - [Claude Code, leads-to, Building as specification]
 - [GenAI, counters, Role-based collaboration]

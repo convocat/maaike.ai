@@ -8,6 +8,18 @@ applied through a **three-pass read**.
 
 Use the post that was just created (if called from `/new-post`), or ask the user which post to analyze. Read the full content (frontmatter + body).
 
+### Step 1a: Fetch URL content if the body is thin (mandatory for weblinks)
+
+A post with a `url:` field in frontmatter but little or no body text (less than ~200 characters of prose outside the frontmatter, or body that's just a title/reference) cannot be analysed on its own. Before proceeding, **fetch the URL** with `WebFetch` and use the fetched article text as the source material for Pass 1 and Pass 2.
+
+Rules:
+- This applies to any post (not just `weblinks/`) that has a `url:` in frontmatter and a thin body.
+- Use the fetched content ONLY as source material for TAO extraction. Do NOT write the fetched body into the post file.
+- If the fetch fails (403, paywall, 404), note it and fall back to whatever is in the title + description — do not fabricate content.
+- The post itself stays as the user wrote it. Only the analysis gains context from the URL.
+
+This step exists because a weblink enricher that doesn't look at the linked page is useless.
+
 ## Step 2: Build context
 
 1. **Existing tags**: Glob `src/content/tags/*.md` and extract all tag titles and slugs.

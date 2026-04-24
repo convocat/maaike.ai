@@ -11,7 +11,15 @@ tags:
   - genai
   - agentic-ai
   - security
-triples: []
+  - ai-ethics
+themes:
+- AI slop as an emerging systemic risk in critical software
+- Anthropic's Project Glasswing as an attempt to secure open-source infrastructure
+triples:
+- [Project Glasswing, counters, AI slop]
+- [AI slop, risks, Critical software]
+- [Project Glasswing, attributed-to, Anthropic]
+- [Agentic AI, generates, AI slop]
 ---
 
 # AI slop and the Glasswing project

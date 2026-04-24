@@ -14,8 +14,15 @@ tags:
 - thinking-in-public
 description: 'Issue of the Convocat newsletter Creative Prompts: garden updates, news for content professionals, seeds, and what I''m reading.'
 ai: 100% Maai
+themes:
+- Newsletter as a personal-web entry point
+- Garden updates and industry reading
+- Return of deterministic routing in chat interfaces
 triples:
 - [Personal web, counters, Algorithmic feed]
+- [Convocat, instance-of, Personal web]
+- [Deterministic routing, counters, Natural language interaction]
+- [Creative prompts, demonstrates, Thinking in public]
 ---
 Dear Convofriends!
 

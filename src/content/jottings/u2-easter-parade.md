@@ -10,8 +10,14 @@ type: link
 url: https://youtu.be/8VTBM3AnkTU?si=BPo_vJrceteVAPxA
 tags:
 - music
+- personal
+themes:
+- Creative longevity across a 50-year career
+- Personal music touchstones
 triples:
 - [U2, exhibits, Creative longevity]
+- [Easter parade, instance-of, U2]
+- [The Joshua Tree, attributed-to, U2]
 ---
 # U2 - Easter parade
 

@@ -4,7 +4,19 @@ url: https://www.linkedin.com/posts/benjaminwigler_just-want-to-take-a-moment-to
 date: 2026-04-06
 updated: 2026-04-06
 maturity: solid
-tags: []
+tags:
+  - llm
+  - anthropomorphism
+  - cognition
+  - llm-observability
+themes:
+- Internal mechanisms of emotional output in LLMs
+- Interpretability as control, not just description
+triples:
+- [Emotion circuits, theorised-by, Chenxi Wang]
+- [Emotion circuits, characterised-as, LLM observability]
+- [Emotion circuits, risks, Anthropomorphism]
+- [Emotion circuits, demonstrates, LLM interpretability]
 description: "Ben Wigler highlights a paper on emotion circuits in LLMs: discovery and control."
 ai: "100% Maai"
 draft: false

@@ -4827,84 +4827,599 @@
     "pkm-research-gap": {
       "label": "PKM research gap",
       "type": "phenomenon",
-      "lens": ["epistemology", "development"],
-      "subject": ["knowledge", "digital-garden"],
+      "lens": [
+        "epistemology",
+        "development"
+      ],
+      "subject": [
+        "knowledge",
+        "digital-garden"
+      ],
       "role": "position"
     },
     "tiny-team": {
       "label": "Tiny team",
       "type": "concept",
-      "lens": ["development", "personal"],
-      "subject": ["future-of-work"],
+      "lens": [
+        "development",
+        "personal"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
       "role": "position"
     },
     "authentic-voice": {
       "label": "Authentic voice",
       "type": "concept",
-      "lens": ["rhetoric", "culture", "personal"],
-      "subject": ["writing", "voice"],
+      "lens": [
+        "rhetoric",
+        "culture",
+        "personal"
+      ],
+      "subject": [
+        "writing",
+        "voice"
+      ],
       "role": "position"
     },
     "ivr": {
       "label": "IVR",
       "type": "technology",
-      "lens": ["interaction", "design"],
-      "subject": ["conversation", "voice"]
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "conversation",
+        "voice"
+      ]
     },
     "prompt-injection": {
       "label": "Prompt injection",
       "type": "phenomenon",
-      "lens": ["development", "design"],
-      "subject": ["prompt", "llm"],
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "prompt",
+        "llm"
+      ],
       "role": "tendency"
     },
     "garden-tending": {
       "label": "Garden tending",
       "type": "method",
-      "lens": ["design", "personal"],
-      "subject": ["digital-garden", "writing"]
+      "lens": [
+        "design",
+        "personal"
+      ],
+      "subject": [
+        "digital-garden",
+        "writing"
+      ]
     },
     "library-audit": {
       "label": "Library audit",
       "type": "method",
-      "lens": ["personal", "design"],
-      "subject": ["digital-garden", "tooling"],
+      "lens": [
+        "personal",
+        "design"
+      ],
+      "subject": [
+        "digital-garden",
+        "tooling"
+      ],
       "role": "instrument"
     },
     "reading-calibration": {
       "label": "Reading calibration",
       "type": "concept",
-      "lens": ["personal", "design"],
-      "subject": ["tooling", "digital-garden"],
+      "lens": [
+        "personal",
+        "design"
+      ],
+      "subject": [
+        "tooling",
+        "digital-garden"
+      ],
       "role": "framework"
     },
     "ereader-invisibility": {
       "label": "Ereader invisibility",
       "type": "phenomenon",
-      "lens": ["personal", "interaction"],
-      "subject": ["tooling", "digital-garden"],
+      "lens": [
+        "personal",
+        "interaction"
+      ],
+      "subject": [
+        "tooling",
+        "digital-garden"
+      ],
       "role": "tendency"
     },
     "reading-mix": {
       "label": "Reading mix",
       "type": "concept",
-      "lens": ["personal", "design"],
-      "subject": ["tooling", "digital-garden"],
+      "lens": [
+        "personal",
+        "design"
+      ],
+      "subject": [
+        "tooling",
+        "digital-garden"
+      ],
       "role": "position"
     },
     "library-hallucination": {
       "label": "Library hallucination",
       "type": "phenomenon",
-      "lens": ["development", "design"],
-      "subject": ["llm", "digital-garden"],
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "digital-garden"
+      ],
       "role": "tendency"
     },
     "open-library-verification": {
       "label": "Open Library verification",
       "type": "method",
-      "lens": ["development", "design"],
-      "subject": ["tooling", "digital-garden"],
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "tooling",
+        "digital-garden"
+      ],
       "role": "instrument"
+    },
+    "bacteria-to-ai": {
+      "label": "Bacteria to AI",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "culture"
+      ],
+      "subject": [
+        "mind",
+        "knowledge"
+      ]
+    },
+    "slow-reading": {
+      "label": "Slow reading",
+      "type": "method",
+      "lens": [
+        "personal",
+        "culture"
+      ],
+      "subject": [
+        "writing",
+        "knowledge"
+      ]
+    },
+    "crew-resource-management": {
+      "label": "Crew Resource Management",
+      "type": "method",
+      "lens": [
+        "culture",
+        "cognition"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "human-llm-collaboration": {
+      "label": "Human-LLM collaboration",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "agent",
+        "future-of-work"
+      ]
+    },
+    "hierarchical-deference": {
+      "label": "Hierarchical deference",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "cognition"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
+      "role": "counter-position"
+    },
+    "conversational-garden-guide": {
+      "label": "Conversational garden guide",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "digital-garden",
+        "conversation-design"
+      ]
+    },
+    "generative-chat": {
+      "label": "Generative chat",
+      "type": "technology",
+      "lens": [
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "conversation"
+      ],
+      "role": "counter-position"
+    },
+    "garden-to-do-list": {
+      "label": "Garden to-do list",
+      "type": "method",
+      "lens": [
+        "personal"
+      ],
+      "subject": [
+        "digital-garden"
+      ]
+    },
+    "project-glasswing": {
+      "label": "Project Glasswing",
+      "type": "technology",
+      "lens": [
+        "development",
+        "observability"
+      ],
+      "subject": [
+        "agent"
+      ],
+      "role": "instrument"
+    },
+    "ai-slop": {
+      "label": "AI slop",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "design"
+      ],
+      "subject": [
+        "content",
+        "llm"
+      ],
+      "role": "counter-position"
+    },
+    "critical-software": {
+      "label": "Critical software",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "tooling"
+      ]
+    },
+    "anthropic": {
+      "label": "Anthropic",
+      "type": "technology",
+      "lens": [
+        "development",
+        "culture"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ]
+    },
+    "deterministic-routing": {
+      "label": "Deterministic routing",
+      "type": "method",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "conversation-design",
+        "conversation"
+      ],
+      "role": "position"
+    },
+    "natural-language-interaction": {
+      "label": "Natural language interaction",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "linguistics"
+      ],
+      "subject": [
+        "conversation",
+        "conversation-design"
+      ],
+      "role": "counter-position"
+    },
+    "creative-prompts-newsletter": {
+      "label": "Creative prompts",
+      "type": "phenomenon",
+      "lens": [
+        "personal",
+        "culture"
+      ],
+      "subject": [
+        "writing",
+        "digital-garden"
+      ]
+    },
+    "easter-parade": {
+      "label": "Easter parade",
+      "type": "phenomenon",
+      "lens": [
+        "personal",
+        "culture"
+      ],
+      "subject": [
+        "music"
+      ]
+    },
+    "the-joshua-tree": {
+      "label": "The Joshua Tree",
+      "type": "phenomenon",
+      "lens": [
+        "personal",
+        "culture"
+      ],
+      "subject": [
+        "music"
+      ]
+    },
+    "alcpe": {
+      "label": "ALCPE",
+      "type": "method",
+      "lens": [
+        "development",
+        "observability"
+      ],
+      "subject": [
+        "llm",
+        "prompt"
+      ],
+      "role": "framework"
+    },
+    "r-verity-vabolis": {
+      "label": "R. Verity Vabolis",
+      "type": "person",
+      "lens": [
+        "development",
+        "observability"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "semantic-distance-tracking": {
+      "label": "Semantic distance tracking",
+      "type": "method",
+      "lens": [
+        "observability",
+        "linguistics"
+      ],
+      "subject": [
+        "llm",
+        "prompt"
+      ],
+      "role": "instrument"
+    },
+    "llm-vulnerability-analysis": {
+      "label": "LLM vulnerability analysis",
+      "type": "discipline",
+      "lens": [
+        "observability",
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "prompt"
+      ]
+    },
+    "algorithmic-epistemic-injustice": {
+      "label": "Algorithmic epistemic injustice",
+      "type": "concept",
+      "lens": [
+        "epistemology",
+        "culture"
+      ],
+      "subject": [
+        "knowledge",
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "miranda-fricker": {
+      "label": "Miranda Fricker",
+      "type": "person",
+      "lens": [
+        "philosophy",
+        "epistemology"
+      ],
+      "subject": [
+        "knowledge"
+      ]
+    },
+    "timothy-cook": {
+      "label": "Timothy Cook",
+      "type": "person",
+      "lens": [
+        "epistemology",
+        "culture"
+      ],
+      "subject": [
+        "knowledge",
+        "llm"
+      ]
+    },
+    "epistemic-friction": {
+      "label": "Epistemic friction",
+      "type": "concept",
+      "lens": [
+        "epistemology"
+      ],
+      "subject": [
+        "knowledge"
+      ],
+      "role": "position"
+    },
+    "emotion-circuits": {
+      "label": "Emotion circuits",
+      "type": "mechanism",
+      "lens": [
+        "observability",
+        "cognition"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "chenxi-wang": {
+      "label": "Chenxi Wang",
+      "type": "person",
+      "lens": [
+        "development",
+        "observability"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "llm-interpretability": {
+      "label": "LLM interpretability",
+      "type": "discipline",
+      "lens": [
+        "observability",
+        "development"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "symbolic-ai": {
+      "label": "Symbolic AI",
+      "type": "technology",
+      "lens": [
+        "development",
+        "philosophy"
+      ],
+      "subject": [
+        "knowledge",
+        "agent"
+      ],
+      "role": "position"
+    },
+    "neurosymbolic-ai": {
+      "label": "Neurosymbolic AI",
+      "type": "technology",
+      "lens": [
+        "development",
+        "cognition"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ],
+      "role": "position"
+    },
+    "holons": {
+      "label": "Holons",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "design"
+      ],
+      "subject": [
+        "knowledge",
+        "information-architecture"
+      ]
+    },
+    "kurt-cagle": {
+      "label": "Kurt Cagle",
+      "type": "person",
+      "lens": [
+        "development",
+        "philosophy"
+      ],
+      "subject": [
+        "knowledge",
+        "llm"
+      ]
+    },
+    "semantic-structure": {
+      "label": "Semantic structure",
+      "type": "concept",
+      "lens": [
+        "linguistics",
+        "design"
+      ],
+      "subject": [
+        "information-architecture",
+        "knowledge"
+      ]
+    },
+    "cognitive-outsourcing": {
+      "label": "Cognitive outsourcing",
+      "type": "phenomenon",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "mind",
+        "future-of-work"
+      ],
+      "role": "counter-position"
+    },
+    "supervision": {
+      "label": "Supervision",
+      "type": "method",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "future-of-work",
+        "knowledge"
+      ]
+    },
+    "expertise": {
+      "label": "Expertise",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "knowledge",
+        "future-of-work"
+      ]
+    },
+    "academic-metrics": {
+      "label": "Academic metrics",
+      "type": "phenomenon",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
+      "role": "counter-position"
     }
   },
   "associations": [
@@ -6144,55 +6659,6 @@
       "object": "agentic-ai",
       "source": "instagram",
       "collection": "weblinks"
-    },
-    {
-      "subject": "personal-web",
-      "predicate": "counters",
-      "object": "algorithmic-feed",
-      "source": "creative-prompts-april-2026",
-      "collection": "jottings"
-    },
-    {
-      "subject": "u2",
-      "predicate": "exhibits",
-      "object": "creative-longevity",
-      "source": "u2-easter-parade",
-      "collection": "jottings"
-    },
-    {
-      "subject": "claude-code",
-      "predicate": "leads-to",
-      "object": "building-as-specification",
-      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "collection": "jottings"
-    },
-    {
-      "subject": "genai",
-      "predicate": "counters",
-      "object": "role-based-collaboration",
-      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "collection": "jottings"
-    },
-    {
-      "subject": "skill-based-work",
-      "predicate": "contrasted-with",
-      "object": "role-based-collaboration",
-      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "collection": "jottings"
-    },
-    {
-      "subject": "claude-code",
-      "predicate": "leads-to",
-      "object": "skill-based-work",
-      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "collection": "jottings"
-    },
-    {
-      "subject": "claude-code",
-      "predicate": "demonstrates",
-      "object": "metacognition",
-      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
-      "collection": "jottings"
     },
     {
       "subject": "digital-garden",
@@ -8231,72 +8697,810 @@
       "source": "dutch-aware-quantization",
       "collection": "seeds"
     },
-    { "subject": "text-embeddings", "predicate": "lacks", "object": "pkm-research-gap", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
-    { "subject": "personal-knowledge-management", "predicate": "requires", "object": "text-embeddings", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
-    { "subject": "text-embeddings", "predicate": "generates", "object": "serendipity", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "instance-of", "object": "personal-knowledge-management", "source": "embeddings-for-knowledge-gardens-research-gap", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "structured-as", "object": "wiki-links", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "requires", "object": "astro-framework", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "exhibits", "object": "maturity-system", "source": "how-to-build-a-digital-garden", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "generates", "object": "serendipity", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "counters", "object": "algorithmic-feed", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
-    { "subject": "personal-web", "predicate": "exhibits", "object": "serendipity", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
-    { "subject": "non-linear-thinking", "predicate": "better-fits", "object": "digital-garden", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "characterised-as", "object": "thinking-in-public", "source": "knowledge-gardens-and-serendipity", "collection": "seeds" },
-    { "subject": "tiny-team", "predicate": "requires", "object": "skill-based-work", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
-    { "subject": "claude-code", "predicate": "leads-to", "object": "building-as-specification", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
-    { "subject": "role-based-collaboration", "predicate": "breaks-down-for", "object": "tiny-team", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
-    { "subject": "claude-code", "predicate": "demonstrates", "object": "skill-based-work", "source": "my-changing-role-in-an-ultrasmall-development-team", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "exhibits", "object": "thinking-in-public", "source": "principles-behind-this-garden", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "exhibits", "object": "imperfection-principle", "source": "principles-behind-this-garden", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "structured-as", "object": "maturity-system", "source": "principles-behind-this-garden", "collection": "seeds" },
-    { "subject": "ai-transparency", "predicate": "counters", "object": "ghostwriting", "source": "style-guide-for-ai", "collection": "seeds" },
-    { "subject": "writing-as-craft", "predicate": "requires", "object": "ai-transparency", "source": "style-guide-for-ai", "collection": "seeds" },
-    { "subject": "ai-as-writing-partner", "predicate": "contrasted-with", "object": "ghostwriting", "source": "style-guide-for-ai", "collection": "seeds" },
-    { "subject": "authentic-voice", "predicate": "counters", "object": "algorithmic-feed", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
-    { "subject": "authentic-voice", "predicate": "attributed-to", "object": "personal-web", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
-    { "subject": "writing-as-craft", "predicate": "requires", "object": "authentic-voice", "source": "the-disappearance-of-authentic-voice-online", "collection": "seeds" },
-    { "subject": "claude-code", "predicate": "demonstrates", "object": "structured-input", "source": "the-return-of-the-button", "collection": "seeds" },
-    { "subject": "structured-input", "predicate": "counters", "object": "prompt-injection", "source": "the-return-of-the-button", "collection": "seeds" },
-    { "subject": "ivr", "predicate": "metaphor-for", "object": "structured-input", "source": "the-return-of-the-button", "collection": "seeds" },
-    { "subject": "structured-input", "predicate": "contrasted-with", "object": "conversational-interface", "source": "the-return-of-the-button", "collection": "seeds" },
-    { "subject": "thematic-analysis", "predicate": "contrasted-with", "object": "conversation-metaphor", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
-    { "subject": "thematic-analysis", "predicate": "better-fits", "object": "one-million-context-window", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
-    { "subject": "thematic-analysis", "predicate": "demonstrates", "object": "metacognition", "source": "thematic-analysis-as-interaction-model-and-research-method", "collection": "seeds" },
-    { "subject": "writing-as-craft", "predicate": "metaphor-for", "object": "inner-dialog-metaphor", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
-    { "subject": "writing-as-craft", "predicate": "demonstrates", "object": "metacognition", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
-    { "subject": "digital-garden", "predicate": "exhibits", "object": "inner-dialog-metaphor", "source": "writing-as-a-conversation-with-yourself", "collection": "seeds" },
-    { "subject": "n-katherine-hayles", "predicate": "counters", "object": "anthropocentrism", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
-    { "subject": "nonconscious-cognition", "predicate": "theorised-by", "object": "n-katherine-hayles", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
-    { "subject": "nonconscious-cognition", "predicate": "contrasted-with", "object": "anthropocentrism", "source": "on-the-joy-of-finding-a-good-book", "collection": "jottings" },
-    { "subject": "garden-tending", "predicate": "contrasted-with", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
-    { "subject": "ai-as-writing-partner", "predicate": "risks", "object": "writing-as-craft", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
-    { "subject": "claude-code", "predicate": "generates", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
-    { "subject": "digital-garden", "predicate": "requires", "object": "garden-tending", "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing", "collection": "jottings" },
-    { "subject": "book-recommender-tool", "predicate": "requires", "object": "library-audit", "source": "book-recommender-library-audit", "collection": "experiments" },
-    { "subject": "library-audit", "predicate": "generates", "object": "reading-calibration", "source": "book-recommender-library-audit", "collection": "experiments" },
-    { "subject": "ereader-invisibility", "predicate": "breaks-down-for", "object": "digital-garden", "source": "book-recommender-library-audit", "collection": "experiments" },
-    { "subject": "book-recommender-tool", "predicate": "requires", "object": "digital-garden", "source": "book-recommender-library-integration", "collection": "experiments" },
-    { "subject": "library-audit", "predicate": "structured-as", "object": "yaml-frontmatter-errors", "source": "book-recommender-library-integration", "collection": "experiments" },
-    { "subject": "book-recommender-tool", "predicate": "generates", "object": "scoring-algorithm", "source": "book-recommender-library-integration", "collection": "experiments" },
-    { "subject": "scoring-algorithm", "predicate": "structured-as", "object": "reading-calibration", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
-    { "subject": "book-recommender-tool", "predicate": "requires", "object": "scoring-algorithm", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
-    { "subject": "scoring-algorithm", "predicate": "contrasted-with", "object": "text-embeddings", "source": "book-recommender-scoring-algorithm", "collection": "experiments" },
-    { "subject": "book-recommender-tool", "predicate": "requires", "object": "reading-calibration", "source": "book-recommender-user-research", "collection": "experiments" },
-    { "subject": "reading-calibration", "predicate": "attributed-to", "object": "book-recommender-tool", "source": "book-recommender-user-research", "collection": "experiments" },
-    { "subject": "reading-mix", "predicate": "better-fits", "object": "book-recommender-tool", "source": "book-recommender-user-research", "collection": "experiments" },
-    { "subject": "library-hallucination", "predicate": "attributed-to", "object": "confabulation", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
-    { "subject": "confabulation", "predicate": "risks", "object": "digital-garden", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
-    { "subject": "ai-transparency", "predicate": "lacks", "object": "library-hallucination", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
-    { "subject": "open-library-verification", "predicate": "counters", "object": "confabulation", "source": "hallucinated-library-entry-postmortem", "collection": "experiments" },
-    { "subject": "key-phrase-extraction", "predicate": "demonstrates", "object": "ollama", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
-    { "subject": "yake", "predicate": "contrasted-with", "object": "key-phrase-extraction", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
-    { "subject": "key-phrase-extraction", "predicate": "requires", "object": "llms", "source": "key-phrase-extraction-prototype", "collection": "experiments" },
-    { "subject": "text-embeddings", "predicate": "requires", "object": "ollama", "source": "setting-up-local-embedding-models", "collection": "experiments" },
-    { "subject": "bge-m3", "predicate": "instance-of", "object": "text-embeddings", "source": "setting-up-local-embedding-models", "collection": "experiments" },
-    { "subject": "similarity-threshold", "predicate": "demonstrates", "object": "text-embeddings", "source": "setting-up-local-embedding-models", "collection": "experiments" },
-    { "subject": "digital-garden", "predicate": "attributed-to", "object": "maggie-appleton", "source": "digital-garden-history", "collection": "weblinks" },
-    { "subject": "digital-garden", "predicate": "characterised-as", "object": "thinking-in-public", "source": "digital-garden-history", "collection": "weblinks" },
-    { "subject": "personal-web", "predicate": "instance-of", "object": "digital-garden", "source": "digital-garden-history", "collection": "weblinks" }
+    {
+      "subject": "text-embeddings",
+      "predicate": "lacks",
+      "object": "pkm-research-gap",
+      "source": "embeddings-for-knowledge-gardens-research-gap",
+      "collection": "seeds"
+    },
+    {
+      "subject": "personal-knowledge-management",
+      "predicate": "requires",
+      "object": "text-embeddings",
+      "source": "embeddings-for-knowledge-gardens-research-gap",
+      "collection": "seeds"
+    },
+    {
+      "subject": "text-embeddings",
+      "predicate": "generates",
+      "object": "serendipity",
+      "source": "embeddings-for-knowledge-gardens-research-gap",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "instance-of",
+      "object": "personal-knowledge-management",
+      "source": "embeddings-for-knowledge-gardens-research-gap",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "structured-as",
+      "object": "wiki-links",
+      "source": "how-to-build-a-digital-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "requires",
+      "object": "astro-framework",
+      "source": "how-to-build-a-digital-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "exhibits",
+      "object": "maturity-system",
+      "source": "how-to-build-a-digital-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "generates",
+      "object": "serendipity",
+      "source": "knowledge-gardens-and-serendipity",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "knowledge-gardens-and-serendipity",
+      "collection": "seeds"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "exhibits",
+      "object": "serendipity",
+      "source": "knowledge-gardens-and-serendipity",
+      "collection": "seeds"
+    },
+    {
+      "subject": "non-linear-thinking",
+      "predicate": "better-fits",
+      "object": "digital-garden",
+      "source": "knowledge-gardens-and-serendipity",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "characterised-as",
+      "object": "thinking-in-public",
+      "source": "knowledge-gardens-and-serendipity",
+      "collection": "seeds"
+    },
+    {
+      "subject": "tiny-team",
+      "predicate": "requires",
+      "object": "skill-based-work",
+      "source": "my-changing-role-in-an-ultrasmall-development-team",
+      "collection": "seeds"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "leads-to",
+      "object": "building-as-specification",
+      "source": "my-changing-role-in-an-ultrasmall-development-team",
+      "collection": "seeds"
+    },
+    {
+      "subject": "role-based-collaboration",
+      "predicate": "breaks-down-for",
+      "object": "tiny-team",
+      "source": "my-changing-role-in-an-ultrasmall-development-team",
+      "collection": "seeds"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "demonstrates",
+      "object": "skill-based-work",
+      "source": "my-changing-role-in-an-ultrasmall-development-team",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "exhibits",
+      "object": "thinking-in-public",
+      "source": "principles-behind-this-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "exhibits",
+      "object": "imperfection-principle",
+      "source": "principles-behind-this-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "structured-as",
+      "object": "maturity-system",
+      "source": "principles-behind-this-garden",
+      "collection": "seeds"
+    },
+    {
+      "subject": "ai-transparency",
+      "predicate": "counters",
+      "object": "ghostwriting",
+      "source": "style-guide-for-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "requires",
+      "object": "ai-transparency",
+      "source": "style-guide-for-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "ai-as-writing-partner",
+      "predicate": "contrasted-with",
+      "object": "ghostwriting",
+      "source": "style-guide-for-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "authentic-voice",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "the-disappearance-of-authentic-voice-online",
+      "collection": "seeds"
+    },
+    {
+      "subject": "authentic-voice",
+      "predicate": "attributed-to",
+      "object": "personal-web",
+      "source": "the-disappearance-of-authentic-voice-online",
+      "collection": "seeds"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "requires",
+      "object": "authentic-voice",
+      "source": "the-disappearance-of-authentic-voice-online",
+      "collection": "seeds"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "demonstrates",
+      "object": "structured-input",
+      "source": "the-return-of-the-button",
+      "collection": "seeds"
+    },
+    {
+      "subject": "structured-input",
+      "predicate": "counters",
+      "object": "prompt-injection",
+      "source": "the-return-of-the-button",
+      "collection": "seeds"
+    },
+    {
+      "subject": "ivr",
+      "predicate": "metaphor-for",
+      "object": "structured-input",
+      "source": "the-return-of-the-button",
+      "collection": "seeds"
+    },
+    {
+      "subject": "structured-input",
+      "predicate": "contrasted-with",
+      "object": "conversational-interface",
+      "source": "the-return-of-the-button",
+      "collection": "seeds"
+    },
+    {
+      "subject": "thematic-analysis",
+      "predicate": "contrasted-with",
+      "object": "conversation-metaphor",
+      "source": "thematic-analysis-as-interaction-model-and-research-method",
+      "collection": "seeds"
+    },
+    {
+      "subject": "thematic-analysis",
+      "predicate": "better-fits",
+      "object": "one-million-context-window",
+      "source": "thematic-analysis-as-interaction-model-and-research-method",
+      "collection": "seeds"
+    },
+    {
+      "subject": "thematic-analysis",
+      "predicate": "demonstrates",
+      "object": "metacognition",
+      "source": "thematic-analysis-as-interaction-model-and-research-method",
+      "collection": "seeds"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "metaphor-for",
+      "object": "inner-dialog-metaphor",
+      "source": "writing-as-a-conversation-with-yourself",
+      "collection": "seeds"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "demonstrates",
+      "object": "metacognition",
+      "source": "writing-as-a-conversation-with-yourself",
+      "collection": "seeds"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "exhibits",
+      "object": "inner-dialog-metaphor",
+      "source": "writing-as-a-conversation-with-yourself",
+      "collection": "seeds"
+    },
+    {
+      "subject": "n-katherine-hayles",
+      "predicate": "counters",
+      "object": "anthropocentrism",
+      "source": "on-the-joy-of-finding-a-good-book",
+      "collection": "jottings"
+    },
+    {
+      "subject": "nonconscious-cognition",
+      "predicate": "theorised-by",
+      "object": "n-katherine-hayles",
+      "source": "on-the-joy-of-finding-a-good-book",
+      "collection": "jottings"
+    },
+    {
+      "subject": "nonconscious-cognition",
+      "predicate": "contrasted-with",
+      "object": "anthropocentrism",
+      "source": "on-the-joy-of-finding-a-good-book",
+      "collection": "jottings"
+    },
+    {
+      "subject": "garden-tending",
+      "predicate": "contrasted-with",
+      "object": "writing-as-craft",
+      "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "collection": "jottings"
+    },
+    {
+      "subject": "ai-as-writing-partner",
+      "predicate": "risks",
+      "object": "writing-as-craft",
+      "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "collection": "jottings"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "generates",
+      "object": "garden-tending",
+      "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "collection": "jottings"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "requires",
+      "object": "garden-tending",
+      "source": "the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
+      "collection": "jottings"
+    },
+    {
+      "subject": "book-recommender-tool",
+      "predicate": "requires",
+      "object": "library-audit",
+      "source": "book-recommender-library-audit",
+      "collection": "experiments"
+    },
+    {
+      "subject": "library-audit",
+      "predicate": "generates",
+      "object": "reading-calibration",
+      "source": "book-recommender-library-audit",
+      "collection": "experiments"
+    },
+    {
+      "subject": "ereader-invisibility",
+      "predicate": "breaks-down-for",
+      "object": "digital-garden",
+      "source": "book-recommender-library-audit",
+      "collection": "experiments"
+    },
+    {
+      "subject": "book-recommender-tool",
+      "predicate": "requires",
+      "object": "digital-garden",
+      "source": "book-recommender-library-integration",
+      "collection": "experiments"
+    },
+    {
+      "subject": "library-audit",
+      "predicate": "structured-as",
+      "object": "yaml-frontmatter-errors",
+      "source": "book-recommender-library-integration",
+      "collection": "experiments"
+    },
+    {
+      "subject": "book-recommender-tool",
+      "predicate": "generates",
+      "object": "scoring-algorithm",
+      "source": "book-recommender-library-integration",
+      "collection": "experiments"
+    },
+    {
+      "subject": "scoring-algorithm",
+      "predicate": "structured-as",
+      "object": "reading-calibration",
+      "source": "book-recommender-scoring-algorithm",
+      "collection": "experiments"
+    },
+    {
+      "subject": "book-recommender-tool",
+      "predicate": "requires",
+      "object": "scoring-algorithm",
+      "source": "book-recommender-scoring-algorithm",
+      "collection": "experiments"
+    },
+    {
+      "subject": "scoring-algorithm",
+      "predicate": "contrasted-with",
+      "object": "text-embeddings",
+      "source": "book-recommender-scoring-algorithm",
+      "collection": "experiments"
+    },
+    {
+      "subject": "book-recommender-tool",
+      "predicate": "requires",
+      "object": "reading-calibration",
+      "source": "book-recommender-user-research",
+      "collection": "experiments"
+    },
+    {
+      "subject": "reading-calibration",
+      "predicate": "attributed-to",
+      "object": "book-recommender-tool",
+      "source": "book-recommender-user-research",
+      "collection": "experiments"
+    },
+    {
+      "subject": "reading-mix",
+      "predicate": "better-fits",
+      "object": "book-recommender-tool",
+      "source": "book-recommender-user-research",
+      "collection": "experiments"
+    },
+    {
+      "subject": "library-hallucination",
+      "predicate": "attributed-to",
+      "object": "confabulation",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "confabulation",
+      "predicate": "risks",
+      "object": "digital-garden",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "ai-transparency",
+      "predicate": "lacks",
+      "object": "library-hallucination",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "open-library-verification",
+      "predicate": "counters",
+      "object": "confabulation",
+      "source": "hallucinated-library-entry-postmortem",
+      "collection": "experiments"
+    },
+    {
+      "subject": "key-phrase-extraction",
+      "predicate": "demonstrates",
+      "object": "ollama",
+      "source": "key-phrase-extraction-prototype",
+      "collection": "experiments"
+    },
+    {
+      "subject": "yake",
+      "predicate": "contrasted-with",
+      "object": "key-phrase-extraction",
+      "source": "key-phrase-extraction-prototype",
+      "collection": "experiments"
+    },
+    {
+      "subject": "key-phrase-extraction",
+      "predicate": "requires",
+      "object": "llms",
+      "source": "key-phrase-extraction-prototype",
+      "collection": "experiments"
+    },
+    {
+      "subject": "text-embeddings",
+      "predicate": "requires",
+      "object": "ollama",
+      "source": "setting-up-local-embedding-models",
+      "collection": "experiments"
+    },
+    {
+      "subject": "bge-m3",
+      "predicate": "instance-of",
+      "object": "text-embeddings",
+      "source": "setting-up-local-embedding-models",
+      "collection": "experiments"
+    },
+    {
+      "subject": "similarity-threshold",
+      "predicate": "demonstrates",
+      "object": "text-embeddings",
+      "source": "setting-up-local-embedding-models",
+      "collection": "experiments"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "attributed-to",
+      "object": "maggie-appleton",
+      "source": "digital-garden-history",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "characterised-as",
+      "object": "thinking-in-public",
+      "source": "digital-garden-history",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "instance-of",
+      "object": "digital-garden",
+      "source": "digital-garden-history",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "bacteria-to-ai",
+      "predicate": "attributed-to",
+      "object": "n-katherine-hayles",
+      "source": "a-reading-log-for-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "bacteria-to-ai",
+      "predicate": "characterised-as",
+      "object": "slow-reading",
+      "source": "a-reading-log-for-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "bacteria-to-ai",
+      "predicate": "demonstrates",
+      "object": "nonconscious-cognition",
+      "source": "a-reading-log-for-bacteria-to-ai",
+      "collection": "seeds"
+    },
+    {
+      "subject": "crew-resource-management",
+      "predicate": "metaphor-for",
+      "object": "human-llm-collaboration",
+      "source": "crew-resource-management",
+      "collection": "seeds"
+    },
+    {
+      "subject": "crew-resource-management",
+      "predicate": "counters",
+      "object": "hierarchical-deference",
+      "source": "crew-resource-management",
+      "collection": "seeds"
+    },
+    {
+      "subject": "crew-resource-management",
+      "predicate": "better-fits",
+      "object": "agentic-ai",
+      "source": "crew-resource-management",
+      "collection": "seeds"
+    },
+    {
+      "subject": "conversational-garden-guide",
+      "predicate": "counters",
+      "object": "generative-chat",
+      "source": "garden-to-do-list",
+      "collection": "seeds"
+    },
+    {
+      "subject": "conversational-garden-guide",
+      "predicate": "demonstrates",
+      "object": "serendipity",
+      "source": "garden-to-do-list",
+      "collection": "seeds"
+    },
+    {
+      "subject": "garden-to-do-list",
+      "predicate": "instance-of",
+      "object": "thinking-in-public",
+      "source": "garden-to-do-list",
+      "collection": "seeds"
+    },
+    {
+      "subject": "project-glasswing",
+      "predicate": "counters",
+      "object": "ai-slop",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "ai-slop",
+      "predicate": "risks",
+      "object": "critical-software",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "project-glasswing",
+      "predicate": "attributed-to",
+      "object": "anthropic",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "generates",
+      "object": "ai-slop",
+      "source": "ai-slop-and-the-glasswing-project",
+      "collection": "jottings"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "convocat",
+      "predicate": "instance-of",
+      "object": "personal-web",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "deterministic-routing",
+      "predicate": "counters",
+      "object": "natural-language-interaction",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "creative-prompts-newsletter",
+      "predicate": "demonstrates",
+      "object": "thinking-in-public",
+      "source": "creative-prompts-april-2026",
+      "collection": "jottings"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "leads-to",
+      "object": "building-as-specification",
+      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "collection": "jottings"
+    },
+    {
+      "subject": "genai",
+      "predicate": "counters",
+      "object": "role-based-collaboration",
+      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "collection": "jottings"
+    },
+    {
+      "subject": "skill-based-work",
+      "predicate": "contrasted-with",
+      "object": "role-based-collaboration",
+      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "collection": "jottings"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "leads-to",
+      "object": "skill-based-work",
+      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "collection": "jottings"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "demonstrates",
+      "object": "metacognition",
+      "source": "from-role-to-skills-how-claude-code-desilos-the-future-of-work",
+      "collection": "jottings"
+    },
+    {
+      "subject": "u2",
+      "predicate": "exhibits",
+      "object": "creative-longevity",
+      "source": "u2-easter-parade",
+      "collection": "jottings"
+    },
+    {
+      "subject": "easter-parade",
+      "predicate": "instance-of",
+      "object": "u2",
+      "source": "u2-easter-parade",
+      "collection": "jottings"
+    },
+    {
+      "subject": "the-joshua-tree",
+      "predicate": "attributed-to",
+      "object": "u2",
+      "source": "u2-easter-parade",
+      "collection": "jottings"
+    },
+    {
+      "subject": "alcpe",
+      "predicate": "attributed-to",
+      "object": "r-verity-vabolis",
+      "source": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "alcpe",
+      "predicate": "demonstrates",
+      "object": "semantic-distance-tracking",
+      "source": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "semantic-distance-tracking",
+      "predicate": "characterised-as",
+      "object": "llm-vulnerability-analysis",
+      "source": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "alcpe",
+      "predicate": "characterised-as",
+      "object": "hands-on-experimentation",
+      "source": "alcpe-a-practitioner-s-guide-r-verity-vabolis",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "algorithmic-epistemic-injustice",
+      "predicate": "attributed-to",
+      "object": "timothy-cook",
+      "source": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "algorithmic-epistemic-injustice",
+      "predicate": "presupposes",
+      "object": "miranda-fricker",
+      "source": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "algorithmic-epistemic-injustice",
+      "predicate": "reinforces",
+      "object": "epistemic-bias",
+      "source": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "epistemic-friction",
+      "predicate": "counters",
+      "object": "algorithmic-epistemic-injustice",
+      "source": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "algorithms-of-oppression",
+      "predicate": "theorised-by",
+      "object": "safiya-noble",
+      "source": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "emotion-circuits",
+      "predicate": "theorised-by",
+      "object": "chenxi-wang",
+      "source": "do-llms-feel-emotion-circuits-discovery-and-contro",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "emotion-circuits",
+      "predicate": "characterised-as",
+      "object": "llm-observability",
+      "source": "do-llms-feel-emotion-circuits-discovery-and-contro",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "emotion-circuits",
+      "predicate": "risks",
+      "object": "anthropomorphism",
+      "source": "do-llms-feel-emotion-circuits-discovery-and-contro",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "emotion-circuits",
+      "predicate": "demonstrates",
+      "object": "llm-interpretability",
+      "source": "do-llms-feel-emotion-circuits-discovery-and-contro",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "symbolic-ai",
+      "predicate": "reinforces",
+      "object": "neurosymbolic-ai",
+      "source": "symbolic-ai-for-the-win-kurt-cagle",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "neurosymbolic-ai",
+      "predicate": "counters",
+      "object": "probabilistic-word-prediction",
+      "source": "symbolic-ai-for-the-win-kurt-cagle",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "holons",
+      "predicate": "characterised-as",
+      "object": "semantic-structure",
+      "source": "symbolic-ai-for-the-win-kurt-cagle",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "symbolic-ai",
+      "predicate": "attributed-to",
+      "object": "kurt-cagle",
+      "source": "symbolic-ai-for-the-win-kurt-cagle",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "claude-code",
+      "predicate": "demonstrates",
+      "object": "neurosymbolic-ai",
+      "source": "symbolic-ai-for-the-win-kurt-cagle",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-outsourcing",
+      "predicate": "risks",
+      "object": "metacognition",
+      "source": "the-machines-are-fine-i-x27-m-worried-about-us",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-outsourcing",
+      "predicate": "caused-by",
+      "object": "genai",
+      "source": "the-machines-are-fine-i-x27-m-worried-about-us",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "supervision",
+      "predicate": "requires",
+      "object": "expertise",
+      "source": "the-machines-are-fine-i-x27-m-worried-about-us",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-outsourcing",
+      "predicate": "reinforces",
+      "object": "cognitive-laziness",
+      "source": "the-machines-are-fine-i-x27-m-worried-about-us",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "academic-metrics",
+      "predicate": "reinforces",
+      "object": "cognitive-outsourcing",
+      "source": "the-machines-are-fine-i-x27-m-worried-about-us",
+      "collection": "weblinks"
+    }
   ]
 }
