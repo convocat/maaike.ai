@@ -1,28 +1,37 @@
 ---
-title: "How do I become a conversation designer?"
+title: How do I become a conversation designer?
 date: 2020-09-06
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - skill-based-work
-  - future-of-work
-  - writing
+- conversation-design
+- skill-based-work
+- future-of-work
+- writing
 themes:
-  - Conversation design as a rising career assembled from older disciplines
-  - The skill stack: curiosity, conversational writing, instructional design, structured thinking
-  - Why the job title lags behind the actual work
+- Conversation design as a rising career assembled from older disciplines
+- 'The skill stack: curiosity, conversational writing, instructional design, structured thinking'
+- Why the job title lags behind the actual work
 triples:
-  - ["Conversation design", "instance-of", "Design discipline"]
-  - ["Conversation design", "requires", "Conversational writing"]
-  - ["Conversation design", "requires", "Instructional design"]
-  - ["Conversation design", "requires", "Structured thinking"]
-  - ["Bot persona", "structured-as", "Design artefact"]
-description: "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!"
+- - Conversation design
+  - instance-of
+  - Design discipline
+- - Conversation design
+  - requires
+  - Conversational writing
+- - Conversation design
+  - requires
+  - Instructional design
+- - Conversation design
+  - requires
+  - Structured thinking
+- - Bot persona
+  - structured-as
+  - Design artefact
+description: Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
-
 Conversation design is a career on the rise! And I sure notice that in my inbox: I get a lot of questions on how to break into this great profession. As much as I'd love to answer all of your messages personally, there's only so many hours in a day. So instead, I collected some of the most frequently asked questions and put them here for you.
 
 ## What is a conversation designer?

@@ -1,28 +1,37 @@
 ---
-title: "Typed relations as garden infrastructure"
+title: Typed relations as garden infrastructure
 date: 2026-03-19
 maturity: developing
 tags:
-  - knowledge-graph
-  - digital-gardens
-  - information-architecture
-  - ontology
-  - typed-relations
+- knowledge-graph
+- digital-gardens
+- information-architecture
+- ontology
+- typed-relations
 themes:
-  - Tags conflate topic and structure; typed relations separate them.
-  - The hub/develops pair encodes project structure as an explicit ontology.
-  - The garden now has three distinct connection layers: laid paths, root systems, wind-seeded links.
+- Tags conflate topic and structure; typed relations separate them.
+- The hub/develops pair encodes project structure as an explicit ontology.
+- 'The garden now has three distinct connection layers: laid paths, root systems, wind-seeded links.'
 triples:
-  - ["Typed relations", "counters", "Tags as structure"]
-  - ["Hub develops", "instance-of", "Typed relations"]
-  - ["Hub develops", "structured-as", "Ontology"]
-  - ["Typed relations", "reinforces", "Knowledge graph for garden"]
-  - ["Wiki links", "contrasted-with", "Typed relations"]
-description: "How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden."
+- - Typed relations
+  - counters
+  - Tags as structure
+- - Hub develops
+  - instance-of
+  - Typed relations
+- - Hub develops
+  - structured-as
+  - Ontology
+- - Typed relations
+  - reinforces
+  - Knowledge graph for garden
+- - Wiki links
+  - contrasted-with
+  - Typed relations
+description: How hub/develops relations replace tag-based project structure with an explicit ontology, and what that means for the three kinds of connections in the garden.
 ai: co-created
 develops: knowledge-graph-for-the-garden
 ---
-
 This garden has always had connections: wiki-links between posts, backlinks in sidebars, tags grouping similar ideas. What it lacked was structure. Not more connections, but *typed* ones. A link that says "this file is part of that project" carries fundamentally different information than a link that says "this file mentions that concept."
 
 ## Terminology

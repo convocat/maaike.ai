@@ -1,28 +1,37 @@
 ---
-title: "Hoe word ik conversation designer?"
+title: Hoe word ik conversation designer?
 date: 2020-07-26
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - skill-based-work
-  - future-of-work
-  - writing
+- conversation-design
+- skill-based-work
+- future-of-work
+- writing
 themes:
-  - Conversation design as a career on the rise but still without a fixed name
-  - The skill stack: curiosity, conversational writing, instructional design, structured thinking
-  - How to enter the field when job titles don't yet match the work
+- Conversation design as a career on the rise but still without a fixed name
+- 'The skill stack: curiosity, conversational writing, instructional design, structured thinking'
+- How to enter the field when job titles don't yet match the work
 triples:
-  - ["Conversation design", "instance-of", "Design discipline"]
-  - ["Conversation design", "requires", "Conversational writing"]
-  - ["Conversation design", "requires", "Instructional design"]
-  - ["Conversation design", "requires", "Structured thinking"]
-  - ["Bot persona", "structured-as", "Design artefact"]
-description: "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?"
+- - Conversation design
+  - instance-of
+  - Design discipline
+- - Conversation design
+  - requires
+  - Conversational writing
+- - Conversation design
+  - requires
+  - Instructional design
+- - Conversation design
+  - requires
+  - Structured thinking
+- - Bot persona
+  - structured-as
+  - Design artefact
+description: Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
-
 Conversation design is een vak met toekomst! En dat merk ik aan mijn inbox. Ik krijg steeds vaker berichtjes van mensen die meer willen weten over dit prachtvak. Helaas heb ik niet de tijd om iedereen persoonlijk te woord te staan. Vandaar dat ik de meest gestelde vragen hier voor je op een rijtje heb gezet.
 
 ## Wat is een conversation designer?

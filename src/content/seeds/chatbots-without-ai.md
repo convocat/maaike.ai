@@ -4,24 +4,31 @@ date: 2026-03-14
 updated: 2026-03-15
 maturity: draft
 tags:
-  - digital-gardens
-  - design
-  - philosophy
-  - conversational-ai
+- digital-gardens
+- design
+- philosophy
+- conversational-ai
 themes:
-  - A chatbot UI can be deterministic: branching dialogue and hyperlinks, no LLM.
-  - Removing AI centres content and curation instead of the technology.
-  - Serendipity can be designed rather than hallucinated.
+- 'A chatbot UI can be deterministic: branching dialogue and hyperlinks, no LLM.'
+- Removing AI centres content and curation instead of the technology.
+- Serendipity can be designed rather than hallucinated.
 triples:
-  - ["Deterministic chatbot", "counters", "LLM hallucinations"]
-  - ["Deterministic chatbot", "instance-of", "Conversational interface"]
-  - ["Deterministic chatbot", "demonstrates", "Serendipity"]
-  - ["Deterministic chatbot", "better-fits", "Digital garden"]
+- - Deterministic chatbot
+  - counters
+  - LLM hallucinations
+- - Deterministic chatbot
+  - instance-of
+  - Conversational interface
+- - Deterministic chatbot
+  - demonstrates
+  - Serendipity
+- - Deterministic chatbot
+  - better-fits
+  - Digital garden
 description: Can a chatbot-style UI work without generative AI, using decision trees, hyperlinking, and serendipity instead?
 draft: false
 ai: co-created
 ---
-
 What if a chatbot didn't need an LLM behind it?
 
 The idea: a conversational garden guide that helps visitors explore this site. It looks and feels like a chat interface, but everything behind it is deterministic. No generative AI, no token costs, no hallucinations. Just good design.
