@@ -8,3 +8,6 @@ https://jdmeier.com/ai-metaphors/
 
 2026-04-24: Announcing: "Supercharged Human?"
 https://tacticaltech.org/
+
+2026-04-25: The AI Draft: A Process Essay Nobody Asked For
+https://open.substack.com/pub/frankakalman/p/the-ai-draft-a-process-essay-nobody?r=82niz&utm_campaign=post&utm_medium=web
