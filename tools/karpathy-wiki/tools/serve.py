@@ -850,6 +850,284 @@ def handle_article_api(section, slug):
     })
 
 
+def _slugify(s):
+    s = (s or "").lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
+def handle_topic_meta_api(slug):
+    """Return real garden metadata for a topic — no LLM synthesis.
+
+    Looks up the topic in src/data/triples.json (and taxonomy.json for a
+    definition), then builds: {slug, label, type, lens, subject, role,
+    degree, posts[], relations{incoming[], outgoing[]}}.
+    """
+    try:
+        triples_data = json.loads(TRIPLES_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return json.dumps({"error": "triples.json not found"})
+    topics = triples_data.get("topics", {})
+    assocs = triples_data.get("associations", [])
+
+    taxonomy = {}
+    try:
+        taxonomy = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8")).get("topics", {})
+    except Exception:
+        pass
+
+    # Try direct slug match, fall back to label match (case-insensitive)
+    topic = topics.get(slug)
+    topic_slug = slug
+    if not topic:
+        target = slug.lower().replace("-", " ")
+        for tslug, tv in topics.items():
+            if tv.get("label", "").lower() == target or tslug == slug:
+                topic = tv
+                topic_slug = tslug
+                break
+    if not topic:
+        return json.dumps({"error": f"No topic '{slug}' in triples.json"})
+
+    label = topic.get("label", topic_slug)
+    definition = (taxonomy.get(topic_slug) or {}).get("definition", "")
+
+    incoming, outgoing = [], []
+    post_slugs = set()
+    for a in assocs:
+        s, p, o, src = a.get("subject"), a.get("predicate"), a.get("object"), a.get("source")
+        if s == topic_slug:
+            outgoing.append({"predicate": p, "object": o, "object_label": topics.get(o, {}).get("label", o), "source": src})
+            if src: post_slugs.add(src)
+        if o == topic_slug:
+            incoming.append({"subject": s, "subject_label": topics.get(s, {}).get("label", s), "predicate": p, "source": src})
+            if src: post_slugs.add(src)
+
+    # Find post details by scanning content directories
+    posts = []
+    for coll in ["articles", "field-notes", "seeds", "jottings", "experiments", "weblinks"]:
+        d = GARDEN_ROOT / "src" / "content" / coll
+        if not d.exists(): continue
+        for pslug in list(post_slugs):
+            p = d / f"{pslug}.md"
+            if not p.exists(): continue
+            text = p.read_text(encoding="utf-8", errors="ignore")
+            m = re.match(r"^---\s*\n(.*?)\n---", text, re.DOTALL)
+            fm = {}
+            if m:
+                import yaml as _y
+                try: fm = _y.safe_load(m.group(1)) or {}
+                except Exception: fm = {}
+            posts.append({
+                "slug": pslug,
+                "collection": coll,
+                "title": fm.get("title", pslug),
+                "description": fm.get("description", ""),
+                "maturity": fm.get("maturity", ""),
+                "date": str(fm.get("date", "")),
+            })
+            post_slugs.discard(pslug)
+    # Sort posts by collection then title
+    posts.sort(key=lambda x: (x["collection"], x["title"]))
+
+    return json.dumps({
+        "slug": topic_slug,
+        "label": label,
+        "type": topic.get("type", ""),
+        "lens": topic.get("lens", []),
+        "subject": topic.get("subject", []),
+        "role": topic.get("role"),
+        "definition": definition,
+        "degree": len(incoming) + len(outgoing),
+        "posts": posts,
+        "relations": {"incoming": incoming, "outgoing": outgoing},
+    })
+
+
+TOPIC_VIEW_CACHE = KARPATHY_ROOT / "cache" / "topic-views"
+
+
+def _topic_state_hash(topic_slug, triples_data, post_updated_dates):
+    """Hash of the inputs that should trigger regeneration if changed."""
+    import hashlib
+    assocs = triples_data.get("associations", [])
+    relevant = sorted(
+        (a.get("subject", ""), a.get("predicate", ""), a.get("object", ""), a.get("source", ""))
+        for a in assocs
+        if a.get("subject") == topic_slug or a.get("object") == topic_slug
+    )
+    payload = json.dumps({
+        "topic": topic_slug,
+        "triples": relevant,
+        "post_updated": sorted(post_updated_dates.items()),
+    }, sort_keys=True)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _gather_topic_context(topic_slug, triples_data):
+    """Return {label, triples_for_prompt, passages, post_updated_dates}."""
+    topics = triples_data.get("topics", {})
+    assocs = triples_data.get("associations", [])
+    topic = topics.get(topic_slug) or {}
+    label = topic.get("label", topic_slug)
+
+    triples_for_prompt = []
+    post_slugs = set()
+    for a in assocs:
+        s = a.get("subject"); p = a.get("predicate"); o = a.get("object"); src = a.get("source")
+        if s == topic_slug or o == topic_slug:
+            s_label = topics.get(s, {}).get("label", s)
+            o_label = topics.get(o, {}).get("label", o)
+            triples_for_prompt.append(f'- "{s_label}" -[{p}]-> "{o_label}"  (from {src})')
+            if src: post_slugs.add(src)
+
+    passages = []
+    post_updated_dates = {}
+    for coll in ["articles", "field-notes", "seeds", "jottings", "experiments", "weblinks"]:
+        d = GARDEN_ROOT / "src" / "content" / coll
+        if not d.exists(): continue
+        for pslug in list(post_slugs):
+            p = d / f"{pslug}.md"
+            if not p.exists(): continue
+            text = p.read_text(encoding="utf-8", errors="ignore")
+            m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", text, re.DOTALL)
+            fm = {}; body = text
+            if m:
+                import yaml as _y
+                try: fm = _y.safe_load(m.group(1)) or {}
+                except Exception: fm = {}
+                body = m.group(2)
+            # Truncate long bodies
+            body = body.strip()[:4000]
+            passages.append({
+                "slug": pslug,
+                "collection": coll,
+                "title": fm.get("title", pslug),
+                "description": fm.get("description", ""),
+                "body": body,
+            })
+            post_updated_dates[pslug] = str(fm.get("updated") or fm.get("date", ""))
+            post_slugs.discard(pslug)
+
+    return label, triples_for_prompt, passages, post_updated_dates
+
+
+def _generate_topic_view(label, triples_for_prompt, passages):
+    """Call Claude with strict grounding. Returns {summary, how_maaike_uses, open_questions}."""
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        raise ValueError("ANTHROPIC_API_KEY not set")
+    import anthropic
+    client = anthropic.Anthropic(api_key=api_key)
+
+    passage_block = "\n\n".join(
+        f'### Post: "{p["title"]}" ({p["collection"]}/{p["slug"]})\n'
+        f'Description: {p["description"]}\n\n{p["body"]}'
+        for p in passages
+    ) or "(No passages available.)"
+    triple_block = "\n".join(triples_for_prompt) or "(No triples.)"
+
+    prompt = f"""You are composing a derived wiki-style view of the topic "{label}" for Maaike's digital garden. This view is NOT canon — it sits on top of the actual posts and must faithfully reflect only what those posts say.
+
+Rules:
+- You may restructure, paraphrase, and summarise from the passages below.
+- You may NOT introduce facts, quotes, people, or claims that aren't in the passages or triples.
+- If a section cannot be grounded in the material, return an empty string for it. Empty is always better than invented.
+- Write in Maaike's voice: direct, sceptical, no em-dashes, sentence case.
+
+Triples involving "{label}":
+{triple_block}
+
+Passages from posts that reference this topic:
+{passage_block}
+
+Return a JSON object with exactly these keys:
+  "summary": 2-3 sentence neutral framing of what this topic IS, as used in Maaike's work.
+  "how_maaike_uses": 1 paragraph on Maaike's specific angle or how she deploys this concept across her posts. Empty if not enough distinct material.
+  "open_questions": array of 0-3 unresolved threads the passages actually gesture at. Empty array if none.
+
+Return ONLY the JSON, no preamble."""
+
+    resp = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1500,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = resp.content[0].text.strip()
+    # Strip code fences if present
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.MULTILINE).strip()
+    return json.loads(text)
+
+
+def handle_topic_view_api(slug, force=False):
+    """Return cached derived view, generate if missing or stale.
+
+    Response: {label, summary, how_maaike_uses, open_questions, stale, generated_at, source_count}
+    """
+    try:
+        triples_data = json.loads(TRIPLES_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        return json.dumps({"error": f"triples.json: {e}"})
+
+    topics = triples_data.get("topics", {})
+    if slug not in topics:
+        # Try label match
+        for tslug, tv in topics.items():
+            if tv.get("label", "").lower() == slug.lower().replace("-", " "):
+                slug = tslug
+                break
+        else:
+            return json.dumps({"error": f"No topic '{slug}'"})
+
+    label, triples_for_prompt, passages, post_dates = _gather_topic_context(slug, triples_data)
+    current_hash = _topic_state_hash(slug, triples_data, post_dates)
+
+    TOPIC_VIEW_CACHE.mkdir(parents=True, exist_ok=True)
+    cache_file = TOPIC_VIEW_CACHE / f"{slug}.json"
+
+    # Serve cache unless force
+    if cache_file.exists() and not force:
+        try:
+            cached = json.loads(cache_file.read_text(encoding="utf-8"))
+            stale = cached.get("state_hash") != current_hash
+            return json.dumps({
+                "label": cached.get("label", label),
+                "summary": cached.get("summary", ""),
+                "how_maaike_uses": cached.get("how_maaike_uses", ""),
+                "open_questions": cached.get("open_questions", []),
+                "stale": stale,
+                "generated_at": cached.get("generated_at"),
+                "source_count": len(passages),
+            })
+        except Exception:
+            pass
+
+    # No cache or force → generate
+    if not passages:
+        return json.dumps({"error": "no passages to ground the view"})
+    try:
+        view = _generate_topic_view(label, triples_for_prompt, passages)
+    except Exception as e:
+        return json.dumps({"error": f"generation failed: {e}"})
+
+    from datetime import datetime
+    payload = {
+        "label": label,
+        "summary": view.get("summary", ""),
+        "how_maaike_uses": view.get("how_maaike_uses", ""),
+        "open_questions": view.get("open_questions", []),
+        "state_hash": current_hash,
+        "generated_at": datetime.utcnow().isoformat() + "Z",
+    }
+    cache_file.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    return json.dumps({
+        **{k: v for k, v in payload.items() if k != "state_hash"},
+        "stale": False,
+        "source_count": len(passages),
+    })
+
+
 def handle_topics_api():
     """Return all wiki topics AND raw article titles as JSON."""
     pages = get_all_pages()
@@ -1021,14 +1299,15 @@ def _build_context(matched_articles: list, topic_defs: list):
     article_sources = []
 
     if matched_articles:
-        # Concepts preamble
+        # Concepts preamble with numeric IDs so the LLM can cite them as [1], [2], ...
         if topic_defs:
-            context_parts.append("## Relevant concepts\n")
-            for t in topic_defs:
-                context_parts.append(f"**{t['label']}** ({t['type']}): {t['definition']}\n")
+            context_parts.append("## Topics (cite as [1], [2], …)\n")
+            for i, t in enumerate(topic_defs, 1):
+                context_parts.append(f"[{i}] **{t['label']}** ({t['type']}): {t['definition']}\n")
 
-        context_parts.append("\n## Relevant articles from Maaike's garden\n")
-        for art in matched_articles:
+        context_parts.append("\n## Articles (cite as [s1], [s2], …)\n")
+        for idx, art in enumerate(matched_articles, 1):
+            cid = f"s{idx}"
             text = art["path"].read_text(encoding="utf-8", errors="ignore")
             title = art["slug"].replace("-", " ")
             desc = date = ""
@@ -1044,15 +1323,17 @@ def _build_context(matched_articles: list, topic_defs: list):
                         elif target == "date": date = val
             body = re.sub(r'^---\n.+?\n---\n', '', text, count=1, flags=re.DOTALL).strip()
             context_parts.append(
-                f"### ARTICLE \"{title}\" ({art['section']}, {date})\n"
+                f"### [{cid}] \"{title}\" ({art['section']}, {date})\n"
                 + (f"Description: {desc}\n" if desc else "")
                 + body + "\n"
             )
             article_sources.append({
+                "cid": cid,
                 "title": title,
                 "href": f"/raw/{art['section']}/{art['slug']}",
                 "url": f"https://maaike.ai/{art['section']}/{art['slug']}",
                 "section": art["section"],
+                "slug": art["slug"],
                 "date": date,
                 "kind": "article",
             })
@@ -1156,7 +1437,18 @@ def _build_ask_request(body):
         "system": _ASK_SYSTEM_PROMPT,
         "messages": messages,
     }
-    return client, model_args, [], article_sources, retrieval_debug, refused, refusal_reason
+    # Build a topic-cited list parallel to article_sources, using the same
+    # [1], [2], … ids that were emitted into the context text.
+    topic_sources = []
+    for i, t in enumerate(topic_defs, 1):
+        topic_sources.append({
+            "cid": str(i),
+            "title": t.get("label", t.get("slug", "")),
+            "slug": t.get("slug", ""),
+            "kind": "topic",
+            "type": t.get("type", ""),
+        })
+    return client, model_args, topic_sources, article_sources, retrieval_debug, refused, refusal_reason
 
 
 def _pick_sources(answer_text, wiki_sources, article_sources):
@@ -1213,7 +1505,9 @@ def handle_ask_api_stream(body, writer):
                 writer(json.dumps({"type": "token", "text": text}) + "\n")
         full_text = "".join(full_text_parts)
         sources = _pick_sources(full_text, wiki_sources, article_sources)
-        writer(json.dumps({"type": "sources", "sources": sources}) + "\n")
+        # Merge topic citations (wiki_sources carries them now) with article sources
+        all_sources = list(wiki_sources) + list(sources)
+        writer(json.dumps({"type": "sources", "sources": all_sources}) + "\n")
         writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
         writer(json.dumps({"type": "done"}) + "\n")
     except Exception:
@@ -2607,6 +2901,29 @@ class WikiHandler(http.server.BaseHTTPRequestHandler):
                 result = handle_article_api(parts[0], parts[1])
             else:
                 result = json.dumps({"error": "bad path"})
+            self.send_response(200)
+            self.send_header("Content-type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(result.encode("utf-8"))
+            return
+
+        # JSON API: real topic metadata (triples + taxonomy, no LLM)
+        if path.startswith("/api/topic-meta/"):
+            slug = path[len("/api/topic-meta/"):]
+            result = handle_topic_meta_api(slug)
+            self.send_response(200)
+            self.send_header("Content-type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(result.encode("utf-8"))
+            return
+
+        # JSON API: derived wiki view (LLM synthesis over grounded sources)
+        if path.startswith("/api/topic-view/"):
+            slug = path[len("/api/topic-view/"):]
+            force = params.get("force", ["0"])[0] == "1"
+            result = handle_topic_view_api(slug, force)
             self.send_response(200)
             self.send_header("Content-type", "application/json; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")
