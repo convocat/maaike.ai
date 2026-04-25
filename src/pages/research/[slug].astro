@@ -157,18 +157,42 @@ if (fs.existsSync(viewCache)) {
 
   <div slot="rightRail" class="rail-r-inner">
     <div class="rail-r-section">
+      <div class="rail-r-label">Topic at a glance</div>
+      <dl class="rail-r-meta">
+        <div><dt>Type</dt><dd>{topicType || '—'}</dd></div>
+        {lens.length > 0 && <div><dt>Lens</dt><dd>{lens.join(', ')}</dd></div>}
+        {subject.length > 0 && <div><dt>About</dt><dd>{subject.join(', ')}</dd></div>}
+        <div><dt>Degree</dt><dd>{incoming.length + outgoing.length} relations</dd></div>
+        <div><dt>Appears in</dt><dd>{posts.length} posts</dd></div>
+      </dl>
+    </div>
+
+    {(outgoing.length > 0 || incoming.length > 0) && (
+      <div class="rail-r-section">
+        <div class="rail-r-label">Related concepts</div>
+        <ul class="rail-r-related">
+          {[...outgoing.map(r => ({ slug: r.object, label: r.obj_label, predicate: r.predicate, dir: 'out' })),
+            ...incoming.map(r => ({ slug: r.subject, label: r.subj_label, predicate: r.predicate, dir: 'in' }))]
+            .filter((v, i, arr) => arr.findIndex(x => x.slug === v.slug) === i)
+            .slice(0, 8)
+            .map(r => (
+            <li>
+              <a href={`/research/${r.slug}`}>{r.label}</a>
+              <span class="rail-r-related-pred">{r.predicate}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <div class="rail-r-section">
       <div class="rail-r-label">On this page</div>
       <ul class="rail-r-toc">
         {view.summary && <li><a href="#top">Summary</a></li>}
         {view.how_maaike_uses && <li><a>How Maaike uses this</a></li>}
         {view.open_questions?.length > 0 && <li><a>Open questions</a></li>}
         {posts.length > 0 && <li><a>Appears in ({posts.length})</a></li>}
-        {(incoming.length || outgoing.length) > 0 && <li><a>Relations</a></li>}
       </ul>
-    </div>
-    <div class="rail-r-section">
-      <div class="rail-r-label">Degree</div>
-      <p class="rail-r-body">{incoming.length + outgoing.length} typed relations · {posts.length} posts</p>
     </div>
   </div>
 </ResearchLayout>
