@@ -72,24 +72,20 @@ for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.loca
       </a>
     </div>
 
-    <div class="nav-group">
-      <div class="nav-label">Pinned</div>
-      <ul class="nav-coll-list" id="pinned-list">
-        <li><span class="nav-coll-topic nav-coll-empty">No pins yet.</span></li>
-      </ul>
-    </div>
-
     <div class="nav-group nav-group-parent">
       <div class="nav-label nav-label-parent">
         <span>Topics</span>
         <span class="nav-label-count">{topicCount}</span>
       </div>
-      {Object.entries(subgroups).map(([name, items]) => (
-        <div class="nav-subgroup">
-          <div class="nav-label nav-label-sub">
-            <span>{name}</span>
+      {Object.entries(subgroups).map(([name, items], idx) => (
+        <details class="nav-subgroup" open={idx === 0}>
+          <summary class="nav-label nav-label-sub">
+            <span class="nav-sub-chev" aria-hidden="true">
+              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M3.5 2.5 L6.5 5 L3.5 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="nav-sub-name">{name}</span>
             <span class="nav-label-count">{items.length}</span>
-          </div>
+          </summary>
           <ul class="nav-flat-list">
             {items.slice(0, 8).map(it => (
               <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
@@ -98,7 +94,7 @@ for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.loca
               <li><a class="nav-flat-more" href={`/research/?browse=${name.toLowerCase()}`}>Browse all {items.length} →</a></li>
             )}
           </ul>
-        </div>
+        </details>
       ))}
     </div>
   </nav>
@@ -127,14 +123,4 @@ for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.loca
     });
   });
 
-  // Restore pinned
-  try {
-    const pins = JSON.parse(localStorage.getItem('rw:pinned') || '[]');
-    const list = document.getElementById('pinned-list');
-    if (list && pins.length) {
-      list.innerHTML = pins.map((p: any) =>
-        `<li><a class="nav-coll-topic" href="/research/${p.slug}"><span class="nav-coll-title">${p.label}</span></a></li>`
-      ).join('');
-    }
-  } catch (e) {}
 </script>
