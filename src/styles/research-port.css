@@ -272,19 +272,34 @@
 .ask-bubble-ai p:last-child { margin-bottom: 0; }
 .ask-bubble-ai strong { color: var(--ink); font-weight: 600; }
 
-/* Citation chips — numbered circles */
+/* Citation rendering — three forms:
+   - Topic        → sage-green numbered chip
+   - External src → blue numbered chip
+   - Maaike's own → inline pink link (title text, not numbered)
+*/
 .ask-cite {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 20px; height: 20px; padding: 0 6px;
   border-radius: 999px; font-family: var(--font-ui); font-size: 11px;
   font-weight: 500; font-variant-numeric: tabular-nums;
-  margin-left: 4px; cursor: pointer; vertical-align: baseline;
-  border: 0; line-height: 1;
+  margin: 0 2px; cursor: pointer; vertical-align: baseline;
+  border: 0; line-height: 1; text-decoration: none;
 }
-.ask-cite.topic  { background: color-mix(in oklab, #5B7FB8 18%, transparent); color: #3B5A8A; }
-.ask-cite.src    { background: color-mix(in oklab, #5B7FB8 12%, transparent); color: #5A6E88; }
-.ask-cite.topic:hover { background: #3B5A8A; color: #FBFAF6; }
-.ask-cite.src:hover   { background: #5A6E88; color: #FBFAF6; }
+/* Topic — sage green (matches site accent) */
+.ask-cite.topic  { background: color-mix(in oklab, var(--accent) 16%, transparent); color: var(--accent-hover); }
+.ask-cite.topic:hover { background: var(--accent); color: #FBFAF6; }
+/* External source — blue */
+.ask-cite.src    { background: color-mix(in oklab, #5B7FB8 14%, transparent); color: #3B5A8A; }
+.ask-cite.src:hover   { background: #3B5A8A; color: #FBFAF6; }
+
+/* Maaike's own writing — inline pink link with the title text */
+.ask-link-internal {
+  color: var(--accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent-2) 50%, transparent);
+  transition: color 120ms, border-color 120ms;
+}
+.ask-link-internal:hover { color: var(--accent-2-hover); border-bottom-color: var(--accent-2-hover); }
 
 /* Ask suggestions */
 .ask-suggest { margin: 16px 0 8px; }

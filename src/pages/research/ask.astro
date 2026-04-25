@@ -107,6 +107,7 @@ const suggestions = [
   }
 
   function applyChips(rootEl: HTMLElement, sources: any[]) {
+    const INTERNAL = new Set(['articles', 'field-notes', 'seeds', 'jottings', 'experiments']);
     const map: Record<string, any> = {};
     for (const s of sources) if (s.cid) map[s.cid] = s;
     const pattern = /\[(s?\d+)\]/g;
@@ -121,28 +122,45 @@ const suggestions = [
           if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
           const cid = m[1];
           const src = map[cid];
-          // Use an <a> so middle-click + cmd-click work like real links
-          const chip = document.createElement('a');
-          chip.className = 'ask-cite ' + (cid.startsWith('s') ? 'src' : 'topic');
-          chip.textContent = cid.replace(/^s/, '');
-          chip.title = src ? src.title + (src.kind === 'topic' ? '' : ' — open post') : `Citation ${cid}`;
-          // Resolve the destination URL
+          const isTopic = !cid.startsWith('s');
+          const isInternal = !isTopic && src && INTERNAL.has(src.section);
+          const isExternal = !isTopic && src && !INTERNAL.has(src.section);
+
           let href = '#';
           if (src) {
             if (src.kind === 'topic' && src.slug) href = `/research/${src.slug}`;
             else if (src.kind === 'article' && src.section && src.slug) href = `/${src.section}/${src.slug}`;
             else if (src.url) href = src.url;
           }
-          chip.href = href;
-          // Plain click: switch rail tab + highlight the card. Cmd/ctrl-click navigates.
-          chip.addEventListener('click', (e) => {
-            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let browser open in new tab
+
+          let el: HTMLAnchorElement;
+          if (isInternal) {
+            // Maaike's own writing → pink inline link with the title text
+            el = document.createElement('a');
+            el.className = 'ask-link-internal';
+            el.textContent = src.title;
+            el.href = href;
+            el.title = `${src.section}/${src.slug}`;
+          } else {
+            // Topic (sage-green) or external source (blue): numbered chip
+            el = document.createElement('a');
+            el.className = 'ask-cite ' + (isTopic ? 'topic' : 'src');
+            el.textContent = cid.replace(/^s/, '');
+            el.title = src ? src.title : `Citation ${cid}`;
+            el.href = href;
+          }
+
+          // Plain click: switch rail tab + highlight; cmd/ctrl/middle still navigate.
+          el.addEventListener('click', (e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            if (isInternal) return; // pink link navigates by default
             e.preventDefault();
-            activeTab = cid.startsWith('s') ? 'sources' : 'topics';
+            activeTab = isTopic ? 'topics' : 'sources';
             switchTab(activeTab);
             renderRail({ highlightCid: cid });
           });
-          frag.appendChild(chip);
+
+          frag.appendChild(el);
           last = m.index + m[0].length;
         }
         if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
@@ -165,20 +183,24 @@ const suggestions = [
     });
   }
 
+  const INTERNAL_SECTIONS = new Set(['articles', 'field-notes', 'seeds', 'jottings', 'experiments']);
+
   function updateRailCounts() {
     const all = Object.values(railMap) as any[];
-    const sources = all.filter(s => s.kind === 'article');
-    const topics = all.filter(s => s.kind === 'topic');
-    (document.getElementById('count-sources') as HTMLElement).textContent = String(sources.length);
-    (document.getElementById('count-topics') as HTMLElement).textContent = String(topics.length);
-    (document.getElementById('count-articles') as HTMLElement).textContent = String(sources.length);
+    const articles = all.filter(s => s.kind === 'article' && INTERNAL_SECTIONS.has(s.section));
+    const sources  = all.filter(s => s.kind === 'article' && !INTERNAL_SECTIONS.has(s.section));
+    const topics   = all.filter(s => s.kind === 'topic');
+    (document.getElementById('count-sources')  as HTMLElement).textContent = String(sources.length);
+    (document.getElementById('count-topics')   as HTMLElement).textContent = String(topics.length);
+    (document.getElementById('count-articles') as HTMLElement).textContent = String(articles.length);
   }
 
   function renderRail(opts?: { highlightCid?: string }) {
     const all = Object.values(railMap) as any[];
     let items: any[];
-    if (activeTab === 'topics') items = all.filter(s => s.kind === 'topic');
-    else items = all.filter(s => s.kind === 'article');
+    if (activeTab === 'topics')        items = all.filter(s => s.kind === 'topic');
+    else if (activeTab === 'articles') items = all.filter(s => s.kind === 'article' && INTERNAL_SECTIONS.has(s.section));
+    else                               items = all.filter(s => s.kind === 'article' && !INTERNAL_SECTIONS.has(s.section));
     if (!items.length) {
       railBody.innerHTML = `<div class="ask-rail-empty">No ${activeTab} yet in this thread.</div>`;
       return;
@@ -273,9 +295,15 @@ const suggestions = [
           if (msg.type === 'token' && msg.text) {
             answer += msg.text;
             bubble.innerHTML = renderMarkdown(answer);
+            // Apply chips/links live as tokens arrive (sources usually arrive first)
+            if (sources.length) applyChips(bubble, sources);
             threadEl.scrollTop = threadEl.scrollHeight;
           } else if (msg.type === 'sources') {
             sources = msg.sources || [];
+            // Populate rail immediately so the right pane is alive while we wait
+            for (const s of sources) if (s.cid) railMap[s.cid] = s;
+            updateRailCounts();
+            renderRail();
           } else if (msg.type === 'error') {
             err = msg.error;
           }
@@ -284,13 +312,9 @@ const suggestions = [
       if (err) {
         bubble.innerHTML = `<em style="color:#c00">${escHtml(err)}</em>`;
       } else {
-        // Final render: apply chips
+        // Final pass: ensure chips applied (in case stream ended before sources)
         bubble.innerHTML = renderMarkdown(answer);
         applyChips(bubble, sources);
-        // Accumulate in rail
-        for (const s of sources) if (s.cid) railMap[s.cid] = s;
-        updateRailCounts();
-        renderRail();
       }
     } catch (e: any) {
       bubble.innerHTML = `<em style="color:#c00">${escHtml(e.message || String(e))}</em>`;

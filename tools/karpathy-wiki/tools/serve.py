@@ -1498,16 +1498,17 @@ def handle_ask_api_stream(body, writer):
         return
 
     try:
+        # Emit sources UP FRONT, before tokens, so the rail populates immediately.
+        # These are the retrieved candidates with their cids — same ids the LLM
+        # will use in citation markers.
+        upfront_sources = list(wiki_sources) + list(article_sources)
+        writer(json.dumps({"type": "sources", "sources": upfront_sources}) + "\n")
+
         full_text_parts = []
         with client.messages.stream(**model_args) as stream:
             for text in stream.text_stream:
                 full_text_parts.append(text)
                 writer(json.dumps({"type": "token", "text": text}) + "\n")
-        full_text = "".join(full_text_parts)
-        sources = _pick_sources(full_text, wiki_sources, article_sources)
-        # Merge topic citations (wiki_sources carries them now) with article sources
-        all_sources = list(wiki_sources) + list(sources)
-        writer(json.dumps({"type": "sources", "sources": all_sources}) + "\n")
         writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
         writer(json.dumps({"type": "done"}) + "\n")
     except Exception:
