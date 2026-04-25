@@ -21,20 +21,10 @@ try {
   topicCount = Object.keys(topics).length;
 } catch (_) {}
 
-// Group by type
-const collections: Record<string, Array<{ id: string; title: string }>> = {
-  Concepts: [],
-  People: [],
-  Entities: [],
-};
-for (const [slug, t] of Object.entries(topics) as [string, any][]) {
-  const type = (t.type || '').toLowerCase();
-  const entry = { id: slug, title: t.label || slug };
-  if (type === 'person') collections.People.push(entry);
-  else if (type === 'technology' || type === 'mechanism') collections.Entities.push(entry);
-  else collections.Concepts.push(entry);
-}
-for (const k of Object.keys(collections)) collections[k].sort((a, b) => a.title.localeCompare(b.title));
+// Single flat list of all topics, sorted alphabetically
+const allTopics: Array<{ id: string; title: string }> = Object.entries(topics)
+  .map(([slug, t]: [string, any]) => ({ id: slug, title: t.label || slug }))
+  .sort((a, b) => a.title.localeCompare(b.title));
 ---
 
 <aside class="rail-l">
@@ -79,22 +69,20 @@ for (const k of Object.keys(collections)) collections[k].sort((a, b) => a.title.
       </ul>
     </div>
 
-    {Object.entries(collections).map(([name, items]) => (
-      <div class="nav-group">
-        <div class="nav-label">
-          <span>{name}</span>
-          <span class="nav-label-count">{items.length}</span>
-        </div>
-        <ul class="nav-flat-list">
-          {items.slice(0, 12).map(it => (
-            <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
-          ))}
-          {items.length > 12 && (
-            <li><a class="nav-flat-more" href={`/research/?browse=${encodeURIComponent(name.toLowerCase())}`}>Browse all {items.length} →</a></li>
-          )}
-        </ul>
+    <div class="nav-group">
+      <div class="nav-label">
+        <span>Topics</span>
+        <span class="nav-label-count">{allTopics.length}</span>
       </div>
-    ))}
+      <ul class="nav-flat-list">
+        {allTopics.slice(0, 14).map(it => (
+          <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
+        ))}
+        {allTopics.length > 14 && (
+          <li><a class="nav-flat-more" href="/research/?browse=topics">Browse all {allTopics.length} →</a></li>
+        )}
+      </ul>
+    </div>
   </nav>
 
   <div class="rail-foot">
@@ -102,6 +90,7 @@ for (const k of Object.keys(collections)) collections[k].sort((a, b) => a.title.
     <div>
       <div style="color:var(--ink-2)">Maaike</div>
       <div>{topicCount} topics · research mode</div>
+      <!-- (single Topics list above; type breakdown lives on /research/) -->
     </div>
   </div>
 </aside>
