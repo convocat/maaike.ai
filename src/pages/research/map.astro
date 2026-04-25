@@ -1,10 +1,6 @@
 ---
 /**
- * /research/map — concept map.
- *
- * Placeholder per spec — prototype uses hand-placed coordinates in data.js;
- * production integration with the existing /graph is deferred
- * (see README § What is still out of scope).
+ * /research/map — links out to the existing /explore page in a new window.
  */
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
 ---
@@ -13,7 +9,7 @@ import ResearchLayout from '../../layouts/ResearchLayout.astro';
   <div class="map-view">
     <div class="map-head">
       <h1 class="map-title">Map</h1>
-      <p class="map-sub">A force-directed view of your topics and their typed relations is in development.</p>
+      <p class="map-sub">The garden's existing concept map opens in a new window so you can keep your reading rail intact here.</p>
     </div>
 
     <div class="map-stage">
@@ -27,18 +23,15 @@ import ResearchLayout from '../../layouts/ResearchLayout.astro';
           <circle cx="30" cy="95" r="3"/><line x1="60" y1="40" x2="30" y2="95"/>
           <circle cx="250" cy="100" r="3"/><line x1="230" y1="50" x2="250" y2="100"/>
         </svg>
-        <p class="map-placeholder-text">
-          Existing graph lives at <a href="/graph">/graph</a>.
-          This view will layer the research wiki's interactions on top of that data.
-        </p>
+        <a class="map-open-btn" href="/explore" target="_blank" rel="noopener">Open the explore map ↗</a>
       </div>
     </div>
   </div>
 
   <div slot="rightRail" class="rail-r-inner">
     <div class="rail-r-section">
-      <div class="rail-r-label">About the map</div>
-      <p class="rail-r-body">A force-directed layout is planned. Positions will persist so returning to a topic finds it where you left it.</p>
+      <div class="rail-r-label">About</div>
+      <p class="rail-r-body">Your existing explore-the-garden map already covers this. Linking out keeps that single source of truth and avoids a parallel implementation.</p>
     </div>
   </div>
 </ResearchLayout>

@@ -231,6 +231,15 @@
 .map-placeholder { text-align: center; max-width: 480px; }
 .map-placeholder-text { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); margin-top: 16px; }
 .map-placeholder a { color: var(--accent); border-bottom: 1px dashed var(--accent); }
+.map-open-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 20px; padding: 10px 22px;
+  background: var(--accent); color: #fff;
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 500;
+  border-radius: var(--radius-md); text-decoration: none;
+  transition: background 120ms;
+}
+.map-open-btn:hover { background: var(--accent-hover); }
 
 /* Ask view — composer, bubbles, citation chips */
 .ask-view {

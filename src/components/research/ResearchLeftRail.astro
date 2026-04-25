@@ -77,8 +77,8 @@ for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.loca
         <span>Topics</span>
         <span class="nav-label-count">{topicCount}</span>
       </div>
-      {Object.entries(subgroups).map(([name, items], idx) => (
-        <details class="nav-subgroup" open={idx === 0}>
+      {Object.entries(subgroups).map(([name, items]) => (
+        <details class="nav-subgroup">
           <summary class="nav-label nav-label-sub">
             <span class="nav-sub-chev" aria-hidden="true">
               <svg width="9" height="9" viewBox="0 0 10 10"><path d="M3.5 2.5 L6.5 5 L3.5 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
