@@ -411,11 +411,12 @@
   font-size: 11.5px; color: var(--ink); padding-bottom: 4px;
   margin-bottom: 12px; border-bottom: 1px solid var(--rule);
 }
-/* Subgroup labels (Concepts/People/Entities under Topics) — smaller, muted, collapsible */
+/* Subgroup labels (Concepts/People/Entities under Topics) — collapsible */
 .nav-label-sub {
-  font-size: 10px; color: var(--ink-3); margin: 0;
+  font-size: 11.5px; color: var(--ink-2); margin: 0;
   cursor: pointer; user-select: none;
   list-style: none; /* hide native <summary> marker (Firefox) */
+  padding: 4px 0;
 }
 .nav-label-sub::-webkit-details-marker { display: none; }
 .nav-label-sub::marker { display: none; }

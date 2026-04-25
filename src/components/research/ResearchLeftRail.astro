@@ -87,12 +87,9 @@ for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.loca
             <span class="nav-label-count">{items.length}</span>
           </summary>
           <ul class="nav-flat-list">
-            {items.slice(0, 8).map(it => (
+            {items.map(it => (
               <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
             ))}
-            {items.length > 8 && (
-              <li><a class="nav-flat-more" href={`/research/?browse=${name.toLowerCase()}`}>Browse all {items.length} →</a></li>
-            )}
           </ul>
         </details>
       ))}
