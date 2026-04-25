@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟠 Re-evaluate the /research + admin dashboard work
+*2026-04-25*
+
+The shell, endpoints and citation system are live but the work was rushed and went off-spec several times before landing. Before adding more, audit what's actually in the repo: do the six `/research` routes match the v0.5 SPEC; is the `tools/karpathy-wiki/raw/` snapshot drift from `src/content/` causing stale answers; are there dead-code remnants from the wiki-v6 detour; do the four committed admin-dashboard endpoints (approve, mark-reviewed, delete, sync-telegram) all behave correctly. blocker: trust before scope.
+
+Key files: `src/pages/research/`, `src/layouts/ResearchLayout.astro`, `src/styles/research-port.css`, `tools/karpathy-wiki/api/index.py`, `tools/karpathy-wiki/tools/serve.py`, `tools/admin/server.py`, `.claude/plans/calm-roaming-frog.md`, `.claude/backlog.md`
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: do a thorough re-evaluation of what was committed during the 25 April session. Audit each /research route against the v0.5 SPEC.md, the live citation flow on /research/ask, and the four admin-dashboard endpoints. Surface dead code, spec drift, and any regressions before any new feature work.
+
+---
+
 ## 🟡 Research wiki at `/research/` — polish + open ends
 *added: 2026-04-25*
 
