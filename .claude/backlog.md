@@ -4,7 +4,26 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-22 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-25 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Research wiki at `/research/` — polish + open ends
+*added: 2026-04-25*
+
+Shipped: full three-pane shell at `/research/` per the v0.5 design handoff. Routes: `/research/`, `/ask`, `/stream`, `/[slug]`, `/map` (links out to `/explore`), `/log`. Shared layout: `src/layouts/ResearchLayout.astro`, components in `src/components/research/`, styles in `src/styles/research.css` + `research-port.css`. Left rail: collapsible Concepts/People/Entities under a single TOPICS header. Stream uses MosaicCard with filters in the right rail. Topic reading view pulls from triples.json + cached topic-views in `tools/karpathy-wiki/cache/topic-views/` (426 of 472 topics). Ask streams from `https://maaike-ai.vercel.app/api/ask` with three-way citations (pink inline links for own writing, sage-green chips for topics, blue chips for external sources) and source-rail accumulating across the thread. Sources stream up-front so the rail populates before the answer finishes.
+
+**Loose ends and known issues:**
+- The `tools/karpathy-wiki/raw/` snapshot of garden content is what the chatbot reads for retrieval and context — it's a copy, not a live read of `src/content/`. No mechanism currently keeps it in sync. New articles won't show up in chat until the snapshot is regenerated.
+- 46 topics didn't get a cached topic-view (no posts touch them). Rendering on those slugs is sparse — just type/lens/relations, no synthesis sections. Decide: prune from taxonomy, or generate a thin view from the topic label alone.
+- Map page is a static placeholder linking to `/explore`. Not integrated.
+- Tweaks panel (theme/density/logo cycling from prototype) wasn't ported — the layout still reads `[data-theme]` and `[data-density]` from localStorage so it works manually, no UI to toggle.
+- Search field in the topbar is a placeholder, no query logic.
+
+**Working with Claude this session was painful** — same instructions repeated multiple times before they landed; layout fundamentals re-broken between fixes; sub-tasks tackled before they were asked for. Logged in `building-this-garden.md` 25 April entry. Worth reflecting on what to change in the project's interaction patterns.
+
+**Opening message for next session:**
+> Pick a polish target on `/research/`. Options: (a) wire the karpathy `raw/` snapshot to refresh from `src/content/` so chat sees fresh posts, (b) generate sparse topic views for the 46 orphan topics, (c) port the Tweaks panel for theme/density toggling, (d) wire the search field. Pick one, scope, then build.
 
 ---
 
