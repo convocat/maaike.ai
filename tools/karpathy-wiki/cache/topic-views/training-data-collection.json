@@ -1,0 +1,11 @@
+{
+  "label": "Training data collection",
+  "summary": "Training data collection refers to the practice of using user interactions and conversations to improve AI models. In Maaike's work, it surfaces specifically in the context of ChatGPT's data consent toggle, which must be switched on to access features like chat history and web browsing. Enabling this toggle means all your conversations can be used as training data for OpenAI's models.",
+  "how_maaike_uses": "Maaike uses training data collection as a lens for scrutinising how new AI features are bundled with data-sharing obligations that users might not notice at first glance. She points out that the browse feature, framed as a useful tool for grounding ChatGPT in real-world information, is also a mechanism that would generate a spike in training data input. Her tone is sceptical: what looks like a feature for the user turns out to primarily serve the company's data needs.",
+  "open_questions": [
+    "Does the browse feature within ChatGPT actually become useful enough to justify accepting the data collection trade-off?",
+    "Are users sufficiently aware that enabling chat history also means consenting to training data collection?"
+  ],
+  "state_hash": "6cbf7d4251dad48d2809b8a74839b2d33bee93e203df2da67a0087eb1c4c5a53",
+  "generated_at": "2026-04-24T15:38:43.638466Z"
+}

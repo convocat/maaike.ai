@@ -1,0 +1,11 @@
+{
+  "label": "CLAUDE.md",
+  "summary": "CLAUDE.md is a markdown file placed in a project root that Claude Code reads at the start of every session, giving the AI persistent context about architecture, conventions, and preferences. It is an instance of context engineering: instead of re-explaining the project each time, the relevant information travels with the code. Every session builds on previous decisions rather than starting from zero.",
+  "how_maaike_uses": "Maaike uses CLAUDE.md as a practical solution to the statelessness problem of AI coding assistants. Her angle is that this is not documentation for humans but documentation optimised for what an AI needs to be immediately useful: setup commands, architecture, design system constraints, things not to change. She frames the key insight as continuity over convenience, and notes that because the file lives in the repo, a git clone on a new machine brings the context with it. The note itself was written by Claude after it had just built the CLAUDE.md for the garden, which Maaike flags with some dry self-awareness.",
+  "open_questions": [
+    "How do you keep CLAUDE.md accurate as the project evolves, given it is AI docs rather than human docs and may not get the same maintenance attention?",
+    "Where is the line between what belongs in CLAUDE.md and what belongs in ordinary project documentation?"
+  ],
+  "state_hash": "38a54c9878ec61f01ca85eebd23840d0297c793ac052ad54c8802b9ff5583ed1",
+  "generated_at": "2026-04-24T16:06:08.040579Z"
+}

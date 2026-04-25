@@ -1,0 +1,11 @@
+{
+  "label": "Prosody",
+  "summary": "Prosody refers to sound properties of entire utterances, rather than of single words or individual sounds. It covers things like intonation, stress, and pitch. It is the layer of speech that conversation designers work with most directly when applying SSML tagging.",
+  "how_maaike_uses": "Maaike introduces prosody as a foundational concept for anyone doing voice design or building voice actions. Her point is practical: understanding what prosody is explains why SSML matters and what it actually does. When you add SSML markup like paragraph and sentence tags, you are shaping prosodic properties such as sentence melody and pacing. She uses this framing in both her English speech primer and her Dutch SSML tutorial, positioning prosody as the bridge between written dialogue text and how that text actually sounds when spoken aloud.",
+  "open_questions": [
+    "The post promises a part 2 that continues the speech primer, which may cover prosody in more depth or introduce related concepts not yet addressed.",
+    "Maaike notes that speech style influences perceived gender more than pitch alone, and flags this as significant for voice designers, but does not yet work out what that means concretely for crafting voice personas."
+  ],
+  "state_hash": "1855f88c70e257673fee9c2aba1c2114edc3ae8f7ea65ee174e9a9093b1508b0",
+  "generated_at": "2026-04-24T15:54:03.218549Z"
+}

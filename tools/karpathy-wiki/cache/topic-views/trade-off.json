@@ -1,0 +1,11 @@
+{
+  "label": "Trade-off",
+  "summary": "Trade-off, in Maaike's work, refers to the tension between competing quality aspects when producing content. It shows up specifically in decisions around accuracy, completeness, consistency, timeliness, and maintainability, where improving one often means compromising another. The concept is treated as a normal and manageable part of content work, not a failure.",
+  "how_maaike_uses": "Maaike frames trade-offs as something to make explicit with stakeholders rather than quietly absorb. Her approach is to name the choices clearly: if you want this by next week, here is what has to give. She positions transparency about trade-offs as part of delivering the right quality level, not just the highest possible one. The goal is alignment, not perfection for its own sake.",
+  "open_questions": [
+    "When trade-offs conflict with legal or security requirements, how does Maaike recommend navigating stakeholder expectations that cannot be negotiated away?",
+    "The passage gestures at situations where feedback itself may not be justified, which raises the question of how a writer decides when to push back versus when to absorb a trade-off imposed by someone else's priorities."
+  ],
+  "state_hash": "ee8dc834eaaa187bc2f5b68c1972efccd82572f0611350738adbbca20d749b2e",
+  "generated_at": "2026-04-24T15:48:59.205150Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Short-text problem",
+  "summary": "The short-text problem is the failure mode that occurs when NLP methods -- embeddings, key phrase extraction, or other signal-dependent techniques -- are applied to content items with very few words. With under roughly 50 words, there is not enough topical signal for models to work with, so they fall back on format, genre, or outright invented filler instead of actual meaning. Maaike encountered it concretely in her knowledge graph project, where it shows up across multiple stages of the pipeline.",
+  "how_maaike_uses": "Maaike treats the short-text problem as a recurring constraint that surfaces at every layer of her knowledge graph work. In embedding models, short texts produce vectors that encode format and genre rather than topic, causing collection-type clustering instead of semantic clustering. In key phrase extraction, KeyBERT breaks down on short texts, and even the LLM-based approach she settled on (gemma3:4b) invents padding phrases to fill its 8-phrase quota when the source text is too thin -- confirmed empirically on a 9-word video item. The problem is not incidental: around 35% of her 92 garden items have short or thin content, which means it affects the quality of both blocking and scoring steps in the graph pipeline. Her proposed fix is to enrich thin content before processing -- pulling in video transcripts or expanding seed descriptions -- rather than accepting degraded signal.",
+  "open_questions": [
+    "What counts as the workable minimum length for LLM-based key phrase extraction -- the 89-word Saga item produced sharp phrases, but exactly where the threshold sits is not established.",
+    "Whether enriching thin content (via transcripts, summaries, or expansion) actually resolves the clustering bias in embeddings has not yet been tested; the link candidates have not been regenerated after normalization.",
+    "Near-duplicate phrases and format artifacts from the key phrase run still need a normalization step before the phrases feed into the graph, and it is not clear whether that cleanup will be sufficient to make short-item phrases usable."
+  ],
+  "state_hash": "53b723ca7e4275d4a6b236ae95614d024b482faf134c1e51343c5bd9653cd612",
+  "generated_at": "2026-04-24T16:08:30.036322Z"
+}

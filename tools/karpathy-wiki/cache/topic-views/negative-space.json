@@ -1,0 +1,12 @@
+{
+  "label": "Negative space",
+  "summary": "Negative space is the deliberate absence or silence that co-shapes and gives meaning to what is present. In Maaike's work it comes from music and visual design, where leaving room is an active, intentional act rather than something that happens by default. LLMs are identified as lacking this quality entirely, being trained to fill and complete rather than pause.",
+  "how_maaike_uses": "Maaike uses negative space as a critical lens on LLM interaction design. She observes that human conversation depends on the unspoken as much as the spoken, and draws on her experience with singing and percussion to ground this: in singing you are physically forced to make room by running out of breath, and in percussion the silence before the strike shapes the quality of the sound. From this she asks what it would mean to design silence and meaningful friction into an LLM's interaction model, rather than optimising for seamless, instant response. This is the animating question behind her project on designing for doubt.",
+  "open_questions": [
+    "Is it possible to system prompt an LLM toward a more receptive, silence-informed interaction model, and how far can that approach actually go?",
+    "What does it mean in practice to design constraint into an LLM so that it invites reflection rather than filling the space?",
+    "Is the current garrulous presentation of LLMs purely a design choice by big tech, and if so what would a genuinely silence-informed alternative look like?"
+  ],
+  "state_hash": "e797f35cc6b1255b0d3c6286364891d918676d25b8be748c97dc2f8358067985",
+  "generated_at": "2026-04-24T15:33:21.072132Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "IVR",
+  "summary": "IVR (interactive voice response) is the old telephone-era system of structured, numbered options that constrain what a user can input. In Maaike's work it surfaces as an unexpected metaphor: Claude Code's return to buttons and limited choices is, functionally, IVR. That reframing revalues something traditionally seen as clunky friction into a deliberate design tool.",
+  "how_maaike_uses": "Maaike uses IVR as a provocation to flip conventional wisdom. Buttons and numbered menus are usually treated as relics to be retired, but she argues that unstructured free-text input in GenAI systems creates real problems: it puts the burden of effective prompting on users and opens security holes like prompt injection. Structured, constrained input, which is to say IVR logic, is a practical response to both problems. She is developing this into a LinkedIn post and a longer article.",
+  "open_questions": [
+    "Where exactly should the line be drawn between constrained options and free-text input within a single AI application?",
+    "How do you protect the editable parts of a system prompt from injection without making the experience feel as limiting as old IVR systems?"
+  ],
+  "state_hash": "d34a47fd60436a16bdf386299ea87c56650e17c9fbec081b359b78071a956972",
+  "generated_at": "2026-04-24T16:20:38.798440Z"
+}

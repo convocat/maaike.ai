@@ -1,0 +1,11 @@
+{
+  "label": "Algorithms of oppression",
+  "summary": "Algorithms of oppression is a book by Safiya Noble that examines how biased algorithms create systemic racism and propagate white privilege. Its primary focus is on traditional search engines, but its patterns and examples are argued to apply equally, if not more forcefully, to generative conversational AI. The book is also connected to broader theoretical work on algorithmic epistemic injustice.",
+  "how_maaike_uses": "Maaike uses Algorithms of oppression as a critical lens for evaluating AI systems, particularly generative AI. She notes that bias is likely even less visible in generative AI interfaces than in traditional search engines, making Noble's arguments more urgent rather than less relevant as AI evolves. The book appears alongside other sceptical resources as part of a broader toolkit for staying both curious and critical without tipping into outright doomerism.",
+  "open_questions": [
+    "If bias is less visible in generative AI than in traditional search, what practical methods exist for detecting or surfacing it?",
+    "How does Noble's framework connect to the concept of algorithmic epistemic injustice, and what does that connection add to the analysis?"
+  ],
+  "state_hash": "566c26ea4aa46ae5bfb1a95f4283253e454e4fdf79f46618ef41d4c0b34cf8a1",
+  "generated_at": "2026-04-24T15:57:42.335831Z"
+}

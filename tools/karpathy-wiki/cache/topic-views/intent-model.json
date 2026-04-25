@@ -1,0 +1,12 @@
+{
+  "label": "Intent model",
+  "summary": "An intent model is a core NLP artefact in conversational AI design that lists the intents and entities a bot needs to handle, along with training phrases for each intent. In Maaike's work it sits within the broader practice of conversation design (CxD). She investigates whether ChatGPT can generate a usable intent model from scratch, without human input.",
+  "how_maaike_uses": "Maaike uses the intent model as a concrete test case for evaluating ChatGPT's usefulness as a conversation design assistant. She asks it to produce intents, entities, and training phrases for a pizzabot with no prior input from her side, and finds that ChatGPT is genuinely capable of listing obvious and less obvious intents at the right level of granularity. However, she is sceptical about its practical value: the training phrases it generates are formulaic and monotonous, and it struggles to produce the kind of varied, realistic user language that would actually solve recognition problems in production. The intent model exercise becomes evidence for her broader observation that ChatGPT can appropriate familiar patterns well but cannot reliably handle logic or nuance.",
+  "open_questions": [
+    "Would asking explicitly for intra-intent variation produce more realistic and useful training phrases?",
+    "Can ChatGPT go beyond familiar, well-represented chatbot domains and generate a usable intent model for less common use cases?",
+    "What accounts for ChatGPT's inconsistent behaviour when applying its own linguistic analysis to rewrite tasks?"
+  ],
+  "state_hash": "5b5240198db6316eb8a9991c523f10a660c41433c004b745a0094451fef38543",
+  "generated_at": "2026-04-24T15:37:42.261992Z"
+}

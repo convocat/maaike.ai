@@ -1,0 +1,12 @@
+{
+  "label": "GenAI",
+  "summary": "GenAI refers to generative AI systems like large language models and agentic tools that handle a wide range of tasks beyond the narrow question-answering of earlier chatbots. In Maaike's work it shows up as both a practical tool she uses daily and a conceptual object worth scrutinising. It sits at the intersection of interface design, knowledge work, and how we think about collaboration and cognition.",
+  "how_maaike_uses": "Maaike approaches GenAI from several angles at once. She questions the conversation metaphor that has grown up around it, arguing it no longer fits the range of tasks GenAI actually does and that it smuggles in unhelpful anthropomorphism. She is also hands-on: she used Claude Code to submit her first real merge request after twenty years of trying to learn to code, and frames GenAI as a potential de-siloer of rigid workplace roles, replacing fixed role boundaries with fluid skill configurations. At the same time she holds real concerns: GenAI risks crowding out thinking in public by making it easier to outsource cognition, and she is more worried about what it does to human thinking than about the technology itself.",
+  "open_questions": [
+    "If the conversation metaphor no longer fits, which alternative metaphor or combination of metaphors actually works best for the full range of GenAI use cases?",
+    "How do you get the productivity gains of GenAI-enabled role fluidity without losing the depth of expertise that specialists bring?",
+    "What practices or design choices can protect independent thinking and avoid cognitive outsourcing as GenAI becomes more embedded in everyday knowledge work?"
+  ],
+  "state_hash": "11450d527e20429cf2fb449cdbbe8d516dd14b79da0a6fd83caf97dc241241da",
+  "generated_at": "2026-04-24T14:59:28.549069Z"
+}

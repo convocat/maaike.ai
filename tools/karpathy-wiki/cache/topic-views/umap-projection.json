@@ -1,0 +1,11 @@
+{
+  "label": "UMAP projection",
+  "summary": "UMAP projection is a dimensionality reduction technique that collapses high-dimensional embeddings (in this case 1024-dim bge-m3 vectors) down to 2D coordinates so that semantically similar items cluster together on a map. In Maaike's garden, it powers the explore page's spatial layout, run client-side via umap-js and pre-computed at build time into a static JSON file. The core limitation she has run into is that UMAP is non-deterministic: running it from scratch on every rebuild produces a different layout each time.",
+  "how_maaike_uses": "Maaike uses UMAP projection as the backbone of the garden's visual browsing interface, treating the resulting 2D map as a literal landscape rather than a data visualisation. Her specific angle is that a shifting UMAP layout undermines the sense of place she wants visitors to develop, so she works around the technique's instability by pinning the output: once positions are computed they are saved to a roots file and held fixed across rebuilds. New items are slotted in near their closest semantic neighbour rather than triggering a full recompute. The --recompute flag is reserved for major restructurings, making UMAP a one-time foundation rather than a live calculation.",
+  "open_questions": [
+    "When the content grows substantially but not enough to justify a full recompute, how does the incremental neighbour-placement approach hold up spatially over time, and does drift accumulate?",
+    "The cluster labels are auto-generated from shared key phrases, but the passages don't resolve how well those labels stay accurate after many incremental additions without a recompute."
+  ],
+  "state_hash": "f924a2c43d86c81232fdb2363a1b8af32775e10804bc97ad81603b3e6c1cb521",
+  "generated_at": "2026-04-24T16:07:01.962782Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Sentence melody",
+  "summary": "Sentence melody is Maaike's informal label for intonation, the melodic pattern that runs across an entire utterance. It is a prosodic property, meaning it operates at the level of whole phrases rather than individual sounds or words. Each language has its own distinct intonation pattern, which is a big part of what makes languages sound the way they do.",
+  "how_maaike_uses": "Maaike introduces sentence melody as part of a broader primer on speech concepts for conversation designers working with SSML. Her point is that understanding prosody, including intonation, is practically useful: when you apply SSML tagging you are largely working with these properties. She also uses intonation to make a point about language learning, citing a tutor who argued that getting intonation right matters more than nailing individual sounds, and she illustrates this with a concrete cross-linguistic comparison: English uses a three-steps-down sentence melody, while Dutch operates in a narrower range, which is why Dutch speakers can sound monotonous to English ears.",
+  "open_questions": [
+    "The post promises a continuation, so it is unclear what further prosodic or intonation-related concepts Maaike planned to cover in subsequent parts.",
+    "Maaike notes that speech style, not just pitch, shapes how a voice is perceived in terms of gender, but she does not explore what role intonation specifically plays in that dynamic."
+  ],
+  "state_hash": "cf18564c3dd753920cafe28537eff16ec824b1f8b53cf10b3678cb3f3c7d28c4",
+  "generated_at": "2026-04-24T16:03:16.112796Z"
+}

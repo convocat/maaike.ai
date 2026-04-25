@@ -1,0 +1,11 @@
+{
+  "label": "Cross-cutting themes",
+  "summary": "Cross-cutting themes are thematic patterns that run across multiple posts and topics in the garden rather than being confined to a single subject area. In Maaike's work, the term comes up specifically in the context of comparing two approaches to thematic analysis: one based on fresh reading and one based on embedding clusters. The key finding is that cross-cutting themes are exactly what embedding-based methods fail to detect.",
+  "how_maaike_uses": "Maaike uses cross-cutting themes as a diagnostic concept: they are the patterns that reveal something meaningful about the garden precisely because they cannot be found by looking at surface-level topic similarity. Examples include the truth-and-trust thread running from philosophy books to ChatGPT articles to fake hyperlinks, and the non-linear thinker theme scattered across autobiographical asides in otherwise unrelated posts. These themes require reading for stance and concern, not just keyword or vector similarity, and their invisibility to embeddings is treated as evidence of a real limitation in cluster-based discovery.",
+  "open_questions": [
+    "Is there a method that could detect cross-cutting themes computationally, given that they depend on epistemological stance and autobiographical context rather than topical keywords?",
+    "How stable are these cross-cutting themes across different readers, or are they partly an artefact of Maaike reading her own work?"
+  ],
+  "state_hash": "39e09085965f705f92f5731aba50ed8d2beb53cbeb1aa5f92813550d93c5281b",
+  "generated_at": "2026-04-24T16:15:24.843579Z"
+}

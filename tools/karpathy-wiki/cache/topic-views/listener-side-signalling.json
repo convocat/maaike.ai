@@ -1,0 +1,11 @@
+{
+  "label": "Listener-side signalling",
+  "summary": "Listener-side signalling is the term that defines backchanneling: the communicative activity a listener performs without taking over the conversational turn. It operates on the back channel, as distinct from the front channel used by the speaker who holds the turn. It includes cues like interjections, verbal acknowledgements, emotive responses, and repetition.",
+  "how_maaike_uses": "Maaike introduces listener-side signalling through the lens of Victor Yngve's two-channel model to give conversation designers a practical framework for bot design. She breaks down backchanneling cues into a typology (basic interjections, linguistic responses, emotive interjections, repetition) and groups them into recognition cues and continuers, then argues that knowing this distinction helps designers decide when a bot should simply acknowledge a user versus when it should actively keep them engaged. She also takes care to separate backchanneling from discourse markers, since the two can look alike but serve opposite roles: discourse markers are front-channel tools used by whoever has the turn, while backchanneling cues are listener-side and turn-free.",
+  "open_questions": [
+    "The passages gesture at a 'continuer strategy' for bots without spelling out what a concrete implementation looks like or how vocabulary choices should be made in practice.",
+    "The reference to Lee and Lee's paper on motivation to continue human-machine interaction is mentioned but not unpacked, leaving open how their findings should actually influence design decisions."
+  ],
+  "state_hash": "defc3233c04ebeb706af6efa7cc21efdf0e158116117a60b6986caf1f25dcc71",
+  "generated_at": "2026-04-24T16:03:48.092674Z"
+}

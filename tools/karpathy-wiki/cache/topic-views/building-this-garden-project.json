@@ -1,0 +1,8 @@
+{
+  "label": "Building this garden",
+  "summary": "Building this garden refers to the practical, ongoing work of maintaining and extending Maaike's digital garden as a technical and editorial system. It covers how content enters, gets structured, and feeds into the knowledge graph that powers the site. The garden user manual documents this process in task-based form.",
+  "how_maaike_uses": "Maaike approaches building the garden as something that needs explicit documentation to stay coherent over time. The user manual captures the full pipeline: writing posts via Typora or the command line, capturing links through Telegram, processing books and PDFs, tagging and enriching content for the knowledge graph, and publishing. She tracks the different paths content can take and what each path produces, making the infrastructure legible to herself as the primary maintainer.",
+  "open_questions": [],
+  "state_hash": "543f7e98c8baa7efa5a89d45948e71378671d4b1774be5bc98c52403fa0e55ad",
+  "generated_at": "2026-04-24T16:11:57.965822Z"
+}

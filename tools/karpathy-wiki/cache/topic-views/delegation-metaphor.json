@@ -1,0 +1,11 @@
+{
+  "label": "Delegation metaphor",
+  "summary": "The delegation metaphor is an alternative framing for human-AI interaction, proposed as a better fit than conversation for agentic AI use cases. It describes a pattern where a human hands off a request, a set of agents processes it out of sight, and a deliverable is returned. Unlike conversation, it does not imply turn-taking, equal exchange, or anthropomorphism.",
+  "how_maaike_uses": "Maaike introduces delegation as a metaphor specifically to address the limits of 'conversation' when describing agentic AI workflows. Where conversation implies mutual stakes, trust contracts, and back-and-forth exchange, delegation better captures what actually happens: you submit a request through a mix of language and GUI inputs, a swarm of agents works on it without your involvement, and you receive an end result. She flags this metaphor as the better fit for agentic AI rather than as a universal replacement for all GenAI interaction patterns.",
+  "open_questions": [
+    "The passage on delegation is cut off mid-sentence, so it is unclear what full implications or caveats Maaike intended to draw out.",
+    "If delegation replaces conversation as the dominant metaphor for agentic AI, what design consequences follow for how interfaces should handle the waiting period when agents are running?"
+  ],
+  "state_hash": "4d6fd734e2c5756109c98c42a3a80212ad5f2d6e86e9001023ee1d07004c2ba5",
+  "generated_at": "2026-04-24T15:18:57.063003Z"
+}

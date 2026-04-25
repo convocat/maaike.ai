@@ -1,0 +1,11 @@
+{
+  "label": "Bender and Gebru",
+  "summary": "Bender and Gebru are the researchers (Emily Bender and Timnit Gebru) who coined the term 'stochastic parrot' in their 2021 paper on the risks of large language models. The term describes how LLMs like ChatGPT function as word-string generators that probabilistically concatenate words based on training data, without any understanding of truth or meaning. Maaike references them to ground her critique of ChatGPT in existing academic work on LLM risks.",
+  "how_maaike_uses": "Maaike uses the stochastic parrot framing as a starting point for her argument that ChatGPT is, in a very specific philosophical sense, bullshit. By anchoring her claim in Bender and Gebru's characterisation of LLMs as word-string generators, she sets up the core problem: ChatGPT doesn't know what it's talking about and doesn't know what's true, and this is not a bug that better training will fix. She then layers on Frankfurt's definition of bullshit and Grice's cooperative principle to explain why this is a design and social problem, not just a technical one.",
+  "open_questions": [
+    "Maaike gestures at a design challenge around building concern for truth into systems or interfaces that use LLMs, but does not resolve what that design actually looks like.",
+    "The post raises but does not fully answer how users can be expected to develop fact-checking habits when conversational AI is specifically optimised to feel trustworthy and reduce cognitive effort."
+  ],
+  "state_hash": "a2c4dbbcebe5db26db8f688204293258f4e47cde8ab732f7c414f9ed1e48813c",
+  "generated_at": "2026-04-24T15:11:55.397121Z"
+}

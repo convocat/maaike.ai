@@ -1,0 +1,11 @@
+{
+  "label": "Persistent context",
+  "summary": "Persistent context is the project knowledge that an AI coding assistant carries into every session, so it does not start from zero each time. In Maaike's work it is produced by a CLAUDE.md file in the project root, which Claude Code reads at the start of every conversation. It counters the articulation barrier of having to re-explain architecture, conventions, and preferences repeatedly.",
+  "how_maaike_uses": "Maaike frames persistent context as a practical infrastructure concern rather than a nice-to-have. The CLAUDE.md is explicitly 'AI docs, not human docs', optimised for what an assistant needs to be immediately useful rather than for human readers. Because the file travels with the code via git, context survives new machines and new sessions, meaning each conversation builds on previous decisions instead of rediscovering them. The note itself has a self-referential quality: Claude built the CLAUDE.md for Maaike's garden, then wrote the note about it, which Maaike flags as 'turtles all the way down'.",
+  "open_questions": [
+    "How does the content of a CLAUDE.md need to evolve as a project changes, and who is responsible for keeping it accurate?",
+    "Where does the line sit between context engineering and design more broadly, a thread Maaike gestures at but leaves to a linked note?"
+  ],
+  "state_hash": "9256ef0809f3f871da11a49c424ed20a806e7e6ea1f6ad599d6eac3fe71d8f73",
+  "generated_at": "2026-04-24T16:06:19.023451Z"
+}

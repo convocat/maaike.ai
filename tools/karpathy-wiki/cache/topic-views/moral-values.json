@@ -1,0 +1,12 @@
+{
+  "label": "Moral values",
+  "summary": "Moral values, in this context, refers to a fixed internal set of ethical standards and principles that a bot should hold consistently, regardless of how users try to steer a conversation. The concern is not just about biased training data but about the absence of any coherent, stable moral grounding in current AI chatbots. Without this, a bot like Blender simply mirrors whatever the user feeds it, which can lead to harmful outputs.",
+  "how_maaike_uses": "Maaike uses moral values as a lens to critique what she sees as the real problem with AI chatbots like Blender: not that they are inherently toxic, but that they lack internal coherence and a fixed ethical core. She argues that moral values should be baked into a bot's persona itself, not just bolted on as an external safety filter that can be removed. Drawing on references like Asimov's laws of robotics and the Golem tradition, she frames bot persona as a potential vehicle for hard-wiring ethics, transparency, and explainability directly into a chatbot's design.",
+  "open_questions": [
+    "How do you actually encode a stable, coherent set of moral values into a bot persona in a way that resists user manipulation?",
+    "If training data remains flawed and biased, can a persona-based ethical framework compensate, or does the underlying data always win out?",
+    "Who decides which moral values get built into a bot's persona, and how do you handle genuine disagreement about what those values should be?"
+  ],
+  "state_hash": "d7f1d3bb0180b0e805402196c239dee2d7a5f469ec6c77f5e6932835c4620077",
+  "generated_at": "2026-04-24T15:41:34.720681Z"
+}

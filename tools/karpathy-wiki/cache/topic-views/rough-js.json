@@ -1,0 +1,8 @@
+{
+  "label": "Rough.js",
+  "summary": "Rough.js is a graphics library that renders shapes and lines in a hand-drawn, sketchy style. In Maaike's work it appears as a visual dependency for the /explore page, where it is used to draw circles, paths, and lines that match the garden's existing sketchy aesthetic. The appeal is warmth and imperfection over the clean, clinical look of typical data visualisations.",
+  "how_maaike_uses": "",
+  "open_questions": [],
+  "state_hash": "1d61ce57e67c289b042afb6d9e52d76b05bb992de132ce8874ce4313e2ea409d",
+  "generated_at": "2026-04-24T16:07:11.199760Z"
+}

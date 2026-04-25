@@ -1,0 +1,11 @@
+{
+  "label": "Mature tooling",
+  "summary": "Mature tooling refers to the state of tools, workflows, analytics, and standards in conversation design, which are still catching up to what practitioners actually need. The field lacks consistent, purpose-built tooling, meaning designers often resort to workarounds like spreadsheets and flowcharts. This immaturity is one of the top five challenges conversation designers report facing.",
+  "how_maaike_uses": "Maaike frames immature tooling not just as a practical frustration but as a structural gap that holds the profession back from being taken seriously as a mature design discipline. She directly calls on vendors to involve conversation designers in the tool-building process, in paid roles, arguing that designers are increasingly present in platform selection and evaluation decisions, and that vendors would benefit from tapping that expertise earlier.",
+  "open_questions": [
+    "When, if ever, will standard practices in conversation design tooling fully solidify, and what would drive that shift?",
+    "How much of the tooling problem is vendor-side versus a lack of shared standards across the conversation design community itself?"
+  ],
+  "state_hash": "3fcaebeab19f885e9a96b31caeed596e2fcd3ee3b92eacf2eb332839d0743568",
+  "generated_at": "2026-04-24T15:37:02.473685Z"
+}

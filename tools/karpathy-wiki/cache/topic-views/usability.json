@@ -1,0 +1,11 @@
+{
+  "label": "Usability",
+  "summary": "Usability here refers to how well a feature actually works in practice for the person trying to use it. In Maaike's work it shows up as a practical test: does this thing do what it promises? The ChatGPT browse feature is a case where the answer is no.",
+  "how_maaike_uses": "Maaike uses usability as a reality check against hype. When she went to try the ChatGPT browse feature, she found it locked behind a data-collection toggle and, once enabled, described the browsing experience as subpar at best. So usability becomes a way to cut through the excitement around new features and ask whether they are actually worth using on their own terms, separate from the privacy trade-offs they come bundled with.",
+  "open_questions": [
+    "Will the browse experience improve to the point where it becomes genuinely useful, and would that change the calculus around the data toggle?",
+    "If browsing through ChatGPT displaces traditional search engines, what does that mean for the volume and nature of data OpenAI collects?"
+  ],
+  "state_hash": "011de84a69eb4074308012b8d75f8deacff19a245f5bf8602a5b25e2b06a6b42",
+  "generated_at": "2026-04-24T15:38:53.540053Z"
+}

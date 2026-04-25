@@ -1,0 +1,11 @@
+{
+  "label": "Training phrases",
+  "summary": "Training phrases are the example utterances used to train NLP intent models in conversational AI systems. In Maaike's work, they come up in the context of testing whether ChatGPT can automate parts of conversation design, specifically populating intents with realistic user input. The question is how useful and varied those generated phrases actually are in practice.",
+  "how_maaike_uses": "Maaike tests ChatGPT's ability to generate training phrases as part of a broader experiment on whether an LLM can take over NLP tasks like building an intent model. Her finding is that ChatGPT can produce training phrases but they tend to be monotonous and formulaic, and when she pushed for more user-like variation, it struggled. She notes this might be a prompting issue rather than a hard limit, specifically wondering whether asking explicitly for intra-intent variation would help.",
+  "open_questions": [
+    "Would explicitly prompting for intra-intent variation produce more realistic, user-like training phrases?",
+    "Can ChatGPT surface real-life recognition edge cases, or is it only useful for the obvious, familiar examples?"
+  ],
+  "state_hash": "cf341f5f660d18f2cfc9524ee67c7263a47a5ee00690f8df84f925cbbbe34b49",
+  "generated_at": "2026-04-24T15:37:54.419791Z"
+}

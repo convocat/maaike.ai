@@ -1,0 +1,11 @@
+{
+  "label": "Astro",
+  "summary": "Astro is a web framework that Maaike uses as the foundation for building her digital garden. It is a core technical dependency of the site, chosen as the starting point before layering on features like content collections, wiki links, and backlinks.",
+  "how_maaike_uses": "Maaike chose Astro specifically for her digital garden and wants to document not just the technical how but the reasoning behind that choice. She plans to write a comprehensive guide covering the full build process, with Astro as the entry point into a wider set of decisions about structure, content management, and site features.",
+  "open_questions": [
+    "What specifically made Astro the right choice over other frameworks for a digital garden setup?",
+    "How does Astro's content collections feature shape the way Maaike organises and queries her posts?"
+  ],
+  "state_hash": "45aa4b0760fcfb029b15037f2f400ec1ccf889dba9f1cf7adf2c87bba5a6b117",
+  "generated_at": "2026-04-24T16:12:06.059797Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Conviction",
+  "summary": "Conviction is a firmly held belief that someone considers part of their identity. It is stronger than an opinion and more conscious than a core belief, which is where convictions and opinions ultimately come from. In Maaike's work it shows up both as a term to think more precisely with, and as a quality that LLMs exhibit in their interaction model.",
+  "how_maaike_uses": "Maaike uses conviction in two related but distinct ways. In her terminology post she sets it up as a precision tool, drawing a clear line between conviction, opinion, core belief, and argument so that thinking about thinking becomes more rigorous. In her design writing she points to conviction as a characteristic of LLM output, something overpowering that big tech has baked into the current conversational interface model as a conscious design choice. Her project on designing for doubt explores whether meaningful friction can counter that built-in conviction by creating space for reflection instead of filling it.",
+  "open_questions": [
+    "Can system prompting or interaction design actually counter the conviction that LLMs are trained to project, or does that require deeper architectural changes?",
+    "If our own tendency to stick to convictions rather than do dialectical thinking is the real problem, what does it take in practice to shift that?"
+  ],
+  "state_hash": "e342a0a5942d1c0f863e6c54f1677a75d9634035cbcf040a1dadf5717745ba60",
+  "generated_at": "2026-04-24T15:16:05.329917Z"
+}

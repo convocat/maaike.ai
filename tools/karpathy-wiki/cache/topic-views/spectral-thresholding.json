@@ -1,0 +1,11 @@
+{
+  "label": "Spectral thresholding",
+  "summary": "Spectral thresholding is an approach to finding a natural cutoff in a similarity graph by using eigenvalue decomposition of the graph Laplacian. The idea is that every similarity graph has an inherent cluster structure, and the spectral gap between eigenvalues marks the boundary between real structure and noise. It is one of several filtering strategies Maaike evaluates for reducing link candidates in her knowledge graph experiment.",
+  "how_maaike_uses": "Maaike introduces spectral thresholding as one of four candidate strategies for getting from 2,771 noisy link pairs down to something actually reviewable. She frames it as appealing because it requires no labeled data and is computationally cheap at her garden's scale of 157 items. The approach is grounded in two papers she cites: Sterner and Geibel's 2013 work on eigenvalue decomposition for semantic networks, and a 2025 extension by Witschard and Mayr that also uses similarity network analysis to compare embedding models.",
+  "open_questions": [
+    "Whether spectral thresholding in practice surfaces the cross-collection gems that other fixed-threshold methods miss is not resolved in the post.",
+    "The post cuts off before explaining how blocking strategies interact with or compare to spectral thresholding, leaving the relative merits unclear."
+  ],
+  "state_hash": "ece56e40d162160749c8f25a0df31ae9892a0bf268987a1ce52a5816923f47da",
+  "generated_at": "2026-04-24T16:17:01.472386Z"
+}

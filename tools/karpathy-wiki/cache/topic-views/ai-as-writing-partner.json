@@ -1,0 +1,12 @@
+{
+  "label": "ai-as-writing-partner",
+  "summary": "AI as writing partner is Maaike's shorthand for a role that is neither ghostwriter nor simple autocomplete tool. The metaphor is still being worked out, but the working definition is something like a thinking companion or sparring partner that generates while Maaike directs, decides, and writes. It sits in deliberate tension with writing as craft, which she values precisely because it resists being handed off.",
+  "how_maaike_uses": "Maaike holds a firm line on agency: AI generates, she writes. Her style guide makes this concrete with rules like 'I built this with Claude' instead of passive constructions, and 'co-created means I directed'. At the same time she acknowledges Claude as a genuinely useful assistant for factual and functional texts, and flags it as a serious but undefined presence in her writing process. The tension she keeps returning to is that leaning on AI for the background work, templates, field notes, structural tidying, quietly eats into the time and attention she would rather spend actually writing and thinking.",
+  "open_questions": [
+    "What is the right metaphor for AI's role in writing? Sparring partner, editor, and thinking companion are all floated but none is settled.",
+    "How does she stop the AI-assisted generation of ideas and content from crowding out the slower, more deliberate work of writing as craft?",
+    "Is the goal a tidy, cultivated garden or is some chaos allowed to coexist, and what does that mean for how AI fits into the process?"
+  ],
+  "state_hash": "aeb2cd6f64080d68f9d09beaec4033c2eee31a1660e2fc4c5382dcd317666aeb",
+  "generated_at": "2026-04-24T15:26:43.154572Z"
+}

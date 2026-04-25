@@ -1,0 +1,11 @@
+{
+  "label": "US-centred bias",
+  "summary": "US-centred bias refers to the tendency of DALL-E 3's internal prompt rewriting system to default to American cultural contexts and framings, even when the user's original prompt contains no such reference. It shows up as an assumed setting, cultural backdrop, or demographic framing that reflects a US norm rather than a neutral or locally relevant one. Maaike treats it as one specific, demonstrable instance of the broader problem of bias in AI image generation.",
+  "how_maaike_uses": "Maaike surfaces US-centred bias as concrete evidence of what goes wrong when a model rewrites user prompts without consent or transparency. Her example is striking: she prompts '3 women' and DALL-E quietly inserts 'Three American women' into the rewritten version, a framing she never asked for. She uses this finding to argue that the rewrite mechanism, though intended to produce diversity, can itself introduce a particular cultural default that is neither neutral nor representative of the actual user. Her response is to investigate whether careful, explicit prompt design can counteract this drift, which she explores in a hands-on workshop setting.",
+  "open_questions": [
+    "Does explicit prompting for a non-US cultural context reliably override DALL-E's tendency to default to American framings, or does the rewrite mechanism reassert itself?",
+    "Who decides what counts as 'diverse' in DALL-E's rewrite logic, and whose cultural norms are embedded in that definition?"
+  ],
+  "state_hash": "d455ac2d330d147b285575a4395532cadb042d3c07092003610d9874a50b2974",
+  "generated_at": "2026-04-24T15:45:27.551401Z"
+}

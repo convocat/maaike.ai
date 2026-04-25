@@ -1,0 +1,11 @@
+{
+  "label": "Algorithmic epistemic injustice",
+  "summary": "Algorithmic epistemic injustice is a concept attributed to Timothy Cook, building on Miranda Fricker's foundational work in epistemology. It describes how AI systems encode and reproduce epistemic bias, effectively collapsing diverse human knowledge traditions into a single hierarchical structure driven by statistical probability. The concern is that this creates a centralised point of failure for how knowledge is validated and circulated.",
+  "how_maaike_uses": "Maaike uses this concept to interrogate what gets lost when AI systems treat knowledge as a probability problem. The framing suggests she is sceptical of the idea that statistical likelihood is a sufficient or neutral basis for representing human knowledge, and she points to epistemic friction as a counter-move — a way of resisting the flattening effect that algorithmic systems produce.",
+  "open_questions": [
+    "What does epistemic friction look like in practice, and is it a realistic counter to the scale at which algorithmic systems operate?",
+    "If AI has collapsed centuries of knowledge into a single point of failure, what governance or design responses actually follow from that diagnosis?"
+  ],
+  "state_hash": "b25f9d3cde6ce5c119257edec0573df26e8fcd4c62adf073c7cce4c0b7046680",
+  "generated_at": "2026-04-24T16:25:01.425450Z"
+}

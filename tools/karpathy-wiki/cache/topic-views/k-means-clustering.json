@@ -1,0 +1,11 @@
+{
+  "label": "K-means clustering",
+  "summary": "K-means clustering is an instance of text embeddings used as a method for discovering structure in a corpus without reading the raw text. In Maaike's work it appears as one half of a comparison experiment: run k-means (k=10) on bge-m3 embeddings of 213 garden items, then name the resulting clusters by inspecting their members. The goal is to see what shape the garden takes when structure comes entirely from embedding space rather than from a human reader.",
+  "how_maaike_uses": "Maaike uses k-means clustering as a foil for fresh reading, not as a primary analytical tool. The clustering confirms some themes she found by reading (the knowledge graph research cluster is the tightest match, the conversation design profession cluster is very clear) but it systematically misses the themes that depend on autobiographical asides, epistemological stance, or connections across surface topics. She also finds that embeddings pick up format signals she didn't emphasise in reading: 15 of 22 items in one cluster are videos, grouped by description style rather than topic. The overall picture she builds is that k-means sees topical and stylistic similarity but cannot see the underlying concerns or personal narrative that a reader would notice.",
+  "open_questions": [
+    "The post is cut off mid-sentence on the format contamination finding, so it's unclear what conclusion she draws about the implications for the garden's embedding infrastructure.",
+    "It's not settled whether a different value of k, or a different clustering method, would recover any of the themes that k=10 misses."
+  ],
+  "state_hash": "1ce083cdf14786d1a5b3627f59d6a25714a5aba4d6e8d7e90f3f116539bcde36",
+  "generated_at": "2026-04-24T16:15:13.747967Z"
+}

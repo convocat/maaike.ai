@@ -1,0 +1,12 @@
+{
+  "label": "Conversational AI",
+  "summary": "Conversational AI covers the design and development of systems that interact with users through natural language, including chatbots, voicebots, and task assistants. In Maaike's work it shows up both as a practical design challenge and as a space with genuine social potential, from mental health support to accessibility research. Intent models are a core building block of these systems.",
+  "how_maaike_uses": "Maaike approaches conversational AI from a conversation design perspective, stress-testing tools like ChatGPT for concrete NLP tasks such as generating intent models and training phrases, while staying sceptical about where they actually fall short on logic and language. She also tracks the field through events like the European Chatbot and Conversational AI summit, where her highlights skew towards talks that combine linguistic rigour, social good applications, and emerging approaches like semantic graph-based methods that move beyond intent-only architectures.",
+  "open_questions": [
+    "Can ChatGPT reliably generate real-life training data and handle edge-case recognition problems, or is it only useful for familiar, well-represented use cases?",
+    "Why does ChatGPT inconsistently apply its own linguistic analysis when doing rewrites, and what does that reveal about its underlying language processing?",
+    "How far can semantic and graph-based approaches replace or complement traditional intent models in conversational AI design?"
+  ],
+  "state_hash": "5cc3051699cd6ecf59874df936695706142fb0e8190870876340af4e6b3999e4",
+  "generated_at": "2026-04-24T15:31:39.203000Z"
+}

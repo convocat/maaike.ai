@@ -1,0 +1,11 @@
+{
+  "label": "Conscious prompting",
+  "summary": "Conscious prompting is the practice of writing deliberate, carefully considered prompts when working with image generation tools like Dall-e. It is positioned as a necessary method for studying and pushing back against bias in AI-generated imagery. The approach requires both attention to the prompt itself and awareness of the biases that may otherwise go unchallenged.",
+  "how_maaike_uses": "Maaike frames conscious prompting as a tool for de-biasing Dall-e, using it to produce images that better reflect the actual diversity of people rather than the stereotypes the model defaults to. She treats it as both a practical technique and a learning exercise, one that can surface bias in the model and in the prompter alike. This comes through most clearly in her interactive workshop format, where participants work through prompts together as a way to study what inclusive image generation might look like.",
+  "open_questions": [
+    "How much can conscious prompting realistically compensate for structural bias baked into a model like Dall-e, versus being a workaround that leaves the underlying problem intact?",
+    "What does 'meticulous' prompting look like in practice, and are there specific techniques or strategies Maaike has found effective?"
+  ],
+  "state_hash": "b2c8c6eb6d5a19b707b492fd007d8df8ab3fe595619bcb007edca1f5361ab140",
+  "generated_at": "2026-04-24T15:51:57.736514Z"
+}

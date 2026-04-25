@@ -1,0 +1,11 @@
+{
+  "label": "Content lifecycle",
+  "summary": "Content lifecycle refers to the natural cycle of research, drafting, review, and publication that content goes through before it reaches an audience. In Maaike's work it comes up specifically in the context of conversational and chatbot teams, where the question is whether a standard two-week IT sprint actually maps onto how content moves from intake to publication. The concept is used to argue that sprint length should reflect the real content cycle, not be borrowed uncritically from software development.",
+  "how_maaike_uses": "Maaike grounds the content lifecycle concretely in her own experience as a tech writer in aviation, where a four-week publication window shaped everything from research and SME coordination to review iterations and final assembly. She uses that lived example to challenge the assumption that a two-week sprint is a sensible default for content teams, pointing out that copying IT scrum without examining your actual content cycle leads to artificial deadlines and rule-following for its own sake. The content lifecycle is essentially the thing a sprint should be sized around, not the other way around.",
+  "open_questions": [
+    "What sprint length would Maaike actually recommend for conversational teams, given that the post stops short of a concrete prescription?",
+    "How should teams measure whether their chosen sprint length is working, given the Agile emphasis on empirical and objectively measurable outcomes?"
+  ],
+  "state_hash": "79bd83edcda5d948b56af8b03c12f39636a3307a74a295d1be4339c60f8d8212",
+  "generated_at": "2026-04-24T15:30:34.984125Z"
+}

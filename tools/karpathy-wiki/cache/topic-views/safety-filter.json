@@ -1,0 +1,11 @@
+{
+  "label": "Safety filter",
+  "summary": "A safety filter is an external content moderation layer applied to a chatbot to block harmful or offensive outputs. In Maaike's work, the concept appears specifically in the context of Facebook's Blender chatbot, where such a filter was added but could be easily removed. This makes it a fragile and insufficient solution compared to embedding ethical standards directly into a bot's core design.",
+  "how_maaike_uses": "Maaike uses the safety filter as a foil to argue for a more robust alternative: ethics built into the persona itself rather than bolted on from the outside. Her point is that a removable filter treats the symptom rather than the cause. The real problem with Blender, as she sees it, is not the training data alone but the absence of a fixed, internally coherent set of moral values. She contrasts the safety filter approach with the idea of a chatbot persona that functions as a set of ethical validation rules, drawing on references like Asimov's laws and the Golem tradition to make the case that moral standards should be hard-wired, not optional.",
+  "open_questions": [
+    "If safety filters can be easily bypassed, what would it actually take to embed ethical standards into a bot's persona in a way that holds under adversarial use?",
+    "How do you design a chatbot persona that maintains a fixed moral position without becoming rigid or brittle in open-ended conversation?"
+  ],
+  "state_hash": "9c1925a872ac476e79eab990a88a40be0ead30e785efaf3814fc8fdbb8923dc6",
+  "generated_at": "2026-04-24T15:41:46.211784Z"
+}

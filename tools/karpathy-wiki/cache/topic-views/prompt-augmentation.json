@@ -1,0 +1,11 @@
+{
+  "label": "Prompt augmentation",
+  "summary": "Prompt augmentation is the process by which DALL-E 3 automatically rewrites a user's original prompt before generating an image, adding adjectives, extra instructions, and demographic details the user did not request. It is a deliberate design choice documented in DALL-E's system card, intended in part to produce more diverse outputs. In practice it means the image generated responds to DALL-E's rewritten prompt, not the one the user actually wrote.",
+  "how_maaike_uses": "Maaike uses prompt augmentation as a lens for critiquing DALL-E 3 from two angles. In her hands-experiment post she shows how the rewrite causes the model to miss her actual intent, making precise prompt design largely pointless because the model substitutes its own interpretation. In her de-biassing post she goes further, arguing that the mechanism introduces cultural stereotypes rather than removing them, and that having a system silently overwrite a user's words is a violation of authorship. She is sceptical of the assumption that diversity-by-rewrite is either ethnically sound or technically effective.",
+  "open_questions": [
+    "Whether there is any reliable way for users to prevent or constrain prompt augmentation, given that detailed parameter control like in Midjourney does not seem available in DALL-E 3.",
+    "Whether the diversity-focused rewrites actually reduce bias or just shift and solidify different cultural stereotypes, particularly when non-Western contexts like 'Dutch' are involved."
+  ],
+  "state_hash": "c0fb269b84ef03f205f2cb3a7984fcb59c7b2dee30acc94ee5d4e941cd1868d6",
+  "generated_at": "2026-04-24T15:34:33.745133Z"
+}

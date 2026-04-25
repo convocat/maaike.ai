@@ -1,0 +1,11 @@
+{
+  "label": "Cognitive assemblage",
+  "summary": "A cognitive assemblage, as theorised by N. Katherine Hayles, is a collective in which decisions and agency are distributed across humans, nonhumans, and computational media rather than concentrated in individual human actors. It rests on the idea that cognition is broader than consciousness and can include nonconscious processes and systems. LLMs are an instance of such an assemblage.",
+  "how_maaike_uses": "Maaike picks up the concept primarily through reading notes on Hayles, using it to challenge the assumption that humans are the central deciders. The key move she tracks is decoupling cognition from consciousness: once you accept that nonconscious cognition is real and widespread, computational media like LLMs can be understood as genuine participants in cognitive assemblages rather than mere tools. She also notes that even when humans appear to be in control, their assumptions have already been shaped by prior interpretations made by computational media, which complicates any straightforward account of human agency.",
+  "open_questions": [
+    "What ethical obligations follow from taking nonhuman and nonconscious participants in a cognitive assemblage seriously, beyond simply noting that no umwelt should dominate others?",
+    "How do you practically study or map a cognitive assemblage given that its dimensionality is supposed to resist resolution into a smooth, homogeneous surface?"
+  ],
+  "state_hash": "4a4d13409afefabdf210f81b6c9cb943ef31184edf0436c0f70d587807b4d3d8",
+  "generated_at": "2026-04-24T15:22:19.280899Z"
+}

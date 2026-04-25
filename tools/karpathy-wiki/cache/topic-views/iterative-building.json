@@ -1,0 +1,11 @@
+{
+  "label": "Iterative building",
+  "summary": "Iterative building is the practice of constructing something incrementally, making decisions and adding features over time rather than designing everything upfront. In Maaike's work it shows up in how she built this digital garden: day by day, feature by feature, with each session leaving the site meaningfully different from how it started.",
+  "how_maaike_uses": "The garden's changelog is a direct record of iterative building in action. Maaike went from zero to a functional site in a single sitting, then kept layering: personality and hover cards on day two, a rebuilt authoring workflow on day three, original content and a smarter library on day four. Each pass added something concrete and often changed something that was already there, like renaming Sparks to Seeds or stripping the sidebar back to just navigation. The process is documented as a changelog rather than a design document, which suggests the shape of the garden was discovered through building it, not planned in advance.",
+  "open_questions": [
+    "The changelog cuts off mid-entry on 14 March, so it is unclear how the iterative process continued or whether a point of stability was ever reached.",
+    "It is not explicit whether the iterative approach was a deliberate choice or just how things unfolded in practice."
+  ],
+  "state_hash": "edd4a25ad345fa71bad60995f564c5db561ecf9f88f34c33e31944ebbf03f030",
+  "generated_at": "2026-04-24T16:12:29.104062Z"
+}

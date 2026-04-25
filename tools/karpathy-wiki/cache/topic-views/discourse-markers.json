@@ -1,0 +1,11 @@
+{
+  "label": "Discourse markers",
+  "summary": "Discourse markers are the signposts of a conversation, used to signal turn-taking, shift focus, call for attention, or get confirmation. They operate on the front channel, meaning they are used by the person or bot who currently holds the turn. Examples include openers and closers like 'Well', 'Right', 'So', and 'Let's move on'.",
+  "how_maaike_uses": "Maaike introduces discourse markers as a practical tool for conversation designers who want their voice actions or bots to sound more speech-like. She draws a clear contrast with backchanneling cues, which can look similar but serve a different function: backchanneling happens on the back channel, by the listener, without taking the turn. She also flags a practical pitfall for voice design specifically: some discourse markers are borrowed from written text ('above', 'in conclusion', 'below') and don't translate well to speech, so designers need to be selective about which ones they use.",
+  "open_questions": [
+    "The passage about discourse markers that refer to visual characteristics of written text is cut off mid-sentence, so the full guidance on how to handle or replace them in speech contexts is missing.",
+    "The post gestures at a broader category system for discourse markers but does not elaborate on whether different types carry different risks or opportunities for voice design beyond the written-versus-spoken distinction."
+  ],
+  "state_hash": "9c128113acd5630fa1f53a438c6512239ca30d90cbc1f1126f464a51952dd137",
+  "generated_at": "2026-04-24T16:03:59.197494Z"
+}

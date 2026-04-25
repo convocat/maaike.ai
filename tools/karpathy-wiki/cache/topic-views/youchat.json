@@ -1,0 +1,11 @@
+{
+  "label": "YouChat",
+  "summary": "YouChat is a GPT-3.5 based large language model launched in January 2023 with the claimed ability to access the internet and retrieve recent information. Maaike tested it as a potential alternative to ChatGPT, specifically because that internet access was its main selling point. In practice it demonstrated the same core weaknesses as other LLMs, including fabricated links and an inability to reliably reason about time.",
+  "how_maaike_uses": "Maaike uses YouChat as a concrete test case to probe the limits of LLMs that claim real-time internet access. She puts pressure on two specific failure modes: the model's inability to resolve relative time expressions like 'yesterday' into actual dates, and its generation of links that simply do not exist on the internet. Both failures serve her broader argument that LLMs are stochastic parrots for which truth is optional, and that bolting on internet access doesn't fix the underlying probabilistic, non-referential nature of how these models generate text.",
+  "open_questions": [
+    "Whether any LLM can meaningfully resolve relative adverbs of time like 'yesterday' without genuine timestamp logic, and what a workable solution would even look like.",
+    "What the implications are when an LLM mimics accountability by producing apology-style language, and whether that changes the user's perception of the human-machine contract."
+  ],
+  "state_hash": "873cccaed77415ea7ebe04b1813fde278d1394df7d450d43585d7258ce9e4e88",
+  "generated_at": "2026-04-24T15:40:13.463163Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Process copy-paste",
+  "summary": "Process copy-paste refers to the risk of organisations adopting a working method wholesale from another context without checking whether it fits their own situation. In Maaike's work it surfaces specifically as the tendency to copy IT scrum conventions, like the two-week sprint, directly into conversational or content teams. The result can be artificial boundaries and rules followed for their own sake rather than for any practical benefit.",
+  "how_maaike_uses": "Maaike uses process copy-paste as a cautionary concept when writing about scrum for conversational teams. She argues that the two-week sprint was designed for software development and that content and chatbot teams have their own natural cycles that may not match it. She grounds this in her own experience as a tech writer working in four-week aviation publication cycles, using that contrast to show that what feels effortless in one context can become friction when transplanted uncritically into another.",
+  "open_questions": [
+    "What would a sprint length designed specifically for conversational teams actually look like in practice?",
+    "How should teams decide empirically what their natural content cycle is, rather than defaulting to borrowed conventions?"
+  ],
+  "state_hash": "9154ba0ce78e85292b774846ac8ef68d51368ae55cbb44a42e8180e726953002",
+  "generated_at": "2026-04-24T15:57:13.859575Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Cognitive load",
+  "summary": "Cognitive load, in Maaike's work, refers to the mental effort imposed on users when interacting with AI writing tools and conversational interfaces. It surfaces specifically in the context of review-regenerate-repeat cycles and the articulation barrier that novice and experienced writers alike face when prompting for output. The concept is used to flag when a tool that promises efficiency ends up costing more effort than it saves.",
+  "how_maaike_uses": "Maaike uses cognitive load as a practical critique of conversational interfaces for writing tasks. She points to concrete sources of extra effort: having to read through entire generated texts on each iteration, having to formulate precise prompts before you can get useful output, and having to scroll extensively through linear chat histories to find and reuse earlier content. Her argument is that these compounding demands turn a supposedly quick task into a long, tedious process, and that the interface design itself is largely responsible for that overhead.",
+  "open_questions": [
+    "If direct editing of generated text reduces cognitive load compared to indirect prompt manipulation, what does that imply for the value proposition of conversational interfaces specifically for writing tasks?",
+    "The passages gesture at but do not resolve whether the cognitive load problem is inherent to generative AI writing or specific to the linear, chat-based interface format."
+  ],
+  "state_hash": "4fe757dc273b03a86875f3a9a052e9a0bcdfde903315d0445ea66405dba99780",
+  "generated_at": "2026-04-24T15:21:01.322715Z"
+}

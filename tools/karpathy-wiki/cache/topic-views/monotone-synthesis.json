@@ -1,0 +1,11 @@
+{
+  "label": "Monotone synthesis",
+  "summary": "Monotone synthesis refers to the flat, robotic-sounding speech output that results from using default text-to-speech voices without any additional markup or tuning. In the Dutch voice action landscape around 2019, this was a widespread problem: most Nederlandstalige Google Assistant actions relied on the same default female voice, which was hard to follow and sounded breathless. SSML is presented as the practical counter to this problem.",
+  "how_maaike_uses": "Maaike uses monotone synthesis as the problem that motivates her writing about SSML. She points out that conversational designers working in Dialogflow had very limited voice options to begin with, making the sameness of the output almost inevitable, but argues that adding SSML markup, paragraph and sentence tags, pauses, and tempo controls is a realistic way to make a voice action sound calmer and more natural without needing extra voice talent or tooling.",
+  "open_questions": [
+    "Whether the situation improved after 2019 as more Dutch-language voices became available from Google is not addressed.",
+    "The posts gesture at experimenting with pitch and speed but do not evaluate which combinations actually work well for Dutch conversational content."
+  ],
+  "state_hash": "5ecabab53d5b191c716b5c2c5a6b226747dfad3c49934420d7b1815d35c94940",
+  "generated_at": "2026-04-24T15:54:14.612693Z"
+}

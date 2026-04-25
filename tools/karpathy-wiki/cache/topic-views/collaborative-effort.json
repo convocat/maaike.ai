@@ -1,0 +1,11 @@
+{
+  "label": "Collaborative effort",
+  "summary": "Collaborative effort is how Maaike characterises conversation, drawing on N.J. Enfield's work: even the simplest exchange is a jointly timed, interlocking achievement between participants. It is not just a feature of friendly chat but a fundamental property of how language works. This framing sets a high bar for what any system claiming to be conversational actually needs to do.",
+  "how_maaike_uses": "Maaike uses collaborative effort as a critical lens to evaluate conversational AI. Because real conversation requires both parties to have a stake, infer intentions, and work together toward a shared outcome, she argues that systems like Sydney/Venom fall short: they mirror rather than cooperate, and they cannot hold up their end of the collaborative structure that humans automatically expect the moment they feel they are in a conversation. This lets her push back on Microsoft's surprise that users went beyond search, pointing out that the collaborative expectations were baked in by the design itself.",
+  "open_questions": [
+    "Can a machine ever become a genuine equal partner in the collaborative structure of conversation, or is mirroring the ceiling of what LLMs can achieve?",
+    "If users know they are talking to a machine without its own stake, how does that change their willingness to sustain the collaboration rather than test or break it?"
+  ],
+  "state_hash": "70a95f6115c85b26c103f662e88a6387bd47af660386d7692744493ecb1b3fec",
+  "generated_at": "2026-04-24T15:49:44.656453Z"
+}

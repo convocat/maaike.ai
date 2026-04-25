@@ -1,0 +1,11 @@
+{
+  "label": "False positives",
+  "summary": "False positives in this context are similarity pairs that score above a threshold but don't represent genuinely useful or surprising connections. They are a core problem when using cosine similarity to generate link candidates in a knowledge graph: a threshold set too low floods the results with obvious or meaningless matches, burying the connections that are actually worth surfacing.",
+  "how_maaike_uses": "Maaike frames false positives as a practical obstacle to making a link-suggestion pipeline actually usable. The 2,771 candidate pairs at a 0.55 threshold are the concrete example: that volume is too large to review, and the interesting cross-collection connections are drowned out by same-topic noise. She evaluates several filtering strategies specifically by how well they reduce false positives without sacrificing the rare surprising matches, with token blocking called out as a direct counter-measure because it avoids computing similarity for pairs that share no cheap signal at all.",
+  "open_questions": [
+    "Whether per-document z-score normalisation can recover cross-collection pairs that a global threshold misses without re-introducing a different class of false positives.",
+    "Whether spectral thresholding, which requires no labelled data, would converge on a different cutoff than the manual threshold experiments, and whether that cutoff would reduce false positives more reliably."
+  ],
+  "state_hash": "60c917ec77804f95a9782ba0aa38bfcf95a33e093d9fab76f1f43b48da9190da",
+  "generated_at": "2026-04-24T16:17:25.274757Z"
+}

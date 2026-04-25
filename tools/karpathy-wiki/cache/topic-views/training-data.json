@@ -1,0 +1,12 @@
+{
+  "label": "Training data",
+  "summary": "Training data is the material that large language models are trained on, and the quality of that material directly shapes how well those models perform. LLMs trained on books produce better output than those trained on social media posts, which means the supply of high-quality written text is a meaningful constraint on AI development. Research suggests we may already be approaching a shortage of this kind of data.",
+  "how_maaike_uses": "Maaike uses the concept of training data as a lens for questioning what it means to remove humans from the loop in building our collective knowledge base. She is sceptical of proposed solutions like AI-generated synthetic training data or harvesting human speech acts, and pushes back on the idea that books should be treated as cheap machine fodder rather than as something humans produce with effort and read with purpose. The shortage of quality training data becomes, for her, not just a technical problem but a question about values.",
+  "open_questions": [
+    "What specific properties of books make them better training data than other text sources -- is it volume, vocabulary, coherence, rhetorical structure, or something else?",
+    "If AI cannot generate anything genuinely new, can AI-produced synthetic training data actually help LLMs improve, or does it just recycle existing patterns?",
+    "What does it mean for society if the decisions and information we encounter are shaped by a background algorithm trained partly on fiction it produced and consumed itself, with no human evaluation in the loop?"
+  ],
+  "state_hash": "30d9b158e1112ee79dd646b0fc8c793aff392a809cac8642bd59a461000baf30",
+  "generated_at": "2026-04-24T15:35:02.654427Z"
+}

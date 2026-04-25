@@ -1,0 +1,11 @@
+{
+  "label": "AI safety",
+  "summary": "AI safety refers to the set of technical and regulatory measures aimed at preventing harms that arise from AI systems. In the context of Maaike's work, it appears specifically in relation to how AI can exploit cognitive vulnerabilities in humans, and what legal frameworks can do to address that. It is treated as a prerequisite for meaningful AI regulation rather than an optional add-on.",
+  "how_maaike_uses": "Maaike engages with AI safety through the lens of China's proposed AI law, which frames safety not as an abstract engineering concern but as a response to concrete human vulnerabilities, such as anthropomorphism. The angle here is contextual and sociotechnical: safety measures need to account for how people relate to and misread AI systems, not just how the systems perform technically.",
+  "open_questions": [
+    "What specific technical measures does China's proposed law require to counter cognitive vulnerabilities like anthropomorphism, and how enforceable are they in practice?",
+    "If AI regulation requires AI safety as a foundation, what happens when safety standards are contested or unevenly defined across jurisdictions?"
+  ],
+  "state_hash": "06a3ce0fd7410d59a43d210736791ad08f3e7ecf151d4f15d3691a3ab1b5dbba",
+  "generated_at": "2026-04-24T15:33:10.181304Z"
+}

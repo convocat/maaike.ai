@@ -1,0 +1,11 @@
+{
+  "label": "Explore map",
+  "summary": "The explore map is a 2D spatial interface on the /explore page of Maaike's digital garden, where every item is positioned by semantic similarity using a UMAP projection of bge-m3 embeddings. Items cluster by topic, so the shape of the garden becomes visible at a glance. The map uses Rough.js for all rendering, giving it a hand-drawn, sketchy quality that matches the garden's existing visual style.",
+  "how_maaike_uses": "Maaike built the explore map as a browsable, spatial alternative to lists and links, and has iterated on it to give it memory. Early on the map was stateless, regenerating positions from scratch on every build, which made it impossible to develop a sense of place. The fix was a pinned positions system: once an item is placed, its coordinates are saved to a map-roots.json file and held stable across rebuilds. New items are placed near their closest semantic neighbour rather than triggering a full recompute. The result is a map that accumulates a stable geography over time, supporting three modes of use: browsing the spatial overview, wandering via constrained randomness toward under-linked items, and following curated or auto-generated trails between items.",
+  "open_questions": [
+    "The cluster labels are auto-generated from shared key phrases, but it's not clear how well those labels hold up as the garden grows and clusters shift in meaning without triggering a full recompute.",
+    "The wander mode weights toward under-linked items for unexpectedness and shows neighbours for value, but whether that combination actually produces useful serendipity in practice is left open."
+  ],
+  "state_hash": "c3e49e9925a122e3510be2cae18356971206a091583ea8d94dbdc291c042af44",
+  "generated_at": "2026-04-24T16:07:24.425900Z"
+}

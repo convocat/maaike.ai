@@ -1,0 +1,11 @@
+{
+  "label": "Coreference handling",
+  "summary": "Coreference handling refers to a system's ability to track and resolve pronouns and references across conversational turns, for example understanding who 'you' refers to several exchanges into a dialogue. In CUI design this is a known weak spot, and many conversational interfaces struggle with it. Maaike uses it as a benchmark for evaluating how well a system actually follows the thread of a conversation.",
+  "how_maaike_uses": "Maaike uses coreference handling as one of several practical tests she applies when stress-testing a conversational AI. In her ChatGPT session she specifically tries to trip the system up by introducing an earlier nickname ('Al') several turns later, and she notes that ChatGPT not only remembers that context but simultaneously holds the persona context and the human-versus-bot context at the same time. She frames this as genuinely impressive because most CUIs she has encountered fail at pronoun resolution even in simple cases.",
+  "open_questions": [
+    "How far into a conversation does ChatGPT's coreference tracking hold before it starts to degrade or hallucinate earlier context?",
+    "Does strong coreference handling combined with consistent persona maintenance actually translate into better user trust, or is it just a proxy measure?"
+  ],
+  "state_hash": "e154b7df6015c6f5d9708ae37acf19bee52fef7e3760112aef8216a02bc16ce5",
+  "generated_at": "2026-04-24T15:39:29.337956Z"
+}

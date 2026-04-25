@@ -1,0 +1,11 @@
+{
+  "label": "Content quality",
+  "summary": "Content quality is not a fixed standard but a set of parameters that can be discussed, designed and agreed on with stakeholders. In Maaike's work it covers accuracy, completeness, consistency, timeliness and maintainability, and it always involves trade-offs between these aspects. Feedback is treated as essential input for understanding and improving quality, not as a personal attack.",
+  "how_maaike_uses": "Maaike approaches content quality as something that must be negotiated rather than assumed. She uses a 5-point checklist to work through feedback systematically, covering facts, audience, stakeholders, required quality level and whether the feedback itself is justified. The key move she makes is being transparent with stakeholders about what trade-offs any given quality choice implies, so that decisions are shared rather than unilateral. She also ties the emotional side of receiving feedback directly to quality work: detaching from your text is what lets you listen well enough to actually improve it.",
+  "open_questions": [
+    "When feedback is unjustified or comes from someone unqualified, how far should a content designer push back, and what makes that pushback legitimate?",
+    "The checklist assumes you can schedule a proper conversation with the feedback-giver, but the posts gesture at situations where that is not possible. How does the quality audit hold up when access to stakeholders is limited?"
+  ],
+  "state_hash": "5e069aa3cdff8b11c1f0e778f5e47925437d5c5e6ebe784678c45aa7e5edce64",
+  "generated_at": "2026-04-24T15:48:33.178027Z"
+}

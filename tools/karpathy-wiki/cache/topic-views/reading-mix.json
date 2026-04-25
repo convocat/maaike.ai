@@ -1,0 +1,11 @@
+{
+  "label": "Reading mix",
+  "summary": "A reading mix is the idea of maintaining multiple books in parallel rather than committing to one at a time: something lighter to keep momentum going alongside something denser for slower, longer-term reading. It reflects a preference for managing focus and completion dopamine rather than treating reading as a linear single-book activity. The concept came up during user research for the book recommender project.",
+  "how_maaike_uses": "Maaike frames the reading mix as a practical response to low focus: fiction for beauty, escape, and narrative pull, and non-fiction for curiosity and professional growth. Rather than asking 'what should I read next', the relevant question for her is what combination covers both tracks at once. This distinction is flagged as better input for a book recommender scoring algorithm than a simple single-title recommendation model.",
+  "open_questions": [
+    "How should the book recommender actually operationalise the reading mix concept in its scoring or output format?",
+    "What counts as 'light enough' to serve the momentum function versus 'dense enough' to serve the growth function?"
+  ],
+  "state_hash": "d92b0b2abde2edce474f7c9f239ee3664ed06bfc4c0d17f54ba94bca99042676",
+  "generated_at": "2026-04-24T16:21:41.729894Z"
+}

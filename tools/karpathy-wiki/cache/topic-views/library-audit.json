@@ -1,0 +1,11 @@
+{
+  "label": "Library audit",
+  "summary": "A library audit is a structured labeling pass over a set of unread or in-progress books, assigning each one status, type, purpose, and a reason for being stuck. It feeds the book recommender project and generates calibration data about actual reading patterns. In the garden's integration design, it lives inside library frontmatter rather than a separate JSON file.",
+  "how_maaike_uses": "Maaike ran the audit over 40 books (10 physical, 30 e-books) using an interactive HTML tool she built for the purpose, then used the resulting data to identify patterns like ereader invisibility, 'should read' guilt, and books that lost momentum without a clear reason. The audit is the required first step for the recommender to work at all. In the later integration design, the standalone audit JSON is replaced by frontmatter fields on each library book in the garden, making the library page itself the place where audit data lives and gets edited.",
+  "open_questions": [
+    "The HTML labeling tool is flagged as a potential future library management UI for the garden, but it's not clear whether that replaces or overlaps with the inline editing design described in the integration post.",
+    "Ereader discoverability is named as a real problem the audit surfaced, but there's no proposed fix for it yet."
+  ],
+  "state_hash": "af1e8ea0433e03915b91e7a686bdeff0dd709bf17fede906f68edc4cabee7d6b",
+  "generated_at": "2026-04-24T16:21:10.977965Z"
+}

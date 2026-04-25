@@ -1,0 +1,11 @@
+{
+  "label": "Imperfection principle",
+  "summary": "The imperfection principle is the idea that publishing half-formed, incomplete, or still-developing thoughts is not only acceptable but built into the structure of a digital garden. Unlike a blog post, which carries an expectation of being finished, a garden note can exist in an unresolved state and be returned to later. It is one of the core design beliefs underlying how Maaike has built and maintains her garden.",
+  "how_maaike_uses": "Maaike treats the imperfection principle as both a structural feature of digital gardens in general and an explicit, named commitment in her own garden specifically. In her comparison of gardens and blogs, she points to imperfection as the key differentiator: gardens let you think in public without the pressure of completion. In the principles post, she frames it not as a rule but as a living belief about how knowledge grows when tended openly, grouping it alongside connecting ideas over time and making room for growth.",
+  "open_questions": [
+    "What the practical threshold is between a note that is usefully incomplete and one that is just underdeveloped — the posts gesture at this tension without resolving it.",
+    "How the imperfection principle interacts with the expectation that ideas will actually be developed over time, rather than left indefinitely half-formed."
+  ],
+  "state_hash": "177ba6e5141b68e25d01324bd2b5555db289b1773dc5684f7de41430edb603cf",
+  "generated_at": "2026-04-24T16:11:49.252720Z"
+}

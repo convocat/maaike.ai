@@ -1,0 +1,11 @@
+{
+  "label": "Interactive components",
+  "summary": "Interactive components, in the context of Maaike's garden, refers to the JavaScript-driven UI elements on the site -- things like filters, sort controls, and drawers -- that require behavioural testing because they can break in ways that static content validation and build checks won't catch. The term appears specifically as the trigger condition for running Playwright E2E tests. It is a practical category, not a design concept.",
+  "how_maaike_uses": "Maaike treats interactive components as the thing Playwright is for. The testing strategy post positions them as a distinct failure domain: YAML errors are a content problem, broken imports are a build problem, but filter logic and drawer state are interactive component problems. The nine Playwright tests she describes -- category filters, maturity filters, recommender drawer open/close -- are all behavioural tests of this layer, checking what a user would notice is broken rather than poking at implementation details.",
+  "open_questions": [
+    "The tests currently cover the library page's interactive components. It's not clear whether other interactive components elsewhere in the garden are tested or even identified.",
+    "The testing strategy notes Playwright should run 'after touching interactive components' but doesn't describe how to know when a change counts as touching them."
+  ],
+  "state_hash": "a648a844362dcbf84bf716e5403f4ec19573cc6201c315ad1776097fda239ac7",
+  "generated_at": "2026-04-24T16:15:02.004284Z"
+}

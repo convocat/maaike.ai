@@ -1,0 +1,11 @@
+{
+  "label": "Timothy Cook",
+  "summary": "Timothy Cook is the author attributed to the concept of Algorithmic Epistemic Injustice, as referenced in Maaike's digital garden. The work argues that AI systems have collapsed centuries of human knowledge into a single point of failure, and that statistical probability alone is insufficient as a foundation for knowledge. The concept sits at the intersection of epistemology and AI critique.",
+  "how_maaike_uses": "Maaike references Timothy Cook's work in the context of examining how AI handles knowledge hierarchies. The specific angle is a critique of the reductive nature of algorithmic systems when it comes to representing diverse or marginalised knowledge, though the available material does not go into further detail about how she deploys this across multiple posts.",
+  "open_questions": [
+    "What specific knowledge systems or communities does Cook identify as most harmed by algorithmic epistemic injustice?",
+    "What alternatives to statistical probability does Cook propose for grounding AI knowledge?"
+  ],
+  "state_hash": "78813a4f70f6e747b56da6227c4fd57a9cfcc2a2c7ee4d5b2aedf9057623b5df",
+  "generated_at": "2026-04-24T16:25:19.433680Z"
+}

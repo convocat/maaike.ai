@@ -1,0 +1,11 @@
+{
+  "label": "Systems thinking",
+  "summary": "Systems thinking is the capacity to move between levels of abstraction — zooming into fine-grained details and back out to the whole — while keeping the relationships and context intact. In Maaike's work it shows up both as a practical skill for designing and evaluating GenAI systems and as a theoretical underpinning, with Gregory Bateson identified as a key theorist. Nora Bateson's concept of warm data builds on it, arguing that living systems require contextualised, relational data rather than reductionist measurement.",
+  "how_maaike_uses": "Maaike treats systems thinking as a core competency that linguists and conversation designers already have, even if they don't always label it that way. She draws a direct parallel between a linguist analysing an intonation pattern and tracing its effects on a whole subculture, and an LLMOps analyst drilling into a child span in a trace and then reasoning back up to the full GenAI architecture. For her, this ability to hold both the micro and the macro simultaneously is exactly what makes a conversation designer valuable in production GenAI work — it's what lets you design evals that are context-aware and fuzzy enough to be meaningful, while still producing actionable binary results.",
+  "open_questions": [
+    "How does Nora Bateson's warm data approach — which explicitly pushes back against reductionist measurement — sit alongside the need Maaike describes for binary eval outcomes in LLMOps?",
+    "If systems thinking is something linguists do by default, what does that imply for how we train or hire people into LLMOps roles more broadly?"
+  ],
+  "state_hash": "7a224308f90ba1bdb5544ce6126347386761749f279f2f3610f93709cd746f0c",
+  "generated_at": "2026-04-24T15:28:00.243632Z"
+}

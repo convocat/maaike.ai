@@ -1,0 +1,11 @@
+{
+  "label": "Official bodies",
+  "summary": "Official bodies refers to government and public health authorities that hold the mandate to communicate during a crisis. In Maaike's work, they appear specifically in the context of corona chatbots as the entities that should own crisis communication rather than ceding that ground to a flood of independent bot builders. The concept centres on their structural advantages: existing content strategies, source ownership, public trust, and maintenance processes.",
+  "how_maaike_uses": "Maaike uses official bodies as a benchmark and a call to action. Her argument in the corona bots post is that the conversational AI community should be directing its energy toward supporting these bodies rather than building parallel, uncoordinated chatbots that dilute trust and reliability. She treats their four characteristics — content strategy, source ownership, recognised credibility, and maintenance capacity — as the criteria any crisis communication tool should meet, and points out that independent bot builders typically cannot match them. The practical implication she draws is that bot builders should approach officials and offer help, rather than going it alone.",
+  "open_questions": [
+    "What does a productive handoff or collaboration between the conversational design community and official bodies actually look like in practice?",
+    "How should bot builders handle situations where official bodies are slow to respond or have no appetite for chatbot channels at all?"
+  ],
+  "state_hash": "fa65566b3b9e9a32b1e7273684e4c7426e068d60be352fac631737deff83f03f",
+  "generated_at": "2026-04-24T15:44:57.651582Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Social good",
+  "summary": "Social good, in the context of Maaike's work, refers to the use of conversational AI to address real societal needs rather than purely commercial ones. The clearest example from her posts is the development of chatbots to support mental health, including work designed for speakers of minority languages like Scottish Gaelic and Finnish. It appears as a recurring theme at the European Chatbot and Conversational AI summit rather than a fully developed standalone concept in her writing.",
+  "how_maaike_uses": "Maaike flags social good as a notable application space for conversational AI, highlighting two talks on the topic as worth rewatching: one on CUIs built for mental health support in sparsely populated areas and one on chatbots helping young adults with mental health challenges. She does not editoralise heavily on the concept itself, but the fact that both talks made her rewatch list suggests she takes this direction seriously.",
+  "open_questions": [
+    "What design considerations are specific to building conversational AI for social good versus commercial contexts?",
+    "How does language accessibility, for example support for Scottish Gaelic or Finnish, intersect with reaching underserved populations?"
+  ],
+  "state_hash": "2beffaa3857ae11046dadd1799e4034ea6b819c12f270b183b879d292a6bcd2b",
+  "generated_at": "2026-04-24T15:46:24.655699Z"
+}

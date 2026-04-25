@@ -1,0 +1,11 @@
+{
+  "label": "Voice action",
+  "summary": "A voice action is a voice-based interface built on platforms like Google Assistant or Amazon Alexa. In Maaike's work the term refers specifically to Dutch-language conversational products such as the Schiphol voice action or KLM Bluebot. A key challenge she identifies is that most of these actions rely on the same monotone default voice, making them hard to follow.",
+  "how_maaike_uses": "Maaike uses voice actions as a concrete design context where small technical interventions have a direct effect on listener experience. Her main move is to apply SSML markup to dialogue text in order to add natural pauses, control speech tempo, and adjust pitch, turning a breathless wall of synthesised speech into something that sounds calmer and more human. She treats SSML as a practical lever that any conversational designer can pull even when the choice of voice itself is limited to a handful of defaults in Dialogflow.",
+  "open_questions": [
+    "How much does voice choice (beyond the default female voice) actually affect comprehension and user trust for Dutch-language voice actions?",
+    "Are there limits to how far SSML can compensate for the underlying quality of a platform's available voices?"
+  ],
+  "state_hash": "faa743e27ae4de6cacf1f3ca3bcf55a251097fa09387adfc7a9d88ed809fd17f",
+  "generated_at": "2026-04-24T15:53:51.491996Z"
+}

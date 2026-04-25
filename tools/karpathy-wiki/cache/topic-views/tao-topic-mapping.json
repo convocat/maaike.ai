@@ -1,0 +1,11 @@
+{
+  "label": "TAO topic mapping",
+  "summary": "TAO topic mapping is a close-reading framework attributed to Steve Pepper, built around three elements: Topics (named things), Associations (typed relationships between them), and Occurrences (where those things appear). It produces typed entities and typed relationships suited to building a knowledge graph. Maaike uses it as the extraction engine in her post analysis method, always preceded and followed by a wider thematic read.",
+  "how_maaike_uses": "Maaike slots TAO extraction into the middle pass of her three-pass method, where it does the detailed work of pulling out named entities and S-P-O triples using a controlled predicate vocabulary. She is deliberate about not starting there, because going straight to extraction risks producing technically correct triples that together misrepresent what a post actually argues. In her setup, TAO sits between a thematic read that sets the framing and a coherence check that prunes anything that doesn't reflect the real argument. The output feeds directly into the /auto-tag process and the concept graph.",
+  "open_questions": [
+    "The post notes the graph 'grows better' but the sentence is unfinished — it's not stated what it grows better at, or what the actual quality ceiling of the method is.",
+    "The controlled predicate vocabulary used in pass 2 is mentioned but never listed or described, leaving open what constraints actually govern the association types."
+  ],
+  "state_hash": "5ee603e48fc466ff7972529218820572c954e1e8c9de0e2d3f62bb33d589c108",
+  "generated_at": "2026-04-24T16:15:36.320146Z"
+}

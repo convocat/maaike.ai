@@ -1,0 +1,11 @@
+{
+  "label": "BGE-M3",
+  "summary": "BGE-M3 is a local text embedding model (1.2 GB, 1024 dimensions) that Maaike tested as part of the knowledge graph project for her digital garden. It runs via Ollama on a regular laptop CPU with no API keys or data leaving the machine. It is noted for multilingual support and discriminating similarity scores.",
+  "how_maaike_uses": "Maaike evaluated BGE-M3 alongside two other local models as a candidate for powering semantic linking in the garden. It ended up being the better fit for the knowledge graph project, but the experiments also revealed a concrete problem with it: when documents of very different lengths are embedded, BGE-M3 encodes content format and writing style alongside topic, causing items to cluster by collection type rather than by subject. This was observed directly in the explore page, where articles, videos, and library books ended up in separate clusters even when they covered the same topic. The fix Maaike is working toward is normalising the input before embedding, rather than switching models.",
+  "open_questions": [
+    "The cross-collection link candidates generated with full-text BGE-M3 embeddings are likely biased toward within-collection connections and have not yet been regenerated with the normalised embeddings.",
+    "Whether enriching thin content (video transcripts, book summaries) before embedding would reduce the format contamination problem enough to make BGE-M3 cluster by topic rather than by collection type."
+  ],
+  "state_hash": "1651473c7b49e4b7405dc25bde6a1ce71ffeadf8bdadd357cc897e7db9dae68a",
+  "generated_at": "2026-04-24T16:06:49.465203Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Layered testing",
+  "summary": "Layered testing is a strategy where automated checks are organised into distinct tiers, each catching a different class of failure. In Maaike's work it takes the form of a three-layer structure: content validation, build verification, and end-to-end browser tests. The test pyramid is the specific pattern that structures this approach.",
+  "how_maaike_uses": "Maaike arrived at layered testing through a concrete failure: a silent production breakage caused by unquoted colon-space sequences in YAML frontmatter that the dev server tolerated but the production build did not. The three layers she settled on are deliberately scoped to different failure modes rather than to coverage metrics. The content validator catches malformed frontmatter and missing required fields before anything is built. The existing CI build step catches schema errors and compilation failures on every push. Playwright E2E tests cover interactive behaviour a user would actually notice. The framing throughout is diagnostic: the point of the layers is knowing which one to look at when something goes wrong, not achieving a target percentage.",
+  "open_questions": [
+    "The content validation script is not yet automated as a pre-push hook or CI step, and Maaike notes that running it manually before commits is the current approach. Whether that habit-as-system holds up over time is left open.",
+    "The Playwright suite covers the library page specifically. Whether other interactive parts of the site need the same treatment is not addressed."
+  ],
+  "state_hash": "dbfc2fc7fed9a74f1c8a711b2312ee6bdf4f7e53216ee48a6e413cc4137e6a52",
+  "generated_at": "2026-04-24T16:14:20.624733Z"
+}

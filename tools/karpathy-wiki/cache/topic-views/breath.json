@@ -1,0 +1,11 @@
+{
+  "label": "Breath",
+  "summary": "Breath is the physical boundary that defines a turn in speech. Unlike written text, speech is constrained by how much a speaker can say on a single breath, and going beyond that limit is uncomfortable for both speaker and listener. This makes breath a fundamental design constraint for voice interfaces.",
+  "how_maaike_uses": "Maaike uses breath as a practical design heuristic for conversation designers working with voice assistants. Her point is that voice assistants don't need to breathe, which makes it easy to accidentally write turns that are too long. She recommends testing dialogue out loud using a 'one-breath test' and using SSML to build in pauses, so that the assistant's speech stays within natural human limits. She also notes that listeners are physically affected by long turns, because mirror neurons cause people to unconsciously sync with a speaker's breathing rhythm.",
+  "open_questions": [
+    "How exactly should SSML be configured to simulate natural breathing patterns in voice assistants?",
+    "Are there language- or culture-specific differences in how long a comfortable breath-based turn tends to be?"
+  ],
+  "state_hash": "0dc1b895832dc5f635466e444afd16d5fd61df9c27c0aaec1d9ffaf36d64376a",
+  "generated_at": "2026-04-24T16:02:27.108171Z"
+}

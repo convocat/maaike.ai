@@ -1,0 +1,11 @@
+{
+  "label": "Cultural stereotyping",
+  "summary": "Cultural stereotyping, in Maaike's work, refers to the way image generation tools like DALL-E 3 reproduce and reinforce reductive associations between ethnicity, appearance, profession, and setting. It shows up not just in what the model generates by default, but specifically in the hidden prompt rewrites that are meant to add diversity. The problem is that attempting to correct for bias can itself introduce new stereotypes.",
+  "how_maaike_uses": "Maaike uses cultural stereotyping as a concrete, observable phenomenon to critique DALL-E 3's prompt augmentation mechanism. She shows through her own prompting experiments that when DALL-E rewrites a simple prompt like '3 women' into a fully elaborated scene, it assigns stereotyped visual and professional attributes along ethnic lines — Caucasian with blonde hair reading a book, Asian with straight black hair in a red dress, and so on. Her angle is that debiasing, as currently implemented, does not actually remove cultural stereotyping but relocates it into a layer of the system that most users never see. She connects this to a broader concern about who gets to rewrite whose words, and whether that rewriting process is itself a form of cultural imposition.",
+  "open_questions": [
+    "Can conscious prompting actually counter the stereotyping introduced by DALL-E's hidden rewrites, or does working within the system just shift where the bias lands?",
+    "Who decides what counts as 'diverse' in DALL-E's reprompting logic, and what assumptions about culture and representation are baked into those decisions?"
+  ],
+  "state_hash": "c1ff46b127934c93639b4ee14b065fc5fcda9d5d99073442274a42d428b708d1",
+  "generated_at": "2026-04-24T15:45:13.794525Z"
+}

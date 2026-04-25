@@ -1,0 +1,11 @@
+{
+  "label": "Semantic parsing",
+  "summary": "Semantic parsing is an approach to understanding natural language by mapping utterances to structured, graph-based representations. It requires a knowledge graph to function. An incremental semantic parser is one concrete instance of this approach, processing utterances dynamically rather than waiting for a complete input.",
+  "how_maaike_uses": "Maaike encountered semantic parsing in the context of conversational AI accessibility research, specifically through Angus Addlesee's talk on an incremental semantic parser that re-evaluates utterances on the fly and uses conversational cues like stammers, rephrases, and disfluencies to adjust a bot's response dynamically. She connects this to a broader trend she noticed at the conference: a move away from intent-only bots towards more semantic, graph-based approaches to conversation.",
+  "open_questions": [
+    "How practical is incremental semantic parsing outside of research settings, and what would it take to deploy in production conversational AI?",
+    "What is the relationship between the graph-based semantic approach and existing intent-based platforms?"
+  ],
+  "state_hash": "e7e01e1b4c11bb06b3e9f3ce0301b9e3f74d862c8b5303b3d172df136976f5d5",
+  "generated_at": "2026-04-24T15:46:15.051543Z"
+}

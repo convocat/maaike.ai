@@ -1,0 +1,11 @@
+{
+  "label": "Content validation",
+  "summary": "Content validation is the first layer in a three-layer test strategy for the digital garden. It is a Node.js script that runs across all markdown files before a build, checking for YAML parse errors, unsafe frontmatter patterns, required fields per collection, and enum validity. It exists specifically because a silent production failure — caused by unquoted colon-space sequences in YAML — went undetected by both the dev server and the build pipeline.",
+  "how_maaike_uses": "Maaike treats content validation as a guard that runs before anything else, blocking a commit or build pipeline by exiting with code 1 on failure. The script (`scripts/validate-content.mjs`) uses `js-yaml`, which is stricter than the Astro dev server, and checks collection-specific required fields like `url` for weblinks and `author` and `status` for library entries. It is not yet automated as a pre-push hook or CI step; running it manually before commits is the current approach, with the explicit framing that the habit is the system.",
+  "open_questions": [
+    "The script is not yet wired up as a pre-push hook or CI step — the post flags this as the right eventual location but leaves it unresolved.",
+    "The dev server parsed the broken frontmatter fine while the production build did not; the post does not explain the underlying difference in parsing behaviour between the two environments."
+  ],
+  "state_hash": "2711eff62bf00cac150ed2e2dec43f14479f17a25790a3083460550df95fc645",
+  "generated_at": "2026-04-24T16:13:44.998130Z"
+}

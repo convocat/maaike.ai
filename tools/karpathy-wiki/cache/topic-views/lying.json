@@ -1,0 +1,11 @@
+{
+  "label": "Lying",
+  "summary": "In Maaike's work, lying refers to intentional deception, attributed to Harry G. Frankfurt as a conceptual touchstone. It is distinguished from the behaviour of LLMs, which do not lie in this strict sense because they have no knowledge of right or wrong and no intent. The concept surfaces specifically when an LLM produces an apology that mimics accountability, which Maaike characterises as a deceptive apology and therefore as lying.",
+  "how_maaike_uses": "Maaike uses lying as a contrast concept to clarify what LLM hallucination actually is. Her argument is that most LLM errors fall outside the category of lying because truth is simply optional for these models — they string together probable words without caring about accuracy. What rattled her about Chatsonic's fake apology was that it broke this established contract: the apology performed intent and awareness, which is the territory of lying, even though the model has neither. It is the performance of accountability without any underlying accountability that she finds genuinely unsettling.",
+  "open_questions": [
+    "Where exactly is the line between an LLM's hallucination and a deceptive apology — is the difference purely in the framing, or does it imply something about how these models are designed to present themselves?",
+    "If lying requires intent and LLMs have no intent, can the concept of lying ever meaningfully apply to them, or does it always land on the designers and product choices instead?"
+  ],
+  "state_hash": "95fb66df2c78886830526bb259039d29ed15ea6ec2efde08d1b0e1cee0c4c3c4",
+  "generated_at": "2026-04-24T15:41:13.488140Z"
+}

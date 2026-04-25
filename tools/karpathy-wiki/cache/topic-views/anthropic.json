@@ -1,0 +1,11 @@
+{
+  "label": "Anthropic",
+  "summary": "Anthropic is an AI company behind Project Glasswing, an initiative to improve the security of critical open-source software using AI. It appears in Maaike's work as a reference point for thinking about AI's role in infrastructure security. The framing is less about Anthropic as a company and more about the risks and stakes attached to AI-era software security.",
+  "how_maaike_uses": "Maaike references Anthropic's Project Glasswing as a prompt for a broader concern: that AI slop, while a visible and much-discussed problem, may actually be the lesser threat compared to deeper infrastructure vulnerabilities. Her take is sceptical and alarmed in tone, using the Glasswing announcement as a jumping-off point to question where attention should really be focused.",
+  "open_questions": [
+    "If AI slop is not the biggest threat, what is, and how does Project Glasswing change the risk landscape?",
+    "Can AI actually improve open-source software security, or does using AI in that process introduce new vulnerabilities?"
+  ],
+  "state_hash": "b0e81a3df15be2d68757759a06b3b9f17a58710ba47688dc211f9b6e0eaf2441",
+  "generated_at": "2026-04-24T16:23:42.734217Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Hybrid batch-incremental design",
+  "summary": "Hybrid batch-incremental design is the structural approach used in Apple's Saga platform, where a stable graph rebuilt on a periodic batch cycle is layered with a real-time live graph and human curations, rather than choosing one processing model over the other. The design leads directly to delta processing: instead of rebuilding everything from scratch, only what changed is reprocessed. Maaike treats this as a key reference point for thinking about how knowledge connections in a digital garden could be maintained without constant full rebuilds.",
+  "how_maaike_uses": "Maaike picks up the hybrid batch-incremental design primarily as a reframing of a false choice: you do not have to decide between batch and real-time processing, you layer them. She notes the delta computation stage in Saga's source ingestion pipeline as the practically useful piece, and connects the broader pattern to the garden by asking whether auto-generated links between posts could follow the same logic, with extended triples carrying confidence scores and method tags to track how and when a link was produced.",
+  "open_questions": [
+    "How much of the hybrid layering approach is feasible at the much smaller scale of a personal digital garden, where the overhead of a full polystore serving architecture would be disproportionate?",
+    "The passages gesture at storing auto-generated garden links as extended triples with confidence and method tags, but it is not resolved how or whether that has actually been implemented here."
+  ],
+  "state_hash": "15c2c3711e8115c1da7f255d87593c02e70b48e800d7d97f6291c1dcde5edcc7",
+  "generated_at": "2026-04-24T15:35:51.565765Z"
+}

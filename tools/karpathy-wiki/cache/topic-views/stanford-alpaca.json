@@ -1,0 +1,11 @@
+{
+  "label": "Stanford Alpaca",
+  "summary": "Stanford Alpaca is a fine-tuned language model built on Meta's LLaMA, created using OpenAI's text-davinci-003 for around $600 and within a few hours. It attracted attention for being a low-cost approach to instruction-following models, but its public demo was shut down quickly due to severe hallucinations and cost concerns. The model and training data remain available on GitHub.",
+  "how_maaike_uses": "Maaike uses Alpaca as a case study in a recurring argument about hallucinations being a structural problem rather than a fixable bug. She points out that LLMs confabulate when they run out of data instead of admitting ignorance, and frames this as an inherent limitation: an LLM can only approximate a true/false state, so 'I don't know' can be trained in but never genuinely grounded. The timpani analogy she reaches for -- tuning on inharmonic overtones because the fundamental is absent -- is her way of naming what she sees as the missing ingredient: actual knowledge, not just pattern approximation.",
+  "open_questions": [
+    "Can hallucinations ever be solved without changing the underlying concept of operations of an LLM?",
+    "Is there a meaningful difference between training a model to say 'I don't know' and having that as an inherent capability?"
+  ],
+  "state_hash": "239c596046d9b9d8885ce24201409063ff4bc3b5e0feeeccef934e35cb3cb031",
+  "generated_at": "2026-04-24T15:42:18.323993Z"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Hub develops",
+  "summary": "Hub/develops is a pair of frontmatter fields that encode explicit project structure in the garden. A post marked `hub: true` acts as a seedbed for a project, and any post with `develops: <slug>` in its frontmatter is a planting that grows from that seedbed. Together they form a typed relation -- a subject-predicate-object triple -- that carries structural semantics rather than just topic semantics.",
+  "how_maaike_uses": "Maaike introduced hub/develops to solve a specific problem: tags conflate topic membership with structural role, and there is no way to say 'grows in' inside a tag list. The predicate `develops` was chosen over alternatives like `inquiry` or `grows` because it is active, directional, and unambiguous about which end is the contributor and which is the seedbed. The system supports nesting -- a post can carry both fields, acting as a seedbed for one sub-project while also being a planting in a larger one. This makes hub/develops the first connection layer in the garden that answers a structural question ('what seedbed does this planting grow from?') rather than a topical one, sitting alongside wiki-links (deliberate references) and embedding-based similarity (emergent, unplanned connections).",
+  "open_questions": [
+    "The passage gestures at unresolved questions about knowledge graph plantings (reading notes and similar), but the text is cut off before those are specified."
+  ],
+  "state_hash": "8c466328ad0ab6b31e1dc52556b148845439b3956a6b181844f83a9ca0a7b9f6",
+  "generated_at": "2026-04-24T16:17:58.283493Z"
+}

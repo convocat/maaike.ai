@@ -1,0 +1,11 @@
+{
+  "label": "Agile",
+  "summary": "Agile is a philosophy for how organisations can work in an empirical, pragmatic and measurable way. It is not a set of rules, and it does not prescribe specific practices like two-week sprints. Maaike distinguishes Agile from Scrum, noting that Scrum is one implementation of Agile principles, not a synonym for them.",
+  "how_maaike_uses": "Maaike uses Agile as a reference point to push back against cargo-cult adoption of Scrum, particularly in conversational and content teams. Her argument is that organisations often copy someone else's model, including default sprint lengths, without asking whether those defaults actually fit their own publication cycles. She positions Agile as the more flexible, principled backdrop that should inform those questions, rather than Scrum's specific mechanics.",
+  "open_questions": [
+    "Maaike signals she wants to write more about the distinction between Agile and Scrum specifically, but that piece is not yet present in the available material.",
+    "It is left open what an Agile-but-not-Scrum workflow would concretely look like for conversational teams."
+  ],
+  "state_hash": "abda64fd825141616427407bb9d948332302416051c6a924e63df16dc2f271e0",
+  "generated_at": "2026-04-24T15:30:12.823451Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Leesplank corpus",
+  "summary": "The Leesplank corpus is a dataset of 5.4 million Dutch texts clustered by complexity level, published on Hugging Face by Michiel Buisman. It was used as calibration data in a Dutch-first quantization approach for IBM Granite 4 micro dense, so the compression process could account for what matters in Dutch rather than defaulting to English. The corpus has semantic clusters and complexity layers that make it potentially useful beyond quantization.",
+  "how_maaike_uses": "Maaike flags the Leesplank corpus as a candidate tool for evaluating Dutch embedding quality in her local knowledge graph setup. The reasoning is that standard quantization uses English reference text, which means Dutch content in the garden may silently get worse embeddings than English content. The corpus's structure — semantic clusters across complexity levels — makes it more useful for that kind of evaluation than an undifferentiated pile of Dutch text would be.",
+  "open_questions": [
+    "Does the quantization quality difference between Dutch and English actually show up in the embedding models Maaike is running locally via Ollama, and how would you test that?",
+    "Could the Leesplank corpus be used directly to benchmark Dutch embedding quality, and what would a meaningful test look like?"
+  ],
+  "state_hash": "e544bf86a14d1b0ca4168234a700a434ba7f8cf523e2ed0b2529736f91fe881b",
+  "generated_at": "2026-04-24T16:19:37.966283Z"
+}

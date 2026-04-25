@@ -1,0 +1,12 @@
+{
+  "label": "Surface competence",
+  "summary": "Surface competence refers to the ability of LLMs like ChatGPT to produce outputs that look correct and useful on the surface, without actually having solid command of the underlying logic, language, or facts. It shows up as plausible-seeming results that fall apart under closer inspection. Maaike uses it to flag the gap between what these systems appear to know and what they can reliably do.",
+  "how_maaike_uses": "Maaike runs into surface competence when testing ChatGPT on NLP tasks relevant to conversation design. ChatGPT can generate reasonable intent lists and training phrases, which looks impressive, but when she pushes further, for instance asking it to apply a grammatical rule consistently across a sentence it already parsed correctly, it fails. Her framing is that ChatGPT is good at appropriating familiar patterns but cannot nail down logic or facts, which is exactly the kind of gap that matters in professional NLP work.",
+  "open_questions": [
+    "Why does ChatGPT correctly identify grammatical structures but then fail to apply rules to all instances it found, and is there a consistent explanation for this?",
+    "Could more specific prompting close some of these gaps, for example by explicitly asking for intra-intent variation in training phrases?",
+    "How far can ChatGPT go as a starting point for real-life NLP tasks before surface competence becomes a practical blocker?"
+  ],
+  "state_hash": "d8d45b1ff343e685c397290d4400aa8e21b0d2b00e0d163de39a2525929f2c7f",
+  "generated_at": "2026-04-24T15:38:15.992407Z"
+}

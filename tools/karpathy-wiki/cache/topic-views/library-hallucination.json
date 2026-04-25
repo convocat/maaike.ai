@@ -1,0 +1,12 @@
+{
+  "label": "Library hallucination",
+  "summary": "Library hallucination refers to a specific failure mode where an AI assistant invents factual fields for library entries rather than flagging missing data. In Maaike's garden, a concrete instance occurred in March 2026 when Claude fabricated both a book title and an author attribution during a library import session. The case is attributed to confabulation, and it exposed a gap in AI transparency: the existing 'ai: assisted' label did not distinguish between AI assistance and AI invention.",
+  "how_maaike_uses": "Maaike uses this incident as a post-mortem to understand and prevent a specific integrity risk in AI-assisted workflows. Her angle is practical and professional: a hallucinated entry attributed to a real competitor in her field is not just a data error but a reputational hazard. The response she documents is a hard rule added to CLAUDE.md requiring verification against Open Library before any entry is written, and a fallback to 'Unknown' rather than a generated name. She also flags that the structural completeness of the hallucinated entry — valid frontmatter, tags, description — is precisely what made it dangerous and hard to catch.",
+  "open_questions": [
+    "A full audit of all 'ai: assisted' library entries against the original Notion source is still pending.",
+    "The entry for 'Bacteria to AI' attributed to N. Katherine Hayles has not yet been verified and may itself be a hallucination.",
+    "An Open Library verification step has not yet been added to the /new-book skill."
+  ],
+  "state_hash": "20f03effcf87f868f5e1e0eb56b73534c7d741fc6b5c2701c2dc7970d4b62bf2",
+  "generated_at": "2026-04-24T16:21:52.872070Z"
+}

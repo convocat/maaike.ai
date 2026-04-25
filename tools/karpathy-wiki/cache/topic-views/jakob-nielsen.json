@@ -1,0 +1,11 @@
+{
+  "label": "Jakob Nielsen",
+  "summary": "Jakob Nielsen (as part of Norman & Nielsen / NN group) is a usability researcher whose work Maaike references when discussing the friction of writing with AI. He is the source attributed to three concepts that show up in Maaike's post on conversational interfaces: accordion editing, apple picking, and the articulation barrier. These concepts come from an NN study on early generative AI user behaviours in chatbot interfaces.",
+  "how_maaike_uses": "Maaike uses Nielsen's concepts as a framework to name and validate the frustration she personally experienced when trying to write with Jasper.ai. She takes the NN findings as a starting point but applies them specifically to the task of article writing, which is more demanding than the general chatbot use cases the study covered. The articulation barrier in particular resonates with her because it explains why even experienced writers struggle to prompt well, and the apple picking and accordion editing concepts help her articulate why conversational interfaces are a poor fit for non-linear tasks like writing and editing.",
+  "open_questions": [
+    "The study recommended letting users directly edit generated text rather than only manipulating it through prompts — Maaike gestures at this but does not fully work out what that interface would look like or whether any tool actually does it well.",
+    "Maaike raises the question of what 'my words' means when AI writes in your style, but does not resolve it — it sits open as a thread about authorship and ownership."
+  ],
+  "state_hash": "17efca15be6f02a8cfa563d62d5c4f2ffaecc0a3b5ba80a091b14328f20dcc85",
+  "generated_at": "2026-04-24T15:13:02.795501Z"
+}

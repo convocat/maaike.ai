@@ -1,0 +1,11 @@
+{
+  "label": "Inner dialog metaphor",
+  "summary": "The inner dialog metaphor describes a mode of interaction that resembles conversation but is directed inward rather than between two distinct parties. In Maaike's work it appears in two contexts: writing as a way of talking to yourself, where the medium catches your train of thought without interrupting it, and as a contrasting case when thinking about what metaphor actually fits human-GenAI interaction. It is not a fully developed framework but a reference point for understanding what conversation can mean when one side of the exchange is not a separate agent.",
+  "how_maaike_uses": "Maaike uses the inner dialog metaphor in two distinct directions. In her thinking about her digital garden, writing-as-craft functions as a metaphor for this kind of self-directed conversation: something quick enough to keep up, responding in another space, without necessarily expecting an answer back. When she turns to GenAI interaction, she uses the inner dialog metaphor as a counterpoint, noting that it fits the GenAI case better than the standard conversation metaphor does, precisely because GenAI lacks the underlying contract, equal stakes, and shared sense-making that real human-human conversation requires.",
+  "open_questions": [
+    "If the inner dialog metaphor fits GenAI better than conversation does, what does that imply for how GenAI interfaces should actually be designed?",
+    "Is the digital garden's self-conversational quality something that could or should be preserved if AI tools are integrated into it?"
+  ],
+  "state_hash": "d9b1eefc0e91d4e4469aecc57de52eb3c1d22e7cae399e0015b1f5f2e9cd1701",
+  "generated_at": "2026-04-24T15:21:42.909452Z"
+}

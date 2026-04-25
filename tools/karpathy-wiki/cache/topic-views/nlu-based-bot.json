@@ -1,0 +1,11 @@
+{
+  "label": "NLU-based bot",
+  "summary": "An NLU-based bot is a traditional conversational application built on natural language understanding, typically involving explicit flow design, slot filling, and if/then conditionals. In Maaike's work it serves as the baseline against which ChatGPT is measured. It represents the conventional effort required to handle things like inventory checks, multi-slot ordering, and flow rework.",
+  "how_maaike_uses": "Maaike uses the NLU-based bot as a reference point to make concrete what ChatGPT does differently. By building a Pizza Bot with ChatGPT she highlights specific pain points of traditional bot development, such as reworking flows when requirements change mid-build, managing nested slot filling across multiple items, and writing conditionals by hand. The comparison is not about dismissing traditional bots but about showing where ChatGPT reduces friction for a conversation designer working quickly on micro-patterns or prototypes.",
+  "open_questions": [
+    "Whether ChatGPT's lack of consistency and factual accuracy makes it unsuitable as a replacement for NLU-based bots in production, rather than just prototyping.",
+    "How patterns or micro-methods built with ChatGPT could actually be incorporated into traditional conversational applications in practice."
+  ],
+  "state_hash": "ed540cfc04f3279d93db302b194279aa361371f11eccfe00b6c05d269bf71c89",
+  "generated_at": "2026-04-24T15:31:10.260972Z"
+}

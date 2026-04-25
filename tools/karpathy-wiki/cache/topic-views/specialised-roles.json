@@ -1,0 +1,11 @@
+{
+  "label": "Specialised roles",
+  "summary": "Specialised roles refers to the growing trend within conversational AI where the broad job of 'conversation designer' is splitting into distinct areas of expertise: content and copy, NLU and language, UX and product management, and data analysis. Maaike uses this concept to frame debates about what skills a conversation designer actually needs versus what belongs to a separate specialism. It sits as a structural lens on the conversation design field as it matures.",
+  "how_maaike_uses": "Maaike invokes specialised roles specifically when arguing that coding knowledge, while potentially useful, may not belong in every conversation designer's toolkit. She draws a pointed comparison to the fact that software developers are not expected to write corporate copy, and uses that to question the assumption that designers should learn to code. The concept helps her push back against skill-bloat and encourages newer designers to think carefully about where they want to focus their development rather than trying to cover everything.",
+  "open_questions": [
+    "As the field continues to professionalise, which specialisations will become stable enough to hire for distinctly, and which will remain blended in practice?",
+    "Where exactly does data analysis sit: is it a core conversation design skill or its own specialism, given Maaike sees real value in designers understanding text analysis themselves?"
+  ],
+  "state_hash": "fca8602ceec81b90b76daa95e178daa200fcb578e08af44ec7aa29d9aae54509",
+  "generated_at": "2026-04-24T15:42:31.340188Z"
+}

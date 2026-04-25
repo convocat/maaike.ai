@@ -1,0 +1,11 @@
+{
+  "label": "Generative chat",
+  "summary": "Generative chat refers to chatbot or conversational UI experiences powered by generative AI. In Maaike's garden, it appears as something to be deliberately avoided rather than embraced. The term surfaces mainly as a foil for an alternative she is building.",
+  "how_maaike_uses": "Maaike positions generative chat as the default assumption people might have about a conversational garden guide, and explicitly rejects it. Her planned chatbot-style UI for exploring the garden is designed to work without generative AI, relying instead on decision trees, smart linking, and designed serendipity. The contrast suggests she is sceptical of generative chat as a tool for navigating personal knowledge, preferring more deliberate, author-controlled structures.",
+  "open_questions": [
+    "What specific limitations of generative chat led to this design decision, and are those concerns documented elsewhere in the garden?",
+    "How does the conversational guide balance structured decision trees with the kind of serendipity she values in knowledge gardens?"
+  ],
+  "state_hash": "07098cb0048c13c039339480a33d6a7fa82aab68ff5110d0cfb6a10a923d0f51",
+  "generated_at": "2026-04-24T16:22:56.958703Z"
+}

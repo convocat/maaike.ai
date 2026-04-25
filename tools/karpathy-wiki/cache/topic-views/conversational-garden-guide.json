@@ -1,0 +1,11 @@
+{
+  "label": "Conversational garden guide",
+  "summary": "The conversational garden guide is a planned chatbot-style UI for navigating the digital garden, explicitly built without generative AI. It relies on decision trees, smart linking, and designed serendipity instead. It sits on Maaike's to-do list as an alternative to conventional generative chat interfaces.",
+  "how_maaike_uses": "Maaike frames this as a deliberate counter to generative AI chat: the idea is to get the exploratory, conversational feel of a guide without handing control over to a language model. The serendipity is designed in, not emergent from probabilistic generation. It connects to her broader thinking on knowledge gardens and serendipity, though that detail lives in a linked note rather than in the to-do list itself.",
+  "open_questions": [
+    "What specific decision-tree or linking mechanisms would make serendipity feel genuine rather than scripted?",
+    "How does this connect to the thinking in the knowledge-gardens-and-serendipity note that the to-do list references?"
+  ],
+  "state_hash": "9b590570140b1c71cbb9d890c7b7105724b15ed8949e3dc74ef2622f7e656985",
+  "generated_at": "2026-04-24T16:22:48.140728Z"
+}

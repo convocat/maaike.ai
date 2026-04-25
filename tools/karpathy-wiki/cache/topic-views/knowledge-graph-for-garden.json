@@ -1,0 +1,12 @@
+{
+  "label": "Knowledge graph for the garden",
+  "summary": "The knowledge graph for the garden is an ongoing experiment in making the garden smarter about its own connections, moving beyond manual wiki-links and tags toward automatic discovery of semantic links, extraction of a world model from garden content, and eventually using that model to find relevant external content. It is structured as a saga in the project sense: a long-running, multi-step build that draws on ideas from Apple's Saga platform (SIGMOD 2022/2023) while adapting them to a garden of roughly 200 items. The project requires text embeddings, key phrase extraction, provenance metadata, a tuned similarity threshold, and typed relations, and it points toward gap detection and external content discovery as downstream goals.",
+  "how_maaike_uses": "Maaike is building this incrementally, treating each component as a field note in its own right. She has computed embeddings using BGE-M3, run key phrase extraction with a local LLM, analysed the resulting 2,771 candidate pairs to find a workable similarity threshold, and introduced typed hub/develops relations as explicit structural infrastructure alongside the emergent embedding-based connections. The knowledge graph is the frame that connects all of these experiments: key phrases are for blocking and interpretability, embeddings are for scoring, provenance metadata carries confidence and method, and the combination is meant to produce both auto-links and a review queue rather than a fully automated system. External content discovery is the declared third goal but is explicitly gated on getting key phrase coverage above 80% and defining what a gap actually means.",
+  "open_questions": [
+    "Which filtering strategy for the similarity threshold actually works at garden scale: per-document normalization, spectral thresholding, or tag/phrase-based blocking?",
+    "How should the review step work in practice: manual approval of candidates, auto-linking above a confidence cutoff, or something in between?",
+    "Can key phrase coverage be pushed above 80% for thin-content items like videos and short seeds, given that LLM-based extraction produces hallucinated filler below roughly 50 words?"
+  ],
+  "state_hash": "03efc55429c9da346afc9834d32f35ef24259dab0bc6f9a30cd9ae41969db6cc",
+  "generated_at": "2026-04-24T16:11:28.440884Z"
+}

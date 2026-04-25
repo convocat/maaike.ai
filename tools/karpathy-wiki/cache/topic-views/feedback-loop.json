@@ -1,0 +1,11 @@
+{
+  "label": "Feedback loop",
+  "summary": "A feedback loop, in Maaike's work, is the structured process of receiving, examining, and acting on feedback to improve content quality. It is not treated as a one-off correction but as a repeatable cycle with distinct checks. The content quality audit is her concrete tool for running this loop.",
+  "how_maaike_uses": "Maaike uses a 5-point checklist to work through feedback systematically, covering facts, audience fit, stakeholder expectations, quality trade-offs, and whether the feedback itself is actually valid. She frames the loop as something that works best when paired with a meeting with the feedback-giver, so she can understand both the person and the topic properly. Importantly, she includes a step that most writers skip: questioning whether the feedback deserves to be acted on at all, based on who gave it and why.",
+  "open_questions": [
+    "The passage on evaluating feedback quality is cut off mid-example, so it is unclear how Maaike recommends handling feedback from stakeholders who are not qualified but still have authority.",
+    "The checklist mentions working with audience members at every phase of content design, but how that integrates with the feedback loop in practice is not fully explained."
+  ],
+  "state_hash": "b9ccac4428e9e19fecc6477b574d717acfe84a0bc77d828f79d079c6349ca199",
+  "generated_at": "2026-04-24T15:48:22.534614Z"
+}

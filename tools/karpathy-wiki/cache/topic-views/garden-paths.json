@@ -1,0 +1,11 @@
+{
+  "label": "Garden paths",
+  "summary": "Garden paths are curated or auto-generated sequences through the digital garden that connect items in an order telling a story or following a theme. They can be hand-picked for specific topics or algorithmically generated as the shortest semantic path between two items. The concept draws on Vannevar Bush's Memex trails as a metaphor for navigating linked knowledge.",
+  "how_maaike_uses": "Maaike introduces garden paths as one of three exploration modes in a proposed /explore page, sitting alongside a spatial map and a serendipity wander mode. The paths are rendered as Rough.js curved lines across the semantic map, with active paths highlighted in hot pink and others in muted earthy tones. The auto-generated variant works by finding intermediate items that bridge the semantic gap between two chosen endpoints, while curated paths are hand-picked sequences for themes like 'how this garden was built'. The framing is explicitly inspired by Bush's Memex trails and Mozilla's experimental Trails browser.",
+  "open_questions": [
+    "How would curated paths actually be authored and maintained as the garden grows?",
+    "The auto-generated shortest semantic path algorithm is described at a high level but the exact implementation is not specified — it's unclear how well UMAP-projected distances would serve as a proxy for meaningful bridging steps."
+  ],
+  "state_hash": "076a7976f397c2eb509403223a8d58808d0d328482e25c88f6629fdae77143c9",
+  "generated_at": "2026-04-24T16:07:42.645649Z"
+}

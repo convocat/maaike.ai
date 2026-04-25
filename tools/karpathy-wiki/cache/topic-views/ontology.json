@@ -1,0 +1,11 @@
+{
+  "label": "Ontology",
+  "summary": "Ontology here means the formal vocabulary of typed relations that give the garden explicit structure. Specifically, it is what the hub/develops system produces: subject-predicate-object triples where the predicate carries relational meaning rather than just topic membership. Choosing the right predicate is the core ontological work.",
+  "how_maaike_uses": "Maaike treats ontology as a practical infrastructure problem, not an abstract one. The question is whether a predicate is doing real semantic work: 'inquiry' names a topic, 'grows' is ambiguous about direction, but 'develops' names an active, directional relationship from the file's perspective. This matters because getting the predicate right is what separates structural connections from topic connections, and the whole projects page depends on that distinction holding.",
+  "open_questions": [
+    "The post breaks off before finishing the section on what remains open for knowledge graph plantings, so it is unclear what structural problems are still unresolved there.",
+    "The system supports nesting naturally, but the post does not fully work out what that means when a post is both a hub and a planting at the same time."
+  ],
+  "state_hash": "703a7f523e014a5a2f9ae80e9a26612f81b205cd0fc9e71383f6affd2d0413b2",
+  "generated_at": "2026-04-24T15:29:47.964118Z"
+}

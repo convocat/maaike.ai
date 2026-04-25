@@ -1,0 +1,11 @@
+{
+  "label": "Speech Synthesis Markup Language",
+  "summary": "Speech Synthesis Markup Language (SSML) is a markup language that lets you control how written dialogue text is rendered as speech. It uses tags like <speak>, <p>, and <s> to add structure, natural sentence melody, and breathing pauses. Beyond basic structure, it also supports adjusting pace, pitch, and small custom pauses.",
+  "how_maaike_uses": "Maaike frames SSML as a practical fix for a specific problem she observed in Dutch-language Google voice actions: they tend to sound breathless and monotone because designers don't use the available markup. Her angle is pragmatic and low-threshold, showing that even within the constraints of Dialogflow's limited voice options, you can make dialogue sound noticeably calmer and more natural by adding SSML. She points readers to the official documentation for both Google Assistant and Alexa, and mentions experimenting with alternative Dutch voices as a further step.",
+  "open_questions": [
+    "How much does SSML help when the underlying voice quality is inherently limited, given only four standard voices were available in Dialogflow at the time of writing?",
+    "The post gestures at more advanced voice options Google offers in Dutch but doesn't evaluate how well they actually perform in production contexts."
+  ],
+  "state_hash": "69014d157931da6f15c0f7a7f603dbdfec9f386a4cb85dece3871ef551b32b65",
+  "generated_at": "2026-04-24T15:53:30.576565Z"
+}

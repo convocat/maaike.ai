@@ -1,0 +1,11 @@
+{
+  "label": "Blog",
+  "summary": "A blog is a chronological stream where new posts push older ones down, giving each post a fixed position in time. In Maaike's work it serves mainly as a contrast to the digital garden: blogs feel finished and sequential, gardens feel networked and revisable. The distinction is structural as much as it is about writing practice.",
+  "how_maaike_uses": "Maaike uses the blog primarily as a foil to sharpen what a digital garden is. By naming what a blog does — stream, chronology, the expectation of a finished post — she can articulate why she prefers the garden model: it allows half-formed thoughts to exist in public and get developed over time, which she calls thinking in public. The blog is not something she is building toward; it is the thing she is moving away from.",
+  "open_questions": [
+    "Is the finished-post expectation a reader convention, a platform constraint, or both?",
+    "Can a blog ever be made to work more like a garden, or is the chronological structure too fundamental to the form?"
+  ],
+  "state_hash": "12878ca12c00746873e4d4c79f06381a14509beb2a14d8ad22cde0c518bdcb13",
+  "generated_at": "2026-04-24T16:11:38.382596Z"
+}

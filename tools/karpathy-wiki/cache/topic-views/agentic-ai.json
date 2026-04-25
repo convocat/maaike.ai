@@ -1,0 +1,12 @@
+{
+  "label": "Agentic AI",
+  "summary": "Agentic AI refers to AI systems that act autonomously on delegated tasks, running workflows and returning deliverables rather than engaging in back-and-forth dialogue. Claude Code is one concrete instance of this. The concept sits at the centre of a cluster of questions about how humans should interact with, oversee, and think about AI that acts on their behalf.",
+  "how_maaike_uses": "Maaike uses agentic AI as a test case for why the conversation metaphor breaks down. When a swarm of agents takes a request and runs with it, returning a finished deliverable, that is closer to delegation than dialogue. She also connects agentic AI to Crew Resource Management as a better conceptual fit for thinking about human-AI coordination, and notes a darker side: agentic AI is a driver of AI slop, making that problem something to take seriously rather than dismiss.",
+  "open_questions": [
+    "If delegation is a better metaphor than conversation for agentic AI, what interaction patterns and design principles does that metaphor actually suggest?",
+    "How does Crew Resource Management map onto agentic AI specifically, and what does it clarify that other frameworks miss?",
+    "When agentic AI generates AI slop at scale, who or what bears responsibility for the quality of the output?"
+  ],
+  "state_hash": "a20e8c5496fabf50739b5f158378f08892258e3b72e5150d67eced51784fd255",
+  "generated_at": "2026-04-24T15:13:46.618541Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Golem",
+  "summary": "The Golem is a figure from Judaic tradition: an anthropomorphic servant made of clay that could only be activated through a ritual involving a 'shem', a slip of paper bearing a divine name placed in its mouth. In Maaike's work it appears as a metaphor for how a bot persona could function, specifically as something that must be ritually or structurally 'activated' with embedded values before it can operate. The concept surfaces in a discussion about AI chatbots that lack fixed moral standards.",
+  "how_maaike_uses": "Maaike uses the Golem as an analogy to argue that moral values should be baked into a chatbot's core rather than bolted on as an external safety filter. Just as the Golem required a specific ritual to become operational, she suggests a chatbot persona could serve as the equivalent: a foundational set of ethical validation rules that govern all its output. The point is not decorative but functional, she thinks personas are currently treated as UX tools for consistency and tone, but they could and arguably should become the site where a bot's ethics, transparency and explainability are defined.",
+  "open_questions": [
+    "If a chatbot persona is designed to act as a set of ethical validation rules, who decides what those rules are and how do you prevent that from encoding a different kind of bias?",
+    "Maaike notes that Facebook's safety filter on Blender can be easily removed, so it remains unclear whether any persona-based ethical layer would be more robust or suffer the same vulnerability."
+  ],
+  "state_hash": "cdf90009b7f7d008c27ab5d65f7be0f428b0289371387a34e646a45fcfbeaade",
+  "generated_at": "2026-04-24T15:42:08.690939Z"
+}

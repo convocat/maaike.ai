@@ -1,0 +1,11 @@
+{
+  "label": "Input-output pairs",
+  "summary": "Input-output pairs are the core unit of prompt design: a specified expected input paired with a specified expected output. In Maaike's work, they appear as the foundation of what Hashimoto calls a demonstration set, used to measure prompt accuracy and define what a prompt should reliably handle. This structure is what separates deliberate prompt engineering from blind trial-and-error prompting.",
+  "how_maaike_uses": "Maaike draws a direct parallel between input-output pairs in prompt design and how conversation designers already work with NLU models: labelling customer questions with intents is essentially mapping input to expected output classification, and cleaning training data is deciding what counts as relevant signal. She uses this parallel to argue that conversation designers are already doing prompt engineering thinking, just in a different context. The demonstration set built from input-output pairs also doubles as a few-shot example set and as a calibration tool, similar to confusion matrices used for NLU model evaluation.",
+  "open_questions": [
+    "How do you keep bias out of the examples used in input-output demonstration sets, especially when those sets also serve as few-shot prompts?",
+    "When the output of one prompt feeds into the next step as input, how do you design and test across that chain reliably?"
+  ],
+  "state_hash": "9058aac014e7a02b0465a71fe8292eb954c81609dc6775e326aa9eb48f1e7fd8",
+  "generated_at": "2026-04-24T15:56:44.779582Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Content lifecycle metaphor",
+  "summary": "The content lifecycle metaphor is a framework for how content moves through a digital garden over time, from initial discovery to maturity to decay and eventual recycling. It maps onto four named stages: greenhouse, garden beds, compost heap, and soil. The metaphor treats content not as static but as something that grows, ages, breaks down, and feeds what comes next.",
+  "how_maaike_uses": "Maaike uses the metaphor to structure the full arc of content in her garden, not just the maturity levels she already had for garden beds. The greenhouse handles external content that hasn't yet earned its place, keeping unverified or raw material quarantined before it enters the main collections. The compost heap is where outdated or decayed content goes instead of being deleted, and soil is the residue of that decomposition, reusable as material for new seeds. She also wants the greenhouse and compost heap to have distinct physical locations on the explore map, visually separated from the main garden territories.",
+  "open_questions": [
+    "The soil stage is framed as a possible pre-stage for seeds, but it's not settled how soil would work in practice or what form that material would take.",
+    "The compost heap section is cut off mid-sentence in the source, so it's unclear what the full intended behaviour or rules for composting content are."
+  ],
+  "state_hash": "36a75f61360f90e1427e9574d5fe079faf8cf2b53afa447848afec58946cba09",
+  "generated_at": "2026-04-24T16:10:36.442339Z"
+}

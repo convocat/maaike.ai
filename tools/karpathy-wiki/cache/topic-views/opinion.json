@@ -1,0 +1,11 @@
+{
+  "label": "Opinion",
+  "summary": "An opinion is a personal position that is subjective and requires no reasoning to support it. It sits in a cluster of related terms alongside conviction, core belief, argument, and rhetorical construction. Precise distinctions between these terms matter because muddling them gets in the way of clear thinking.",
+  "how_maaike_uses": "Maaike uses 'opinion' as part of a vocabulary for thinking about thinking. She contrasts it with conviction (which is stronger and identity-bound) and core belief (which is deeper and often unconscious), and points out that humans have a natural tendency to simply stick to their opinions and convictions rather than subject them to dialectical challenge. The practical implication she draws is that sharpening this vocabulary helps people reason better, and that tools like LLMs can even be instructed to push back on your opinions through antithesis rather than just confirming them.",
+  "open_questions": [
+    "At what point does an opinion, if reasoned about and tested, become a conviction or an argument, and is that transition always conscious?",
+    "If opinions require no reasoning to support them, what exactly makes them worth examining rather than simply discarding in favour of better-grounded positions?"
+  ],
+  "state_hash": "d0d79440994b907d3e49a69d29ac7dff39a5a947582480d97e94c6623fc3c234",
+  "generated_at": "2026-04-24T15:16:15.036292Z"
+}

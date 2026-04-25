@@ -1,0 +1,11 @@
+{
+  "label": "Voice markup",
+  "summary": "Voice markup refers to markup languages applied to written dialogue text to control how that text sounds when converted to speech. SSML (Speech Synthesis Markup Language) is an instance of voice markup, used in platforms like Google Assistant and Alexa. It gives conversational designers more control over pacing, pauses, speech rate, and pitch.",
+  "how_maaike_uses": "Maaike uses SSML as a practical fix for a concrete problem she observed in Dutch-language Google voice actions: they tend to sound rushed and monotonous. Her angle is that even within the limited constraints of Dialogflow's four default voices, a conversational designer can do meaningful work by adding structural markup like <speak>, <p>, and <s> tags to create more natural sentence melody and breathing room. She also points to further experimentation with pacing, pitch, and alternative Dutch voices as next steps.",
+  "open_questions": [
+    "How much of the naturalness problem is actually solvable through SSML alone versus being a fundamental limitation of the available TTS voices?",
+    "How does SSML behaviour differ between Google Assistant and Alexa in practice, given that each platform has its own reference spec?"
+  ],
+  "state_hash": "cae860d395b3bd3dc50d0e809fde743772ff4207030bd337253f0043b7234893",
+  "generated_at": "2026-04-24T15:53:40.674503Z"
+}

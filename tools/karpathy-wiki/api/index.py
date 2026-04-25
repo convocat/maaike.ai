@@ -134,6 +134,15 @@ class handler(BaseHTTPRequestHandler):
                 return self._send_json(200, serve.handle_article_api(parts[0], parts[1]))
             return self._send_json(400, json.dumps({"error": "bad path"}))
 
+        if path.startswith("/api/topic-meta/"):
+            slug = path[len("/api/topic-meta/"):]
+            return self._send_json(200, serve.handle_topic_meta_api(slug))
+
+        if path.startswith("/api/topic-view/"):
+            # Production: serve cached JSON only (cache was populated at dev time)
+            slug = path[len("/api/topic-view/"):]
+            return self._send_json(200, serve.handle_topic_view_api(slug, force=False))
+
         return self._send_json(404, json.dumps({"error": "not found"}))
 
     def do_POST(self):

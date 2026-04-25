@@ -1,0 +1,11 @@
+{
+  "label": "Cognitive laziness",
+  "summary": "Cognitive laziness, as used in Maaike's work, refers to the human tendency to minimise mental effort in communication and information processing. It shows up specifically as a reluctance to fact-check or critically evaluate information, especially when that information is delivered in a conversational and seemingly trustworthy format. It sits downstream of cognitive outsourcing and upstream of a broader indifference to truth.",
+  "how_maaike_uses": "Maaike uses cognitive laziness not as a moral failing but as a structural vulnerability. In her writing on ChatGPT, she points out that humans are naturally optimised for low-effort communication and that this makes the habit of fact-checking a conversational AI very hard to build. Because we rely on Grice's cooperative principle in normal conversation, we extend that same trust to LLMs even though LLMs have no concern for truth whatsoever. She also connects it to cognitive outsourcing: when people use AI tools to avoid the hard work of learning and thinking, they reinforce the laziness rather than compensating for it. The concern is less about the tools themselves and more about what these habits do to independent thinking over time.",
+  "open_questions": [
+    "Can interface design actually counteract cognitive laziness, or does the conversational format of LLMs make that an uphill battle by default?",
+    "If cognitive outsourcing reinforces cognitive laziness, at what point does that loop become self-reinforcing in a way that's hard to reverse?"
+  ],
+  "state_hash": "72a5fa643186617c178ac2e314844d95f72a9b62edc6e49573ed674a6ee61acc",
+  "generated_at": "2026-04-24T15:20:22.775683Z"
+}

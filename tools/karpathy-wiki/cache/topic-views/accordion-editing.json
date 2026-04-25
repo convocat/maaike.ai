@@ -1,0 +1,11 @@
+{
+  "label": "Accordion editing",
+  "summary": "Accordion editing is a term attributed to Jakob Nielsen and Don Norman describing one of two emerging user behaviors observed in early generative AI use. It refers to the process of shortening or lengthening AI-generated text through prompts, using strategies like forced ranking or word count limits to shorten, and expanding ideas or adding missing content to lengthen. It is part of the broader review-regenerate-repeat cycle that characterises working with generative AI in conversational interfaces.",
+  "how_maaike_uses": "Maaike uses accordion editing as a lens to articulate her frustration with AI writing tools. She grounds the concept in her own experience with Jasper.ai, where what should be a quick write-up turns into a long and inefficient cycle of generating and reviewing. For her, the concept exposes the gap between what accordion editing actually offers (shortening and lengthening) and what real writing requires: changing cadence, shifting perspective, reordering words. The concept helps her argue that conversational interfaces are too limited for the non-linear, expressive work that writing actually is.",
+  "open_questions": [
+    "If AI can generate text in a writer's style, at what point do those words count as the writer's own, and does accordion editing change that calculus at all?",
+    "The study recommends letting users directly edit generated text rather than only manipulating it through prompts, but it is not clear what interface model would actually support that."
+  ],
+  "state_hash": "a5869dbfe65ec4284394a3c9a555fab67ca95d135eeb25980e2e81712c90a45d",
+  "generated_at": "2026-04-24T15:21:21.005100Z"
+}

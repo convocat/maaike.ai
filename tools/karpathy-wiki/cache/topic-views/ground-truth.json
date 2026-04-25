@@ -1,0 +1,11 @@
+{
+  "label": "Ground truth",
+  "summary": "Ground truth, in Maaike's work, refers to the absolute factual reality that sits underneath language and probability. It is what LLMs cannot access by design, because probabilistic word prediction can only approximate truth rather than anchor to it. The concept shows up as a structural limitation, not a fixable bug.",
+  "how_maaike_uses": "Maaike uses ground truth primarily as a diagnostic concept to explain why LLM hallucinations are a fundamental problem rather than an engineering inconvenience. Her central metaphor is the missing fundamental in timpani tuning: because of the instrument's parabolic shape, you tune by approximating overtones rather than locking onto a clear fundamental pitch. Ground truth in an LLM is in the same position, present in theory, unreachable in practice via probabilistic prediction. She also notes that the training cutoff is a separate but related barrier, making ground truth inaccessible for anything post-cutoff regardless of how confident the model sounds. Beyond LLMs, she flags that reductionist approaches to knowledge carry a similar risk of losing ground truth by stripping context from living systems.",
+  "open_questions": [
+    "Can hallucinations ever be solved without changing the underlying concept of operations of an LLM, or is the missing fundamental permanently out of reach?",
+    "Is training a model to say 'I don't know' below a probability threshold meaningfully different from having genuine uncertainty as an inherent capability?"
+  ],
+  "state_hash": "de5685c97073fb06c83e242c79820df30e66de2968da3e61d0038ea7fece802b",
+  "generated_at": "2026-04-24T15:16:48.552510Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Keyword-first prompting",
+  "summary": "Keyword-first prompting is an approach where you prompt an LLM to generate a summary starting from a small set of key concepts rather than from a full source text. It flips the usual assumption that summarisation requires a source document to condense. In Maaike's experiments, this constructionist approach produced results at least as good as, and often better than, giving the model a full text to summarise.",
+  "how_maaike_uses": "Maaike uses keyword-first prompting as a practical counter to what she sees as a limitation in how LLMs handle reduction tasks. Her observation is that LLMs are better at constructing text from concepts than at intelligently condensing a long document, because they tend to resort to superficial techniques like bullet lists when a text doesn't fit their container. By deconstructing a source text herself into key concepts, short definitions, and relationships between concepts, and then handing only that to the model, she effectively sidesteps the reduction problem. She frames this as counterintuitive but logically consistent once you accept that a summary is, from a generative perspective, just the shortest text that still contains all the key concepts.",
+  "open_questions": [
+    "How much does the quality of keyword extraction depend on the human doing it, and can that step itself be delegated to an LLM without reintroducing the same reduction problems?",
+    "Maaike notes that Chain of Density didn't work well for really long documents but doesn't resolve what the upper limit of keyword-first prompting is for very large or complex source texts."
+  ],
+  "state_hash": "db5b9652e85831c13a4eebfd10792ef33fcd4ee6ab776489b3665ae38fa45574",
+  "generated_at": "2026-04-24T15:55:19.486658Z"
+}

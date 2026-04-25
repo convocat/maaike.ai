@@ -1,0 +1,11 @@
+{
+  "label": "Reading calibration",
+  "summary": "Reading calibration is the process of gathering structured data about past reading experiences to inform book recommendations. It draws on a library audit of unread and in-progress books, plus a user research interview about what makes books work or fail. The output feeds directly into the scoring algorithm for the book recommender project.",
+  "how_maaike_uses": "Maaike uses reading calibration as the empirical backbone of the book recommender. The library audit surfaces patterns like ereader invisibility, 'should read' guilt, and density without momentum, while the interview maps her two core interest threads and identifies what a successful reading experience actually feels like. That raw material then gets translated into concrete scoring signals: known-loved authors get a bonus, textbook-feel genres get penalized unless the mood is 'deep focus', and the reading mix output reflects her stated preference for a main read plus a lighter side read rather than a single ranked list.",
+  "open_questions": [
+    "The audit captures why books stalled but not whether those diagnoses are stable over time. Would a repeat calibration after a few months produce different patterns?",
+    "Mood is user-selected at runtime, but the research suggests focus levels vary. There is no mechanism yet for the system to account for how accurately people self-report their mood."
+  ],
+  "state_hash": "f9cdb336458f3b64fbe58d62d61756e33cea0c58c71d296cddade9a36c8c0949",
+  "generated_at": "2026-04-24T16:21:22.517451Z"
+}

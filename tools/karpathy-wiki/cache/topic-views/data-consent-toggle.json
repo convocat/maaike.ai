@@ -1,0 +1,11 @@
+{
+  "label": "Data consent toggle",
+  "summary": "The data consent toggle is a setting in ChatGPT that, when switched on, allows OpenAI to use your conversations as training data for their models. It is also a prerequisite for accessing both chat history and the browse feature, meaning users cannot use those features without consenting to data collection. Maaike treats it as a concrete example of how feature access and data extraction are bundled together.",
+  "how_maaike_uses": "Maaike uses the data consent toggle as a case study in how AI products obscure the cost of new features. Her angle is sceptical: what looks like a useful browsing tool turns out to be primarily a mechanism for collecting more training data, and the toggle is the lever that makes that trade-off visible. She notes she was not aware of this coupling until she stumbled on it herself, and she frames that discovery as worth flagging to her audience.",
+  "open_questions": [
+    "Is the browse experience within ChatGPT good enough to justify turning on the data toggle at all, given Maaike's note that it was subpar at the time?",
+    "Will OpenAI continue to gate useful features behind data consent as the product evolves?"
+  ],
+  "state_hash": "c8a427cf628e113a362b4b82d3823cf96ec77e49154818771ff6afb886113bcb",
+  "generated_at": "2026-04-24T15:38:34.439973Z"
+}

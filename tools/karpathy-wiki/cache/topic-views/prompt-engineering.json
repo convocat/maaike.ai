@@ -1,0 +1,11 @@
+{
+  "label": "Prompt engineering",
+  "summary": "Prompt engineering, as described by Mitchell Hashimoto and referenced in Maaike's work, is a deliberate, experiment-driven discipline distinct from 'blind prompting', which is a crude trial-and-error approach with minimal testing. It requires designing prompts that are reliable, repeatable, reusable, and robust, and it depends on building a demonstration set of expected inputs and outputs to measure accuracy. The process involves iterating through candidate prompts and calibrating them against that demonstration set.",
+  "how_maaike_uses": "Maaike uses prompt engineering as a bridge concept to argue that conversation designers already practise the underlying skills involved. She draws direct parallels between the steps Hashimoto describes and familiar conversation design work: demonstration sets resemble NLU test sets, few-shot examples resemble training phrases, and calibrating prompt accuracy resembles working with confusion matrices. Her angle is that the shift to LLMs does not require conversation designers to reinvent themselves, because the core discipline of deliberate, verifiable design is already what they do.",
+  "open_questions": [
+    "What specific guidelines make a high-quality prompt candidate, beyond the distinction between zero-shot and few-shot approaches?",
+    "How does the concept of prompt engineering evolve into what Maaike later calls 'context engineering', and what does renaming it 'design' change?"
+  ],
+  "state_hash": "fad52f391a24622f477f80b8d9e96c60bdcb7e0d39d1e093e2d0d07634483c20",
+  "generated_at": "2026-04-24T15:56:14.977582Z"
+}

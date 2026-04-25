@@ -1,0 +1,11 @@
+{
+  "label": "Similarity threshold",
+  "summary": "A similarity threshold is a cutoff value used to decide which pairs of documents are similar enough to count as candidate links. In Maaike's work it appears in the context of building a knowledge graph for the garden, where cosine similarity scores between text embeddings are compared against a threshold to produce a set of link suggestions. The core problem is that a single fixed threshold does not work well across different types of content.",
+  "how_maaike_uses": "Maaike runs into the similarity threshold problem concretely: a threshold of 0.55 produces 2,771 candidate pairs, which is too many to be useful, while raising it risks losing the cross-collection connections that are actually interesting. Her investigation covers four strategies from the literature: per-document normalisation (z-scoring each document's scores so that 'high' is relative to that document's own distribution), spectral thresholding (using eigenvalue decomposition of the similarity graph to find a natural cutoff), token blocking (only comparing pairs that share tags, to reduce computation), and a fourth approach that is cut off in the available text. The work also sits inside a broader experiment with local embedding models, where the similarity threshold is one of the things those embeddings are used to demonstrate.",
+  "open_questions": [
+    "The passage describing token blocking and the fourth approach from the literature is cut off, so it is not clear which filtering strategy Maaike ultimately applies or recommends for a garden of this size.",
+    "The passages gesture at the problem of evaluating whether a cross-collection pair is 'genuinely interesting' versus noise, but do not describe a concrete method for validating that judgment without labeled data."
+  ],
+  "state_hash": "795f81e8b1f8e388b89fef352d7c6249e5b35e4e526f792b9d8d21505929330a",
+  "generated_at": "2026-04-24T16:16:41.144331Z"
+}

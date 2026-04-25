@@ -1,0 +1,12 @@
+{
+  "label": "Deterministic chatbot",
+  "summary": "A deterministic chatbot is a conversational interface that uses pre-authored branching dialogue, tag-based exploration, and serendipity modes instead of a language model. Every response is a hyperlink, a list, or a pre-written prompt, so the chat feel is surface-level while the logic underneath is fully predictable. This approach sidesteps hallucinations, API costs, and latency without giving up the conversational format.",
+  "how_maaike_uses": "Maaike explores the deterministic chatbot as a potential guide for her digital garden, one that helps visitors navigate posts and follow wiki-links without putting an LLM in the middle. Her angle is that removing generative AI actually improves the garden: it forces better curation and linking, keeps the content central rather than the technology, and makes serendipity a deliberate design choice rather than a byproduct of probabilistic generation.",
+  "open_questions": [
+    "How much personality should the guide have, a neutral navigator or an actual character?",
+    "Can it learn from visitor paths without tracking individuals?",
+    "Where does it live physically in the site, a sidebar widget, a dedicated page, or a floating bubble?"
+  ],
+  "state_hash": "188006f094f2963c6119a709f434e5776d502fbce7e781050f1d33ca8aae1349",
+  "generated_at": "2026-04-24T16:18:57.030758Z"
+}

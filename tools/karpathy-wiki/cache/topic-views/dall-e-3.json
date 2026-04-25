@@ -1,0 +1,11 @@
+{
+  "label": "DALL-E 3",
+  "summary": "DALL-E 3 is an image generation model integrated into ChatGPT, positioned as a significant step up from earlier versions in rendering detail, text, and hands. It operates by augmenting user prompts before generating images, and it lacks a context window, meaning each generation is a one-shot task with no reliable continuity from one prompt to the next. In Maaike's work it shows up repeatedly as a case study in both technical limitation and embedded bias.",
+  "how_maaike_uses": "Maaike uses DALL-E 3 as a practical test subject across two related threads. In one, she stress-tests its much-hyped ability to render hands accurately and finds the results inconsistent and frustrating, noting that the lack of a context window makes iterative refinement unreliable and that fine-grained parameter control is essentially absent. In the other, she scrutinises the prompt augmentation mechanism itself, arguing that having the model silently rewrite prompts introduces US-centred defaults and cultural stereotypes, and raising the pointed question of who exactly gets to decide how those rewrites are framed. She also ran a live workshop using DALL-E 3 as the vehicle for a collective exercise in studying and countering that bias.",
+  "open_questions": [
+    "Is the prompt augmentation mechanism making images more inclusive or is it just layering a different set of cultural assumptions on top of the user's intent?",
+    "Without a reliable context window or seed control, is iterative prompting in DALL-E 3 fundamentally a guessing game, and does that make it unsuitable for precision use cases?"
+  ],
+  "state_hash": "ac6ecabc4e58015b30f81d2e37fe05ed3d6daf66c7f33688add001e59b21a7a3",
+  "generated_at": "2026-04-24T15:34:20.213213Z"
+}

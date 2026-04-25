@@ -1,0 +1,11 @@
+{
+  "label": "LLM-based keyphrase extraction",
+  "summary": "LLM-based keyphrase extraction is one of several approaches to automatically identifying the key concepts in a text, sitting at the end of a lineage that runs from statistical methods like RAKE and YAKE through graph-based methods like TextRank. In Maaike's knowledge graph architecture, keyphrases serve three roles: blocking candidate pairs before embedding comparison, scoring specificity of connections, and providing human-readable explanations for why two items are linked. The LLM-based variant is noted as a better fit for the short-text problem than its predecessors.",
+  "how_maaike_uses": "Maaike frames LLM-based keyphrase extraction as the most capable option for her specific situation: a small, multilingual knowledge garden where many items are short texts that starve statistical methods of the co-occurrence data they need. She positions it within a layered pipeline where cheap signals (shared keyphrases) do the blocking work first, and expensive embedding comparisons only happen within the groups that survive that filter. The explicit motivation is reducing 2,771 candidate pairs without losing cross-topic connections that tag-based blocking would miss.",
+  "open_questions": [
+    "The passage is cut off before the LLM-based era is described in detail, so it is unclear which specific prompting strategies or models Maaike evaluated or settled on.",
+    "The post promises to address which approach fits a small multilingual knowledge garden, but the multilingual dimension of LLM-based extraction versus statistical alternatives is not yet resolved in the surviving passage."
+  ],
+  "state_hash": "3aaeb642a95a6b368798becb1f86b1fb18095e17b094344992d894b60def8623",
+  "generated_at": "2026-04-24T16:13:04.188019Z"
+}

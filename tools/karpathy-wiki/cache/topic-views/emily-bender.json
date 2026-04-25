@@ -1,0 +1,10 @@
+{
+  "label": "Emily Bender",
+  "summary": "Emily Bender is a researcher who, together with Timnit Gebru, co-authored the 2021 paper 'On the Danger of Stochastic Parrots — can language models be too big?'. She coined the term 'stochastic parrot' to describe large language models. Maaike references her as a critical voice on the fundamental challenges of LLMs.",
+  "how_maaike_uses": "Maaike draws on Bender's concept of the stochastic parrot to ground her argument that ChatGPT is not writing or reasoning but simply stringing words together based on statistical likelihood. She positions Bender alongside Timnit Gebru as a reliable touchstone when cutting through AI hype, and recommends following Bender's work specifically for staying curious and critical about what large language models actually are and cannot do.",
+  "open_questions": [
+    "Maaike gestures at design implications of the stochastic parrot framing but does not spell out how Bender's own research proposals or recommendations feed into those design choices."
+  ],
+  "state_hash": "b9ca4ff6d3f3d47971001cc1bd402fcbbe96abd1eea8b2b4da7b783fb4b156cd",
+  "generated_at": "2026-04-24T15:12:15.275472Z"
+}

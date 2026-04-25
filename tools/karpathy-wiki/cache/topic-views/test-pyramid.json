@@ -1,0 +1,11 @@
+{
+  "label": "Test pyramid",
+  "summary": "The test pyramid is a layered approach to automated testing where different layers catch different categories of failure. In Maaike's work it takes the form of three concrete layers: content validation, build verification, and end-to-end browser tests. The structure exists not for coverage metrics but to make it obvious which layer to look at when something breaks.",
+  "how_maaike_uses": "Maaike arrived at the pyramid through a specific production failure: silently broken YAML frontmatter that the dev server tolerated but the production build did not, leaving the library page empty with no visible error. She uses the three-layer structure pragmatically, with each layer scoped to what it is actually good at catching. Content validation runs on raw markdown before the build, build verification happens in CI on every push, and Playwright tests cover interactive behaviour that only surfaces in a real browser. The framing throughout is diagnostic rather than aspirational: the pyramid tells you where to look, not how complete your coverage is.",
+  "open_questions": [
+    "The content validation script does not yet run automatically and relies on manual habit before commits. Whether to formalise it as a pre-push hook or CI step is left open.",
+    "The build layer failed silently before, serving the old site with no browser-visible error. The post notes the gap but does not describe a solution for surfacing build failures more visibly."
+  ],
+  "state_hash": "566559ae1cb8ae208ec3182608915dc996e4022c33db0611871bc73bd5c31356",
+  "generated_at": "2026-04-24T16:14:09.204815Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Rhetoric",
+  "summary": "Rhetoric, as Maaike uses the term, refers to language designed to persuade that may resemble an argument but does not have to be one. It typically relies on tropes and stylistic devices rather than logical structure, and is characterised by an indifference to truth. It is contrasted with argument, which requires premises, reasoning, and a conclusion.",
+  "how_maaike_uses": "Maaike uses rhetoric as a precise technical term to draw a clear line between persuasion and reasoning. The distinction matters to her because LLMs generate rhetorical constructions by default, and humans are already prone to leaning on conviction and opinion rather than doing the harder work of dialectical thinking. Naming rhetoric precisely is part of her broader push to sharpen the vocabulary we use to think about thinking.",
+  "open_questions": [
+    "If LLMs generate rhetoric by default, can they be reliably instructed to produce argument instead, or does the dialectical thinking experiment only partially address this?",
+    "Maaike mentions practising rhetoric alongside critical thinking and philosophy as a skill to develop, but does not explain how rhetoric shifts from something to be wary of to something worth practising."
+  ],
+  "state_hash": "e02a2e64eac01a3616c94bd1b0e8efd5c8b877ba81ec2214a64aa7e58252657b",
+  "generated_at": "2026-04-24T15:16:27.037686Z"
+}

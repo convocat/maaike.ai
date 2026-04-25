@@ -1,0 +1,11 @@
+{
+  "label": "Summarisation",
+  "summary": "Summarisation is the process of condensing a text into its most essential concepts. In Maaike's work it is characterised as key-concept extraction rather than simple reduction. The interesting tension she explores is whether the source text is even necessary to produce a good summary.",
+  "how_maaike_uses": "Maaike uses summarisation as a test case for interrogating how LLMs handle language tasks differently from humans. She found that LLMs struggle with reduction (going from a full text to something shorter) but perform better with construction (building a summary from keywords up). Her practical conclusion is that when generating summaries with an LLM, it often works better to first extract key concepts and their relationships and then let the model build from there, effectively bypassing the source text altogether. She tried Chain of Density for long documents but found it did not work well, which pushed her toward the keyword-first approach.",
+  "open_questions": [
+    "If keyword-first prompting produces better summaries than source-text prompting, what does that mean for use cases where fidelity to a specific source text actually matters?",
+    "Chain of Density did not work well for long documents in her experiments — what prompting approaches might work better for that specific case?"
+  ],
+  "state_hash": "83373fb88d20406b787212c8adbb10757d602af8f3b9434a29a258ee96d41c66",
+  "generated_at": "2026-04-24T15:54:35.842822Z"
+}

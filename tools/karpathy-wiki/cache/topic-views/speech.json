@@ -1,0 +1,11 @@
+{
+  "label": "Speech",
+  "summary": "Speech is the act of establishing communication between a sender and a receiver using sound, and it is distinct from written text. In Maaike's work, this distinction matters practically: speech is constrained by breath in a way that written dialogue simply is not. Understanding this shapes how conversation designers approach turn length, pacing, and the use of tools like SSML.",
+  "how_maaike_uses": "Maaike uses speech as a foundational concept for conversation and voice design, particularly to push back against the habit of treating voice assistant output as if it were just text read aloud. She grounds the concept in physical reality — breath as a natural delimiter — and uses that to argue for spoken sample dialog and the one-breath test when designing voice turns. She also connects speech to prosody, pitch, intonation, and intensity as the building blocks that SSML tagging works with, framing these as practical tools rather than abstract linguistics.",
+  "open_questions": [
+    "The post mentions research on voice characteristics of transgender people and the role of speech style in gender perception, and flags this as opening up possibilities for voice designers — but does not follow through on what those design implications actually look like in practice.",
+    "The primer is explicitly part 1 with more to follow, so the full picture of speech concepts relevant to conversation design is not yet complete in the available material."
+  ],
+  "state_hash": "d35fad85881c5a2afc457c53071f30ac77e8949a261a5efc1a8a87ee2927c512",
+  "generated_at": "2026-04-24T16:02:09.295585Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Black box metaphor",
+  "summary": "The black box metaphor refers to the way machine learning systems are commonly described as opaque systems where inputs go in and outputs come out, with the internal workings hidden or unknowable. It is one of several metaphors that shape how designers understand and reason about AI. The metaphor appears in Maaike's work in the context of examining whether such framings help or mislead designers working with these systems.",
+  "how_maaike_uses": "Maaike engages with the black box metaphor through a peer-reviewed paper from DRS 2022 that critically examines how metaphors like this one influence designers' mental models of machine learning. The paper is interested not just in describing the metaphor but in evaluating it: where does it mislead, and what would make a metaphor genuinely useful for design thinking? This suggests Maaike treats the black box framing as something worth scrutinising rather than accepting at face value.",
+  "open_questions": [
+    "What specific ways does the black box metaphor mislead designers working with machine learning systems?",
+    "What qualities would make an alternative metaphor more useful than the black box framing for design practice?"
+  ],
+  "state_hash": "95dac32f267700a0abccf5570483bf842363901b13de7b184e7f5ce389b27dcb",
+  "generated_at": "2026-04-24T15:31:57.318493Z"
+}

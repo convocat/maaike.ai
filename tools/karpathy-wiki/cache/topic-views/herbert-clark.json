@@ -1,0 +1,11 @@
+{
+  "label": "Herbert Clark",
+  "summary": "Herbert Clark is a researcher whose work on conversational grounding, common ground, and the principle of least collaborative effort appears in Maaike's thinking about human-machine interaction. His theories describe how human conversation depends on shared context-building and mutual effort to establish understanding. Maaike draws on this work to interrogate whether chatbots and GenAI interfaces can meaningfully be called conversational at all.",
+  "how_maaike_uses": "Maaike uses Clark's concepts as a baseline for what real conversation actually requires, then measures GenAI interaction against that baseline and finds it lacking. The idea of conversational grounding, for instance, points to a whole underlying contract in human-human exchange involving shared sense-making, trust, and context that chatbots simply do not fulfil. This lets her argue that calling GenAI interaction a conversation is not just a loose metaphor but an actively misleading one, especially as use cases multiply well beyond question-and-answer exchanges.",
+  "open_questions": [
+    "If Clark's grounding framework disqualifies most GenAI interaction from being called conversation, what alternative theoretical frameworks might better describe what is actually happening?",
+    "Does the principle of least collaborative effort map onto how people prompt GenAI systems, and if so, does that tell us anything useful about interface design?"
+  ],
+  "state_hash": "d6d9eeb8519703e92b3ccb1141419c958a4cdde8db4cc1c7fc7f2f0195111057",
+  "generated_at": "2026-04-24T15:12:26.060751Z"
+}

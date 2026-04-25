@@ -1,0 +1,11 @@
+{
+  "label": "Source-text summarisation",
+  "summary": "Source-text summarisation is the conventional approach where you start with a full piece of content and condense it down to its key concepts. It is the intuitive, reductionist framing of what a summary is: you go from large to small. In Maaike's work, this approach is examined critically against alternative prompting strategies for LLMs.",
+  "how_maaike_uses": "Maaike uses source-text summarisation as a foil to expose a mismatch between how humans think about writing and how LLMs actually perform. Her core observation is that LLMs struggle more with reduction tasks than with construction tasks: when given a long source text to condense, they tend to resort to superficial techniques like bulleted lists rather than producing rich, dense summaries. She tested source-text summarisation directly against keyword-first prompting and found the latter performed better, which led her to conclude that including the source text in a summarisation prompt may not be necessary or even helpful.",
+  "open_questions": [
+    "Are there document types or lengths where source-text summarisation still outperforms keyword-first prompting, or is the keyword-first advantage consistent?",
+    "If the best results come from first manually deconstructing a text into key concepts, does that just shift the summarisation labour onto the human rather than eliminating it?"
+  ],
+  "state_hash": "d53e23766279dd92748b6a4602fbf63750ebedafa19656757f1197c22aeae3db",
+  "generated_at": "2026-04-24T15:55:28.978564Z"
+}

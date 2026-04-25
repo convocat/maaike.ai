@@ -1,0 +1,12 @@
+{
+  "label": "personal-knowledge-management",
+  "summary": "Personal knowledge management (PKM) is the practice of capturing, organising, and connecting knowledge for personal use. In Maaike's work, a digital garden is a concrete instance of PKM, and several projects build tooling directly on top of it. The topic sits at the intersection of structured data, embeddings, and personal context.",
+  "how_maaike_uses": "Maaike uses her digital garden as the live substrate for PKM experiments rather than treating it as a static archive. The book recommender reads garden tags and active projects as signals for scoring what to read next. The LLM wiki method is applied directly to the garden. And the embeddings research gap post frames the garden itself as both the experiment and the documentation, noting that the tools people actually use for PKM have outpaced any formal academic study of them.",
+  "open_questions": [
+    "What happens when you compute embeddings across a personal knowledge base with wildly diverse topics — do the vectors produce meaningful clusters at all?",
+    "How do embedding-suggested links compare to manually created ones, and what is the right similarity threshold before suggestions become noise?",
+    "How far can logic-based, non-AI scoring get in capturing personal context, compared to approaches that rely on embeddings or language models?"
+  ],
+  "state_hash": "081562f904ff2ea0190b788ada755a1bbd635d55ca621e9644bf7571dde10220",
+  "generated_at": "2026-04-24T15:26:52.759707Z"
+}

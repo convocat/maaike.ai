@@ -1,0 +1,12 @@
+{
+  "label": "Epistemic bias",
+  "summary": "Epistemic bias refers to systematic distortions in how we acquire, validate, and reproduce knowledge. In Maaike's work it shows up across several registers: in how reductionist thinking flattens complex systems, in how AI metaphors mislead designers, and in how algorithmic systems reproduce and reinforce existing knowledge hierarchies. It is a structural problem, not just a cognitive one.",
+  "how_maaike_uses": "Maaike uses epistemic bias as a lens to scrutinise both human reasoning habits and the tools we build. She points out that LLMs reinforce epistemic bias partly because we ourselves default to conviction and opinion rather than dialectical thinking, so the problem is not just in the technology but in us. She also draws on reductionism as a specific exhibit of epistemic bias, via Nora Bateson's argument that applying static context-free data to living systems is dangerous. Algorithmic epistemic injustice adds another layer: AI systems collapse diverse knowledge traditions into a single hierarchy driven by statistical probability. And even the metaphors designers use when thinking about AI can lead straight into epistemic bias if those metaphors mislead rather than clarify.",
+  "open_questions": [
+    "If dialectical thinking can counter epistemic bias, what would it look like to build that practice into design workflows rather than just individual chat experiments?",
+    "Algorithmic epistemic injustice and reductionism both point to structural knowledge hierarchies, but the passages don't resolve how those two critiques relate to each other or whether they require different remedies.",
+    "Warm data and precise terminology are offered as partial alternatives, but how compatible are they as approaches, and are they sufficient to address epistemic bias at a systemic level?"
+  ],
+  "state_hash": "d7ba7470414f59542318f4f44aa5dc2664db443f3ab15b231a45cc019af2511e",
+  "generated_at": "2026-04-24T15:15:54.843299Z"
+}

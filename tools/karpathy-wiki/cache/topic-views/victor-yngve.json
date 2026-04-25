@@ -1,0 +1,8 @@
+{
+  "label": "Victor Yngve",
+  "summary": "Victor Yngve was a linguist who, in his 1970 article 'On getting a word in edgewise', introduced the idea that conversation operates on two simultaneous channels: a front channel used by the speaker who holds the turn, and a back channel used by the listener to signal acknowledgement and encouragement. This framework gave rise to the concept of backchanneling, which describes the cues listeners produce without taking the conversational turn. Yngve's work is treated as foundational in understanding how real spoken conversation functions.",
+  "how_maaike_uses": "Maaike cites Yngve's two-channel model as the theoretical grounding for backchanneling, which she then applies practically to conversation design. She uses the concept to argue that chatbots and voice assistants should not only speak but also listen in a conversational sense, deploying recognition cues and continuer strategies to keep users engaged and signal that the system is following along. Yngve appears once, as the origin point of the concept, before Maaike moves on to more recent research and concrete design recommendations.",
+  "open_questions": [],
+  "state_hash": "5fedb6c9afddc97260b8edb787e41c36a89ddfea74452c292b2eb834b1d462ab",
+  "generated_at": "2026-04-24T16:03:37.102976Z"
+}

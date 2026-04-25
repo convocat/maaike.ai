@@ -1,0 +1,11 @@
+{
+  "label": "Note-taking metaphor",
+  "summary": "The note-taking metaphor is a way of framing human-machine interaction, positioned in Maaike's work as a candidate alternative to the conversation metaphor for GenAI. It appears in her thinking both as a practical form (sketchnotes as a specific instance) and as a conceptual framing that may better fit certain GenAI use cases than conversation does. The triple linking it to GenAI suggests it is one of several metaphors she is evaluating for how humans actually interact with generative AI systems.",
+  "how_maaike_uses": "Maaike gestures at the note-taking metaphor as a better fit for GenAI interaction than conversation, in the context of a broader argument that the conversation metaphor is being stretched beyond usefulness as GenAI use cases multiply. Sketchnotes appear as a concrete instance of the metaphor in her practice, used to capture and process ideas from a session she missed. The two appearances together suggest she is thinking about note-taking not just as a format but as a relational stance toward information and machines: one that does not carry the anthropomorphism or the implied emotional contract that conversation does.",
+  "open_questions": [
+    "What specifically makes the note-taking metaphor a better fit for GenAI than conversation, and are there use cases where it would also fail?",
+    "How does sketchnoting as a practice relate to the note-taking metaphor as an interaction model for machines, or is the connection only loose?"
+  ],
+  "state_hash": "649ef09fc90f0ee4360c3030c09dab093571a77efb3f8b43953579e2d26cb6ae",
+  "generated_at": "2026-04-24T15:19:08.222365Z"
+}

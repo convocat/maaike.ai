@@ -1,0 +1,11 @@
+{
+  "label": "Supervision",
+  "summary": "Supervision, in this context, refers to the oversight and guidance that requires genuine expertise to be meaningful. It is not just a procedural role but one that depends on the supervisor actually understanding what they are overseeing. The concept surfaces in discussions about how AI tools relate to learning and independent thinking.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "If someone uses AI to skip the hard work of building expertise, does their capacity to supervise AI outputs become compromised over time?",
+    "At what point does reliance on AI tools undermine the expertise that supervision requires?"
+  ],
+  "state_hash": "a566735051cf23e3389f1d2edd7ef6c6531f079fa4358ccf01931340e240d567",
+  "generated_at": "2026-04-24T16:26:34.312766Z"
+}

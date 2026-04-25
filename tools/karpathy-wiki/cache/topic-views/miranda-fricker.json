@@ -1,0 +1,11 @@
+{
+  "label": "Miranda Fricker",
+  "summary": "Miranda Fricker is a philosopher whose work provides the conceptual foundation for thinking about epistemic injustice — harm done to someone specifically in their capacity as a knower. In Maaike's work, Fricker appears as a presupposed framework rather than a direct subject, meaning her ideas are treated as established groundwork that other concepts build on. The concept of algorithmic epistemic injustice explicitly depends on Fricker's prior work to make its claims.",
+  "how_maaike_uses": "Maaike references Fricker indirectly, using her as a theoretical anchor for the concept of algorithmic epistemic injustice. The argument is that when AI systems collapse centuries of human knowledge into a single probabilistic output, this produces a new kind of epistemic harm that extends Fricker's original framework into the domain of automated systems. Fricker is not analysed on her own terms here but is treated as the lens through which AI's knowledge hierarchies can be critiqued.",
+  "open_questions": [
+    "Does Fricker's original framework stretch cleanly to cover harms caused by algorithmic systems, or does it need substantial revision?",
+    "Who counts as the harmed knower when the injustice is structural and distributed across an AI's training data?"
+  ],
+  "state_hash": "77ae4691e2c7801c3480578d586f814355272c80aeef618399d2119804a5bc67",
+  "generated_at": "2026-04-24T16:25:11.330831Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Linguistics",
+  "summary": "Linguistics, in Maaike's work, is a practical foundation rather than an academic abstraction. It shows up as the core competency behind designing and evaluating language-based AI systems, and as a shared interest that brings together conversation designers, voice professionals, and language enthusiasts in communities like Voicelunch. The discipline covers everything from the fine-grained details of phonetics and intonation to the systems-level thinking required to monitor GenAI in production.",
+  "how_maaike_uses": "Maaike draws on her background as a linguist to argue that linguistic skills are directly transferable to LLMOps work: writing precise prompts, defining context-aware evals, analysing conversation logs, and understanding how users interact with language-based interfaces. She makes the case that linguists are natural systems thinkers, capable of moving between the granular detail of a single span in a trace and the broader architecture of a GenAI system, in the same way a linguist might move between a specific intonation pattern and the subculture it shapes. She also co-organises a Voicelunch edition specifically for linguists and conversation designers, where topics like phonetics, intonation, and SSML are on the agenda alongside more informal community exchange.",
+  "open_questions": [
+    "How far can linguistic training actually take someone into LLMOps without engineering knowledge, and where does the boundary lie?",
+    "What does a more formal career path or job title for this linguistics-meets-LLMOps role look like in practice?"
+  ],
+  "state_hash": "b48e149460d49e340d9a278c4554e9098aca200ba17cd9eadc110a120c8e5d7e",
+  "generated_at": "2026-04-24T15:28:11.707599Z"
+}

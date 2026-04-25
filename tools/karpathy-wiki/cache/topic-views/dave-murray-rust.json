@@ -1,0 +1,11 @@
+{
+  "label": "Dave Murray-Rust",
+  "summary": "Dave Murray-Rust is a researcher who co-authored a peer-reviewed conference paper presented at DRS 2022. The paper looks at how metaphors influence the way designers make sense of machine learning and AI systems. It is referenced in Maaike's digital garden as a source on design and AI thinking.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "Which metaphors does the paper identify as most misleading for designers working with AI?",
+    "What qualities does the paper argue make a metaphor genuinely useful for design thinking?"
+  ],
+  "state_hash": "04973326bfa5e4af3d474ba706669e3be1ddb85260c37e15206597f6c9da1e9b",
+  "generated_at": "2026-04-24T15:32:25.970531Z"
+}

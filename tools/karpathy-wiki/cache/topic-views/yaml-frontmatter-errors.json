@@ -1,0 +1,11 @@
+{
+  "label": "YAML frontmatter errors",
+  "summary": "YAML frontmatter errors are a specific class of silent failure that can break a static site build without surfacing any obvious browser-level error. The canonical example in Maaike's garden is unquoted colon-space sequences in string values, which the Astro dev server tolerates but the production build does not. The topic comes up both as something to defend against through content validation and as a structural concern when extending frontmatter for new purposes like library audit fields.",
+  "how_maaike_uses": "Maaike treats YAML frontmatter errors as the motivating failure that justifies a full content validation layer. A real incident, four markdown files with unquoted colon-space sequences that caused a silent production breakage, is what pushed her to write a Node.js validation script that runs js-yaml strictly and checks for that specific failure mode before anything else touches the content. The same concern shapes how she designs the book recommender library integration: adding new audit fields to frontmatter is presented as a deliberate structural choice, implying awareness that those fields need to be well-formed to avoid the same class of problem.",
+  "open_questions": [
+    "The content validator script is not yet wired into a pre-push hook or CI step and runs manually for now. Whether that habit is actually a reliable enough system is left open.",
+    "The library integration design adds several new frontmatter fields via a Python script that writes back to markdown files. Whether that write-back process is validated against the same strictness rules as the rest of the content is not addressed."
+  ],
+  "state_hash": "e6c6601838dbc7a44799f7cc819e9999014769004de84fb5e28c6af12a2e18d9",
+  "generated_at": "2026-04-24T16:13:58.808174Z"
+}

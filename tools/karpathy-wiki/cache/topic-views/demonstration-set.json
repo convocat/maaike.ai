@@ -1,0 +1,11 @@
+{
+  "label": "Demonstration set",
+  "summary": "A demonstration set is a structured collection of expected inputs paired with expected outputs, used to measure the accuracy of prompts and specify what correct behaviour looks like. It is a core step in prompt engineering as described by Mitchell Hashimoto, sitting between initial prompt design and systematic accuracy testing. It can also double as example data for few-shot prompting.",
+  "how_maaike_uses": "Maaike uses the demonstration set as a bridge concept to show conversation designers that prompt engineering is not foreign territory. She draws a direct parallel between building a demonstration set and labelling customer questions with intents for NLU model testing: in both cases you are defining which input should lead to which output, and cleaning the data to keep bias out. This framing is her way of arguing that conversation designers already have the skills prompt engineering requires.",
+  "open_questions": [
+    "How large or representative does a demonstration set need to be before it reliably measures prompt accuracy?",
+    "How do you systematically keep bias out of the examples in a demonstration set?"
+  ],
+  "state_hash": "f7bbb75e837815d64887da7fa05486dc049d6ab8689dee5f5b2bfcf558c4742b",
+  "generated_at": "2026-04-24T15:56:35.220602Z"
+}

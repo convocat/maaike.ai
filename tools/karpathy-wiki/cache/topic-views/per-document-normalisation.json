@@ -1,0 +1,11 @@
+{
+  "label": "Per-document normalisation",
+  "summary": "Per-document normalisation is a filtering strategy for similarity scores where, instead of applying a single global threshold, you ask whether a given score is unusually high relative to that specific document's distribution of scores. The practical mechanic is z-score normalisation: subtract the document's mean similarity score and divide by its standard deviation, then threshold on the result. This makes scores comparable across documents that live in very different similarity ranges.",
+  "how_maaike_uses": "Maaike introduces per-document normalisation as a direct response to the cross-collection problem in her knowledge graph experiment, where a fixed global threshold is simultaneously too permissive for same-collection pairs and too strict for cross-collection ones. The point is that a score of 0.56 means something different for a well-connected article than for an isolated seed, and normalising per document lets the threshold adapt to that context. She grounds the approach in Rossi et al. (CIKM 2024), taking their core insight about score incomparability across queries while setting aside their learned transformation in favour of a simpler z-score approach that fits a garden of 157 items.",
+  "open_questions": [
+    "What z-score cutoff actually works in practice for this garden, and how sensitive is the result to that choice?",
+    "How does per-document normalisation interact with the other filtering strategies (spectral thresholding, blocking) if used in combination?"
+  ],
+  "state_hash": "c25d92e8dde5d614cc896355b09266c75a8a8029ac71cfa55423ac93548990bc",
+  "generated_at": "2026-04-24T16:16:51.517294Z"
+}

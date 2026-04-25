@@ -1,0 +1,11 @@
+{
+  "label": "English-default quantization",
+  "summary": "English-default quantization is the standard practice of using English text as the calibration reference when compressing AI models, which means non-English languages take a disproportionate quality hit during the process. The model is simplified according to what matters for English, so components important for Dutch or other languages may get compressed away without the tool knowing. This is a silent quality loss: nothing breaks visibly, but the outputs for non-English content are worse than they would be with language-aware compression.",
+  "how_maaike_uses": "Maaike flags English-default quantization as a concrete, under-examined problem for her local AI setup. Her knowledge graph project uses locally run embedding models via Ollama, and those models are quantized. If the quantization was calibrated on English, her Dutch content may already be getting worse embeddings than her English content without any obvious signal that something is wrong. She uses Michiel Buisman's Dutch-calibrated Granite 4 work as evidence that there is a systematic fix available, and she notes that the Leesplank corpus used in that work could also serve as an evaluation tool for Dutch embedding quality in her own setup.",
+  "open_questions": [
+    "Do the local embedding models Maaike currently runs via Ollama use English-default quantization, and if so, how much Dutch quality is actually being lost?",
+    "Is the combination of language-specific calibration data and component-level vulnerability mapping transferable to embedding models, or does it only apply to generative models?"
+  ],
+  "state_hash": "03d88d265d3e3195341dd48fd43e49c25e23ad861f449398c6c99e40c458c978",
+  "generated_at": "2026-04-24T16:19:18.866127Z"
+}

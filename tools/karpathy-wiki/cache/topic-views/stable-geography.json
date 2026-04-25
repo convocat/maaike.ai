@@ -1,0 +1,11 @@
+{
+  "label": "Stable geography",
+  "summary": "Stable geography refers to the property of the explore map where item positions and territory definitions persist across rebuilds rather than being recomputed from scratch each time. It is achieved by saving pinned coordinates and territory labels to a file so the map accumulates memory over time. The result is a landscape that visitors and the gardener can learn and navigate by feel.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "How does the small random offset used when placing new items affect the accuracy of neighborhood placement over time, especially as the corpus grows?",
+    "What criteria should trigger a full recompute versus accepting drift between the pinned layout and the actual content structure?"
+  ],
+  "state_hash": "7f482c34b827e2fc89d8cb328c261a6edf4619b9736b3b2e46003d5aeba50366",
+  "generated_at": "2026-04-24T16:13:34.549772Z"
+}

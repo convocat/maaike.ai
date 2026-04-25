@@ -1,0 +1,11 @@
+{
+  "label": "Natural language interaction",
+  "summary": "Natural language interaction refers to the design assumption that conversation — open-ended, voice-first, free-text — is the best model for human-machine interaction. It has been a dominant paradigm in chatbot and conversational AI design. Maaike treats it as a premise worth questioning rather than a given.",
+  "how_maaike_uses": "Maaike is sceptical of the long-held dogma that natural language interaction is always superior. She notes with some satisfaction that deterministic routing — buttons, structured choices, old-school IVR patterns — is making a comeback, pointing to Anthropic's own design choices as evidence. This connects to her broader exploration of whether conversation is even the right metaphor for human-machine interaction at all, which she is working through in her digital garden.",
+  "open_questions": [
+    "If deterministic routing is a valid and sometimes better alternative, what are the actual criteria for choosing between it and natural language interaction in a given design context?",
+    "Is conversation still a useful metaphor for human-machine interaction, or do we need different models entirely?"
+  ],
+  "state_hash": "c65ae1ba03d6c251f87732122c2a80562897bccbb2299354a363f6ab60b4921f",
+  "generated_at": "2026-04-24T16:24:03.033390Z"
+}

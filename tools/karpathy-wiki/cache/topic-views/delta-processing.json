@@ -1,0 +1,11 @@
+{
+  "label": "Delta processing",
+  "summary": "Delta processing is a step in Saga's source ingestion pipeline where each incoming data snapshot is compared against the previous one, producing three payload types: Added, Updated, and Deleted. The point is to avoid rebuilding everything from scratch: only what actually changed gets reprocessed. It sits inside a hybrid batch-incremental design, where a stable graph is periodically rebuilt while a live overlay handles real-time updates.",
+  "how_maaike_uses": "Maaike flags delta processing as one of the ideas from Saga that transfers to smaller-scale systems like a personal garden. The implication is that auto-generated links or extracted facts shouldn't require a full recomputation every time content changes — only the diff matters. This connects to her broader interest in storing links as extended triples with provenance metadata, so the system knows what changed, when, and how confidently.",
+  "open_questions": [
+    "What counts as a meaningful 'delta' in a garden context — a new post, an edited paragraph, a changed link?",
+    "How do you handle deleted or heavily revised content when downstream links or triples were derived from the old version?"
+  ],
+  "state_hash": "6c2368a02037f5c9c758c382771f60e072f44fb500cba4333b97cc2d2cdb3161",
+  "generated_at": "2026-04-24T15:36:11.858085Z"
+}

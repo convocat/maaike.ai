@@ -1,0 +1,11 @@
+{
+  "label": "Controlled predicate vocabulary",
+  "summary": "A controlled predicate vocabulary is a fixed set of typed relationship labels used when extracting subject-predicate-object triples from text. In Maaike's work it appears as a requirement of the TAO extraction pass, where predicates need to be consistent and reusable across the graph rather than improvised per post. The goal is that relationships between topics stay comparable and connectable as the graph grows.",
+  "how_maaike_uses": "Maaike uses a controlled predicate vocabulary as part of pass 2 of the Thematic-TAO method, specifically when extracting typed associations between topics. The vocabulary is a constraint that keeps the concept graph coherent: if every post invents its own predicate labels, the graph ends up with relationships that can't be traversed or compared meaningfully. She doesn't elaborate the vocabulary itself in the available material, but frames it as the mechanism that makes associations more than just isolated true statements.",
+  "open_questions": [
+    "What predicates are actually in the controlled vocabulary, and how does Maaike decide when to extend it versus reuse existing terms?",
+    "How does the coherence check in pass 3 interact with predicate consistency — does it ever prompt renaming a predicate after extraction?"
+  ],
+  "state_hash": "5272e98c1fd79e8dd0786623004de11cfdcfae0dc4511b158ed9809b18b6c1ff",
+  "generated_at": "2026-04-24T16:16:19.403119Z"
+}

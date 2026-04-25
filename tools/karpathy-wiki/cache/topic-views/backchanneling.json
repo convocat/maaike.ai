@@ -1,0 +1,11 @@
+{
+  "label": "Backchanneling",
+  "summary": "Backchanneling, a term attributed to linguist Victor Yngve (1970), refers to the listener-side signalling that happens in parallel with the main conversational turn. It covers the sounds, words, and repetitions a listener uses to show they are following, without actually taking over the turn. Maaike uses it as a practical framework for thinking about how bots and voice assistants can participate in conversation more naturally.",
+  "how_maaike_uses": "Maaike introduces backchanneling in the context of making voice actions and chatbots sound more speech-like. She draws on a four-part taxonomy of cue types (basic interjections, linguistic responses, emotive interjections, and repetition) grouped into recognition cues and continuers, and argues that conversation designers should think deliberately about which of these their bot uses and when. She also takes care to contrast backchanneling with discourse markers, which look similar on the surface but operate on the front channel rather than the back channel, making the distinction practically useful for design decisions.",
+  "open_questions": [
+    "The passage on discourse markers is cut off mid-sentence when discussing markers that reference visual text structure, so it is unclear what the full practical guidance for speech was meant to be.",
+    "Maaike gestures at designing a 'continuer strategy' for bots but does not spell out what that looks like in practice, leaving the design application somewhat open."
+  ],
+  "state_hash": "21b2e3bd211bb54521bf39b40cbad7fd49f85e88d8393dcbdd4eb6a0720f23ed",
+  "generated_at": "2026-04-24T16:03:27.984376Z"
+}

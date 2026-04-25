@@ -1,0 +1,11 @@
+{
+  "label": "Format contamination",
+  "summary": "Format contamination is what happens when an embedding model clusters documents by their content type or format rather than their topic. It shows up when texts of very different lengths get embedded together: a 30-word video description and a 1500-word article on the same subject end up far apart in the embedding space because the model picks up on structure, vocabulary density, and stylistic patterns alongside meaning. BGE-M3 and text embeddings generally are known to exhibit this problem.",
+  "how_maaike_uses": "Maaike ran into format contamination concretely while building the explore page for her garden: the spatial map was grouping all videos together and all library books together regardless of topic, which made it useless for finding cross-collection connections. She traces the cause to the short-text problem, where thin content like video descriptions gives the model almost no topical signal to work with. The problem resurfaced during thematic analysis, where the embedding clusters confirmed that format contamination is structural, not incidental: 15 of 22 items in the video cluster were videos, and the existing cross-links generated from full-text embeddings are likely biased toward within-collection connections as a result. The main fix she considers viable is enriching thin content before embedding, by pulling in video transcripts and generating book summaries, since that would improve the garden content independently of the embedding use case.",
+  "open_questions": [
+    "The cross-links generated from full-text embeddings haven't been regenerated with the normalized embeddings yet, so it's still unknown how much the link candidates would change if format contamination were reduced.",
+    "Hybrid embedding (separate metadata and body text embeddings combined with a weighted average) is listed as a potential solution but hasn't been tested, so it's unclear whether it would outperform metadata-only normalization."
+  ],
+  "state_hash": "cf2d2c1695602c659b6f32edce4d64a1ba32907824ca4154a64862360d3c557c",
+  "generated_at": "2026-04-24T16:08:14.804254Z"
+}

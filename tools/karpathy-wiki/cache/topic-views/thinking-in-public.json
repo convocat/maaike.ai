@@ -1,0 +1,11 @@
+{
+  "label": "Thinking in public",
+  "summary": "Thinking in public is the practice of sharing ideas before they are fully formed. In Maaike's work it means publishing incomplete thoughts openly, making the maturity of each piece visible to readers, and treating writing as a process rather than a product. It sits in deliberate contrast to the traditional academic model, where ideas are only shared after extensive peer review.",
+  "how_maaike_uses": "For Maaike, thinking in public is not just a stance but a structural feature of the garden itself. The maturity track on each post signals where an idea is in its growth, so readers always know whether they are reading a seedling or something more developed. She frames the benefits practically: sharing unfinished thoughts invites collaboration, surfaces blind spots, and creates accountability to keep developing ideas further. The garden format fits this better than a blog because there is no implied end state, no expectation that a post is finished. Her AI transparency indicator extends the same logic: being open about how content was made is another form of thinking in public. Even the garden to-do list and the building changelog are treated as instances of this practice, making process and intention visible rather than hiding them behind a polished front.",
+  "open_questions": [
+    "GenAI is flagged as a risk to thinking in public, but the passages do not explain exactly how or why that risk plays out.",
+    "Maaike notes that publishing incomplete thoughts invites collaboration, but the garden is currently aimed mostly at herself, leaving open whether and how she wants external readers to actually engage with work in progress."
+  ],
+  "state_hash": "c84cbdd52109440d496101f20ba94e37c95216cd8f1b5863af8c809f67c96326",
+  "generated_at": "2026-04-24T15:02:58.074442Z"
+}

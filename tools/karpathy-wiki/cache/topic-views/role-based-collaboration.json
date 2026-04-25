@@ -1,0 +1,11 @@
+{
+  "label": "Role-based collaboration",
+  "summary": "Role-based collaboration is the conventional model where people contribute to a project through fixed, named roles with defined boundaries, such as PO, designer, or developer. In Maaike's work the concept appears as a baseline assumption that gets structured into things like onboarding checklists, but also as something that breaks down under real conditions, particularly in very small teams. It sits in tension with emerging skill-based ways of working that GenAI tools are starting to make practical.",
+  "how_maaike_uses": "Maaike treats role-based collaboration as a familiar scaffolding rather than an ideal. Her onboarding checklist for conversation designers is built around it, assuming you arrive into a team with a defined role to slot into. But in her own ultrasmall team of three she finds the model fails daily, because there simply aren't enough people to fill the roles, and the overhead of role-respecting handoffs wastes expertise she already has. Her posts on Claude Code push this further, arguing that GenAI acts as a de-silo-er that lets people contribute through skill and judgment rather than role permission, pointing toward what she calls a shift from hierarchical role silos to dynamic skill configurations. The Instagram reference to LLM plugins that each 'cover a role' shows the model still has descriptive use even in AI contexts, though Maaike herself is sceptical of it as an organising principle.",
+  "open_questions": [
+    "If role-based collaboration breaks down in tiny teams, what replaces it as a coordination mechanism without losing the review and learning benefits that role boundaries can provide?",
+    "When GenAI lets someone like Maaike contribute directly to a codebase, how do teams maintain accountability and knowledge transfer without the formal sign-off structures that roles used to provide?"
+  ],
+  "state_hash": "7cdae8f21ceb1f29908a697e31849f8818300f925ef8f3a6b080c51680f05b12",
+  "generated_at": "2026-04-24T15:24:25.397069Z"
+}

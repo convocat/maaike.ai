@@ -1,0 +1,12 @@
+{
+  "label": "LLMs",
+  "summary": "LLMs (large language models) are probabilistic text generators that string words together based on co-occurrence patterns in training data. Instances include ChatGPT, Bing Chat, DALL-E 3, YouChat, Chatsonic, Blenderbot, and Stanford Alpaca. They are characterised as stochastic parrots: fluent in surface form, but without ground truth, conversational grounding, or any inherent concern for whether what they produce is true.",
+  "how_maaike_uses": "Maaike approaches LLMs primarily as a conversation designer and critical observer. She is consistently sceptical of the conversational metaphor used to frame them, arguing that LLMs lack the grounding, situated action, and cooperative intent that real conversation requires. She returns repeatedly to the hallucination problem, framing it not as a bug to be patched but as a structural consequence of how LLMs work: knowledge is a missing fundamental, like the inharmonic overtones of a timpani that can never quite resolve to a true pitch. She also interrogates design choices layered on top of LLMs, noting that the verbosity, conviction, and indifference to silence are not inherent properties of the technology but decisions made by the people building the interfaces. This opens space for her pet project on designing for doubt and meaningful friction. At the same time she uses LLMs practically, for example for key phrase extraction and generating LLM Wiki views of her digital garden, while staying alert to where they break down, particularly on reduction tasks like summarisation.",
+  "open_questions": [
+    "Can negative space and deliberate silence be designed into an LLM interaction model, and what would that actually look like in practice?",
+    "Is there a point at which the training data loop becomes self-referential in a way that degrades quality, and what does that mean for writing as a craft?",
+    "Can hallucinations ever be structurally solved without changing the underlying concept of operations, or is approximation always the ceiling?"
+  ],
+  "state_hash": "a125fd8639f9f1a9a4a204f3ea479ad5db964c7ed191361adbd655d00eb2e1b5",
+  "generated_at": "2026-04-24T15:13:31.655081Z"
+}

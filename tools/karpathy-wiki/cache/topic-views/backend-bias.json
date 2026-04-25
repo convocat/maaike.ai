@@ -1,0 +1,8 @@
+{
+  "label": "Backend bias",
+  "summary": "Backend bias is a risk identified in relation to the digital garden. It appears in the context of Claude Code experiments, where automation and AI tooling operate directly on garden infrastructure. The concept flags a potential skew or distortion that arises when backend processes shape the garden's content or structure.",
+  "how_maaike_uses": "",
+  "open_questions": [],
+  "state_hash": "ae63f1f8e95f8dbd9cd29f7009029ac4d37c5a1871e0f55c9a24362189f3d90c",
+  "generated_at": "2026-04-24T16:09:17.236544Z"
+}

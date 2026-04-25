@@ -1,0 +1,12 @@
+{
+  "label": "Bot persona",
+  "summary": "A bot persona is a design artefact that captures a bot's character traits, tone of voice, behaviour and ethical standards in one coherent document. It functions as a practical guideline for conversational consistency, but Maaike argues it does considerably more than that. A well-constructed persona is what keeps a bot coherent under pressure, prevents it from being steered in harmful directions, and can serve as a foundation for a bot's moral values.",
+  "how_maaike_uses": "Maaike treats bot persona as a core deliverable in her conversation design practice, alongside style guides, design patterns and terminology lists. She reaches for it both as a practical tool and as a conceptual anchor. In her analysis of Blenderbot, the absence of a fixed persona is the root cause of the bot's failure: without one, the bot has no internal coherence and will mirror whatever the user feeds it, including toxic content. She uses the golem metaphor from the Judaic tradition to argue that moral values need to be baked into a bot's persona from the start, not added as a removable safety filter on top. In her ChatGPT write-up she shows the positive case: a consistent persona reinforces trust and is what allows ChatGPT to stay grounded and push back on false premises. She also notes that linguistic features like deixis can actively reinforce persona coherence.",
+  "open_questions": [
+    "If moral values are embedded in a persona as a design artefact, who decides which values get encoded, and how do you audit or update them over time?",
+    "Safety filters are shown to be easily bypassed; the passages gesture at persona-as-ethics as a more robust alternative, but leave open what that would look like in practice.",
+    "The passages note that today's discussions on persona focus on UX and consistency, but do not fully resolve how the shift toward persona-as-ethical-framework changes the conversation designer's role or responsibilities."
+  ],
+  "state_hash": "c3daf57701350735e6840c139efa6a43cdeccb4d05927f6b8e8d23b546769777",
+  "generated_at": "2026-04-24T15:39:09.427609Z"
+}

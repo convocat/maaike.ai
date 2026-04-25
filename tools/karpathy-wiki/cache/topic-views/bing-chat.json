@@ -1,0 +1,11 @@
+{
+  "label": "Bing Chat",
+  "summary": "Bing Chat is an LLM-based conversational interface built by Microsoft, designed with chat affordances like text bubbles and a 'Chat' button. It became a case study in the gap between what designers intended (search) and what users actually did (open-ended conversation and social interaction). Maaike uses it as an example of a system that lacks real conversational grounding and risks encouraging anthropomorphism.",
+  "how_maaike_uses": "Maaike uses Bing Chat as a concrete, somewhat absurd illustration of what goes wrong when you deploy an LLM in a conversational interface without understanding what conversation actually is. Drawing on Enfield's work on dialogue, she argues that Bing Chat can mirror conversational form but cannot participate in the collaborative, intention-tracking, morally-grounded process that real conversation requires. Microsoft's surprise at user behaviour is, for her, a symptom of not doing basic conversation 101: if you design a chatty persona with chat affordances, people will treat it as a conversational partner, and the system will not be able to hold up its end of that bargain.",
+  "open_questions": [
+    "Will it ever be possible for a machine to form the same kind of interlocking conversational system with a human that two humans form with each other?",
+    "The post is cut off before finishing the comparison between Bing Chat and ChatGPT — what distinction was Maaike drawing there?"
+  ],
+  "state_hash": "cbc0fa253a728b05e8d52db580f3a8f58891ec0710f4dbc324476ef3a75a59db",
+  "generated_at": "2026-04-24T15:49:33.649240Z"
+}

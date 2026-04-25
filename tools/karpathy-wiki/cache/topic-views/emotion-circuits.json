@@ -1,0 +1,11 @@
+{
+  "label": "Emotion circuits",
+  "summary": "Emotion circuits are theorised structures within large language models that researchers like Chenxi Wang have proposed can be identified and potentially controlled. The concept sits within the broader field of LLM interpretability and is treated as a form of LLM observability. A key risk flagged alongside the work is that naming these structures 'emotion circuits' invites anthropomorphism.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "Does identifying emotion circuits in LLMs tell us anything meaningful about whether those models have something like inner states, or is it purely a mechanistic observation?",
+    "How do we talk about these structures without sliding into anthropomorphism?"
+  ],
+  "state_hash": "f0c7b6cba0ad05fcf138b7043d10b6cb796d1831532f9765c6525f6d6c106ec7",
+  "generated_at": "2026-04-24T16:25:35.584715Z"
+}

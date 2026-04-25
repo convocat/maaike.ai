@@ -1,0 +1,11 @@
+{
+  "label": "Pinned positions",
+  "summary": "Pinned positions are x,y coordinates saved for every item on the explore map, so that each piece of content stays in the same place across rebuilds instead of being repositioned by UMAP every time. They are stored in a map-roots.json file alongside pinned territory definitions. Together these give the map a stable geography that can be learned over time.",
+  "how_maaike_uses": "Maaike introduced pinned positions to solve a specific problem: UMAP running from scratch on every rebuild meant the map had no memory, and a map with no memory can't support a sense of place. The pinning mechanism separates initial placement (which can still use cosine similarity to land new items in the right neighborhood) from ongoing stability (which requires nothing to move unless explicitly forced with a --recompute flag). The framing she uses is direct: a map that keeps changing is a kaleidoscope, not a map.",
+  "open_questions": [
+    "How much drift is acceptable before a full recompute is warranted, and is there a way to detect that automatically rather than relying on the gardener to notice?",
+    "When a new item is placed near its most similar neighbor with a small random offset, is there any risk of crowding in high-density clusters over time?"
+  ],
+  "state_hash": "71b85369c112faa60ab3dbe1d41f986f66745d2faa189ed46e1aa0cc81df6499",
+  "generated_at": "2026-04-24T16:13:24.533173Z"
+}

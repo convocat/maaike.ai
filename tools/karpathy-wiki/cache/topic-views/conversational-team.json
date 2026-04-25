@@ -1,0 +1,11 @@
+{
+  "label": "Conversational team",
+  "summary": "A conversational team is a chatbot or conversation-focused scrum team that works on content rather than software features. The term comes up in the context of questioning whether IT-derived scrum practices actually fit how these teams work. The core issue is that a conversational team's content creation and publication cycle may not map neatly onto the two-week sprint that IT teams default to.",
+  "how_maaike_uses": "Maaike uses the concept to argue that organisations often copy IT scrum structures wholesale and apply them to conversational teams without asking whether those structures fit. Drawing on her experience as a tech writer in aviation, she shows that content work has its own natural rhythms — longer research and review cycles, fixed publication windows, frequent intake — that can make a two-week sprint feel artificial. Her point is not that conversational teams should abandon sprints, but that they should question the inherited default and find a cadence that reflects how their actual content cycle works.",
+  "open_questions": [
+    "What sprint length, if not two weeks, would actually suit a conversational team's content cycle?",
+    "How should conversational teams distinguish between intake cadence and publication cadence when designing their process?"
+  ],
+  "state_hash": "96578399102c298e45125c8c3faf5f922e30b0ecf7b1c6b1657f4a21c0f30497",
+  "generated_at": "2026-04-24T15:30:56.868410Z"
+}

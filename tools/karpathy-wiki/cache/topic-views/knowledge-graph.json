@@ -1,0 +1,11 @@
+{
+  "label": "Knowledge graph",
+  "summary": "A knowledge graph is a structured representation of entities and their relationships, used to connect and serve information at scale. In Maaike's work it shows up in two distinct contexts: as the backbone of Apple's Saga platform for building and maintaining factual knowledge at scale, and as the enabling technology behind incremental semantic parsing in conversational AI. Both uses point to graphs as a way of making meaning more computable and more dynamically updatable.",
+  "how_maaike_uses": "Maaike treats knowledge graphs as a practical infrastructure concern rather than an abstract concept. On the conversational AI side, she flagged Angus Addlesee's talk as a highlight precisely because it showed graphs powering real-time semantic parsing that can handle disfluencies and rephrases on the fly. On the knowledge management side, Saga is a direct inspiration for how she thinks about building smarter connections in her own garden, with ideas like delta processing, provenance metadata, and confidence scoring clearly transferring to smaller-scale systems. The common thread is using graphs to make connections explicit and maintainable.",
+  "open_questions": [
+    "How far do Saga's enterprise-scale techniques like blocking, similarity scoring, and confidence thresholds actually transfer to a small personal knowledge garden?",
+    "Semantic parsing requires a knowledge graph to work, but how do you bootstrap the graph in a domain where entities and relations aren't yet well defined?"
+  ],
+  "state_hash": "4530eec2c9f923c75986b85604820cb56251fa99ab8a0aff4d251b7c075cbb95",
+  "generated_at": "2026-04-24T15:29:58.590642Z"
+}

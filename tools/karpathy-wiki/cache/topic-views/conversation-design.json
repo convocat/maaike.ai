@@ -1,0 +1,12 @@
+{
+  "label": "Conversation design",
+  "summary": "Conversation design is a design discipline focused on creating the dialogues people have with chatbots and voice assistants. It draws on conversational writing, instructional design, and structured thinking, and is still emerging as a mature profession with inconsistent tooling, unclear evaluation standards, and ongoing debates about where its boundaries lie. The field is evolving rapidly, with practitioners increasingly moving toward adjacent specialisations as generative AI reshapes what conversational interfaces actually are.",
+  "how_maaike_uses": "Maaike uses conversation design as a home base from which she maps tensions and evolutions. She tracks how the discipline is professionalising and fragmenting into specialised roles, argues that coding literacy reinforces rather than replaces core design skills, and draws a direct line from conversation design practice into prompt design and LLMOps. She also questions the foundational metaphor of the field itself, pointing out that calling human-machine interaction a conversation risks smuggling in anthropomorphism and designing in emotional labor that many use cases neither need nor warrant. Communities like Convoclub and Voicelunch appear throughout her writing as evidence that the discipline is real and growing, even if its tooling and standards have not caught up.",
+  "open_questions": [
+    "If conversation is no longer a useful metaphor for many GenAI use cases, what replaces it as the organising concept for the design discipline itself?",
+    "How should conversation designers handle the emotional labor dimension built into conversational agents, and who is responsible for the costs of that labor?",
+    "As the field splinters into specialised roles, is there still a coherent generalist conversation designer role, or is the discipline dissolving into adjacent professions like LLMOps and prompt engineering?"
+  ],
+  "state_hash": "cb011865c6ca882d9a9ce44219ca7561e8be73c7b31bfcffb053622dcea31f30",
+  "generated_at": "2026-04-24T15:19:37.275240Z"
+}

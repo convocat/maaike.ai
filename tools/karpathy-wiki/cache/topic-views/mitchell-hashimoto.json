@@ -1,0 +1,11 @@
+{
+  "label": "Mitchell Hashimoto",
+  "summary": "Mitchell Hashimoto is the author of an article that draws a distinction between blind prompting and what he calls prompt engineering. His core argument is that prompt engineering is a deliberate, experiment-driven skill focused on prompts that are reliable, repeatable, reusable and robust. Maaike references his work as a useful framing for conversation designers navigating the LLM space.",
+  "how_maaike_uses": "Maaike uses Hashimoto's article as a bridge between LLM prompt design and the conversation design work she already knows. She maps his concepts directly onto familiar practices: demonstration sets resemble NLU test sets and intent labelling, prompt candidates resemble iterating on training phrases, and accuracy measurement resembles confusion matrix calibration. She also notes she later extended his thinking further in a follow-up post on context engineering, suggesting she treats his framing as a starting point rather than the final word.",
+  "open_questions": [
+    "Hashimoto mentions guidelines for designing high-quality prompts but does not go into much detail — what those guidelines actually entail is left unresolved in the passages.",
+    "The passage cuts off mid-sentence during the description of step 3, so the full picture of how demonstration sets and candidate prompts are used together to measure accuracy is incomplete."
+  ],
+  "state_hash": "a29dc6813efea75a65f77be6315723839af2bc6071d25c3567e3eda4fc303e36",
+  "generated_at": "2026-04-24T15:56:26.564615Z"
+}

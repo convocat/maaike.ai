@@ -1,0 +1,8 @@
+{
+  "label": "Tags as structure",
+  "summary": "Tags as structure refers to the practice of using tags to encode not just topic membership but also structural roles in a knowledge garden, such as marking a post as a project hub. In Maaike's garden this approach was tried and found to conflate two distinct jobs: describing what something is about versus describing how it relates to other posts. It is now treated as a limitation that typed relations were introduced to address.",
+  "how_maaike_uses": "Maaike used a 'project' tag to identify hub posts on the Projects page, but the tag system had no way to distinguish between a hub and a file that merely belongs to a project. Tags can say 'this is about a project' but cannot say 'this file is the seedbed and that one grows from it'. That missing directional vocabulary is the core problem she identifies with tags as structure, and it is what motivated the shift to explicit 'hub' and 'develops' frontmatter fields.",
+  "open_questions": [],
+  "state_hash": "42e1433e14aee2c86c5c5c8003c637d8106caf52c3b00b5e6c9ad89186886e28",
+  "generated_at": "2026-04-24T16:18:07.012980Z"
+}

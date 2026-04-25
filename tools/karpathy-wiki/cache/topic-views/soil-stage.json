@@ -1,0 +1,11 @@
+{
+  "label": "Soil stage",
+  "summary": "Soil stage is a phase in Maaike's content lifecycle metaphor, sitting after the compost heap. It represents ideas that have fully broken down from decayed or outdated content and are ready to feed new seeds. It closes the recycle loop so that nothing in the garden is truly lost.",
+  "how_maaike_uses": "Maaike positions soil as a pre-stage for seeds, turning the metaphor into a full loop rather than a linear progression. The canonical example she gives is the 'I used to think X, now I think Y because...' pattern, meaning soil is where changed thinking gets captured before it re-enters the garden as new content. The stage is tentative in her notes, framed as a possibility ('could be') rather than a settled design decision.",
+  "open_questions": [
+    "Whether soil needs its own dedicated space on the explore map, the same way greenhouse and compost heap are flagged as needing distinct zones.",
+    "How exactly decayed ideas get translated into soil in practice, since the post gestures at the concept but the mechanics are not worked out."
+  ],
+  "state_hash": "ab0787901d21580c7e3c8984b0879212510b4981ce0313e6e0a9b579d912f739",
+  "generated_at": "2026-04-24T16:10:24.137647Z"
+}

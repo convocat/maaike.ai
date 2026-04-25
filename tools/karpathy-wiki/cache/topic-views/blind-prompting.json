@@ -1,0 +1,11 @@
+{
+  "label": "Blind prompting",
+  "summary": "Blind prompting is a term coined by Mitchell Hashimoto to describe the crude, trial-and-error approach most people use when writing prompts, characterised by minimal testing and surface-level knowledge. It is contrasted with prompt engineering, which is a deliberate, experiment-driven practice focused on producing prompts that are reliable, repeatable, reusable and robust. Maaike uses the distinction to argue that conversation designers already work in ways that resemble real prompt engineering.",
+  "how_maaike_uses": "Maaike introduces blind prompting primarily as a foil: by naming what most people actually do, she can make the case that conversation designers are better positioned than they might think to do prompt engineering properly. She draws direct parallels between Hashimoto's framework and existing conversation design practices, such as labelling intents, cleaning training data, and using confusion matrices, to show that the structured, verifiable mindset prompt engineering requires is already familiar to the field. She also signals that her thinking evolved beyond this framing in a later post on context engineering.",
+  "open_questions": [
+    "Where exactly is the line between blind prompting and prompt engineering in practice, given that both can involve iteration?",
+    "How do the guidelines for designing high-quality prompt candidates work in detail, since Hashimoto's article is described as not going into much depth there?"
+  ],
+  "state_hash": "a818dece580ed4d9c4104487ff041a36714bfe8c6968fce3cfa830a883adca18",
+  "generated_at": "2026-04-24T15:56:04.219576Z"
+}

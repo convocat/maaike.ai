@@ -1,0 +1,11 @@
+{
+  "label": "Content maintenance",
+  "summary": "Content maintenance is the ongoing work of keeping chatbot content accurate, timely, and relevant after launch. In Maaike's work it comes up specifically in the context of crisis chatbots, where outdated or inaccurate information can do real harm. It is not a one-off task but a sustained responsibility that requires clear ownership and established processes.",
+  "how_maaike_uses": "Maaike treats content maintenance as the most critical aspect of any content project, and she uses it as a key argument for why official government bodies are better placed to run crisis chatbots than individual bot builders. They already have processes for checking accuracy, completeness, relevance, and timeliness, whereas independent builders often underestimate the long-term commitment involved. She also flags it as a direct warning to anyone who does decide to build their own bot: in a rapidly changing, high-impact crisis, maintenance is not optional.",
+  "open_questions": [
+    "What concrete processes or tooling does Maaike consider sufficient for crisis content maintenance, beyond the general principle of having ownership and processes in place?",
+    "How should responsibility for content maintenance be handed over or shared when a community-built bot is eventually adopted by an official body?"
+  ],
+  "state_hash": "6f071a11cfa58cfbb6685d550db80073e92237bd0786e056a0608e09bd3690ce",
+  "generated_at": "2026-04-24T15:44:24.096753Z"
+}

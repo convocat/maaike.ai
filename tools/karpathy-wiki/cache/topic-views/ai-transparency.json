@@ -1,0 +1,12 @@
+{
+  "label": "AI transparency",
+  "summary": "AI transparency is a design choice about how to honestly represent AI involvement in content and tooling. For Maaike it means disclosing not just that AI was used, but how it was used and by whom, with human agency always named explicitly. It is framed as an invitation to think in public rather than a defensive disclaimer.",
+  "how_maaike_uses": "Maaike applies AI transparency at two levels: language and structure. At the language level, her style guide enforces precise attribution — AI generates, she writes; she directed, Claude produced — and rules out vague constructions that obscure who did what. At the structural level, she wants to publish the actual prompts alongside AI-assisted content, not just an 'AI assisted' label. The hallucinated library entry post-mortem shows the limit of that label: it was formally correct but caught nothing, because it flagged participation without flagging invention. That incident sharpened the rule from 'disclose AI involvement' to 'verify factual fields independently before publishing.'",
+  "open_questions": [
+    "What does a prompt-sharing format actually look like in practice — is there a template or will it vary per piece?",
+    "The 'ai: assisted' label failed as a safeguard for the library hallucination. Does that failure have implications for how AI transparency labels work elsewhere in the garden?",
+    "A full audit of all 'ai: assisted' library entries against the original Notion source is still pending — what might that surface?"
+  ],
+  "state_hash": "84f6a79010dee8129721928d82e529aef410cbfe564f0396e9636c404c468181",
+  "generated_at": "2026-04-24T16:18:28.718285Z"
+}

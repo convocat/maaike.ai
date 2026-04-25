@@ -1,0 +1,11 @@
+{
+  "label": "Bullshit",
+  "summary": "Bullshit, as used here, draws on Harry G. Frankfurt's definition: an indifference to truth, where the question of whether something is true or false is simply irrelevant to the purpose being served. It is distinct from lying, which at least involves caring about truth enough to subvert it. In Maaike's work this concept is applied to large language models like ChatGPT.",
+  "how_maaike_uses": "Maaike uses Frankfurt's concept of bullshit to make a precise, non-judgmental claim about LLMs: because ChatGPT is a word-string generator that calculates probable word co-occurrences rather than reasoning about truth, it is literally indifferent to truth in Frankfurt's sense. She pairs this with Grice's maxim of quality to explain why the bullshit is especially risky in practice: humans are conditioned to treat conversational partners as truth-seeking, so they are unlikely to fact-check fluent, confident-sounding output. The design implication she draws is that caring about truth is a human responsibility, and one that needs to be deliberately built into how we design systems around LLMs.",
+  "open_questions": [
+    "What does it actually look like to design for concern about truth when the interface is conversational and fluency itself discourages scepticism?",
+    "If better training cannot fix LLM indifference to truth, what is the threshold at which these tools become more harmful than useful in everyday use?"
+  ],
+  "state_hash": "1e223145864aed89a97e27a6bdb2905094df7df6eb160ac2c838e713f5c23c07",
+  "generated_at": "2026-04-24T15:17:18.030617Z"
+}

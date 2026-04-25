@@ -1,0 +1,11 @@
+{
+  "label": "Voice bot",
+  "summary": "A voice bot is a conversational agent that communicates through speech rather than text. Making a voice bot sound natural requires specific design choices that go beyond writing good copy. One key requirement is a backchanneling strategy, which shapes how the bot signals acknowledgement and keeps users engaged without taking over the conversational turn.",
+  "how_maaike_uses": "Maaike approaches voice bots from a linguistics angle, arguing that conversation designers need a working understanding of how real speech functions in order to build better bots. In her speech primer she breaks down backchanneling into concrete, usable categories (recognition cues and continuers) and makes the case that a designed continuer strategy, including deliberate vocabulary choices and decisions about when to drive versus when to hold back, is something a voice bot explicitly requires. She also flags that discourse markers need careful selection for speech contexts, because markers tied to visual text structure simply do not transfer.",
+  "open_questions": [
+    "The post cuts off mid-sentence on the topic of discourse markers that don't work in speech, leaving the practical guidance there incomplete.",
+    "It is not yet clear how the backchanneling strategy and the discourse marker strategy are meant to work together in a full voice bot design, or whether Maaike treats them as separate workstreams."
+  ],
+  "state_hash": "8539bf82ece5e3f58ecfa326a83392e05a05e3b3d33dde554539043fc965676e",
+  "generated_at": "2026-04-24T16:04:25.909190Z"
+}

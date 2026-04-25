@@ -1,0 +1,11 @@
+{
+  "label": "Typed relations",
+  "summary": "Typed relations are subject-predicate-object triples that give links explicit meaning beyond mere co-occurrence or topic grouping. In Maaike's garden, the key typed relation is 'develops', which declares that a file actively contributes to a hub project. This is contrasted with wiki-links (deliberate but untyped references) and emergent semantic connections from embeddings.",
+  "how_maaike_uses": "Maaike introduced typed relations to solve a specific problem: tags could mark a post as belonging to a topic, but they had no vocabulary for structural roles like 'this is the defining post for a project' versus 'this is a step in developing that project'. The hub/develops system encodes this in frontmatter, with 'hub: true' on the seedbed and 'develops: <slug>' on any planting. She chose the predicate 'develops' over alternatives like 'inquiry' or 'grows' because it is directional and unambiguous from the file's perspective. The result is three distinct connection layers in the garden: wiki-links (deliberate references), develops (explicit structural membership), and embeddings (algorithmically discovered similarity), each answering a different question about how posts relate.",
+  "open_questions": [
+    "The passage is cut off when discussing what remains open for knowledge graph plantings, so there are likely unresolved questions about how reading notes and similar files fit into the hub/develops system.",
+    "The post notes that a file can be both a hub and a planting, supporting nesting, but does not fully work out what that means for the Projects page or sidebar display in complex cases."
+  ],
+  "state_hash": "07abe0536874e4304a00bd56e1098873594c54e8d9cdb09170ea979ed734ad83",
+  "generated_at": "2026-04-24T16:17:46.717591Z"
+}

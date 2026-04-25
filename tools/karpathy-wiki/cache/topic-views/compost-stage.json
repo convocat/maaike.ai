@@ -1,0 +1,12 @@
+{
+  "label": "Compost stage",
+  "summary": "The compost stage is one node in a full content lifecycle metaphor for the digital garden. It is where content goes when it has decayed — links have rotted, ideas have been superseded, takes have gone stale — rather than being deleted outright. It sits between the garden beds and a further stage called soil, where broken-down material can feed new seeds.",
+  "how_maaike_uses": "Maaike uses the compost stage as a way to make content retirement explicit and generative rather than just archival. Decayed content moves to the compost heap, breaks down further into soil, and that soil can then feed new seeds back in the garden beds — completing a recycle loop. The compost heap is meant to have its own physical place on the explore map, separate from the main garden beds, so the distinction is visible rather than just conceptual.",
+  "open_questions": [
+    "The post cuts off mid-sentence when describing what the compost heap actually looks like in practice — it is not clear what a composted post shows to a reader or how it signals its status.",
+    "Soil is described as a possible pre-stage for seeds, but whether soil becomes a formal content type with its own marker or stays an informal transition is left unresolved.",
+    "The greenhouse and compost heap are both said to need their own place on the map, but what that spatial separation looks like has not been worked out yet."
+  ],
+  "state_hash": "d2f9d4f8d95d26073f91f5683a12a9715fb5f9dda4dc1fc458a61d779429f48d",
+  "generated_at": "2026-04-24T16:10:14.755328Z"
+}

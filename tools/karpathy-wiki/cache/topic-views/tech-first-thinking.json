@@ -1,0 +1,11 @@
+{
+  "label": "Tech-first thinking",
+  "summary": "Tech-first thinking is the tendency to let technical possibilities and limitations dictate design decisions, rather than keeping the focus on customer needs. In Maaike's work it appears as a risk that coding literacy can introduce: the more you work with code and logic, the easier it is to get pulled into solving technical problems for their own sake. It is framed as a trade-off, not a reason to avoid technical skills altogether.",
+  "how_maaike_uses": "Maaike raises tech-first thinking as a concrete hazard she has noticed in her own practice. When working with code and logic, she finds herself wondering afterwards whether she actually helped her customers, or whether a conversation design solution could have resolved the technical or NLU issue in a fraction of the time. Her answer to that is almost always that she did not and it could have. She uses this pattern to argue that coding skills for conversation designers carry a real cost alongside their benefits, and that losing sight of the customer is a predictable consequence of going too deep into the technical side.",
+  "open_questions": [
+    "Where exactly is the line between useful technical fluency and the kind of depth that triggers tech-first thinking?",
+    "As more commercial platforms handle data analysis automatically, does the risk of tech-first thinking increase or decrease for conversation designers who engage with those tools?"
+  ],
+  "state_hash": "defb0b453219394d9ae2dc08b5d6b0f4012f7e7ec4102869b430743f4535c196",
+  "generated_at": "2026-04-24T15:43:05.054941Z"
+}

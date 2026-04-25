@@ -1,0 +1,11 @@
+{
+  "label": "Conceptual foundations of AI",
+  "summary": "Conceptual foundations of AI refers to the underlying ideas and mental models that inform how people understand what AI and machine learning systems actually are and how they work. In Maaike's work, this topic appears as something that design practice presupposes — meaning designers are already operating on some set of assumptions about AI whether or not those assumptions are made explicit. The concern is whether those foundational concepts are accurate or misleading.",
+  "how_maaike_uses": "Maaike approaches this topic through the lens of a DRS 2022 paper on metaphors, which contrasts the shorthand mental models designers reach for with the more rigorous conceptual grounding that design practice actually requires. The implication is that getting the foundations right matters practically, not just theoretically — bad conceptual models lead to bad design decisions. The paper's focus on what makes a metaphor genuinely useful, versus misleading, is one way of asking what a minimum viable conceptual foundation looks like for someone doing design work with machine learning.",
+  "open_questions": [
+    "What qualities make a metaphor for AI genuinely useful rather than misleading for design thinking?",
+    "How much conceptual grounding do designers actually need, and at what point does imprecision become a practical problem?"
+  ],
+  "state_hash": "44a2d41d0e6247faeda31c6fd17ceb2c6693afb3d31d679bb92a11d0427cf026",
+  "generated_at": "2026-04-24T15:32:18.329308Z"
+}

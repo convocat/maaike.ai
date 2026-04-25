@@ -1,0 +1,8 @@
+{
+  "label": "Neurosymbolic AI",
+  "summary": "Neurosymbolic AI refers to approaches that combine symbolic reasoning with neural or statistical methods, positioned as an alternative to pure probabilistic word prediction. It draws on symbolic AI traditions to address limitations of systems that rely solely on pattern-based text generation. Claude Code is cited as a practical demonstration of neurosymbolic AI in action.",
+  "how_maaike_uses": "",
+  "open_questions": [],
+  "state_hash": "3efbde3a36d0090ced4a4288701169c31f7654261cb81c1adddb685b7af6d329",
+  "generated_at": "2026-04-24T16:26:01.136226Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Thesis-antithesis-synthesis",
+  "summary": "Thesis-antithesis-synthesis is the three-step structure of dialectical thinking, attributed to Hegel. You start with an initial position (thesis), confront it with a counterposition (antithesis), and the tension between the two produces a synthesis that deepens understanding by incorporating elements of both. It is the structural backbone of dialectical thinking as a practice.",
+  "how_maaike_uses": "Maaike uses thesis-antithesis-synthesis as a practical lens for examining how humans actually reason, or fail to. Her point is that people tend to stay stuck in opinions and convictions rather than genuinely engaging with counterpositions, and that this is a human problem, not a technology problem. She treats the structure as something worth actively practising, and even suggests using a chat app instructed to generate antitheses as a low-friction way to build the habit.",
+  "open_questions": [
+    "What does a genuine synthesis look like in practice, and how do you know when you have reached one rather than just a refined conviction?",
+    "If LLMs can be instructed to generate antitheses, does that make them useful tools for dialectical practice, or does it still miss something essential about how humans need to develop reasoning?"
+  ],
+  "state_hash": "aebc9ff415b621a488cc9e39df167ea5387e2c629fa454447aac6d42bd8fd941",
+  "generated_at": "2026-04-24T15:15:43.328753Z"
+}

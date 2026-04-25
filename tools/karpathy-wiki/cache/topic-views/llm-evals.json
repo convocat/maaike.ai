@@ -1,0 +1,11 @@
+{
+  "label": "LLM evals",
+  "summary": "LLM evals are the unit tests of a GenAI system: structured checks that validate whether a live system is actually doing what it was designed to do. They cover things like model behaviour, hallucination, user journey quality, tone of voice, and compliance. Because good evals need to be fuzzy, context-aware, and domain-specific while still producing binary results, writing them well is a language and design skill as much as a technical one.",
+  "how_maaike_uses": "Maaike treats evals as a natural extension of prompt design: you can't design a prompt responsibly without also defining how you'll verify its output. She defines evals as part of her LLMOps analyst work, covering both technical health and qualitative dimensions like user journey analysis and tone. She argues that linguists and conversation designers are better positioned than engineers to write good evals, because most evals are really about validating and guardrailing user behaviour rather than testing system internals, and that requires understanding human language and psychology. The same metadata and trace structure she designs for monitoring feeds directly into the evals she writes.",
+  "open_questions": [
+    "How do you maintain binary eval results when the criteria are inherently fuzzy and context-dependent, without losing the nuance that makes the eval useful?",
+    "As the LLMOps analyst role expands, where does the boundary sit between what a conversation designer owns and what belongs to an engineer or data analyst?"
+  ],
+  "state_hash": "06509310e9b2a163a29ed99d9f44fbb60718eec32464f79364d4f13943992ac6",
+  "generated_at": "2026-04-24T15:27:36.033592Z"
+}

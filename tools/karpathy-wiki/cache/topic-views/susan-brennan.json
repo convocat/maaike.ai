@@ -1,0 +1,11 @@
+{
+  "label": "Susan Brennan",
+  "summary": "Susan Brennan is a researcher credited with theorising common ground and conversational grounding in communication. These concepts describe the shared understanding and mutual sense-making that underpin human-human conversation. Maaike draws on her work to examine what chatbots and GenAI interfaces actually lack when they mimic conversational form.",
+  "how_maaike_uses": "Maaike uses Brennan's concepts of common ground and conversational grounding as a critical baseline. The argument is that human conversation relies on a real underlying contract involving shared sense-making, trust, and grounding in truth and sensory experience. GenAI chat interfaces reproduce the surface form of conversation without fulfilling that contract, which is part of why Maaike questions whether conversation remains a useful or honest metaphor for human-machine interaction at all.",
+  "open_questions": [
+    "If conversational grounding is absent in GenAI interfaces, what alternative frameworks or metaphors could better account for what is actually happening in those interactions?",
+    "How much of the conversational metaphor's persistence is a design choice versus a technical constraint, and who benefits from keeping it?"
+  ],
+  "state_hash": "620a37b56c883f2562e68d4fb35120d4b8407dc1aae5811a261fc0768b5e9fa5",
+  "generated_at": "2026-04-24T15:12:36.093696Z"
+}

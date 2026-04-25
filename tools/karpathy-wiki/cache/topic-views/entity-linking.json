@@ -1,0 +1,11 @@
+{
+  "label": "Entity linking",
+  "summary": "Entity linking is the process of deciding whether a newly encountered entity is the same as one already in a knowledge graph. In the Saga platform it involves blocking on cheap signals, similarity scoring, correlation clustering, and selecting a canonical representative from each cluster. Both Saga and Maaike's garden project treat it as a required step in constructing a knowledge graph.",
+  "how_maaike_uses": "Maaike looks at entity linking primarily as infrastructure for auto-generating connections between posts. The Saga papers surface a concrete implementation path: use blocking to avoid comparing every pair, apply similarity scoring, then cluster. The practical takeaway she pulls from this is that auto-generated links should be stored as extended triples carrying a confidence score and a method tag, so provenance is preserved and links can be reviewed or corrected later.",
+  "open_questions": [
+    "What blocking or similarity signals would actually work for garden posts, where the entities are ideas and notes rather than named real-world objects?",
+    "How should the confidence threshold be set for deciding when an auto-generated link is trustworthy enough to surface without manual review?"
+  ],
+  "state_hash": "4802b39ebb17b3909035b061f5d25b11bc60601788205ccfa7ab52d56fcc0064",
+  "generated_at": "2026-04-24T15:36:20.781465Z"
+}

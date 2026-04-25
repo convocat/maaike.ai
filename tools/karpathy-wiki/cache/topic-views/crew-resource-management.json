@@ -1,0 +1,11 @@
+{
+  "label": "Crew Resource Management",
+  "summary": "Crew Resource Management (CRM) is a framework from aviation that distributes decision-making across a crew rather than concentrating it in a single authority. In Maaike's work it appears as a lens for thinking about how humans and AI systems might collaborate, with the crew dynamic serving as a metaphor for human-LLM interaction. It is positioned against hierarchical deference, where one party simply defers to another, in favour of something more distributed.",
+  "how_maaike_uses": "Maaike uses CRM primarily as a structural metaphor: the idea that a well-functioning crew neither blindly follows the captain nor ignores expertise fits how she thinks about agentic AI. The concept counters the assumption that humans should simply defer to AI outputs (or vice versa), and she sees it as a better fit for agentic AI setups than more top-down models of human-AI interaction. Beyond that framing the post itself does not yet have enough developed content to say more.",
+  "open_questions": [
+    "What specific CRM principles map most usefully onto human-LLM collaboration, and which ones break down?",
+    "How does CRM handle cases where the 'crew member' is an autonomous agent acting faster than human oversight allows?"
+  ],
+  "state_hash": "d64aeb8809de8a761a37992d5b18bdafc6deb559063dd466ace8d7bee5e8e84d",
+  "generated_at": "2026-04-24T16:22:26.053992Z"
+}

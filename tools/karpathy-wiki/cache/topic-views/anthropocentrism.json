@@ -1,0 +1,11 @@
+{
+  "label": "Anthropocentrism",
+  "summary": "Anthropocentrism positions humans at the centre of things — conceptually, politically, socially, and economically — and presumes human cognitive superiority over all other organisms. It implies that humans alone are the proper judges and deciders, for themselves and for everyone else. The concept is treated in Maaike's notes primarily as a default stance that needs to be challenged rather than accepted.",
+  "how_maaike_uses": "Maaike encounters anthropocentrism mainly through her reading of N. Katherine Hayles, and uses it as a foil to think more carefully about cognition and AI. The key move she traces from Hayles is decoupling cognition from consciousness, which undermines the presumed specialness of human cognitive capacity. She also picks up the concept of umwelt — the idea that all creatures have their own species-specific world horizons that overlap but never fully coincide — as incompatible with anthropocentric claims to a single correct view of the world. For Maaike, this framework matters practically because it offers more precise vocabulary for thinking about what is actually happening with the rise of AI and computational media.",
+  "open_questions": [
+    "If agency and decision-making are distributed across cognitive assemblages of humans, non-humans, and computational media, what does responsibility look like in that picture?",
+    "Anthropocentrism is said to presuppose anthropomorphism, which is itself described as unavoidable — so how do you resist anthropocentrism without being able to fully escape anthropomorphism?"
+  ],
+  "state_hash": "6d2c0422e9168e6e590a1ec763f23985cfae856b20ceeae003dbea4359f60c46",
+  "generated_at": "2026-04-24T15:22:05.221260Z"
+}

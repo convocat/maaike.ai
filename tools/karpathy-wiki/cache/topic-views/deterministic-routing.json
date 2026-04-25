@@ -1,0 +1,11 @@
+{
+  "label": "Deterministic routing",
+  "summary": "Deterministic routing refers to structured, predictable interaction patterns in conversational interfaces, such as buttons and IVR-style flows, as opposed to open-ended natural language input. In Maaike's work it appears as a counterpoint to the assumption that natural language is always the superior model for human-machine interaction. She treats it as a legitimate and sometimes preferable design choice.",
+  "how_maaike_uses": "Maaike invokes deterministic routing as a small vindication: the chatbot design world spent years insisting that natural language and voice-first interaction were the only acceptable approach, and she finds it satisfying that structured, button-based flows are making a comeback, pointing to Anthropic's own move in that direction. For her it is evidence that the conversational metaphor is not always the right one, which connects to her broader exploration of alternative interaction models for human-machine interfaces.",
+  "open_questions": [
+    "Under what conditions is deterministic routing actually preferable to natural language interaction, and how should designers decide between them?",
+    "Does the revival of buttons and structured flows signal a broader rethink of conversation as the default metaphor for human-machine interaction?"
+  ],
+  "state_hash": "f36a1e6d6d7e7aeec27e24e75f1d8bba1ae259f8882bb980e9f1c7700f037431",
+  "generated_at": "2026-04-24T16:23:54.144178Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Information architecture",
+  "summary": "Information architecture is the practice of structuring and labelling information in meaningful, reusable ways. In Maaike's work it appears as a longstanding discipline that underpins what is now being called context engineering or context design. She treats it as one of several established fields — alongside instructional design, topic-based writing, and information mapping — that have been doing this work for humans long before LLMs arrived.",
+  "how_maaike_uses": "Maaike uses information architecture as evidence that context engineering is not a new discipline invented by AI engineers, but a rebranding of design practices that authors and information architects have applied for years. She draws a direct line from classic IA concepts — semantic information types, structured building blocks, labelled containers — to what she teaches students to do when writing system prompts. Her point is that recognising this lineage should open the door for designers and authors to take a seat at the GenAI table.",
+  "open_questions": [
+    "How far can established IA methods transfer directly to LLM context design, and where do the differences become significant enough to require new thinking?",
+    "What does it take in practice to get organisations to treat context design as a design discipline rather than an engineering one?"
+  ],
+  "state_hash": "cbffd07bf23d38f7b79ffadc50bbed2b6282f613866f606a14292915d94cb474",
+  "generated_at": "2026-04-24T15:14:56.297620Z"
+}

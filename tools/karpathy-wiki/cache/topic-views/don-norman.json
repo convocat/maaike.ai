@@ -1,0 +1,11 @@
+{
+  "label": "Don Norman",
+  "summary": "Don Norman, here in the context of work done together with Nielsen (NN/Nielsen Norman Group), is referenced as a researcher studying early generative AI user behaviours in chatbot interfaces. Two concepts from that research appear in Maaike's writing: accordion editing and apple picking. Both describe patterns users fall into when trying to get usable output from conversational AI systems.",
+  "how_maaike_uses": "Maaike uses Norman and Nielsen's findings as a framework to validate and name her own frustrating experience trying to write with AI tools like Jasper.ai. She maps her review-regenerate-repeat loop onto accordion editing, and uses the apple picking concept to point at a structural limitation of conversational interfaces: their linearity makes non-linear tasks like writing and editing unnecessarily cumbersome. The NN study gives her critical take on AI writing tools some empirical grounding, though she is quick to note that the study was about generative AI in general, not article writing specifically.",
+  "open_questions": [
+    "If accordion editing and apple picking are the dominant emerging behaviours, does that mean users are adapting to the tool's constraints rather than the tool adapting to users?",
+    "The articulation barrier is flagged as a real obstacle even for experienced writers, but it is not clear from the passages whether Norman and Nielsen offer any concrete solutions beyond allowing direct text editing."
+  ],
+  "state_hash": "47e9675be366132934e8df6c469638b2e7ea1c23f28bc5b666f02b56472a361d",
+  "generated_at": "2026-04-24T15:13:13.462338Z"
+}

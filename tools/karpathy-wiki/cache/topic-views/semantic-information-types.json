@@ -1,0 +1,11 @@
+{
+  "label": "Semantic information types",
+  "summary": "Semantic information types are the structured building blocks that make up a well-designed context window or information unit. Examples include instructions, prerequisites, concept explanations, checks and balances, factual data, cautions, and recommendations. Together they form self-contained, semantically labelled pieces of information that are machine readable, reusable, and traceable.",
+  "how_maaike_uses": "Maaike uses semantic information types as the conceptual backbone for what she calls context design. She teaches students to include these types in system prompts with clear headings, arguing that a well-structured prompt works the same way a well-structured recipe does: it gives the model everything it needs, organised by what kind of information it is. She connects this directly to existing practices like information architecture, instructional design, and topic-based writing, making the case that context engineering is not a new discipline but a reframing of design work that already exists.",
+  "open_questions": [
+    "Is there a definitive taxonomy of semantic information types, or does the set of types vary depending on the use case or domain?",
+    "How do semantic information types need to adapt when designing for API-integrated or multi-step agentic flows rather than single prompts?"
+  ],
+  "state_hash": "e821dfbc473920b24f4d9f7619ac0ca7d2582fe366275c3b6365f03ffd10e961",
+  "generated_at": "2026-04-24T15:14:46.116473Z"
+}

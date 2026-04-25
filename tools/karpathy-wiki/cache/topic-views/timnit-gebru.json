@@ -1,0 +1,11 @@
+{
+  "label": "Timnit Gebru",
+  "summary": "Timnit Gebru is an AI researcher who, together with Emily Bender, coined the term 'stochastic parrot' in a 2021 paper outlining the risks of large language models. The term describes how LLMs like ChatGPT work by probabilistically stringing words together based on training data, without any understanding of truth or meaning. Maaike references Gebru as a source for the technical framing that underpins her critique of ChatGPT.",
+  "how_maaike_uses": "Maaike uses Gebru's 'stochastic parrot' concept as a foundation for her argument that ChatGPT is, at its core, a word-string generator that literally does not know what it is talking about. This framing lets her make the case that the problem is not a matter of training quality or scale, but something structural: because the model has no concern for truth, it fits Harry Frankfurt's definition of bullshit. Gebru's work gives Maaike a grounded, technically credible starting point for what is ultimately a design and communication critique.",
+  "open_questions": [
+    "The passage gestures at a design challenge around building concern for truth into human-AI interaction, but does not resolve what that design would look like in practice.",
+    "The 2021 paper by Gebru and Bender is cited but not discussed in depth, leaving open which specific risks it outlines and how they map onto Maaike's broader argument."
+  ],
+  "state_hash": "0f08961f8f1daad3c526a1ccf2fb22d1972cd641f350781c7a134bd5ecb6c564",
+  "generated_at": "2026-04-24T15:12:05.924760Z"
+}

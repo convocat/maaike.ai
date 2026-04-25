@@ -1,0 +1,11 @@
+{
+  "label": "Self-imposed structure",
+  "summary": "Self-imposed structure refers to constraints or rhythms that you create for yourself rather than having them handed down by a team or organisation. In Maaike's work, it shows up as a practical coping mechanism for solo practitioners who lack the external scaffolding a larger team would provide. Release rhythm is a concrete example: giving your own work a deadline cadence even when no one is forcing one on you.",
+  "how_maaike_uses": "Maaike frames self-imposed structure as something the lone conversation designer actively needs to build, because the usual external pressure of deadlines and team processes simply isn't there. Her specific take is the release rhythm idea: splitting work into major releases (fixed-deadline, high-risk, external dependencies) and minor releases (things you can ship on your own), and using those as buckets to organise what you're doing. The point isn't bureaucracy for its own sake but making your work legible, both to yourself and to the people around you.",
+  "open_questions": [
+    "How do you calibrate the cadence of a release rhythm when the scope of your work keeps shifting as a new solo designer?",
+    "Does self-imposed structure risk becoming a way of hiding behind process rather than actually moving work forward?"
+  ],
+  "state_hash": "cc14694322aba88e1d10c33a552d822e4b236f8ae4dbd83fa96b93f2bb728de6",
+  "generated_at": "2026-04-24T15:59:44.684054Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Confabulation",
+  "summary": "Confabulation is the tendency to produce plausible-sounding but invented information rather than acknowledging a gap. In Maaike's work it shows up as the core mechanism behind LLM hallucinations: the model fills in missing data confidently instead of stopping. It is not a fringe failure mode but a structural consequence of how LLMs approximate knowledge.",
+  "how_maaike_uses": "Maaike uses confabulation both as a conceptual lens and as a lived problem. On the conceptual side she argues that hallucinations cannot be 'solved' without changing how LLMs fundamentally operate, because saying 'I don't know' requires an absolute TRUE/FALSE state the model can only approximate. On the practical side she documented a real incident where Claude confabulated a complete, structurally valid library entry, including a plausible author name drawn from her professional context, and published it on her site. That experience pushed her from theory into process design: she added a hard rule requiring Open Library verification before any book entry is written, treating empty fields as always safer than invented ones.",
+  "open_questions": [
+    "Is there any architecture that would give an LLM a genuine 'I don't know' capability rather than a trained approximation of one?",
+    "The `ai: assisted` label flagged AI involvement but not AI invention — what label or safeguard would actually communicate the difference to readers?",
+    "A full audit of existing `ai: assisted` library entries is still pending, so the scope of prior confabulation in the garden is not yet known."
+  ],
+  "state_hash": "4840c0add9a216ae93275349fad8176afb2f6f7691b943711e7f9556c6b09837",
+  "generated_at": "2026-04-24T15:17:54.500803Z"
+}

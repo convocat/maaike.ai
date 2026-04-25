@@ -1,0 +1,11 @@
+{
+  "label": "Logical consistency",
+  "summary": "Logical consistency refers to the ability to apply a rule, fact, or piece of reasoning reliably across a whole task rather than just part of it. In Maaike's work it comes up as a practical quality check: does a system actually do what it claims to understand? ChatGPT is identified as lacking this property.",
+  "how_maaike_uses": "Maaike uses logical consistency as a diagnostic lens when evaluating ChatGPT for conversation design tasks. The clearest example is the prepositional phrase rewrite test: ChatGPT correctly identified two prepositional phrases in a sentence but then only removed one during the rewrite, revealing that surface-level language understanding does not guarantee consistent logical follow-through. This leads her to the broader conclusion that ChatGPT can appropriate familiar patterns convincingly but cannot reliably nail down logic, language, or facts.",
+  "open_questions": [
+    "Why exactly does ChatGPT fail to apply its own earlier analysis consistently, and is this a prompting problem or a fundamental model limitation?",
+    "Would more specific prompting, such as explicitly requesting intra-intent variation, recover some of the logical consistency that seems to be missing by default?"
+  ],
+  "state_hash": "46389133fd3ae81fbc330c9fbce93cee00f9aa3043b328845d3b653e12f4376a",
+  "generated_at": "2026-04-24T15:38:04.092388Z"
+}

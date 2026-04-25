@@ -1,0 +1,11 @@
+{
+  "label": "Debiasing",
+  "summary": "Debiasing, in Maaike's work, refers to the practice of counteracting bias in AI image generation tools like Dall-E. It involves conscious and deliberate prompting to produce images that are more inclusive and representative. The concept sits in tension with automated debiasing mechanisms built into the tools themselves, which can introduce their own problems.",
+  "how_maaike_uses": "Maaike approaches debiasing both critically and practically. On the critical side, she examines how Dall-E's built-in prompt rewriting claims to produce diversity but risks replacing one form of bias with another, specifically cultural stereotyping. On the practical side, she runs interactive workshops where participants work through conscious prompting together to study and learn about bias in both Dall-E and themselves. Her core argument is that debiasing cannot be outsourced to an automated system; it requires active, meticulous human effort.",
+  "open_questions": [
+    "Who should have the authority to rewrite prompts in the name of diversity, and what accountability exists for the choices those rewrites encode?",
+    "Can conscious prompting by individual users realistically offset systemic bias baked into a model's defaults, or does the problem require intervention at a deeper level?"
+  ],
+  "state_hash": "fa05e40b650bbdcf2942c4d7cccff208b00c82eb5096a0512070466b43400bc5",
+  "generated_at": "2026-04-24T15:45:38.186819Z"
+}

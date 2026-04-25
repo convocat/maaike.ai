@@ -1,0 +1,11 @@
+{
+  "label": "Playwright tests",
+  "summary": "Playwright tests are the third layer in Maaike's three-layer testing strategy for her static site. They cover end-to-end behavioural checks on the library page: filter logic, sort order, and drawer state. The tests are deliberately written from a user perspective rather than testing implementation details.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "The content validator doesn't run automatically yet — the same gap could in principle exist for Playwright tests if the habit of running them manually slips.",
+    "The tests currently cover only the library page; it's unresolved whether interactive components added elsewhere would get the same treatment or fall through."
+  ],
+  "state_hash": "49e7bb62a3287ec51f51d16f3b9e0516b28cdb6571d2c618b96799260f695eeb",
+  "generated_at": "2026-04-24T16:14:29.711272Z"
+}

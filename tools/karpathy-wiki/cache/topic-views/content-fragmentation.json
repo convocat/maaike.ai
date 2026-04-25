@@ -1,0 +1,10 @@
+{
+  "label": "content-fragmentation",
+  "summary": "Content fragmentation refers to the problem of having writing and thinking scattered across multiple platforms with no single coherent home. For Maaike, it describes the state she was in before building the garden: a WordPress blog, a Substack, YouTube, Notion, Medium, and LinkedIn all running in parallel, each with its own workflow. The digital garden is her direct response to that fragmentation.",
+  "how_maaike_uses": "Maaike frames content fragmentation as a personal problem she lived with for two decades, not an abstract concept. The origin of this garden is explicitly tied to wanting one place that felt fully hers, and the changelog documents the practical steps she took to consolidate that scattered writing: importing 40+ Substack posts, migrating 59 books from Notion, pulling in YouTube videos. The garden is her counter-move against fragmentation, built in a single sitting and extended from there.",
+  "open_questions": [
+    "Whether consolidating into the garden fully resolves the fragmentation or whether some platforms (LinkedIn, YouTube) remain separate nodes that still pull writing away from the central space."
+  ],
+  "state_hash": "f5c207f95ad67f87fa4d8d23f3b704cb413a6c2ee4fb3b7c4f29157beedc4d6f",
+  "generated_at": "2026-04-24T15:26:31.305967Z"
+}

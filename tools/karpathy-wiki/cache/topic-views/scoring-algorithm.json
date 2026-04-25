@@ -1,0 +1,11 @@
+{
+  "label": "Scoring algorithm",
+  "summary": "A scoring algorithm is a logic-based approach to ranking candidates against a set of weighted criteria, without relying on machine learning or embeddings. In Maaike's work the term refers specifically to the mechanism inside her book recommender that evaluates each unread book across several dimensions and produces a numeric score. It is explicitly positioned as an alternative to AI-driven or embedding-based recommendation systems.",
+  "how_maaike_uses": "Maaike built the scoring algorithm as the core of her book recommender project, with the constraint that it uses pure logic rather than text embeddings or any AI. The algorithm scores books across up to five weighted dimensions: topic match against named interest threads, experience prediction based on past reading calibration data, mood fit selected at runtime, garden connection to active projects and tags, and a freshness bonus for forgotten or recently acquired books. The weights shifted between design iterations (experience prediction dropped from 35% to 25% when a mood fit dimension was added). The algorithm is structured as a reading calibration exercise as much as a ranking tool, and its output is a recommended reading mix rather than a single top pick. It reads from and writes back to the garden library, which acts as the single source of truth.",
+  "open_questions": [
+    "The library audit still has unlabeled books, which limits how many books the scoring algorithm can work with fully. Whether and how that gap gets closed is unresolved.",
+    "The scoring weights changed between the overview post and the detailed design post, and it is not clear which version is currently running or how stable the weighting is."
+  ],
+  "state_hash": "cf348e4cc4609e50ac437949411ae627ab145df385e28ca2dd359fd2d17fbf1a",
+  "generated_at": "2026-04-24T16:05:47.331957Z"
+}

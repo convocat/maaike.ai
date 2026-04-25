@@ -1,0 +1,12 @@
+{
+  "label": "Anthropomorphism",
+  "summary": "Anthropomorphism is the tendency to attribute human qualities, intentions, or emotions to non-human systems. In Maaike's work it appears as a recurring risk that emerges from design choices, interface metaphors, and the way we talk about AI. It is treated not as an inevitable feature of human cognition but as something that can be reinforced or countered depending on how systems are framed and regulated.",
+  "how_maaike_uses": "Maaike tracks anthropomorphism as something that gets smuggled in by default through design decisions rather than being a deliberate choice. The conversation metaphor is one key vector: designing chat interfaces with text bubbles and personas primes users to treat AI as a social partner, which stretches both the metaphor and user expectations beyond what the system can actually deliver. Emotional prompting, learning-and-training language, and the surface fluency of LLMs all compound this effect. She also notes that anthropomorphism sits downstream of anthropocentrism, the assumption that human cognition is the reference point for all other kinds of intelligence, and that framing AI in human terms makes that assumption harder to question. On the countering side, she points to probabilistic framing (reminding readers that ChatGPT is just doing word prediction) and AI regulation as mechanisms that push back against anthropomorphism, and she flags cognitive vulnerability as the real-world consequence when those counter-forces are absent.",
+  "open_questions": [
+    "If the conversation metaphor is past its usefulness and alternatives like delegation or delivery are better fits, how do those alternatives actively reduce anthropomorphism rather than just sidestep it?",
+    "The discovery of emotion circuits in LLMs is noted as a risk factor for anthropomorphism, but it is not resolved whether those circuits represent anything functionally meaningful or whether they just look that way from the outside.",
+    "Anthropomorphism is framed as avoidable through design and regulation, but the reading notes on bacteria to AI suggest it may also be cognitively unavoidable — that tension is not settled."
+  ],
+  "state_hash": "3f0d3d85743f39200569ccd3b49a9944a75ec9211a592cfc89173016682e6b59",
+  "generated_at": "2026-04-24T15:19:23.320896Z"
+}

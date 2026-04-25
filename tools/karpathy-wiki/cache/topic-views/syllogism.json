@@ -1,0 +1,11 @@
+{
+  "label": "Syllogism",
+  "summary": "A syllogism is a classic logical structure used to test inference: a major premise, a minor premise, and a conclusion drawn from them. In Maaike's work it appears as a standard benchmark for evaluating whether a conversational AI can reason logically rather than just pattern-match. The example she uses involves pigs flying, chosen precisely because the premises are false, which makes it a good stress test.",
+  "how_maaike_uses": "Maaike uses the syllogism as a practical probe to see how ChatGPT handles logic and inferences. She finds the result notable because ChatGPT pushes back on the false premises rather than accepting them uncritically, which she contrasts with Blenderbot's tendency to simply believe whatever it is told. The syllogism test is part of a broader evening of experiments she runs to understand where a large language model sits on the spectrum between impressive and trustworthy.",
+  "open_questions": [
+    "Is ChatGPT's resistance to false premises a sign of genuine logical reasoning, or is it just a trained reflex around well-known facts like pigs not flying?",
+    "How would ChatGPT perform on a syllogism whose premises are false but less culturally obvious, where there is no universal truth to uphold?"
+  ],
+  "state_hash": "6c9906b1b3e12cdf92139730d8ac714c01c473508cfb282955aecb54fd629a84",
+  "generated_at": "2026-04-24T15:39:50.062902Z"
+}

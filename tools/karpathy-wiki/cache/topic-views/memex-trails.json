@@ -1,0 +1,11 @@
+{
+  "label": "Memex trails",
+  "summary": "Memex trails are a concept attributed to Vannevar Bush (1945): curated paths through linked knowledge that strengthen with use and fade without it. In Maaike's garden, the concept shows up as an inspiration for 'garden paths', a mode of the /explore page that lets visitors follow sequenced routes through items. The metaphor maps directly onto both auto-generated semantic paths and hand-curated thematic sequences.",
+  "how_maaike_uses": "Maaike uses Memex trails as a design reference point for the garden paths feature of the /explore page, not as a theoretical framework discussed in its own right. The idea motivates a specific UI pattern: paths drawn as rough curved lines across a semantic map, with a current-position marker and a sidebar listing available paths. She pairs the Bush reference with a more recent practical example, Mozilla's experimental Trails browser, which replaced tabs with horizontal reading paths. The concept justifies treating navigation as something curated and directional rather than purely associative or random.",
+  "open_questions": [
+    "Bush's original trails were supposed to strengthen with use and fade without it — Maaike's design document doesn't address whether the garden paths would have any analogous dynamic behaviour over time.",
+    "It's not settled how auto-generated semantic paths (shortest path between two items via embeddings) and hand-curated paths would be weighted or presented relative to each other in the UI."
+  ],
+  "state_hash": "fcf33d839e904294a3b10562798778187fe6e5789e8bc3aecffd0db975cfa031",
+  "generated_at": "2026-04-24T16:08:01.463275Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Open Library verification",
+  "summary": "Open Library verification is a factual grounding step that requires checking whether a book and its attributed author actually exist on Open Library before writing a library entry. It was introduced as a direct response to a hallucination incident where Claude invented a plausible but false author for a non-existent book. The rule is now non-negotiable and documented in CLAUDE.md.",
+  "how_maaike_uses": "Maaike uses Open Library verification as a structural safeguard against AI confabulation in her garden's library workflow. The rule was added after a specific failure: Claude attributed a made-up book to a real competitor, which she frames not just as a technical error but as a professional integrity risk. The verification step is meant to be baked into the /new-book skill so the check happens before any entry is written, not as an afterthought.",
+  "open_questions": [
+    "A full audit of all ai-assisted library entries against the original Notion source is still pending.",
+    "The entry for 'Bacteria to AI' attributed to N. Katherine Hayles needs verification and may itself be a hallucination.",
+    "The Open Library verification step has not yet been formally added to the /new-book skill."
+  ],
+  "state_hash": "f873b4faae3c133a0713a4e4b9f274ec07116eeaf6332fae03f773fb08f64a54",
+  "generated_at": "2026-04-24T16:22:01.816987Z"
+}

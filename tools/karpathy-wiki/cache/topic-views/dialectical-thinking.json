@@ -1,0 +1,11 @@
+{
+  "label": "Dialectical thinking",
+  "summary": "Dialectical thinking is a concept attributed to G W F Hegel, structured as thesis-antithesis-synthesis: you start with a position, confront it with a counterposition, and arrive at a synthesis that deepens understanding by holding elements of both. It is presented as a corrective to epistemic bias, specifically to the human tendency to cling to convictions and opinions rather than genuinely engaging with opposing views. Andrej Karpathy's tweet is cited as a practical demonstration of the concept in action.",
+  "how_maaike_uses": "Maaike uses dialectical thinking as a lens to redirect blame away from AI and back toward human reasoning habits. Her point is that the real problem is not LLM behaviour but our own failure to practise dialectical thinking, preferring instead to stay inside our convictions. She pairs the concept with a call for precise terminology, arguing that terms like opinion, conviction, core belief, argument, and rhetorical construction need to be distinguished carefully before dialectical thinking can do any work. She also offers a concrete experiment: prompt a chat app to practise dialectical thinking so it challenges you with antitheses instead of confirming your existing positions.",
+  "open_questions": [
+    "What does a sustained practice of dialectical thinking actually look like beyond the chat app experiment, and how does it fit into broader critical thinking education?",
+    "How does the thesis-antithesis-synthesis structure interact with rhetorical constructions that mimic arguments without being ones?"
+  ],
+  "state_hash": "653a6dac801409532fec0eb79176ea1c60eb614a45c460682bb6f1028d21f45c",
+  "generated_at": "2026-04-24T15:15:33.245228Z"
+}

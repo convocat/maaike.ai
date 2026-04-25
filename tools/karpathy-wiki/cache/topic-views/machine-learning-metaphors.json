@@ -1,0 +1,11 @@
+{
+  "label": "Machine learning metaphors",
+  "summary": "Machine learning metaphors are the figurative framings people use to make sense of how machine learning and AI systems work. The concern is not just whether these metaphors are catchy but whether they mislead or genuinely support understanding. This topic sits in contrast to more formal conceptual foundations of AI, suggesting metaphors operate at a different, more accessible but potentially distorting level.",
+  "how_maaike_uses": "Maaike references this topic through a DRS 2022 paper that looks specifically at how metaphors shape designers' understanding of ML and AI. The focus is practical and critical: which common metaphors lead designers astray, and what qualities make a metaphor actually useful for design thinking. This suggests she is interested in the topic not as a curiosity but as a design literacy issue.",
+  "open_questions": [
+    "What specific qualities distinguish a misleading ML metaphor from a genuinely useful one for design practice?",
+    "How does relying on metaphors rather than conceptual foundations affect the quality of design decisions involving AI?"
+  ],
+  "state_hash": "2ecd8d79d2b8d84d3fd71495c5d1f08c108fd1bdb32edeabd8215bc1ed5f9804",
+  "generated_at": "2026-04-24T15:31:47.751373Z"
+}

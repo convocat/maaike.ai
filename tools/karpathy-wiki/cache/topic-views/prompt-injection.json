@@ -1,0 +1,11 @@
+{
+  "label": "Prompt injection",
+  "summary": "Prompt injection is a security threat that arises from unconstrained free text input in AI systems. When users can type anything freely, that input can be used to override or subvert the original instructions and intended behaviour of an AI application. It is one of the concrete reasons why structured, constrained input is making a comeback in AI interfaces.",
+  "how_maaike_uses": "Maaike uses prompt injection as a practical argument for why unstructured conversation is not always the right interface paradigm for GenAI. She points to it specifically in the context of editable system prompt fields: if you let users freely edit parts of the system prompt, you open the door to prompt injection attacks. This grounds her broader claim that buttons, numbered options, and other constrained input patterns are not just UX nostalgia but a genuine security and reliability measure.",
+  "open_questions": [
+    "Where exactly is the line between useful user editability of a system prompt and dangerous openness to prompt injection?",
+    "Are structured inputs like buttons and numbered options actually sufficient to prevent prompt injection, or do they just reduce the attack surface?"
+  ],
+  "state_hash": "5c0bf039ffd73680207805f8afa2bdf05b7058e75b0dccf435974317fd63cf54",
+  "generated_at": "2026-04-24T16:20:48.544717Z"
+}

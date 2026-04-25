@@ -1,0 +1,11 @@
+{
+  "label": "Graph-based NLU",
+  "summary": "Graph-based NLU refers to approaches that use semantic graphs and webs as the underlying technology for natural language understanding in conversational AI. It represents a move away from intent-only bot architectures toward more semantic, graph-based methods. One concrete example from the conference is an incremental semantic parser that re-evaluates utterances iteratively, using conversational cues like stammers, rephrases, and disfluencies to dynamically adjust responses on the fly.",
+  "how_maaike_uses": "Maaike encounters graph-based NLU as an emerging thread within conversation design, flagging it as part of a broader buzz around moving beyond intents-only bots. She highlights two talks from the European Chatbot and Conversational AI summit that point in this direction: Kane Simms framing graph-based approaches as the future of conversational AI, and Angus Addlesee's research on incremental semantic parsing that genuinely impressed her. Her angle is that of a practitioner watching the space evolve, noting what looks promising rather than claiming to have deployed it herself.",
+  "open_questions": [
+    "How ready is graph-based NLU for practical deployment in real conversation design projects, beyond the research stage?",
+    "How does a graph-based approach integrate with existing platforms and tooling that conversation designers already use?"
+  ],
+  "state_hash": "6e5101c091620428fa8ca52afd78eb0945566d06636bea6ecd082e1861c1ae0f",
+  "generated_at": "2026-04-24T15:45:57.342596Z"
+}

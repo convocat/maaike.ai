@@ -1,0 +1,11 @@
+{
+  "label": "Probabilistic word prediction",
+  "summary": "Probabilistic word prediction is the core mechanism underlying large language models like ChatGPT: the model strings together words based on the statistical likelihood that those words co-occur in training data. It does not retrieve facts, understand meaning, or reason about truth. This mechanism is what Maaike consistently points to when explaining both the capabilities and the fundamental limits of LLMs.",
+  "how_maaike_uses": "Maaike uses probabilistic word prediction as a grounding concept to push back against anthropomorphism and inflated claims about what LLMs actually do. She returns to it repeatedly across posts to explain why hallucinations are not a bug to be patched but a structural consequence of how these systems work, why ground truth is inaccessible to them, and why their conversational fluency is actively misleading. She also uses it to flag a specific design risk: because probabilistic output looks and sounds like meaningful conversation, users are unlikely to apply the scepticism they would need to apply, which she frames as an indifference to truth built into the format itself.",
+  "open_questions": [
+    "Can hallucinations ever be solved without changing the underlying probabilistic mechanism, or is approximation of truth the ceiling for LLMs by design?",
+    "Neurosymbolic AI is gestured at as a counter to probabilistic word prediction, but whether it actually resolves the grounding problem is left open."
+  ],
+  "state_hash": "ede21b3858a4724985065b33f51af369c0a9e03db30347b0685a91ca9774d755",
+  "generated_at": "2026-04-24T15:18:06.141173Z"
+}

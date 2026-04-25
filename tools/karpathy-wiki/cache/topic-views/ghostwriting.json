@@ -1,0 +1,11 @@
+{
+  "label": "Ghostwriting",
+  "summary": "Ghostwriting, in Maaike's framework, refers to a mode of AI-assisted content creation where the human author's role and agency are obscured or misattributed. It stands in contrast to how she positions her own AI use, where authorship and decision-making are explicitly claimed by the human. The concept appears in her work as something to actively counter through transparency and precise language.",
+  "how_maaike_uses": "Maaike uses ghostwriting as a foil. Her style guide rules -- 'AI generates, I write', always ascribing agency to the human, never saying 'we co-researched' -- are all designed to avoid the dynamic where AI quietly stands in for the human author. Her transparency approach in content reinforces this: she wants to show which pieces involved AI assistance and how, treating that disclosure as a design choice rather than a disclaimer. The contrast she draws between 'AI as writing partner' and ghostwriting signals that the problem is not using AI, but hiding how it is used.",
+  "open_questions": [
+    "Where exactly does 'co-created' end and ghostwriting begin, especially when Claude's generated text is approved with minimal changes?",
+    "Does radical transparency about prompts and process fully resolve the ghostwriting concern, or does the line depend on something else?"
+  ],
+  "state_hash": "a86817e757a1ce78051ac26d25774fe804203110ef725b99e390eedbdcbcdfb2",
+  "generated_at": "2026-04-24T16:18:39.464369Z"
+}

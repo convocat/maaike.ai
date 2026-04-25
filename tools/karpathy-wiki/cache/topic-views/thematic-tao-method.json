@@ -1,0 +1,11 @@
+{
+  "label": "Thematic TAO method",
+  "summary": "The thematic TAO method is a three-pass technique for analysing posts and extracting entities and relations for a concept graph. It combines a wide-angle thematic read with a close TAO extraction pass (topics, associations, occurrences), followed by a coherence check that zooms back out. The method is structured to prevent technically correct but argumentatively misleading triples from accumulating in the graph.",
+  "how_maaike_uses": "Maaike developed the method specifically to drive the `/auto-tag` process in her digital garden. The first pass surfaces emergent themes and tag candidates without premature structure. The second pass extracts typed entities and typed S-P-O relationships using a controlled predicate vocabulary, prioritising associations that connect to existing hub topics rather than adding isolated nodes. The third pass checks whether the extracted associations actually reflect the argument the post makes, not just what was easy to pull out. The rhythm of zoom-out, zoom-in, zoom-out is borrowed deliberately from qualitative research methodology to guard against local optimisation at the expense of the whole.",
+  "open_questions": [
+    "The post notes the graph 'grows better' but the sentence is left unfinished — it's unclear what the intended claim about graph quality actually is.",
+    "The controlled predicate vocabulary is listed as a requirement but its contents aren't defined anywhere in the passage, leaving open what constraints it actually imposes."
+  ],
+  "state_hash": "8d3e2324de39aefcbc750f40074045902c5cdc928184c1de07425ad6b08c2b97",
+  "generated_at": "2026-04-24T16:16:09.251685Z"
+}

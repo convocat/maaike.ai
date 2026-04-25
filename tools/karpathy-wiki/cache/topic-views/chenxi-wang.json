@@ -1,0 +1,11 @@
+{
+  "label": "Chenxi Wang",
+  "summary": "Chenxi Wang is a researcher associated with work on emotion circuits in large language models. The research explores whether LLMs have internal structures that function like emotion circuits, and investigates how these circuits might be identified and controlled. This work appears in Maaike's digital garden in the context of questions about whether LLMs can be said to 'feel' anything.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "What does it actually mean for an LLM to have an 'emotion circuit', and does the label map onto anything meaningful about the model's internal states?",
+    "If emotion circuits can be controlled, what are the implications for how we design or deploy these systems?"
+  ],
+  "state_hash": "98dc722b6690f28b2e441791383604d0603fe27921dcc230ecc32143d69b0f93",
+  "generated_at": "2026-04-24T16:25:42.232112Z"
+}

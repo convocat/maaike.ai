@@ -1,0 +1,11 @@
+{
+  "label": "Chain of Density",
+  "summary": "Chain of Density is a summarisation method that can be used when prompting LLMs to generate richer, denser summaries from source texts. It is one of several techniques that attempt to address the difficulty LLMs have with reduction tasks. Maaike tried it as part of her exploration of how to get LLMs to produce genuinely useful summaries.",
+  "how_maaike_uses": "Maaike tried Chain of Density as a way to improve LLM-generated summaries, but found it does not work well for really long documents. This led her to a broader insight: rather than trying to get LLMs to reduce a long text, it is more effective to deconstruct the source text yourself into key concepts, short definitions, and relationships between concepts, then let the LLM build the summary from those. In that framing, Chain of Density is a data point in her argument that human-centered assumptions about summarisation do not map cleanly onto what LLMs are actually good at.",
+  "open_questions": [
+    "At what document length does Chain of Density start to break down, and are there variants of the method that handle longer texts better?",
+    "If the best results come from bypassing the source text entirely, is there still a use case for reduction-based summarisation methods like Chain of Density at all?"
+  ],
+  "state_hash": "addfad4858661c69285a70c48d635414666596afc4156f5998ebc1c3604007fe",
+  "generated_at": "2026-04-24T15:55:38.696494Z"
+}

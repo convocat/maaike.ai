@@ -1,0 +1,11 @@
+{
+  "label": "Emotional labor",
+  "summary": "Emotional labor, in Maaike's work, refers to the affective and relational work performed through language-based interaction. It comes up in two distinct contexts: the labor embedded in conversation design for chat agents, and the personal emotional weight writers carry when their work faces criticism. Both uses point to situations where managing feelings is part of the job, whether that job is done by a human or a machine.",
+  "how_maaike_uses": "Maaike approaches emotional labor from two directions. In her thinking about conversation design and GenAI interfaces, she flags that designing chat agents as conversational actors means designing in emotional performance by default, citing the idea that 'personality is a labor system'. This is part of her broader skepticism about whether the conversation metaphor is doing useful work anymore. In her writing about handling feedback, she frames detachment from your own texts as a practical counter to emotional over-investment: treating content as a deliverable rather than an extension of yourself reduces the emotional labor of receiving criticism. The two uses are connected by the same underlying move: recognizing where emotion gets smuggled in, and asking whether that is actually serving anyone.",
+  "open_questions": [
+    "If conversation design inevitably imports emotional labor into AI systems, what alternative interaction metaphors would avoid or at least make explicit that labor?",
+    "Is the detachment Maaike recommends for writers a skill that can actually be taught, or does it mainly come from accumulated experience and volume of work?"
+  ],
+  "state_hash": "efe834368c84bdca71bdbe8fcbc9fb2877735b6741190ca062624b4a3918ec71",
+  "generated_at": "2026-04-24T15:03:28.099511Z"
+}

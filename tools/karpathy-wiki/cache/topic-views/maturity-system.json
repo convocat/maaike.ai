@@ -1,0 +1,12 @@
+{
+  "label": "Maturity system",
+  "summary": "A maturity system is a way of making the growth stage of each post visible to readers. Instead of asking whether something is ready to publish, it asks where in its growth a piece currently sits. It is a structural feature of the digital garden that replaces the finished/unfinished binary with a spectrum of stages, signalled for example by a seedling marker.",
+  "how_maaike_uses": "Maaike uses the maturity system as a direct extension of the garden metaphor: a seedling post is real and worth sharing even if it never becomes a full argument, because the point is to get thoughts out of her head and into the world. The maturity track appears visibly on cards and post headers, so readers always know whether they are reading a draft or a more developed piece. She frames this as a publishing reframe, the question shifts from 'is this ready?' to 'where is this in its growth?' and that shift is what gives her permission to think in public.",
+  "open_questions": [
+    "The 'pruning' field exists in the system but Maaike notes she hasn't used it extensively yet, so how pruning fits into the maturity lifecycle is still undefined.",
+    "The weeds question, covering content that is no longer accurate, is raised but left unfinished in the source material, so how the maturity system handles outdated or wrong posts is unresolved.",
+    "A planned comprehensive guide to building the garden, including maturity stages, is mentioned as something Maaike would love to write but has not yet done."
+  ],
+  "state_hash": "fb8bbef31513d0859cd7b499a37fb187fbbbbae35874d11d6b43e86d4c435a00",
+  "generated_at": "2026-04-24T15:23:14.034199Z"
+}

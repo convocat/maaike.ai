@@ -1,0 +1,11 @@
+{
+  "label": "Moral commitment",
+  "summary": "Moral commitment, as used in Maaike's work, refers to the interpersonal and ethical dimension of conversation that humans automatically monitor in one another. Drawing on N.J. Enfield's 'How we talk', it describes how people track whether conversational partners are genuinely invested in the interaction and hold them accountable for that investment. It is treated as a structural requirement for real conversation to function, not an optional add-on.",
+  "how_maaike_uses": "Maaike uses moral commitment to stress why LLMs like Sydney/Venom fall short as conversational partners. Her point is that humans instinctively apply this standard to any entity that presents itself through a conversational interface, machine or not. Because a LLM cannot actually have its own stake in a conversation or ground its words in reality, it cannot meet the moral commitment that real conversation requires. This also helps her explain the adversarial prompting behaviour people showed toward Sydney: without sensing a genuine party on the other side with something to lose, users felt free to push limits in ways they simply would not with another human.",
+  "open_questions": [
+    "Will it ever be possible for a machine to form the same kind of interlocked, mutually committed conversational system that humans form with each other?",
+    "How should designers account for users' instinct to test and destabilise a conversational interface that cannot genuinely hold up its end of the moral commitment?"
+  ],
+  "state_hash": "f2e9f1a65406e85177e41d3f9b8e74061ce391a46195d40ec0b20608621b4e78",
+  "generated_at": "2026-04-24T15:50:07.775527Z"
+}

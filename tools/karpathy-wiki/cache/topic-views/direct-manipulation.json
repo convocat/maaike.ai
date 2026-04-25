@@ -1,0 +1,11 @@
+{
+  "label": "Direct manipulation",
+  "summary": "Direct manipulation refers to users editing content or interfaces by acting on them directly, rather than issuing instructions through prompts or commands. In Maaike's work it appears as a practical alternative to the articulation barrier that conversational AI interfaces impose. It is positioned as the more natural mode of working for tasks like writing and editing.",
+  "how_maaike_uses": "Maaike uses direct manipulation as a counterpoint to the limitations of conversational AI interfaces. She draws on a Norman and Nielsen recommendation that users should be able to directly edit generated text instead of having to manipulate it indirectly through prompts. Her own frustration with tools like Jasper.ai grounds this: wanting to change cadence, word order, or emphasis in a text is not something a prompt handles well, and direct manipulation would remove that friction entirely.",
+  "open_questions": [
+    "How would a conversational interface be redesigned to allow direct manipulation without abandoning the conversational model altogether?",
+    "At what point does direct manipulation of AI-generated text make the output 'your own words', and does that question even have a clean answer?"
+  ],
+  "state_hash": "35c5923f697110e6f4624cd52d0c06db6f23b5d2173a5d35b1dd787ea3a62729",
+  "generated_at": "2026-04-24T15:20:01.173782Z"
+}

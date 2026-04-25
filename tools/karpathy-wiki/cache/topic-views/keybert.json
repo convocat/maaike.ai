@@ -1,0 +1,10 @@
+{
+  "label": "KeyBERT",
+  "summary": "KeyBERT is a key phrase extraction method that uses BERT embeddings to find phrases most similar to the overall document embedding. In Maaike's work it appears as one of several candidate approaches for extracting key phrases from garden items, but it has a known limitation: it breaks down on short texts, which are common in a knowledge garden context.",
+  "how_maaike_uses": "Maaike situates KeyBERT within a broader comparison of extraction approaches spanning statistical methods, graph-based methods, and embedding-based methods. The short-text problem is the specific reason KeyBERT gets flagged as a weak fit for the garden, where many items are short notes or fragments rather than long articles. This makes it less suitable than approaches like YAKE that are designed to work with limited co-occurrence data.",
+  "open_questions": [
+    "Whether any embedding-based extraction method can be made to work reliably on short garden items, or whether statistical methods like YAKE are simply the better fit for that context."
+  ],
+  "state_hash": "346cfd17fce399f0dcd065be0d49519fe21d92a91778a4f75e37b35673f26ab9",
+  "generated_at": "2026-04-24T16:12:49.745493Z"
+}

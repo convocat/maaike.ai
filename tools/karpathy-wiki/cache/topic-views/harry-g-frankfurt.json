@@ -1,0 +1,11 @@
+{
+  "label": "Harry G. Frankfurt",
+  "summary": "Harry G. Frankfurt is a philosopher whose essay and lecture 'On Bullshit' and companion essay 'On Truth' Maaike draws on to analyse large language models. His core idea is that bullshit is not lying but rather a complete indifference to the distinction between truth and falsity. Maaike uses this framing to make a precise, non-judgmental claim about what LLMs are doing when they generate text.",
+  "how_maaike_uses": "Maaike uses Frankfurt's definition of bullshit as her sharpest analytical tool for explaining why LLMs like ChatGPT are structurally unreliable rather than just occasionally wrong. Because an LLM strings words together on a probabilistic basis, it literally cannot care whether what it produces is true or false, which maps exactly onto Frankfurt's bullshitter whose purpose is not truth or falsity but something else entirely. She distinguishes this from lying, which Frankfurt attributes to someone who still has a relationship with truth, however adversarial. This lets her argue that the problem with LLMs is not a technical limitation to be fixed with better training but a fundamental design condition that humans and designers need to account for.",
+  "open_questions": [
+    "If bullshit is defined by indifference to truth rather than intent to deceive, does that framing still hold when an LLM outputs something like an apology or a correction, which mimics the appearance of caring about truth?",
+    "Maaike notes that being concerned about truth is 'our domain, that of the humans', but leaves open what design responses would actually instantiate that concern in practice."
+  ],
+  "state_hash": "8b4af949b1f372e93bd4ba245c55538e014832974d249cb7138f7b67facaf892",
+  "generated_at": "2026-04-24T15:11:30.730337Z"
+}

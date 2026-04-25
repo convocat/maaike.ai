@@ -1,0 +1,12 @@
+{
+  "label": "LLMOps",
+  "summary": "LLMOps refers to the practice of monitoring, evaluating, and improving GenAI systems that are live in production. It encompasses things like LLM observability, prompt design, eval definition, log analysis, and dashboarding. In Maaike's framing, it requires systems thinking and sits at the intersection of linguistics, conversation design, and technical architecture.",
+  "how_maaike_uses": "Maaike positions LLMOps as the natural evolution of conversation design work, arguing that linguists are well suited for it precisely because the job demands fuzzy, context-aware evals, precise language, an understanding of human behaviour, and the ability to zoom between micro-level trace data and macro-level system architecture. In practice she designs system prompts and GenAI architectures, defines functional and qualitative evals (covering hallucination, tone, compliance, resolution rate), structures metadata for traces and spans, does log analysis, and provides business-readable dashboards. Her argument is that this work is not primarily engineering work but language and systems work.",
+  "open_questions": [
+    "What the role should actually be called is still unsettled, as the Convoclub discussion suggests there is no agreed-upon title yet.",
+    "Where the boundary sits between what a conversation designer/LLMOps analyst owns versus what engineers and architects own is only loosely sketched out.",
+    "Whether the systems-thinking skills Maaike attributes to linguists are genuinely distinctive or just useful is asserted but not tested in the material."
+  ],
+  "state_hash": "967801617baddca0eceb19b8400b8cd7e9fd26f1ae0872085664e1d20c5d8df1",
+  "generated_at": "2026-04-24T15:27:25.144899Z"
+}

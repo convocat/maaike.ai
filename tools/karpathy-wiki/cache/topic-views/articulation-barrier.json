@@ -1,0 +1,11 @@
+{
+  "label": "Articulation barrier",
+  "summary": "The articulation barrier is a concept attributed to Jakob Nielsen (NN/g) that describes the difficulty users face when trying to express exactly what they want in a prompt. It is the gap between having a clear mental model of desired output and being able to specify it precisely enough for an AI to produce it. It is a particular problem for novice users but also affects experienced writers.",
+  "how_maaike_uses": "Maaike uses the articulation barrier to explain a specific frustration with AI writing tools: the effort required to prompt your way to a good result often exceeds the effort of just writing the thing yourself. She connects it to the broader limitations of conversational interfaces, where indirect manipulation through prompts is a poor substitute for direct editing. She also brings it up in the context of persistent context, noting that a CLAUDE.md file partially counters the barrier by removing the need to re-explain project context at the start of every session, so the first message can be productive rather than remedial.",
+  "open_questions": [
+    "Does direct manipulation actually resolve the articulation barrier, or does it just shift where the friction sits in the writing process?",
+    "If persistent context reduces the barrier for technical setup, does it do anything for the harder problem of communicating style, cadence, and voice?"
+  ],
+  "state_hash": "9cc3253ef6ce69c6bc536718f2a291268556c65db4a489d3afce11289f4aac44",
+  "generated_at": "2026-04-24T15:20:50.076107Z"
+}

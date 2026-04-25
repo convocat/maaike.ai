@@ -1,0 +1,11 @@
+{
+  "label": "Intonation",
+  "summary": "Intonation is the melody of speech — the rising and falling pattern that makes languages recognisable and characteristic. It is a prosodic property, meaning it describes sound at the level of whole utterances rather than individual sounds. Each language has its own intonation pattern, and getting that pattern right matters more for comprehension and naturalness than nailing every individual sound.",
+  "how_maaike_uses": "Maaike introduces intonation as part of a broader primer on speech and voice concepts aimed at conversation designers. She grounds it in practical stakes: to use SSML effectively you need to understand what intonation actually is. She uses a personal anecdote from studying English to make the point that intonation is the thing that carries a language, and gives a concrete example comparing English (a three-steps-down sentence melody) with Dutch (a narrower range), which helps designers understand why synthetic or non-native voices can sound off even when individual sounds are correct.",
+  "open_questions": [
+    "The post promises a continuation — it is unclear what further dimensions of intonation or prosody Maaike covers in subsequent parts.",
+    "The post gestures at how SSML can be used to shape prosody including intonation, but does not yet explain how intonation specifically is controlled through SSML tagging."
+  ],
+  "state_hash": "0ff2be9a5914d7b88cb5cc197413bd6fe615165e8b34a43b61f86ffae62d69cd",
+  "generated_at": "2026-04-24T16:03:04.618215Z"
+}

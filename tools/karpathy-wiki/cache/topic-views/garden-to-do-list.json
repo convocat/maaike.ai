@@ -1,0 +1,11 @@
+{
+  "label": "Garden to-do list",
+  "summary": "The garden to-do list is a living scratchpad that tracks ideas, plans, and fixes for Maaike's digital garden. It is an instance of thinking in public, meaning it is shared openly rather than kept as a private backlog. It grows alongside the garden itself, reflecting both what is coming and what has already been built.",
+  "how_maaike_uses": "Maaike uses this list to track near-term building priorities and completed work, linking out to relevant garden posts like the changelog in [[building-this-garden]]. The most prominent active item is a conversational garden guide: a chatbot-style UI built without generative AI, using decision trees and deliberate linking to create serendipity. This suggests she thinks carefully about how navigation and discovery should be designed, not just left to chance.",
+  "open_questions": [
+    "What would a non-AI conversational interface actually look like in practice, and how would the decision tree logic be structured?",
+    "How does the LinkedIn cross-posting integration affect how the garden relates to a more traditional professional network?"
+  ],
+  "state_hash": "d5d764742a16f92219452802f51b04de7a1dafe64339f081a012df53ec29dcc4",
+  "generated_at": "2026-04-24T16:23:05.823214Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "YAKE",
+  "summary": "YAKE (Yet Another Keyword Extractor) is a statistical key phrase extraction method that scores words using five features: casing, position in text, frequency, relationship to context, and distribution across sentences. It requires no model, works on any language by swapping stopword lists, and is described as the best no-dependency option among the statistical approaches. In Maaike's work it appears both as a reference implementation in the taxonomy of key phrase extraction methods and as a direct comparison point in a prototype experiment.",
+  "how_maaike_uses": "Maaike uses YAKE in two related but distinct ways. In the conceptual write-up it sits as the strongest representative of the statistical era, contrasted with graph-based and LLM-based methods to explain the trade-offs between transparency, language coverage, and accuracy. In the prototype experiment it serves as the baseline comparator against LLM extraction via Ollama on ten garden items, with settings fixed at max phrase length 3 words, deduplication threshold 0.7, and language set to English.",
+  "open_questions": [
+    "The prototype compares YAKE against a simple zero-shot LLM prompt and calls it a baseline, but the results of that comparison are not reported in the available passages, so it is unclear which approach performed better on the actual garden items.",
+    "YAKE is described as handling any language by swapping stopword lists, but the garden is described as multilingual; whether that swap is sufficient for the non-English items is not addressed."
+  ],
+  "state_hash": "f7f1deb55c9fea9e212937ad96fa946075355863fe3b2d56649dd542b5cde6fe",
+  "generated_at": "2026-04-24T16:12:39.906580Z"
+}

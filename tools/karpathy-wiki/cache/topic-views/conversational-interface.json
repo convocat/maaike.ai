@@ -1,0 +1,12 @@
+{
+  "label": "Conversational interface",
+  "summary": "A conversational interface is a UI pattern that uses text-based dialogue, chat bubbles, and natural language input as the primary mode of interaction. In Maaike's work, the term covers a wide range, from deterministic decision-tree chatbots to LLM-powered systems like Bing Chat and Jasper. The defining characteristic is that users interact through free-form or semi-structured language rather than buttons or fixed-form inputs.",
+  "how_maaike_uses": "Maaike is consistently sceptical about conversational interfaces, not in principle but in how carelessly they are deployed. She points out that designing a chat UI triggers real conversational expectations in users, grounded in how human dialogue actually works, and that current AI systems cannot meet those expectations. She also highlights the practical usability costs: free-text input raises the articulation barrier, forces linear interaction on non-linear tasks, and creates cognitive load. At the same time she explores the edges of the concept, noting that structured input like buttons and numbered options is making a comeback precisely because unconstrained conversation is too noisy and too risky, and that a conversational-looking UI can be backed by something entirely deterministic and still be useful.",
+  "open_questions": [
+    "Can a machine ever be a genuine conversational partner in the sense that it has its own stake in the conversation and works with the user toward shared grounding, or will it always only mirror?",
+    "Where is the right boundary between structured, constrained input and open conversational input, and how should that boundary shift depending on the task or security context?",
+    "How much personality should a deterministic conversational interface have, and does adding persona cues raise the same false expectations that caused problems with Bing Chat?"
+  ],
+  "state_hash": "44c412dd5d140cabee1021753d92bd03dfa2a99784e0b27249f8de36492662d3",
+  "generated_at": "2026-04-24T14:58:44.425053Z"
+}

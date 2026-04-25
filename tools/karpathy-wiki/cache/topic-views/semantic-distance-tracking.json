@@ -1,0 +1,8 @@
+{
+  "label": "Semantic distance tracking",
+  "summary": "Semantic distance tracking is a technique characterised as a form of LLM vulnerability analysis. It is demonstrated by ALCPE, as documented in R. Verity Vabolis's practitioner's guide. Beyond that association, the available material does not elaborate on its mechanics or scope.",
+  "how_maaike_uses": "",
+  "open_questions": [],
+  "state_hash": "49a8c64a36755631771428820e35591ab9bfc782ec5d43980a832ee0cf30587e",
+  "generated_at": "2026-04-24T16:24:45.453129Z"
+}

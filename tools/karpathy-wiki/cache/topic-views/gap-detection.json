@@ -1,0 +1,12 @@
+{
+  "label": "Gap detection",
+  "summary": "Gap detection is the process of identifying topics the garden does not cover but probably should. It works by profiling the content graph for orphan nodes and sparse regions, then distinguishing between a real gap (something relevant is missing) and a non-gap (something is absent because it is simply out of scope). It is a precondition for external content discovery and depends on key phrase extraction being in place first.",
+  "how_maaike_uses": "Maaike positions gap detection as a step that has to be carefully scoped: the system should only look for gaps within or adjacent to existing territories, not in random directions. She has not built it yet. The current blockers are low key phrase coverage (44% of items, needs to reach 80%+) and the absence of a clear, filterable definition of what counts as a gap. Once those are resolved, gap detection feeds into a pull-based external discovery workflow where results land in a greenhouse stage rather than going straight into the garden.",
+  "open_questions": [
+    "How to reliably distinguish a real gap from a topic the garden deliberately does not cover?",
+    "Should gap detection run at build time or as a separate periodic enrichment job?",
+    "What filtering criteria are sufficient to avoid the system surfacing thousands of noisy results for each of the garden's ~10 territories?"
+  ],
+  "state_hash": "1170872541812825273dd7ebf53a8742cd93bae97fc8196ed602c260c9cfb50b",
+  "generated_at": "2026-04-24T16:11:00.058581Z"
+}

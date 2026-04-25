@@ -1,0 +1,11 @@
+{
+  "label": "Stochastic parrot",
+  "summary": "Stochastic parrot is a term coined by Emily Bender and Timnit Gebru in their 2021 paper on the risks of large language models. It describes how LLMs like ChatGPT work at a fundamental level: they string together words based on statistical likelihood of co-occurrence in training data, without any understanding of meaning or truth. Maaike uses it as a precise technical anchor for her broader critique of how conversational AI gets misread as something more than it is.",
+  "how_maaike_uses": "Maaike reaches for the stochastic parrot framing to ground her argument that ChatGPT is not writing or reasoning but simply generating probable word sequences. She connects this directly to Harry Frankfurt's concept of bullshit, the indifference to the difference between truth and falsity, arguing that the two concepts illuminate the same problem from different angles. She also points readers toward Bender and Gebru as people worth following precisely because they help cut through AI hype with this kind of foundational clarity.",
+  "open_questions": [
+    "If the stochastic parrot problem is fundamental and won't be fixed by better training, what does responsible design with LLMs actually look like in practice?",
+    "How does the invisibility of bias in generative AI interfaces make the stochastic parrot problem worse than it already is in traditional search?"
+  ],
+  "state_hash": "e27d33c8c5dcd19cb5ee47b8a01299a6aa335dcaf37bb084b322c9bc9721e45a",
+  "generated_at": "2026-04-24T15:17:27.954887Z"
+}

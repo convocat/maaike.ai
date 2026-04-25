@@ -1,0 +1,11 @@
+{
+  "label": "Design choice",
+  "summary": "A design choice is a deliberate decision about how something is built or presented, where the decision itself carries meaning or intent. In Maaike's garden, design choices are not just technical or aesthetic calls — they reflect values. Radical transparency is one example: a choice that shapes how content is framed and what it invites from readers.",
+  "how_maaike_uses": "Maaike uses 'design choice' to name decisions that are ethical or relational, not just structural. The specific example in the garden is around AI transparency: rather than treating disclosure as a legal disclaimer, she frames it as a design choice — one that opens up the process, shares prompts, and positions AI collaboration as something worth showing rather than hiding.",
+  "open_questions": [
+    "What does the actual implementation of radical transparency look like in practice — how are prompts surfaced and what level of detail is enough?",
+    "Are there design choices in the garden that pull in the opposite direction, toward privacy or opacity, and how are those tensions navigated?"
+  ],
+  "state_hash": "c709290a224ee83744666d5da25ac9d98c3cafac2f139b9e4ab78df391dd867c",
+  "generated_at": "2026-04-24T16:18:49.071410Z"
+}

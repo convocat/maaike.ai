@@ -1,0 +1,11 @@
+{
+  "label": "Book recommender",
+  "summary": "The book recommender is a personal, logic-based scoring tool that ranks unread books from Maaike's own library against her current interests and garden context. It uses no AI, just structured matching across dimensions like topic fit, experience prediction, and garden connection, with optional client-side vibe chips for situational re-ranking. It is designed as a direct counter to algorithmic feeds, reading only from data Maaike controls.",
+  "how_maaike_uses": "Maaike built this as a mini project to solve a concrete personal problem: too many unread books, not enough signal for what to pick next. The design reflects her broader preferences: no subscriptions or API dependencies, a single-file visual prototype, and the garden library as the single source of truth. The output is not a single recommendation but a reading mix, a lighter book for momentum alongside a denser one for longer reading, which came directly out of a structured self-interview about her actual reading habits. The project is tightly integrated with the digital garden: the recommender reads tags and active projects from garden content, and writes top picks back into library frontmatter so they surface on the library page.",
+  "open_questions": [
+    "The library audit still has unlabeled books, and a follow-up interview for those is listed as incomplete. It is not clear how the scoring handles books with missing audit fields.",
+    "The scoring algorithm design includes a mood fit dimension at 25% weight, but the main project description recasts this as vibe chips with different framing. Whether these are the same mechanism or two separate layers is not fully resolved in the passages."
+  ],
+  "state_hash": "3610f9a6ddd153f83ec22fcb049092dc91e72b1b7e22ea19e9e301da121fef15",
+  "generated_at": "2026-04-24T16:05:35.370613Z"
+}

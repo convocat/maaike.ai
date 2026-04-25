@@ -1,0 +1,11 @@
+{
+  "label": "Scheduled tasks",
+  "summary": "Scheduled tasks are a Claude Code feature (March 2026) that lets you set up recurring automated runs using a natural language prompt and a cron expression. Maaike tested the feature by automating a weekly garden health check: scanning for broken links, stale drafts, and tag issues without manual intervention. The feature runs unattended in a sidebar session and produces a report, but cannot chain its output into any follow-up action.",
+  "how_maaike_uses": "Maaike's angle is practical and sceptical. She ran the health check four times on the same content and found inconsistent results: some issues were caught in some runs and missed in others, and file counts were wrong in two runs. She identifies the core tension as consistency versus serendipity. A coded script would give repeatable, controllable results but would never have noticed the Dutch/English tag mismatch that Claude caught incidentally. A natural language prompt loses consistency but gains that kind of unexpected find. She also flags the open-loop problem: the report lands somewhere, and a human still has to read it and decide what to do. There is no way to connect the output to a follow-up task or automated remediation.",
+  "open_questions": [
+    "What kinds of tasks are actually worth scheduling if you can't chain the output into any follow-up action?",
+    "Is the serendipity benefit of natural language prompts worth the inconsistency cost, or does a structured task like health checking call for a coded script instead?"
+  ],
+  "state_hash": "f2783762112ea9e46ebd4932772d064c65cda1c6561ed1914e26b4a407069cb3",
+  "generated_at": "2026-04-24T16:09:11.501404Z"
+}

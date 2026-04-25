@@ -1,0 +1,8 @@
+{
+  "label": "Matryoshka embeddings",
+  "summary": "Matryoshka embeddings are a type of text embedding, meaning they turn pieces of text into lists of numbers that can be compared for semantic similarity. They appear in Maaike's survey of embedding models as part of a broader landscape from simple word-counting methods to sophisticated contextual approaches. The survey was done to figure out what model should power semantic linking in a personal knowledge garden.",
+  "how_maaike_uses": "",
+  "open_questions": [],
+  "state_hash": "5a046b42714f1ca5c59316653cf788c918d78ec01f5604a8f4076d198c24d79b",
+  "generated_at": "2026-04-24T16:08:51.963093Z"
+}

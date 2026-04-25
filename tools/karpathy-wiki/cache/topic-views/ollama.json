@@ -1,0 +1,8 @@
+{
+  "label": "Ollama",
+  "summary": "Ollama is a tool that lets you run AI models locally on your own computer, acting as a local server that any script can talk to without accounts, API keys, or data leaving the machine. In Maaike's work it shows up as the runtime layer for both generative language models and embedding models. It handles the infrastructure so experiments can focus on the actual task.",
+  "how_maaike_uses": "Maaike uses Ollama as the local backend for two distinct experiments: running a generative model (gemma3:4b) for key phrase extraction, and running embedding models (nomic-embed-text, bge-m3, embeddinggemma:300m) to compare similarity across garden content. In both cases Ollama is treated as plumbing rather than the subject of interest. The setup is minimal and practical: install, verify with a version check or a curl request, pull the model you need, and point your script at the local API endpoint.",
+  "open_questions": [],
+  "state_hash": "0e38e28986fa65f2b56df4facc769e4f36f15bd0d4cd4aca735c94386dcf5ce2",
+  "generated_at": "2026-04-24T16:13:12.749449Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Trust",
+  "summary": "Trust, in Maaike's work, refers to the user's confidence that a conversational interface is honest about what it is and what it can do. It is something that has to be actively built through consistent, transparent design choices rather than assumed. A bot coming across as reliably non-human is treated as a feature, not a limitation.",
+  "how_maaike_uses": "Maaike looks at trust through the lens of bot persona consistency. Her observation from chatting with ChatGPT is that every time the system is asked something that edges toward human-human conversation territory, it reliably reminds the user it is not a human. She uses this as evidence that a consistent persona instills trust, and she is explicit that this does not mean the persona has to be human-like. The point is honesty and predictability, not mimicry.",
+  "open_questions": [
+    "Does trust break down differently depending on how human-like a bot's persona is, and where exactly is that threshold?",
+    "If humor emerges as a side effect of consistent character and literal interpretation, does that unintentional quality make it more or less trustworthy to users?"
+  ],
+  "state_hash": "5af3bc8695df01ebb5e245675f5c5ed9d6945ee8100cc5fe60d8d6db4b8d0d14",
+  "generated_at": "2026-04-24T15:39:19.586910Z"
+}

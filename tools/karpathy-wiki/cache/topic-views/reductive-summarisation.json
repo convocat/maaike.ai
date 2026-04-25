@@ -1,0 +1,11 @@
+{
+  "label": "Reductive summarisation",
+  "summary": "Reductive summarisation is the process of condensing an existing text into a shorter form by starting from the full source material and working downward. It contrasts with a constructionist approach, where a summary is built up from key concepts alone. In Maaike's work, the term surfaces specifically when examining where LLMs fall short in the writing process.",
+  "how_maaike_uses": "Maaike uses reductive summarisation as a foil to expose a limitation of LLMs: while humans are skilled at reduction because they apply deep semantic and rhetorical understanding, LLMs struggle with it and tend to fall back on superficial techniques like bullet points when a text doesn't fit the target container. Her practical conclusion is that if you want a good summary from an LLM, it can be more effective to skip the reductive route entirely, extract key concepts first, and let the model build the summary constructively from there.",
+  "open_questions": [
+    "Are there document types or lengths where the reductive approach still outperforms the constructionist one for LLMs?",
+    "What linguistic prompting strategies actually succeed in improving LLM reduction quality, given that Chain of Density didn't hold up for long documents?"
+  ],
+  "state_hash": "3d84de2bf99d7fd0d53f2464f4814952dac57d583a179eaff28dc95f0a6764f0",
+  "generated_at": "2026-04-24T15:55:07.987960Z"
+}

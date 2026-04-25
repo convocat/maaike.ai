@@ -1,0 +1,12 @@
+{
+  "label": "1M context window",
+  "summary": "The 1M context window is a feature of Claude Code (Opus 4.6) that allows an entire content base to be loaded into a single context pass. Maaike uses it specifically for thematic analysis, where all files in the digital garden are read as raw markdown without prior structure, embeddings, or tags. The point is to discover patterns that existing infrastructure cannot surface.",
+  "how_maaike_uses": "Maaike tests the 1M context window as a research tool rather than a productivity shortcut. In Experiment 2, she loads all 244 garden files in one pass and runs two approaches side by side: a fresh reading with no prior structure, and a graph-augmented reading that starts from existing embeddings. The fresh reading finds cross-cutting themes about truth, authenticity, and non-linearity that embeddings structurally cannot detect, because those themes are defined by stance and argument rather than topic. Her conclusion is that the combination is stronger than either alone, but the full-context pass is what does the genuinely new work. She also connects the method itself to a broader question about interaction models: thematic analysis with a large context window might be a better metaphor for human-AI collaboration than conversation.",
+  "open_questions": [
+    "Loading was the actual bottleneck, not context capacity -- tool output limits required chunked reads. Whether this changes with different tooling is left open.",
+    "The fresh reading found themes the embeddings missed, but it is not yet clear how reliably this scales or whether the themes found are stable across repeated runs.",
+    "If 'discover' replaces 'chat' as the verb for human-AI interaction, what does that mean for how conversational interfaces should be designed?"
+  ],
+  "state_hash": "b863130b00c65468eecead205fc52a6c38ca597af49643207fe62d42766dde9b",
+  "generated_at": "2026-04-24T16:09:29.821419Z"
+}

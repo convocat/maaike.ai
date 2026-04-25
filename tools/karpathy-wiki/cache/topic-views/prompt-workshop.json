@@ -1,0 +1,11 @@
+{
+  "label": "Prompt workshop",
+  "summary": "A prompt workshop, in Maaike's work, is a structured interactive session where participants collectively experiment with prompting an AI image generator. The specific instance documented here focuses on de-biasing Dall-e by using conscious and meticulous prompting to surface and study bias. It is framed as both a learning exercise and a practical attempt to produce more representative image outputs.",
+  "how_maaike_uses": "Maaike uses the prompt workshop format as a hands-on extension of her ongoing research into stereotypes in Dall-e. Rather than just writing about bias, she invites her audience to participate directly, treating the prompting process as a way to examine bias in the model and in the participants themselves. The workshop sits downstream of earlier posts on Dall-e stereotypes and is positioned as a next step: moving from observation to active, community-based intervention.",
+  "open_questions": [
+    "Whether conscious prompting can meaningfully reduce bias in outputs or only reveal it more clearly.",
+    "What it means for an image to represent 'the real us', and who gets to define that."
+  ],
+  "state_hash": "b9ab6bd96aecffac2bf961aab135f19db622c1771e9398a611b4821954da02c1",
+  "generated_at": "2026-04-24T15:51:44.432544Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Conversation",
+  "summary": "Conversation, as used in Maaike's work, is understood as a collaborative, precision-timed achievement between parties who each bring intentions, moral commitment, and a stake in the outcome. It is the primary medium of language, not a narrow tool for task completion. This framing draws on N.J. Enfield's work on dialogue to situate conversational AI within what conversation actually demands.",
+  "how_maaike_uses": "Maaike uses the concept of conversation to hold conversational AI interfaces accountable to what conversation genuinely requires. She argues that designing a chat interface invites all the expectations humans bring to real dialogue, including inferring intentions and monitoring moral commitment, and that current large language models like Sydney cannot meet those expectations. They mirror rather than cooperate, and they lack any real stake in the exchange. This lets her push back on Microsoft's surprise that users treated Bing Chat as more than a search tool: if you build a conversational interface, you are implicitly promising conversation.",
+  "open_questions": [
+    "Will humans ever be able to form the same interlocking, cooperative conversational system with a machine that they form with other humans?",
+    "Can a large language model have its own stake in a conversation, or any genuine intention beyond echoing words and conventions?"
+  ],
+  "state_hash": "f4f1b422266eb4fcdbf7ccfeaa74950dfee6964a899aa54308ecbbfd35a45879",
+  "generated_at": "2026-04-24T15:49:56.225418Z"
+}

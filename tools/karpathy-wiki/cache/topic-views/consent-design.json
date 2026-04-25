@@ -1,0 +1,11 @@
+{
+  "label": "Consent design",
+  "summary": "Consent design refers to how products and services present choices around data collection and privacy to users. In Maaike's work it appears as a lens for evaluating whether those choices are transparent and genuinely voluntary, or whether they bundle unrelated features to nudge users into giving up data. ChatGPT is flagged as a violator of this principle.",
+  "how_maaike_uses": "Maaike uses consent design as a critical standard to call out when a product obscures the real cost of a feature. In the ChatGPT case she points to a toggle that must be switched on to access both chat history and the browse feature, but that also silently enables the use of all conversations as training data. The design bundles a useful feature with a data-collection agreement in a way she finds misleading, framing it as a structural pattern rather than an isolated bug.",
+  "open_questions": [
+    "Will OpenAI decouple the browse feature from the training-data toggle, and would that change the consent picture?",
+    "Is this bundling pattern specific to ChatGPT or a wider industry norm worth tracking across other AI products?"
+  ],
+  "state_hash": "029485400a056fb647c30c47e4eef5d4e0e33c0018ae55f33c2a03bf4db5886e",
+  "generated_at": "2026-04-24T15:27:14.088511Z"
+}

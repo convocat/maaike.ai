@@ -1,0 +1,8 @@
+{
+  "label": "Local-first tooling",
+  "summary": "Local-first tooling refers to running models and processing locally, without making API calls to external services. In Maaike's work it appears as a constraint or requirement: specifically, text embeddings for the knowledge garden should run locally. It is a practical prerequisite rather than a topic explored in its own right.",
+  "how_maaike_uses": "Maaike frames local-first tooling as a filter when surveying embedding models for the garden's semantic linking project. The survey of embedding models is explicitly focused on models that run locally without API calls, so local-first is a selection criterion shaping which options are even worth considering.",
+  "open_questions": [],
+  "state_hash": "3b43540850ac05d69382baea4207c0b9559243f05b16f8c719453a50ad6f8e0a",
+  "generated_at": "2026-04-24T16:08:59.666034Z"
+}

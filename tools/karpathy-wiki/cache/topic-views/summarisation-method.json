@@ -1,0 +1,12 @@
+{
+  "label": "Summarisation method",
+  "summary": "A summarisation method is an approach to generating condensed, accurate representations of a body of content. In Maaike's work, the concept is examined through the lens of prompting LLMs, where the assumed starting point of summarisation (a source text) turns out to be less important than expected. Chain of Density is one named instance of a summarisation method she has tested.",
+  "how_maaike_uses": "Maaike uses this concept to question the assumption that summarisation requires a source text to condense. She tested LLM summarisation both with and without a source text, and found the keyword-first (constructionist) approach often produced better results than the traditional reductionist one. Her central observation is that LLMs struggle with reduction tasks because they lack the semantic and rhetorical understanding humans apply naturally, and instead default to superficial techniques like bullet points. She tried Chain of Density but found it does not work well for long documents. The approach that worked best for her was deconstructing the source text into key concepts, short definitions, and concept relationships, then letting the LLM build the summary from those, effectively bypassing the source text altogether.",
+  "open_questions": [
+    "If keyword-first prompting consistently outperforms text-based summarisation for LLMs, what does that imply for the value of including source texts in prompts at all?",
+    "Chain of Density is flagged as not working well for really long documents — is there a method that does scale to that length?",
+    "How much of the keyword extraction step still depends on a human deeply reading and understanding the source text first, and can that step itself be delegated to an LLM?"
+  ],
+  "state_hash": "e71f1d2c6111aaa4f5f975eab923ea4afcbf543f9724ee147e628574f1096474",
+  "generated_at": "2026-04-24T15:55:53.442666Z"
+}

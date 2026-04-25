@@ -1,0 +1,11 @@
+{
+  "label": "User authorship",
+  "summary": "User authorship refers to the expectation that the prompt a user writes is the actual input used to generate an AI output. In Maaike's work, this concept surfaces when that assumption breaks down — specifically when a system silently rewrites the user's prompt before acting on it.",
+  "how_maaike_uses": "Maaike uses the concept to interrogate DALL-E 3's prompt augmentation behaviour, where the system replaces her original text with a longer, editorially altered version before generating an image. She frames this as a violation of user authorship: the user believes they are directing the output, but a hidden intermediary has already changed the instructions. She treats this not as a neutral technical feature but as a site of cultural and ethical contestation, noting that the rewrites introduce stereotypes and add elements she never asked for.",
+  "open_questions": [
+    "Who should have the authority to decide when and how a user's prompt gets rewritten, and on what grounds?",
+    "Does prompt augmentation for diversity goals actually reduce bias, or does it introduce a different set of cultural assumptions?"
+  ],
+  "state_hash": "91a4a33ccfe620089d2419b92160f436ca88a857bd2c5a874325666497ebeb3e",
+  "generated_at": "2026-04-24T15:45:48.142197Z"
+}

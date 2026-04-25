@@ -1,0 +1,10 @@
+{
+  "label": "Situated action",
+  "summary": "Situated action is a concept attributed to Lucy Suchman. In Maaike's work it appears as something LLMs lack, pointing to the absence of grounding in real-world context, sensory experience, and shared sense-making that underpins genuine human interaction.",
+  "how_maaike_uses": "Maaike uses situated action as one of several grounding conditions that human conversation depends on but that LLMs cannot fulfil. Alongside deixis, assumed trust, and implicature, the lack of situated action is part of her argument that calling human-LLM interaction a 'conversation' is a misnomer, because the surface form of chat mimics human exchange without honouring the underlying contract that makes it meaningful.",
+  "open_questions": [
+    "If situated action requires sensory experience and real-world grounding, what would an interaction metaphor look like that honestly accounts for that absence rather than papering over it?"
+  ],
+  "state_hash": "1c482118e732de3cb3bc14499186bd6d70e5ec2ab755d90b88dec094588e4b94",
+  "generated_at": "2026-04-24T15:21:10.683486Z"
+}

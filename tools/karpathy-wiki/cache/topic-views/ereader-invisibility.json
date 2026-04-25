@@ -1,0 +1,11 @@
+{
+  "label": "Ereader invisibility",
+  "summary": "Ereader invisibility refers to the problem of books sitting undetected on an ereader because there is no physical presence to prompt rediscovery. In Maaike's library audit, it showed up as a concrete pattern: multiple books she simply did not know were there. It is one of the 'why stuck' categories she used to label her unread and in-progress books.",
+  "how_maaike_uses": "Maaike identifies ereader invisibility as a real discoverability problem that her book recommender project is partly meant to address. The audit that surfaced this pattern was built specifically to feed calibration data into the recommender, so the invisibility problem is one of the motivating failure modes the whole system is trying to work around. The concept breaks down for a digital garden context because a garden is meant to surface and connect things, which is the opposite of silent accumulation.",
+  "open_questions": [
+    "Whether the interactive labeling tool, if it becomes a library management UI on the garden, would actually solve the rediscovery problem or just replicate it in a different interface.",
+    "Whether ereader invisibility is mainly a structural problem with the device or a symptom of acquiring books without intent, which the 'should read' guilt pattern also hints at."
+  ],
+  "state_hash": "3b8b81c0f6dbc2179a582537ac87eb2acce1805bfd071e1f121ecd941152f231",
+  "generated_at": "2026-04-24T16:21:32.877146Z"
+}

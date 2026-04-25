@@ -1,0 +1,12 @@
+{
+  "label": "serendipity",
+  "summary": "Serendipity, in Maaike's garden, is not a happy accident but an organising principle: a deliberate design goal for how knowledge surfaces and connects. It sits in tension with structure and searchability, and much of the garden's technical work is an attempt to build systems that produce it reliably. The personal web, and digital gardens specifically, are places where serendipity can be designed in rather than left to chance.",
+  "how_maaike_uses": "Maaike returns to serendipity across very different contexts: as a stated goal for how the garden should feel (non-linear, associative, flat rather than hierarchical), as an observed side effect of technical experiments (a scheduled Claude task spotting a Dutch/English tag mismatch that no prompt asked for), and as a design target for specific features like Wander mode on the explore page, the deterministic chatbot guide, and embedding-based link suggestions. The recurring tension is between consistency and serendipity: coded scripts are predictable but blind to the unexpected; natural language prompts are inconsistent but can surface things you never thought to ask for. She also notes that her whole working life already runs on serendipity, and finds it telling that she defaults to rational structure when writing.",
+  "open_questions": [
+    "Who is the garden actually for, and does the answer change how much serendipity should be designed in versus left to the visitor?",
+    "Do embedding-suggested links surface genuinely surprising connections, or just obvious ones you would already make, and what is the right threshold before everything connects to everything?",
+    "Can a deterministic chatbot guide sustain real exploration on its own, or does the garden have to be exceptionally well-connected first?"
+  ],
+  "state_hash": "f7a1ac8248792b8ea1b8a2074b149018e094b520242f38e5766aaae19ba6c817",
+  "generated_at": "2026-04-24T15:25:39.238431Z"
+}

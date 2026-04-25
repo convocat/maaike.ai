@@ -1,0 +1,11 @@
+{
+  "label": "Greenhouse stage",
+  "summary": "The greenhouse stage is a quarantine zone in Maaike's garden lifecycle metaphor where external content lands first, before it has earned a place in the main garden beds. Content here is unverified and raw, and it gets evaluated for relevance, quality, and connection to existing material. It is part of a full lifecycle that also includes garden beds, a compost heap, and soil.",
+  "how_maaike_uses": "Maaike introduced the greenhouse as a practical answer to the question of where discovered external content should go. In the external content discovery project, she uses it to keep incoming material separate from the main collections so it cannot pollute them before being reviewed. The greenhouse connects directly to her thinking about the full recycle loop: content that decays moves to the compost heap, breaks down into soil, and can eventually feed new seeds back in the garden beds. On the explore map, she envisions the greenhouse as a distinct zone at the edge, visually separated from the territories.",
+  "open_questions": [
+    "What criteria determine whether something in the greenhouse actually belongs in the garden beds, and who or what makes that call?",
+    "How should the greenhouse appear on the explore map as a distinct visual zone, and how will that be implemented?"
+  ],
+  "state_hash": "38e40eeffb510c71294e84a62d98bc6d0bf1e217894ae4ea06137a8d768b53bc",
+  "generated_at": "2026-04-24T16:10:03.100698Z"
+}

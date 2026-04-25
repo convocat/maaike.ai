@@ -1,0 +1,11 @@
+{
+  "label": "Token blocking",
+  "summary": "Token blocking is a filtering technique from entity resolution that reduces the number of embedding similarity comparisons by first grouping items on a cheap shared signal, such as tags, and only computing similarity within those groups. The goal is to compare less rather than filter more: instead of computing all possible pairs and discarding noise afterward, you never generate the low-signal pairs in the first place. In Maaike's work this comes up as one of four candidate strategies for making the knowledge graph link suggestions manageable.",
+  "how_maaike_uses": "Maaike introduces token blocking specifically as a way to counter false positives in the candidate link pairs produced by the knowledge graph experiment. The concrete framing is: group garden items by shared tags, then only run cosine similarity within those groups, so that two items tagged `knowledge-graph` get compared but unrelated items never meet in the pipeline at all. This sits alongside per-document normalisation and spectral thresholding as approaches she is evaluating for a garden of 157 items, where the full pairwise set of 12,246 pairs produces too much noise to be useful.",
+  "open_questions": [
+    "The passage cuts off mid-sentence when describing token blocking in practice, so it is unclear what happens to items that share no tags with anything else, or how Maaike plans to handle tag sparsity in the garden.",
+    "It is not stated whether token blocking would be used alone or combined with one of the other three strategies, such as per-document normalisation, to handle the cross-collection pairs that token blocking might still miss."
+  ],
+  "state_hash": "947cd1703d280e1433532f0ade4e98a3fb6a24b5442cfa51a5c038f41fa1ca25",
+  "generated_at": "2026-04-24T16:17:13.228776Z"
+}

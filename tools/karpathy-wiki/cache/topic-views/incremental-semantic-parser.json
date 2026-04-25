@@ -1,0 +1,11 @@
+{
+  "label": "Incremental semantic parser",
+  "summary": "An incremental semantic parser is a type of semantic parsing system that re-evaluates an utterance iteratively rather than waiting for a complete input. It dynamically adjusts a response on the fly by using conversational cues like stammers, rephrases, and disfluencies. The approach relies on graph-based or semantic web technology to make this real-time re-evaluation possible.",
+  "how_maaike_uses": "Maaike encountered incremental semantic parsing as a research direction presented at the European Chatbot and Conversational AI summit, specifically in Angus Addlesee's talk on conversational AI accessibility. She flags it as a mind-blowing concept because it moves beyond static intent-based approaches and instead treats live speech imperfections as meaningful signals. This fits into a broader thread she notices at the conference: a shift towards semantic, graph-based methods as a more naturalistic alternative to intents-only bot design.",
+  "open_questions": [
+    "How production-ready is incremental semantic parsing, and what would it take to move from research to real deployed voicebots?",
+    "How does this approach interact with accessibility needs specifically, given the talk was framed around conversational AI accessibility?"
+  ],
+  "state_hash": "63e93847bd113550ffd6daba80f37aee52be4bbed4aa55248c18f8078f35abf5",
+  "generated_at": "2026-04-24T15:46:06.413575Z"
+}

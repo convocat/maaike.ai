@@ -1,0 +1,11 @@
+{
+  "label": "Quantization",
+  "summary": "Quantization is the process of compressing an AI model so it fits on regular consumer hardware, by simplifying parts of the model. The tradeoff is quality loss, and that loss is not distributed evenly: standard quantization uses English text as the reference point, which means non-English languages take a disproportionate hit. Michiel Buisman's Dutch-calibrated approach to quantizing IBM Granite 4 micro shows that using language-specific calibration data combined with component-level vulnerability mapping can reduce that silent quality degradation.",
+  "how_maaike_uses": "Maaike's interest in quantization is practical and tied to her local setup: the knowledge graph project uses embedding models running locally via Ollama, and those models are quantized. The concern is that Dutch content in the garden may already be getting worse embeddings than English content without anyone noticing. The Dutch-aware quantization work flags a concrete, testable problem and points to the Leesplank corpus as a potential evaluation tool given its semantic clusters and complexity layers.",
+  "open_questions": [
+    "Do the locally running embedding models in the garden actually produce worse results for Dutch content than for English, and how would you test that?",
+    "Could the Dutch-calibrated quantization method described by Buisman be applied to other non-English languages in a transferable way, or does it require language-specific resources like Leesplank each time?"
+  ],
+  "state_hash": "ac21beb7893791f76b15d98ff6e22521dfe63d1ef99844617c155d6605080f69",
+  "generated_at": "2026-04-24T16:19:07.824256Z"
+}

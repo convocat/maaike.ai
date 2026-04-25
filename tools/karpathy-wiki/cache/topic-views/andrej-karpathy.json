@@ -1,0 +1,11 @@
+{
+  "label": "Andrej Karpathy",
+  "summary": "Andrej Karpathy is an AI researcher whose terminology and ideas appear in Maaike's work as useful starting points for critique and reframing. He is credited with the term 'context engineering' and with the LLM Wiki method. His thinking also serves as a concrete example of dialectical reasoning in action.",
+  "how_maaike_uses": "Maaike uses Karpathy as a reference point to push back or build on, rather than simply cite. She takes his framing of context engineering and argues it is better understood as design or information architecture, a practice that predates LLMs entirely. She also uses a tweet of his as a classroom-style example to illustrate dialectical thinking and the importance of precise terminology, turning his output into a prompt for her readers to reflect on their own reasoning habits.",
+  "open_questions": [
+    "If context engineering is really just established information architecture and instructional design, why has it taken practitioners from those fields so long to be invited to the table on AI projects?",
+    "The LLM Wiki method is attributed to Karpathy and Maaike has implemented it, but the passages here give no detail on how that experiment played out or what she concluded from it."
+  ],
+  "state_hash": "ac50899c1d02d223da5feec194b9dff0cb6bd18158bb8427b4cf1c2ef0537dfc",
+  "generated_at": "2026-04-24T15:11:18.513769Z"
+}

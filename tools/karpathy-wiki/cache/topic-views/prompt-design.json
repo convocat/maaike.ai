@@ -1,0 +1,11 @@
+{
+  "label": "Prompt design",
+  "summary": "Prompt design is the deliberate, experiment-driven practice of crafting prompts that are reliable, repeatable, reusable and robust. It contrasts with blind prompting, which is a crude trial-and-error approach with little or no testing. In Maaike's framing it is structured around input-output pairs and requires evaluation methods to verify prompt accuracy.",
+  "how_maaike_uses": "Maaike draws on prompt design primarily to argue that conversation designers already have the core skills it demands: defining expected inputs and outputs, building demonstration sets, and iterating on candidates is directly analogous to labelling intents, cleaning training data, and reading confusion matrices. She also uses prompt design as a lens for examining bias in image generation tools like DALL-E, showing that conscious and meticulous prompting can at least surface and study bias even when it cannot fully eliminate it. A recurring tension in her posts is that DALL-E's own prompt augmentation can undercut the designer's intentions, which she treats as a structural limitation of that tool rather than a failure of prompt design as a discipline.",
+  "open_questions": [
+    "How much control does a prompt designer actually have when the model silently rewrites the prompt before executing it, as DALL-E 3 does with augmentation?",
+    "What does a rigorous LLM evaluation setup look like in practice for prompts that produce open-ended or creative outputs, where correctness is harder to define?"
+  ],
+  "state_hash": "de939c5b00def6ceed66296e880ac838f48640790a1b5147d9cf8a6e746b6268",
+  "generated_at": "2026-04-24T15:29:18.929943Z"
+}

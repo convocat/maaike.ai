@@ -1,0 +1,11 @@
+{
+  "label": "Argument",
+  "summary": "An argument is a logical structure made up of premises, reasoning, and a conclusion. It builds a case in one direction but has no inherent truth or factuality in itself. Crucially, it is distinct from rhetoric, which is language designed to persuade and may only look like an argument without actually being one.",
+  "how_maaike_uses": "Maaike uses the concept of argument as part of a broader vocabulary for thinking about thinking. By pinning down what an argument actually is versus an opinion, a conviction, or a rhetorical construction, she pushes back against the tendency to conflate these things. The point is not academic: she sees sloppy use of these terms as a symptom of the wider human failure to practise dialectical thinking, and frames precise definitions as a prerequisite for reasoning well rather than just performing it.",
+  "open_questions": [
+    "What counts as the 'ground truth' that an argument requires, and who or what gets to establish it?",
+    "If an argument has no inherent truth in itself, what separates a good argument from a bad one beyond logical form?"
+  ],
+  "state_hash": "cd27488c15ad1b19b4c71bec7b6ae048c393174d3bb79be04fcdcfad2d204a9d",
+  "generated_at": "2026-04-24T15:16:35.863960Z"
+}

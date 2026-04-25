@@ -1,0 +1,11 @@
+{
+  "label": "Paul Grice",
+  "summary": "Paul Grice was a philosopher whose work on conversation underpins how humans expect communication to function. His cooperative principle describes the shared assumption that speakers are trying to be helpful, truthful, and relevant. His maxim of quality specifically captures the expectation that a speaker will not say things they believe to be false or unsupported by evidence.",
+  "how_maaike_uses": "Maaike uses Grice to explain why ChatGPT is deceptive by design, not by intent. Because humans are wired to extend the cooperative principle to anything that sounds conversational, they instinctively trust ChatGPT's outputs the same way they would trust a human speaker. ChatGPT cannot actually uphold the maxim of quality since it has no concept of truth, but its conversational fluency triggers the same trust response anyway. Maaike uses this tension to argue that the problem is not just technical but behavioural: we are lazy in conversation by habit, and that habit makes fact-checking a chatbot feel unnatural and unlikely to stick.",
+  "open_questions": [
+    "If Grice's cooperative principle is deeply ingrained, is it even realistic to design interfaces that consistently counteract it, or will users revert to trusting conversational output regardless?",
+    "The post ends mid-sentence on the design challenge — what concrete design responses to this Gricean problem does Maaike actually have in mind?"
+  ],
+  "state_hash": "a6d09ffd293358c8c7217e3a742bbe37855de67fbc5e4839dbc4bdac25db2e77",
+  "generated_at": "2026-04-24T15:11:43.823595Z"
+}

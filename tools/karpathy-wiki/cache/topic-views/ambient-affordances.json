@@ -1,0 +1,11 @@
+{
+  "label": "Ambient affordances",
+  "summary": "Ambient affordances are the informal, environmental cues and opportunities for interaction that people pick up on when physically present in a shared space. In Maaike's work the concept appears in the context of onboarding: things like overhearing conversations, bumping into colleagues at the coffee machine, or reading a room all count as ambient affordances. Remote work removes these cues, leaving new starters in what she calls a black box.",
+  "how_maaike_uses": "Maaike uses the absence of ambient affordances as a way to explain why remote onboarding is harder than onsite onboarding. Because a new remote colleague has no environmental signals to orient themselves socially or culturally, she argues that employers and contractors need to compensate deliberately, for example by over-communicating and by the new person actively scheduling their own informal introductions rather than waiting for them to happen naturally.",
+  "open_questions": [
+    "Are there digital equivalents of ambient affordances that could partially substitute for the physical ones, and if so what would those look like in tools like Slack or Teams?",
+    "The post focuses on onboarding, but the concept could apply to ongoing remote work too. Maaike does not explore whether the deficit persists beyond the first weeks or eventually resolves."
+  ],
+  "state_hash": "bdd45ec926a090b2b00bf3b31f7c0de5d8fdeeccb32638d55613a82e8199da1e",
+  "generated_at": "2026-04-24T15:51:23.281128Z"
+}

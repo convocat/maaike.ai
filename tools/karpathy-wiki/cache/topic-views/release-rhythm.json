@@ -1,0 +1,11 @@
+{
+  "label": "Release rhythm",
+  "summary": "A release rhythm is a self-imposed structure that a solo conversation designer creates to give their work a regular cadence and a sense of deadline. It works by dividing changes into major releases (fixed-deadline, high-risk, or externally dependent) and minor releases (changes you can handle independently). These releases act like buckets you fill over time.",
+  "how_maaike_uses": "Maaike introduces release rhythm as a practical coping tool specifically for the team-of-one situation. Her point is that working alone means there is no external calendar forcing your hand, so you have to manufacture that pressure yourself. The major/minor split is her way of making that structure feel manageable rather than arbitrary, because it maps to real differences in risk and dependency rather than just arbitrary time boxes.",
+  "open_questions": [
+    "What cadence actually works well for minor releases when you have no external forcing function to keep you honest?",
+    "How does the release rhythm interact with the design-process-for-1 she mentions, and should they be designed together from the start?"
+  ],
+  "state_hash": "6944234ca66767514b97917aa8836fdbb9fc0a74aaba08a4c164a6953ba4499c",
+  "generated_at": "2026-04-24T15:59:34.560324Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Grice's maxim of quality",
+  "summary": "Grice's maxim of quality is one of Paul Grice's cooperative principles, which holds that speakers try to be truthful and avoid saying things they believe to be false or unsupported by evidence. It describes a background assumption that makes ordinary conversation function: we generally don't fact-check each other because we operate on the premise that our interlocutors care about truth. LLMs violate this maxim because they have no capacity to care about truth at all.",
+  "how_maaike_uses": "Maaike uses the maxim of quality to explain why ChatGPT's conversational fluency is not just a quirk but a genuine design problem. Because the maxim is a deeply ingrained conversational norm, people naturally extend it to interactions with LLMs, trusting the output as they would trust a human speaker. Combined with the natural human tendency to optimise for low-effort communication, this makes fact-checking AI output feel unnatural and unlikely in practice. The maxim thus frames her central concern: LLMs produce output in a format that has evolved to signal trustworthiness, while being structurally indifferent to truth.",
+  "open_questions": [
+    "If users cannot realistically be expected to fact-check conversational AI, what design interventions could compensate for the violated maxim of quality?",
+    "The post ends on a call to design for concern and care about truth, but leaves open what that design actually looks like."
+  ],
+  "state_hash": "190933eaedde5be1ae7b79ca3191f7384a2e78d95772d2c234a12dbf4775e2ca",
+  "generated_at": "2026-04-24T15:18:29.269627Z"
+}

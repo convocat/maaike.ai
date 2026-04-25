@@ -1,0 +1,12 @@
+{
+  "label": "Garden tending",
+  "summary": "Garden tending refers to the maintenance work a digital garden requires: refactoring templates, filling metadata gaps, and keeping the structure clean and consistent. In Maaike's usage it carries a tension, because this tidying work competes directly with the time and attention she would rather spend writing and thinking. It is the practical cost of running an AI-assisted knowledge space.",
+  "how_maaike_uses": "Maaike frames garden tending as something that pulls against writing-as-craft rather than supporting it. When she notices inconsistencies, her instinct is to fix them, and she ends up turning to Claude Code to do the weeding instead of sitting with her own thoughts. The irony she points to is that the tending is largely undoing or managing the sprawl that AI-assisted idea generation created in the first place. She also connects it to her physical garden, where planted ideas get left unchecked in the same way.",
+  "open_questions": [
+    "How much chaos should be allowed to coexist versus being pruned away, and which model of a garden (the ordered English garden versus the vast and overwhelming sublime) actually fits what she wants this space to be?",
+    "How does she stop herself from generating more content and ideas than she can meaningfully tend, and whether that is even a problem worth solving?",
+    "Why the same constant brainstorm that feels fine inside her head feels chaotic when externalised on the page."
+  ],
+  "state_hash": "fb2abb0ae0a879cfeba2d99a0d2dc2b8512035a285c2324ed4280a39d8695213",
+  "generated_at": "2026-04-24T16:21:00.892146Z"
+}

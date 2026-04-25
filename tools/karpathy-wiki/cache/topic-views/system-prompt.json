@@ -1,0 +1,11 @@
+{
+  "label": "System prompt",
+  "summary": "A system prompt is an instance of context design: a structured container of semantically organised information that shapes how an LLM performs a task. Maaike treats it not as a simple instruction string but as an information architecture problem, where the quality of building blocks and their arrangement determines the quality of the output. It can also function as a design lever for generating meaningful friction, deliberately constraining LLM behaviour rather than just directing it.",
+  "how_maaike_uses": "Maaike uses the system prompt as the primary site where context design principles play out in practice. She teaches students to structure system prompts the way a good recipe is structured: with clearly labelled semantic blocks covering prerequisites, concepts, checks, cautions and factual grounding, not just instructions. In her research project on designing for doubt, she is also exploring whether system prompts can be used to introduce deliberate silence and constraint into LLM interaction models, pushing against the default tendency of LLMs to always fill and complete.",
+  "open_questions": [
+    "Can a system prompt reliably encode something like negative space or silence, or does the LLM's training to fill and complete always override that design intent?",
+    "Where is the boundary between context design as information architecture for humans and context design for LLMs, and does that boundary actually matter in practice?"
+  ],
+  "state_hash": "60a799c9e66d7d6c4af89b5659fd95664ab546f37bd3bde31114440256c67454",
+  "generated_at": "2026-04-24T15:14:12.620824Z"
+}

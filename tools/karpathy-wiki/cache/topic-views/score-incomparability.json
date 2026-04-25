@@ -1,0 +1,11 @@
+{
+  "label": "Score incomparability",
+  "summary": "Score incomparability is the problem that cosine similarity scores from text embeddings cannot be straightforwardly compared across different pairs of documents. A score of 0.56 means something different depending on which documents are being compared and how well-connected each one is. This makes a single global threshold a poor tool for deciding which candidate links are worth surfacing.",
+  "how_maaike_uses": "Maaike runs into score incomparability as a concrete obstacle in her knowledge graph experiment. She finds that same-collection pairs (article to article, book to book) and cross-collection pairs (article to book, seed to video) have different score distributions, which means any fixed threshold is simultaneously too permissive in one direction and too strict in the other. She uses this observation to motivate looking at alternatives like per-document z-score normalization and spectral thresholding, both of which reframe the question away from a raw score cutoff and toward what is unusually high for a given document or graph.",
+  "open_questions": [
+    "Whether per-document normalization alone is enough to surface genuinely surprising cross-collection connections without reintroducing too much noise.",
+    "Whether spectral thresholding, which requires no labeled data, would find a natural cutoff that aligns with what Maaike actually finds interesting when reviewing pairs manually."
+  ],
+  "state_hash": "4a6e899cf4f7bd37db6c56772feafe1858a992092905de23526b1b60f839c00e",
+  "generated_at": "2026-04-24T16:17:35.396375Z"
+}

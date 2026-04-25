@@ -1,0 +1,11 @@
+{
+  "label": "Misinformation",
+  "summary": "Misinformation, in Maaike's work, refers to inaccurate, outdated, or misleading information that spreads during crises, compounded by a flood of unverified chatbots that people have no reliable way to evaluate. It is not just about deliberate scams but also about well-intentioned content that gets distorted through interpretation, summarisation, or lack of maintenance. The risk is structural: more bots do not mean more clarity, they mean more noise.",
+  "how_maaike_uses": "Maaike uses misinformation as a concrete argument against the impulse to build more chatbots during a crisis. Her angle is that unverified chatbots actively contribute to the problem because they lack the content strategy, source ownership, and maintenance processes needed to keep information accurate and timely. She points to official government bodies as the right owners of crisis communication, and frames responsible bot-building practices, such as sourcing information automatically from trusted sources, dating responses, and avoiding interpretive paraphrase, as the minimum bar for not making things worse.",
+  "open_questions": [
+    "How should users evaluate which chatbot provides reliable information when dozens of bots cover the same topic with no clear quality signals?",
+    "At what point, if any, does a community-built chatbot become trustworthy enough to complement official channels rather than undermine them?"
+  ],
+  "state_hash": "e1e4214079882c45578d058d9aa5db3f3436bf6713e80e94a7b0c568bfcd0f0e",
+  "generated_at": "2026-04-24T15:44:47.381923Z"
+}

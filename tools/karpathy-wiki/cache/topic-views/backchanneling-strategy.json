@@ -1,0 +1,11 @@
+{
+  "label": "Backchanneling strategy",
+  "summary": "Backchanneling strategy is the deliberate design of cues a bot uses to acknowledge and encourage a speaker without taking over the conversational turn. It draws on linguist Victor Yngve's idea that conversation runs on two channels simultaneously: the front channel for the person speaking, and the back channel for the listener to signal attention, agreement, or emotion. For voice bots and conversation designers, having an explicit backchanneling strategy means deciding which vocabulary and cue types the bot uses to keep people engaged.",
+  "how_maaike_uses": "Maaike introduces backchanneling as a practical tool for conversation designers who want their voice bots to sound more speech-like. She breaks down the four cue types from Lee and Lee's research (basic interjection, linguistic response, emotive interjection, and repetition) and groups them into recognition cues and continuers, then frames this taxonomy as directly actionable: designers can add recognition cues for immediate conversational texture and build a continuer strategy that specifies when the bot drives the conversation forward versus when it doubles down on acknowledgement. She is also careful to draw a clean line between backchanneling cues (listener tools, back channel) and discourse markers (speaker tools, front channel), since they can look superficially similar.",
+  "open_questions": [
+    "The post gestures at designing a continuer strategy but does not spell out concrete decision rules for when a bot should drive the conversation versus hold back — that practical framework is left open.",
+    "It is unclear how backchanneling strategy should be adapted when the bot is the one speaking rather than listening, since the post focuses mainly on the bot-as-listener scenario."
+  ],
+  "state_hash": "565b271366afdd95c18b7bb9e59b4dbea6e2e6a1f1e304812822132f783a4d79",
+  "generated_at": "2026-04-24T16:04:37.432748Z"
+}

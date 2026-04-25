@@ -1,0 +1,11 @@
+{
+  "label": "Apple picking",
+  "summary": "Apple picking is a user behaviour identified by Nielsen and Norman in a study on early generative AI interactions. It describes the pattern where a user wants to reuse previously generated content, either as context for a new prompt or as the actual text to be changed, in order to produce a new iteration. The linear structure of conversational interfaces makes this non-linear task particularly cumbersome.",
+  "how_maaike_uses": "Maaike introduces apple picking as part of her broader critique of writing with AI tools like Jasper.ai and ChatGPT. She uses it to name and validate the frustrating review-regenerate-repeat loop she experienced herself on a Sunday afternoon writing session. Her specific angle is that conversational interfaces are structurally ill-suited to non-linear tasks like writing and editing, and the apple picking behaviour is evidence of that mismatch rather than a quirk of individual users.",
+  "open_questions": [
+    "The passage is cut off mid-sentence when describing the scrolling problem in conversational interfaces, so the full extent of the limitation as Maaike sees it is not fully captured.",
+    "It is not clear from the material whether Maaike thinks the articulation barrier is solvable within conversational interfaces, or whether it points to a more fundamental problem with the format."
+  ],
+  "state_hash": "f6d6472c74e2aed29285526554e1ab48bf747df70496316fb2978e19a015694d",
+  "generated_at": "2026-04-24T15:21:30.750609Z"
+}

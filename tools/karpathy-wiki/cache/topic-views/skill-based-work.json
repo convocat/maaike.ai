@@ -1,0 +1,12 @@
+{
+  "label": "Skill-based work",
+  "summary": "Skill-based work is a way of organising contribution around what someone can actually do, rather than around the role they hold on paper. In Maaike's work it emerges as a practical alternative to siloed, role-defined collaboration, made newly reachable because tools like Claude Code lower the threshold for acting outside your formal lane. It sits in direct contrast to role-based collaboration, where formal sign-offs and fixed deliverables mediate between people and the shared product.",
+  "how_maaike_uses": "Maaike arrives at skill-based work through lived necessity: in a team of three, there is no time for the traditional artefacts that roles usually produce, so contribution collapses into the shortest path to value. She uses Claude Code as the concrete enabler of this shift, pointing to her first real merge request and her ability to do UX copy review directly in the codebase as evidence that the role boundary was never about capability, only about process. She is careful to note the downsides too: when devs accept her changes without review, the learning effect and the second pair of eyes are both lost. Her broader argument is that GenAI creates a mediating ecosystem where people can contribute directly from their actual expertise, and that this could mark a paradigm shift from hierarchical role structures to dynamic skill configurations with joint ownership.",
+  "open_questions": [
+    "How do teams preserve the learning and review benefits of role handoffs when skill-based contribution makes it too easy to just accept changes without scrutiny?",
+    "Where does the boundary sit between acting from genuine expertise and overstepping into territory where you lack the depth to catch your own mistakes?",
+    "What governance or decision-making structures are needed to make joint ownership of a shared codebase work sustainably in a tiny team?"
+  ],
+  "state_hash": "9b9c5e49dd6defcd5c7748d91bf24e93a1e28ed0d9c7d763fce183f54622e6d2",
+  "generated_at": "2026-04-24T15:24:38.946353Z"
+}

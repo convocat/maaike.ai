@@ -1,0 +1,11 @@
+{
+  "label": "Cognitive outsourcing",
+  "summary": "Cognitive outsourcing refers to the practice of delegating thinking tasks to tools, particularly generative AI, rather than doing the cognitive work yourself. In Maaike's work it is treated as a real risk that comes with AI-assisted research and writing. The concern is not about the tools themselves but about what happens to human thinking when we rely on them too heavily.",
+  "how_maaike_uses": "Maaike uses cognitive outsourcing as a diagnostic concept to pinpoint what goes wrong when people use AI to skip the hard parts of learning. Her angle is that academic metrics can reinforce this behaviour by rewarding outputs over process, which makes cognitive laziness easier to justify. The deeper worry is that outsourcing thinking to AI risks eroding metacognition, the ability to reflect on and regulate your own thought, which is hard to rebuild once it atrophies.",
+  "open_questions": [
+    "How do you draw a practical line between legitimate AI-assisted acceleration of research and the kind of outsourcing that undermines independent thinking?",
+    "Can academic institutions change their metrics in ways that actually discourage cognitive outsourcing, or do structural incentives make that unlikely?"
+  ],
+  "state_hash": "36bf4c8b262bae07dc8ca95b98b95e2044adbd8239f357988b79c9d847a0c235",
+  "generated_at": "2026-04-24T16:26:27.371495Z"
+}

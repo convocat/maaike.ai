@@ -1,0 +1,11 @@
+{
+  "label": "Software lifecycle",
+  "summary": "Software lifecycle refers to the cycle of developing, testing and deploying software features, which in scrum contexts is typically mapped to a two-week sprint. In Maaike's work it appears mainly as a reference point for what scrum was originally designed around. The two-week sprint fits the software lifecycle but does not automatically transfer to other kinds of work.",
+  "how_maaike_uses": "Maaike uses the software lifecycle as a contrast case when arguing that conversational and content teams should not blindly copy IT scrum conventions. Her point is that the two-week sprint is a reasonable fit for building software features, but content creation and publication have their own natural rhythms that may differ significantly, and organisations that copy the model without questioning it risk creating artificial deadlines that serve no real purpose.",
+  "open_questions": [
+    "What sprint length would actually fit a conversational team's content cycle, and how would you measure that empirically?",
+    "How does Agile, as distinct from scrum, apply to teams whose work cycle does not resemble software development?"
+  ],
+  "state_hash": "640c8ae0ef7825ae84a98d8dfb669a203f8a6ac37c58957ce77f170fe913cdf5",
+  "generated_at": "2026-04-24T15:30:46.343419Z"
+}

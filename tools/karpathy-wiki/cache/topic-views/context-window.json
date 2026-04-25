@@ -1,0 +1,11 @@
+{
+  "label": "Context window",
+  "summary": "A context window is the space an LLM uses to hold information for a given task. In Maaike's work it appears in two ways: as something that can be deliberately filled with structured, semantic information to improve prompt outcomes, and as something that image generation tools like DALL-E 3 notably lack, making each image request a one-shot task with no continuity between prompts.",
+  "how_maaike_uses": "Maaike treats the context window as a design space rather than a technical parameter. On the language model side, she argues that filling it well means applying structured, semantically labelled information types — the same discipline that information architects and technical authors have used for humans for years. On the image generation side, she uses DALL-E 3's lack of a context window as a concrete, practical limitation to explain to users why they cannot iteratively refine an image the way they might refine a text conversation: every prompt starts from scratch, which makes detailed parameter control unreliable.",
+  "open_questions": [
+    "If context windows can be filled with semantic information types, what principles should govern which types to include and in what order?",
+    "DALL-E 3 lacks a context window for images — is that a fundamental constraint of image generation models, or something that will change?"
+  ],
+  "state_hash": "16898cbd7262e8f6549dbf92c0551b63e560962c7a3a01a8768a783905a1f4a3",
+  "generated_at": "2026-04-24T15:14:01.924918Z"
+}

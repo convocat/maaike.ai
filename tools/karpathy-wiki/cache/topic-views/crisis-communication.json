@@ -1,0 +1,11 @@
+{
+  "label": "Crisis communication",
+  "summary": "Crisis communication, in Maaike's work, refers to the challenge of getting accurate, timely and reliable information to the public during a fast-moving crisis. It requires a solid content strategy, clear ownership of source material, and sustained maintenance. Official bodies are better positioned to lead this than ad-hoc community efforts.",
+  "how_maaike_uses": "Maaike uses the Corona chatbot wave as a case study to argue that more bots do not equal better crisis communication. Her specific angle is that the conversational design community should subordinate itself to official bodies rather than adding to the noise, because those bodies already have the content strategy, source ownership, accuracy checks and maintenance processes that crisis communication demands. For those who do build anyway, she offers practical grounding rules: stay close to source text, date and attribute information, avoid duplicating existing efforts, and pick use cases that are less information-critical so the highest-stakes communication stays with those who can maintain it properly.",
+  "open_questions": [
+    "What does a successful collaboration between the conversational design community and official government bodies actually look like in practice?",
+    "How should users be helped to identify which chatbot provides reliable information when many competing bots already exist?"
+  ],
+  "state_hash": "b18d0df0f22bd02a9361ff821ad8911e34727908a0e87f0ac90f76b123fe9a81",
+  "generated_at": "2026-04-24T15:43:42.248988Z"
+}

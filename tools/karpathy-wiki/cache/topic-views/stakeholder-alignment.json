@@ -1,0 +1,11 @@
+{
+  "label": "Stakeholder alignment",
+  "summary": "Stakeholder alignment is the ongoing work of identifying who your stakeholders are, understanding their expectations, and managing any conflicting interests before and during a project. In Maaike's work it shows up as a prerequisite for both content quality and conversation design. Without it, even technically solid work can miss the mark because the people who matter haven't been heard or managed well.",
+  "how_maaike_uses": "Maaike treats stakeholder alignment as practical and procedural rather than abstract. In her content quality audit she frames it as a concrete checklist item: know who your stakeholders are, what quality trade-offs they can live with, and be transparent about what choices mean in practice. In the Convoclub data it surfaces as one of the top five challenges conversation designers face, specifically the difficulty of communicating the value of conversation design and getting buy-in from tech-heavy teams and leadership. So across both posts she positions stakeholder alignment as something you actively work at, not something that just happens.",
+  "open_questions": [
+    "The Convoclub post notes that conversation designers don't always feel successful at stakeholder alignment, but doesn't resolve what actually works beyond spending time educating leaders and clients. What concrete approaches close that gap?",
+    "The content quality audit raises the question of what to do when feedback comes from someone who may not be qualified or placed in a role for the wrong reasons, but the passage cuts off before that thread is fully resolved."
+  ],
+  "state_hash": "7b81bdf6bcfc8a1ea93518459f7778c5014368b3ee7d39d83a12331386b525e4",
+  "generated_at": "2026-04-24T15:37:13.732930Z"
+}

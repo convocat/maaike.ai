@@ -1,0 +1,8 @@
+{
+  "label": "Lucy Suchman",
+  "summary": "Lucy Suchman is credited with the concept of situated action. In Maaike's work, this attribution appears in the context of questioning whether conversation is still a useful metaphor for human-machine interaction.",
+  "how_maaike_uses": "Maaike references Suchman's situated action as a theoretical touchstone when examining how interaction metaphors for GenAI interfaces hold up. The broader argument is that conversation as a metaphor smuggles in assumptions about human-human exchange that don't apply to machine interaction, and situated action seems to inform that scepticism about treating AI chat as equivalent to genuine human conversational grounding.",
+  "open_questions": [],
+  "state_hash": "35a72ac9491ffea5aff52c1fbeda9213638aa436a626a16ab31af8315b22869c",
+  "generated_at": "2026-04-24T15:12:43.843201Z"
+}

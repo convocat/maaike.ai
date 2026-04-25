@@ -1,0 +1,12 @@
+{
+  "label": "Key phrase extraction",
+  "summary": "Key phrase extraction is the process of pulling specific, human-readable concepts out of a text, sitting between coarse tags and opaque embeddings in terms of granularity. In Maaike's garden architecture it serves as step 1 in the knowledge graph pipeline: before computing embedding similarity across hundreds of item pairs, key phrases provide cheap, interpretable signals about what each item is actually about. Approaches range from purely statistical methods like YAKE to LLM-based prompting via Ollama.",
+  "how_maaike_uses": "Maaike uses key phrase extraction primarily to make the knowledge graph both buildable and legible: phrases block items by shared concepts (reducing expensive pairwise comparisons), label why two items are linked (not just that they score 0.63 similar), and feed into extended triples for graph reasoning. She ran gemma3:4b via Ollama on 92 garden items and confirmed the main practical risk in practice: short texts under roughly 50 words cause the model to hallucinate filler phrases to meet the fixed quota of 8. She also contrasts LLM-based extraction with YAKE in a prototype, and notes that the high specificity of LLM-generated phrases is a double-edged quality -- good for describing individual items, but it reduces exact-match overlap and means phrase co-occurrence alone won't build the graph. Key phrases are therefore always paired with embeddings, not used as a standalone signal. Gap detection for external content discovery also depends on key phrase coverage reaching above 80% across the garden before it can work reliably.",
+  "open_questions": [
+    "A normalization step (lowercase, singularize, containment checks) is flagged as needed before phrases feed into the graph, but it hasn't been implemented yet.",
+    "Key phrase coverage sits at 44% of garden items; getting it above 80% is a stated prerequisite for external content discovery, with no clear path described for thin items like videos and books without summaries.",
+    "The short-text problem is confirmed but unsolved: no alternative approach for items under ~50 words is proposed."
+  ],
+  "state_hash": "d6fc7d2266b6a5a73f39dd11d0c3377ad7eac2d6199f2e65eb02d717241792b1",
+  "generated_at": "2026-04-24T16:08:45.989756Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Metacognition",
+  "summary": "Metacognition, in Maaike's work, refers to the capacity to think about your own thinking: noticing your process, reflecting on it, and making it visible. It shows up across different contexts, from writing and research methods to tooling and digital gardening. The recurring concern is whether that capacity holds up when cognitive work gets delegated to machines.",
+  "how_maaike_uses": "Maaike approaches metacognition less as an abstract concept and more as something that either happens or gets eroded in practice. Her digital garden is itself a metacognitive space: publishing incomplete thoughts, tracking how ideas grow, and naming where you are in a process rather than pretending you are done. Writing-as-craft functions the same way, as a conversation with herself that catches thinking in motion. Thematic analysis as an interaction model extends this, framing human-AI collaboration as a directed research process where the human steers and reflects rather than just chats. Claude Code also shows up here: she explicitly asks it to keep a learning doc so she learns on the go, which is a deliberate metacognitive move. The shadow side is cognitive outsourcing: if AI tools do the hard thinking work, the risk is that independent thinking and the skills that come from effortful learning do not develop. Metacognition is also flagged as something GenAI fits better than the conversation metaphor does, which suggests she sees reflective, directed inquiry as a more honest frame for what is actually happening in human-AI interaction.",
+  "open_questions": [
+    "What does it actually look like to design AI interaction in a way that supports rather than undermines metacognition?",
+    "If thematic analysis and 'discover' are better verbs than 'chat' for human-AI interaction, what does an interface built around that look like?",
+    "Where is the line between productive cognitive offloading and the kind of outsourcing that quietly hollows out independent thinking?"
+  ],
+  "state_hash": "3829e66b25fcddc8af8d6399ac0d2debefda1eda363bbaa3bf66c5fe835a91ec",
+  "generated_at": "2026-04-24T15:20:39.474906Z"
+}

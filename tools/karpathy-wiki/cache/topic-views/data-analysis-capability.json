@@ -1,0 +1,11 @@
+{
+  "label": "Data analysis capability",
+  "summary": "Data analysis capability refers to the ability to handle large volumes of conversational data, clean it, classify it, and extract meaningful insights from it in a structured and repeatable way. In conversation design, this often shows up as tasks like labelling false positives, identifying conversational topics, and making sense of what customers are actually doing in a CUI. It is one of the specialisations Maaike sees emerging as the conversational AI field matures.",
+  "how_maaike_uses": "Maaike points to data analysis as one of the strongest practical arguments for conversation designers learning at least some coding. She is direct about the frustration of manual data work in Excel and sees coding as a way to move past that towards something more efficient and repeatable. At the same time, she stresses that understanding the basic principles matters more than just outsourcing the work to commercial clustering tools, because human language has intricacies that pure automation tends to flatten out.",
+  "open_questions": [
+    "As more commercial platforms emerge that can cluster and classify conversational data automatically, does a conversation designer still need to understand the underlying text analysis principles, or is familiarity with the tools enough?",
+    "If data analysis is becoming its own specialisation within conversation design, where does the boundary sit between what a generalist conversation designer needs to know and what belongs to a dedicated data specialist?"
+  ],
+  "state_hash": "de34d17b2f5a1a002bfc66a6e3b2b6db29e78e911495476d7b96bd28cce62b56",
+  "generated_at": "2026-04-24T15:42:54.752803Z"
+}

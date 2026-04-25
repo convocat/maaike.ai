@@ -1,0 +1,11 @@
+{
+  "label": "ChatGPT browse feature",
+  "summary": "The ChatGPT browse feature is a capability that allows users to search the internet through ChatGPT rather than a traditional search engine. To use it, users must enable a toggle that also permits OpenAI to collect their conversation data as training material. At the time Maaike tested it, the browsing experience itself was poor.",
+  "how_maaike_uses": "Maaike uses the browse feature as a case study in how OpenAI bundles desirable functionality with data collection consent. She points out that activating the toggle is required not just for browsing but also for chat history access, making the trade-off less visible than it might appear. Her angle is sceptical: what looks like a useful grounding tool turns out to be, in her reading, primarily a mechanism for harvesting more user data, especially as browsing behaviour could represent a significant new data source.",
+  "open_questions": [
+    "Does the browse experience improve enough over time to make the data consent trade-off worth it?",
+    "Are there ways to use the browse feature without consenting to training data collection?"
+  ],
+  "state_hash": "8329f03b2a667714123273bc1bb2366ae2d343791aab50c12bbc13716bdaf0f3",
+  "generated_at": "2026-04-24T15:38:24.794245Z"
+}

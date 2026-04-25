@@ -1,0 +1,11 @@
+{
+  "label": "Slot filling",
+  "summary": "Slot filling is a conversation design technique for collecting specific pieces of information from a user during a dialogue, such as pizza size, toppings, and quantity. It is a well-established pattern in traditional bot building, where each required piece of data is tracked and filled in as the conversation progresses. Maaike uses it as a benchmark test when evaluating new conversational platforms.",
+  "how_maaike_uses": "Maaike treats slot filling as her 'hello world' stress test for conversational platforms, using a Pizza Bot scenario to push systems to track multiple variables at once, including number of pizzas, toppings per pizza, and inventory constraints. In her ChatGPT experiment, she found that ChatGPT handled the slot-filling logic entirely in natural language, without any formal flow building or code, and did so in ways that a traditional bot would struggle with out of the box, such as generalising a missing topping across the whole order rather than flagging it per pizza. She is genuinely impressed by the flexibility this offers for quickly prototyping complex conditional logic, while still noting that probabilistic output means consistency and factual accuracy cannot be guaranteed.",
+  "open_questions": [
+    "How reliable is ChatGPT's slot-filling behaviour across multiple sessions, given that its probabilistic nature means consistency is not guaranteed?",
+    "Can the natural-language slot-filling patterns demonstrated here be reliably extracted and incorporated into traditional conversational applications, as Maaike speculatively suggests?"
+  ],
+  "state_hash": "112617f5d9901428a15b1da9d7327a5ba5e6a3212c0876d18929073e989ea167",
+  "generated_at": "2026-04-24T15:33:55.844710Z"
+}

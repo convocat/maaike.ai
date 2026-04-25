@@ -1,0 +1,8 @@
+{
+  "label": "Wiki-links",
+  "summary": "Wiki-links are manual, author-placed connections between posts in the garden. They represent deliberate, intentional references: the author chose to connect these two things. In Maaike's garden they form one of three distinct connection layers, alongside typed structural relations and algorithmically discovered semantic similarities.",
+  "how_maaike_uses": "Maaike treats wiki-links as 'laid paths' — connections placed on purpose, answering the question 'what is this post deliberately connected to?' She contrasts them with typed relations like 'develops', which carry explicit structural semantics rather than just topic associations, and with embedding-based connections, which emerge without anyone planning them. Wiki-links sit in the middle: intentional but untyped, useful for referencing without implying a structural relationship. They are listed as a core feature she plans to cover in a comprehensive guide to building the garden.",
+  "open_questions": [],
+  "state_hash": "cdaa14894af8db9095ba4de18eef8bf104496565036ca1dc25549ac6316ae1e7",
+  "generated_at": "2026-04-24T16:12:18.181000Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Project Glasswing",
+  "summary": "Project Glasswing is an Anthropic initiative to improve the security of critical open-source software using AI. It sits in the broader conversation about AI risks, positioned as a response to vulnerabilities in software that underpins the AI era. Maaike treats it as a signal worth paying attention to.",
+  "how_maaike_uses": "Maaike uses Project Glasswing as a counterpoint to the AI slop discourse. Her take is that fixating on AI-generated low-quality content may be a distraction from more serious structural risks — the security of critical software being one of them. She flags Glasswing as 'worrying AF', suggesting she reads it less as reassurance and more as confirmation that the underlying threat landscape is severe.",
+  "open_questions": [
+    "If AI slop is 'the least of our worries', what does Maaike see as the more serious threats beyond software security vulnerabilities?",
+    "Does Glasswing actually counter AI slop in a meaningful way, or is the connection more about competing for attention in the AI risk conversation?"
+  ],
+  "state_hash": "a0d7d09a0a826ad15c1e54d599b85267b44b6c309f0ff60f53508d8bb9f513aa",
+  "generated_at": "2026-04-24T16:23:14.341325Z"
+}

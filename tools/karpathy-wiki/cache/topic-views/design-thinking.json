@@ -1,0 +1,11 @@
+{
+  "label": "Design thinking",
+  "summary": "Design thinking here refers to the practice and process designers use to make sense of complex systems and problems. In Maaike's work it appears specifically in the context of working with AI and machine learning, where the conceptual tools designers reach for — particularly metaphors — shape what they can and cannot understand. The concern is not design thinking in the abstract but how it holds up when the underlying system is opaque or unfamiliar.",
+  "how_maaike_uses": "Maaike connects design thinking to the question of how metaphors for machine learning are chosen and used. The argument is that design thinking requires carefully chosen metaphors when AI is involved — not just any framing will do, because some common metaphors actively mislead. This comes from a DRS 2022 paper she references that looks at both the failure modes of existing metaphors and what qualities make a metaphor genuinely useful for designers working with these systems.",
+  "open_questions": [
+    "What specific qualities make a metaphor genuinely useful for design thinking with AI, versus misleading?",
+    "Which common metaphors for machine learning are identified as problematic, and in what ways do they mislead?"
+  ],
+  "state_hash": "08f82160045c9cdf73833398742c76df0e082b7d87e0127d915fa52a213c9c38",
+  "generated_at": "2026-04-24T15:32:06.873052Z"
+}

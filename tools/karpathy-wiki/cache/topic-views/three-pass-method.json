@@ -1,0 +1,11 @@
+{
+  "label": "Three-pass method",
+  "summary": "The three-pass method is a structured reading and extraction workflow that combines thematic analysis with TAO topic mapping. It runs in a zoom-out / zoom-in / zoom-out rhythm: a wide thematic read first, then close entity and relationship extraction, then a final coherence check against the original argument. It is the structural backbone of the Thematic TAO method.",
+  "how_maaike_uses": "Maaike developed the three-pass method to resolve a tension she hit when building the concept graph for her garden: thematic analysis surfaces emergent themes but lacks consistent structure, while TAO extraction gives typed triples but can technically misrepresent what a post actually argues if done without a prior gestalt read. She now uses the method to drive the /auto-tag process, which enriches garden posts and updates the concept graph by treating each post as an occurrence of the topics it discusses and the associations it contributes.",
+  "open_questions": [
+    "The post notes the graph 'grows better' but the sentence is unfinished — it's unclear what the intended claim about graph quality actually is.",
+    "The method is described as still being developed, so it's an open question whether the coherence check pass is sufficient to catch all cases where extracted triples reconstruct a different argument than the one the text makes."
+  ],
+  "state_hash": "01d08c744d93aedd980ee97ff9bae309c0fe4ae691e27cba1d8d7dc1e8b1dea9",
+  "generated_at": "2026-04-24T16:15:58.001493Z"
+}

@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wiki v6 — Chat-primary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg: #FCFCFB;
+  --color-bg-card: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-heading: #111111;
+  /* Sage-olive — primary accent for links, active states, focus, citations */
+  --color-accent: #5A7A4D;
+  --color-accent-hover: #456039;
+  /* Hot pink reserved for "featured"/"complete" only, not links */
+  --color-accent-2: #D6006C;
+  --color-border: #E5E5E5;
+  --rule-soft: #EFEFEF;
+  /* Citation chips — dedicated blue so they read as system, not content */
+  --cit-topic-bg: color-mix(in oklab, #5B7FB8 18%, transparent);
+  --cit-topic-ink: #3B5A8A;
+  --cit-source-bg: color-mix(in oklab, #5B7FB8 12%, transparent);
+  --cit-source-ink: #5A6E88;
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); height: 100vh; overflow: hidden; }
+button, input, textarea { font-family: inherit; }
+
+/* Topbar */
+#topbar { height: 54px; padding: 0 1.25rem; display: flex; align-items: center; gap: 0.9rem; border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
+.brand-wrap { display: flex; align-items: center; gap: 0.6rem; cursor: pointer; }
+.brand-leaf { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+.brand { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 500; color: var(--color-heading); font-style: italic; letter-spacing: -0.01em; }
+.brand-wrap:hover .brand { color: var(--color-accent); }
+.icon-btn { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; background: none; border: 1px solid var(--color-border); border-radius: 0.4rem; cursor: pointer; color: var(--color-text-muted); }
+.icon-btn:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.icon-btn svg { width: 18px; height: 18px; }
+.topbar-search { flex: 1; max-width: 340px; padding: 0.42rem 0.7rem; border: 1px solid var(--color-border); border-radius: 0.4rem; background: white; font-size: 0.84rem; color: var(--color-text); margin-left: auto; }
+.topbar-search:focus { outline: none; border-color: var(--color-accent); }
+
+/* App: 3 columns */
+#app { display: flex; height: calc(100vh - 54px); }
+
+/* Drawer (left) */
+#drawer { width: 280px; min-width: 280px; border-right: 1px solid var(--color-border); background: var(--color-bg-card); display: flex; flex-direction: column; transition: margin-left 0.25s ease, width 0.25s ease, min-width 0.25s ease; }
+#drawer.closed { margin-left: -280px; }
+.drawer-hdr { padding: 1rem 1rem 0.65rem; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--color-border); }
+.drawer-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; color: var(--color-heading); margin: 0; }
+.drawer-search { width: 100%; padding: 0.42rem 0.65rem; border: 1px solid var(--color-border); border-radius: 0.4rem; background: white; font-size: 0.82rem; margin: 0.5rem 1rem; width: calc(100% - 2rem); }
+.drawer-search:focus { outline: none; border-color: var(--color-accent); }
+.drawer-filters { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0 1rem 0.65rem; }
+.chip { padding: 0.3rem 0.75rem; border: 1px solid var(--color-border); background: white; border-radius: 1.5rem; font-size: 0.82rem; font-weight: 500; color: var(--color-text); cursor: pointer; transition: all 0.15s; }
+.chip:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.chip.active { background: var(--color-accent); border-color: var(--color-accent); color: white; }
+.drawer-list { overflow-y: auto; flex: 1; padding: 0.25rem 0 1rem; }
+.drawer-row { padding: 0.32rem 1rem; cursor: pointer; border-left: 3px solid transparent; transition: all 0.12s; display: flex; align-items: center; gap: 0.5rem; }
+.drawer-row::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dot, var(--color-border)); flex-shrink: 0; }
+.drawer-row:hover { background: white; border-left-color: var(--color-accent); }
+.drawer-row.active { background: white; border-left-color: var(--color-accent); }
+.dr-title { font-size: 0.86rem; font-weight: 400; color: var(--color-heading); line-height: 1.35; }
+
+/* Chat pane — fixed width; drawer eats from right pane, not from chat */
+#chat-pane { flex: 0 0 50vw; display: flex; flex-direction: column; padding: 1.75rem 2.25rem 1.5rem; min-width: 0; }
+.chat-hero { margin-bottom: 1.15rem; }
+.chat-hero h1 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.3rem; line-height: 1.2; }
+.chat-hero p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+#chat-history { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.85rem; min-height: 0; padding-right: 0.5rem; margin-bottom: 1rem; }
+.empty-state { color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; padding: 0.75rem 0; }
+.empty-state p { margin: 0 0 0.6rem; }
+.suggest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
+.suggest { padding: 0.55rem 0.8rem; background: white; border: 1px solid var(--color-border); border-radius: 0.5rem; cursor: pointer; font-size: 0.82rem; line-height: 1.4; transition: all 0.15s; color: var(--color-text); }
+.suggest:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.chat-q { align-self: flex-end; background: var(--color-accent); color: white; padding: 0.6rem 0.9rem; border-radius: 1rem 1rem 0.25rem 1rem; font-size: 0.92rem; line-height: 1.5; max-width: 82%; }
+.chat-a { align-self: flex-start; background: white; border: 1px solid var(--color-border); padding: 0.85rem 1.1rem; border-radius: 1rem 1rem 1rem 0.25rem; font-size: 0.92rem; line-height: 1.65; max-width: 92%; color: var(--color-text); }
+/* Markdown inside .chat-a */
+.chat-a > *:first-child { margin-top: 0; }
+.chat-a > *:last-child { margin-bottom: 0; }
+.chat-a p { margin: 0 0 0.55rem; }
+.chat-a strong { font-weight: 700; color: var(--color-heading); }
+.chat-a em { font-style: italic; }
+.chat-a ul, .chat-a ol { margin: 0.3rem 0 0.55rem; padding-left: 1.3rem; }
+.chat-a li { margin: 0.2rem 0; line-height: 1.55; }
+.chat-a h2, .chat-a h3 { font-family: var(--font-heading); font-weight: 600; color: var(--color-heading); margin: 0.6rem 0 0.35rem; }
+.chat-a h2 { font-size: 1.05rem; } .chat-a h3 { font-size: 0.96rem; }
+.chat-a code { background: #F2F0EE; padding: 0.08rem 0.3rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.85em; }
+.chat-a pre { background: #F2F0EE; padding: 0.6rem 0.8rem; border-radius: 0.4rem; overflow-x: auto; font-family: var(--font-mono); font-size: 0.82rem; margin: 0.5rem 0; }
+.chat-a pre code { background: none; padding: 0; }
+.chat-a blockquote { border-left: 3px solid var(--color-accent); padding-left: 0.75rem; margin: 0.5rem 0; color: var(--color-text-muted); }
+.chat-a .entity-link, .wiki-body .entity-link, .entity-link { cursor: pointer; color: var(--color-accent); border-bottom: 1px dashed color-mix(in oklab, var(--color-accent) 45%, transparent); text-decoration: none; font-weight: 400 !important; }
+.chat-a .entity-link:hover, .wiki-body .entity-link:hover { color: var(--color-accent-hover); border-bottom-style: solid; }
+.chat-a .entity-link.article, .wiki-body .entity-link.article { color: #456039; border-bottom-color: color-mix(in oklab, #456039 45%, transparent); }
+
+/* Citation chips: small numbered circles. Topic = darker blue, source = lighter blue. */
+.cit {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 999px; font-family: var(--font-body); font-size: 11px;
+  font-weight: 500; font-variant-numeric: tabular-nums;
+  margin-left: 4px; cursor: pointer; vertical-align: baseline;
+  text-decoration: none !important; border-bottom: 0 !important;
+  transition: background 0.12s, color 0.12s;
+}
+.cit.topic { background: var(--cit-topic-bg); color: var(--cit-topic-ink); }
+.cit.source { background: var(--cit-source-bg); color: var(--cit-source-ink); }
+.cit.topic:hover { background: var(--cit-topic-ink); color: #FBFAF6; }
+.cit.source:hover { background: var(--cit-source-ink); color: #FBFAF6; }
+
+/* "Cited" row below an answer */
+.chat-cited { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--rule-soft); }
+.chat-cited-label {
+  font-family: var(--font-body); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-muted); margin-bottom: 0.4rem;
+}
+.chat-cited-list { display: flex; flex-direction: column; gap: 0.3rem; }
+.chat-cited-item {
+  display: flex; align-items: baseline; gap: 0.4rem;
+  font-size: 0.82rem; line-height: 1.45;
+}
+.chat-cited-item .cit { cursor: pointer; margin-left: 0; flex-shrink: 0; }
+.chat-cited-item a { color: var(--color-text); text-decoration: none; }
+.chat-cited-item a:hover { color: var(--color-accent); }
+.chat-cited-item .cit-type {
+  font-size: 0.72rem; color: var(--color-text-muted); margin-left: auto;
+}
+.chat-a .entity-link.article:hover, .wiki-body .entity-link.article:hover { color: var(--color-accent-2); }
+.chat-a a { color: var(--color-accent-2); text-decoration: underline; }
+.chat-loading { color: var(--color-text-muted); background: var(--color-bg-card); }
+
+.chat-input-wrap { border: 1px solid var(--color-border); border-radius: 0.8rem; background: white; padding: 0.75rem 0.85rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.chat-input-wrap:focus-within { border-color: var(--color-accent); }
+#chat-input { border: none; outline: none; resize: none; min-height: 56px; max-height: 200px; font-size: 0.92rem; color: var(--color-text); background: transparent; font-family: inherit; }
+.chat-send-row { display: flex; justify-content: space-between; align-items: center; }
+.chat-hint { font-size: 0.7rem; color: var(--color-text-muted); }
+.chat-send { background: var(--color-accent); color: white; border: none; padding: 0.42rem 1.15rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.chat-send:hover { background: var(--color-accent-hover); }
+.chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinner { display: inline-block; width: 11px; height: 11px; border: 2px solid rgba(214,0,108,0.3); border-top-color: var(--color-accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Right context pane — takes remaining space (50vw when drawer closed, smaller when drawer open) */
+#ctx-pane { flex: 1; border-left: 1px solid var(--color-border); background: var(--color-bg-card); display: flex; flex-direction: column; min-width: 0; }
+.ctx-tabs { display: flex; border-bottom: 1px solid var(--color-border); background: var(--color-bg); flex-shrink: 0; }
+.ctx-tab { flex: 1; padding: 0.75rem 1rem; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted); cursor: pointer; transition: color 0.15s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.ctx-tab:hover { color: var(--color-text); }
+.ctx-tab.active { color: var(--color-accent); border-bottom-color: var(--color-accent); background: var(--color-bg-card); }
+.ctx-tab .badge { display: inline-block; min-width: 1.3rem; padding: 0.08rem 0.4rem; font-size: 0.68rem; font-weight: 700; background: var(--color-border); color: var(--color-text-muted); border-radius: 1rem; line-height: 1.4; }
+.ctx-tab.active .badge { background: var(--color-accent); color: white; }
+.ctx-tab.has-content:not(.active) .badge { background: #D6006C33; color: var(--color-accent); }
+.ctx-pane-body { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; min-height: 0; }
+.ctx-pane-body.hidden { display: none; }
+.ctx-placeholder { color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; padding: 2rem 0; text-align: center; }
+.ctx-placeholder svg { width: 40px; height: 40px; color: var(--color-border); margin-bottom: 1rem; }
+
+.ctx-label { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); margin-bottom: 0.6rem; }
+.ctx-welcome h2 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; color: var(--color-heading); margin: 0 0 0.4rem; line-height: 1.25; }
+.ctx-welcome > p { font-size: 0.9rem; line-height: 1.6; color: var(--color-text); margin: 0 0 1.5rem; }
+.ctx-welcome h3 { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); margin: 1.5rem 0 0.6rem; }
+.topic-mini { padding: 0.4rem 0.7rem; background: white; border: 1px solid var(--color-border); border-radius: 0.35rem; cursor: pointer; margin-bottom: 0.25rem; transition: all 0.12s; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; }
+.topic-mini::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dot, var(--color-border)); flex-shrink: 0; }
+.topic-mini:hover { border-color: var(--color-accent); }
+.topic-mini-title { font-size: 0.88rem; font-weight: 400; color: var(--color-heading); line-height: 1.35; margin: 0; font-family: var(--font-body); }
+
+.ctx-cat { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.35rem; }
+.ctx-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.35rem; line-height: 1.2; }
+.ctx-type { font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: 1.25rem; }
+.ctx-section { margin-bottom: 1.25rem; }
+
+/* Derived wiki view banner + sections */
+.derived-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  padding: 0.55rem 0.75rem; margin: 0.9rem 0 1rem;
+  background: #FFF8E1; border: 1px solid #E5D98C; border-radius: 0.4rem;
+  font-size: 0.78rem; color: #6B5A1D; line-height: 1.4;
+}
+.derived-banner.error { background: #FEE; border-color: #C99; color: #933; }
+.derived-banner .stale-tag { color: #A85500; font-weight: 600; margin-left: 0.3rem; }
+.derived-refresh {
+  background: transparent; border: 1px solid #C9B85C; color: #6B5A1D;
+  padding: 0.22rem 0.55rem; border-radius: 0.3rem; font-size: 0.75rem; cursor: pointer;
+  flex-shrink: 0;
+}
+.derived-refresh:hover { background: #F0E4A8; }
+.derived-section { margin-bottom: 1rem; }
+.derived-section h3 {
+  font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600;
+  color: var(--color-heading); margin: 0 0 0.35rem;
+}
+.derived-section p { font-size: 0.88rem; line-height: 1.65; margin: 0 0 0.5rem; }
+.derived-section ul { margin: 0; padding-left: 1.1rem; }
+.derived-section li { margin: 0.3rem 0; font-size: 0.86rem; line-height: 1.55; }
+
+/* Structured metadata */
+.meta-section { margin: 1.2rem 0 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--color-border); }
+.meta-section h3 {
+  font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-muted); margin: 0 0 0.55rem;
+}
+.meta-posts { list-style: none; padding: 0; margin: 0; }
+.meta-posts li { font-size: 0.84rem; line-height: 1.5; margin: 0.3rem 0; color: var(--color-text); }
+.meta-post-coll {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  color: var(--color-text-muted); background: var(--color-bg-card);
+  padding: 0.05rem 0.35rem; border-radius: 0.2rem; margin-right: 0.3rem;
+}
+.meta-post-desc { color: var(--color-text-muted); font-size: 0.8rem; }
+.meta-rel-group { margin-bottom: 0.7rem; }
+.meta-rel-group strong { font-size: 0.82rem; color: var(--color-heading); }
+.meta-rel-group ul { list-style: none; padding-left: 0.5rem; margin: 0.25rem 0; }
+.meta-rel-group li { font-size: 0.82rem; line-height: 1.55; margin: 0.18rem 0; }
+.meta-rel-group code { font-family: var(--font-mono); font-size: 0.76rem; color: var(--color-accent-2); background: transparent; padding: 0 0.15rem; }
+.ctx-section h4 { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); margin: 0 0 0.4rem; }
+.ctx-section p { font-size: 0.9rem; line-height: 1.7; color: var(--color-text); margin: 0 0 0.5rem; }
+.ctx-section ul { margin: 0; padding-left: 1.1rem; }
+.ctx-section li { margin: 0.25rem 0; font-size: 0.86rem; line-height: 1.5; }
+.ctx-section a { color: var(--color-accent); cursor: pointer; text-decoration: none; }
+.ctx-section a:hover { text-decoration: underline; }
+
+/* Article display in bottom half */
+.ctx-article-hdr { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
+.ctx-article-meta { font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-accent); font-weight: 700; margin-bottom: 0.25rem; }
+.ctx-article-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.25rem; line-height: 1.25; }
+.ctx-article-sub { font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: 0.85rem; }
+.ctx-article-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--color-text-muted); line-height: 1; padding: 0; }
+.ctx-article-close:hover { color: var(--color-accent); }
+.ctx-article-body { font-size: 0.9rem; line-height: 1.7; color: var(--color-text); }
+.ctx-article-body p { margin: 0 0 0.7rem; }
+.ctx-article-body h1, .ctx-article-body h2, .ctx-article-body h3 { font-family: var(--font-heading); font-weight: 600; color: var(--color-heading); margin: 1rem 0 0.4rem; }
+.ctx-article-body h1 { font-size: 1.1rem; }
+.ctx-article-body h2 { font-size: 1.02rem; }
+.ctx-article-body h3 { font-size: 0.94rem; }
+.ctx-article-body ul, .ctx-article-body ol { padding-left: 1.3rem; margin: 0.3rem 0 0.7rem; }
+.ctx-article-body li { margin: 0.2rem 0; }
+.ctx-article-body img { max-width: 100%; border-radius: 0.4rem; margin: 0.5rem 0; }
+.ctx-article-body blockquote { border-left: 3px solid var(--color-accent); padding-left: 0.7rem; margin: 0.5rem 0; color: var(--color-text-muted); font-style: italic; }
+.ctx-article-body code { background: #F2F0EE; padding: 0.08rem 0.3rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.85em; }
+.ctx-article-body a { color: var(--color-accent-2); }
+.open-on-site { display: inline-block; margin-top: 0.85rem; font-size: 0.78rem; color: var(--color-accent); text-decoration: none; }
+.open-on-site:hover { text-decoration: underline; }
+
+/* Scrollbars */
+.drawer-list::-webkit-scrollbar, #chat-history::-webkit-scrollbar, .ctx-pane-body::-webkit-scrollbar { width: 8px; }
+.drawer-list::-webkit-scrollbar-thumb, #chat-history::-webkit-scrollbar-thumb, .ctx-pane-body::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <button class="icon-btn" id="drawer-toggle" onclick="toggleDrawer()" aria-label="Toggle topic menu" title="Toggle topic menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <span class="brand-wrap" onclick="resetCtx()">
+    <img class="brand-leaf" src="/images/watercolor-leaf-trimmed.png" alt="Maai & AI">
+    <span class="brand">Maai &amp; AI</span>
+  </span>
+  <input class="topbar-search" id="topbar-search" placeholder="Search topics…" oninput="onTopbarSearch()">
+</div>
+
+<div id="app">
+  <aside id="drawer">
+    <div class="drawer-hdr">
+      <h2 class="drawer-title">Topics</h2>
+      <span id="drawer-count" style="font-size:0.7rem;color:var(--color-text-muted)"></span>
+    </div>
+    <div class="drawer-filters" id="drawer-filters"></div>
+    <div class="drawer-list" id="drawer-list"></div>
+  </aside>
+
+  <section id="chat-pane">
+    <div class="chat-hero">
+      <h1>Ask the wiki</h1>
+      <p>Maaike's body of work, addressable by question. The right pane shows what each answer draws on.</p>
+    </div>
+    <div id="chat-history">
+      <div class="empty-state">
+        <p>Some starting points:</p>
+        <div class="suggest-grid">
+          <div class="suggest" onclick="quickAsk('What does Maaike mean by bullshit?')">What does Maaike mean by bullshit?</div>
+          <div class="suggest" onclick="quickAsk('How does conversation design connect to LLMs?')">How does conversation design connect to LLMs?</div>
+          <div class="suggest" onclick="quickAsk('Why is anthropomorphism a design risk?')">Why is anthropomorphism a design risk?</div>
+          <div class="suggest" onclick="quickAsk('Which thinkers matter most in her work?')">Which thinkers matter most in her work?</div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input-wrap">
+      <textarea id="chat-input" placeholder="Ask a question…"></textarea>
+      <div class="chat-send-row">
+        <span class="chat-hint">Enter to send · Shift+Enter for newline</span>
+        <button class="chat-send" id="chat-send" onclick="askQuestion()">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <aside id="ctx-pane">
+    <div class="ctx-tabs">
+      <button class="ctx-tab active" id="tab-wiki" onclick="switchTab('wiki')">Wiki</button>
+      <button class="ctx-tab" id="tab-article" onclick="switchTab('article')">Article</button>
+    </div>
+    <div class="ctx-pane-body" id="pane-wiki"></div>
+    <div class="ctx-pane-body hidden" id="pane-article"></div>
+  </aside>
+</div>
+
+<script>
+// ── State ──
+// API lives at:
+//   - http://localhost:8780 in local dev (karpathy serve.py)
+//   - https://maaike-ai.vercel.app in production (Vercel serverless function)
+const API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+  ? 'http://localhost:8780'
+  : 'https://maaike-ai.vercel.app';
+const CAT_LABELS = { all:'All', people:'People', technology:'Technology', design:'Design', linguistics:'Linguistics', philosophy:'Philosophy', culture:'Culture', other:'Other' };
+const CAT_COLORS = { people:'#D6006C', technology:'#0D7C66', design:'#7A5A48', philosophy:'#5A4E44', linguistics:'#6E4E68', culture:'#A07030', other:'#888' };
+
+let ITEMS = [];        // wiki topics (concepts/people/entities)
+let ARTICLES = [];     // raw articles / field-notes / seeds
+let drawerFilter = 'all';
+let drawerSearch = '';
+let activeSlug = null;
+
+// ── Drawer ──
+function toggleDrawer() { document.getElementById('drawer').classList.toggle('closed'); }
+
+function renderDrawerFilters() {
+  const counts = { all: ITEMS.length };
+  ITEMS.forEach(i => counts[i.category] = (counts[i.category]||0)+1);
+  document.getElementById('drawer-filters').innerHTML = Object.entries(CAT_LABELS).map(([k,l]) =>
+    `<button class="chip ${drawerFilter===k?'active':''}" onclick="setDrawerFilter('${k}')">${l} <span style="opacity:0.6">${counts[k]||0}</span></button>`
+  ).join('');
+}
+function setDrawerFilter(k) { drawerFilter = k; renderDrawerFilters(); renderDrawerList(); }
+
+function renderDrawerList() {
+  const q = drawerSearch.toLowerCase();
+  const filtered = ITEMS.filter(i =>
+    (drawerFilter === 'all' || i.category === drawerFilter) &&
+    (!q || i.title.toLowerCase().includes(q) || (i.desc||'').toLowerCase().includes(q))
+  );
+  document.getElementById('drawer-list').innerHTML = filtered.map(item => `
+    <div class="drawer-row ${item.slug===activeSlug?'active':''}" style="--dot:${CAT_COLORS[item.category]||'#888'}" onclick="showTopic('${item.slug}')">
+      <div class="dr-title">${escapeHtml(item.title)}</div>
+    </div>
+  `).join('') || '<p style="padding:1rem;color:var(--color-text-muted);font-size:0.85rem">No topics match.</p>';
+  document.getElementById('drawer-count').textContent = `${filtered.length}/${ITEMS.length}`;
+}
+
+function onTopbarSearch() {
+  drawerSearch = document.getElementById('topbar-search').value;
+  // Mirror into drawer state + open drawer if closed
+  document.getElementById('drawer').classList.remove('closed');
+  renderDrawerList();
+}
+
+// ── Context pane: tabs ──
+function switchTab(name) {
+  document.querySelectorAll('.ctx-tab').forEach(t => t.classList.toggle('active', t.id === 'tab-' + name));
+  document.getElementById('pane-wiki').classList.toggle('hidden', name !== 'wiki');
+  document.getElementById('pane-article').classList.toggle('hidden', name !== 'article');
+}
+
+function articlePlaceholder() {
+  return `<div class="ctx-placeholder">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:var(--color-border);margin-bottom:1rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+    <p>No article loaded yet.<br>Click an article link in the chat or a source to read it here.</p>
+  </div>`;
+}
+
+function updateTabBadges() {
+  const w = document.getElementById('pane-wiki');
+  const a = document.getElementById('pane-article');
+  // "has content" = not a placeholder
+  document.getElementById('tab-wiki').classList.toggle('has-content', !!w.dataset.contentKind);
+  document.getElementById('tab-article').classList.toggle('has-content', !!a.dataset.contentKind);
+}
+
+function resetCtx() {
+  activeSlug = null;
+  const featured = ['bullshit', 'conversation-design', 'harry-g-frankfurt', 'llm-hallucinations', 'designing-for-doubt', 'context-engineering'];
+  const w = document.getElementById('pane-wiki');
+  w.innerHTML = `
+    <div class="ctx-welcome">
+      <div class="ctx-label">Context</div>
+      <h2>A living map of Maaike's thinking</h2>
+      <p>${ITEMS.length} wiki topics · ${ARTICLES.length} articles, field notes, seeds. Ask a question on the left and this pane will show what the answer draws on.</p>
+      <h3>Featured topics</h3>
+      ${featured.map(slug => {
+        const item = ITEMS.find(i => i.slug === slug);
+        return item ? `
+          <div class="topic-mini" style="--dot:${CAT_COLORS[item.category]||'#888'}" onclick="showTopic('${item.slug}')">
+            <div class="topic-mini-title">${escapeHtml(item.title)}</div>
+          </div>
+        ` : '';
+      }).join('')}
+    </div>
+  `;
+  w.dataset.contentKind = '';  // counts as placeholder/welcome
+  const a = document.getElementById('pane-article');
+  a.innerHTML = articlePlaceholder();
+  a.dataset.contentKind = '';
+  switchTab('wiki');
+  updateTabBadges();
+  renderDrawerList();
+}
+
+async function showTopic(slug) {
+  const item = ITEMS.find(i => i.slug === slug);
+  if (!item) return;
+  activeSlug = slug;
+  const w = document.getElementById('pane-wiki');
+
+  // Show header + loading state immediately
+  w.innerHTML = `
+    <div class="ctx-label">Topic</div>
+    <div class="ctx-cat" style="color:${CAT_COLORS[item.category]||'#888'}">${item.category}</div>
+    <h2 class="ctx-title">${escapeHtml(item.title)}</h2>
+    <div class="ctx-type">${(item.type||item.section).replace(/-/g,' ')}</div>
+    <div class="ctx-placeholder"><span class="spinner"></span> Loading wiki page…</div>
+  `;
+  w.dataset.contentKind = 'topic';
+  switchTab('wiki');
+  updateTabBadges();
+  renderDrawerList();
+
+  // Fetch real garden metadata + derived view in parallel
+  try {
+    const [metaR, viewR] = await Promise.all([
+      fetch(`${API}/api/topic-meta/${encodeURIComponent(slug)}`),
+      fetch(`${API}/api/topic-view/${encodeURIComponent(slug)}`),
+    ]);
+    const meta = await metaR.json();
+    const view = await viewR.json();
+
+    const header = `
+      <div class="ctx-label">Topic</div>
+      <div class="ctx-cat" style="color:${CAT_COLORS[item.category]||'#888'}">${item.category||''}</div>
+      <h2 class="ctx-title">${escapeHtml(meta.label || item.title)}</h2>
+      <div class="ctx-type">${(meta.type || item.type || item.section).replace(/-/g,' ')}${meta.lens && meta.lens.length ? ' · lens: ' + meta.lens.join(', ') : ''}${meta.subject && meta.subject.length ? ' · about: ' + meta.subject.join(', ') : ''}</div>
+    `;
+
+    // Banner + derived sections
+    let derived = '';
+    if (view.error) {
+      derived = `<div class="derived-banner error">Derived view unavailable: ${escapeHtml(view.error)}</div>`;
+    } else {
+      const staleTag = view.stale ? `<span class="stale-tag">stale — source has moved</span>` : '';
+      derived = `
+        <div class="derived-banner">
+          <span>Interpretive view — source of truth is the linked posts below.${staleTag ? ' ' : ''}${staleTag}</span>
+        </div>`;
+      if (view.summary) derived += `<div class="derived-section"><h3>Summary</h3><p>${escapeHtml(view.summary)}</p></div>`;
+      if (view.how_maaike_uses) derived += `<div class="derived-section"><h3>How Maaike uses this</h3><p>${escapeHtml(view.how_maaike_uses)}</p></div>`;
+      if (view.open_questions && view.open_questions.length) {
+        derived += `<div class="derived-section"><h3>Open questions</h3><ul>` +
+          view.open_questions.map(q => `<li>${escapeHtml(q)}</li>`).join('') +
+          `</ul></div>`;
+      }
+    }
+
+    // Structured metadata: appearances + relations
+    let struct = '';
+    if (meta.posts && meta.posts.length) {
+      struct += `<div class="meta-section"><h3>Appears in (${meta.posts.length})</h3><ul class="meta-posts">` +
+        meta.posts.map(p => `<li><span class="meta-post-coll">${escapeHtml(p.collection)}</span> <a class="entity-link article" data-articlelink="${p.collection}/${p.slug}">${escapeHtml(p.title)}</a>${p.description ? ' — <span class="meta-post-desc">' + escapeHtml(p.description) + '</span>' : ''}</li>`).join('') +
+        `</ul></div>`;
+    }
+    const rels = meta.relations || {};
+    if ((rels.incoming && rels.incoming.length) || (rels.outgoing && rels.outgoing.length)) {
+      struct += `<div class="meta-section"><h3>Relations</h3>`;
+      if (rels.outgoing && rels.outgoing.length) {
+        struct += `<div class="meta-rel-group"><strong>From ${escapeHtml(meta.label)}:</strong><ul>` +
+          rels.outgoing.map(r => `<li><code>${escapeHtml(r.predicate)}</code> → <a class="entity-link" data-wikilink="${escapeHtml(r.object)}">${escapeHtml(r.object_label)}</a></li>`).join('') +
+          `</ul></div>`;
+      }
+      if (rels.incoming && rels.incoming.length) {
+        struct += `<div class="meta-rel-group"><strong>About ${escapeHtml(meta.label)}:</strong><ul>` +
+          rels.incoming.map(r => `<li><a class="entity-link" data-wikilink="${escapeHtml(r.subject)}">${escapeHtml(r.subject_label)}</a> <code>${escapeHtml(r.predicate)}</code></li>`).join('') +
+          `</ul></div>`;
+      }
+      struct += `</div>`;
+    }
+
+    w.innerHTML = header + derived + struct;
+
+    // Wire click handlers
+    w.querySelectorAll('[data-wikilink]').forEach(el => {
+      const target = el.getAttribute('data-wikilink');
+      el.addEventListener('click', e => { e.preventDefault(); showTopic(target); });
+    });
+    w.querySelectorAll('[data-articlelink]').forEach(el => {
+      const ref = el.getAttribute('data-articlelink').split('/');
+      el.addEventListener('click', e => { e.preventDefault(); showArticle(ref[0], ref[1]); });
+    });
+    w.scrollTop = 0;
+  } catch(e) {
+    w.innerHTML += `<div class="ctx-placeholder"><p>Could not load topic: ${escapeHtml(e.message)}</p></div>`;
+  }
+}
+
+
+// Wiki-page markdown: adds handling for [[wikilinks]] and relative article links
+function renderWikiMarkdown(md) {
+  if (!md) return '';
+  // Replace [[slug]] with placeholder spans before general markdown runs.
+  let h = md.replace(/\[\[([^\]]+)\]\]/g, (m, target) => {
+    const slug = target.split('|')[0].trim().toLowerCase().replace(/[^a-z0-9]+/g,'-');
+    const label = (target.split('|')[1] || target.split('|')[0]).trim();
+    return `\u0001WL:${slug}:${escapeHtml(label)}\u0001`;
+  });
+  // Replace [article-slug](../raw/articles/x.md) with article-link placeholder
+  h = h.replace(/\[([^\]]+)\]\(\.\.\/raw\/(articles|field-notes|seeds)\/([^)]+?)\.md\)/g,
+    (m, label, section, slug) => `\u0001AL:${section}/${slug}:${escapeHtml(label)}\u0001`);
+  // Run standard markdown
+  let html = renderMarkdown(h);
+  // Restore placeholders as clickable spans
+  html = html.replace(/\u0001WL:([^:]+):(.+?)\u0001/g,
+    (m, slug, label) => `<span class="entity-link" data-wikilink="${slug}" style="cursor:pointer">${label}</span>`);
+  html = html.replace(/\u0001AL:([^:]+):(.+?)\u0001/g,
+    (m, ref, label) => `<span class="entity-link article" data-articlelink="${ref}" style="cursor:pointer">${label}</span>`);
+  return html;
+}
+
+async function showArticle(section, slug) {
+  const a = document.getElementById('pane-article');
+  a.innerHTML = `<div class="ctx-placeholder"><span class="spinner"></span> Loading article…</div>`;
+  switchTab('article');
+  try {
+    const r = await fetch(`${API}/api/article/${section}/${slug}`);
+    const d = await r.json();
+    if (d.error) {
+      a.innerHTML = `<div class="ctx-placeholder"><p>Could not load article: ${escapeHtml(d.error)}</p></div>`;
+      return;
+    }
+    a.innerHTML = `
+      <div class="ctx-article-hdr">
+        <div style="flex:1;min-width:0">
+          <div class="ctx-article-meta">${d.section}${d.date ? ' · ' + d.date : ''}</div>
+          <h3 class="ctx-article-title">${escapeHtml(d.title)}</h3>
+          ${d.desc ? `<div class="ctx-article-sub">${escapeHtml(d.desc)}</div>` : ''}
+        </div>
+      </div>
+      <div class="ctx-article-body">${renderMarkdown(d.markdown)}</div>
+      <a class="open-on-site" href="${d.url}" target="_blank" rel="noopener">Read on maaike.ai ↗</a>
+    `;
+    a.dataset.contentKind = 'article';
+    a.scrollTop = 0;
+    updateTabBadges();
+  } catch(e) {
+    a.innerHTML = `<div class="ctx-placeholder"><p>Could not reach backend: ${escapeHtml(e.message)}</p></div>`;
+  }
+}
+
+// ── Markdown renderer (lightweight, vanilla) ──
+function escapeHtml(s) {
+  return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function renderMarkdown(md) {
+  if (!md) return '';
+  let h = md;
+  // Protect code blocks
+  const codeBlocks = [];
+  h = h.replace(/```(\w*)\n([\s\S]+?)```/g, (m, lang, code) => {
+    codeBlocks.push(`<pre><code>${escapeHtml(code)}</code></pre>`);
+    return `\u0000CODEBLOCK${codeBlocks.length - 1}\u0000`;
+  });
+  // Escape HTML in the rest (so user-supplied markdown can't inject)
+  h = escapeHtml(h);
+  // Headings
+  h = h.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+  h = h.replace(/^#\s+(.+)$/gm, '<h2>$1</h2>'); // cap at h2 for visual balance
+  // Blockquotes
+  h = h.replace(/^(?:&gt;\s?(.*)(?:\n|$))+/gm, m => '<blockquote>' + m.split(/\n/).map(l => l.replace(/^&gt;\s?/, '')).join(' ') + '</blockquote>');
+  // Bold & italic
+  h = h.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+  h = h.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
+  // Inline code
+  h = h.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  // Links
+  h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  // Images
+  h = h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2">');
+  // Lists: collect consecutive lines starting with - or * or 1.
+  h = h.replace(/(?:^(?:[-*]|\d+\.)\s+.+(?:\n|$))+/gm, block => {
+    const ordered = /^\d+\./.test(block);
+    const items = block.trim().split(/\n/).map(l => l.replace(/^(?:[-*]|\d+\.)\s+/, '')).map(l => `<li>${l}</li>`).join('');
+    return ordered ? `<ol>${items}</ol>` : `<ul>${items}</ul>`;
+  });
+  // Paragraphs: split on blank lines, wrap non-block-level chunks in <p>
+  const parts = h.split(/\n{2,}/);
+  h = parts.map(p => {
+    p = p.trim();
+    if (!p) return '';
+    if (/^<(h\d|ul|ol|pre|blockquote|img)/.test(p)) return p;
+    return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+  }).join('\n');
+  // Restore code blocks
+  h = h.replace(/\u0000CODEBLOCK(\d+)\u0000/g, (m, i) => codeBlocks[+i]);
+  return h;
+}
+
+// ── Citation chips ──
+// Replace inline [1] and [s1] tokens in rendered HTML with styled pill spans.
+function applyCitationChips(rootEl, sources) {
+  const map = {};
+  for (const s of sources || []) {
+    if (!s.cid) continue;
+    map[s.cid] = s;
+  }
+  const pattern = /\[(s?\d+)\]/g;
+  const walk = (node) => {
+    if (node.nodeType === 3) {
+      const text = node.textContent;
+      if (!pattern.test(text)) return;
+      pattern.lastIndex = 0;
+      const parent = node.parentNode;
+      let last = 0; let m;
+      const frag = document.createDocumentFragment();
+      while ((m = pattern.exec(text))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const cid = m[1];
+        const src = map[cid];
+        const chip = document.createElement('a');
+        chip.className = 'cit ' + (cid.startsWith('s') ? 'source' : 'topic');
+        chip.textContent = cid.replace(/^s/, '');
+        chip.title = src ? src.title : `Unknown citation ${cid}`;
+        if (src) {
+          if (src.kind === 'article' && src.section && src.slug) {
+            chip.onclick = (e) => { e.preventDefault(); showArticle(src.section, src.slug); };
+            chip.href = '#';
+          } else if (src.kind === 'topic' && src.slug) {
+            chip.onclick = (e) => { e.preventDefault(); showTopic(src.slug); };
+            chip.href = '#';
+          }
+        }
+        frag.appendChild(chip);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+      return;
+    }
+    if (node.nodeType === 1 && node.tagName !== 'CODE' && node.tagName !== 'PRE') {
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  walk(rootEl);
+}
+
+function buildCitedList(answerText, sources) {
+  if (!sources || !sources.length) return null;
+  // Only list sources actually cited in the answer
+  const cited = new Set();
+  (answerText.match(/\[(s?\d+)\]/g) || []).forEach(t => cited.add(t.slice(1, -1)));
+  const items = (sources || []).filter(s => s.cid && cited.has(s.cid));
+  if (!items.length) return null;
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-cited';
+  wrap.innerHTML = `<div class="chat-cited-label">Cited</div>`;
+  const list = document.createElement('div');
+  list.className = 'chat-cited-list';
+  for (const s of items) {
+    const row = document.createElement('div');
+    row.className = 'chat-cited-item';
+    const chip = document.createElement('span');
+    chip.className = 'cit ' + (s.cid.startsWith('s') ? 'source' : 'topic');
+    chip.textContent = s.cid.replace(/^s/, '');
+    row.appendChild(chip);
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = s.title;
+    if (s.kind === 'article' && s.section && s.slug) link.onclick = (e) => { e.preventDefault(); showArticle(s.section, s.slug); };
+    else if (s.kind === 'topic' && s.slug) link.onclick = (e) => { e.preventDefault(); showTopic(s.slug); };
+    row.appendChild(link);
+    const tag = document.createElement('span');
+    tag.className = 'cit-type';
+    tag.textContent = s.kind === 'topic' ? 'topic' : (s.section || 'article');
+    row.appendChild(tag);
+    list.appendChild(row);
+  }
+  wrap.appendChild(list);
+  return wrap;
+}
+
+// ── Entity linkifier ──
+function linkifyEntities(html) {
+  const entities = [
+    ...ITEMS.map(i => ({ text: i.title, kind: 'concept', slug: i.slug })),
+    ...ARTICLES.map(a => ({ text: a.title, kind: 'article', slug: a.slug, section: a.section }))
+  ].sort((a, b) => b.text.length - a.text.length);
+
+  const wrap = document.createElement('div');
+  wrap.innerHTML = html;
+
+  function walk(node) {
+    if (node.nodeType === 3) { // TEXT_NODE
+      const text = node.textContent;
+      const matches = [];
+      for (const e of entities) {
+        if (e.text.length < 3) continue;
+        // Custom boundaries: allow titles ending in `)` or other punctuation.
+        // Require the entity to be preceded by start-of-string or a non-word char,
+        // and followed by end-of-string or a non-word char.
+        const escaped = e.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp('(?:^|[^\\w])(' + escaped + ')(?=$|[^\\w])', 'i');
+        const m = text.match(re);
+        if (m) {
+          const start = m.index + (m[0].length - m[1].length);
+          const end = start + m[1].length;
+          matches.push({ start, end, matched: m[1], entity: e });
+        }
+      }
+      matches.sort((a,b) => a.start - b.start || (b.end-b.start) - (a.end-a.start));
+      const nonOverlapping = [];
+      let cursor = 0;
+      for (const r of matches) {
+        if (r.start >= cursor) { nonOverlapping.push(r); cursor = r.end; }
+      }
+      if (!nonOverlapping.length) return;
+      const frag = document.createDocumentFragment();
+      let pos = 0;
+      for (const r of nonOverlapping) {
+        if (r.start > pos) frag.appendChild(document.createTextNode(text.slice(pos, r.start)));
+        const a = document.createElement('span');
+        a.className = 'entity-link ' + r.entity.kind;
+        a.textContent = r.matched;
+        a.dataset.kind = r.entity.kind;
+        a.dataset.slug = r.entity.slug;
+        if (r.entity.section) a.dataset.section = r.entity.section;
+        a.addEventListener('click', () => {
+          if (r.entity.kind === 'concept') showTopic(r.entity.slug);
+          else if (r.entity.kind === 'article') showArticle(r.entity.section, r.entity.slug);
+        });
+        frag.appendChild(a);
+        pos = r.end;
+      }
+      if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === 1 && !['A','CODE','PRE','SCRIPT','STYLE'].includes(node.tagName)) {
+      // walk children (copy list to avoid live collection issues)
+      Array.from(node.childNodes).forEach(walk);
+    }
+  }
+  Array.from(wrap.childNodes).forEach(walk);
+  return wrap;
+}
+
+// ── Chat ──
+function quickAsk(q) { document.getElementById('chat-input').value = q; askQuestion(); }
+
+async function askQuestion() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  const history = document.getElementById('chat-history');
+  history.querySelector('.empty-state')?.remove();
+
+  const qEl = document.createElement('div');
+  qEl.className = 'chat-q';
+  qEl.textContent = q;
+  history.appendChild(qEl);
+  input.value = '';
+
+  const loadEl = document.createElement('div');
+  loadEl.className = 'chat-a chat-loading';
+  loadEl.innerHTML = '<span class="spinner"></span>Thinking…';
+  history.appendChild(loadEl);
+  history.scrollTop = history.scrollHeight;
+
+  const btn = document.getElementById('chat-send');
+  btn.disabled = true;
+  try {
+    const r = await fetch(`${API}/api/ask`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q }), signal: AbortSignal.timeout(120000)
+    });
+    // The endpoint streams JSON-lines (application/x-ndjson).
+    // Each line is one of: {type:"token",text:...} | {type:"sources",sources:[...]} | {type:"done"} | {type:"error",error:...}
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = '';
+    let answerText = '';
+    let sources = [];
+    let errorMsg = null;
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+      for (const line of lines) {
+        if (!line.trim()) continue;
+        let msg;
+        try { msg = JSON.parse(line); } catch { continue; }
+        if (msg.type === 'token' && msg.text) {
+          answerText += msg.text;
+          // Live render: markdown + entity linking each tick
+          const mdHtml = renderMarkdown(answerText);
+          const frag = linkifyEntities(mdHtml);
+          loadEl.innerHTML = '';
+          while (frag.firstChild) loadEl.appendChild(frag.firstChild);
+          history.scrollTop = history.scrollHeight;
+        } else if (msg.type === 'sources' && msg.sources) {
+          sources = msg.sources;
+        } else if (msg.type === 'error') {
+          errorMsg = msg.error || 'unknown error';
+        }
+      }
+    }
+    if (errorMsg) {
+      loadEl.innerHTML = `<em style="color:#c00">${escapeHtml(errorMsg)}</em>`;
+    } else {
+      // Final render once sources are known: swap [1] / [s1] for chips + append Cited row
+      const mdHtml = renderMarkdown(answerText);
+      const frag = linkifyEntities(mdHtml);
+      const answerDiv = document.createElement('div');
+      while (frag.firstChild) answerDiv.appendChild(frag.firstChild);
+      applyCitationChips(answerDiv, sources);
+      loadEl.innerHTML = '';
+      while (answerDiv.firstChild) loadEl.appendChild(answerDiv.firstChild);
+      const cited = buildCitedList(answerText, sources);
+      if (cited) loadEl.appendChild(cited);
+      if (sources.length) showSourcesCtx(sources, q);
+    }
+  } catch(e) {
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = `<em style="color:#c00">Backend unreachable: ${escapeHtml(e.message)}</em>`;
+  }
+  history.scrollTop = history.scrollHeight;
+  btn.disabled = false;
+}
+
+function showSourcesCtx(sources, question) {
+  const articles = sources.filter(s => s.kind === 'article');
+  const concepts = sources.filter(s => s.kind === 'wiki');
+
+  const articleRow = s => `
+    <div class="topic-mini" style="--dot:#D6006C" onclick="showArticle('${s.section}','${s.href.split('/').pop()}')">
+      <div class="topic-mini-title">${escapeHtml(s.title)}</div>
+    </div>`;
+  const conceptRow = s => {
+    const slug = (s.href || '').split('/').pop();
+    const item = ITEMS.find(i => i.slug === slug);
+    const color = CAT_COLORS[item?.category] || '#888';
+    return `
+      <div class="topic-mini" style="--dot:${color}" onclick="showTopic('${slug}')">
+        <div class="topic-mini-title">${escapeHtml(s.title)}</div>
+      </div>`;
+  };
+
+  const w = document.getElementById('pane-wiki');
+  w.innerHTML = `
+    <div class="ctx-label">Sources for your question</div>
+    <p style="font-size:0.95rem;color:var(--color-text);line-height:1.5;margin:0 0 1.25rem">"${escapeHtml(question)}"</p>
+    ${articles.length ? `<div class="ctx-section"><h4>Articles by Maaike</h4><div style="margin-top:0.4rem">${articles.map(articleRow).join('')}</div></div>` : ''}
+    ${concepts.length ? `<div class="ctx-section"><h4>Wiki concepts</h4><div style="margin-top:0.4rem">${concepts.map(conceptRow).join('')}</div></div>` : ''}
+  `;
+  w.dataset.contentKind = 'sources';
+  w.scrollTop = 0;
+  switchTab('wiki');
+  updateTabBadges();
+}
+
+// Keybindings
+document.getElementById('chat-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askQuestion(); }
+});
+
+// ── Init: load real topics + articles ──
+async function loadTopics() {
+  try {
+    const r = await fetch(`${API}/api/topics`);
+    const d = await r.json();
+    if (d.topics) ITEMS = d.topics;
+    if (d.articles) ARTICLES = d.articles;
+  } catch(e) { console.warn('Could not load topics:', e); }
+  renderDrawerFilters();
+  renderDrawerList();
+  resetCtx();
+}
+loadTopics();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "label": "Written text",
+  "summary": "Written text is what speech is not: a medium where turns can be as long as needed, unconstrained by breath or the physical limits of spoken communication. In Maaike's work, the distinction matters because designing for voice requires a fundamentally different set of constraints than designing for text-based dialogue. The contrast is a starting point for understanding what makes speech its own design medium.",
+  "how_maaike_uses": "Maaike uses the contrast with written text to make conversation designers aware that they cannot simply port text-based dialogue into a voice interface. She points out that in written dialogue a turn can be extended freely, but in speech it is bounded by breath, which is a physical and finite limit. This distinction motivates her practical advice to test voice turns out loud and apply the one-breath test, rather than defaulting to the habits that written text design encourages.",
+  "open_questions": [],
+  "state_hash": "04cba6b630a91c9a808368a378aea4e90e80ab2c31ff7ddd9f6f84f0db2037d4",
+  "generated_at": "2026-04-24T16:02:18.121907Z"
+}

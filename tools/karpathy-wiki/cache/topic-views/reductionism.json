@@ -1,0 +1,11 @@
+{
+  "label": "Reductionism",
+  "summary": "Reductionism refers to the approach of breaking down complex systems into isolated, measurable parts, treating data as context-free and static. In Maaike's work it appears as a problem to be examined rather than a method to be celebrated. It carries an epistemic bias and risks distorting ground truth when applied to living, relational systems.",
+  "how_maaike_uses": "Maaike engages with reductionism primarily through Nora Bateson's critique of it. The concern is that reductionist measurement, however precise, strips away the relational context that makes data meaningful in living systems like healthcare, education, and ecology. Warm data is introduced as a counter-approach that reintroduces interconnection and context rather than flattening them out.",
+  "open_questions": [
+    "What would it look like in practice to replace or supplement reductionist measurement with warm data approaches in fields like healthcare or education?",
+    "If reductionism exhibits epistemic bias, who or what determines what counts as ground truth instead?"
+  ],
+  "state_hash": "e86a57b28edc80038f2c9f050ab40be5da4d545a637086387757ab994c065697",
+  "generated_at": "2026-04-24T15:28:47.703814Z"
+}

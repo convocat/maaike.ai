@@ -1,0 +1,12 @@
+{
+  "label": "PKM research gap",
+  "summary": "The PKM research gap refers to the absence of academic work on how embedding models are actually used in personal knowledge management tools and digital gardens. The tools — Obsidian, Mem.ai, Logseq, Notion — have moved well ahead of what researchers have studied. Existing academic literature covers knowledge graph embeddings and recommendation systems, but neither maps cleanly onto the small, unstructured, author-as-user context of a personal garden.",
+  "how_maaike_uses": "Maaike noticed this gap while surveying embedding models for her own knowledge graph project, and she treats it as a potential writing opportunity. The angle is that her garden could serve as both the experiment and the documentation — she is not just observing the gap but is positioned to produce something that partially fills it. The gap is flagged as a 'seed', meaning it is unresolved and worth returning to as the project develops.",
+  "open_questions": [
+    "Do embeddings produce meaningful clusters across a personal knowledge base with wildly diverse topics, or does the diversity break the vector space?",
+    "How do embedding-suggested links compare to manually created ones — do they surface genuinely surprising connections or just obvious ones?",
+    "Does the choice of embedding model matter much at the scale of roughly 200 documents, or do they all produce roughly equivalent connections?"
+  ],
+  "state_hash": "55ae50612cd2c41a5cda451e1557d81677e7d1efb039ceb5d6387a155d847c3b",
+  "generated_at": "2026-04-24T16:20:07.658766Z"
+}

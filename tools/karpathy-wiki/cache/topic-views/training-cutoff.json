@@ -1,0 +1,11 @@
+{
+  "label": "Training cutoff",
+  "summary": "Training cutoff refers to the point in time after which an LLM has no access to new information, because its training data ends there. It means ground truth about events that happened after that date is simply inaccessible to the model. In Maaike's work it comes up as a boundary condition that shapes how LLM outputs should be interpreted.",
+  "how_maaike_uses": "Maaike uses training cutoff as a starting point for sceptical analysis rather than as an explanation in itself. When ChatGPT appeared to 'know' something that happened after its September 2021 cutoff, she resists the more dramatic explanations (secret internet access, covert retraining) and instead asks whether the probabilistic nature of the model could produce a correct-sounding answer by chance. The cutoff is evidence that the model cannot actually know the fact, which pushes her toward mundane, probabilistic explanations over conspiratorial ones.",
+  "open_questions": [
+    "How often do probabilistic coincidences like this occur, and is there a principled way to detect them versus genuine data leakage?",
+    "Could accidental human error during training supervision introduce post-cutoff information in a way that is hard to audit?"
+  ],
+  "state_hash": "aa4a121001485da632eadb74e93063102d50f4d296fbd28584cf696ed8aa9612",
+  "generated_at": "2026-04-24T15:33:43.892557Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Design artefact",
+  "summary": "A design artefact is a documented output that captures decisions made during the design process. In Maaike's work, a bot persona is one example of a design artefact: a structured document that records behaviour, personality traits, and tone of voice for a conversational interface. It sits alongside other artefacts like style guides, design patterns, and terminology lists.",
+  "how_maaike_uses": "Maaike produces a bot persona as a design artefact to pin down what makes a bot consistent and effective in use. She describes it as the place where she records character traits, behavioural choices, and tone of voice decisions, things that would otherwise drift or get lost across a project. The persona does not stand alone but is part of a broader set of structured documents she creates to govern how a bot behaves.",
+  "open_questions": [
+    "The passages mention style guides, design patterns, and terminology lists alongside the bot persona, but it is not clear how Maaike distinguishes between these artefacts or when each one is needed.",
+    "It is not explained how these artefacts are maintained or updated once a bot is live and real usage data starts coming in."
+  ],
+  "state_hash": "a564f59f600e4fb70e0c30e7898af746dcf8e0a4b21a9e95ccfd5777df1e509c",
+  "generated_at": "2026-04-24T15:48:01.484456Z"
+}

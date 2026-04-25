@@ -1,0 +1,12 @@
+{
+  "label": "Training data scarcity",
+  "summary": "Training data scarcity refers to the projected shortage of high-quality text data available to train large language models, caused by the rapid pace at which LLMs consume existing written material. Research suggests we may already have run low on high-quality language data as early as 2023, with books being a particularly valued but limited source. One proposed response to this scarcity is the generation of synthetic training data by the models themselves.",
+  "how_maaike_uses": "Maaike uses training data scarcity as a lens to interrogate the human cost and philosophical stakes of AI development, not just the technical problem. She is sceptical of proposed fixes like synthetic data generation, questioning what it means to remove humans entirely from the loop of producing the knowledge that feeds these systems. She is especially critical of treating books as cheap machine fodder when writers already struggle to earn a living and readership is declining, and she raises the question of whether an AI trained on its own output could produce anything genuinely new or original.",
+  "open_questions": [
+    "What specific properties of books make LLMs perform better on them, whether it is volume, vocabulary, coherence, or something else?",
+    "If LLMs can only recombine what they have seen, can they produce something original enough to serve as useful synthetic training data?",
+    "What are the implications for society if ambient AI systems are built on training data generated with no human having read or evaluated it?"
+  ],
+  "state_hash": "e11384101c7cafbe3917b7bcdbb53614202f6ca9a6117550a594360976402658",
+  "generated_at": "2026-04-24T15:35:14.017032Z"
+}

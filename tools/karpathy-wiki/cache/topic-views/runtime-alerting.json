@@ -1,0 +1,11 @@
+{
+  "label": "Runtime alerting",
+  "summary": "Runtime alerting refers to the ability of a system to surface errors visibly when something breaks in production. In Maaike's testing work, it is specifically the gap that the Astro build step lacks: a deploy can succeed and a page can silently serve broken content with no alert and no visible browser error.",
+  "how_maaike_uses": "Maaike identifies the absence of runtime alerting as the core failure mode that motivated building a proper test pyramid for the garden. The Astro build step acts as a middle layer that can catch schema and compilation errors before deploy, but it does not catch the case where the old build stays live and nothing signals that something is wrong. Her response is to close that gap upstream, with content validation before the build and Playwright tests after, rather than relying on the deploy pipeline to surface problems at runtime.",
+  "open_questions": [
+    "The content validator does not run automatically yet, which means silent failures are still possible if the manual habit slips. Whether to enforce it as a pre-push hook or CI step is left open.",
+    "The build layer failing silently is noted as a known gap that still requires manually checking `gh run list` when the site looks off, which is not a robust alerting mechanism."
+  ],
+  "state_hash": "6eeebfcbb073da418189dc97df1d2e3d2f36cf77266339a5f821768e58eba1fb",
+  "generated_at": "2026-04-24T16:14:51.823396Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Coding literacy",
+  "summary": "Coding literacy refers to the degree to which a conversation designer understands and can work with programming logic, from reading JSON and SSML to building on platforms like Rasa. It is not the same as being a developer, but sits somewhere on a spectrum between pure writing skills and full engineering. In Maaike's work it comes up as a recurring practical question: how much technical knowledge should a conversation designer actually have?",
+  "how_maaike_uses": "Maaike treats coding literacy as a double-edged tool rather than a straightforward skill to acquire. She sees genuine value in it for two specific areas: reinforcing conversation design through familiarity with programming logic and structured thinking, and enabling serious data analysis without depending entirely on commercial platforms. At the same time she is openly sceptical of the risk that coding pulls designers away from the customer and towards technical constraints, making it easy to lose sight of what the design is actually supposed to solve. Her position is pragmatic rather than evangelical: learn enough to be dangerous in the right ways, but know when it stops being your specialism.",
+  "open_questions": [
+    "As conversation design specialises further, where exactly does coding land as a discipline — its own track, or a shared foundation everyone needs?",
+    "If commercial platforms can already cluster and classify data quickly, what is the minimum level of coding literacy that still adds genuine value for a conversation designer?",
+    "Is there a practical method for staying close to customer needs when working in code, or is the tech-first drift largely unavoidable?"
+  ],
+  "state_hash": "55ab62f3135763430a7281b1976150118a6a3cc6227a83b8784860475b760c4e",
+  "generated_at": "2026-04-24T15:42:43.127595Z"
+}

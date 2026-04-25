@@ -1,0 +1,11 @@
+{
+  "label": "Language quality loss",
+  "summary": "Language quality loss refers to the degradation that non-English languages experience during model quantization, because standard tools use English text as the calibration reference and so compress away components that matter for other languages. The loss is silent: it happens at the compression step, not during inference, and you would not notice it without deliberately testing. It is a structural disadvantage built into the default tooling, not a random error.",
+  "how_maaike_uses": "Maaike picks this up as a practical concern for her own setup: the local embedding models she runs via Ollama for the knowledge graph project are also quantized, which means her Dutch content may already be getting worse embeddings than her English content without any visible sign of that. She uses the Dutch-aware quantization work by Michiel Buisman as evidence that the problem is real but also solvable, and flags the Leesplank corpus as a potential tool for actually measuring whether her Dutch embeddings are suffering.",
+  "open_questions": [
+    "Do the local embedding models used in the knowledge graph project actually show measurable quality loss on Dutch content compared to English, and how would you test that?",
+    "Is the combination of language-specific calibration data and component-level vulnerability mapping transferable to embedding models, or does it only apply to generative models like Granite?"
+  ],
+  "state_hash": "928ea8e73cc77d7e7cdbba13bd307437e4b31883df165aca7ebde8b9b87a2c2d",
+  "generated_at": "2026-04-24T16:19:58.291210Z"
+}

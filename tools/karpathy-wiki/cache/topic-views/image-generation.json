@@ -1,0 +1,11 @@
+{
+  "label": "Image generation",
+  "summary": "Image generation refers to AI systems that produce images from text prompts. In Maaike's work, the focus is on DALL-E 3 as a concrete case study for evaluating how well these systems actually deliver on their promises. The topic connects directly to questions about reliability, accuracy, and the gap between marketing claims and real outputs.",
+  "how_maaike_uses": "Maaike approaches image generation from a practical, sceptical angle: she tests the tools hands-on, documents what goes wrong, and uses those failures as material for workshops and broader critique. Her main finding with DALL-E 3 is that it still struggles with basic anatomical accuracy in hands, that its prompt augmentation introduces unpredictability and bias, and that the lack of image context between prompts makes iterative refinement unreliable. She also notes the tool's tendency to hallucinate detail in ways that look plausible at first glance but fall apart on closer inspection.",
+  "open_questions": [
+    "Does DALL-E 3's prompt augmentation systematically introduce bias, and how can that be mitigated?",
+    "Is there a reliable way to use seed numbers or other parameters to get consistent iterative outputs from DALL-E 3?"
+  ],
+  "state_hash": "efb244b8ce67a3c23c87fb57e00a753c4316dee21ff34b77772f5953a8724d10",
+  "generated_at": "2026-04-24T15:34:43.439529Z"
+}

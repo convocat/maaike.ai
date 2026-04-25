@@ -1,0 +1,12 @@
+{
+  "label": "Dutch calibration",
+  "summary": "Dutch calibration is an approach to model quantization that uses Dutch text as the calibration language instead of English, so the compression process preserves what matters for Dutch rather than defaulting to English assumptions. It was done by Michiel Buisman on IBM Granite 4 micro dense, using the Leesplank corpus as the Dutch reference data. The claim is that combining language-specific calibration data with component-level vulnerability information from Unsloth AI had not been done before.",
+  "how_maaike_uses": "Maaike picks this up as a direct concern for her knowledge graph project, which runs quantized embedding models locally via Ollama. The worry is that standard English-default quantization means Dutch content in the garden may be getting systematically worse embeddings than English content, silently, without any obvious signal. The Leesplank corpus also comes up as a potential evaluation tool because its semantic clusters and complexity layers make it more useful than a plain text dump.",
+  "open_questions": [
+    "Has anyone actually tested whether Dutch embeddings from standard quantized models are measurably worse than English embeddings, and by how much?",
+    "Is the Dutch calibration method straightforwardly transferable to embedding models, or does it only apply to generative models?",
+    "The vulnerability mapping data was already in Unsloth's published files but apparently unused until now — what else is buried in standard tooling that could improve non-English quantization?"
+  ],
+  "state_hash": "a4e8cf3c5f7e416b11cde1e861dfa43f4c17426dacc71903c3bfdb2c75d070bf",
+  "generated_at": "2026-04-24T16:19:28.914970Z"
+}

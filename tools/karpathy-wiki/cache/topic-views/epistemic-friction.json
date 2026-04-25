@@ -1,0 +1,11 @@
+{
+  "label": "Epistemic friction",
+  "summary": "Epistemic friction refers to resistance or obstacles in the flow of knowledge that can serve a protective function. In Maaike's work it appears as a counter-force to the flattening effects of algorithmic systems. The concept suggests that some friction in how knowledge is processed or validated is not a bug but a feature.",
+  "how_maaike_uses": "Maaike invokes epistemic friction specifically in the context of algorithmic epistemic injustice, positioning it as something that pushes back against AI systems that collapse diverse human knowledge into a single statistical output. The implication is that friction -- slowing down, questioning, resisting -- is a necessary corrective when systems treat probability as a sufficient stand-in for truth or legitimacy.",
+  "open_questions": [
+    "What concrete mechanisms could introduce meaningful epistemic friction into AI knowledge systems without making them unusable?",
+    "If statistical probability is not enough, what standard should replace or supplement it when AI arbitrates between knowledge claims?"
+  ],
+  "state_hash": "c9d0939bb3508dd031434fb530f6d6261b967267ef4409e4cba43f8c1eb3c94d",
+  "generated_at": "2026-04-24T16:25:28.659135Z"
+}

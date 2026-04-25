@@ -1,0 +1,12 @@
+{
+  "label": "Text embeddings",
+  "summary": "Text embeddings turn pieces of text into lists of numbers (vectors) so that semantically similar content ends up close together in that vector space. In Maaike's work they are the computational backbone of the knowledge graph project: used to discover non-obvious links between garden items, power a spatial content map, and surface serendipitous connections across collections. The core tension throughout is that embeddings are powerful but opaque, and they break down in predictable ways at garden scale.",
+  "how_maaike_uses": "Maaike uses text embeddings specifically through local-first tooling (Ollama), settling on bge-m3 as the model of choice for its multilingual support and score discrimination. She runs embeddings on all garden items to generate link candidates via cosine similarity, then works through the practical problems that follow: scores are not comparable across pairs (score incomparability), short items lack enough signal to produce meaningful vectors (the short-text problem), and content of different lengths clusters by format rather than topic (format contamination). Key phrase extraction was added alongside embeddings precisely because embeddings are opaque — phrases explain why two items are related, not just that they are. Thematic analysis experiments confirmed that embeddings map topical structure well but are structurally blind to themes defined by stance, autobiography, or argument rather than vocabulary. The book recommender deliberately chose a logic-based scoring algorithm over embeddings, treating them as a contrasted alternative. Throughout, embeddings are positioned against thematic analysis (which can find cross-cutting threads embeddings miss) and against key phrase extraction (which is more transparent but narrower).",
+  "open_questions": [
+    "What threshold or filtering strategy actually works for surfacing cross-collection serendipitous links without burying them in obvious same-topic matches?",
+    "Can enriching thin content (video transcripts, book summaries) before embedding fix format contamination, and is the improvement worth the effort at garden scale?",
+    "No academic work exists on using embeddings in personal knowledge management contexts — does the garden experiment produce findings worth writing up formally?"
+  ],
+  "state_hash": "621288ba9cd96057c92ee2205ecab1090d85046555ddc69c182e5d5d35eb4111",
+  "generated_at": "2026-04-24T16:06:35.585985Z"
+}

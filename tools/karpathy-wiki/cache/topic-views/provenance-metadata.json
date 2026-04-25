@@ -1,0 +1,11 @@
+{
+  "label": "Provenance metadata",
+  "summary": "Provenance metadata refers to the practice of storing, alongside each fact or link, information about where it came from, when it was recorded, how confident the system is in it, and who or what generated it. In practice this means extending standard triples with fields like source ID, timestamp, confidence score, and method tag. It is a requirement for any knowledge graph that needs to be auditable, filterable, or incrementally updated.",
+  "how_maaike_uses": "Maaike picks up provenance metadata from Apple's Saga platform as a direct requirement for the garden's knowledge graph. The concrete proposal is to store auto-generated links as extended triples of the form (item, relates-to, item, confidence, method), where the method field distinguishes manual links from auto-extracted or embedding-based ones. This matters practically: high-confidence links can be shown as 'related' automatically, while low-confidence ones get queued for review. Provenance also enables filtering and auditing, so the garden can tell apart what it knows from what it guessed.",
+  "open_questions": [
+    "How should the review step work in practice: present low-confidence candidates for manual approval, or auto-link them and correct later?",
+    "Can the extended triple store and its provenance fields be maintained entirely at build time, or does it need a separate process outside the static site build?"
+  ],
+  "state_hash": "16c48961dc30be2a81b056befcbe60466a276538955717b9901dec830e203077",
+  "generated_at": "2026-04-24T15:36:02.428825Z"
+}

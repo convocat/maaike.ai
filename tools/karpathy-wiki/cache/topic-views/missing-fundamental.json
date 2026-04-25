@@ -1,0 +1,11 @@
+{
+  "label": "Missing fundamental",
+  "summary": "The missing fundamental is an acoustic phenomenon where a pitch is perceived even though the actual fundamental frequency is absent, with the listener inferring it from overtones. Maaike uses it as a metaphor for how LLMs relate to ground truth: they can only approximate knowledge through statistical patterns, never anchoring to it directly. The concept appears in her writing on hallucinations, where she connects the impossibility of tuning timpani to a definite pitch with the impossibility of an LLM truly 'knowing' something.",
+  "how_maaike_uses": "Maaike reaches for the missing fundamental to articulate a structural limitation she sees in LLMs, not just a technical bug to be patched. The comparison comes from her experience playing timpani, where the parabolic shape means you tune on inharmonic overtones and can only approximate the fundamental. She maps this onto how LLMs handle knowledge: the ground truth is suspected to be there, but the model can only circle around it probabilistically. For her this explains why training an LLM to say 'I don't know' below some probability threshold is not the same as the model actually having that capability in an inherent way. She returned to this metaphor across at least two separate posts, which suggests she finds it genuinely useful rather than just a throwaway analogy.",
+  "open_questions": [
+    "Can hallucinations ever be solved without changing the underlying concept of operations of an LLM, or is approximation structurally unavoidable?",
+    "Is there a meaningful difference between training a model to express uncertainty and that model having genuine epistemic humility as an inherent capability?"
+  ],
+  "state_hash": "52570fe402c4ba04dda9d5185b9d77e9019a940696a30f781015f31625296ae5",
+  "generated_at": "2026-04-24T15:18:18.101501Z"
+}

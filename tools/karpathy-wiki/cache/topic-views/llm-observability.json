@@ -1,0 +1,11 @@
+{
+  "label": "LLM observability",
+  "summary": "LLM observability is a practice within LLMOps concerned with monitoring, evaluating, and understanding the behaviour of GenAI systems running in production. It involves working with traces, spans, logs, and evals to get actionable insight into both technical health and user experience. It also surfaces in research contexts, where internal model states such as emotion circuits become objects of study and control.",
+  "how_maaike_uses": "Maaike approaches LLM observability as the operational core of what she calls the LLMOps analyst role. Concretely, she designs the metadata structures that determine which datapoints from traces and spans are available for evals and analytics, defines qualitative and functional evals covering hallucination, tone of voice, compliance, and resolution rate, and does log analysis she describes as convo log analysis on steroids. Her argument is that this work requires a linguist's skills: writing precise evals, understanding human-machine interaction patterns, and being able to zoom between the detail of a single child span and the overall GenAI architecture.",
+  "open_questions": [
+    "How far does the concept of LLM observability extend into internal model states like emotion circuits, and what that would mean for eval design in production systems?",
+    "Where the boundary sits between what a conversation designer or linguist owns in observability work versus what remains an engineering responsibility."
+  ],
+  "state_hash": "b4ffaa0c6188f3cc692b5ddfd3a24097e945d9adba77126bd4c79ba0afc3f5b8",
+  "generated_at": "2026-04-24T15:27:46.022390Z"
+}

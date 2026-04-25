@@ -1,0 +1,12 @@
+{
+  "label": "Ethics in persona",
+  "summary": "Ethics in persona refers to the idea that a chatbot's persona could serve as more than a tool for conversational consistency or UX -- it could function as a built-in ethical framework that governs what a bot will and will not say. Maaike contrasts this with external safety filters, which she sees as insufficient because they can be removed. The concept draws on the notion that moral values and principles should be inherent to the bot itself, not bolted on afterwards.",
+  "how_maaike_uses": "Maaike develops this concept through her analysis of Blender's failure to maintain a stable identity or ethical position under conversational pressure. She argues that the real problem is not a biased training set alone, but the absence of a fixed internal character with coherent moral standards. From this she proposes that chatbot personas could evolve from being guidelines for tone and consistency into something closer to a set of ethical validation rules -- a foundation that shapes all of a bot's outputs. She uses analogies like Asimov's laws of robotics and the Golem tradition to argue that ethics need to be hard-wired into a bot's core, not applied as an afterthought.",
+  "open_questions": [
+    "How would you actually encode moral values and principles into a chatbot persona in a way that is robust enough to resist manipulation?",
+    "If training data sets remain flawed, can a persona-based ethical framework compensate, and to what degree?",
+    "What governance or design process would be needed to decide whose ethics get encoded into a bot's persona?"
+  ],
+  "state_hash": "14f4f8a992128b6ce06a6d2f2adc1b8e12b4dcbc503fd87ff203b81228c8f5bf",
+  "generated_at": "2026-04-24T15:41:57.745986Z"
+}

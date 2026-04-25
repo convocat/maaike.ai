@@ -1,0 +1,11 @@
+{
+  "label": "Meaningful friction",
+  "summary": "Meaningful friction is a design concept that Maaike uses to describe intentional constraint built into an interaction model, meant to slow a user down and invite reflection rather than smooth the path toward a quick answer. It sits in deliberate opposition to the default behaviour of LLMs, which are trained to fill silence and project conviction. In Maaike's framing, friction is not a flaw to be removed but a feature to be designed.",
+  "how_maaike_uses": "Maaike deploys meaningful friction as the core mechanism in her pet project 'designing for doubt', where she explores what it would look like to move away from sleek, frictionless LLM interaction toward something more constraint-based and silence-informed. She is experimenting with whether a system prompt can generate this quality, effectively asking whether you can prompt your way toward a model that refuses to fill in the blanks for you. The concept is grounded in her experience of music: in singing and percussion, silence is not absence but active preparation that shapes what comes next, and she is using that logic to argue that making room in an LLM interaction is a deliberate design act, not an accident.",
+  "open_questions": [
+    "Can a system prompt reliably generate meaningful friction, or does the training objective of LLMs (to complete, to fill) always overwhelm that design intention?",
+    "What does a silence-informed interaction model actually look like in practice, and how would you evaluate whether the friction it introduces is genuinely meaningful rather than just annoying?"
+  ],
+  "state_hash": "f9bfd8d94f0e4c517387823dbe9a7a7dd65d9072692edd00c458a125d0de4b2e",
+  "generated_at": "2026-04-24T15:33:33.750336Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Digital garden",
+  "summary": "A digital garden is a personal website where ideas are published at different stages of growth rather than as finished, chronological posts. It is topological rather than time-ordered: notes connect to other notes by association, not by date. The concept predates modern blogging platforms and is attributed in Maaike's reading to Maggie Appleton's history of the form.",
+  "how_maaike_uses": "Maaike built her garden explicitly as a counter to algorithmic feeds and content fragmentation across multiple platforms. She uses the maturity system (seedling to full tree) to give herself permission to publish incomplete thoughts, which she frames as thinking in public. The garden metaphor extends into practical infrastructure: a stream for chronology, a mycelium layer for the knowledge graph, a greenhouse for unverified incoming content, and a compost heap for ideas that have decayed. She is candid that tending the underlying systems can pull attention away from actual writing, and that the balance between a cultivated, orderly space and productive chaos is an ongoing tension she has not resolved.",
+  "open_questions": [
+    "How much cultivation is too much? The weeds question — when AI-assisted gardening starts competing with actual writing — is raised but not settled.",
+    "Who is the garden actually for? Maaike notes that right now it is mostly for herself, but does not land on whether and how that should change.",
+    "Can the full lifecycle metaphor (greenhouse, compost, soil) be implemented in practice, or does it remain a design idea?"
+  ],
+  "state_hash": "99154cf829361307c496597cc32257e6c826991fc3d3b11aaa09467328b60808",
+  "generated_at": "2026-04-24T15:22:54.624889Z"
+}

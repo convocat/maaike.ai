@@ -1,0 +1,11 @@
+{
+  "label": "LLM interpretability",
+  "summary": "LLM interpretability is the field concerned with understanding what is happening inside large language models. It asks whether internal structures can be identified, named, and manipulated. Work on emotion circuits is one example of this kind of reverse-engineering effort.",
+  "how_maaike_uses": "The only post touching this topic points to a paper on emotion circuits in LLMs, surfaced via Ben Wigler. There is not enough material to describe a broader pattern in how Maaike deploys the concept.",
+  "open_questions": [
+    "Do the identified emotion circuits reflect something meaningfully analogous to emotion, or are they just a convenient label for activation patterns?",
+    "What does 'control' of emotion circuits actually entail, and what are the implications of that?"
+  ],
+  "state_hash": "efd70f228c120545f3faea68395082e7e7a9adcfba6cb67da78a908874ff77c5",
+  "generated_at": "2026-04-24T16:25:50.026385Z"
+}

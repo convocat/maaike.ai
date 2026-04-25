@@ -1,0 +1,11 @@
+{
+  "label": "Building as specification",
+  "summary": "Building as specification is the practice of constructing a working artefact — prototype, interactive mockup, or actual code — instead of producing traditional upstream deliverables like wireframes or epic docs. It emerges when time pressure and role overlap make the conventional design-then-handoff sequence impractical. In Maaike's work it appears as a direct consequence of using Claude Code in an ultrasmall team where she holds multiple roles simultaneously.",
+  "how_maaike_uses": "Maaike arrives at building as specification through necessity: wearing eight hats at once leaves no room for Miro flows or formal acceptance criteria, so the shortest path to communicable value becomes building the thing itself. With Claude Code she turned a dashboard concept into an interactive prototype, fed it the team's actual front-end libraries and mock data, and committed it directly to the repo for developers to pick up. The same logic applies to UX copy review: rather than producing a screenshot-and-remarks table, she had Claude make the changes in a branch and submitted a merge request. In both cases the build replaces the spec as the primary communication medium with the rest of the team.",
+  "open_questions": [
+    "When the build replaces the spec, the learning effect for developers risks being lost — they may accept changes without reviewing them carefully. How should the team design its review process to preserve that second pair of eyes?",
+    "Building as specification collapses the distinction between design intent and implementation. Who holds final accountability for quality and best-practice decisions when the PO is also committing code, even with the lead developer retaining the final call?"
+  ],
+  "state_hash": "28116925fa18b73a943ac0a7960ccbfa6ab1258f7e802c671c9a9b33ae95bff9",
+  "generated_at": "2026-04-24T15:24:51.912320Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Content sprint",
+  "summary": "A content sprint is a fixed period of time in which a conversational or chatbot team commits to completing a pre-planned package of work. Unlike IT sprints, the right length for a content sprint depends on the actual content lifecycle, including research, review, and publication cycles. Copying a two-week IT sprint to a content team can create artificial deadlines that don't match how content work actually flows.",
+  "how_maaike_uses": "Maaike uses the content sprint concept to push back against the default assumption that scrum for IT teams translates cleanly to conversational or chatbot teams. She draws on her own experience as a tech writer in aviation, where a four-week cycle felt natural because it matched the real rhythms of research, coordination, review, and publication. Her argument is that a sprint should be sized to fit the actual content lifecycle, not copied from someone else's model.",
+  "open_questions": [
+    "What sprint length or structure would Maaike actually recommend for conversational teams if not two weeks?",
+    "How should intake of urgent or ad hoc content requests be handled within a content sprint structure?"
+  ],
+  "state_hash": "99a5aba47317d7a11b8fcb4845ecfe6d98aac02822603b5ddd3b2015f8e28b67",
+  "generated_at": "2026-04-24T15:57:04.217921Z"
+}

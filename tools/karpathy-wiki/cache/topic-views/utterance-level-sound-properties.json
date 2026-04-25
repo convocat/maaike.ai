@@ -1,0 +1,11 @@
+{
+  "label": "Utterance-level sound properties",
+  "summary": "Utterance-level sound properties is what prosody refers to: the sonic characteristics that apply to whole utterances rather than individual sounds or words. Examples include intonation, stress, and pitch. It is a foundational concept for anyone working with SSML in voice and conversation design.",
+  "how_maaike_uses": "Maaike introduces prosody as the practical core of SSML work, framing it as the main layer conversation designers manipulate when tagging speech. She situates it within a broader primer on speech concepts, using it to draw a clear contrast between the properties of whole utterances and those of individual words or sounds, and signals that it will be a recurring concept in subsequent parts of the series.",
+  "open_questions": [
+    "The primer is explicitly part 1, so how prosody interacts with other speech properties in SSML practice is left to be developed in later parts.",
+    "The passage mentions stress as a prosodic property but does not explain it further, leaving its practical implications for voice design unaddressed."
+  ],
+  "state_hash": "bf4d7a2f48bfa696a1a7081235eebc02e6057823aec60e4c7102e79cb6501a94",
+  "generated_at": "2026-04-24T16:02:37.260478Z"
+}

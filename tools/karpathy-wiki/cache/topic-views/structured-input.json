@@ -1,0 +1,11 @@
+{
+  "label": "Structured input",
+  "summary": "Structured input refers to constrained, limited user input in AI interfaces: think buttons, numbered options, and predefined choices rather than open free-text fields. It is the opposite of the conversational, unstructured paradigm that became the default with generative AI. Claude Code's interface choices are a concrete example of structured input making a comeback.",
+  "how_maaike_uses": "Maaike uses structured input as a lens to reframe something usually seen as regressive — buttons, numbered menus, IVR — as actually a smart design response to two real problems with free-text AI interfaces: usability (people don't know how to prompt well) and security (unconstrained text input opens the door to prompt injection and unintended changes to how a system works). The IVR comparison is deliberate and a little provocative: the thing everyone was glad to leave behind might be exactly what we need again.",
+  "open_questions": [
+    "Where exactly is the right boundary between structured and conversational input in an AI application — is it per use case, per user type, or something else?",
+    "How do you design structured input that constrains without frustrating users, given that the whole promise of conversational AI was less friction?"
+  ],
+  "state_hash": "d3f142db56deba378d59931e29e124de5fafe5b0428b4626138bded5196b7c36",
+  "generated_at": "2026-04-24T15:27:03.784533Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Wander mode",
+  "summary": "Wander mode is one of three exploration modes proposed for a dedicated /explore page in the garden. It is a serendipity mode that uses constrained randomness rather than pure randomness, weighting toward items with fewer inbound links and surfacing their nearest semantic neighbors alongside them. The goal is to let visitors land not just on a random item but in a meaningful neighborhood of related content.",
+  "how_maaike_uses": "Maaike frames Wander mode around a specific design principle drawn from IJDesign research: serendipity requires both unexpectedness and value. The weighting toward under-linked items handles unexpectedness, while showing three to four semantic neighbors on the map handles value. Visually, the mode is meant to feel like a hand-drawn magnifying glass or garden bed outline, with neighbors connected by faint sketchy Rough.js lines, keeping it consistent with the broader hand-drawn aesthetic of the explore page rather than feeling like a data tool.",
+  "open_questions": [
+    "How should the weighting toward under-linked items be calibrated, and at what point does an item have enough inbound links to be considered no longer undervisited?",
+    "The visual language for the highlighted neighborhood is left open between a magnifying glass shape and a garden bed outline, with no decision recorded yet."
+  ],
+  "state_hash": "51a897cd65b63d220a0877a38647dbbf8c5083834e6c9dc415cb8d738d04a5af",
+  "generated_at": "2026-04-24T16:07:33.535991Z"
+}

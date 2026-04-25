@@ -1,0 +1,11 @@
+{
+  "label": "Roleplay prompting",
+  "summary": "Roleplay prompting is the technique of getting a language model to take on a specific role or persona by framing the interaction as a simulation rather than a direct request. In Maaike's work it shows up as a practical entry point into conversation design with ChatGPT, where telling the model to act as a Pizza Bot unlocks interactive, stateful behaviour that a flat prompt does not. It connects directly to conversation design, functioning as a kind of no-code prototyping method.",
+  "how_maaike_uses": "Maaike uses roleplay prompting as a hands-on test of what ChatGPT can do for conversation designers specifically. Rather than asking the model to describe or script a bot, she steps into the interaction herself, prompting the model to maintain slots, track inventory, and handle exceptions in plain language. Her angle is pragmatic and comparative: she keeps noting how much effort the same logic would take in a traditional bot platform, using roleplay prompting to surface both the genuine power and the unresolved reliability concerns of LLMs for professional conversation design work.",
+  "open_questions": [
+    "How consistent and reproducible is roleplay prompting across sessions, given that probabilistic models don't guarantee the same behaviour twice?",
+    "Can patterns and micro-methods built through roleplay prompting be reliably extracted and embedded into traditional conversational applications?"
+  ],
+  "state_hash": "60bfb92279e58cd47f3d999fe696607f73226c81e6d2808e77a9164ee82542aa",
+  "generated_at": "2026-04-24T15:34:06.576080Z"
+}

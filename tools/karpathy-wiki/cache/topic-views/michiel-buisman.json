@@ -1,0 +1,11 @@
+{
+  "label": "Michiel Buisman",
+  "summary": "Michiel Buisman is a practitioner who quantized IBM Granite 4 micro dense using Dutch as the calibration language rather than English, producing a model better suited to Dutch text on local hardware. He combined Dutch-specific calibration data (the Leesplank corpus) with pre-computed component vulnerability data from Unsloth AI. Maaike tracks his work because it bears directly on whether local AI tooling can work well in Dutch.",
+  "how_maaike_uses": "Maaike references Buisman's work as evidence that standard quantization silently degrades non-English languages, which has concrete implications for her knowledge graph project: the locally-run embedding models she uses via Ollama are also quantized, meaning Dutch content in the garden may already be getting worse embeddings than English content. She also flags the Leesplank corpus he used as potentially useful for evaluating Dutch embedding quality in her own setup.",
+  "open_questions": [
+    "Do the locally-run embedding models in Maaike's knowledge graph project actually produce worse embeddings for Dutch content than for English, and how would she test that?",
+    "Could the Leesplank corpus be used directly to benchmark Dutch embedding quality in the garden's current setup?"
+  ],
+  "state_hash": "1dfd1e63c7b56ac6e041a3c3fbb35d46bff36ec64299cca283557c7df0ff4d2b",
+  "generated_at": "2026-04-24T16:19:47.752070Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Context tracking",
+  "summary": "Context tracking refers to a conversational system's ability to retain and apply information from earlier turns in a conversation. In Maaike's work it shows up as a marker of sophistication in conversational AI: can the system remember what was said, by whom, and in what framing, across multiple exchanges? ChatGPT is the system she examines through this lens.",
+  "how_maaike_uses": "Maaike uses context tracking as a concrete test of whether a CUI is genuinely capable or just surface-level impressive. In her ChatGPT session she watches for whether the system can hold multiple layers of context simultaneously: the name she gave it earlier, its own persona constraints, and the logical implications of being non-human. When ChatGPT passes these tests, she frames it not just as a technical feat but as a foundation for things like coreference resolution, graceful face-saving, and even an emergent kind of unintentional humour.",
+  "open_questions": [
+    "How robust is ChatGPT's context tracking when conversations get longer or more adversarial, beyond the short sessions Maaike tested?",
+    "Does consistent context tracking plus persona consistency reliably produce trust, or are there cases where it backfires?"
+  ],
+  "state_hash": "5eb031dc02e2f3c27741b92720adc9da5b94a88ee413ed335151af7fc851ffab",
+  "generated_at": "2026-04-24T15:39:39.675328Z"
+}

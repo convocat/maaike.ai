@@ -1,0 +1,11 @@
+{
+  "label": "AI slop",
+  "summary": "AI slop refers to low-quality, machine-generated content produced at scale, particularly by agentic AI systems. In Maaike's work it appears as a known risk that nonetheless may be overshadowed by deeper concerns about AI's impact on critical software infrastructure. Project Glasswing, Anthropic's initiative to secure critical open-source software using AI, is framed as a direct counter to the threat AI slop poses to that infrastructure.",
+  "how_maaike_uses": "Maaike uses AI slop as a starting point for a harder worry: that while everyone is busy discussing content quality, the more serious risk is what agentic AI generating slop could do to critical software. Her reaction to Project Glasswing is sceptical and alarmed rather than reassured, suggesting she sees the problem as already outpacing the proposed solutions.",
+  "open_questions": [
+    "If AI slop risks critical software, does securing that software actually address the root cause, or only the symptoms?",
+    "At what point does AI slop shift from a nuisance to a genuine infrastructure threat, and are we already past it?"
+  ],
+  "state_hash": "d3e2fc47b4f266736d7914b9fafc17a1a5f0efe3057fb722a3801a4b156e7d97",
+  "generated_at": "2026-04-24T16:23:24.805621Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Vibe chips",
+  "summary": "Vibe chips are a client-side re-ranking mechanism in Maaike's book recommender. They let her apply a situational filter on top of the base scoring, so the output reflects what she actually needs right now rather than just what scores highest in the abstract. There are four chips: short session, feed the work, from the pile, and surprise me.",
+  "how_maaike_uses": "Maaike uses vibe chips as the human-in-the-loop layer of an otherwise automated scoring system. The base scores run once in Python across four weighted dimensions, but vibe chips let her nudge the ranked results at the point of use, client-side, with no recomputation needed. The framing is explicitly anti-algorithmic in spirit: the chips are situational and self-chosen, not inferred. This makes them a deliberate design choice to keep the tool personal rather than predictive.",
+  "open_questions": [
+    "The library audit still has unlabeled books pending a follow-up interview, which could affect how well the scoring and vibe chip re-ranking actually perform across the full library.",
+    "It is not clear whether the four current vibe chips cover the full range of situational needs Maaike might have, or whether new chips will be added as the tool is used in practice."
+  ],
+  "state_hash": "ad3f525d5b3c6cb712569390cf48619424d154ceaa8fddf5009399fcad5d3eb5",
+  "generated_at": "2026-04-24T16:05:57.785547Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Open-loop automation",
+  "summary": "Open-loop automation refers to automated processes that detect or report on issues but cannot act on them or trigger any follow-up. In Maaike's work, scheduled tasks in Claude Code exhibit this property: a task runs, produces a report, and then stops. The human has to read the output and decide what to do next.",
+  "how_maaike_uses": "Maaike encountered open-loop automation as a concrete limitation when testing scheduled garden health checks. The scheduled task could find broken links, tag problems, and other issues, but the report simply landed in a sidebar session or file with no way to chain it into remediation, create an issue, or trigger a follow-up task. This made her question whether recurring scheduled tasks are actually useful for maintenance work if every finding still requires manual attention to act on.",
+  "open_questions": [
+    "What kinds of tasks are worth scheduling if the output always requires a human to close the loop anyway?",
+    "Is there a way to chain scheduled task output into follow-up actions, or is open-loop the permanent constraint of this feature?"
+  ],
+  "state_hash": "835ab70b6ae45f2c2247a90a579f8d7dadb9bb3625972aaf9b7a36ee41ec58ef",
+  "generated_at": "2026-04-24T16:09:53.011811Z"
+}

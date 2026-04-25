@@ -1,0 +1,11 @@
+{
+  "label": "Conversational grounding",
+  "summary": "Conversational grounding, a concept attributed to Herbert Clark and Susan Brennan, refers to the process by which participants in a conversation build and maintain common ground, including shared assumptions about truth, intention, and mutual understanding. It is a precondition for conversation to function as genuine collaborative sense-making. In Maaike's work it surfaces primarily as something LLMs lack, which creates a fundamental tension when conversational interfaces are used as the design metaphor for human-AI interaction.",
+  "how_maaike_uses": "Maaike uses conversational grounding as a critical lens to expose the mismatch between what LLMs actually do and what the conversation metaphor implies they do. She argues that because LLMs are indifferent to truth, they cannot fulfil the underlying contract that human conversation presupposes, including Grice's maxim of quality and the expectation that both parties have a genuine stake in the exchange. She points out that Bing Chat uses a conversational interface that sets up exactly these expectations in users, then fails to meet them, and that even ChatGPT, which shows surface-level grounding behaviours like tracking context across a pizza ordering simulation, does so through probabilistic word prediction rather than any real understanding, making consistency and factual accuracy unreliable. The concept therefore helps her argue both that the conversation metaphor is doing real design harm and that responsibility for caring about truth falls back on designers and users rather than the model.",
+  "open_questions": [
+    "If conversational grounding requires common ground, shared stakes, and moral commitment, is there any interaction model with an LLM that could satisfy even a minimal version of those conditions, or is the gap structural?",
+    "ChatGPT is listed as both exhibiting conversational grounding and as lacking the truth-concern that grounding presupposes, which raises the question of whether surface grounding behaviours count at all, or whether grounding is all-or-nothing."
+  ],
+  "state_hash": "a33806bad671fff4cc43a67d4b8b57ca31a497d1007ec09393ac9fe6ddf7ad59",
+  "generated_at": "2026-04-24T15:18:44.523786Z"
+}

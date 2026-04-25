@@ -1,0 +1,11 @@
+{
+  "label": "Deixis",
+  "summary": "Deixis refers to reference that is relative to the speaker, meaning words or expressions whose meaning shifts depending on who is speaking, where, and when. In the context of conversation design, it shows up as one of several linguistic features that make synthetic speech sound more natural. It sits alongside backchannelling and discourse markers as part of a broader speech primer for designers building voice actions or chatbots.",
+  "how_maaike_uses": "Maaike introduces deixis in her speech primer series as a property of natural speech that can be used to reinforce bot persona. The post lists it as one of the tools conversation designers can reach for to make a voice action sound more speech-like, though the surviving passage does not go into the same depth on deixis as it does on backchannelling and discourse markers.",
+  "open_questions": [
+    "The passage mentions deixis but the detailed explanation appears to be cut off or missing from the available material, so it is unclear exactly which deictic strategies Maaike recommends for bot design.",
+    "It is not explained how deixis interacts with the two-channel model of conversation that structures the rest of the post."
+  ],
+  "state_hash": "19492335f002a35dd727db1a3c32631a527044ea352dddc7ef0e6e1529f17652",
+  "generated_at": "2026-04-24T16:04:09.683302Z"
+}

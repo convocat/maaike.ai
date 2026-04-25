@@ -1,0 +1,11 @@
+{
+  "label": "Cooperative principle",
+  "summary": "The cooperative principle is a concept attributed to Paul Grice that describes how people in conversation mutually try to communicate in ways that are truthful, relevant, and clear. A key part of it is the maxim of quality, which holds that speakers aim to say only what they believe to be true and what they have evidence for. The concept sits in tension with the idea of least collaborative effort, which suggests people also try to minimise the energy spent in communication.",
+  "how_maaike_uses": "Maaike uses the cooperative principle to explain why ChatGPT output is particularly risky to trust. Her argument is that humans are conditioned by the cooperative principle to treat conversational partners as basically truthful, so they don't habitually fact-check what sounds like a normal exchange. Because ChatGPT mimics the surface form of cooperative conversation without actually being able to care about truth, it exploits this assumption without fulfilling it. She layers this with the observation that people are also naturally lazy communicators, making it even less likely they will develop new habits of verification when talking to a conversational AI.",
+  "open_questions": [
+    "How should interfaces be designed to counteract the false sense of reliability that the cooperative principle creates when users interact with LLMs?",
+    "If least collaborative effort and the cooperative principle both shape human communication, how do those two pressures interact when people decide whether or not to fact-check AI output?"
+  ],
+  "state_hash": "1dbd52a38b1dc0ef1ca93ca41f250612a9f897619b26aacffaab522901acf08f",
+  "generated_at": "2026-04-24T15:20:12.076645Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Task-based documentation",
+  "summary": "Task-based documentation is a form of information mapping that organises knowledge around what you actually need to do, rather than around concepts or narrative. In Maaike's garden it shows up as a user manual for the garden itself, covering concrete workflows like writing, tagging, linking, and publishing. The triples mark it as a better fit for a digital garden than for more traditional documentation formats.",
+  "how_maaike_uses": "Maaike uses task-based documentation to make the garden self-maintaining and legible to her future self. The garden user manual is structured entirely around discrete actions: starting a dev server, writing a post, choosing a collection, setting maturity levels. There is no conceptual preamble, just numbered steps and decision tables. The manual also reinforces the act of building the garden itself, meaning the documentation is not separate from the work but part of it.",
+  "open_questions": [
+    "The AI transparency table is cut off mid-entry in the source passage, so it is unclear whether the full set of labels is documented anywhere.",
+    "The manual covers writing and capturing but does not say how or whether outdated tasks get pruned or versioned as the garden evolves."
+  ],
+  "state_hash": "e3e19e4e6d02ea7ae264400048c096b5ef7bf3c0922c9e7e608e02850cd61f76",
+  "generated_at": "2026-04-24T16:11:10.053533Z"
+}

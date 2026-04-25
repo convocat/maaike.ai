@@ -1,0 +1,11 @@
+{
+  "label": "Algorithmic bias",
+  "summary": "Algorithmic bias refers to the ways in which algorithms encode and reproduce unfair outcomes, particularly along racial and social lines. In Maaike's work it appears most directly through the lens of Safiya Noble's research, which shows how biased algorithms create systemic racism and propagate white privilege. The concern extends beyond traditional search engines to generative AI, where bias may be even harder to detect.",
+  "how_maaike_uses": "Maaike uses algorithmic bias as one reason to stay critically minded about AI hype rather than swept up in it. She points to Noble's 'Algorithms of oppression' as a resource that makes the patterns of bias visible, and she flags that the problem is likely to get worse with generative AI interfaces because the bias will be less visible there than in traditional search. It sits alongside her broader concern about tools that produce confident-sounding output without transparency about what is baked into them.",
+  "open_questions": [
+    "How does bias specifically manifest in generative conversational AI compared to traditional search, and what would make it visible again?",
+    "What practical steps, if any, can non-technical users take to recognise or push back against algorithmic bias in tools they use every day?"
+  ],
+  "state_hash": "333c3ffba3ebdbba0e537df318cb39e7afed8567449b8c6a6470a5a599ddfacd",
+  "generated_at": "2026-04-24T15:58:04.271031Z"
+}

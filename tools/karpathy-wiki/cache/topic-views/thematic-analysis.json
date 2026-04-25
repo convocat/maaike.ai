@@ -1,0 +1,11 @@
+{
+  "label": "Thematic analysis",
+  "summary": "Thematic analysis is a qualitative research method that reads across a body of text to surface recurring patterns and cross-cutting concerns, rather than treating each document in isolation. In Maaike's garden it functions both as a research method applied to the garden's own content and as a candidate model for how human-AI interaction might work. It requires holding a large body of material in view at once, which is why it maps onto the 1M context window as a technical affordance.",
+  "how_maaike_uses": "Maaike ran thematic analysis on her own garden in two variants: a fresh read loading all 244 files as raw markdown into a single context window, and a graph-augmented read starting from embeddings and k-means clusters. The fresh read found cross-cutting themes about truth, authorship, and non-linear thinking that the embedding-based approach structurally could not see, because those themes are carried by stance and argument structure rather than topical keywords. She contrasts thematic analysis with text embeddings precisely on this point: embeddings map the landscape by surface similarity, full-context reading finds the threads that cross it. She also formalised the method into a three-pass structure called Thematic-TAO, which combines a wide-angle thematic read with close TAO extraction and a coherence check, to avoid the risk of extracting technically correct triples that together misrepresent what a post actually argues. Beyond the technical experiment, she flags that thematic analysis offers an alternative metaphor for human-AI interaction: not conversation but collaborative discovery, where the unit of work is a theme and the operative verb is 'discover' rather than 'chat'.",
+  "open_questions": [
+    "Whether 'discover' as a verb can do real work as an alternative to the conversation metaphor, and what an interaction model built around it would actually look like in practice.",
+    "The combination of embeddings and full-context reading is described as stronger than either alone, but the right sequencing and weighting between them is not yet settled."
+  ],
+  "state_hash": "09f1627665790d62ba70463975d7ae3113de43535d46cbf628e346d3c4651493",
+  "generated_at": "2026-04-24T16:09:44.446039Z"
+}

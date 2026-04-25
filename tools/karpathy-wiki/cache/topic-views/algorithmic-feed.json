@@ -1,0 +1,11 @@
+{
+  "label": "algorithmic-feed",
+  "summary": "Algorithmic feed refers to the platform-driven, template-constrained mode of content distribution that shapes what gets written and read online. In Maaike's work it functions primarily as a foil: the thing the digital garden, the personal web, and authentic writing are positioned against. It represents a shift away from the early web's personal, hand-crafted sites toward content optimised for reach and engagement.",
+  "how_maaike_uses": "Maaike uses algorithmic feed as a reference point for what she is trying to move away from. LinkedIn is her clearest example of an algorithmic feed context, and she notes the convenience of quick notes there while also recognising what that convenience costs in terms of craft and depth. The digital garden is explicitly framed as a counter to that logic: non-linear, serendipitous, personal, and not organised around publication dates or platform templates. Her book recommender project extends the same critique into reading choices, rejecting recommendations based on what other people read in favour of a scoring system that knows her own library and context. The broader thread across posts is that algorithmic platforms flatten authentic voice, push writing toward templates, and replace personal judgment with crowd-sourced signals.",
+  "open_questions": [
+    "The personal web preceded algorithmic feeds, but Maaike doesn't fully work out whether the digital garden is a genuine return to that earlier mode or something new built in response to it.",
+    "She raises the question of who the garden is actually for, and whether designing for serendipity and personal exploration is compatible with any kind of discoverability or reach."
+  ],
+  "state_hash": "e9df7d76677808d43b7b6ff057b69469247fe23756f3ca13f2654913dbbbebc4",
+  "generated_at": "2026-04-24T15:26:07.243189Z"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "Tiny team",
+  "summary": "A tiny team is a development team so small (in this case three people) that traditional role boundaries stop being useful. Everyone covers multiple functions, and the work is organised around skills and availability rather than job titles. Processes get rethought constantly, sometimes hourly.",
+  "how_maaike_uses": "Maaike uses the tiny team context to examine where conventional role definitions break down in practice. She holds the PO, scrum master, prompt designer, tester, eval writer, and UX designer roles simultaneously, which forces her to find workarounds for gaps nobody has time to fill properly. A concrete example is using Claude Code to generate a UI preview and a review table, then negotiating with her developer to get clearance to commit editorial and UX copy changes directly via PR. The tension she keeps returning to is that speed and pragmatism can quietly erode the review loops and learning effects that make a small team resilient.",
+  "open_questions": [
+    "How do you preserve the learning effect and the second pair of eyes when tooling makes it too easy to just accept changes without review?",
+    "At what point does skill-based flexibility in a tiny team start creating single points of failure or knowledge silos?",
+    "Is there a lightweight process that captures the benefits of upfront design without the time cost that a team of three cannot afford?"
+  ],
+  "state_hash": "9f00e82090ea9f890ad1c50a01bb1466bddbb87ae7befeb7793b22675cac05e0",
+  "generated_at": "2026-04-24T16:20:18.200038Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Conversation metaphor",
+  "summary": "The conversation metaphor frames human-machine interaction as turn-taking dialogue, borrowed from human-human communication. Maaike examines how this metaphor, already a simplification for earlier chatbots, breaks down badly for generative AI where use cases, input types, and output types have diversified far beyond question-and-answer exchange. The metaphor is not just imprecise but actively misleading, smuggling in assumptions about agency, grounding, and anthropomorphism that do not hold.",
+  "how_maaike_uses": "Maaike uses the conversation metaphor primarily as something to argue against. She traces how it made a rough kind of sense for early CX chatbots but becomes a liability with GenAI: it presupposes conversational grounding that LLMs do not actually provide, it defaults to anthropomorphism whether you want it or not, and it misrepresents interactions that look more like delegation, delivery, or collaborative analysis than dialogue. She contrasts it with alternative framings she is actively exploring, including delegation-and-delivery and thematic analysis as an interaction model, where the unit of work is a theme rather than a turn and the operative verb is 'discover' rather than 'chat'.",
+  "open_questions": [
+    "Which alternative metaphor or combination of metaphors actually does the work the conversation metaphor cannot: delegation, thematic analysis, something else?",
+    "How do you design for the emotional labor dimension that the conversation metaphor drags in, once you have dropped the metaphor itself?"
+  ],
+  "state_hash": "51724e43d8f122adf16ddb1db01ccba99791ec52856597e898acd5f8956366d5",
+  "generated_at": "2026-04-24T15:03:30.043109Z"
+}

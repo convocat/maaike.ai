@@ -1,0 +1,11 @@
+{
+  "label": "Content strategy",
+  "summary": "Content strategy, in Maaike's work, refers to the deliberate decisions around what information to publish, on which channels, in what level of detail, and how to keep it accurate and up to date over time. It is not treated as a one-off concern but as an ongoing operational practice that requires clear ownership and maintenance processes. In crisis situations it becomes especially critical, because poor or fragmented content strategy directly contributes to misinformation.",
+  "how_maaike_uses": "Maaike invokes content strategy specifically in the context of crisis communication and chatbot development, arguing that official bodies are better placed to run crisis chatbots precisely because they already have a content strategy in place. Her point is that technology is not the hard part — sustainable content ownership and maintenance are. She uses the concept to push back against the reflex to build first and figure out governance later, and to make the case that more bots without a solid content foundation just add noise rather than help.",
+  "open_questions": [
+    "What does a good content strategy handoff actually look like when a conversational community partners with an official government body?",
+    "How do you maintain content strategy rigour in a rapidly evolving crisis when update cycles are very short?"
+  ],
+  "state_hash": "f782bef5994503de057c2b8855f3d1a0b0dfc045ba369aef7b65b83afc242c03",
+  "generated_at": "2026-04-24T15:43:52.688430Z"
+}

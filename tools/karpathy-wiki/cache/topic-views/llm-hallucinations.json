@@ -1,0 +1,12 @@
+{
+  "label": "LLM hallucinations",
+  "summary": "LLM hallucinations are the tendency of language models to confabulate plausible-sounding content rather than signal ignorance, caused by the underlying mechanism of probabilistic word prediction. Maaike characterises this not as a bug to be patched but as something structural: an LLM cannot hold a true TRUE/FALSE state, so it can only approximate the point of 'I don't know'. The problem shows up across text generation, image generation, and even key phrase extraction on short texts.",
+  "how_maaike_uses": "Maaike uses hallucinations as a recurring lens for questioning whether LLMs can ever be genuinely trustworthy without a fundamental change to how they work. She tracks the phenomenon practically, from watching Stanford Alpaca get pulled after hallucination-heavy demo runs, to catching DALL-E produce anatomically wrong hands, to observing gemma3:4b invent filler phrases for 9-word items during key phrase extraction. She also treats hallucination detection as a design responsibility: as an LLMOps analyst she writes evals specifically targeting model behavior around hallucination, and she notes that deterministic chatbot architectures are one way to sidestep the problem entirely by removing the generative layer.",
+  "open_questions": [
+    "Can hallucinations ever be 'solved' without changing the underlying probabilistic architecture of LLMs, or are they an inherent property of how these models work?",
+    "Training a model to say 'I don't know' below a certain probability threshold is not the same as the model genuinely knowing that it doesn't know — so what would that inherent capability even look like?",
+    "Is a deterministic, pre-authored conversational interface a genuinely viable alternative to generative AI for certain use cases, and what does that tradeoff look like in practice?"
+  ],
+  "state_hash": "d0a7e171ffb060f41dbc5709506823f2af65b31aab911de7e99ec5d73861fc73",
+  "generated_at": "2026-04-24T15:17:42.164595Z"
+}

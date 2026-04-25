@@ -1,0 +1,12 @@
+{
+  "label": "Saga",
+  "summary": "Saga is Apple's knowledge graph platform, published at SIGMOD 2022, built around a hybrid batch-incremental design: a stable graph rebuilt periodically, a live overlay for real-time facts, and human curations that feed back into the next batch cycle. Every fact is stored as an extended triple carrying provenance metadata including source, timestamp, confidence, and curator. A follow-up paper (SIGMOD 2023) adds graph embeddings, fact ranking, and semantic annotation of external content.",
+  "how_maaike_uses": "Maaike treats Saga as the primary inspiration for building a smarter link graph in her digital garden. She identifies which parts of Saga's architecture transfer to a ~200-item garden: delta processing so the link graph isn't rebuilt from scratch on every change, extended triples with confidence and method metadata to track how each link was generated, blocking plus lightweight similarity to avoid running expensive comparisons on all pairs, and confidence scoring to separate auto-links from candidates queued for review. She explicitly uses Saga as the structural model for the garden's own knowledge graph, adapting its three-layer design and provenance approach to a static-site build context.",
+  "open_questions": [
+    "Whether the pipeline can run at build time (Astro) or needs a separate process.",
+    "How to handle the review step: present candidates for manual approval versus auto-linking with a confidence threshold.",
+    "How to balance serendipity (surprising cross-collection connections) with relevance, given that most high-scoring pairs at current thresholds are obvious same-series or same-topic items."
+  ],
+  "state_hash": "72eb79e3889beabc6af7bfdf22b249941a8a354d71e45d1c38f73700ca10e7b9",
+  "generated_at": "2026-04-24T15:35:40.607496Z"
+}

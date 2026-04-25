@@ -1,0 +1,11 @@
+{
+  "label": "Context design",
+  "summary": "Context design is Maaike's preferred term for what others call context engineering: the practice of structuring and organising all the information an LLM needs to perform well, not just writing a short instruction. It is an instance of information architecture, drawing on long-established disciplines like instructional design, topic-based writing, and information mapping. A system prompt is one concrete instance of context design in practice.",
+  "how_maaike_uses": "Maaike argues that context engineering is a misleading label because the work it describes is fundamentally design, not engineering. She uses the cookbook recipe as a teaching analogy: a good prompt, like a good recipe, is built from semantic information types (ingredients, preparations, cautions, checks) organised into structured, labelled, self-contained blocks. She teaches students to apply this structure to system prompts, and she frames context design as an evolution of information architecture that practitioners have been doing for humans for a long time. Her main provocation is that renaming the practice opens the door to inviting authors and designers into AI development, which she sees as necessary for quality outcomes.",
+  "open_questions": [
+    "Where exactly is the boundary between context design and adjacent practices like flow design or API integration design?",
+    "How does context design connect to persistent context mechanisms like project memory, beyond a passing mention?"
+  ],
+  "state_hash": "7b362459b1ec49c68c32c6539754704b63edd8e071b7e266026d2bf086c0a418",
+  "generated_at": "2026-04-24T15:14:33.641946Z"
+}

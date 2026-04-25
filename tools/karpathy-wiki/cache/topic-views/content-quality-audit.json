@@ -1,0 +1,11 @@
+{
+  "label": "Content quality audit",
+  "summary": "A content quality audit is a structured 5-point checklist Maaike uses to work through feedback she receives on her content. It covers facts, audience, stakeholders, required quality level, and the validity of the feedback itself. It functions as a feedback loop, turning external input into a systematic review process.",
+  "how_maaike_uses": "Maaike frames the audit not as a one-off quality gate but as a way to make feedback genuinely useful. She runs through it ideally in a meeting with the feedback-giver, so she can understand both the person and the context. A notable part of her approach is treating quality as a set of trade-offs — accuracy, completeness, consistency, timeliness, maintainability — that need to be made explicit with stakeholders rather than assumed. She also includes a check on whether the feedback itself is actually justified, which reflects her broader stance that not all feedback deserves equal weight.",
+  "open_questions": [
+    "The fifth check on whether feedback is justified is cut off mid-example — it is unclear what the full reasoning or criteria are for deciding when to push back on feedback.",
+    "The audit is described as a checklist Maaike uses personally, but it is not clear how or whether she adapts it when working in teams or handing it to clients to use themselves."
+  ],
+  "state_hash": "9274bca12234b8ccc2cb81d9652eebd1dc10003e13f33d0d2c14119d48d1d956",
+  "generated_at": "2026-04-24T15:48:12.582848Z"
+}

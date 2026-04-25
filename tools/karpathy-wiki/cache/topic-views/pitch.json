@@ -1,0 +1,11 @@
+{
+  "label": "Pitch",
+  "summary": "Pitch is what we perceive as a high or a deep voice. Technically it is the perceived fundamental frequency, determined by the physical characteristics of a speaker's vocal folds. Shorter, thinner vocal folds vibrate faster and produce higher pitched voices.",
+  "how_maaike_uses": "Maaike introduces pitch as part of a broader primer on speech and prosody aimed at conversation designers working with SSML. She uses it to challenge a common assumption: pitch alone does not determine whether a voice is perceived as male or female, because speech style plays a role too. She frames this as useful news for voice designers, suggesting it opens up possibilities for crafting a more varied and inclusive palette of voices.",
+  "open_questions": [
+    "How exactly does speech style interact with pitch in shaping perceived gender, and what does that mean concretely for SSML tagging choices?",
+    "What other prosodic properties beyond pitch matter most when designing inclusive or gender-neutral voice assistants?"
+  ],
+  "state_hash": "b71be419a16c468a729826542b86794222e6a4d0ff98e5a7337decc61ba4dde5",
+  "generated_at": "2026-04-24T16:02:45.686158Z"
+}

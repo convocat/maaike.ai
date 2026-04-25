@@ -1,0 +1,8 @@
+{
+  "label": "Steve Pepper",
+  "summary": "Steve Pepper is the author of 'The TAO of topic maps', a framework for structured knowledge modelling based on Topics, Associations, and Occurrences. Maaike encountered his work early in her career during knowledge modelling sessions and has since drawn on it as a close-reading method for extracting typed entities and relationships from text. In her garden, TAO topic mapping forms one half of the Thematic-TAO method she developed for post analysis.",
+  "how_maaike_uses": "Maaike uses Pepper's TAO framework as the second pass in her three-pass method for processing garden posts. Where thematic analysis gives her the forest, TAO gives her the trees: named things, typed relationships, and links to other posts that discuss the same topics. She is deliberate about not going straight to TAO extraction without a thematic read first, because she found that technically correct triples can together misrepresent what a post actually argues. The framework now drives her `/auto-tag` process and feeds the concept graph.",
+  "open_questions": [],
+  "state_hash": "c9fc32c1bda3b1c3713ba863c8d91b1686f35cc2353822d6502bb9c079954257",
+  "generated_at": "2026-04-24T16:15:45.297062Z"
+}

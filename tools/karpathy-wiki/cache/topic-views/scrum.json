@@ -1,0 +1,11 @@
+{
+  "label": "Scrum",
+  "summary": "Scrum is a framework borrowed from IT that structures work into fixed time-boxes called sprints. In Maaike's work it comes up primarily in the context of chatbot and conversational teams that adopt it from software development, often without questioning whether it fits. The key tension she points to is that scrum was designed for building software, not for content creation and publication cycles.",
+  "how_maaike_uses": "Maaike uses scrum as a case study in the risks of process copy-paste: organisations adopt the default two-week sprint because IT teams use it, not because it reflects the actual rhythm of conversational content work. She draws on her own experience with four-week aviation publication cycles to show that a natural content cadence can look very different from a software sprint, and argues that sprint length should match how your team actually works rather than follow an inherited default. She also flags that agile and scrum are not the same thing, leaving that distinction to be unpacked elsewhere.",
+  "open_questions": [
+    "What sprint length actually fits conversational or chatbot teams, and how should they figure that out empirically?",
+    "What is the meaningful distinction between agile and scrum, and does it change how content teams should approach adoption?"
+  ],
+  "state_hash": "8eb163581fe37e661e0ae50d7b56fcb48287d970da81db0e162b3494b0d2f16e",
+  "generated_at": "2026-04-24T15:30:23.200786Z"
+}

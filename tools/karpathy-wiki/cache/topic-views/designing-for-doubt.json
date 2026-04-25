@@ -1,0 +1,11 @@
+{
+  "label": "Designing for doubt",
+  "summary": "Designing for doubt is a personal research project exploring what it would mean to build friction, silence, and reflection into LLM interaction models, rather than optimising for seamless, confident output. It sits at the intersection of conversational design and the problem of AI indifference to truth. The core provocation is that sleek, frictionless interfaces actively work against critical thinking.",
+  "how_maaike_uses": "Maaike frames designing for doubt as a direct response to the way LLMs exploit Gricean trust: because they sound like reliable conversational partners, users stop questioning them. Her angle is to treat meaningful friction as a design tool, not a failure state. Concretely, she is experimenting with system prompts and interaction models that introduce silence and constraint, asking what a model would look like that refuses to fill in the blanks for you. She draws on music and percussion to make the point: silence is not absence but a deliberate act that shapes meaning. The tension in her work is real, though. The thematic analysis of the garden flags that designing for doubt also risks reinforcing indifference to truth if the design intervention fails to land, meaning the concept cuts both ways.",
+  "open_questions": [
+    "Can system prompting actually produce a silence-informed or constraint-driven interaction model, or is that ceiling too low given how LLMs are trained to complete?",
+    "If the interface is what shapes user behaviour, and big tech controls that interface, what is the realistic scope for alternative design approaches to gain traction?"
+  ],
+  "state_hash": "99366a272c5f19c39b1f19c775c911a5cf4b3c360f9b0a9c1e8c9890edf0da2c",
+  "generated_at": "2026-04-24T15:19:50.601029Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Unverified chatbots",
+  "summary": "Unverified chatbots are chatbots built and deployed without clear ownership, sourcing, or maintenance -- particularly visible during crises like the COVID-19 pandemic. Maaike uses the term to flag the risk that well-intentioned but poorly governed bots contribute to misinformation rather than solving it. The core problem is that users have no way to judge which bot provides reliable, up-to-date, or situation-relevant information.",
+  "how_maaike_uses": "Maaike raises unverified chatbots as a cautionary frame in her writing on crisis communication. Her argument is that more bots do not equal more clarity: without a content strategy, source transparency, and sustained maintenance, chatbots add noise to an already confusing information environment. She uses the concept to push back on the reflex to build first and asks the conversational AI community to instead support official bodies that already have the infrastructure -- owned content, editorial processes, public trust -- to communicate reliably. For those who do build anyway, she recommends concrete practices like dating and sourcing responses, staying close to source text, and picking use cases that are less information-critical.",
+  "open_questions": [
+    "What mechanisms, if any, could help users distinguish verified from unverified chatbots at the point of encounter?",
+    "How should the conversational AI community coordinate to avoid duplicating unverified bots in the same language or region?"
+  ],
+  "state_hash": "140ee1d56b051642fc49e83952e13652c9ce5eb08b1d266ccf266fbf1a38ff60",
+  "generated_at": "2026-04-24T15:44:36.885244Z"
+}

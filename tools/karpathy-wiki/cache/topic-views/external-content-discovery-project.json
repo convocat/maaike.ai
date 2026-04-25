@@ -1,0 +1,12 @@
+{
+  "label": "External content discovery",
+  "summary": "External content discovery is the process of using the garden's own knowledge graph, embeddings, and key phrases to look outward and find relevant papers, articles, and other external content. It is not a general feed or recommendation engine but a targeted research assistant that identifies gaps in the garden's existing coverage and surfaces material worth reading or linking. It requires stable embeddings, good key phrase coverage, a clear definition of what counts as a gap, and source quality filtering before it can work reliably.",
+  "how_maaike_uses": "Maaike frames this as the third goal of the knowledge graph project, explicitly dependent on gap detection and a functioning world model of the garden. Her specific angle is that discovered content should not land directly in the garden: it goes to a greenhouse stage first, quarantined and unverified, where it can be evaluated before earning a place in the garden beds. She also connects the decay side of the loop, noting that external content that becomes outdated or whose links rot should move to a compost heap rather than be deleted, eventually breaking down into soil that can feed new seeds. The preference for pull-based search over push, and for free local tools over paid APIs, reflects a deliberately constrained and deliberate approach rather than automation for its own sake.",
+  "open_questions": [
+    "Key phrase coverage is currently at 44% and needs to reach 80% before external matching can work well, so it is unresolved whether thin items like videos and books without summaries can ever produce usable phrases.",
+    "The boundary between a real gap and a topic that is simply out of scope for the garden has not yet been defined precisely, and the territory map and tag structure are described as helpful but not sufficient on their own.",
+    "How to handle the volume problem is unsettled: the garden has around ten territories and searching the internet for each will produce thousands of results, so the filtering strategy needs to be aggressive but the criteria for that filtering have not been worked out yet."
+  ],
+  "state_hash": "81bd96d909744333ef9a1539f8740c9a69e1e0055c90dd860ba01ece6c432020",
+  "generated_at": "2026-04-24T16:10:48.333909Z"
+}

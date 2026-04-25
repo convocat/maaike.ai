@@ -1,0 +1,11 @@
+{
+  "label": "Astro build",
+  "summary": "Astro build is the production build step for Maaike's static site, run via GitHub Actions as part of the deployment pipeline. It acts as a middle layer in her testing strategy, catching schema errors, broken imports, and Astro compilation failures before a deploy goes live. Its key limitation is that it lacks runtime alerting: a failed build leaves the old version live with no visible error in the browser.",
+  "how_maaike_uses": "Maaike frames the Astro build step not as something she set up intentionally as a test layer, but as something that was already in place and whose value she only understood after a silent failure. The build did its job in blocking a bad deploy, but the absence of any alert meant she had no idea something was wrong until she noticed the site looked off. Her current approach is to treat the build as the middle layer of a three-part pyramid, sitting between content validation and Playwright E2E tests, and to check 'gh run list' manually when something seems broken rather than relying on any automated notification.",
+  "open_questions": [
+    "The passages note that the Astro build lacks runtime alerting but do not describe any plan to add it. Whether Maaike intends to address this gap is unresolved.",
+    "The content validation script does not yet run automatically as a pre-push hook or CI step. Whether it will eventually be wired into the build pipeline before or alongside the Astro build step is left open."
+  ],
+  "state_hash": "835540b546dbbab75d2bf0318d6ebc68bfd93931bae4c446a24769d89ed45d7b",
+  "generated_at": "2026-04-24T16:14:40.916354Z"
+}

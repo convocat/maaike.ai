@@ -1,0 +1,11 @@
+{
+  "label": "Crisis chatbot",
+  "summary": "A crisis chatbot is a chatbot deployed during an emergency like a pandemic to provide timely, accurate information to the public. In Maaike's work the concept is treated with scepticism: more crisis chatbots does not mean better crisis communication, and poorly owned or unmaintained bots actively contribute to misinformation. The two non-negotiable requirements she identifies are clear source ownership and sustained content maintenance.",
+  "how_maaike_uses": "Maaike uses the crisis chatbot as a case study for what goes wrong when the conversational community moves fast without thinking about content strategy. Her argument is that official government bodies are better placed to run crisis chatbots than individual bot builders, because they already own the source content, have accuracy-checking processes, and are recognised as reliable. For those who still want to build one anyway, she offers practical guardrails: stay close to the source text, date and attribute your information, avoid duplicating work others are already doing, and pick use cases that are less information-critical so the stakes of getting something wrong are lower.",
+  "open_questions": [
+    "How should the conversational community coordinate with official bodies in practice, and what does that outreach process actually look like?",
+    "At what point does a crisis chatbot become safe to hand off or retire, given that maintenance is described as potentially very long-term?"
+  ],
+  "state_hash": "1e3c9f8c691a4ef1b41cd45db27a23942538866a015a7d9f6739c962231dc33a",
+  "generated_at": "2026-04-24T15:44:03.128743Z"
+}

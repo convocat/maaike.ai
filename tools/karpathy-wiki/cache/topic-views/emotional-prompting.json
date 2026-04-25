@@ -1,0 +1,11 @@
+{
+  "label": "Emotional prompting",
+  "summary": "Emotional prompting is a technique where users address AI systems with emotionally charged or pleading language in an attempt to get better results. It is connected to anthropomorphism, since treating a model as if it responds to frustration or appeals implies it has something like feelings or motivation. Maaike's work touches on it as a natural but telling reaction when technical prompting strategies fail.",
+  "how_maaike_uses": "",
+  "open_questions": [
+    "Does emotional prompting actually change model output in any measurable way, or is it purely a psychological coping mechanism for the user?",
+    "What does the impulse to appeal to an AI's emotions reveal about how people conceptualise these systems?"
+  ],
+  "state_hash": "832c6a069a563853b2eb1ef486a6a466692b0b0ec971fcdc56b8e1a36132954c",
+  "generated_at": "2026-04-24T15:34:51.353429Z"
+}

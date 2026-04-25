@@ -1,0 +1,11 @@
+{
+  "label": "Perceived fundamental frequency",
+  "summary": "Perceived fundamental frequency is the technical term for what we hear as pitch: whether a voice sounds high or deep. It is determined by physical characteristics, specifically how fast the vocal folds vibrate, which is influenced by their length and thickness. In Maaike's primer, pitch is introduced as one of the prosodic properties that conversation designers need to understand in order to use SSML effectively.",
+  "how_maaike_uses": "Maaike uses perceived fundamental frequency as a grounding concept when explaining pitch to conversation designers. She points to research on transgender speakers' voices to challenge the assumption that pitch alone signals gender, arguing that speech style also plays a role. This leads her to suggest that voice designers have more room than they might think to create a broader, more varied palette of voices.",
+  "open_questions": [
+    "How exactly should conversation designers use SSML to manipulate pitch, and what are the practical limits of that control?",
+    "The research on pitch and perceived gender is mentioned but not cited or detailed — what does it actually show and how robust is it?"
+  ],
+  "state_hash": "eff7423e239aa1a6c9aacfb9b0dc8df299e35561467964b698d1b93ff345ad1c",
+  "generated_at": "2026-04-24T16:02:54.589374Z"
+}

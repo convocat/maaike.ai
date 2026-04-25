@@ -1,0 +1,11 @@
+{
+  "label": "Voice design",
+  "summary": "Voice design is the practice of designing conversations that are meant to be spoken and heard, rather than read. It requires understanding how speech works — including breath, prosody, pitch, and intonation — because these properties shape how a voice assistant actually sounds to a listener. Tools like SSML give designers some control over these properties when written dialogue is converted to speech.",
+  "how_maaike_uses": "Maaike approaches voice design from a practical, grounded angle: she argues that designers often write text when they should be designing speech, and that understanding speech concepts like prosody and breath is a prerequisite for using SSML effectively. She uses SSML concretely to add breathing room and a more natural sentence melody to voice actions, and she frames this as a way to 'slow down' a voice action rather than just a technical tweak. She also flags that pitch alone does not determine how gender is perceived in a voice, which she sees as useful for designers who want to work with a broader palette of voices.",
+  "open_questions": [
+    "The primer on speech terms is explicitly part 1, with more parts promised — it is unclear what concepts are covered in the follow-up parts.",
+    "Maaike mentions experimenting with speech rate and pitch in SSML but does not go into detail on when or how to make those choices in practice."
+  ],
+  "state_hash": "470edcde6866bf58c4d0cccaf16c1faceda10a92401a7ef3e155597dbad6ea2e",
+  "generated_at": "2026-04-24T15:54:26.004535Z"
+}

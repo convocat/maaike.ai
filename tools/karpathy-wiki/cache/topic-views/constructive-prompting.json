@@ -1,0 +1,11 @@
+{
+  "label": "Constructive prompting",
+  "summary": "Constructive prompting is an approach where you build output from minimal inputs like keywords rather than reducing or condensing existing source material. It flips the conventional assumption that generation requires a full source text to work from. Maaike finds this approach better suited to how LLMs actually work than reduction-based prompting.",
+  "how_maaike_uses": "Maaike arrived at constructive prompting through a practical experiment with summaries, where she compared prompting an LLM with a full source text versus prompting it with just key concepts, a target audience, and a purpose. The keyword-based prompt performed better, which led her to argue that LLMs are stronger at construction tasks than reduction tasks. They lack the deep semantic and rhetorical understanding humans use when condensing text, so forcing them to reduce often produces shallow results like bullet lists. Her workaround is to do the conceptual reduction yourself, hand the model only the key concepts and their relations, and let it build from there.",
+  "open_questions": [
+    "How well does constructive prompting scale to domains where the source text contains information the prompter cannot easily pre-distil into keywords?",
+    "Is the weakness in LLM reduction tasks a fundamental limitation or something that can be reliably addressed through better linguistic prompting techniques beyond Chain of Density?"
+  ],
+  "state_hash": "39ef0a85832b148c7666191d0c2f5a5f0abf87dc8fa5a7161906abda6778e5f2",
+  "generated_at": "2026-04-24T15:54:57.224088Z"
+}

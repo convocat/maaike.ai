@@ -1,0 +1,11 @@
+{
+  "label": "Two-week sprint",
+  "summary": "A two-week sprint is a fixed time-box borrowed from IT scrum, where it originated as a natural fit for developing, testing and deploying software features. Maaike questions whether this period maps onto the actual content creation and publication cycle of conversational teams. The two-week sprint is treated as a default that organisations often copy uncritically rather than one that was ever designed for content work.",
+  "how_maaike_uses": "Maaike uses the two-week sprint as a contrast case to argue that conversational teams should examine whether their own publication and research cycles actually fit a two-week rhythm before adopting it. Drawing on her experience as a tech writer in aviation, where a four-week cycle with a fixed monthly publication window felt natural, she points out that blindly applying the IT default can create artificial deadlines and a rules-for-rules-sake attitude. Her angle is empirical: sprint length should reflect the real effort cycle of the team, not an inherited convention.",
+  "open_questions": [
+    "What sprint length would actually fit most conversational or chatbot teams if not two weeks?",
+    "How should teams go about measuring whether their chosen sprint length is working, given the Agile emphasis on empirical and objectively measurable performance?"
+  ],
+  "state_hash": "21a2fb38d91e508a9fa753db0605d5d42e70ce0ffc915542f29d39e149ffd974",
+  "generated_at": "2026-04-24T15:56:55.255036Z"
+}

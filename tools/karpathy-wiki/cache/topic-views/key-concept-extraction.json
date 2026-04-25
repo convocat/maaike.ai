@@ -1,0 +1,11 @@
+{
+  "label": "Key-concept extraction",
+  "summary": "Key-concept extraction is the core task underlying summarisation: identifying the essential concepts in a piece of content. In Maaike's work it shows up as both an analytical lens and a practical prompting strategy. She treats it as the shared foundation of both reductionist (condense a full text) and constructionist (build from keywords) approaches to summary generation.",
+  "how_maaike_uses": "Maaike uses key-concept extraction as a workaround for the limitations LLMs show with reduction tasks. Rather than feeding a model a long source text and asking it to condense, she deconstructs the source herself into key concepts, short definitions, and concept relations, then lets the model construct the summary from there. Her finding is that this constructionist prompt consistently outperforms the more intuitive approach of handing the model the full text, which led her to ask whether including the source text in a summarisation prompt is necessary at all.",
+  "open_questions": [
+    "If keyword-based construction consistently outperforms text-based reduction, under what conditions, if any, does including the source text still add value?",
+    "What prompting techniques beyond Chain of Density could help LLMs perform genuine semantic reduction rather than falling back on superficial condensation like bullet lists?"
+  ],
+  "state_hash": "98ed5ce5be26d4030fca16a38d6e085e66e963e115757eb1454390fc23f2ed20",
+  "generated_at": "2026-04-24T15:54:45.782926Z"
+}

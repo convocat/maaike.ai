@@ -1,0 +1,11 @@
+{
+  "label": "Onboarding checklist",
+  "summary": "An onboarding checklist is a structured set of check items, reminders, and questions that Maaike uses when starting work with a new client or employer. It is organised around role-based collaboration and is aimed specifically at conversation designers. The checklist includes dedicated items for remote onboarding, where the usual informal affordances of office life are absent.",
+  "how_maaike_uses": "Maaike developed this checklist out of 20+ years of starting new jobs and 4+ years of contracting work, so it reflects hard-won personal experience rather than generic advice. She uses it to get up to speed quickly with new clients, and she pays particular attention to the social side of onboarding: meeting people, building rapport, and navigating the 'black box' of remote work. Two concrete tactics she recommends are a self-organised onboarding tour (scheduling short introductions and asking each person to suggest two more contacts) and a 5 minute online tea break to build informal connection. She also calls on employers and contractors to over-communicate with new remote colleagues, framing the problem in UX terms: without physical affordances, new hires have very little to orient themselves with.",
+  "open_questions": [
+    "The checklist is acknowledged to be incomplete based on Maaike's own experience, so it is an open question which scenarios or roles it does not yet cover.",
+    "It is unclear how the checklist changes or should change depending on whether someone is a full-time employee versus a contractor."
+  ],
+  "state_hash": "f169f69a131686645e6e3ca9a6f65098096859f3c8cf4ee3cca7f9d1ddb088a0",
+  "generated_at": "2026-04-24T15:51:34.073484Z"
+}

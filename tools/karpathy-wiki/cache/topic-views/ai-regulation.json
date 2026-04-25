@@ -1,0 +1,11 @@
+{
+  "label": "AI regulation",
+  "summary": "AI regulation refers to legal and policy frameworks that govern how AI systems are built and deployed. In Maaike's work, it appears specifically in the context of China's proposed AI law, which takes a human-vulnerability-aware approach by acknowledging how people are susceptible to AI-related harms and establishing technical measures to address them. The concept is linked to both AI safety and the problem of anthropomorphism, suggesting regulation is seen as a practical tool for managing how humans relate to and are affected by AI systems.",
+  "how_maaike_uses": "Maaike engages with AI regulation not as abstract policy but as a mechanism that can actively counter specific cognitive and social harms, in particular anthropomorphism. The China example she references is notable because it frames regulation as requiring contextual technical measures rather than blanket rules, and ties legal compliance directly to AI safety concerns. This suggests she is interested in regulation as something that must grapple with human psychology, not just technical specifications.",
+  "open_questions": [
+    "What specific technical measures does China's proposed law require, and how effective are they at countering anthropomorphism in practice?",
+    "How does the link between AI regulation and AI safety play out in other regulatory contexts beyond China's approach?"
+  ],
+  "state_hash": "82351254e2d22356bba177c0f99cfab2c26eba7220c998759dde102cce302adc",
+  "generated_at": "2026-04-24T15:33:00.299954Z"
+}

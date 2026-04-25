@@ -1,0 +1,11 @@
+{
+  "label": "Critical software",
+  "summary": "Critical software, in this context, refers to open-source software whose security failures could have broad and serious consequences. Anthropic's Project Glasswing frames it as a specific target for AI-assisted security work. The concern is that as AI becomes more embedded in infrastructure, the attack surface around critical software grows.",
+  "how_maaike_uses": "Maaike references critical software in the context of Project Glasswing, using it as a foil for the AI slop debate. Her take is that while everyone worries about low-quality AI-generated content, the security of the underlying critical software stack is the more serious and underappreciated threat. She flags this with visible alarm rather than detached analysis.",
+  "open_questions": [
+    "If AI slop is the lesser worry, what concrete failure modes for critical software does Maaike see as more urgent?",
+    "Does AI-assisted security work on critical software, like Glasswing proposes, actually reduce risk or introduce new attack vectors?"
+  ],
+  "state_hash": "2be3e91b8b8f6bb5cfcca09498a2838632c61ac27b0ca7d2d57cd309e5227334",
+  "generated_at": "2026-04-24T16:23:33.451070Z"
+}

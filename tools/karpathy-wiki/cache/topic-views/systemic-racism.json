@@ -1,0 +1,11 @@
+{
+  "label": "Systemic racism",
+  "summary": "Systemic racism, in Maaike's work, refers to the structural and societal inequalities that can be created or reinforced by technological systems. It appears specifically in the context of algorithmic bias, where biased algorithms produce or perpetuate racist outcomes and propagate white privilege. The concept is grounded in the idea that these patterns persist not through individual prejudice alone but through the design and data of the systems themselves.",
+  "how_maaike_uses": "Maaike references systemic racism primarily through the lens of Safiya Noble's 'Algorithms of Oppression', using it as evidence that algorithmic bias is not a minor technical glitch but a mechanism that actively creates and spreads systemic inequality. She extends Noble's argument about traditional search engines to generative AI interfaces, noting that bias may actually become less visible there, making the problem harder to detect and therefore potentially worse.",
+  "open_questions": [
+    "If bias is less visible in generative AI interfaces than in traditional search engines, what practical approaches can surface or measure that bias?",
+    "How do the patterns Noble identifies in search engines translate specifically to large language models and conversational AI?"
+  ],
+  "state_hash": "886e3bbd2ff0a96442f245ece980f4fe96aa4fd8e67e14d35219912034ef5030",
+  "generated_at": "2026-04-24T15:58:13.711001Z"
+}

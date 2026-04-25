@@ -1,0 +1,12 @@
+{
+  "label": "AI feedback loop",
+  "summary": "An AI feedback loop, in Maaike's work, refers to the scenario where AI systems generate synthetic training data that is then fed back into future AI training, with no human having read, evaluated, or verified that content. It emerges as a speculative but plausible response to the projected shortage of high-quality human-generated language data. The concern is that this creates a closed loop of machine-produced content substituting for genuine human knowledge.",
+  "how_maaike_uses": "Maaike uses the AI feedback loop concept to push back on what she sees as a logic that sounds reasonable from a machine learning perspective but is troubling from a humanistic one. Her specific worry is about the removal of humans from the loop in building what she calls our collective human knowledge base. She is not just asking whether synthetic data works technically, but what it means to let algorithms produce the very material that defines human culture and knowledge, especially when those algorithms may become more ambient and integrated into daily life and decision making.",
+  "open_questions": [
+    "If AI can only recombine what it has already seen, can it actually produce something original enough to be useful as training data, or does it just reinforce existing patterns?",
+    "What exactly makes books better training material for LLMs than social media text, and would synthetically generated books preserve those qualities?",
+    "If AI-generated content becomes the dominant training source, what happens to the relationship between human knowledge production and the systems that are supposed to reflect or assist it?"
+  ],
+  "state_hash": "22f73cf7b2fa49e8b9d7c7d4251345543cbe756d7a9c8f91f92e1ea9e86f1bf2",
+  "generated_at": "2026-04-24T15:29:00.276044Z"
+}

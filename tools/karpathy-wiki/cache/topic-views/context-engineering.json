@@ -1,0 +1,11 @@
+{
+  "label": "Context engineering",
+  "summary": "Context engineering is a term attributed to Andrej Karpathy for the practice of filling an LLM's context window with the right information at the right time. In Maaike's work, the concept is reframed as context design or context architecture, arguing that it draws on established disciplines like information architecture and instructional design rather than engineering. A CLAUDE.md file is a concrete example: a markdown file that gives an AI coding assistant persistent project context across sessions.",
+  "how_maaike_uses": "Maaike uses context engineering as a jumping-off point to argue that the underlying skill is design, not engineering, and that technical authors, information architects, and content designers have been doing this work for humans long before LLMs existed. She maps the structure of a good context window onto familiar information design concepts like semantic information types, structured building blocks, and task analysis. The CLAUDE.md pattern is her practical demonstration of the idea in action: a deliberately structured file that replaces per-session re-explanation with persistent, machine-readable context that travels with the codebase.",
+  "open_questions": [
+    "Where exactly is the line between context design and prompt design, given that Maaike treats them as related but distinct?",
+    "If context design is essentially information architecture applied to AI, what does that mean for how teams should staff GenAI projects?"
+  ],
+  "state_hash": "465ef5bd89d9e0e1f9881fcddef795b181a2485bdc3e9e7cbf02069604bb51c7",
+  "generated_at": "2026-04-24T15:14:23.175850Z"
+}

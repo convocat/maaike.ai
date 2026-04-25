@@ -1,0 +1,12 @@
+{
+  "label": "Claude Code",
+  "summary": "Claude Code is an agentic AI coding assistant that Maaike uses directly in her work on the digital garden and in her day-to-day role in a small development team. It handles tasks ranging from scheduled health checks and large-context thematic analysis to generating interactive prototypes and maintaining persistent project context via a CLAUDE.md file. It is also the thing that prompted her first real merge request after two decades of trying to learn to code.",
+  "how_maaike_uses": "Maaike uses Claude Code as a practical, hands-on tool rather than something she theorises about from a distance. In the garden it runs scheduled maintenance checks, loads the entire content corpus into a 1M context window for thematic analysis, and aligns templates when metadata gets messy. In her team-of-three it functions as a de-siloing device: she uses it to build interactive prototypes, commit UX copy changes directly to the repo, and work with structured inputs like buttons and numbered options that she recognises as a return to IVR logic. She is also sceptical of what it generates: scheduled tasks produce inconsistent results, the underground processes pull attention away from actual writing, and automatic edits risk removing the learning loop for her developers. CLAUDE.md travels with the code so context is never lost between sessions. The through-line is that Claude Code shifts her work from role-bound deliverables toward skill-based contribution, which she sees as a possible early signal of a broader shift in how collaboration works.",
+  "open_questions": [
+    "How do you keep AI-assisted growth from crowding out the writing and thinking that the garden is actually for?",
+    "Scheduled tasks can flag issues but cannot act on them and produce inconsistent results across runs -- is natural language prompting the right approach for repeatable, structured checks at all?",
+    "If building-as-specification collapses the gap between designer and developer, what happens to the review and learning loop that catches final issues?"
+  ],
+  "state_hash": "bfdc1e0c772e12d8f83cce8372a2cc02abbd81aa2cea4378716737da5a69b648",
+  "generated_at": "2026-04-24T15:24:02.004065Z"
+}

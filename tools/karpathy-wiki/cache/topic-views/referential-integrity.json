@@ -1,0 +1,11 @@
+{
+  "label": "Referential integrity",
+  "summary": "Referential integrity, in Maaike's usage, refers to the expectation that a link or reference actually points to something real and verifiable in the world. When a model fabricates links or citations that do not exist, it violates this principle. The concept surfaces as a way to name what goes wrong when LLM outputs look structurally correct but are ungrounded.",
+  "how_maaike_uses": "Maaike uses referential integrity as an implicit standard against which she judges LLM behaviour, specifically when testing YouChat and Chatsonic. Both models produced lists of links that simply do not exist on the internet, which she frames as a core failure: the outputs have the form of references without the substance. She connects this to the broader stochastic parrot problem, where truth is optional and the model has no mechanism to check whether what it generates actually points to anything real.",
+  "open_questions": [
+    "Is fabricating links a categorically different failure from other hallucinations, or just a more visible instance of the same underlying problem?",
+    "If an LLM cannot refer to anything in the outside world, is referential integrity even a standard it can be meaningfully held to?"
+  ],
+  "state_hash": "b4519f1b312212e8e7359e5a917143388bc5e8cac4dfde29a9ea140779383ce9",
+  "generated_at": "2026-04-24T15:40:50.778801Z"
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Source ownership",
+  "summary": "Source ownership refers to who controls, verifies, and maintains the content that a chatbot draws on. In Maaike's work it comes up specifically in the context of crisis chatbots, where the question of who owns the source content directly determines whether a bot can be trusted. Official bodies are positioned as the right owners because they have existing processes for accuracy, relevance, and timely updates.",
+  "how_maaike_uses": "Maaike uses source ownership as a key criterion for deciding whether a chatbot should exist at all and who should build it. Her argument in the Corona bots post is that unofficial bot builders lack source ownership and that this gap makes their bots part of the misinformation problem rather than the solution. She advises builders who do go ahead to stay close to the source text, explicitly date and attribute their information, and avoid any paraphrasing or shortening that could shift the original meaning. Ownership of the source is not just a technical nicety for her but the foundation of responsible crisis communication.",
+  "open_questions": [
+    "What happens when official bodies are slow to engage with the conversational community — is there a threshold at which independent bot builders become acceptable stand-ins?",
+    "How should a bot builder handle situations where trusted official sources contradict each other?"
+  ],
+  "state_hash": "a684bbab4d86ce5919aa70e1d79a1b533c60140510eae11c658274816317081e",
+  "generated_at": "2026-04-24T15:44:13.889890Z"
+}
