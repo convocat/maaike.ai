@@ -21,10 +21,20 @@ try {
   topicCount = Object.keys(topics).length;
 } catch (_) {}
 
-// Single flat list of all topics, sorted alphabetically
-const allTopics: Array<{ id: string; title: string }> = Object.entries(topics)
-  .map(([slug, t]: [string, any]) => ({ id: slug, title: t.label || slug }))
-  .sort((a, b) => a.title.localeCompare(b.title));
+// Three sub-categories grouped under one TOPICS header
+const subgroups: Record<string, Array<{ id: string; title: string }>> = {
+  Concepts: [],
+  People: [],
+  Entities: [],
+};
+for (const [slug, t] of Object.entries(topics) as [string, any][]) {
+  const type = (t.type || '').toLowerCase();
+  const entry = { id: slug, title: t.label || slug };
+  if (type === 'person') subgroups.People.push(entry);
+  else if (type === 'technology' || type === 'mechanism') subgroups.Entities.push(entry);
+  else subgroups.Concepts.push(entry);
+}
+for (const k of Object.keys(subgroups)) subgroups[k].sort((a, b) => a.title.localeCompare(b.title));
 ---
 
 <aside class="rail-l">
@@ -69,19 +79,27 @@ const allTopics: Array<{ id: string; title: string }> = Object.entries(topics)
       </ul>
     </div>
 
-    <div class="nav-group">
-      <div class="nav-label">
+    <div class="nav-group nav-group-parent">
+      <div class="nav-label nav-label-parent">
         <span>Topics</span>
-        <span class="nav-label-count">{allTopics.length}</span>
+        <span class="nav-label-count">{topicCount}</span>
       </div>
-      <ul class="nav-flat-list">
-        {allTopics.slice(0, 14).map(it => (
-          <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
-        ))}
-        {allTopics.length > 14 && (
-          <li><a class="nav-flat-more" href="/research/?browse=topics">Browse all {allTopics.length} →</a></li>
-        )}
-      </ul>
+      {Object.entries(subgroups).map(([name, items]) => (
+        <div class="nav-subgroup">
+          <div class="nav-label nav-label-sub">
+            <span>{name}</span>
+            <span class="nav-label-count">{items.length}</span>
+          </div>
+          <ul class="nav-flat-list">
+            {items.slice(0, 8).map(it => (
+              <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
+            ))}
+            {items.length > 8 && (
+              <li><a class="nav-flat-more" href={`/research/?browse=${name.toLowerCase()}`}>Browse all {items.length} →</a></li>
+            )}
+          </ul>
+        </div>
+      ))}
     </div>
   </nav>
 

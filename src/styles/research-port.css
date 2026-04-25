@@ -389,14 +389,25 @@
 .view-toggle a[data-active="true"] { background: var(--accent); color: var(--bg-card); }
 .view-toggle a:hover:not([data-active="true"]) { background: var(--rule-soft); color: var(--ink); }
 
-/* Left-rail flat sections (Concepts/People/Entities) — same shape as Pinned.
-   Small all-caps label, flat list of links underneath. No chevron. */
+/* Left-rail flat sections — same shape as Pinned. Small all-caps label,
+   flat list of links underneath. No chevron. */
 .nav-label {
   display: flex; align-items: baseline; justify-content: space-between;
   font-family: var(--font-ui); font-size: 10.5px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--ink-3); margin: 0 0 6px;
 }
+/* TOPICS parent header — slightly larger / more prominent */
+.nav-label-parent {
+  font-size: 11.5px; color: var(--ink); padding-bottom: 4px;
+  margin-bottom: 12px; border-bottom: 1px solid var(--rule);
+}
+/* Subgroup labels (Concepts/People/Entities under Topics) — smaller, muted */
+.nav-label-sub {
+  font-size: 10px; color: var(--ink-3); margin: 0 0 4px;
+}
+.nav-subgroup { margin-bottom: 14px; }
+.nav-subgroup:last-child { margin-bottom: 0; }
 .nav-label-count {
   font-family: var(--font-mono); font-size: 10px; font-weight: 500;
   color: var(--ink-3); letter-spacing: 0;
