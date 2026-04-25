@@ -389,28 +389,12 @@
 .view-toggle a[data-active="true"] { background: var(--accent); color: var(--bg-card); }
 .view-toggle a:hover:not([data-active="true"]) { background: var(--rule-soft); color: var(--ink); }
 
-/* Left-rail nav additions */
+/* Left-rail nav additions — minimal, defer to prototype's .nav-coll-* styling.
+   The prototype uses a vertical tree-line via border-left on .nav-coll-body. */
 .nav-coll-body[hidden] { display: none; }
-/* Augment prototype's .nav-coll-topic — keep its base, add anchor + indent */
-.nav-coll-topic {
-  display: flex; align-items: baseline; gap: 6px;
-  padding: 4px 8px 4px 26px; /* indent so titles align past the chevron */
-  font-size: 12.5px; line-height: 1.35;
-  color: var(--ink-2);
-  text-decoration: none; cursor: pointer;
-  border-radius: 4px;
-  position: relative;
-}
-.nav-coll-topic::before {
-  content: ''; width: 4px; height: 4px; border-radius: 50%;
-  background: var(--ink-3); opacity: 0.5;
-  position: absolute; left: 14px; top: 11px;
-  transition: background 120ms, opacity 120ms;
-}
-.nav-coll-topic:hover { background: var(--rule-soft); color: var(--ink); }
-.nav-coll-topic:hover::before { background: var(--accent); opacity: 1; }
+/* Anchors instead of buttons — keep the prototype's flex/padding/hover. */
+.nav-coll-topic { text-decoration: none; }
 .nav-coll-empty { color: var(--ink-3); font-style: italic; cursor: default; }
-.nav-coll-empty::before { display: none; }
 .nav-coll-empty:hover { background: transparent; color: var(--ink-3); }
 .rail-foot {
   padding: 14px var(--pad-x);
