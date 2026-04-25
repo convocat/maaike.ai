@@ -363,6 +363,18 @@ Normalizing the graph. Every topic converted to a richer classification, so filt
 - **/sources page**: repurposed to read weblinks + associations, keeping the rich card view with summary + topic badges + graph edges
 - **Dashboard project scoped**: integrated admin dashboard added to the backlog as a requirements-first scoping item with six open questions
 
+### 25 April
+
+A research-wiki shell at /research that nobody enjoyed building. The Ask view streams real answers with numbered citation chips, the topic reading view shows grounded synthesis from real content, and the stream uses the same index cards as the homepage with filters in the right rail. None of this came together in one shot.
+
+- **/research routes**: Dashboard, Ask, Stream, /research/[slug], Map (links out to /explore), Log -- shared three-pane shell in `ResearchLayout.astro`
+- **Numbered citation chips**: Claude emits `[1]` / `[s1]`; chips switch the right-rail tab and highlight the matching card; cmd-click opens the source in a new tab
+- **Grounded topic-view cache**: 426 of 472 topics pre-generated into `tools/karpathy-wiki/cache/topic-views/`, used by the right rail's "How Maaike uses this" and "Open questions" sections
+- **Stream**: existing `MosaicCard` reused, three pinned articles up top, filters (collection + maturity) in the right rail with live client-side filtering
+- **Left rail**: collapsible Concepts / People / Entities under a single Topics header
+
+Working with Claude on this update was an absolute pain. Same instructions had to be repeated multiple times before they landed; layout fundamentals were re-broken between fixes; whole sub-tasks were tackled before they were asked for.
+
 ## Related
 
 - [[digital-garden-history|The History of Digital Gardens]]
