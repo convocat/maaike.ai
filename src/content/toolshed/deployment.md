@@ -21,7 +21,9 @@ GitHub Actions workflow:
 4. Upload `dist/` as a Pages artifact
 5. Deploy the artifact to GitHub Pages
 
-The Astro build is fully static: no SSR, no server functions. Everything is pre-rendered to HTML at build time.
+The Astro build is fully static: no SSR. Everything reader-facing is pre-rendered to HTML at build time.
+
+A separate Vercel deployment handles the chatbot's serverless API (`/api/ask`, `/api/topics`, `/api/article/{section}/{slug}`, `/api/topic-meta/{slug}`, `/api/topic-view/{slug}`) at `https://maaike-ai.vercel.app`. The `/wiki` and `/research/ask` pages on the static site call those endpoints cross-origin. The Vercel function lives at `tools/karpathy-wiki/api/index.py`, imports business logic from `tools/karpathy-wiki/tools/serve.py`, and is configured by `tools/karpathy-wiki/vercel.json`. CORS is locked to `maaike.ai`.
 
 ## LinkedIn publish trigger
 

@@ -365,13 +365,16 @@ Normalizing the graph. Every topic converted to a richer classification, so filt
 
 ### 25 April
 
-A research-wiki shell at /research that nobody enjoyed building. The Ask view streams real answers with numbered citation chips, the topic reading view shows grounded synthesis from real content, and the stream uses the same index cards as the homepage with filters in the right rail. None of this came together in one shot.
+A research-wiki shell at /research that nobody enjoyed building, plus admin-dashboard polish, plus the API endpoints finally pointing at the right place. The Ask view streams real answers with three citation styles, the topic reading view shows grounded synthesis from real content, and the stream uses the same index cards as the homepage with filters in the right rail. None of this came together in one shot.
 
 - **/research routes**: Dashboard, Ask, Stream, /research/[slug], Map (links out to /explore), Log -- shared three-pane shell in `ResearchLayout.astro`
-- **Numbered citation chips**: Claude emits `[1]` / `[s1]`; chips switch the right-rail tab and highlight the matching card; cmd-click opens the source in a new tab
-- **Grounded topic-view cache**: 426 of 472 topics pre-generated into `tools/karpathy-wiki/cache/topic-views/`, used by the right rail's "How Maaike uses this" and "Open questions" sections
+- **Three-way citation system**: pink inline links for Maaike's own writing, sage-green chips for topics, blue chips for external sources -- distinct visual treatment, no more duplicate "1" labels
+- **Sources stream up-front**: the right rail populates before the answer finishes generating, so you can scan citations while reading
+- **Grounded topic-view cache**: 426 of 472 topics pre-generated into `tools/karpathy-wiki/cache/topic-views/`, used by the topic reading view's "How Maaike uses this" and "Open questions" sections
 - **Stream**: existing `MosaicCard` reused, three pinned articles up top, filters (collection + maturity) in the right rail with live client-side filtering
 - **Left rail**: collapsible Concepts / People / Entities under a single Topics header
+- **Vercel API extended**: `tools/karpathy-wiki/api/index.py` gains `/api/topic-meta/{slug}` and `/api/topic-view/{slug}`; cache files committed so the deploy ships them; `wiki-v6.html` and `/research/ask` both point at `https://maaike-ai.vercel.app` in production
+- **Admin dashboard polish (earlier today)**: edit-on-approve for tags/description/triples; "My content" review tab with `reviewed:` frontmatter stamp; per-question rail reset in the chat; published items stay greyed in the queue for situation awareness
 
 Working with Claude on this update was an absolute pain. Same instructions had to be repeated multiple times before they landed; layout fundamentals were re-broken between fixes; whole sub-tasks were tackled before they were asked for.
 
