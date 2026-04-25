@@ -389,13 +389,36 @@
 .view-toggle a[data-active="true"] { background: var(--accent); color: var(--bg-card); }
 .view-toggle a:hover:not([data-active="true"]) { background: var(--rule-soft); color: var(--ink); }
 
-/* Left-rail nav additions — minimal, defer to prototype's .nav-coll-* styling.
-   The prototype uses a vertical tree-line via border-left on .nav-coll-body. */
-.nav-coll-body[hidden] { display: none; }
-/* Anchors instead of buttons — keep the prototype's flex/padding/hover. */
-.nav-coll-topic { text-decoration: none; }
-.nav-coll-empty { color: var(--ink-3); font-style: italic; cursor: default; }
-.nav-coll-empty:hover { background: transparent; color: var(--ink-3); }
+/* Left-rail flat sections (Concepts/People/Entities) — same shape as Pinned.
+   Small all-caps label, flat list of links underneath. No chevron. */
+.nav-label {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 6px;
+}
+.nav-label-count {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  color: var(--ink-3); letter-spacing: 0;
+}
+.nav-flat-list { list-style: none; padding: 0; margin: 0; }
+.nav-flat-list li { margin: 0; }
+.nav-flat-item {
+  display: block; padding: 3px 4px;
+  font-size: 12.5px; line-height: 1.35; color: var(--ink-2);
+  border-radius: 3px; text-decoration: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.nav-flat-item:hover { background: var(--rule-soft); color: var(--ink); }
+.nav-flat-more {
+  display: block; padding: 6px 4px 2px;
+  font-family: var(--font-ui); font-size: 11px;
+  color: var(--ink-3); letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-flat-more:hover { color: var(--accent); }
+/* Pinned reuses .nav-coll-list / .nav-coll-topic from prototype — keep it cosmetic */
+.nav-coll-empty { color: var(--ink-3); font-style: italic; cursor: default; padding-left: 4px; font-size: 12.5px; }
 .rail-foot {
   padding: 14px var(--pad-x);
   border-top: 1px solid var(--rule);

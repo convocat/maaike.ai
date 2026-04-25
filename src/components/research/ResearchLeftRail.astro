@@ -81,23 +81,18 @@ for (const k of Object.keys(collections)) collections[k].sort((a, b) => a.title.
 
     {Object.entries(collections).map(([name, items]) => (
       <div class="nav-group">
-        <div class="nav-coll" data-open="false">
-          <button type="button" class="nav-item nav-coll-head" data-collection={name.toLowerCase()}>
-            <span class="nav-chev" aria-hidden="true">
-              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M3.5 2.5 L6.5 5 L3.5 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="label-text">{name}</span>
-            <span class="count">{items.length}</span>
-          </button>
-          <div class="nav-coll-body" hidden>
-            <ul class="nav-coll-list">
-              {items.slice(0, 50).map(it => (
-                <li><a class="nav-coll-topic" href={`/research/${it.id}`}><span class="nav-coll-title">{it.title}</span></a></li>
-              ))}
-              {items.length > 50 && <li><span class="nav-coll-topic" style="color:var(--ink-3);font-style:italic">+{items.length - 50} more</span></li>}
-            </ul>
-          </div>
+        <div class="nav-label">
+          <span>{name}</span>
+          <span class="nav-label-count">{items.length}</span>
         </div>
+        <ul class="nav-flat-list">
+          {items.slice(0, 12).map(it => (
+            <li><a class="nav-flat-item" href={`/research/${it.id}`}>{it.title}</a></li>
+          ))}
+          {items.length > 12 && (
+            <li><a class="nav-flat-more" href={`/research/?browse=${encodeURIComponent(name.toLowerCase())}`}>Browse all {items.length} →</a></li>
+          )}
+        </ul>
       </div>
     ))}
   </nav>
