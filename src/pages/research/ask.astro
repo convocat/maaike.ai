@@ -121,16 +121,27 @@ const suggestions = [
           if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
           const cid = m[1];
           const src = map[cid];
-          const chip = document.createElement('button');
-          chip.type = 'button';
+          // Use an <a> so middle-click + cmd-click work like real links
+          const chip = document.createElement('a');
           chip.className = 'ask-cite ' + (cid.startsWith('s') ? 'src' : 'topic');
           chip.textContent = cid.replace(/^s/, '');
-          chip.title = src ? src.title : `Citation ${cid}`;
-          chip.onclick = () => {
+          chip.title = src ? src.title + (src.kind === 'topic' ? '' : ' — open post') : `Citation ${cid}`;
+          // Resolve the destination URL
+          let href = '#';
+          if (src) {
+            if (src.kind === 'topic' && src.slug) href = `/research/${src.slug}`;
+            else if (src.kind === 'article' && src.section && src.slug) href = `/${src.section}/${src.slug}`;
+            else if (src.url) href = src.url;
+          }
+          chip.href = href;
+          // Plain click: switch rail tab + highlight the card. Cmd/ctrl-click navigates.
+          chip.addEventListener('click', (e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let browser open in new tab
+            e.preventDefault();
             activeTab = cid.startsWith('s') ? 'sources' : 'topics';
             switchTab(activeTab);
-            renderRail();
-          };
+            renderRail({ highlightCid: cid });
+          });
           frag.appendChild(chip);
           last = m.index + m[0].length;
         }
@@ -163,7 +174,7 @@ const suggestions = [
     (document.getElementById('count-articles') as HTMLElement).textContent = String(sources.length);
   }
 
-  function renderRail() {
+  function renderRail(opts?: { highlightCid?: string }) {
     const all = Object.values(railMap) as any[];
     let items: any[];
     if (activeTab === 'topics') items = all.filter(s => s.kind === 'topic');
@@ -172,15 +183,33 @@ const suggestions = [
       railBody.innerHTML = `<div class="ask-rail-empty">No ${activeTab} yet in this thread.</div>`;
       return;
     }
-    railBody.innerHTML = items.map(s => `
-      <article class="ask-rail-card">
+    const hl = opts?.highlightCid;
+    railBody.innerHTML = items.map(s => {
+      const isHl = hl && s.cid === hl ? ' is-highlight' : '';
+      // Build the destination URL: topic → /research/<slug>; article → /<section>/<slug>; weblink fallback → external url
+      let detailHref = '#';
+      if (s.kind === 'topic' && s.slug) detailHref = `/research/${s.slug}`;
+      else if (s.kind === 'article' && s.section && s.slug) detailHref = `/${s.section}/${s.slug}`;
+      else if (s.url) detailHref = s.url;
+      const ext = s.url ? `<a class="ask-rail-card-link" href="${escHtml(s.url)}" target="_blank" rel="noopener">Open external ↗</a>` : '';
+      const internal = (detailHref !== '#' && detailHref !== s.url)
+        ? `<a class="ask-rail-card-link" href="${escHtml(detailHref)}">Open in garden →</a>` : '';
+      return `
+      <article class="ask-rail-card${isHl}" data-cid="${escHtml(s.cid)}">
         <div class="ask-rail-card-num">${escHtml(s.cid.replace(/^s/, ''))}</div>
         <div class="ask-rail-card-body">
           <div class="ask-rail-card-title">${escHtml(s.title)}</div>
           ${s.section ? `<div class="ask-rail-card-meta">${escHtml(s.section)}${s.date ? ' · ' + escHtml(s.date) : ''}</div>` : ''}
-          ${s.url ? `<a class="ask-rail-card-link" href="${escHtml(s.url)}" target="_blank" rel="noopener">Open ↗</a>` : ''}
+          <div class="ask-rail-card-actions">${internal} ${ext}</div>
         </div>
-      </article>`).join('');
+      </article>`;
+    }).join('');
+    if (hl) {
+      const el = railBody.querySelector(`[data-cid="${hl.replace(/"/g,'')}"]`) as HTMLElement | null;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
   }
 
   document.querySelectorAll<HTMLButtonElement>('.ask-rail-tab').forEach(b => {
@@ -202,6 +231,11 @@ const suggestions = [
 
   async function ask(q: string) {
     if (suggestEl) suggestEl.style.display = 'none';
+    // Reset the rail per question — each turn's [1]/[s1] are scoped to that turn,
+    // so we don't conflate them with previous turns.
+    for (const k of Object.keys(railMap)) delete railMap[k];
+    updateRailCounts();
+    renderRail();
     const meTurn = document.createElement('div');
     meTurn.className = 'ask-turn ask-turn-me';
     meTurn.innerHTML = `<div class="ask-bubble ask-bubble-me">${escHtml(q)}</div>`;

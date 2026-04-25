@@ -1,95 +1,181 @@
 ---
 /**
- * /research/stream — Stream feed as index cards.
+ * /research/stream — index-card stream.
  *
- * Reads real content from the garden's collections and renders them in the
- * StreamCard shape from the prototype (see SPEC § View: Stream).
+ * Reuses the existing garden's MosaicCard component (same as homepage),
+ * pins the first 3 articles, and puts collection + maturity filters in
+ * the right rail.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import { getCollection } from 'astro:content';
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import MosaicCard from '../../components/MosaicCard.astro';
+import { getAllContent, sortByDate } from '../../utils/collections';
 
-type Item = { slug: string; collection: string; title: string; description: string; date: string; maturity: string; tags: string[] };
+const allContent = sortByDate(await getAllContent());
 
-const items: Item[] = [];
-for (const coll of ['articles', 'field-notes', 'seeds', 'experiments', 'jottings', 'weblinks']) {
-  const d = path.resolve(`src/content/${coll}`);
-  if (!fs.existsSync(d)) continue;
-  for (const f of fs.readdirSync(d)) {
-    if (!f.endsWith('.md')) continue;
-    const text = fs.readFileSync(path.join(d, f), 'utf-8');
-    const m = text.match(/^---\s*\n([\s\S]*?)\n---/);
-    if (!m) continue;
-    let fm: any = {};
-    const fmText = m[1];
-    for (const line of fmText.split('\n')) {
-      const km = line.match(/^(title|description|date|maturity|draft):\s*["']?(.+?)["']?\s*$/);
-      if (km) fm[km[1]] = km[2];
-    }
-    if (String(fm.draft).toLowerCase() === 'true') continue;
-    // tags: simple parse
-    const tagsMatch = fmText.match(/^tags:\s*\n((?:\s+-\s+.+\n)+)/m);
-    const tags: string[] = tagsMatch
-      ? tagsMatch[1].split('\n').map(l => l.replace(/^\s+-\s+/, '').trim()).filter(Boolean)
-      : [];
-    items.push({
-      slug: f.replace(/\.md$/, ''),
-      collection: coll,
-      title: fm.title || f,
-      description: fm.description || '',
-      date: String(fm.date || ''),
-      maturity: fm.maturity || 'draft',
-      tags,
-    });
-  }
+const eligible = allContent.filter((e) => {
+  const data = e.data as any;
+  if (data.draft === true) return false;
+  if (data.hub === true) return false;
+  if (data.ai === 'generated') return false;
+  if (e.collection === 'library') return false;
+  if (e.collection === 'field-notes' && data.tags?.includes('about')) return false;
+  if (data.develops) return false;
+  if (e.collection === 'jottings' && data.type === 'quote') return false;
+  return true;
+});
+
+const pinnedArticles = eligible.filter((e) => e.collection === 'articles').slice(0, 3);
+const pinnedSet = new Set(pinnedArticles.map((e) => e.id));
+const feedItems = eligible.filter((e) => !pinnedSet.has(e.id));
+
+function extractBodyPreview(body: string | undefined, maxLen = 220): string {
+  if (!body) return '';
+  const text = body.replace(/^---[\s\S]*?---/, '').replace(/[#>*_`\[\]]/g, '').replace(/\n+/g, ' ').trim();
+  return text.length > maxLen ? text.slice(0, maxLen).replace(/\s+\S*$/, '') + '…' : text;
 }
-items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-// Collection → accent colour (for the card spine)
-const collColor: Record<string, string> = {
-  articles:       '#8A4A22',  // terracotta
-  'field-notes':  '#5A7A4D',  // sage
-  seeds:          '#B8935A',  // ochre
-  experiments:    '#3B5A8A',  // slate blue
-  jottings:       '#7A5A8A',  // plum
-  weblinks:       '#5F7A58',  // moss
+const filterCollections = ['articles', 'seeds', 'field-notes', 'jottings', 'weblinks', 'videos', 'experiments'];
+const collectionLabels: Record<string, string> = {
+  articles: 'Articles', seeds: 'Seeds', 'field-notes': 'Field notes',
+  jottings: 'Jottings', weblinks: 'Weblinks', videos: 'Videos', experiments: 'Experiments',
 };
+const maturities = [
+  { value: 'draft',      label: '🌱 Draft' },
+  { value: 'developing', label: '🌿 Developing' },
+  { value: 'solid',      label: '🪴 Solid' },
+  { value: 'complete',   label: '🌳 Complete' },
+];
 ---
 
 <ResearchLayout title="Stream" view="stream">
-  <div class="stream">
-    <div class="stream-head">
-      <h1 class="stream-title">Stream</h1>
-      <p class="stream-sub">Everything in the garden, newest first. {items.length} entries.</p>
+  <div class="stream-research">
+    <div class="stream-research-head">
+      <h1 class="stream-research-title">Stream</h1>
+      <p class="stream-research-sub">Everything in the garden. Pinned articles first, then everything else newest-first. {eligible.length} entries.</p>
     </div>
 
-    <div class="stream-list">
-      {items.map(it => (
-        <a class="stream-card" href={`/${it.collection}/${it.slug}`} style={`--card-accent: ${collColor[it.collection] || '#888'}`}>
-          <div class="stream-card-spine"></div>
-          <div class="stream-card-body">
-            <div class="stream-card-meta">
-              <span class="stream-card-coll">{it.collection}</span>
-              {it.date && <span class="stream-card-date">{it.date}</span>}
-              {it.maturity && <span class={`stream-card-mat mat-${it.maturity}`}>{it.maturity}</span>}
-            </div>
-            <h2 class="stream-card-title">{it.title}</h2>
-            {it.description && <p class="stream-card-desc">{it.description}</p>}
-            {it.tags.length > 0 && (
-              <div class="stream-card-tags">
-                {it.tags.slice(0, 4).map(t => <span class="stream-card-tag">{t}</span>)}
-              </div>
-            )}
-          </div>
-        </a>
-      ))}
+    <div class="stream-feed" id="research-stream-feed">
+      {pinnedArticles.map((article, i) => {
+        const data = article.data as any;
+        return (
+          <MosaicCard
+            title={data.title}
+            href={`/articles/${article.id}`}
+            date={data.date}
+            updated={data.updated}
+            maturity={data.maturity}
+            tags={data.tags}
+            description={data.description}
+            collection="articles"
+            pinned={true}
+            hero={i === 0}
+            ai={data.ai}
+            bodyPreview={extractBodyPreview(article.body, i === 0 ? 300 : 220)}
+          />
+        );
+      })}
+      {feedItems.map((entry) => {
+        const data = entry.data as any;
+        const col = entry.collection;
+        const href = `/${col}/${entry.id}`;
+        const domain = (col === 'jottings' || col === 'weblinks') && data.url
+          ? (() => { try { return new URL(data.url).hostname.replace('www.', ''); } catch { return undefined; } })()
+          : undefined;
+        return (
+          <MosaicCard
+            title={data.title}
+            href={href}
+            date={data.date}
+            updated={data.updated}
+            maturity={data.maturity}
+            tags={data.tags}
+            description={data.description}
+            collection={col}
+            jottingType={data.type}
+            source={data.source}
+            domain={domain}
+            url={data.url}
+            ai={data.ai}
+            bodyPreview={(col === 'articles' || col === 'jottings') ? extractBodyPreview(entry.body) : undefined}
+          />
+        );
+      })}
     </div>
+    <p class="stream-empty" id="research-stream-empty" hidden>No items match the current filters.</p>
   </div>
 
-  <div slot="rightRail" class="rail-r-inner">
+  <!-- Right-rail filters -->
+  <div slot="rightRail" class="rail-r-inner stream-filters-rail">
     <div class="rail-r-section">
-      <div class="rail-r-label">Filter</div>
-      <p class="rail-r-body">Filter / sort UI to come.</p>
+      <div class="rail-r-label">Collection</div>
+      <ul class="filter-list">
+        {filterCollections.map((col) => (
+          <li>
+            <label class="filter-row">
+              <input type="checkbox" data-group="collection" value={col} />
+              <span>{collectionLabels[col]}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="rail-r-section">
+      <div class="rail-r-label">Maturity</div>
+      <ul class="filter-list">
+        {maturities.map((m) => (
+          <li>
+            <label class="filter-row">
+              <input type="checkbox" data-group="maturity" value={m.value} />
+              <span>{m.label}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="rail-r-section">
+      <button class="filter-clear" id="research-filter-clear" type="button">Clear all filters</button>
     </div>
   </div>
+
+  <script>
+    // Client-side filtering: hide cards that don't match the active filter set.
+    const feed = document.getElementById('research-stream-feed');
+    const empty = document.getElementById('research-stream-empty');
+    const checks = document.querySelectorAll('.filter-row input');
+    const clearBtn = document.getElementById('research-filter-clear');
+
+    function activeFilters() {
+      const sel = { collection: new Set(), maturity: new Set() };
+      checks.forEach((c) => {
+        if (c.checked) sel[c.dataset.group].add(c.value);
+      });
+      return sel;
+    }
+
+    function applyFilters() {
+      if (!feed) return;
+      const sel = activeFilters();
+      const cards = feed.children;
+      let visible = 0;
+      for (const card of cards) {
+        const col = card.dataset.collection || card.querySelector('[data-collection]')?.dataset.collection || '';
+        const mat = card.dataset.maturity || card.querySelector('[data-maturity]')?.dataset.maturity || '';
+        const colOk = sel.collection.size === 0 || sel.collection.has(col);
+        const matOk = sel.maturity.size === 0 || sel.maturity.has(mat);
+        const show = colOk && matOk;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      }
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    checks.forEach((c) => c.addEventListener('change', applyFilters));
+    clearBtn?.addEventListener('click', () => {
+      checks.forEach((c) => { (c as HTMLInputElement).checked = false; });
+      applyFilters();
+    });
+  </script>
 </ResearchLayout>
