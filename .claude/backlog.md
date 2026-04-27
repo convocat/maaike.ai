@@ -4,7 +4,24 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-25 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-04-27 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Inbox enrichment + check-inbox skill
+*2026-04-27*
+
+Previous session published 4 enriched weblinks (commit 640c12f) and codified the inbox review workflow as a new /check-inbox skill. The skill file is on disk but uncommitted. Pending: commit the skill, fix misleading dashboard copy, and decide what to do with the un-staged dashboard/server tweaks from earlier work (still showing as modified).
+
+Key files:
+- `.claude/commands/check-inbox.md` (new, uncommitted)
+- `public/mockup-ingest-dashboard.html` (modified, line 875-901 has stale "Enriching…" / "Sync + auto-tag complete" copy that lies to the user; the button does NOT auto-enrich)
+- `tools/admin/server.py` (modified)
+- `scripts/run_auto_tag_on_drafts.py` (modified)
+- `src/content.config.ts` (modified)
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: commit the new `.claude/commands/check-inbox.md` skill file, and fix the misleading "Enriching…" / "Sync + auto-tag complete" copy in `public/mockup-ingest-dashboard.html` (lines ~875-901). The dashboard's Sync Telegram button does not auto-enrich (workflow intentionally skips API enrichment per memory rule), so the copy should say something like "Pull complete, run /check-inbox in Claude Code to enrich". Also triage the other modified files (server.py, run_auto_tag_on_drafts.py, content.config.ts) to decide if they ship or revert.
 
 ---
 
