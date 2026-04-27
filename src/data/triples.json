@@ -5420,6 +5420,246 @@
         "future-of-work"
       ],
       "role": "counter-position"
+    },
+    "delegate-52": {
+      "label": "DELEGATE-52",
+      "type": "technology",
+      "lens": [
+        "observability",
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ],
+      "role": "instrument"
+    },
+    "llm-delegation": {
+      "label": "LLM delegation",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "agent",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "document-corruption": {
+      "label": "Document corruption",
+      "type": "phenomenon",
+      "lens": [
+        "observability"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ],
+      "role": "stance"
+    },
+    "vibe-coding": {
+      "label": "Vibe coding",
+      "type": "metaphor",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ],
+      "role": "tendency"
+    },
+    "philippe-laban": {
+      "label": "Philippe Laban",
+      "type": "person",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "elvis-saravia": {
+      "label": "Elvis Saravia",
+      "type": "person",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "agent"
+      ]
+    },
+    "birdsong": {
+      "label": "Birdsong",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "voice",
+        "music"
+      ],
+      "role": "stance"
+    },
+    "syrinx": {
+      "label": "Syrinx",
+      "type": "mechanism",
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "voice"
+      ],
+      "role": "instrument"
+    },
+    "bioacoustics": {
+      "label": "Bioacoustics",
+      "type": "discipline",
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "voice"
+      ],
+      "role": "framework"
+    },
+    "acoustic-visualisation": {
+      "label": "Acoustic visualisation",
+      "type": "method",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "voice",
+        "music"
+      ],
+      "role": "instrument"
+    },
+    "biological-blockchain": {
+      "label": "Biological blockchain",
+      "type": "metaphor",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "knowledge"
+      ],
+      "role": "tendency"
+    },
+    "lucio-arese": {
+      "label": "Lucio Arese",
+      "type": "person",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "music"
+      ]
+    },
+    "shared-manifolds": {
+      "label": "Shared manifolds",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "design"
+      ],
+      "subject": [
+        "voice",
+        "music"
+      ],
+      "role": "framework"
+    },
+    "touchdesigner": {
+      "label": "TouchDesigner",
+      "type": "technology",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "music"
+      ],
+      "role": "instrument"
+    },
+    "eliza-effect": {
+      "label": "ELIZA effect",
+      "type": "phenomenon",
+      "lens": [
+        "cognition",
+        "design"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ],
+      "role": "stance"
+    },
+    "synthetic-intimacy": {
+      "label": "Synthetic intimacy",
+      "type": "phenomenon",
+      "lens": [
+        "cognition",
+        "design"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ],
+      "role": "stance"
+    },
+    "ai-critique": {
+      "label": "AI critique",
+      "type": "discipline",
+      "lens": [
+        "philosophy",
+        "culture"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "digital-extractivism": {
+      "label": "Digital extractivism",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "culture"
+      ],
+      "subject": [
+        "knowledge"
+      ],
+      "role": "stance"
+    },
+    "tactical-tech": {
+      "label": "Tactical Tech",
+      "type": "concept",
+      "lens": [
+        "culture",
+        "philosophy"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "marek-tuszynski": {
+      "label": "Marek Tuszynski",
+      "type": "person",
+      "lens": [
+        "philosophy",
+        "culture"
+      ],
+      "subject": [
+        "llm"
+      ]
     }
   },
   "associations": [
@@ -9501,6 +9741,146 @@
       "object": "thinking-in-public",
       "source": "building-this-garden",
       "collection": "field-notes"
+    },
+    {
+      "subject": "delegate-52",
+      "predicate": "attributed-to",
+      "object": "philippe-laban",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "delegate-52",
+      "predicate": "instance-of",
+      "object": "llm-evals",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "delegate-52",
+      "predicate": "demonstrates",
+      "object": "document-corruption",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llm-delegation",
+      "predicate": "leads-to",
+      "object": "document-corruption",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "breaks-down-for",
+      "object": "llm-delegation",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "vibe-coding",
+      "predicate": "instance-of",
+      "object": "llm-delegation",
+      "source": "new-paper-from-microsoft-this-is-an-important-read",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "syrinx",
+      "predicate": "generates",
+      "object": "birdsong",
+      "source": "visualising-birdsong-as-data",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "birdsong",
+      "predicate": "exhibits",
+      "object": "utterance-level-sound-properties",
+      "source": "visualising-birdsong-as-data",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "birdsong",
+      "predicate": "structured-as",
+      "object": "acoustic-visualisation",
+      "source": "visualising-birdsong-as-data",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "acoustic-visualisation",
+      "predicate": "attributed-to",
+      "object": "lucio-arese",
+      "source": "visualising-birdsong-as-data",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "biological-blockchain",
+      "predicate": "metaphor-for",
+      "object": "birdsong",
+      "source": "visualising-birdsong-as-data",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "acoustic-visualisation",
+      "predicate": "requires",
+      "object": "touchdesigner",
+      "source": "robin-interactions-shared-manifolds",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "shared-manifolds",
+      "predicate": "structured-as",
+      "object": "acoustic-visualisation",
+      "source": "robin-interactions-shared-manifolds",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "shared-manifolds",
+      "predicate": "attributed-to",
+      "object": "lucio-arese",
+      "source": "robin-interactions-shared-manifolds",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "birdsong",
+      "predicate": "exhibits",
+      "object": "shared-manifolds",
+      "source": "robin-interactions-shared-manifolds",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "synthetic-intimacy",
+      "predicate": "reinforces",
+      "object": "ai-hype",
+      "source": "dont-show-me-your-ai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "synthetic-intimacy",
+      "predicate": "breaks-down-for",
+      "object": "ai-critique",
+      "source": "dont-show-me-your-ai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "eliza-effect",
+      "predicate": "characterised-as",
+      "object": "synthetic-intimacy",
+      "source": "dont-show-me-your-ai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-critique",
+      "predicate": "attributed-to",
+      "object": "marek-tuszynski",
+      "source": "dont-show-me-your-ai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "digital-extractivism",
+      "predicate": "instance-of",
+      "object": "ai-critique",
+      "source": "dont-show-me-your-ai",
+      "collection": "weblinks"
     }
   ]
 }
