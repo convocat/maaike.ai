@@ -2,7 +2,7 @@
 reviewed: 2026-04-24
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-04-22
+updated: 2026-04-27
 maturity: solid
 tags:
 - about
@@ -377,6 +377,14 @@ A research-wiki shell at /research that nobody enjoyed building, plus admin-dash
 - **Admin dashboard polish (earlier today)**: edit-on-approve for tags/description/triples; "My content" review tab with `reviewed:` frontmatter stamp; per-question rail reset in the chat; published items stay greyed in the queue for situation awareness
 
 Working with Claude on this update was an absolute pain. Same instructions had to be repeated multiple times before they landed; layout fundamentals were re-broken between fixes; whole sub-tasks were tackled before they were asked for.
+
+### 27 April
+
+A reviewer-in-a-skill day: the inbox workflow got codified as `/check-inbox` and immediately drove four enriched weblinks live.
+
+- **`/check-inbox` skill**: new slash command that runs `/telegram-sync`, scans for un-enriched drafts, runs `/ingest-source` on each, then opens the dashboard at localhost:8900
+- **Inbox count fix**: the dashboard count now filters on `processed: false` instead of the whole feed (greyed-out published items no longer inflate the badge)
+- **Four weblinks published**: Microsoft DELEGATE-52 paper, two Lucio Arese reels (birdsong-as-data, robin shared manifolds), and Marek Tuszynski's "Don't show me your AI", all enriched with topics, themes, and triples before going live
 
 ## Related
 
