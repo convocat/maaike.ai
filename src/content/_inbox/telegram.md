@@ -11,3 +11,8 @@ https://tacticaltech.org/
 
 2026-04-25: The AI Draft: A Process Essay Nobody Asked For
 https://open.substack.com/pub/frankakalman/p/the-ai-draft-a-process-essay-nobody?r=82niz&utm_campaign=post&utm_medium=web
+
+2026-04-29: Fieldwork for Future Ecologies | Onomatopee
+https://www.onomatopee.net/exhibition/fieldwork-for-future-ecologies/
+
+2026-04-29: This is not a weblink, but a book. Can you add it to the library claude?
