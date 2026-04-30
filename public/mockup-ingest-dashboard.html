@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garden ingest dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Roboto:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://esm.sh/@milkdown/crepe@0.53.0/theme/common/style.css">
+<link rel="stylesheet" href="https://esm.sh/@milkdown/crepe@0.53.0/theme/frame.css">
 <style>
 :root {
   /* Garden theme — from handoff v0.5 */
@@ -79,6 +81,35 @@ input, textarea { font: inherit; color: inherit; }
 
 /* ── Main layout ── */
 #main { display: flex; flex: 1; overflow: hidden; }
+#main.hidden { display: none; }
+
+/* Write pane */
+#write-pane {
+  flex: 1; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--bg);
+}
+#write-pane.hidden { display: none; }
+#write-toolbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 22px; border-bottom: 1px solid var(--rule);
+  background: var(--bg-card); font-size: 13px; flex-shrink: 0;
+}
+.write-hint { color: var(--ink-3); flex: 1; }
+#write-status { color: var(--ink-3); font-size: 12px; font-style: italic; }
+#write-save-btn {
+  padding: 5px 14px; border-radius: var(--radius-md); font-size: 13px;
+  font-family: var(--font-b); cursor: pointer; border: none;
+  background: var(--accent); color: #fff;
+}
+#write-save-btn:hover { background: var(--accent-hover); }
+#write-editor {
+  flex: 1; overflow-y: auto; padding: 40px 0;
+  font-family: 'Lora', Georgia, serif;
+}
+#write-editor .milkdown {
+  max-width: 42rem; margin: 0 auto; padding: 0 2rem;
+  font-size: 17px; line-height: 1.7; color: var(--ink);
+}
 
 /* ── Queue panel (left rail) ── */
 #queue {
@@ -216,6 +247,13 @@ input, textarea { font: inherit; color: inherit; }
   vertical-align: middle; color: var(--ink);
 }
 .assoc-table tr:last-child td { border-bottom: none; }
+.triple-remove {
+  width: 22px; height: 22px; border-radius: 4px; border: 1px solid var(--rule);
+  background: transparent; color: var(--ink-3); cursor: pointer;
+  font-size: 14px; line-height: 1; padding: 0;
+  transition: all 120ms ease;
+}
+.triple-remove:hover { border-color: #c0392b; color: #c0392b; }
 .assoc-table td code {
   font-family: var(--font-b); color: var(--ink);
 }
@@ -368,7 +406,9 @@ input, textarea { font: inherit; color: inherit; }
   <img src="/images/watercolor-leaf-trimmed.png" alt="Garden logo" style="height:28px;width:auto;flex-shrink:0;">
   <h1>Garden admin</h1>
   <div class="tab-group">
-    <button class="tab active">Ingest</button>
+    <button class="tab active" onclick="switchTab('weblinks')" data-tab="weblinks">Weblinks</button>
+    <button class="tab" onclick="switchTab('content')" data-tab="content">My content</button>
+    <button class="tab" onclick="switchTab('write')" data-tab="write">Write</button>
     <button class="tab">Eval</button>
     <button class="tab">Pipeline</button>
     <button class="tab">KPIs</button>
@@ -434,11 +474,107 @@ input, textarea { font: inherit; color: inherit; }
 
 </div>
 
+<!-- Write pane (full-width, hidden unless Write tab is active) -->
+<div id="write-pane" class="hidden">
+  <div id="write-toolbar">
+    <span class="write-hint">Scratch file — nothing you write here touches your real posts until you explicitly save elsewhere</span>
+    <span id="write-status"></span>
+    <button id="write-save-btn" onclick="saveScratch()">Save to scratch.md</button>
+  </div>
+  <div id="write-editor"></div>
+</div>
+
 
 <script>
 // ── State ──────────────────────────────────────────────────────────────────
 let queueItems = [];
 let currentIdx = -1;
+let activeTab = 'weblinks';  // 'weblinks' | 'content'
+
+async function switchTab(tab) {
+  if (tab === activeTab) return;
+  activeTab = tab;
+  document.querySelectorAll('.tab[data-tab]').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+
+  const main = document.getElementById('main');
+  const writePane = document.getElementById('write-pane');
+
+  if (tab === 'write') {
+    main.classList.add('hidden');
+    writePane.classList.remove('hidden');
+    await ensureWriteEditor();
+    return;
+  }
+  main.classList.remove('hidden');
+  writePane.classList.add('hidden');
+
+  const headLabel = document.querySelector('#queue-head > span');
+  if (headLabel) headLabel.textContent = tab === 'content' ? 'Posts to review' : 'Draft weblinks';
+  currentIdx = -1;
+  await loadInbox();
+}
+
+// ── Write pane (Milkdown PoC) ──────────────────────────────────────────────
+let _crepe = null;
+let _autosaveTimer = null;
+const SCRATCH_LS_KEY = 'garden-admin-scratch';
+const SCRATCH_DEFAULT = `# Scratch\n\nThis is a Milkdown + Crepe editor. Type freely — your content is kept in localStorage automatically, and you can hit "Save to scratch.md" to commit it to disk.\n\n- Bullet lists work\n- **bold**, *italic*, \`code\`\n- [[Wiki links]] render as plain text for now\n\n## Try me\n\nType / to see the slash menu.\n`;
+
+async function ensureWriteEditor() {
+  if (_crepe) return;
+  const setStatus = (msg) => { const el = document.getElementById('write-status'); if (el) el.textContent = msg || ''; };
+  setStatus('Loading editor…');
+  try {
+    const { Crepe } = await import('https://esm.sh/@milkdown/crepe@0.53.0');
+    const initial = localStorage.getItem(SCRATCH_LS_KEY) || SCRATCH_DEFAULT;
+    _crepe = new Crepe({
+      root: document.getElementById('write-editor'),
+      defaultValue: initial,
+    });
+    await _crepe.create();
+    setStatus('Autosaving to browser');
+
+    // Autosave to localStorage every 1.5s after edits stop
+    _crepe.on((api) => {
+      api.updated(() => {
+        if (_autosaveTimer) clearTimeout(_autosaveTimer);
+        _autosaveTimer = setTimeout(() => {
+          try {
+            localStorage.setItem(SCRATCH_LS_KEY, _crepe.getMarkdown());
+            setStatus('Saved locally · ' + new Date().toLocaleTimeString());
+          } catch (e) {
+            setStatus('Local save failed: ' + e.message);
+          }
+        }, 1500);
+      });
+    });
+  } catch (e) {
+    setStatus('Editor failed to load: ' + e.message);
+    console.error(e);
+  }
+}
+
+async function saveScratch() {
+  if (!_crepe) return;
+  const md = _crepe.getMarkdown();
+  const btn = document.getElementById('write-save-btn');
+  btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const res = await fetch('/api/write-scratch', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: md})
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    toast('Saved to scratch.md');
+  } catch (e) {
+    toast('Save failed: ' + e.message, true);
+  }
+  btn.disabled = false; btn.textContent = 'Save to scratch.md';
+}
 
 // ── Preview pane ───────────────────────────────────────────────────────────
 function openPreview(url, label) {
@@ -472,12 +608,18 @@ function setBusy(busy) {
 
 // ── Queue loader ───────────────────────────────────────────────────────────
 async function loadInbox() {
-  const res = await fetch('/api/inbox');
+  const endpoint = activeTab === 'content' ? '/api/content-review' : '/api/inbox';
+  const res = await fetch(endpoint);
   queueItems = await res.json();
   renderQueue();
   updateQueueCount();
-  const firstPending = queueItems.findIndex(it => !it.processed);
-  if (firstPending >= 0) showItem(firstPending);
+  if (queueItems.length) showItem(0);
+  else {
+    const el = document.getElementById('review-content');
+    if (el) el.innerHTML = activeTab === 'content'
+      ? '<p style="color:var(--ink-3);padding:8px 0;">All posts up to date. Nothing new to review.</p>'
+      : '<p style="color:var(--ink-3);padding:8px 0;">No draft weblinks. Click Sync Telegram to pull new items.</p>';
+  }
 }
 
 function renderQueue() {
@@ -503,10 +645,13 @@ function renderQueue() {
 
   list.innerHTML = visible.map(it => {
     const realIdx = queueItems.indexOf(it);
-    const status = it.processed ? 'processed' : 'pending';
-    const statusLabel = it.processed ? 'Done' : 'Pending';
+    const reviewed = it.justReviewed;
+    const published = it.justPublished;
+    const doneState = reviewed || published || it.processed;
+    const status = reviewed ? 'approved' : (published ? 'approved' : (it.processed ? 'processed' : 'pending'));
+    const statusLabel = reviewed ? 'Reviewed' : (published ? 'Published' : (it.processed ? 'Done' : 'Pending'));
     const active = realIdx === currentIdx ? 'active' : '';
-    const done = it.processed ? 'done' : '';
+    const done = doneState ? 'done' : '';
     return `<div class="queue-item ${active} ${done}" onclick="showItem(${realIdx})">
       <span class="qi-strip"></span>
       <div class="qi-body">
@@ -518,7 +663,8 @@ function renderQueue() {
 }
 
 function updateQueueCount() {
-  document.querySelector('.queue-count').textContent = `${queueItems.length} drafts`;
+  const label = activeTab === 'content' ? 'to review' : 'drafts';
+  document.querySelector('.queue-count').textContent = `${queueItems.length} ${label}`;
 }
 
 // ── Review panel ───────────────────────────────────────────────────────────
@@ -528,9 +674,17 @@ function showItem(idx) {
   const item = queueItems[idx];
   if (!item) return;
   renderReviewPanel(item);
-  if (item.url) {
-    try { openPreview(item.url, new URL(item.url).hostname); } catch (e) {}
+
+  // Preview: external URL for weblinks, local Astro page for my-content
+  let previewUrl = item.url;
+  let label = '';
+  if (!previewUrl && item.collection && item.slug) {
+    previewUrl = `http://localhost:4321/${item.collection}/${item.slug}/`;
+    label = `${item.collection}/${item.slug}`;
+  } else if (previewUrl) {
+    try { label = new URL(previewUrl).hostname; } catch (_) { label = previewUrl; }
   }
+  if (previewUrl) openPreview(previewUrl, label);
 }
 
 function renderReviewPanel(item) {
@@ -558,7 +712,7 @@ function renderReviewPanel(item) {
       <div class="section-head">Metadata</div>
       <div class="meta-row">
         <label class="meta-label">Title</label>
-        <input id="meta-title" class="meta-input" type="text" value="${escHtml(item.title)}" readonly>
+        <input id="meta-title" class="meta-input" type="text" value="${escHtml(item.title)}">
       </div>
       ${item.url ? `<div class="meta-row">
         <label class="meta-label">URL</label>
@@ -566,47 +720,78 @@ function renderReviewPanel(item) {
       </div>` : ''}
       <div class="meta-row">
         <label class="meta-label">Description</label>
-        <textarea id="meta-desc" class="meta-input" rows="3" readonly>${escHtml(item.description || '')}</textarea>
+        <textarea id="meta-desc" class="meta-input" rows="3">${escHtml(item.description || '')}</textarea>
       </div>
       <div class="meta-row">
-        <label class="meta-label">Tags</label>
-        <input id="meta-tags" class="meta-input" type="text" value="${escHtml((item.tags || []).join(', '))}" readonly>
+        <label class="meta-label">Tags (comma-separated)</label>
+        <input id="meta-tags" class="meta-input" type="text" value="${escHtml((item.tags || []).join(', '))}">
       </div>
       ${item.themes && item.themes.length ? `<div class="meta-row">
         <label class="meta-label">Themes</label>
         <div style="font-size:13.5px;color:var(--ink-2);">${item.themes.map(escHtml).join(' · ')}</div>
       </div>` : ''}
       <div style="font-size:12px;color:var(--ink-3);margin-top:4px;">
-        To edit this draft, open <code>${escHtml(item.path)}</code> in your editor and rerun the sync.
+        Edit description, tags, or delete triples below. To add new triples, rerun /auto-tag on the post.
       </div>
     </div>
     ${triplesHtml}`;
 
   const hint = document.querySelector('.action-hint');
-  if (hint) hint.textContent = enriched
-    ? 'Approve → flips draft:false and commits'
-    : 'Draft not yet enriched — approve will publish without triples';
-
-  document.querySelector('.btn-approve').disabled = false;
-  document.querySelector('.btn-dismiss').disabled = false;
+  const approveBtn = document.querySelector('.btn-approve');
+  const dismissBtn = document.querySelector('.btn-dismiss');
+  if (activeTab === 'content') {
+    if (hint) hint.textContent = item.justReviewed
+      ? `Reviewed ${item.reviewed || 'today'} — revisit or move on`
+      : 'Approve → saves edits, stamps reviewed date, and commits';
+    if (approveBtn) {
+      approveBtn.textContent = item.justReviewed ? 'Re-approve and commit' : 'Approve and commit';
+      approveBtn.disabled = false;
+    }
+    if (dismissBtn) dismissBtn.style.display = 'none';
+  } else {
+    const alreadyPublished = item.processed || item.justPublished;
+    if (hint) hint.textContent = alreadyPublished
+      ? 'Already published — kept in queue for situation awareness'
+      : (enriched
+          ? 'Approve → flips draft:false and commits'
+          : 'Draft not yet enriched — approve will publish without triples');
+    if (approveBtn) approveBtn.textContent = alreadyPublished ? 'Update and re-commit' : 'Approve and publish';
+    if (dismissBtn) dismissBtn.style.display = alreadyPublished ? 'none' : '';
+  }
+  approveBtn.disabled = false;
+  if (dismissBtn) dismissBtn.disabled = false;
 }
 
 function renderTriplesHtml(item) {
-  const rows = (item.associations || []).map(a =>
-    `<tr>
+  const rows = (item.associations || []).map((a, i) =>
+    `<tr data-triple-idx="${i}">
       <td>${escHtml(a.subject)}</td>
       <td><code>${escHtml(a.predicate)}</code></td>
       <td>${escHtml(a.object)}</td>
+      <td><button class="triple-remove" onclick="removeTriple(${i})" title="Remove this triple">×</button></td>
     </tr>`
   ).join('');
   return `
     <div>
-      <div class="section-head">Triples (${item.associations.length})</div>
+      <div class="section-head">Triples (<span id="triples-count">${item.associations.length}</span>)</div>
       <table class="assoc-table">
-        <thead><tr><th>Subject</th><th>Predicate</th><th>Object</th></tr></thead>
-        <tbody>${rows}</tbody>
+        <thead><tr><th>Subject</th><th>Predicate</th><th>Object</th><th style="width:1.5rem"></th></tr></thead>
+        <tbody id="triples-body">${rows}</tbody>
       </table>
     </div>`;
+}
+
+function removeTriple(idx) {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+  item.associations.splice(idx, 1);
+  // Re-render triples block only
+  const panel = document.getElementById('review-content');
+  const table = panel?.querySelector('.assoc-table');
+  if (table) {
+    const container = table.closest('div');
+    container.outerHTML = renderTriplesHtml(item);
+  }
 }
 
 // ── Approve / Dismiss ──────────────────────────────────────────────────────
@@ -614,23 +799,44 @@ async function approveItem() {
   const item = queueItems[currentIdx];
   if (!item) return;
 
+  // Collect edits from the UI
+  const title = document.getElementById('meta-title')?.value ?? item.title ?? '';
+  const tagsRaw = document.getElementById('meta-tags')?.value || '';
+  const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+  const description = document.getElementById('meta-desc')?.value ?? item.description ?? '';
+  const triples = (item.associations || []).map(a => [a.subject, a.predicate, a.object]);
+
+  const endpoint = activeTab === 'content' ? '/api/mark-reviewed' : '/api/approve';
+  const body = activeTab === 'content'
+    ? {slug: item.slug, collection: item.collection, title, tags, description, triples}
+    : {slug: item.slug, title, tags, description, triples};
+
   setBusy(true);
   try {
-    const res = await fetch('/api/approve', {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({slug: item.slug})
+      body: JSON.stringify(body)
     });
     const data = await res.json();
     if (data.error) throw new Error(data.error);
-    queueItems.splice(currentIdx, 1);
-    currentIdx = -1;
-    toast('Published: ' + item.slug);
+    if (activeTab === 'content') {
+      // Keep item in queue, mark it reviewed for before/after comparison
+      item.reviewed = data.reviewed;
+      item.justReviewed = true;
+      toast('Marked reviewed');
+    } else {
+      // Weblinks: keep item in queue too, mark it published
+      item.justPublished = true;
+      toast('Published: ' + item.slug);
+    }
     renderQueue();
     updateQueueCount();
-    setTimeout(advanceQueue, 500);
+    // Advance to next unprocessed item, but keep the current one visible
+    const next = queueItems.findIndex((it, i) => i !== currentIdx && !it.justReviewed && !it.justPublished);
+    if (next >= 0) setTimeout(() => showItem(next), 500);
   } catch (e) {
-    toast('Approve failed: ' + e.message, true);
+    toast((activeTab === 'content' ? 'Mark reviewed' : 'Approve') + ' failed: ' + e.message, true);
   }
   setBusy(false);
 }

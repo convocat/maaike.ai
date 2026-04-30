@@ -47,9 +47,9 @@ def needs_enrichment(path: Path, scope: str) -> bool:
     if scope == "weblinks":
         # telegram-sync flow: only new draft weblinks
         return collection == "weblinks" and is_draft_true(text)
-    # scope == "all": backlog run across every collection
-    # Skip in-progress drafts for non-weblinks (they're still being written).
-    # For weblinks, draft:true is the pre-enrichment state, so include them.
+    # scope == "all": backlog run across every collection — include legacy
+    # published weblinks without triples too. Skip in-progress drafts for
+    # non-weblinks (they're still being written).
     if collection != "weblinks" and is_draft_true(text):
         return False
     return True

@@ -19,6 +19,10 @@ const baseSchema = z.object({
   ai: z.enum(['100% Maai', 'assisted', 'co-created', 'generated']).optional(),
   hub: z.boolean().optional(),
   develops: z.string().optional(),
+  reviewed: z.preprocess(
+    (val) => (val === '' || val === null ? undefined : val),
+    z.coerce.date().optional(),
+  ),
 });
 
 const fieldNotes = defineCollection({
