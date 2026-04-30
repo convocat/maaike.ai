@@ -8,6 +8,31 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Working-tree housekeeping: Vercel + admin tooling + prototypes
+*2026-04-30*
+
+After the inbox-enrichment thread closed (commits f5775b5, 62af0b7, c808105 pushed), the working tree still has untracked items in three categories. Each needs a quick decision: ship, gitignore, or delete. Independent of any feature work.
+
+**Production-looking (likely commit):**
+- `vercel.json` (deploy config, never tracked)
+- `api/` (likely Vercel serverless functions)
+
+**Admin tooling (decide ship vs keep local):**
+- `tools/admin/_batch_plan.py`
+- `tools/admin/_generate_topic_views.py` (feeds /research topic-view cache)
+- `tools/karpathy-wiki/tools/extract-batch.py`
+
+**Clutter (delete or gitignore):**
+- `tools/admin/__pycache__/`: gitignore
+- 5 handoff zip files at repo root: "Research dashboard.zip", "Research dashboard-handoffv1-0.zip", "esearch-wiki-v0.3-handoff-2026-04-19.zip", "final handoff research assistant v 5.zip", "handoff_v0.4_collections_2026-04-19.zip..zip" (delete or move out)
+- `public/preview-server.py`, `public/wiki-v1.html` through `wiki-v5.html`, `public/workflow-tool.html`: decide keep or archive each
+- `public/user-manual.html`: leave in place per prior backlog (Maaike WIP)
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: housekeeping pass on the working tree. Three groups, each independent: (1) commit `vercel.json` + `api/` if prod-needed, (2) decide which `tools/admin/_*.py` and `tools/karpathy-wiki/tools/extract-batch.py` helpers ship, (3) gitignore `__pycache__/`, delete the 5 handoff zips at repo root, and triage the `public/wiki-v*.html` + `workflow-tool.html` + `preview-server.py` prototypes (keep or archive). Leave `public/user-manual.html` alone (Maaike WIP).
+
+---
+
 ## 🟡 Inbox enrichment + check-inbox skill
 *2026-04-27*
 
