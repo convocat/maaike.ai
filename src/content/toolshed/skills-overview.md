@@ -2,6 +2,7 @@
 title: Skills overview
 description: The Claude Code skills built for the garden and what each one does.
 date: 2026-04-05
+updated: 2026-04-27
 maturity: solid
 tags: [workflow, process, claude, automation]
 category: technical
@@ -23,9 +24,11 @@ Skills are saved Claude Code prompts that encode multi-step workflows. They are 
 | `/auto-tag` | Runs the three-pass TAO analysis on a post and enriches it with tags, triples, themes, wiki-links, and Wikipedia links. See [The publishing routine](/toolshed/publishing-routine) for how TAO works. |
 | `/publish` | Full publishing routine: validate frontmatter, generate OG images, rebuild the explore map, commit, push, and share to LinkedIn if applicable. |
 | `/share-linkedin` | Generates and shares a LinkedIn post from a published article or jotting. |
+| `/morning` | Session-start ritual: runs `/backlog` for the briefing, then `/check-inbox` for the inbox pipeline. Hands back the dashboard URL and today's suggested focus. |
 | `/backlog` | Opens a backlog grooming session: scans for stale items, flags blockers, checks the tablet inbox for unprocessed notes, and suggests session focus. Runs `/telegram-sync` automatically at the start. |
 | `/handover` | Writes a session close and a brief for the next session. |
-| `/telegram-sync` | Triggers the GitHub Actions sync workflow, pulls new captures (text notes, weblinks, PDFs) from Telegram, and processes any new PDFs through `/summarize-pdf` and `/auto-tag`. |
+| `/check-inbox` | Runs `/telegram-sync` and enriches any drafts left with `triples: []`, then opens the local admin dashboard at localhost:8900 for review. The GitHub workflow only syncs; this skill closes the enrichment loop. |
+| `/telegram-sync` | Triggers the GitHub Actions sync workflow, pulls new captures (text notes, weblinks, PDFs) from Telegram, runs `/summarize-pdf` on new PDFs, and runs `/ingest-source` on each new draft weblink to enrich it before review. |
 | `/summarize-pdf` | Extracts key concepts and principles from a PDF verbatim, appends a structured summary to the matching library entry, then runs `/auto-tag`. |
 | `/update-release-notes` | Appends a summary of recent changes to the release notes. |
 
