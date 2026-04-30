@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-04-27
+updated: 2026-04-30
 maturity: solid
 tags:
 - about
@@ -385,6 +385,11 @@ A workflow-consolidation day: the inbox got codified as `/check-inbox`, the morn
 - **`/check-inbox` skill**: new slash command that runs `/telegram-sync`, scans for un-enriched drafts, runs `/ingest-source` on each, then opens the dashboard at localhost:8900
 - **Inbox count fix**: the dashboard count now filters on `processed: false` instead of the whole feed (greyed-out published items no longer inflate the badge)
 - **Four weblinks published**: Microsoft DELEGATE-52 paper, two Lucio Arese reels (birdsong-as-data, robin shared manifolds), and Marek Tuszynski's "Don't show me your AI", all enriched with topics, themes, and triples before going live
+
+### 30 April
+
+An ergonomics day: opening a session is now one slash command, and the dashboard grew teeth for editing.
+
 - **`/morning` skill**: session-start ritual that chains `/backlog` and `/check-inbox` so the day starts with the inbox and the open-loops list, in that order
 - **Admin dashboard tabs**: three-tab layout (Weblinks default, My content, Write); title, description, tags and triples now editable on every item; Milkdown markdown editor in the Write tab backed by `tools/admin/scratch.md`; new `/api/content-review` and `/api/mark-reviewed` to stamp posts with `reviewed:`
 - **Ingest dashboard copy fix**: Sync Telegram button, toast, and "awaiting enrichment" hint now correctly say syncing only, and point to `/check-inbox` for enrichment (the GitHub workflow doesn't auto-tag)
