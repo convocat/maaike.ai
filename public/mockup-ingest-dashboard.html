@@ -694,7 +694,7 @@ function renderReviewPanel(item) {
     <div class="meta-card" style="border-style:dashed">
       <div class="section-head">Awaiting enrichment</div>
       <p style="color:var(--ink-3);font-size:13.5px;">
-        This draft has no triples yet. The telegram-sync workflow will run /auto-tag on the next scheduled pass (every 15 min) or when you click Sync Telegram.
+        This draft has no triples yet. Run /check-inbox in Claude Code to enrich it (the GitHub workflow only syncs; enrichment happens locally).
       </p>
     </div>`;
 
@@ -880,12 +880,12 @@ async function syncTelegram() {
     for (let i = 0; i < 90; i++) {
       await new Promise(r => setTimeout(r, 4000));
       const s = await fetch('/api/telegram-sync-status').then(r => r.json());
-      if (s.status === 'in_progress') { btn.textContent = 'Enriching…'; }
+      if (s.status === 'in_progress') { btn.textContent = 'Syncing…'; }
       if (s.status === 'completed') {
         if (s.conclusion === 'success') {
           btn.textContent = 'Pulling…';
           await fetch('/api/git-pull', { method: 'POST' });
-          toast('Sync + auto-tag complete. Reloading…');
+          toast('Sync complete. Run /check-inbox in Claude Code to enrich new drafts. Reloading…');
           await loadInbox();
         } else {
           toast('Workflow finished: ' + (s.conclusion || 'unknown'), true);
