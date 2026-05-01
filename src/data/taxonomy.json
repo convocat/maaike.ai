@@ -616,6 +616,61 @@
       "label": "Receptive interaction",
       "type": "interaction-metaphor",
       "definition": ""
+    },
+    "fieldwork-for-future-ecologies": {
+      "label": "Fieldwork for Future Ecologies",
+      "type": "concept",
+      "definition": ""
+    },
+    "art-based-research": {
+      "label": "Art-based research",
+      "type": "method",
+      "definition": ""
+    },
+    "speculative-ecology": {
+      "label": "Speculative ecology",
+      "type": "concept",
+      "definition": ""
+    },
+    "environmental-media": {
+      "label": "Environmental media",
+      "type": "discipline",
+      "definition": ""
+    },
+    "multispecies-entanglement": {
+      "label": "Multispecies entanglement",
+      "type": "concept",
+      "definition": ""
+    },
+    "extractivism": {
+      "label": "Extractivism",
+      "type": "concept",
+      "definition": ""
+    },
+    "settler-colonialism": {
+      "label": "Settler colonialism",
+      "type": "concept",
+      "definition": ""
+    },
+    "bridget-crone": {
+      "label": "Bridget Crone",
+      "type": "person",
+      "definition": ""
+    },
+    "sam-nightingale": {
+      "label": "Sam Nightingale",
+      "type": "person",
+      "definition": ""
+    },
+    "susan-schuppli": {
+      "label": "Susan Schuppli",
+      "type": "person",
+      "definition": ""
+    },
+    "onomatopee": {
+      "label": "Onomatopee",
+      "type": "concept",
+      "definition": ""
     }
   }
 }
