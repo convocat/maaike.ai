@@ -4,23 +4,38 @@ date: 2023-11-18
 updated: 2026-03-11
 maturity: complete
 tags:
-  - prompt-design
-  - ai-ethics
-  - cultural-bias
-  - image-generation
+- prompt-design
+- ai-ethics
+- cultural-bias
+- image-generation
+- generative-ai-design
+- epistemic-humility
+- llm
+- conversation-design
+- critical-thinking
 themes:
-  - Silent prompt rewriting as a hidden form of authorship
-  - Debiasing mechanisms that introduce their own layer of stereotype
-  - US-centred defaults made visible by prompting for other nationalities
+- Algorithmic 'de-biasing' can itself introduce bias by encoding cultural stereotypes into automatically rewritten prompts.
+- Prompt rewriting without user consent is a form of paternalism that undermines user agency and prompt authorship.
+- Diversity defaults in generative AI systems reflect the cultural assumptions of their moderators, not a neutral or universal standard.
+- The gap between a user's prompt and the model's internally rewritten prompt is a transparency and trust problem for AI design.
+- Enforcing diversity through hidden system behaviour is not the same as achieving equitable representation—it may simply swap one set of stereotypes for another.
 triples:
-  - ["DALL-E 3", "exhibits", "Prompt augmentation"]
-  - ["Prompt augmentation", "leads-to", "Cultural stereotyping"]
-  - ["DALL-E 3", "exhibits", "US-centred bias"]
-  - ["Debiasing", "risks", "Cultural stereotyping"]
-  - ["Prompt augmentation", "violates", "User authorship"]
+- [DALL-E 3, exhibits, Prompt augmentation]
+- [Prompt augmentation, leads-to, Cultural stereotyping]
+- [DALL-E 3, exhibits, US-centred bias]
+- [Debiasing, risks, Cultural stereotyping]
+- [Prompt augmentation, violates, User authorship]
+- [DALL-E 3, generates, Prompt rewriting]
+- [Prompt rewriting, risks, Cultural stereotype]
+- [Diversity injection, counters, Algorithmic bias]
+- [Diversity injection, risks, User agency]
+- [Prompt rewriting, demonstrates, Epistemic bias]
+- [System card, attributed-to, DALL-E 3]
+- [Prompt rewriting, violates, Prompt design]
+- [Gender-neutral pronoun, instance-of, Diversity injection]
 description: Do we really want US moderators to rewrite Dall-e's prompts?
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 *[This article is an elaborated version my first post in a series that I published on LinkedIn]*

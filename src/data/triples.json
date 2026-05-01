@@ -6476,6 +6476,30 @@
     "miscommunication-handling": {
       "label": "Miscommunication Handling",
       "type": "technical-phenomenon"
+    },
+    "prompt-rewriting": {
+      "label": "Prompt rewriting",
+      "type": "technical-mechanism"
+    },
+    "diversity-injection": {
+      "label": "Diversity injection",
+      "type": "technical-mechanism"
+    },
+    "system-card": {
+      "label": "System card",
+      "type": "artefact"
+    },
+    "cultural-stereotype": {
+      "label": "Cultural stereotype",
+      "type": "concept"
+    },
+    "user-agency": {
+      "label": "User agency",
+      "type": "concept"
+    },
+    "gender-neutral-pronoun": {
+      "label": "Gender-neutral pronoun",
+      "type": "linguistic-concept"
     }
   },
   "associations": [
@@ -7911,41 +7935,6 @@
       "predicate": "better-fits",
       "object": "crisis-communication",
       "source": "corona-is-spreading-and-so-are-the-bots",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "exhibits",
-      "object": "prompt-augmentation",
-      "source": "de-biassing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-augmentation",
-      "predicate": "leads-to",
-      "object": "cultural-stereotyping",
-      "source": "de-biassing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "exhibits",
-      "object": "us-centred-bias",
-      "source": "de-biassing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "debiasing",
-      "predicate": "risks",
-      "object": "cultural-stereotyping",
-      "source": "de-biassing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-augmentation",
-      "predicate": "violates",
-      "object": "user-authorship",
-      "source": "de-biassing-dall-e",
       "collection": "articles"
     },
     {
@@ -11355,6 +11344,62 @@
       "predicate": "reinforces",
       "object": "conversational-accessibility",
       "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "generates",
+      "object": "prompt-rewriting",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-rewriting",
+      "predicate": "risks",
+      "object": "cultural-stereotype",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "diversity-injection",
+      "predicate": "counters",
+      "object": "algorithmic-bias",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "diversity-injection",
+      "predicate": "risks",
+      "object": "user-agency",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-rewriting",
+      "predicate": "demonstrates",
+      "object": "epistemic-bias",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "system-card",
+      "predicate": "attributed-to",
+      "object": "dall-e-3",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-rewriting",
+      "predicate": "violates",
+      "object": "prompt-design",
+      "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "gender-neutral-pronoun",
+      "predicate": "instance-of",
+      "object": "diversity-injection",
+      "source": "de-biassing-dall-e",
       "collection": "articles"
     }
   ]

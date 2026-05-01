@@ -2036,6 +2036,36 @@
       "label": "Miscommunication Handling",
       "type": "technical-phenomenon",
       "definition": ""
+    },
+    "prompt-rewriting": {
+      "label": "Prompt rewriting",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "diversity-injection": {
+      "label": "Diversity injection",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "system-card": {
+      "label": "System card",
+      "type": "artefact",
+      "definition": ""
+    },
+    "cultural-stereotype": {
+      "label": "Cultural stereotype",
+      "type": "concept",
+      "definition": ""
+    },
+    "user-agency": {
+      "label": "User agency",
+      "type": "concept",
+      "definition": ""
+    },
+    "gender-neutral-pronoun": {
+      "label": "Gender-neutral pronoun",
+      "type": "linguistic-concept",
+      "definition": ""
     }
   }
 }
