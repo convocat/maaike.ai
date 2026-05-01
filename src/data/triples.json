@@ -6128,6 +6128,38 @@
     "slack": {
       "label": "Slack",
       "type": "technology"
+    },
+    "brielle-nickoloff": {
+      "label": "Brielle Nickoloff",
+      "type": "person"
+    },
+    "karol": {
+      "label": "Karol",
+      "type": "person"
+    },
+    "michal": {
+      "label": "Michal",
+      "type": "person"
+    },
+    "maarten": {
+      "label": "Maarten",
+      "type": "person"
+    },
+    "sam": {
+      "label": "Sam",
+      "type": "person"
+    },
+    "virtual-meetup": {
+      "label": "Virtual meetup",
+      "type": "communication-type"
+    },
+    "phonetics": {
+      "label": "Phonetics",
+      "type": "linguistic-concept"
+    },
+    "safe-conversation-space": {
+      "label": "Safe conversation space",
+      "type": "concept"
     }
   },
   "associations": [
@@ -7871,34 +7903,6 @@
       "predicate": "requires",
       "object": "moral-commitment",
       "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "voicelunch-language-and-linguistics",
-      "predicate": "instance-of",
-      "object": "community-of-practice",
-      "source": "nieuwe-editie-voicelunch",
-      "collection": "articles"
-    },
-    {
-      "subject": "voicelunch-language-and-linguistics",
-      "predicate": "requires",
-      "object": "linguistics",
-      "source": "nieuwe-editie-voicelunch",
-      "collection": "articles"
-    },
-    {
-      "subject": "voicelunch",
-      "predicate": "demonstrates",
-      "object": "conversation-design",
-      "source": "nieuwe-editie-voicelunch",
-      "collection": "articles"
-    },
-    {
-      "subject": "community-of-practice",
-      "predicate": "counters",
-      "object": "imposter-syndrome",
-      "source": "nieuwe-editie-voicelunch",
       "collection": "articles"
     },
     {
@@ -10776,6 +10780,62 @@
       "predicate": "instance-of",
       "object": "conversation-design",
       "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "voicelunch",
+      "predicate": "characterised-as",
+      "object": "experiential-community-gathering-rather-than-knowledge-shari",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "voicelunch",
+      "predicate": "lacks",
+      "object": "recordings-in-order-to-preserve-a-safe-conversation-space",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "safe-conversation-space",
+      "predicate": "requires",
+      "object": "absence-of-recording-and-open-ended-agenda",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "linguistics-edition-of-voicelunch",
+      "predicate": "instance-of",
+      "object": "voicelunch",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "linguistics",
+      "predicate": "reinforces",
+      "object": "conversation-design",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml",
+      "predicate": "instance-of",
+      "object": "conversation-design",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "phonetics",
+      "predicate": "reinforces",
+      "object": "ssml",
+      "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "unstructured-conversation",
+      "predicate": "leads-to",
+      "object": "unexpected-and-valuable-community-moments",
+      "source": "nieuwe-editie-voicelunch",
       "collection": "articles"
     }
   ]

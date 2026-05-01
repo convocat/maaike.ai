@@ -1546,6 +1546,56 @@
       "label": "Slack",
       "type": "technology",
       "definition": ""
+    },
+    "brielle-nickoloff": {
+      "label": "Brielle Nickoloff",
+      "type": "person",
+      "definition": ""
+    },
+    "karol": {
+      "label": "Karol",
+      "type": "person",
+      "definition": ""
+    },
+    "michal": {
+      "label": "Michal",
+      "type": "person",
+      "definition": ""
+    },
+    "maarten": {
+      "label": "Maarten",
+      "type": "person",
+      "definition": ""
+    },
+    "sam": {
+      "label": "Sam",
+      "type": "person",
+      "definition": ""
+    },
+    "virtual-meetup": {
+      "label": "Virtual meetup",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "linguistics": {
+      "label": "Linguistics",
+      "type": "discipline",
+      "definition": ""
+    },
+    "phonetics": {
+      "label": "Phonetics",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "community-of-practice": {
+      "label": "Community of practice",
+      "type": "concept",
+      "definition": ""
+    },
+    "safe-conversation-space": {
+      "label": "Safe conversation space",
+      "type": "concept",
+      "definition": ""
     }
   }
 }
