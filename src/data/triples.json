@@ -6100,6 +6100,34 @@
     "body-mind-connection": {
       "label": "Body-mind connection",
       "type": "philosophical-concept"
+    },
+    "affordance": {
+      "label": "Affordance",
+      "type": "concept"
+    },
+    "rapport": {
+      "label": "Rapport",
+      "type": "concept"
+    },
+    "company-culture": {
+      "label": "Company culture",
+      "type": "concept"
+    },
+    "over-communication": {
+      "label": "Over-communication",
+      "type": "communication-type"
+    },
+    "social-network-building": {
+      "label": "Social network building",
+      "type": "methodology"
+    },
+    "microsoft-teams": {
+      "label": "Microsoft Teams",
+      "type": "technology"
+    },
+    "slack": {
+      "label": "Slack",
+      "type": "technology"
     }
   },
   "associations": [
@@ -7871,34 +7899,6 @@
       "predicate": "counters",
       "object": "imposter-syndrome",
       "source": "nieuwe-editie-voicelunch",
-      "collection": "articles"
-    },
-    {
-      "subject": "remote-onboarding",
-      "predicate": "requires",
-      "object": "contextual-community",
-      "source": "off-to-a-good-start",
-      "collection": "articles"
-    },
-    {
-      "subject": "onboarding-tour",
-      "predicate": "instance-of",
-      "object": "network-building",
-      "source": "off-to-a-good-start",
-      "collection": "articles"
-    },
-    {
-      "subject": "remote-onboarding",
-      "predicate": "lacks",
-      "object": "ambient-affordances",
-      "source": "off-to-a-good-start",
-      "collection": "articles"
-    },
-    {
-      "subject": "onboarding-checklist",
-      "predicate": "structured-as",
-      "object": "role-based-collaboration",
-      "source": "off-to-a-good-start",
       "collection": "articles"
     },
     {
@@ -10727,6 +10727,55 @@
       "predicate": "characterised-as",
       "object": "online-meetings",
       "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "remote-onboarding",
+      "predicate": "characterised-as",
+      "object": "black-box",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "remote-onboarding",
+      "predicate": "lacks",
+      "object": "affordance",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "onboarding-tour",
+      "predicate": "leads-to",
+      "object": "social-network-building",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "informal-contact",
+      "predicate": "leads-to",
+      "object": "rapport",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "over-communication",
+      "predicate": "counters",
+      "object": "remote-onboarding",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "remote-onboarding",
+      "predicate": "requires",
+      "object": "over-communication",
+      "source": "off-to-a-good-start",
+      "collection": "articles"
+    },
+    {
+      "subject": "onboarding-checklist",
+      "predicate": "instance-of",
+      "object": "conversation-design",
+      "source": "off-to-a-good-start",
       "collection": "articles"
     }
   ]

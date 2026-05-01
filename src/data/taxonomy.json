@@ -1501,6 +1501,51 @@
       "label": "Body-mind connection",
       "type": "philosophical-concept",
       "definition": ""
+    },
+    "onboarding-checklist": {
+      "label": "Onboarding checklist",
+      "type": "artefact",
+      "definition": ""
+    },
+    "remote-onboarding": {
+      "label": "Remote onboarding",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "affordance": {
+      "label": "Affordance",
+      "type": "concept",
+      "definition": ""
+    },
+    "rapport": {
+      "label": "Rapport",
+      "type": "concept",
+      "definition": ""
+    },
+    "company-culture": {
+      "label": "Company culture",
+      "type": "concept",
+      "definition": ""
+    },
+    "over-communication": {
+      "label": "Over-communication",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "social-network-building": {
+      "label": "Social network building",
+      "type": "methodology",
+      "definition": ""
+    },
+    "microsoft-teams": {
+      "label": "Microsoft Teams",
+      "type": "technology",
+      "definition": ""
+    },
+    "slack": {
+      "label": "Slack",
+      "type": "technology",
+      "definition": ""
     }
   }
 }

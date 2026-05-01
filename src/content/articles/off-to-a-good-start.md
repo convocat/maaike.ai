@@ -1,25 +1,38 @@
 ---
-title: "Off to a good start"
+title: Off to a good start
 date: 2023-06-30
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - remote-work
-  - community
-  - onboarding
+- conversation-design
+- remote-work
+- community
+- onboarding
+- future-of-work
+- skill-based-work
+- communication
+- design
 themes:
-  - Remote onboarding is a community-building problem, not just an HR process
-  - Building a contextual mini-network accelerates productivity
-  - Over-communication is a remote affordance substitute
+- 'Remote onboarding is a UX problem: without physical affordances, new colleagues enter a near-featureless ''black box'' that demands deliberate design to navigate.'
+- Structured social rituals — the onboarding tour and the five-minute tea break — are professional tools, not distractions from work.
+- Over-communication is not redundancy; for remote teams it is the minimum viable substitute for ambient workplace presence.
+- Network-building through referral chains (ask each contact for two more names) is a scalable, self-reinforcing strategy for social integration.
+- Informal contact is load-bearing infrastructure for understanding company culture and team values, not optional small talk.
 triples:
-  - ["Remote onboarding", "requires", "Contextual community"]
-  - ["Onboarding tour", "instance-of", "Network building"]
-  - ["Remote onboarding", "lacks", "Ambient affordances"]
-  - ["Onboarding checklist", "structured-as", "Role-based collaboration"]
+- [Remote onboarding, requires, Contextual community]
+- [Onboarding tour, instance-of, Network building]
+- [Remote onboarding, lacks, Ambient affordances]
+- [Onboarding checklist, structured-as, Role-based collaboration]
+- [Remote onboarding, characterised-as, black box]
+- [Remote onboarding, lacks, Affordance]
+- [Onboarding tour, leads-to, Social network building]
+- [Informal contact, leads-to, Rapport]
+- [Over-communication, counters, Remote onboarding]
+- [Remote onboarding, requires, Over-communication]
+- [Onboarding checklist, instance-of, Conversation design]
 description: An onboarding checklist for conversation designers.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 So there you are, ready for that new CxD job, ready to start that exciting contracting gig, or finally securing that coveted CxD position in your company's conversational team. Congratulations!
