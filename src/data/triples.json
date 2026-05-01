@@ -5872,6 +5872,26 @@
     "turn": {
       "label": "Turn",
       "type": "linguistic-concept"
+    },
+    "entrepreneurship": {
+      "label": "Entrepreneurship",
+      "type": "concept"
+    },
+    "freelancing": {
+      "label": "Freelancing",
+      "type": "concept"
+    },
+    "corporate-career": {
+      "label": "Corporate career",
+      "type": "concept"
+    },
+    "identity-detachment": {
+      "label": "Identity detachment",
+      "type": "philosophical-concept"
+    },
+    "covid-19": {
+      "label": "COVID-19",
+      "type": "phenomenon"
     }
   },
   "associations": [
@@ -7888,48 +7908,6 @@
       "predicate": "risks",
       "object": "role-dilution",
       "source": "the-lone-convo-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "convocat",
-      "predicate": "instance-of",
-      "object": "freelance-practice",
-      "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "exit-strategy",
-      "predicate": "requires",
-      "object": "financial-runway",
-      "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "remote-onboarding",
-      "predicate": "requires",
-      "object": "contextual-community",
-      "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "community-building",
-      "predicate": "characterised-as",
-      "object": "core-work",
-      "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "covid-lockdown",
-      "predicate": "leads-to",
-      "object": "online-community-building",
-      "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "synesthetic-thinking",
-      "predicate": "better-fits",
-      "object": "freelance-work",
-      "source": "the-long-and-winding-road",
       "collection": "articles"
     },
     {
@@ -10352,6 +10330,62 @@
       "predicate": "contrasted-with",
       "object": "written-text-as-a-design-medium",
       "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "non-linear-thinking",
+      "predicate": "incompatible-with",
+      "object": "corporate-career",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "synesthetic-thinking",
+      "predicate": "leads-to",
+      "object": "entrepreneurship",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "exit-strategy",
+      "predicate": "requires",
+      "object": "identity-detachment",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "freelancing",
+      "predicate": "better-fits",
+      "object": "non-linear-thinking",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "community-building",
+      "predicate": "reinforces",
+      "object": "convocat",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "covid-19",
+      "predicate": "caused-by",
+      "object": "community-building",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "corporate-career",
+      "predicate": "characterised-as",
+      "object": "identity-detachment",
+      "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "exit-strategy",
+      "predicate": "presupposes",
+      "object": "freelancing",
+      "source": "the-long-and-winding-road",
       "collection": "articles"
     }
   ]

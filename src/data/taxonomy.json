@@ -1136,6 +1136,51 @@
       "label": "Turn",
       "type": "linguistic-concept",
       "definition": ""
+    },
+    "entrepreneurship": {
+      "label": "Entrepreneurship",
+      "type": "concept",
+      "definition": ""
+    },
+    "freelancing": {
+      "label": "Freelancing",
+      "type": "concept",
+      "definition": ""
+    },
+    "corporate-career": {
+      "label": "Corporate career",
+      "type": "concept",
+      "definition": ""
+    },
+    "exit-strategy": {
+      "label": "Exit strategy",
+      "type": "concept",
+      "definition": ""
+    },
+    "community-building": {
+      "label": "Community building",
+      "type": "concept",
+      "definition": ""
+    },
+    "synesthetic-thinking": {
+      "label": "Synesthetic thinking",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "identity-detachment": {
+      "label": "Identity detachment",
+      "type": "philosophical-concept",
+      "definition": ""
+    },
+    "convoclub": {
+      "label": "ConvoClub",
+      "type": "artefact",
+      "definition": ""
+    },
+    "covid-19": {
+      "label": "COVID-19",
+      "type": "phenomenon",
+      "definition": ""
     }
   }
 }

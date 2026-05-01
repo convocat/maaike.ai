@@ -1,27 +1,41 @@
 ---
-title: "The long and winding road"
+title: The long and winding road
 date: 2021-11-13
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - entrepreneurship
-  - community
-  - convocat
+- conversation-design
+- entrepreneurship
+- community
+- convocat
+- freelancing
+- community-building
+- non-linear-thinking
+- future-of-work
 themes:
-  - Freelance transitions are gradual detachments, not sudden leaps
-  - Community building is core work, not a sideline
-  - Connecting disparate topics is a consulting superpower, not a weakness
+- Corporate identity is a cage that must be consciously dismantled before entrepreneurship becomes possible, not something that falls away on its own.
+- 'Financial independence is a prerequisite for authentic professional self-expression: the ''emergency exit account'' is as much a psychological tool as a practical one.'
+- The trait that makes someone a misfit inside large organisations — connecting disparate dots, hopping between topics — is exactly what makes them valuable as an independent consultant.
+- Community-building is not a side activity for a freelance conversation designer; it is the core mechanism through which the business redefines itself.
+- Entrepreneurial self-discovery is non-linear and slow, mirroring the same non-linear thinking that characterises the author's intellectual style.
 triples:
-  - ["Convocat", "instance-of", "Freelance practice"]
-  - ["Exit strategy", "requires", "Financial runway"]
-  - ["Remote onboarding", "requires", "Contextual community"]
-  - ["Community building", "characterised-as", "Core work"]
-  - ["COVID lockdown", "leads-to", "Online community building"]
-  - ["Synesthetic thinking", "better-fits", "Freelance work"]
-description: "Looking back at 2 years of freelance work as a conversation designer and community builder."
+- [Convocat, instance-of, Freelance practice]
+- [Exit strategy, requires, Financial runway]
+- [Remote onboarding, requires, Contextual community]
+- [Community building, characterised-as, Core work]
+- [COVID lockdown, leads-to, Online community building]
+- [Synesthetic thinking, better-fits, Freelance work]
+- [Non-linear thinking, incompatible-with, Corporate career]
+- [Synesthetic thinking, leads-to, Entrepreneurship]
+- [Exit strategy, requires, Identity detachment]
+- [Freelancing, better-fits, Non-linear thinking]
+- [Community building, reinforces, Convocat]
+- [COVID-19, caused-by, Community building]
+- [Corporate career, characterised-as, Identity detachment]
+- [Exit strategy, presupposes, Freelancing]
+description: Looking back at 2 years of freelance work as a conversation designer and community builder.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 This week, it's been 2 years since I went to the Chamber of Commerce and registered Convocat as my own freelance company. 2 years…and what a ride it has been so far! While I usually share my learnings and insights into conversation design with you, starting Convocat also meant starting a career as an entrepreneur. I'd like to take some time to reflect and ponder a bit on that part of my journey.
