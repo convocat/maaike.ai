@@ -8,30 +8,34 @@ tags:
 - skill-based-work
 - future-of-work
 - writing
+- conversational-grounding
+- human-machine-interface
+- design
 themes:
-- Conversation design as a rising career assembled from older disciplines
-- 'The skill stack: curiosity, conversational writing, instructional design, structured thinking'
-- Why the job title lags behind the actual work
+- Conversation design is a real discipline, not a peripheral tech task — its value lies in crafting natural, pleasant, and effective dialogue, not just correct information flow.
+- 'The job market for conversation designers is structurally misnamed: practitioners must search under adjacent titles because the profession outpaces the industry''s vocabulary for it.'
+- Good conversation design begins before any screen or flow is drawn — it starts with listening, stakeholder interviews, and problem discovery.
+- Bot persona, tone of voice, and style guides are not soft add-ons but core design artefacts that determine whether a conversational interface succeeds.
+- Community and informal networks are the primary hiring channel in the conversational space, making professional socialisation a strategic career necessity.
 triples:
-- - Conversation design
-  - instance-of
-  - Design discipline
-- - Conversation design
-  - requires
-  - Conversational writing
-- - Conversation design
-  - requires
-  - Instructional design
-- - Conversation design
-  - requires
-  - Structured thinking
-- - Bot persona
-  - structured-as
-  - Design artefact
+- [Conversation design, instance-of, Design discipline]
+- [Conversation design, requires, Conversational writing]
+- [Conversation design, requires, Instructional design]
+- [Conversation design, requires, Structured thinking]
+- [Bot persona, structured-as, Design artefact]
+- [Conversation design, requires, Stakeholder research]
+- [Conversation design, generates, Bot persona]
+- [Conversation design, generates, Conversational flow]
+- [Bot persona, defined-as, 'a record of behaviour, character traits and tone of voice that makes a bot effective and agreeable']
+- [Conversational landing page, instance-of, Conversational interface]
+- [Voice assistant, instance-of, Conversational interface]
+- [Chatbot, instance-of, Conversational interface]
+- [Conversation design, contrasted-with, UX writing]
 description: Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!
 draft: false
 ai: 100% Maai
 ---
+
 Conversation design is a career on the rise! And I sure notice that in my inbox: I get a lot of questions on how to break into this great profession. As much as I'd love to answer all of your messages personally, there's only so many hours in a day. So instead, I collected some of the most frequently asked questions and put them here for you.
 
 ## What is a conversation designer?

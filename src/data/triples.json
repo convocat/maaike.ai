@@ -6276,6 +6276,54 @@
     "user-persona": {
       "label": "User persona",
       "type": "artefact"
+    },
+    "chatbot": {
+      "label": "Chatbot",
+      "type": "technology"
+    },
+    "conversational-landing-page": {
+      "label": "Conversational landing page",
+      "type": "technology"
+    },
+    "style-guide": {
+      "label": "Style guide",
+      "type": "artefact"
+    },
+    "tone-of-voice": {
+      "label": "Tone of voice",
+      "type": "linguistic-concept"
+    },
+    "conversational-flow": {
+      "label": "Conversational flow",
+      "type": "artefact"
+    },
+    "use-case": {
+      "label": "Use case",
+      "type": "concept"
+    },
+    "customer-journey": {
+      "label": "Customer journey",
+      "type": "concept"
+    },
+    "omnichannel-strategy": {
+      "label": "Omnichannel strategy",
+      "type": "concept"
+    },
+    "ux-writing": {
+      "label": "UX writing",
+      "type": "design-discipline"
+    },
+    "design-patterns": {
+      "label": "Design patterns",
+      "type": "artefact"
+    },
+    "bot-testing": {
+      "label": "Bot testing",
+      "type": "methodology"
+    },
+    "stakeholder-research": {
+      "label": "Stakeholder research",
+      "type": "methodology"
     }
   },
   "associations": [
@@ -7879,41 +7927,6 @@
       "predicate": "structured-as",
       "object": "design-artefact",
       "source": "hoe-word-ik-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "instance-of",
-      "object": "design-discipline",
-      "source": "how-do-i-become-a-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "conversational-writing",
-      "source": "how-do-i-become-a-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "instructional-design",
-      "source": "how-do-i-become-a-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "structured-thinking",
-      "source": "how-do-i-become-a-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "bot-persona",
-      "predicate": "structured-as",
-      "object": "design-artefact",
-      "source": "how-do-i-become-a-conversation-designer",
       "collection": "articles"
     },
     {
@@ -11043,6 +11056,62 @@
       "predicate": "demonstrates",
       "object": "specialist-expertise-that-justifies-resisting-unqualified-fe",
       "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "requires",
+      "object": "stakeholder-research",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "generates",
+      "object": "bot-persona",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "generates",
+      "object": "conversational-flow",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "bot-persona",
+      "predicate": "defined-as",
+      "object": "a-record-of-behaviour-character-traits-and-tone-of-voice-tha",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-landing-page",
+      "predicate": "instance-of",
+      "object": "conversational-interface",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "voice-assistant",
+      "predicate": "instance-of",
+      "object": "conversational-interface",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatbot",
+      "predicate": "instance-of",
+      "object": "conversational-interface",
+      "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "contrasted-with",
+      "object": "ux-writing",
+      "source": "how-do-i-become-a-conversation-designer",
       "collection": "articles"
     }
   ]

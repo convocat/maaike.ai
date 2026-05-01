@@ -1761,6 +1761,76 @@
       "label": "User persona",
       "type": "artefact",
       "definition": ""
+    },
+    "chatbot": {
+      "label": "Chatbot",
+      "type": "technology",
+      "definition": ""
+    },
+    "conversational-landing-page": {
+      "label": "Conversational landing page",
+      "type": "technology",
+      "definition": ""
+    },
+    "bot-persona": {
+      "label": "Bot persona",
+      "type": "artefact",
+      "definition": ""
+    },
+    "style-guide": {
+      "label": "Style guide",
+      "type": "artefact",
+      "definition": ""
+    },
+    "tone-of-voice": {
+      "label": "Tone of voice",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "conversational-flow": {
+      "label": "Conversational flow",
+      "type": "artefact",
+      "definition": ""
+    },
+    "use-case": {
+      "label": "Use case",
+      "type": "concept",
+      "definition": ""
+    },
+    "customer-journey": {
+      "label": "Customer journey",
+      "type": "concept",
+      "definition": ""
+    },
+    "omnichannel-strategy": {
+      "label": "Omnichannel strategy",
+      "type": "concept",
+      "definition": ""
+    },
+    "ux-writing": {
+      "label": "UX writing",
+      "type": "design-discipline",
+      "definition": ""
+    },
+    "women-in-voice": {
+      "label": "Women in Voice",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "design-patterns": {
+      "label": "Design patterns",
+      "type": "artefact",
+      "definition": ""
+    },
+    "bot-testing": {
+      "label": "Bot testing",
+      "type": "methodology",
+      "definition": ""
+    },
+    "stakeholder-research": {
+      "label": "Stakeholder research",
+      "type": "methodology",
+      "definition": ""
     }
   }
 }
