@@ -1,25 +1,32 @@
 ---
-title: "Visual notes: Brian Roemmele @voicelunch"
+title: 'Visual notes: Brian Roemmele @voicelunch'
 date: 2020-08-20
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - voicelunch
-  - sketchnotes
-  - community
-description: "Sketchnotes of the Voicelunch session with Brian Roemmele, the best voicelunch I never attended."
+- conversation-design
+- voicelunch
+- sketchnotes
+- community
+- digital-gardens
+- communication
+description: Sketchnotes of the Voicelunch session with Brian Roemmele, the best voicelunch I never attended.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 themes:
-  - Sketchnotes as a way to participate in a conversation you missed
-  - Communities of practice around voice and conversation design
-  - The value of ephemeral, unrecorded gatherings
+- Ephemerality is a design feature, not a bug — the absence of recordings at Voicelunch actively enhances the value of presence and participation.
+- Community knowledge transfer — tweets, conversations, shared enthusiasm — can substitute for direct experience and even ignite original creative work like sketchnoting.
+- 'Missing out on a live event is reframed as a generative act: the gap between absence and experience becomes productive rather than merely frustrating.'
+- The best intellectual experiences are non-reproducible; their scarcity is precisely what makes them meaningful.
 triples:
-  - ["Sketchnotes", "attributed-to", "Brian Roemmele"]
-  - ["Sketchnotes", "instance-of", "Note-taking metaphor"]
-  - ["Voicelunch", "demonstrates", "Community of practice"]
-  - ["Sketchnotes", "reinforces", "Voicelunch"]
+- [Sketchnotes, attributed-to, Brian Roemmele]
+- [Sketchnotes, instance-of, Note-taking metaphor]
+- [Voicelunch, demonstrates, Community of practice]
+- [Sketchnotes, reinforces, Voicelunch]
+- [Ephemerality, leads-to, heightened presence and vividness of experience]
+- [No-recording policy, generates, urgency to attend and immerse in live discussion]
+- [Community knowledge transfer, reinforces, Thinking in public]
+- [Ephemerality, contrasted-with, recorded and replayable media]
 ---
 
 Last @voicelunch with Brian Roemmele was without a doubt the best voicelunch I never attended. Fortunately, @afirstenberg tweeted notes & quotes, so I could still make some sketchnotes.

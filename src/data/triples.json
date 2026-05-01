@@ -5760,6 +5760,18 @@
     "digitisation": {
       "label": "Digitisation",
       "type": "concept"
+    },
+    "ephemerality": {
+      "label": "Ephemerality",
+      "type": "philosophical-concept"
+    },
+    "community-knowledge-transfer": {
+      "label": "Community knowledge transfer",
+      "type": "concept"
+    },
+    "safe-space": {
+      "label": "Safe space",
+      "type": "concept"
     }
   },
   "associations": [
@@ -7930,34 +7942,6 @@
       "predicate": "requires",
       "object": "backchanneling-strategy",
       "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "sketchnotes",
-      "predicate": "attributed-to",
-      "object": "brian-roemmele",
-      "source": "visual-notes-brian-roemmele",
-      "collection": "articles"
-    },
-    {
-      "subject": "sketchnotes",
-      "predicate": "instance-of",
-      "object": "note-taking-metaphor",
-      "source": "visual-notes-brian-roemmele",
-      "collection": "articles"
-    },
-    {
-      "subject": "voicelunch",
-      "predicate": "demonstrates",
-      "object": "community-of-practice",
-      "source": "visual-notes-brian-roemmele",
-      "collection": "articles"
-    },
-    {
-      "subject": "sketchnotes",
-      "predicate": "reinforces",
-      "object": "voicelunch",
-      "source": "visual-notes-brian-roemmele",
       "collection": "articles"
     },
     {
@@ -10191,6 +10175,34 @@
       "predicate": "presupposes",
       "object": "training-data",
       "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "ephemerality",
+      "predicate": "leads-to",
+      "object": "heightened-presence-and-vividness-of-experience",
+      "source": "visual-notes-brian-roemmele",
+      "collection": "articles"
+    },
+    {
+      "subject": "no-recording-policy",
+      "predicate": "generates",
+      "object": "urgency-to-attend-and-immerse-in-live-discussion",
+      "source": "visual-notes-brian-roemmele",
+      "collection": "articles"
+    },
+    {
+      "subject": "community-knowledge-transfer",
+      "predicate": "reinforces",
+      "object": "thinking-in-public",
+      "source": "visual-notes-brian-roemmele",
+      "collection": "articles"
+    },
+    {
+      "subject": "ephemerality",
+      "predicate": "contrasted-with",
+      "object": "recorded-and-replayable-media",
+      "source": "visual-notes-brian-roemmele",
       "collection": "articles"
     }
   ]

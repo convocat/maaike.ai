@@ -921,6 +921,36 @@
       "label": "Digitisation",
       "type": "concept",
       "definition": ""
+    },
+    "brian-roemmele": {
+      "label": "Brian Roemmele",
+      "type": "person",
+      "definition": ""
+    },
+    "voicelunch": {
+      "label": "Voicelunch",
+      "type": "concept",
+      "definition": ""
+    },
+    "sketchnotes": {
+      "label": "Sketchnotes",
+      "type": "artefact",
+      "definition": ""
+    },
+    "ephemerality": {
+      "label": "Ephemerality",
+      "type": "philosophical-concept",
+      "definition": ""
+    },
+    "community-knowledge-transfer": {
+      "label": "Community knowledge transfer",
+      "type": "concept",
+      "definition": ""
+    },
+    "safe-space": {
+      "label": "Safe space",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

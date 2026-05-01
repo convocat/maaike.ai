@@ -148,5 +148,11 @@
     "Human summarisation is cognitively sophisticated, drawing on deep semantic and rhetorical understanding; LLMs substitute this with superficial container-filling heuristics.",
     "The best prompt Maaike found essentially asked the model to discard the source text entirely — revealing that the text itself may be unnecessary scaffolding when prompting for summaries.",
     "Counterintuitive prompting strategies (construction over reduction) expose hidden assumptions in how we map human writing processes onto LLM capabilities."
+  ],
+  "visual-notes-brian-roemmele": [
+    "Ephemerality is a design feature, not a bug — the absence of recordings at Voicelunch actively enhances the value of presence and participation.",
+    "Community knowledge transfer — tweets, conversations, shared enthusiasm — can substitute for direct experience and even ignite original creative work like sketchnoting.",
+    "Missing out on a live event is reframed as a generative act: the gap between absence and experience becomes productive rather than merely frustrating.",
+    "The best intellectual experiences are non-reproducible; their scarcity is precisely what makes them meaningful."
   ]
 }
