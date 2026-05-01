@@ -6160,6 +6160,50 @@
     "safe-conversation-space": {
       "label": "Safe conversation space",
       "type": "concept"
+    },
+    "gregorian-chant": {
+      "label": "Gregorian chant",
+      "type": "artefact"
+    },
+    "quia-ergo-femina": {
+      "label": "Quia ergo femina",
+      "type": "artefact"
+    },
+    "gender-equality": {
+      "label": "Gender equality",
+      "type": "concept"
+    },
+    "mysticism": {
+      "label": "Mysticism",
+      "type": "philosophical-framework"
+    },
+    "medieval-monasticism": {
+      "label": "Medieval monasticism",
+      "type": "phenomenon"
+    },
+    "incubator": {
+      "label": "Incubator",
+      "type": "interaction-metaphor"
+    },
+    "natural-science": {
+      "label": "Natural science",
+      "type": "discipline"
+    },
+    "excommunication": {
+      "label": "Excommunication",
+      "type": "concept"
+    },
+    "international-women's-day": {
+      "label": "International Women's Day",
+      "type": "concept"
+    },
+    "migraine": {
+      "label": "Migraine",
+      "type": "phenomenon"
+    },
+    "visionary-experience": {
+      "label": "Visionary experience",
+      "type": "philosophical-concept"
     }
   },
   "associations": [
@@ -7728,34 +7772,6 @@
       "predicate": "demonstrates",
       "object": "social-good",
       "source": "european-chatbot-conference-10-talks",
-      "collection": "articles"
-    },
-    {
-      "subject": "hildegard-von-bingen",
-      "predicate": "instance-of",
-      "object": "composer",
-      "source": "hildegard-von-bingen",
-      "collection": "articles"
-    },
-    {
-      "subject": "hildegard-von-bingen",
-      "predicate": "demonstrates",
-      "object": "women-in-voice",
-      "source": "hildegard-von-bingen",
-      "collection": "articles"
-    },
-    {
-      "subject": "female-monastery",
-      "predicate": "characterised-as",
-      "object": "early-incubator",
-      "source": "hildegard-von-bingen",
-      "collection": "articles"
-    },
-    {
-      "subject": "scivias",
-      "predicate": "attributed-to",
-      "object": "hildegard-von-bingen",
-      "source": "hildegard-von-bingen",
       "collection": "articles"
     },
     {
@@ -10836,6 +10852,62 @@
       "predicate": "leads-to",
       "object": "unexpected-and-valuable-community-moments",
       "source": "nieuwe-editie-voicelunch",
+      "collection": "articles"
+    },
+    {
+      "subject": "hildegard-von-bingen",
+      "predicate": "instance-of",
+      "object": "gender-equality",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "medieval-monasticism",
+      "predicate": "metaphor-for",
+      "object": "incubator",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "scivias",
+      "predicate": "attributed-to",
+      "object": "hildegard-von-bingen",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "quia-ergo-femina",
+      "predicate": "attributed-to",
+      "object": "hildegard-von-bingen",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "quia-ergo-femina",
+      "predicate": "counters",
+      "object": "excommunication",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "visionary-experience",
+      "predicate": "caused-by",
+      "object": "migraine",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "hildegard-von-bingen",
+      "predicate": "characterised-as",
+      "object": "first-named-composer",
+      "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "quia-ergo-femina",
+      "predicate": "demonstrates",
+      "object": "gender-equality",
+      "source": "hildegard-von-bingen",
       "collection": "articles"
     }
   ]

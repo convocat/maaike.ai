@@ -1596,6 +1596,71 @@
       "label": "Safe conversation space",
       "type": "concept",
       "definition": ""
+    },
+    "hildegard-von-bingen": {
+      "label": "Hildegard von Bingen",
+      "type": "person",
+      "definition": ""
+    },
+    "gregorian-chant": {
+      "label": "Gregorian chant",
+      "type": "artefact",
+      "definition": ""
+    },
+    "scivias": {
+      "label": "Scivias",
+      "type": "artefact",
+      "definition": ""
+    },
+    "quia-ergo-femina": {
+      "label": "Quia ergo femina",
+      "type": "artefact",
+      "definition": ""
+    },
+    "gender-equality": {
+      "label": "Gender equality",
+      "type": "concept",
+      "definition": ""
+    },
+    "mysticism": {
+      "label": "Mysticism",
+      "type": "philosophical-framework",
+      "definition": ""
+    },
+    "medieval-monasticism": {
+      "label": "Medieval monasticism",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "incubator": {
+      "label": "Incubator",
+      "type": "interaction-metaphor",
+      "definition": ""
+    },
+    "natural-science": {
+      "label": "Natural science",
+      "type": "discipline",
+      "definition": ""
+    },
+    "excommunication": {
+      "label": "Excommunication",
+      "type": "concept",
+      "definition": ""
+    },
+    "international-women's-day": {
+      "label": "International Women's Day",
+      "type": "concept",
+      "definition": ""
+    },
+    "migraine": {
+      "label": "Migraine",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "visionary-experience": {
+      "label": "Visionary experience",
+      "type": "philosophical-concept",
+      "definition": ""
     }
   }
 }

@@ -1,24 +1,37 @@
 ---
-title: "Hildegard von Bingen"
+title: Hildegard von Bingen
 date: 2020-03-08
 updated: 2026-03-11
 maturity: complete
 tags:
-  - music
-  - women-in-voice
-  - history
+- music
+- women-in-voice
+- history
+- human-behavior
+- philosophy
+- non-linear-thinking
+- more-than-human
 themes:
-  - Hildegard von Bingen as the first named composer in written history
-  - A 12th-century woman running an incubator for science, theology and music
-  - Voice, literally and figuratively, as a site of women's authorship
+- 'Hildegard von Bingen''s radicalism was not incidental but structural: she systematically challenged every major institution of her era — the church, gender hierarchy, and academic exclusion — simultaneously.'
+- The post argues that the monastery, typically read as a site of repression, functioned for Hildegard as what we would now call an innovation incubator — a protected space enabling interdisciplinary creative work.
+- Framing Hildegard as 'the first named composer' ties her directly to voice and music as a professional lineage, subtly connecting historical women's creative work to Maaike's own field of voice and conversation design.
+- The celebration of Hildegard on International Women's Day is implicitly an argument that feminist history is not a detour from intellectual history but its core — extraordinary contributions by women have always existed, just been suppressed.
+- Hildegard's excommunication for an act of compassion (burying a non-religious friend in holy ground) underscores the post's theme that rule-breaking in service of human dignity is morally coherent even when institutionally punished.
 triples:
-  - ["Hildegard von Bingen", "instance-of", "Composer"]
-  - ["Hildegard von Bingen", "demonstrates", "Women in voice"]
-  - ["Female monastery", "characterised-as", "Early incubator"]
-  - ["Scivias", "attributed-to", "Hildegard von Bingen"]
-description: "The original woman in voice. On international women's day, a tribute to the first named composer in history."
+- [Hildegard von Bingen, instance-of, Composer]
+- [Hildegard von Bingen, demonstrates, Women in voice]
+- [Female monastery, characterised-as, Early incubator]
+- [Scivias, attributed-to, Hildegard von Bingen]
+- [Hildegard von Bingen, instance-of, Gender equality]
+- [Medieval monasticism, metaphor-for, Incubator]
+- [Quia ergo femina, attributed-to, Hildegard von Bingen]
+- [Quia ergo femina, counters, Excommunication]
+- [Visionary experience, caused-by, Migraine]
+- [Hildegard von Bingen, characterised-as, first named composer]
+- [Quia ergo femina, demonstrates, Gender equality]
+description: The original woman in voice. On international women's day, a tribute to the first named composer in history.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 On international women's day, I'd like to point you to a composer of some of the most beautiful music for voice: Hildegard von Bingen. She lived in the 12th century, an era in which it was perfectly normal to send off a young girl to a monastery to spend her life there (and that's when you were lucky). Boys didn't have much of a career choice either; childhood hadn't been invented yet.
