@@ -1911,6 +1911,131 @@
       "label": "Figure of speech",
       "type": "linguistic-concept",
       "definition": ""
+    },
+    "european-chatbot-and-conversational-ai-summit": {
+      "label": "European Chatbot and Conversational AI Summit",
+      "type": "artefact",
+      "definition": ""
+    },
+    "jeff-dalton": {
+      "label": "Jeff Dalton",
+      "type": "person",
+      "definition": ""
+    },
+    "david-low": {
+      "label": "David Low",
+      "type": "person",
+      "definition": ""
+    },
+    "maaike-coppens": {
+      "label": "Maaike Coppens",
+      "type": "person",
+      "definition": ""
+    },
+    "ronald-ashri": {
+      "label": "Ronald Ashri",
+      "type": "person",
+      "definition": ""
+    },
+    "marc-pedri": {
+      "label": "Marc Pedri",
+      "type": "person",
+      "definition": ""
+    },
+    "kane-simms": {
+      "label": "Kane Simms",
+      "type": "person",
+      "definition": ""
+    },
+    "michael-mctear": {
+      "label": "Michael McTear",
+      "type": "person",
+      "definition": ""
+    },
+    "arash-eshghi": {
+      "label": "Arash Eshghi",
+      "type": "person",
+      "definition": ""
+    },
+    "michael-mcternan": {
+      "label": "Michael McTernan",
+      "type": "person",
+      "definition": ""
+    },
+    "angus-addlesee": {
+      "label": "Angus Addlesee",
+      "type": "person",
+      "definition": ""
+    },
+    "collaborative-task-assistants": {
+      "label": "Collaborative Task Assistants",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "open-voice-web": {
+      "label": "Open Voice Web",
+      "type": "concept",
+      "definition": ""
+    },
+    "open-dialog": {
+      "label": "Open Dialog",
+      "type": "technology",
+      "definition": ""
+    },
+    "conversation-design-platform": {
+      "label": "Conversation Design Platform",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "conversational-ai-analytics": {
+      "label": "Conversational AI Analytics",
+      "type": "concept",
+      "definition": ""
+    },
+    "intent-based-dialogue": {
+      "label": "Intent-based Dialogue",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "semantic-graph-based-dialogue": {
+      "label": "Semantic Graph-based Dialogue",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "conversation-analysis": {
+      "label": "Conversation Analysis",
+      "type": "methodology",
+      "definition": ""
+    },
+    "conversational-ui-for-mental-health": {
+      "label": "Conversational UI for Mental Health",
+      "type": "concept",
+      "definition": ""
+    },
+    "minority-language-support": {
+      "label": "Minority Language Support",
+      "type": "concept",
+      "definition": ""
+    },
+    "disfluency-handling": {
+      "label": "Disfluency Handling",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "incremental-semantic-parsing": {
+      "label": "Incremental Semantic Parsing",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "conversational-accessibility": {
+      "label": "Conversational Accessibility",
+      "type": "concept",
+      "definition": ""
+    },
+    "miscommunication-handling": {
+      "label": "Miscommunication Handling",
+      "type": "technical-phenomenon",
+      "definition": ""
     }
   }
 }

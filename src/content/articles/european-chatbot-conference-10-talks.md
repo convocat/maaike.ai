@@ -1,24 +1,38 @@
 ---
-title: "European chatbot conference: 10 talks that I'm going to rewatch"
+title: 'European chatbot conference: 10 talks that I''m going to rewatch'
 date: 2022-03-07
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - knowledge-graph
-  - community
+- conversation-design
+- knowledge-graph
+- community
+- convocat
+- human-machine-interface
+- pragmatics
+- generative-ai-design
 themes:
-  - A field moving from intent-only bots toward semantic and graph-based approaches
-  - Chatbots for social good in underserved languages and mental health contexts
-  - Incremental semantic parsing as a frontier for accessibility
+- The field is abandoning intent-only bots in favour of semantic, graph-based architectures that better model how language actually works.
+- Conversation Analysis is an underused but powerful source of design principles for making voicebots more natural and robust.
+- Conversational AI for social good — mental health, minority languages, accessibility — is both technically tractable and morally urgent.
+- Accessibility in conversational AI demands handling disfluencies, stammers, and rephrases dynamically, not as noise to be filtered out.
+- Analytics and dashboarding for bots remain an unsolved, platform-dependent problem that leaves designers flying blind.
 triples:
-  - ["Conversation design", "leads-to", "Graph-based NLU"]
-  - ["Incremental semantic parser", "instance-of", "Semantic parsing"]
-  - ["Semantic parsing", "requires", "Knowledge graph"]
-  - ["Conversational AI", "demonstrates", "Social good"]
-description: "My personal highlights from the European Chatbot and Conversational AI summit."
+- [Conversation design, leads-to, Graph-based NLU]
+- [Incremental semantic parser, instance-of, Semantic parsing]
+- [Semantic parsing, requires, Knowledge graph]
+- [Conversational AI, demonstrates, Social good]
+- [Intent-based Dialogue, contrasted-with, Semantic Graph-based Dialogue]
+- [Conversation Analysis, leads-to, Miscommunication Handling]
+- [Incremental Semantic Parsing, requires, Semantic Graph-based Dialogue]
+- [Disfluency Handling, instance-of, Conversational Accessibility]
+- [Conversational AI Analytics, characterised-as, Intent-based Dialogue]
+- [Open Dialog, instance-of, Conversation Design Platform]
+- [Conversational UI for Mental Health, demonstrates, Conversation Design]
+- [Minority Language Support, reinforces, Conversational Accessibility]
+description: My personal highlights from the European Chatbot and Conversational AI summit.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 I hope you enjoyed the European Chatbot and Conversational AI summit as much as I did! Here's my list of which talks I'm going to rewatch.

@@ -282,5 +282,12 @@
     "Marketing claims about AI capability advances (reliable hands, faces, text) do not survive contact with real-world use cases, and practitioners must test rather than trust.",
     "Explicit technical prompting strategies (ISO, f-stop, film stock) expose the gap between DALL-E 3's surface fluency with photography vocabulary and its inability to operationalise that vocabulary into consistent outputs.",
     "Iteration without memory is not iteration — each prompt round in DALL-E 3 is effectively a cold start, making refinement a lottery rather than a craft."
+  ],
+  "european-chatbot-conference-10-talks": [
+    "The field is abandoning intent-only bots in favour of semantic, graph-based architectures that better model how language actually works.",
+    "Conversation Analysis is an underused but powerful source of design principles for making voicebots more natural and robust.",
+    "Conversational AI for social good — mental health, minority languages, accessibility — is both technically tractable and morally urgent.",
+    "Accessibility in conversational AI demands handling disfluencies, stammers, and rephrases dynamically, not as noise to be filtered out.",
+    "Analytics and dashboarding for bots remain an unsolved, platform-dependent problem that leaves designers flying blind."
   ]
 }

@@ -6376,6 +6376,106 @@
     "figure-of-speech": {
       "label": "Figure of speech",
       "type": "linguistic-concept"
+    },
+    "european-chatbot-and-conversational-ai-summit": {
+      "label": "European Chatbot and Conversational AI Summit",
+      "type": "artefact"
+    },
+    "jeff-dalton": {
+      "label": "Jeff Dalton",
+      "type": "person"
+    },
+    "david-low": {
+      "label": "David Low",
+      "type": "person"
+    },
+    "maaike-coppens": {
+      "label": "Maaike Coppens",
+      "type": "person"
+    },
+    "ronald-ashri": {
+      "label": "Ronald Ashri",
+      "type": "person"
+    },
+    "marc-pedri": {
+      "label": "Marc Pedri",
+      "type": "person"
+    },
+    "kane-simms": {
+      "label": "Kane Simms",
+      "type": "person"
+    },
+    "michael-mctear": {
+      "label": "Michael McTear",
+      "type": "person"
+    },
+    "arash-eshghi": {
+      "label": "Arash Eshghi",
+      "type": "person"
+    },
+    "michael-mcternan": {
+      "label": "Michael McTernan",
+      "type": "person"
+    },
+    "angus-addlesee": {
+      "label": "Angus Addlesee",
+      "type": "person"
+    },
+    "collaborative-task-assistants": {
+      "label": "Collaborative Task Assistants",
+      "type": "technology-category"
+    },
+    "open-voice-web": {
+      "label": "Open Voice Web",
+      "type": "concept"
+    },
+    "open-dialog": {
+      "label": "Open Dialog",
+      "type": "technology"
+    },
+    "conversation-design-platform": {
+      "label": "Conversation Design Platform",
+      "type": "technology-category"
+    },
+    "conversational-ai-analytics": {
+      "label": "Conversational AI Analytics",
+      "type": "concept"
+    },
+    "intent-based-dialogue": {
+      "label": "Intent-based Dialogue",
+      "type": "technical-mechanism"
+    },
+    "semantic-graph-based-dialogue": {
+      "label": "Semantic Graph-based Dialogue",
+      "type": "technical-mechanism"
+    },
+    "conversation-analysis": {
+      "label": "Conversation Analysis",
+      "type": "methodology"
+    },
+    "conversational-ui-for-mental-health": {
+      "label": "Conversational UI for Mental Health",
+      "type": "concept"
+    },
+    "minority-language-support": {
+      "label": "Minority Language Support",
+      "type": "concept"
+    },
+    "disfluency-handling": {
+      "label": "Disfluency Handling",
+      "type": "technical-mechanism"
+    },
+    "incremental-semantic-parsing": {
+      "label": "Incremental Semantic Parsing",
+      "type": "technical-mechanism"
+    },
+    "conversational-accessibility": {
+      "label": "Conversational Accessibility",
+      "type": "concept"
+    },
+    "miscommunication-handling": {
+      "label": "Miscommunication Handling",
+      "type": "technical-phenomenon"
     }
   },
   "associations": [
@@ -7846,34 +7946,6 @@
       "predicate": "violates",
       "object": "user-authorship",
       "source": "de-biassing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "leads-to",
-      "object": "graph-based-nlu",
-      "source": "european-chatbot-conference-10-talks",
-      "collection": "articles"
-    },
-    {
-      "subject": "incremental-semantic-parser",
-      "predicate": "instance-of",
-      "object": "semantic-parsing",
-      "source": "european-chatbot-conference-10-talks",
-      "collection": "articles"
-    },
-    {
-      "subject": "semantic-parsing",
-      "predicate": "requires",
-      "object": "knowledge-graph",
-      "source": "european-chatbot-conference-10-talks",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversational-ai",
-      "predicate": "demonstrates",
-      "object": "social-good",
-      "source": "european-chatbot-conference-10-talks",
       "collection": "articles"
     },
     {
@@ -11227,6 +11299,62 @@
       "predicate": "counters",
       "object": "prompt-design",
       "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "intent-based-dialogue",
+      "predicate": "contrasted-with",
+      "object": "semantic-graph-based-dialogue",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-analysis",
+      "predicate": "leads-to",
+      "object": "miscommunication-handling",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "incremental-semantic-parsing",
+      "predicate": "requires",
+      "object": "semantic-graph-based-dialogue",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "disfluency-handling",
+      "predicate": "instance-of",
+      "object": "conversational-accessibility",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-ai-analytics",
+      "predicate": "characterised-as",
+      "object": "intent-based-dialogue",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "open-dialog",
+      "predicate": "instance-of",
+      "object": "conversation-design-platform",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-ui-for-mental-health",
+      "predicate": "demonstrates",
+      "object": "conversation-design",
+      "source": "european-chatbot-conference-10-talks",
+      "collection": "articles"
+    },
+    {
+      "subject": "minority-language-support",
+      "predicate": "reinforces",
+      "object": "conversational-accessibility",
+      "source": "european-chatbot-conference-10-talks",
       "collection": "articles"
     }
   ]
