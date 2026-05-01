@@ -2101,6 +2101,21 @@
       "label": "Content ownership",
       "type": "concept",
       "definition": ""
+    },
+    "clubhouse": {
+      "label": "Clubhouse",
+      "type": "technology",
+      "definition": ""
+    },
+    "social-audio": {
+      "label": "Social audio",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "sketchnoting": {
+      "label": "Sketchnoting",
+      "type": "methodology",
+      "definition": ""
     }
   }
 }

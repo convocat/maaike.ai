@@ -6512,6 +6512,14 @@
     "content-ownership": {
       "label": "Content ownership",
       "type": "concept"
+    },
+    "social-audio": {
+      "label": "Social audio",
+      "type": "technology-category"
+    },
+    "sketchnoting": {
+      "label": "Sketchnoting",
+      "type": "methodology"
     }
   },
   "associations": [
@@ -7891,27 +7899,6 @@
       "predicate": "risks",
       "object": "tech-first-thinking",
       "source": "convo-question-should-i-learn-programming",
-      "collection": "articles"
-    },
-    {
-      "subject": "convoclub",
-      "predicate": "instance-of",
-      "object": "community-of-practice",
-      "source": "convoclub-clubhouse",
-      "collection": "articles"
-    },
-    {
-      "subject": "clubhouse",
-      "predicate": "characterised-as",
-      "object": "social-audio-platform",
-      "source": "convoclub-clubhouse",
-      "collection": "articles"
-    },
-    {
-      "subject": "convoclub",
-      "predicate": "demonstrates",
-      "object": "conversation-design",
-      "source": "convoclub-clubhouse",
       "collection": "articles"
     },
     {
@@ -11433,6 +11420,41 @@
       "predicate": "reinforces",
       "object": "information-accuracy",
       "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "convoclub",
+      "predicate": "instance-of",
+      "object": "community-of-practice",
+      "source": "convoclub-clubhouse",
+      "collection": "articles"
+    },
+    {
+      "subject": "convoclub",
+      "predicate": "requires",
+      "object": "clubhouse",
+      "source": "convoclub-clubhouse",
+      "collection": "articles"
+    },
+    {
+      "subject": "social-audio",
+      "predicate": "better-fits",
+      "object": "conversation-design",
+      "source": "convoclub-clubhouse",
+      "collection": "articles"
+    },
+    {
+      "subject": "sketchnoting",
+      "predicate": "demonstrates",
+      "object": "convoclub",
+      "source": "convoclub-clubhouse",
+      "collection": "articles"
+    },
+    {
+      "subject": "convoclub",
+      "predicate": "generates",
+      "object": "conversation-design",
+      "source": "convoclub-clubhouse",
       "collection": "articles"
     }
   ]
