@@ -154,6 +154,11 @@ THEMES_PATH    = GARDEN_ROOT / "src/data/themes.json"
 PROPOSALS_DIR  = GARDEN_ROOT.parent / "maaike-wiki" / "raw" / "proposals"
 
 
+def _yaml_str(text: str) -> str:
+    """Escape a string for use inside a YAML double-quoted scalar."""
+    return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
 def _slugify(text: str) -> str:
     text = (text or "").lower()
     text = re.sub(r"[^a-z0-9]+", "-", text)
@@ -471,6 +476,67 @@ def api_write_scratch():
     try:
         SCRATCH_PATH.write_text(content, encoding="utf-8")
         return jsonify({"ok": True, "bytes": len(content)})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/save-as-book", methods=["POST"])
+def api_save_as_book():
+    """Create a library entry from a weblink and optionally dismiss the weblink."""
+    from datetime import date as _date
+    data   = request.json or {}
+    title  = (data.get("title") or "").strip()
+    author = (data.get("author") or "").strip()
+    status = data.get("status", "to-read")
+    weblink_slug = (data.get("weblink_slug") or "").strip()
+
+    if not title:
+        return jsonify({"error": "title required"}), 400
+    if not author:
+        return jsonify({"error": "author required"}), 400
+    if status not in ("to-read", "reading", "read"):
+        status = "to-read"
+
+    lib_dir = CONTENT_DIR / "library"
+    slug = _slugify(title)
+    path = lib_dir / f"{slug}.md"
+    counter = 1
+    while path.exists():
+        path = lib_dir / f"{slug}-{counter}.md"
+        counter += 1
+
+    today = _date.today().isoformat()
+    content = (
+        f'---\n'
+        f'title: "{_yaml_str(title)}"\n'
+        f'author: "{_yaml_str(author)}"\n'
+        f'date: {today}\n'
+        f'updated:\n'
+        f'maturity: draft\n'
+        f'status: {status}\n'
+        f'tags: []\n'
+        f'description: ""\n'
+        f'draft: false\n'
+        f'ai: "100% Maai"\n'
+        f'---\n'
+    )
+    try:
+        lib_dir.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+
+        commit_files = [path]
+
+        # Dismiss the source weblink if it was still a draft
+        if weblink_slug:
+            wl_path = WEBLINKS_DIR / f"{weblink_slug}.md"
+            if wl_path.exists():
+                wl_fm = parse_weblink(wl_path)
+                if wl_fm and wl_fm.get("draft") is True:
+                    wl_path.unlink()
+                    commit_files.append(wl_path)
+
+        git_commit_push(commit_files, f"Add to library (to-read): {path.stem}")
+        return jsonify({"ok": True, "slug": path.stem})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

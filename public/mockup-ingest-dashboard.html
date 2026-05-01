@@ -368,6 +368,36 @@ input, textarea { font: inherit; color: inherit; }
   transition: all 150ms ease;
 }
 .btn-dismiss:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.btn-book {
+  padding: 7px 14px; border-radius: var(--radius-md); font-size: 14px;
+  font-weight: 400; cursor: pointer; font-family: var(--font-b);
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-3);
+  transition: all 150ms ease;
+}
+.btn-book:hover { border-color: #7A5A48; color: #7A5A48; }
+/* Book form — replaces action strip */
+#book-form {
+  display: none; flex-direction: column; gap: 10px;
+  padding: 14px 0 4px; border-top: 1px solid var(--rule);
+  margin-top: auto; flex-shrink: 0; background: var(--bg-card);
+  position: sticky; bottom: 0;
+}
+#book-form .book-form-row { display: flex; gap: 8px; align-items: flex-end; }
+#book-form .book-form-field { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+#book-form .book-form-label {
+  font-size: 11.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-3); font-family: var(--font-b);
+}
+#book-form input, #book-form select {
+  font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--rule); border-radius: var(--radius-md);
+  padding: 6px 9px; font-size: 14px; width: 100%;
+  transition: border-color 150ms ease, outline 150ms ease;
+}
+#book-form input:focus, #book-form select:focus {
+  outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent;
+}
+#book-form .book-form-actions { display: flex; justify-content: flex-end; gap: 8px; }
 .btn-delete {
   padding: 7px 14px; border-radius: var(--radius-md); font-size: 14px;
   font-weight: 400; cursor: pointer; font-family: var(--font-b);
@@ -561,8 +591,34 @@ input, textarea { font: inherit; color: inherit; }
     </div>
     <div id="action-strip">
       <span class="action-hint">Select an item to review</span>
+      <button class="btn-book" id="book-btn" onclick="showBookForm()" disabled style="display:none">Save to library</button>
       <button class="btn-dismiss" onclick="dismissItem()" disabled>Dismiss</button>
       <button class="btn-approve" onclick="approveItem()" disabled>Approve and publish</button>
+    </div>
+
+    <div id="book-form">
+      <div class="book-form-row">
+        <div class="book-form-field">
+          <label class="book-form-label">Title</label>
+          <input id="book-title" type="text" placeholder="Book title">
+        </div>
+        <div class="book-form-field">
+          <label class="book-form-label">Author</label>
+          <input id="book-author" type="text" placeholder="Author name">
+        </div>
+        <div class="book-form-field" style="max-width:130px">
+          <label class="book-form-label">Status</label>
+          <select id="book-status">
+            <option value="to-read" selected>To read</option>
+            <option value="reading">Reading</option>
+            <option value="read">Read</option>
+          </select>
+        </div>
+      </div>
+      <div class="book-form-actions">
+        <button class="btn-dismiss" onclick="cancelBookForm()">Cancel</button>
+        <button class="btn-approve" onclick="saveAsBook()">Save to library</button>
+      </div>
     </div>
   </div><!-- /review -->
 
@@ -738,6 +794,8 @@ function toast(msg, isError) {
 
 function setBusy(busy) {
   document.querySelectorAll('.btn-approve, .btn-dismiss').forEach(b => b.disabled = busy);
+  const bookBtn = document.getElementById('book-btn');
+  if (bookBtn) bookBtn.disabled = busy;
 }
 
 // ── Queue loader ───────────────────────────────────────────────────────────
@@ -936,8 +994,9 @@ function renderReviewPanel(item) {
     ${triplesHtml}`;
 
   const hint = document.querySelector('.action-hint');
-  const approveBtn = document.querySelector('.btn-approve');
-  const dismissBtn = document.querySelector('.btn-dismiss');
+  const approveBtn = document.querySelector('#action-strip .btn-approve');
+  const dismissBtn = document.querySelector('#action-strip .btn-dismiss');
+  const bookBtn = document.getElementById('book-btn');
   const alreadyPublished = item.processed || item.justPublished;
   if (hint) hint.textContent = alreadyPublished
     ? 'Already published — kept in queue for situation awareness'
@@ -946,8 +1005,10 @@ function renderReviewPanel(item) {
         : 'Draft not yet enriched — approve will publish without triples');
   if (approveBtn) approveBtn.textContent = alreadyPublished ? 'Update and re-commit' : 'Approve and publish';
   if (dismissBtn) dismissBtn.style.display = alreadyPublished ? 'none' : '';
-  approveBtn.disabled = false;
+  if (approveBtn) approveBtn.disabled = false;
   if (dismissBtn) dismissBtn.disabled = false;
+  if (bookBtn) { bookBtn.style.display = ''; bookBtn.disabled = false; }
+  cancelBookForm();
 }
 
 function renderTriplesHtml(item) {
@@ -1094,6 +1155,9 @@ async function renderEnrichPanel(proposal, item) {
   if (hint) hint.textContent = alreadyApplied ? 'Already applied' : 'Uncheck anything you want to skip, then apply';
   if (approveBtn) { approveBtn.textContent = alreadyApplied ? 'Re-apply' : 'Apply'; approveBtn.disabled = false; }
   if (dismissBtn) { dismissBtn.style.display = ''; dismissBtn.textContent = 'Skip'; dismissBtn.disabled = false; }
+  const bookBtn = document.getElementById('book-btn');
+  if (bookBtn) bookBtn.style.display = 'none';
+  cancelBookForm();
 }
 
 function collectEnrichAccepted() {
@@ -1177,6 +1241,54 @@ async function approveItem() {
     if (next >= 0) setTimeout(() => showItem(next), 500);
   } catch (e) {
     toast('Approve failed: ' + e.message, true);
+  }
+  setBusy(false);
+}
+
+// ── Save to library ────────────────────────────────────────────────────────
+function showBookForm() {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+  document.getElementById('action-strip').style.display = 'none';
+  document.getElementById('book-form').style.display = 'flex';
+  document.getElementById('book-title').value = item.title || '';
+  document.getElementById('book-author').value = '';
+  document.getElementById('book-status').value = 'to-read';
+  document.getElementById('book-author').focus();
+}
+
+function cancelBookForm() {
+  document.getElementById('book-form').style.display = 'none';
+  document.getElementById('action-strip').style.display = 'flex';
+}
+
+async function saveAsBook() {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+  const title  = document.getElementById('book-title').value.trim();
+  const author = document.getElementById('book-author').value.trim();
+  const status = document.getElementById('book-status').value;
+  if (!title)  { toast('Title is required', true); return; }
+  if (!author) { toast('Author is required', true); return; }
+  setBusy(true);
+  try {
+    const r = await fetch('/api/save-as-book', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ title, author, status, weblink_slug: item.slug })
+    });
+    const d = await r.json();
+    if (!r.ok || !d.ok) throw new Error(d.error || 'Failed');
+    toast(`Saved to library: ${title}`);
+    cancelBookForm();
+    // Remove from queue (dismiss) — the weblink was deleted server-side if it was a draft
+    item.justPublished = true;
+    renderQueue();
+    updateQueueCount();
+    const next = queueItems.findIndex(it => !_isCompleted(it) && queueItems.indexOf(it) !== currentIdx);
+    if (next >= 0) setTimeout(() => showItem(next), 400);
+  } catch (e) {
+    toast('Save failed: ' + e.message, true);
   }
   setBusy(false);
 }
