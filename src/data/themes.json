@@ -196,5 +196,12 @@
     "Algorithmic bias is not a search-engine-era relic — it is structurally amplified and made less visible by generative AI interfaces.",
     "The antidote to AI hype is not doomerism but a stable, curated information diet that preserves both curiosity and criticality.",
     "Resource curation is itself a design act: choosing what to read and who to follow shapes the conceptual frame through which technology is understood."
+  ],
+  "scrum-for-conversational-teams": [
+    "Copying IT sprint conventions into content or conversational teams creates artificial deadlines that serve the process rather than the work.",
+    "The natural publication cycle for content work — research, co-ordination, review, assembly — is closer to four weeks than two, making the default sprint length actively harmful.",
+    "Agile's real value is empiricism and pragmatism, not rule-following; organisations that cargo-cult scrum rituals miss the point entirely.",
+    "Technical authoring and chatbot content production share structural similarities (collect, assemble, publish) that make historical content-team practices a useful design precedent for conversational teams.",
+    "Sprint cadence should be derived from the content lifecycle, not imposed on it."
   ]
 }

@@ -5964,6 +5964,46 @@
     "machine-learning-street-talk": {
       "label": "Machine Learning Street Talk",
       "type": "artefact"
+    },
+    "sprint": {
+      "label": "Sprint",
+      "type": "concept"
+    },
+    "content-cycle": {
+      "label": "Content cycle",
+      "type": "concept"
+    },
+    "airac-cycle": {
+      "label": "AIRAC cycle",
+      "type": "concept"
+    },
+    "publication-window": {
+      "label": "Publication window",
+      "type": "concept"
+    },
+    "content-management-system": {
+      "label": "Content management system",
+      "type": "technology-category"
+    },
+    "chatbot-platform": {
+      "label": "Chatbot platform",
+      "type": "technology-category"
+    },
+    "subject-matter-expert": {
+      "label": "Subject matter expert",
+      "type": "concept"
+    },
+    "cargo-culting": {
+      "label": "Cargo-culting",
+      "type": "cognitive-tendency"
+    },
+    "empiricism": {
+      "label": "Empiricism",
+      "type": "epistemic-stance"
+    },
+    "epic": {
+      "label": "Epic",
+      "type": "artefact"
     }
   },
   "associations": [
@@ -7868,41 +7908,6 @@
       "predicate": "structured-as",
       "object": "input-output-pairs",
       "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "two-week-sprint",
-      "predicate": "better-fits",
-      "object": "software-lifecycle",
-      "source": "scrum-for-conversational-teams",
-      "collection": "articles"
-    },
-    {
-      "subject": "two-week-sprint",
-      "predicate": "breaks-down-for",
-      "object": "conversational-team",
-      "source": "scrum-for-conversational-teams",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-sprint",
-      "predicate": "requires",
-      "object": "content-lifecycle",
-      "source": "scrum-for-conversational-teams",
-      "collection": "articles"
-    },
-    {
-      "subject": "scrum",
-      "predicate": "risks",
-      "object": "process-copy-paste",
-      "source": "scrum-for-conversational-teams",
-      "collection": "articles"
-    },
-    {
-      "subject": "agile",
-      "predicate": "contrasted-with",
-      "object": "scrum",
-      "source": "scrum-for-conversational-teams",
       "collection": "articles"
     },
     {
@@ -10507,6 +10512,62 @@
       "predicate": "leads-to",
       "object": "cognitive-laziness",
       "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "two-week-sprint",
+      "predicate": "better-fits",
+      "object": "software-development-teams",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "two-week-sprint",
+      "predicate": "breaks-down-for",
+      "object": "conversational-team",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "cargo-culting",
+      "predicate": "leads-to",
+      "object": "artificial-boundaries-and-deadlines-in-content-teams",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "agile",
+      "predicate": "defined-as",
+      "object": "empirical-and-pragmatic-approach-to-organisational-performan",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "agile",
+      "predicate": "counters",
+      "object": "scrum",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "content-cycle",
+      "predicate": "contrasted-with",
+      "object": "sprint",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "technical-authoring",
+      "predicate": "demonstrates",
+      "object": "content-cycle",
+      "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatbot-platform",
+      "predicate": "structured-as",
+      "object": "content-management-system",
+      "source": "scrum-for-conversational-teams",
       "collection": "articles"
     }
   ]

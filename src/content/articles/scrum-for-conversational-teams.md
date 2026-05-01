@@ -1,26 +1,38 @@
 ---
-title: "Scrum for conversational teams: sprints"
+title: 'Scrum for conversational teams: sprints'
 date: 2020-10-31
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - agile
-  - scrum
-  - content-lifecycle
+- conversation-design
+- agile
+- scrum
+- content-lifecycle
+- content-strategy
+- skill-based-work
+- future-of-work
 themes:
-  - Content cycles are not software cycles
-  - Borrowed process frameworks can misfit conversational teams
-  - Empirical rhythm beats imported sprint lengths
+- Copying IT sprint conventions into content or conversational teams creates artificial deadlines that serve the process rather than the work.
+- The natural publication cycle for content work — research, co-ordination, review, assembly — is closer to four weeks than two, making the default sprint length actively harmful.
+- Agile's real value is empiricism and pragmatism, not rule-following; organisations that cargo-cult scrum rituals miss the point entirely.
+- Technical authoring and chatbot content production share structural similarities (collect, assemble, publish) that make historical content-team practices a useful design precedent for conversational teams.
+- Sprint cadence should be derived from the content lifecycle, not imposed on it.
 triples:
-  - ["Two-week sprint", "better-fits", "Software lifecycle"]
-  - ["Two-week sprint", "breaks-down-for", "Conversational team"]
-  - ["Content sprint", "requires", "Content lifecycle"]
-  - ["Scrum", "risks", "Process copy-paste"]
-  - ["Agile", "contrasted-with", "Scrum"]
-description: "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams."
+- [Two-week sprint, better-fits, Software lifecycle]
+- [Two-week sprint, breaks-down-for, Conversational team]
+- [Content sprint, requires, Content lifecycle]
+- [Scrum, risks, Process copy-paste]
+- [Agile, contrasted-with, Scrum]
+- [Two-week sprint, better-fits, software development teams]
+- [Cargo-culting, leads-to, artificial boundaries and deadlines in content teams]
+- [Agile, defined-as, empirical and pragmatic approach to organisational performance]
+- [Agile, counters, Scrum]
+- [Content cycle, contrasted-with, Sprint]
+- [Technical authoring, demonstrates, Content cycle]
+- [Chatbot platform, structured-as, Content management system]
+description: Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 If, like me, you work for corporate clients a lot, chances are that you'll be part of a chatbot scrum team. And that you'll work in sprints: fixed periods of time in which the team commits to finishing a pre-planned package of work.

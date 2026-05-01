@@ -1311,6 +1311,56 @@
       "label": "Systemic racism",
       "type": "concept",
       "definition": ""
+    },
+    "sprint": {
+      "label": "Sprint",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-cycle": {
+      "label": "Content cycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "airac-cycle": {
+      "label": "AIRAC cycle",
+      "type": "concept",
+      "definition": ""
+    },
+    "publication-window": {
+      "label": "Publication window",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-management-system": {
+      "label": "Content management system",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "chatbot-platform": {
+      "label": "Chatbot platform",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "subject-matter-expert": {
+      "label": "Subject matter expert",
+      "type": "concept",
+      "definition": ""
+    },
+    "cargo-culting": {
+      "label": "Cargo-culting",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "empiricism": {
+      "label": "Empiricism",
+      "type": "epistemic-stance",
+      "definition": ""
+    },
+    "epic": {
+      "label": "Epic",
+      "type": "artefact",
+      "definition": ""
     }
   }
 }
