@@ -219,7 +219,7 @@ Rules that must be followed without exception:
 - Icons should feel hand-drawn and organic, not polished or geometric
 - The site aesthetic is warm and personal, not corporate
 - Maaike works in Dutch and English; site content is English
-- **Never use em-dashes** (—) in content. Use colons, commas, or periods instead
+- **Never use em-dashes** (—) anywhere: articles, descriptions, summaries, UI copy, prompts, generated content. Use colons, commas, or periods instead. This applies to all Claude output, including API-generated text written to files.
 - **Sentence case for titles**. Only capitalize the first word (and proper nouns/acronyms)
 - **AI language rules**: Refer to yourself as "Claude", not "AI" or "I". Never use "write" for Claude's output, use "generate". Only Maaike writes. Claude generates.
 - **ALWAYS let Maaike review content before writing it to a file**. Show her the draft first and wait for approval. This applies to all content: seeds, articles, field notes, descriptions, blurbs, anything that will be published on the site. Never write content directly without her sign-off.

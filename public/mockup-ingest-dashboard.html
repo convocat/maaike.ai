@@ -158,6 +158,12 @@ input, textarea { font: inherit; color: inherit; }
 #filter-status:focus, #sort-select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
 
 #queue-list { overflow-y: auto; flex: 1; padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+.queue-done-toggle {
+  flex-shrink: 0; padding: 7px 10px 4px; font-size: 11px; letter-spacing: 0.05em;
+  color: var(--ink-3); text-align: center; cursor: pointer; border-top: 1px solid var(--rule-soft);
+  margin: 2px 4px 0; border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.queue-done-toggle:hover { color: var(--accent); }
 
 .queue-item {
   height: 90px;
@@ -581,6 +587,7 @@ let queueItems = [];
 let currentIdx = -1;
 let activeTab = 'weblinks';  // 'weblinks' | 'enrich'
 let currentProposal = null;  // full proposal data for the selected enrich item
+let showCompleted = false;   // hide terminal-state items by default
 
 async function switchTab(tab) {
   if (tab === activeTab) return;
@@ -606,6 +613,7 @@ async function switchTab(tab) {
   if (headLabel) headLabel.textContent = labels[tab] || tab;
   currentIdx = -1;
   currentProposal = null;
+  showCompleted = false;
   document.getElementById('review-content').innerHTML = '';
   closePreview();
 
@@ -730,9 +738,7 @@ async function loadInbox() {
   queueItems = await res.json();
   renderQueue();
   updateQueueCount();
-  const firstIdx = activeTab === 'enrich'
-    ? queueItems.findIndex(it => it.status === 'pending')
-    : 0;
+  const firstIdx = queueItems.findIndex(it => !_isCompleted(it));
   if (firstIdx >= 0) showItem(firstIdx);
   else if (queueItems.length) showItem(0);
   else {
@@ -746,13 +752,29 @@ async function loadInbox() {
   }
 }
 
+function _isCompleted(it) {
+  if (activeTab === 'enrich') {
+    const st = it.justApplied ? 'applied' : it.justSkipped ? 'skipped' : (it.status || 'pending');
+    return st !== 'pending';
+  }
+  return !!it.processed;
+}
+
+function toggleCompleted() {
+  showCompleted = !showCompleted;
+  renderQueue();
+}
+
 function renderQueue() {
   const list = document.getElementById('queue-list');
   const search = document.getElementById('filter-search').value.toLowerCase();
   const statusVal = document.getElementById('filter-status').value;
   const sortVal = document.getElementById('sort-select').value;
 
+  const completedCount = queueItems.filter(_isCompleted).length;
+
   let visible = queueItems.filter(it => {
+    if (!showCompleted && _isCompleted(it)) return false;
     const matchSearch = !search || it.title.toLowerCase().includes(search);
     const itStatus = it.processed ? 'processed' : 'pending';
     const matchStatus = !statusVal || itStatus === statusVal;
@@ -796,16 +818,18 @@ function renderQueue() {
       </div>
     </div>`;
   }).join('');
+
+  if (completedCount > 0) {
+    const label = showCompleted
+      ? 'Hide completed'
+      : `+ ${completedCount} completed`;
+    list.innerHTML += `<div class="queue-done-toggle" onclick="toggleCompleted()">${label}</div>`;
+  }
 }
 
 function updateQueueCount() {
-  let n, label;
-  if (activeTab === 'enrich') {
-    n = queueItems.filter(it => it.status === 'pending' && !it.justApplied && !it.justSkipped).length;
-    label = 'pending';
-  } else {
-    n = queueItems.length; label = 'drafts';
-  }
+  const n = queueItems.filter(it => !_isCompleted(it)).length;
+  const label = n === 1 ? 'pending' : 'pending';
   document.querySelector('.queue-count').textContent = `${n} ${label}`;
 }
 

@@ -251,7 +251,8 @@ def bump_reviewed_date(path: Path, iso_date: str):
 
 
 def flip_draft_false(path: Path):
-    """Set `draft: true` → `draft: false` in a weblink file."""
+    """Set `draft: true` → `draft: false` in a weblink file.
+    No-op if draft is already false or missing."""
     text = path.read_text(encoding="utf-8")
     new_text = re.sub(
         r"^draft:\s*true\s*$",
@@ -261,7 +262,7 @@ def flip_draft_false(path: Path):
         flags=re.MULTILINE,
     )
     if new_text == text:
-        raise ValueError("No `draft: true` line found")
+        return  # already false or field absent — nothing to do
     tmp = path.with_suffix(".tmp")
     tmp.write_text(new_text, encoding="utf-8")
     tmp.replace(path)
@@ -795,6 +796,8 @@ Run a three-pass analysis:
 {topics_ctx}
 
 **Existing tags:** {tags_ctx}
+
+**Style rule:** Never use em-dashes (—) in any generated text. Use commas, colons, or periods instead.
 
 Call save_weblink_enrichment with your complete analysis."""
 
