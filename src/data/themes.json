@@ -203,5 +203,12 @@
     "Agile's real value is empiricism and pragmatism, not rule-following; organisations that cargo-cult scrum rituals miss the point entirely.",
     "Technical authoring and chatbot content production share structural similarities (collect, assemble, publish) that make historical content-team practices a useful design precedent for conversational teams.",
     "Sprint cadence should be derived from the content lifecycle, not imposed on it."
+  ],
+  "putting-the-design-in-prompt-design": [
+    "Prompt engineering is not a new skill but a rebranding of disciplined conversation design practice, making conversation designers natural prompt engineers.",
+    "The difference between 'blind prompting' and real prompt engineering is the same difference that separates amateur content from professional design: verifiability, repeatability, and deliberate iteration.",
+    "Demonstration sets are the prompt-design equivalent of labelled NLU training data — the analogy is structural, not cosmetic, and reveals deep methodological continuity.",
+    "Few-shot prompting and zero-shot prompting should be treated as iterative design artefacts, not magic incantations, subject to the same candidate-testing loops used in bot development.",
+    "Conversation designers already hold the transferable skills needed to bring rigour to the LLM hype cycle; the challenge is recognising and articulating that transfer."
   ]
 }

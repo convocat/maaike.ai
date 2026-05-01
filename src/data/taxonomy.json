@@ -1361,6 +1361,46 @@
       "label": "Epic",
       "type": "artefact",
       "definition": ""
+    },
+    "mitchell-hashimoto": {
+      "label": "Mitchell Hashimoto",
+      "type": "person",
+      "definition": ""
+    },
+    "blind-prompting": {
+      "label": "Blind prompting",
+      "type": "epistemic-stance",
+      "definition": ""
+    },
+    "demonstration-set": {
+      "label": "Demonstration set",
+      "type": "artefact",
+      "definition": ""
+    },
+    "few-shot-prompting": {
+      "label": "Few-shot prompting",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "zero-shot-prompting": {
+      "label": "Zero-shot prompting",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "nlu-model": {
+      "label": "NLU model",
+      "type": "technology",
+      "definition": ""
+    },
+    "confusion-matrix": {
+      "label": "Confusion matrix",
+      "type": "artefact",
+      "definition": ""
+    },
+    "prompt-accuracy": {
+      "label": "Prompt accuracy",
+      "type": "epistemological-concept",
+      "definition": ""
     }
   }
 }

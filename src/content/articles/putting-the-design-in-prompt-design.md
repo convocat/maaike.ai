@@ -4,24 +4,36 @@ date: 2023-05-22
 updated: 2026-03-15
 maturity: complete
 tags:
-  - prompt-design
-  - conversation-design
-  - evaluation
-  - systems-thinking
+- prompt-design
+- conversation-design
+- evaluation
+- systems-thinking
+- prompting
+- generative-ai-design
+- llm
+- skill-based-work
 themes:
-  - Prompting is a design discipline, not a trial-and-error craft
-  - Verification and demonstration sets turn prompts into engineered artefacts
-  - Conversation design skills transfer directly to prompt design
+- Prompt engineering is not a new skill but a rebranding of disciplined conversation design practice, making conversation designers natural prompt engineers.
+- 'The difference between ''blind prompting'' and real prompt engineering is the same difference that separates amateur content from professional design: verifiability, repeatability, and deliberate iteration.'
+- Demonstration sets are the prompt-design equivalent of labelled NLU training data — the analogy is structural, not cosmetic, and reveals deep methodological continuity.
+- Few-shot prompting and zero-shot prompting should be treated as iterative design artefacts, not magic incantations, subject to the same candidate-testing loops used in bot development.
+- Conversation designers already hold the transferable skills needed to bring rigour to the LLM hype cycle; the challenge is recognising and articulating that transfer.
 triples:
-  - ["Blind prompting", "contrasted-with", "Prompt engineering"]
-  - ["Prompt engineering", "attributed-to", "Mitchell Hashimoto"]
-  - ["Prompt engineering", "requires", "Demonstration set"]
-  - ["Prompt design", "requires", "Evaluation"]
-  - ["Conversation design", "reinforces", "Prompt design"]
-  - ["Prompt design", "structured-as", "Input-output pairs"]
-description: "Blind prompting vs. prompt engineering, and what it means for conversation designers."
+- [Blind prompting, contrasted-with, Prompt engineering]
+- [Prompt engineering, attributed-to, Mitchell Hashimoto]
+- [Prompt engineering, requires, Demonstration set]
+- [Prompt design, requires, Evaluation]
+- [Conversation design, reinforces, Prompt design]
+- [Prompt design, structured-as, Input-output pairs]
+- [Prompt engineering, characterised-as, 'reliable, repeatable, reusable and robust design practice']
+- [Blind prompting, lacks, Prompt accuracy]
+- [Demonstration set, metaphor-for, Training data]
+- [Few-shot prompting, instance-of, Prompt design]
+- [Confusion matrix, metaphor-for, Prompt accuracy]
+- [Conversation design, reinforces, Prompt engineering]
+description: Blind prompting vs. prompt engineering, and what it means for conversation designers.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 I stumbled across this really insightful article by Mitchell Hashimoto the other day, and I think this is such an eye-opener for all us conversation designers who wonder where to go next in this LLM hype! This article is a great intro into what sets aside prompt designers (or engineers as Hashimoto calls them) from the incidental prompter. Keyword: conscious, deliberate and verifiable design choices that are experiment based. Sounds familiar? That's no coincidence, it's what we do all the time!

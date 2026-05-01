@@ -6004,6 +6004,26 @@
     "epic": {
       "label": "Epic",
       "type": "artefact"
+    },
+    "few-shot-prompting": {
+      "label": "Few-shot prompting",
+      "type": "technical-mechanism"
+    },
+    "zero-shot-prompting": {
+      "label": "Zero-shot prompting",
+      "type": "technical-mechanism"
+    },
+    "nlu-model": {
+      "label": "NLU model",
+      "type": "technology"
+    },
+    "confusion-matrix": {
+      "label": "Confusion matrix",
+      "type": "artefact"
+    },
+    "prompt-accuracy": {
+      "label": "Prompt accuracy",
+      "type": "epistemological-concept"
     }
   },
   "associations": [
@@ -7866,48 +7886,6 @@
       "predicate": "requires",
       "object": "ssml",
       "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "blind-prompting",
-      "predicate": "contrasted-with",
-      "object": "prompt-engineering",
-      "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-engineering",
-      "predicate": "attributed-to",
-      "object": "mitchell-hashimoto",
-      "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-engineering",
-      "predicate": "requires",
-      "object": "demonstration-set",
-      "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-design",
-      "predicate": "requires",
-      "object": "llm-evals",
-      "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "reinforces",
-      "object": "prompt-design",
-      "source": "putting-the-design-in-prompt-design",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-design",
-      "predicate": "structured-as",
-      "object": "input-output-pairs",
-      "source": "putting-the-design-in-prompt-design",
       "collection": "articles"
     },
     {
@@ -10568,6 +10546,62 @@
       "predicate": "structured-as",
       "object": "content-management-system",
       "source": "scrum-for-conversational-teams",
+      "collection": "articles"
+    },
+    {
+      "subject": "blind-prompting",
+      "predicate": "contrasted-with",
+      "object": "prompt-engineering",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "characterised-as",
+      "object": "reliable-repeatable-reusable-and-robust-design-practice",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "blind-prompting",
+      "predicate": "lacks",
+      "object": "prompt-accuracy",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "demonstration-set",
+      "predicate": "metaphor-for",
+      "object": "training-data",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "requires",
+      "object": "demonstration-set",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "few-shot-prompting",
+      "predicate": "instance-of",
+      "object": "prompt-design",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "confusion-matrix",
+      "predicate": "metaphor-for",
+      "object": "prompt-accuracy",
+      "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "reinforces",
+      "object": "prompt-engineering",
+      "source": "putting-the-design-in-prompt-design",
       "collection": "articles"
     }
   ]
