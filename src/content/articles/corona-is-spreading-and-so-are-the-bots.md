@@ -1,25 +1,39 @@
 ---
-title: "Corona is spreading…and so are the bots"
+title: Corona is spreading…and so are the bots
 date: 2020-03-15
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - ai-ethics
-  - crisis-communication
+- conversation-design
+- ai-ethics
+- crisis-communication
+- content-strategy
+- chatbot
+- information-architecture
+- epistemic-humility
 themes:
-  - Crisis communication asks for fewer bots with stronger governance, not more bots
-  - Content strategy, source ownership and maintenance are the real work of a crisis bot
-  - Good intentions are not enough when information is life-critical
+- More chatbots in a crisis is a liability, not an asset — information fragmentation actively harms public trust.
+- Content ownership and maintenance are the true bottlenecks of crisis communication, not technology availability.
+- The conversational design community has a professional responsibility to serve institutional credibility rather than showcase individual capability.
+- 'Responsible bot-building requires epistemic humility: stay close to authoritative sources, date your claims, and resist the urge to editorialize.'
+- Crisis chatbots should be evaluated not by their conversational sophistication but by their information hygiene and long-term maintainability.
 triples:
-  - ["Crisis communication", "requires", "Content strategy"]
-  - ["Crisis chatbot", "requires", "Source ownership"]
-  - ["Crisis chatbot", "requires", "Content maintenance"]
-  - ["Unverified chatbots", "risks", "Misinformation"]
-  - ["Official bodies", "better-fits", "Crisis communication"]
-description: "How to build Coronabots responsibly, if you want to build one at all."
+- [Crisis communication, requires, Content strategy]
+- [Crisis chatbot, requires, Source ownership]
+- [Crisis chatbot, requires, Content maintenance]
+- [Unverified chatbots, risks, Misinformation]
+- [Official bodies, better-fits, Crisis communication]
+- [Proliferating Corona chatbots, leads-to, Misinformation]
+- [Crisis communication chatbot, requires, Content maintenance]
+- [Crisis communication chatbot, requires, Content ownership]
+- [Official government bodies, characterised-as, reliable sources with existing content strategy]
+- [Independent bot builders, risks, Information accuracy]
+- [Content strategy, presupposes, Content ownership]
+- [Conversational design community, counters, Proliferating Corona chatbots]
+- [Source attribution, reinforces, Information accuracy]
+description: How to build Coronabots responsibly, if you want to build one at all.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Now that Corona has large parts of the world firmly in its grip, more and more Corona chatbots are appearing. While these attempts are in itself laudable, effective use of chatbots as crisis communication tools might benefit from less bots, not more. Instead, focus on a solid content strategy, sustained maintenance and clear ownership.

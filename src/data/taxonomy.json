@@ -2066,6 +2066,41 @@
       "label": "Gender-neutral pronoun",
       "type": "linguistic-concept",
       "definition": ""
+    },
+    "crisis-communication": {
+      "label": "Crisis communication",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "content-strategy": {
+      "label": "Content strategy",
+      "type": "discipline",
+      "definition": ""
+    },
+    "content-maintenance": {
+      "label": "Content maintenance",
+      "type": "concept",
+      "definition": ""
+    },
+    "information-accuracy": {
+      "label": "Information accuracy",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "source-attribution": {
+      "label": "Source attribution",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "misinformation": {
+      "label": "Misinformation",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "content-ownership": {
+      "label": "Content ownership",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

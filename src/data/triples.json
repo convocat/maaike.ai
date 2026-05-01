@@ -6500,6 +6500,18 @@
     "gender-neutral-pronoun": {
       "label": "Gender-neutral pronoun",
       "type": "linguistic-concept"
+    },
+    "information-accuracy": {
+      "label": "Information accuracy",
+      "type": "epistemological-concept"
+    },
+    "source-attribution": {
+      "label": "Source attribution",
+      "type": "epistemological-concept"
+    },
+    "content-ownership": {
+      "label": "Content ownership",
+      "type": "concept"
     }
   },
   "associations": [
@@ -7900,41 +7912,6 @@
       "predicate": "demonstrates",
       "object": "conversation-design",
       "source": "convoclub-clubhouse",
-      "collection": "articles"
-    },
-    {
-      "subject": "crisis-communication",
-      "predicate": "requires",
-      "object": "content-strategy",
-      "source": "corona-is-spreading-and-so-are-the-bots",
-      "collection": "articles"
-    },
-    {
-      "subject": "crisis-chatbot",
-      "predicate": "requires",
-      "object": "source-ownership",
-      "source": "corona-is-spreading-and-so-are-the-bots",
-      "collection": "articles"
-    },
-    {
-      "subject": "crisis-chatbot",
-      "predicate": "requires",
-      "object": "content-maintenance",
-      "source": "corona-is-spreading-and-so-are-the-bots",
-      "collection": "articles"
-    },
-    {
-      "subject": "unverified-chatbots",
-      "predicate": "risks",
-      "object": "misinformation",
-      "source": "corona-is-spreading-and-so-are-the-bots",
-      "collection": "articles"
-    },
-    {
-      "subject": "official-bodies",
-      "predicate": "better-fits",
-      "object": "crisis-communication",
-      "source": "corona-is-spreading-and-so-are-the-bots",
       "collection": "articles"
     },
     {
@@ -11400,6 +11377,62 @@
       "predicate": "instance-of",
       "object": "diversity-injection",
       "source": "de-biassing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "proliferating-corona-chatbots",
+      "predicate": "leads-to",
+      "object": "misinformation",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "crisis-communication-chatbot",
+      "predicate": "requires",
+      "object": "content-maintenance",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "crisis-communication-chatbot",
+      "predicate": "requires",
+      "object": "content-ownership",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "official-government-bodies",
+      "predicate": "characterised-as",
+      "object": "reliable-sources-with-existing-content-strategy",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "independent-bot-builders",
+      "predicate": "risks",
+      "object": "information-accuracy",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "content-strategy",
+      "predicate": "presupposes",
+      "object": "content-ownership",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-design-community",
+      "predicate": "counters",
+      "object": "proliferating-corona-chatbots",
+      "source": "corona-is-spreading-and-so-are-the-bots",
+      "collection": "articles"
+    },
+    {
+      "subject": "source-attribution",
+      "predicate": "reinforces",
+      "object": "information-accuracy",
+      "source": "corona-is-spreading-and-so-are-the-bots",
       "collection": "articles"
     }
   ]

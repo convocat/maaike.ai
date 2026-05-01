@@ -296,5 +296,12 @@
     "Diversity defaults in generative AI systems reflect the cultural assumptions of their moderators, not a neutral or universal standard.",
     "The gap between a user's prompt and the model's internally rewritten prompt is a transparency and trust problem for AI design.",
     "Enforcing diversity through hidden system behaviour is not the same as achieving equitable representation—it may simply swap one set of stereotypes for another."
+  ],
+  "corona-is-spreading-and-so-are-the-bots": [
+    "More chatbots in a crisis is a liability, not an asset — information fragmentation actively harms public trust.",
+    "Content ownership and maintenance are the true bottlenecks of crisis communication, not technology availability.",
+    "The conversational design community has a professional responsibility to serve institutional credibility rather than showcase individual capability.",
+    "Responsible bot-building requires epistemic humility: stay close to authoritative sources, date your claims, and resist the urge to editorialize.",
+    "Crisis chatbots should be evaluated not by their conversational sophistication but by their information hygiene and long-term maintainability."
   ]
 }
