@@ -1,24 +1,39 @@
 ---
-title: "Online uitgeput? Pak een kruk"
+title: Online uitgeput? Pak een kruk
 date: 2020-05-01
 updated: 2026-03-11
 maturity: complete
 tags:
-  - remote-work
-  - embodiment
-  - well-being
+- remote-work
+- embodiment
+- well-being
+- future-of-work
+- human-behavior
+- cognition
+- cognitive-load
+- wellbeing
 themes:
-  - Online fatigue is physical, not just cognitive
-  - Embodied awareness supports sustained attention
-  - Small postural shifts restore energy in remote meetings
+- Zoom fatigue is embodied, not just communicative — the body sags before the mind admits it is tired
+- 'Physical posture and mental alertness form a bidirectional loop: collapse causes exhaustion, and upright awareness interrupts it'
+- Somatic body-awareness practices (Alexander-technique-adjacent cues) are undervalued ergonomic tools for remote work
+- The body is a first-responder to fatigue signals — checking in with physical sensation is an early-warning system for cognitive overload
+- Simple environmental changes (a stool, bare feet on the floor) create proprioceptive feedback that software and culture fixes cannot
 triples:
-  - ["Online meetings", "leads-to", "Online fatigue"]
-  - ["Online fatigue", "caused-by", "Postural collapse"]
-  - ["Embodied awareness", "counters", "Online fatigue"]
-  - ["Postural alignment", "requires", "Bodily grounding"]
-description: "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering."
+- [Online meetings, leads-to, Online fatigue]
+- [Online fatigue, caused-by, Postural collapse]
+- [Embodied awareness, counters, Online fatigue]
+- [Postural alignment, requires, Bodily grounding]
+- [Zoom fatigue, caused-by, Body posture]
+- [Body posture, leads-to, Cognitive load]
+- [Somatic awareness, counters, Zoom fatigue]
+- [Body posture, reinforces, Body-mind connection]
+- [Online meetings, risks, Zoom fatigue]
+- [Proprioception, requires, Somatic awareness]
+- [Alexander Technique, instance-of, Somatic awareness]
+- [Zoom fatigue, characterised-as, Online meetings]
+description: Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Ik zie op social media steeds meer berichten voorbijkomen over hoe online vergaderen ons uitput. Als oorzaak wordt dan vaak gekeken naar communicatie, zoals het gebrek aan lichaamstaal, het elkaar niet in de ogen kunnen kijken, en verwarrende signalen. Of naar imperfecties in de bedrijfscultuur, zoals onderling wantrouwen dat online genadeloos boven komt drijven. Dat put je uit.

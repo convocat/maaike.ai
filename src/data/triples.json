@@ -6068,6 +6068,38 @@
     "appie-(albert-heijn)": {
       "label": "Appie (Albert Heijn)",
       "type": "artefact"
+    },
+    "zoom-fatigue": {
+      "label": "Zoom fatigue",
+      "type": "phenomenon"
+    },
+    "body-posture": {
+      "label": "Body posture",
+      "type": "concept"
+    },
+    "somatic-awareness": {
+      "label": "Somatic awareness",
+      "type": "concept"
+    },
+    "proprioception": {
+      "label": "Proprioception",
+      "type": "concept"
+    },
+    "alexander-technique": {
+      "label": "Alexander Technique",
+      "type": "methodology"
+    },
+    "ergonomics": {
+      "label": "Ergonomics",
+      "type": "discipline"
+    },
+    "remote-work": {
+      "label": "Remote work",
+      "type": "concept"
+    },
+    "body-mind-connection": {
+      "label": "Body-mind connection",
+      "type": "philosophical-concept"
     }
   },
   "associations": [
@@ -7867,34 +7899,6 @@
       "predicate": "structured-as",
       "object": "role-based-collaboration",
       "source": "off-to-a-good-start",
-      "collection": "articles"
-    },
-    {
-      "subject": "online-meetings",
-      "predicate": "leads-to",
-      "object": "online-fatigue",
-      "source": "online-uitgeput-pak-een-kruk",
-      "collection": "articles"
-    },
-    {
-      "subject": "online-fatigue",
-      "predicate": "caused-by",
-      "object": "postural-collapse",
-      "source": "online-uitgeput-pak-een-kruk",
-      "collection": "articles"
-    },
-    {
-      "subject": "embodied-awareness",
-      "predicate": "counters",
-      "object": "online-fatigue",
-      "source": "online-uitgeput-pak-een-kruk",
-      "collection": "articles"
-    },
-    {
-      "subject": "postural-alignment",
-      "predicate": "requires",
-      "object": "bodily-grounding",
-      "source": "online-uitgeput-pak-een-kruk",
       "collection": "articles"
     },
     {
@@ -10667,6 +10671,62 @@
       "predicate": "instance-of",
       "object": "ssml",
       "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "zoom-fatigue",
+      "predicate": "caused-by",
+      "object": "body-posture",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "body-posture",
+      "predicate": "leads-to",
+      "object": "cognitive-load",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "somatic-awareness",
+      "predicate": "counters",
+      "object": "zoom-fatigue",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "body-posture",
+      "predicate": "reinforces",
+      "object": "body-mind-connection",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "online-meetings",
+      "predicate": "risks",
+      "object": "zoom-fatigue",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "proprioception",
+      "predicate": "requires",
+      "object": "somatic-awareness",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "alexander-technique",
+      "predicate": "instance-of",
+      "object": "somatic-awareness",
+      "source": "online-uitgeput-pak-een-kruk",
+      "collection": "articles"
+    },
+    {
+      "subject": "zoom-fatigue",
+      "predicate": "characterised-as",
+      "object": "online-meetings",
+      "source": "online-uitgeput-pak-een-kruk",
       "collection": "articles"
     }
   ]

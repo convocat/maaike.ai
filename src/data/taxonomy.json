@@ -1456,6 +1456,51 @@
       "label": "Appie (Albert Heijn)",
       "type": "artefact",
       "definition": ""
+    },
+    "zoom-fatigue": {
+      "label": "Zoom fatigue",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "online-meetings": {
+      "label": "Online meetings",
+      "type": "concept",
+      "definition": ""
+    },
+    "body-posture": {
+      "label": "Body posture",
+      "type": "concept",
+      "definition": ""
+    },
+    "somatic-awareness": {
+      "label": "Somatic awareness",
+      "type": "concept",
+      "definition": ""
+    },
+    "proprioception": {
+      "label": "Proprioception",
+      "type": "concept",
+      "definition": ""
+    },
+    "alexander-technique": {
+      "label": "Alexander Technique",
+      "type": "methodology",
+      "definition": ""
+    },
+    "ergonomics": {
+      "label": "Ergonomics",
+      "type": "discipline",
+      "definition": ""
+    },
+    "remote-work": {
+      "label": "Remote work",
+      "type": "concept",
+      "definition": ""
+    },
+    "body-mind-connection": {
+      "label": "Body-mind connection",
+      "type": "philosophical-concept",
+      "definition": ""
     }
   }
 }
