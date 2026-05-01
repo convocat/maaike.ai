@@ -2281,6 +2281,26 @@
       "label": "Face-threatening act",
       "type": "linguistic-concept",
       "definition": ""
+    },
+    "browse-feature": {
+      "label": "Browse feature",
+      "type": "technology",
+      "definition": ""
+    },
+    "training-data-collection": {
+      "label": "Training data collection",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "data-consent-toggle": {
+      "label": "Data consent toggle",
+      "type": "artefact",
+      "definition": ""
+    },
+    "chat-history": {
+      "label": "Chat history",
+      "type": "technical-mechanism",
+      "definition": ""
     }
   }
 }

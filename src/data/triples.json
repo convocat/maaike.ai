@@ -6616,6 +6616,14 @@
     "face-threatening-act": {
       "label": "Face-threatening act",
       "type": "linguistic-concept"
+    },
+    "browse-feature": {
+      "label": "Browse feature",
+      "type": "technology"
+    },
+    "chat-history": {
+      "label": "Chat history",
+      "type": "technical-mechanism"
     }
   },
   "associations": [
@@ -7764,34 +7772,6 @@
       "predicate": "instance-of",
       "object": "conversational-ai",
       "source": "an-evening-with-chatgpt-3",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt-browse-feature",
-      "predicate": "requires",
-      "object": "data-consent-toggle",
-      "source": "an-evening-with-chatgpt-september-2023",
-      "collection": "articles"
-    },
-    {
-      "subject": "data-consent-toggle",
-      "predicate": "leads-to",
-      "object": "training-data-collection",
-      "source": "an-evening-with-chatgpt-september-2023",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "violates",
-      "object": "consent-design",
-      "source": "an-evening-with-chatgpt-september-2023",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt-browse-feature",
-      "predicate": "lacks",
-      "object": "usability",
-      "source": "an-evening-with-chatgpt-september-2023",
       "collection": "articles"
     },
     {
@@ -11586,6 +11566,55 @@
       "predicate": "demonstrates",
       "object": "logical-inference",
       "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "browse-feature",
+      "predicate": "requires",
+      "object": "training-data-collection",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "browse-feature",
+      "predicate": "requires",
+      "object": "chat-history",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "data-consent-toggle",
+      "predicate": "leads-to",
+      "object": "training-data-collection",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "browse-feature",
+      "predicate": "characterised-as",
+      "object": "data-collection-mechanism",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "browse-feature",
+      "predicate": "counters",
+      "object": "llm-hallucinations",
+      "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "browse-feature",
+      "predicate": "risks",
+      "object": "user-data-privacy",
+      "source": "an-evening-with-chatgpt-september-2023",
       "collection": "articles"
     }
   ]

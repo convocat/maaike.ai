@@ -338,5 +338,12 @@
     "Coreference resolution and multi-turn context tracking are underrated benchmarks for evaluating conversational AI quality.",
     "Unintentional humor emerges from the collision of literal consistency and human indirectness — a design property worth studying.",
     "A bot persona need not be human-like to be effective; non-human transparency can coexist with sophisticated language understanding."
+  ],
+  "an-evening-with-chatgpt-september-2023": [
+    "Framing a useful feature as a data-extraction mechanism is a deliberate design choice, not an oversight.",
+    "The entanglement of chat history access, the browse feature, and training-data consent in a single toggle exposes a cynical bundling strategy.",
+    "Naivety about AI products is understandable but increasingly costly — users must read the fine print of every new feature.",
+    "The browse feature's poor quality makes the data trade-off even harder to justify, undermining OpenAI's implicit value proposition.",
+    "Grounding and factuality in LLMs are being instrumentalised as marketing levers rather than genuinely addressed as epistemic problems."
   ]
 }
