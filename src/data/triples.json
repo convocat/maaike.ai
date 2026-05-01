@@ -9955,6 +9955,55 @@
       "object": "multispecies-entanglement",
       "source": "fieldwork-for-future-ecologies-onomatopee",
       "collection": "weblinks"
+    },
+    {
+      "subject": "tri-system-theory",
+      "predicate": "attributed-to",
+      "object": "shaw-and-nave",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tri-system-theory",
+      "predicate": "counters",
+      "object": "dual-process-theory",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "dual-process-theory",
+      "predicate": "theorised-by",
+      "object": "daniel-kahneman",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "system-3-artificial-cognition",
+      "predicate": "defined-as",
+      "object": "human-ai-cognition",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-surrender",
+      "predicate": "leads-to",
+      "object": "cognitive-autonomy",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-surrender",
+      "predicate": "characterised-as",
+      "object": "cognitive-laziness",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "system-3-artificial-cognition",
+      "predicate": "risks",
+      "object": "cognitive-autonomy",
+      "source": "ai-artificialintelligence-behavior-behaviour-behav",
+      "collection": "weblinks"
     }
   ]
 }

@@ -671,6 +671,66 @@
       "label": "Onomatopee",
       "type": "concept",
       "definition": ""
+    },
+    "vincent-rump": {
+      "label": "Vincent Rump",
+      "type": "person",
+      "definition": ""
+    },
+    "daniel-kahneman": {
+      "label": "Daniel Kahneman",
+      "type": "person",
+      "definition": ""
+    },
+    "shaw-and-nave": {
+      "label": "Shaw and Nave",
+      "type": "person",
+      "definition": ""
+    },
+    "tri-system-theory": {
+      "label": "Tri-System Theory",
+      "type": "concept",
+      "definition": ""
+    },
+    "dual-process-theory": {
+      "label": "Dual-process theory",
+      "type": "concept",
+      "definition": ""
+    },
+    "system-1-thinking": {
+      "label": "System 1 thinking",
+      "type": "concept",
+      "definition": ""
+    },
+    "system-2-thinking": {
+      "label": "System 2 thinking",
+      "type": "concept",
+      "definition": ""
+    },
+    "system-3-(artificial-cognition)": {
+      "label": "System 3 (artificial cognition)",
+      "type": "concept",
+      "definition": ""
+    },
+    "cognitive-surrender": {
+      "label": "Cognitive surrender",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "human-ai-cognition": {
+      "label": "Human-AI cognition",
+      "type": "concept",
+      "definition": ""
+    },
+    "cognitive-autonomy": {
+      "label": "Cognitive autonomy",
+      "type": "concept",
+      "definition": ""
+    },
+    "behavioral-science": {
+      "label": "Behavioral science",
+      "type": "discipline",
+      "definition": ""
     }
   }
 }
