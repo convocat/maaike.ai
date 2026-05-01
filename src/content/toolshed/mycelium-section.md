@@ -3,7 +3,7 @@ title: Mycelium section
 date: 2026-04-04
 maturity: solid
 tags: [design, components, navigation, knowledge-graph]
-description: The collapsible post footer drawer that surfaces tags, semantic triples, and thematic arguments.
+description: The collapsible post footer drawer that surfaces tags, semantic triples, thematic arguments, and open questions.
 category: design
 section: Components
 ai: co-created
@@ -41,7 +41,7 @@ The metadata is valuable for navigation but visually noisy. A `<details>` elemen
 }
 ```
 
-The triangle rotates 90° when open. The hint text ("tags, relations & arguments") sits baseline-aligned next to the label at 0.8rem, italic, muted, visible enough to describe the drawer but light enough not to compete with the heading.
+The triangle rotates 90° when open. The hint text ("tags, relations, arguments & questions") sits baseline-aligned next to the label at 0.8rem, italic, muted, visible enough to describe the drawer but light enough not to compete with the heading.
 
 ## Content: tags
 
@@ -115,6 +115,36 @@ When expanded, the content fades and slides in:
 }
 ```
 
+## Content: open questions
+
+The "Questions this raises" section renders 1-3 research prompts generated during TAO extraction. Each is displayed in italic with a `?` prefix in accent color, matching the style of themes but visually distinct:
+
+```css
+.question-item {
+  font-style: italic;
+  padding-left: var(--space-sm);
+  position: relative;
+}
+
+.question-item::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  opacity: 0.5;
+  font-weight: 600;
+  font-style: normal;
+}
+```
+
+Stored in frontmatter as a flat list:
+
+```yaml
+open_questions:
+  - How does this scale when the corpus grows beyond a few hundred posts?
+  - What happens to the graph when two posts argue opposite positions on the same topic?
+```
+
 ## Visibility rule
 
-The entire `<details>` element is only rendered if at least one of tags, triples, or themes is present. Empty drawers are suppressed entirely.
+The entire `<details>` element is only rendered if at least one of tags, triples, themes, or open questions is present. Empty drawers are suppressed entirely.

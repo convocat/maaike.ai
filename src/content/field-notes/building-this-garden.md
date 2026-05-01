@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-04-30
+updated: 2026-05-01
 maturity: solid
 tags:
 - about
@@ -393,6 +393,18 @@ An ergonomics day: opening a session is now one slash command, and the dashboard
 - **`/morning` skill**: session-start ritual that chains `/backlog` and `/check-inbox` so the day starts with the inbox and the open-loops list, in that order
 - **Admin dashboard tabs**: three-tab layout (Weblinks default, My content, Write); title, description, tags and triples now editable on every item; Milkdown markdown editor in the Write tab backed by `tools/admin/scratch.md`; new `/api/content-review` and `/api/mark-reviewed` to stamp posts with `reviewed:`
 - **Ingest dashboard copy fix**: Sync Telegram button, toast, and "awaiting enrichment" hint now correctly say syncing only, and point to `/check-inbox` for enrichment (the GitHub workflow doesn't auto-tag)
+
+### 1 May
+
+A big admin day: the dashboard became a proper enrichment station with one-click TAO analysis, the content was swept clean of em-dashes, and the garden's open questions now surface in posts.
+
+- **Weblink enrichment in dashboard**: "Enrich" button calls the Anthropic API (claude-sonnet-4-5, user-triggered only), fetches the page, runs TAO analysis, and pre-fills description, tags, themes, and associations in the panel for review before publishing
+- **Em-dash sweep**: batch-replaced em-dashes across all 78 content files; rule extended to all API prompts and CLAUDE.md to prevent recurrence
+- **Pending-only queue**: dashboard queues now hide completed items by default; a "+ N completed" toggle at the bottom expands them; count badge shows only actionable items
+- **Weblink notes field**: long-form notes textarea added to the weblinks panel (page-only, not shown in stream cards); saved as markdown body on approve
+- **Save to library**: new inline action in the inbox panel; pre-fills title, requires author, defaults to to-read; creates a `library/` entry and dismisses the source draft in one commit
+- **Open questions in Mycelium**: TAO proposals now include open questions; when applied, they appear in the Mycelium section under "Questions this raises" with an italic `?` prefix, alongside themes and relations
+- **Article enrichments**: three articles tagged via the Enrich tab: "A digital garden as central space", "You're not married to your texts", "Saturday design thoughts"
 
 ## Related
 
