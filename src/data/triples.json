@@ -6624,6 +6624,26 @@
     "chat-history": {
       "label": "Chat history",
       "type": "technical-mechanism"
+    },
+    "nlp": {
+      "label": "NLP",
+      "type": "discipline"
+    },
+    "grammatical-parsing": {
+      "label": "Grammatical parsing",
+      "type": "technical-mechanism"
+    },
+    "prepositional-phrase": {
+      "label": "Prepositional phrase",
+      "type": "linguistic-concept"
+    },
+    "intra-intent-variation": {
+      "label": "Intra-intent variation",
+      "type": "linguistic-concept"
+    },
+    "pizza-bot": {
+      "label": "Pizza bot",
+      "type": "artefact"
     }
   },
   "associations": [
@@ -7737,41 +7757,6 @@
       "predicate": "lacks",
       "object": "evaluation-analytics",
       "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "generates",
-      "object": "intent-model",
-      "source": "an-evening-with-chatgpt-3",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "generates",
-      "object": "training-phrases",
-      "source": "an-evening-with-chatgpt-3",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "lacks",
-      "object": "logical-consistency",
-      "source": "an-evening-with-chatgpt-3",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "exhibits",
-      "object": "surface-competence",
-      "source": "an-evening-with-chatgpt-3",
-      "collection": "articles"
-    },
-    {
-      "subject": "intent-model",
-      "predicate": "instance-of",
-      "object": "conversational-ai",
-      "source": "an-evening-with-chatgpt-3",
       "collection": "articles"
     },
     {
@@ -11615,6 +11600,62 @@
       "predicate": "risks",
       "object": "user-data-privacy",
       "source": "an-evening-with-chatgpt-september-2023",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "generates",
+      "object": "intent-model",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "intra-intent-variation",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "exhibits",
+      "object": "stochastic-parrot",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "breaks-down-for",
+      "object": "grammatical-parsing",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "training-phrases",
+      "predicate": "characterised-as",
+      "object": "stochastic-parrot",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "demonstrates",
+      "object": "intent",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "grammatical-parsing",
+      "predicate": "inaccessible-via",
+      "object": "probabilistic-word-prediction",
+      "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "an-evening-with-chatgpt-3",
       "collection": "articles"
     }
   ]

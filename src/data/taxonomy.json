@@ -2301,6 +2301,41 @@
       "label": "Chat history",
       "type": "technical-mechanism",
       "definition": ""
+    },
+    "intent-model": {
+      "label": "Intent model",
+      "type": "artefact",
+      "definition": ""
+    },
+    "training-phrases": {
+      "label": "Training phrases",
+      "type": "artefact",
+      "definition": ""
+    },
+    "nlp": {
+      "label": "NLP",
+      "type": "discipline",
+      "definition": ""
+    },
+    "grammatical-parsing": {
+      "label": "Grammatical parsing",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "prepositional-phrase": {
+      "label": "Prepositional phrase",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "intra-intent-variation": {
+      "label": "Intra-intent variation",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "pizza-bot": {
+      "label": "Pizza bot",
+      "type": "artefact",
+      "definition": ""
     }
   }
 }
