@@ -7874,34 +7874,6 @@
       "collection": "articles"
     },
     {
-      "subject": "conversation-design",
-      "predicate": "structured-as",
-      "object": "specialised-roles",
-      "source": "convo-question-should-i-learn-programming",
-      "collection": "articles"
-    },
-    {
-      "subject": "coding-literacy",
-      "predicate": "reinforces",
-      "object": "conversation-design",
-      "source": "convo-question-should-i-learn-programming",
-      "collection": "articles"
-    },
-    {
-      "subject": "coding-literacy",
-      "predicate": "leads-to",
-      "object": "data-analysis-capability",
-      "source": "convo-question-should-i-learn-programming",
-      "collection": "articles"
-    },
-    {
-      "subject": "coding-literacy",
-      "predicate": "risks",
-      "object": "tech-first-thinking",
-      "source": "convo-question-should-i-learn-programming",
-      "collection": "articles"
-    },
-    {
       "subject": "book-recommender-tool",
       "predicate": "instance-of",
       "object": "scoring-algorithm",

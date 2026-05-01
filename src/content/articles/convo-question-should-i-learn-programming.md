@@ -1,24 +1,24 @@
 ---
-title: "Convo question: Should I learn programming?"
+title: 'Convo question: Should I learn programming?'
 date: 2022-09-11
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - skill-based-work
-  - future-of-work
+- conversation-design
+- skill-based-work
+- future-of-work
 themes:
-  - The specialisation of conversation design into distinct sub-roles
-  - Coding literacy as a multiplier for design range and for data analysis
-  - The risk of letting technical possibility dictate design decisions
+- The specialisation of conversation design into distinct sub-roles
+- Coding literacy as a multiplier for design range and for data analysis
+- The risk of letting technical possibility dictate design decisions
 triples:
-  - ["Conversation design", "structured-as", "Specialised roles"]
-  - ["Coding literacy", "reinforces", "Conversation design"]
-  - ["Coding literacy", "leads-to", "Data analysis capability"]
-  - ["Coding literacy", "risks", "Tech-first thinking"]
-description: "As a conversation designer, should I know how to code? Some pros and cons."
+- [Conversation design, structured-as, Specialised roles]
+- [Coding literacy, reinforces, Conversation design]
+- [Coding literacy, leads-to, Data analysis capability]
+- [Coding literacy, risks, Tech-first thinking]
+description: As a conversation designer, should I know how to code? Some pros and cons.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 I get a lot of questions from aspiring conversation designers. This time: should convo designers know code? Here are some arguments for and against!
