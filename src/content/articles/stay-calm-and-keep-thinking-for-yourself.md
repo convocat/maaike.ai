@@ -4,24 +4,39 @@ date: 2023-03-05
 updated: 2026-03-15
 maturity: complete
 tags:
-  - ai-ethics
-  - critical-thinking
-  - reading-list
-  - epistemic-humility
+- ai-ethics
+- critical-thinking
+- reading-list
+- epistemic-humility
+- generative-ai-design
+- llm
+- conversation-design
+- newsletter
 themes:
-  - Curiosity and critique must travel together in AI discourse
-  - Bias in AI extends the bias of search engines
-  - Building hands-on literacy counters hype narratives
+- 'Hype literacy is a professional obligation for anyone working with AI: consuming uncritical content is itself a form of epistemic negligence.'
+- Hands-on experimentation is not optional enrichment but the primary epistemological path to understanding AI technology.
+- Algorithmic bias is not a search-engine-era relic — it is structurally amplified and made less visible by generative AI interfaces.
+- The antidote to AI hype is not doomerism but a stable, curated information diet that preserves both curiosity and criticality.
+- 'Resource curation is itself a design act: choosing what to read and who to follow shapes the conceptual frame through which technology is understood.'
 triples:
-  - ["Critical thinking", "counters", "AI hype"]
-  - ["On Bullshit", "attributed-to", "Harry G. Frankfurt"]
-  - ["Algorithms of oppression", "attributed-to", "Safiya Noble"]
-  - ["Stochastic parrot", "coined-by", "Emily Bender"]
-  - ["Algorithmic bias", "reinforces", "Systemic racism"]
-  - ["Hands-on experimentation", "reinforces", "Critical thinking"]
+- [Critical thinking, counters, AI hype]
+- [On Bullshit, attributed-to, Harry G. Frankfurt]
+- [Algorithms of oppression, attributed-to, Safiya Noble]
+- [Stochastic parrot, coined-by, Emily Bender]
+- [Algorithmic bias, reinforces, Systemic racism]
+- [Hands-on experimentation, reinforces, Critical thinking]
+- [Bullshit, characterised-by, ChatGPT]
+- [Algorithmic bias, exhibits, Systemic racism]
+- [Algorithmic bias, instance-of, Epistemic bias]
+- [GenAI, risks, Algorithmic bias]
+- [On the Danger of Stochastic Parrots, attributed-to, Emily Bender]
+- [On the Danger of Stochastic Parrots, attributed-to, Timnit Gebru]
+- [Critical AI literacy, counters, AI hype]
+- [Hands-on experimentation, requires, Critical AI literacy]
+- [AI hype, leads-to, Cognitive laziness]
 description: My favorite resources for building a curious and critical frame of mind.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 The ChatGPT hype is still in full swing, or so it seems, with rumors of OpenAI monetizing ChatGPT, Microsoft announcing that it will include OpenAI's technology in its Azure ecosystem and possibly even Office, and Google profiling itself as the keeper of ethical and moral standards in AI.

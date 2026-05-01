@@ -5912,6 +5912,58 @@
     "professional-identity": {
       "label": "Professional identity",
       "type": "concept"
+    },
+    "safiya-umoja-noble": {
+      "label": "Safiya Umoja Noble",
+      "type": "person"
+    },
+    "gary-marcus": {
+      "label": "Gary Marcus",
+      "type": "person"
+    },
+    "ernest-davis": {
+      "label": "Ernest Davis",
+      "type": "person"
+    },
+    "georg-huettenegger": {
+      "label": "Georg Huettenegger",
+      "type": "person"
+    },
+    "alan-d.-thompson": {
+      "label": "Alan D. Thompson",
+      "type": "person"
+    },
+    "david-shapiro": {
+      "label": "David Shapiro",
+      "type": "person"
+    },
+    "critical-ai-literacy": {
+      "label": "Critical AI literacy",
+      "type": "epistemic-stance"
+    },
+    "resource-curation": {
+      "label": "Resource curation",
+      "type": "methodology"
+    },
+    "rebooting-ai": {
+      "label": "Rebooting AI",
+      "type": "artefact"
+    },
+    "on-the-danger-of-stochastic-parrots": {
+      "label": "On the Danger of Stochastic Parrots",
+      "type": "artefact"
+    },
+    "openai-playground": {
+      "label": "OpenAI Playground",
+      "type": "technology"
+    },
+    "cohere": {
+      "label": "Cohere",
+      "type": "technology"
+    },
+    "machine-learning-street-talk": {
+      "label": "Machine Learning Street Talk",
+      "type": "artefact"
     }
   },
   "associations": [
@@ -7851,48 +7903,6 @@
       "predicate": "contrasted-with",
       "object": "scrum",
       "source": "scrum-for-conversational-teams",
-      "collection": "articles"
-    },
-    {
-      "subject": "critical-thinking",
-      "predicate": "counters",
-      "object": "ai-hype",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "on-bullshit",
-      "predicate": "attributed-to",
-      "object": "harry-g-frankfurt",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "algorithms-of-oppression",
-      "predicate": "attributed-to",
-      "object": "safiya-noble",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "stochastic-parrot",
-      "predicate": "coined-by",
-      "object": "emily-bender",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "algorithmic-bias",
-      "predicate": "reinforces",
-      "object": "systemic-racism",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "hands-on-experimentation",
-      "predicate": "reinforces",
-      "object": "critical-thinking",
-      "source": "stay-calm-and-keep-thinking-for-yourself",
       "collection": "articles"
     },
     {
@@ -10427,6 +10437,76 @@
       "predicate": "characterised-as",
       "object": "maturing-field-with-no-hard-certification-metric",
       "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "bullshit",
+      "predicate": "characterised-by",
+      "object": "chatgpt",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "algorithmic-bias",
+      "predicate": "exhibits",
+      "object": "systemic-racism",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "algorithmic-bias",
+      "predicate": "instance-of",
+      "object": "epistemic-bias",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "genai",
+      "predicate": "risks",
+      "object": "algorithmic-bias",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "on-the-danger-of-stochastic-parrots",
+      "predicate": "attributed-to",
+      "object": "emily-bender",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "on-the-danger-of-stochastic-parrots",
+      "predicate": "attributed-to",
+      "object": "timnit-gebru",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "on-bullshit",
+      "predicate": "attributed-to",
+      "object": "harry-g-frankfurt",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "critical-ai-literacy",
+      "predicate": "counters",
+      "object": "ai-hype",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "hands-on-experimentation",
+      "predicate": "requires",
+      "object": "critical-ai-literacy",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
+      "collection": "articles"
+    },
+    {
+      "subject": "ai-hype",
+      "predicate": "leads-to",
+      "object": "cognitive-laziness",
+      "source": "stay-calm-and-keep-thinking-for-yourself",
       "collection": "articles"
     }
   ]

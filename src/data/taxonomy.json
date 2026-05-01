@@ -1216,6 +1216,101 @@
       "label": "Professional identity",
       "type": "concept",
       "definition": ""
+    },
+    "safiya-umoja-noble": {
+      "label": "Safiya Umoja Noble",
+      "type": "person",
+      "definition": ""
+    },
+    "gary-marcus": {
+      "label": "Gary Marcus",
+      "type": "person",
+      "definition": ""
+    },
+    "ernest-davis": {
+      "label": "Ernest Davis",
+      "type": "person",
+      "definition": ""
+    },
+    "georg-huettenegger": {
+      "label": "Georg Huettenegger",
+      "type": "person",
+      "definition": ""
+    },
+    "alan-d.-thompson": {
+      "label": "Alan D. Thompson",
+      "type": "person",
+      "definition": ""
+    },
+    "david-shapiro": {
+      "label": "David Shapiro",
+      "type": "person",
+      "definition": ""
+    },
+    "algorithmic-bias": {
+      "label": "Algorithmic bias",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "ai-hype": {
+      "label": "AI hype",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "critical-ai-literacy": {
+      "label": "Critical AI literacy",
+      "type": "epistemic-stance",
+      "definition": ""
+    },
+    "hands-on-experimentation": {
+      "label": "Hands-on experimentation",
+      "type": "methodology",
+      "definition": ""
+    },
+    "resource-curation": {
+      "label": "Resource curation",
+      "type": "methodology",
+      "definition": ""
+    },
+    "on-bullshit": {
+      "label": "On Bullshit",
+      "type": "artefact",
+      "definition": ""
+    },
+    "algorithms-of-oppression": {
+      "label": "Algorithms of Oppression",
+      "type": "artefact",
+      "definition": ""
+    },
+    "rebooting-ai": {
+      "label": "Rebooting AI",
+      "type": "artefact",
+      "definition": ""
+    },
+    "on-the-danger-of-stochastic-parrots": {
+      "label": "On the Danger of Stochastic Parrots",
+      "type": "artefact",
+      "definition": ""
+    },
+    "openai-playground": {
+      "label": "OpenAI Playground",
+      "type": "technology",
+      "definition": ""
+    },
+    "cohere": {
+      "label": "Cohere",
+      "type": "technology",
+      "definition": ""
+    },
+    "machine-learning-street-talk": {
+      "label": "Machine Learning Street Talk",
+      "type": "artefact",
+      "definition": ""
+    },
+    "systemic-racism": {
+      "label": "Systemic racism",
+      "type": "concept",
+      "definition": ""
     }
   }
 }
