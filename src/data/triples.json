@@ -6244,6 +6244,38 @@
     "interpersonal-cognition": {
       "label": "Interpersonal cognition",
       "type": "cognitive-tendency"
+    },
+    "audience-analysis": {
+      "label": "Audience analysis",
+      "type": "methodology"
+    },
+    "stakeholder-management": {
+      "label": "Stakeholder management",
+      "type": "concept"
+    },
+    "content-design": {
+      "label": "Content design",
+      "type": "design-discipline"
+    },
+    "mental-model": {
+      "label": "Mental model",
+      "type": "cognitive-tendency"
+    },
+    "domain-research": {
+      "label": "Domain research",
+      "type": "methodology"
+    },
+    "feedback-evaluation": {
+      "label": "Feedback evaluation",
+      "type": "epistemological-concept"
+    },
+    "quality-trade-offs": {
+      "label": "Quality trade-offs",
+      "type": "concept"
+    },
+    "user-persona": {
+      "label": "User persona",
+      "type": "artefact"
     }
   },
   "associations": [
@@ -7882,41 +7914,6 @@
       "predicate": "structured-as",
       "object": "design-artefact",
       "source": "how-do-i-become-a-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-quality-audit",
-      "predicate": "structured-as",
-      "object": "feedback-loop",
-      "source": "how-to-create-your-own-content-quality-audit",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-quality",
-      "predicate": "requires",
-      "object": "stakeholder-alignment",
-      "source": "how-to-create-your-own-content-quality-audit",
-      "collection": "articles"
-    },
-    {
-      "subject": "audience-modelling",
-      "predicate": "counters",
-      "object": "expert-centric-writing",
-      "source": "how-to-create-your-own-content-quality-audit",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-quality",
-      "predicate": "characterised-as",
-      "object": "trade-off",
-      "source": "how-to-create-your-own-content-quality-audit",
-      "collection": "articles"
-    },
-    {
-      "subject": "feedback",
-      "predicate": "requires",
-      "object": "critical-appraisal",
-      "source": "how-to-create-your-own-content-quality-audit",
       "collection": "articles"
     },
     {
@@ -10990,6 +10987,62 @@
       "predicate": "contrasted-with",
       "object": "chatgpt",
       "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "content-quality-audit",
+      "predicate": "structured-as",
+      "object": "five-checks-facts-audience-stakeholders-quality-level-feedba",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "content-quality",
+      "predicate": "defined-as",
+      "object": "a-negotiable-trade-off-across-accuracy-completeness-consiste",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "audience-analysis",
+      "predicate": "requires",
+      "object": "alignment-on-experience-level-mental-model-jargon-and-task-c",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "feedback-evaluation",
+      "predicate": "presupposes",
+      "object": "assessing-the-source-s-qualification-and-context-before-acce",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "domain-research",
+      "predicate": "leads-to",
+      "object": "accurate-representation-of-complex-procedures-and-systems",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "stakeholder-management",
+      "predicate": "requires",
+      "object": "surfacing-conflicting-interests-and-legal-or-security-consid",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "quality-trade-offs",
+      "predicate": "requires",
+      "object": "explicit-negotiation-with-stakeholders-over-scope-and-deadli",
+      "source": "how-to-create-your-own-content-quality-audit",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "demonstrates",
+      "object": "specialist-expertise-that-justifies-resisting-unqualified-fe",
+      "source": "how-to-create-your-own-content-quality-audit",
       "collection": "articles"
     }
   ]

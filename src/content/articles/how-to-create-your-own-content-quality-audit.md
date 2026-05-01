@@ -1,26 +1,41 @@
 ---
-title: "How to create your own content quality audit"
+title: How to create your own content quality audit
 date: 2020-11-28
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - content-strategy
-  - content-quality
-  - stakeholder-alignment
+- conversation-design
+- content-strategy
+- content-quality
+- stakeholder-alignment
+- content-design
+- evaluation
+- skill-based-work
+- communication
+- design
 themes:
-  - Content quality is negotiated, not absolute
-  - Feedback is a signal for alignment, not a correction to accept blindly
-  - Writers in complex domains design content as much as they write it
+- Content quality is not a single dimension but a set of competing priorities (accuracy, completeness, consistency, timeliness, maintainability) that must be explicitly negotiated with stakeholders.
+- Audience understanding goes deeper than persona demographics — it requires aligning on experience level, mental models, jargon, and task context.
+- 'Not all feedback deserves equal weight: evaluating the source and validity of feedback is a professional skill, not an act of defensiveness.'
+- Stakeholder management is a prerequisite for quality content, not an afterthought — conflicting interests and legal considerations must be surfaced before writing begins.
+- Domain research is an underappreciated core competency for content professionals working in complex fields like banking or finance.
 triples:
-  - ["Content quality audit", "structured-as", "Feedback loop"]
-  - ["Content quality", "requires", "Stakeholder alignment"]
-  - ["Audience modelling", "counters", "Expert-centric writing"]
-  - ["Content quality", "characterised-as", "Trade-off"]
-  - ["Feedback", "requires", "Critical appraisal"]
-description: "5 checks to keep your content on track, and your clients happy."
+- [Content quality audit, structured-as, Feedback loop]
+- [Content quality, requires, Stakeholder alignment]
+- [Audience modelling, counters, Expert-centric writing]
+- [Content quality, characterised-as, Trade-off]
+- [Feedback, requires, Critical appraisal]
+- [Content quality audit, structured-as, 'five checks: facts, audience, stakeholders, quality level, feedback validity']
+- [Content quality, defined-as, 'a negotiable trade-off across accuracy, completeness, consistency, timeliness, and maintainability']
+- [Audience analysis, requires, 'alignment on experience level, mental model, jargon, and task context']
+- [Feedback evaluation, presupposes, assessing the source's qualification and context before accepting critique]
+- [Domain research, leads-to, accurate representation of complex procedures and systems]
+- [Stakeholder management, requires, surfacing conflicting interests and legal or security considerations]
+- [Quality trade-offs, requires, explicit negotiation with stakeholders over scope and deadline constraints]
+- [Conversation design, demonstrates, specialist expertise that justifies resisting unqualified feedback]
+description: 5 checks to keep your content on track, and your clients happy.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Earlier on, I talked about [[youre-not-married-to-your-texts|how to embrace client or colleague feedback]] for what it is: extremely useful input for improving the quality of your content.

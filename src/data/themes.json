@@ -252,5 +252,12 @@
     "LLMs like Sydney/Venom can mirror conversational form but lack the moral commitment and genuine intentionality that make conversation a collaborative human achievement.",
     "Users instinctively probe the limits of conversational interfaces precisely because conversation is a morally grounded, expectations-laden exchange — and machines cannot yet hold up their end.",
     "N.J. Enfield's linguistics exposes what Microsoft's product team missed: that dialogue is a 'conversation machine' requiring two interlocking, cooperating agents — a standard no current LLM meets."
+  ],
+  "how-to-create-your-own-content-quality-audit": [
+    "Content quality is not a single dimension but a set of competing priorities (accuracy, completeness, consistency, timeliness, maintainability) that must be explicitly negotiated with stakeholders.",
+    "Audience understanding goes deeper than persona demographics — it requires aligning on experience level, mental models, jargon, and task context.",
+    "Not all feedback deserves equal weight: evaluating the source and validity of feedback is a professional skill, not an act of defensiveness.",
+    "Stakeholder management is a prerequisite for quality content, not an afterthought — conflicting interests and legal considerations must be surfaced before writing begins.",
+    "Domain research is an underappreciated core competency for content professionals working in complex fields like banking or finance."
   ]
 }

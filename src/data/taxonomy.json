@@ -1716,6 +1716,51 @@
       "label": "Interpersonal cognition",
       "type": "cognitive-tendency",
       "definition": ""
+    },
+    "content-quality-audit": {
+      "label": "Content quality audit",
+      "type": "methodology",
+      "definition": ""
+    },
+    "audience-analysis": {
+      "label": "Audience analysis",
+      "type": "methodology",
+      "definition": ""
+    },
+    "stakeholder-management": {
+      "label": "Stakeholder management",
+      "type": "concept",
+      "definition": ""
+    },
+    "content-design": {
+      "label": "Content design",
+      "type": "design-discipline",
+      "definition": ""
+    },
+    "mental-model": {
+      "label": "Mental model",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "domain-research": {
+      "label": "Domain research",
+      "type": "methodology",
+      "definition": ""
+    },
+    "feedback-evaluation": {
+      "label": "Feedback evaluation",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "quality-trade-offs": {
+      "label": "Quality trade-offs",
+      "type": "concept",
+      "definition": ""
+    },
+    "user-persona": {
+      "label": "User persona",
+      "type": "artefact",
+      "definition": ""
     }
   }
 }
