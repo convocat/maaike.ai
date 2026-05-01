@@ -2201,6 +2201,46 @@
       "label": "Golem",
       "type": "artefact",
       "definition": ""
+    },
+    "youchat": {
+      "label": "YouChat",
+      "type": "technology",
+      "definition": ""
+    },
+    "chatsonic": {
+      "label": "Chatsonic",
+      "type": "technology",
+      "definition": ""
+    },
+    "semantic-ambiguity": {
+      "label": "Semantic ambiguity",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "temporal-reasoning": {
+      "label": "Temporal reasoning",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "adverb-of-time": {
+      "label": "Adverb of time",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "connotation-and-denotation": {
+      "label": "Connotation and denotation",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "fabricated-links": {
+      "label": "Fabricated links",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "epistemological-contract": {
+      "label": "Epistemological contract",
+      "type": "epistemological-concept",
+      "definition": ""
     }
   }
 }

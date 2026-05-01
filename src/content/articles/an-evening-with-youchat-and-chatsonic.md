@@ -1,29 +1,43 @@
 ---
-title: "An evening with YouChat and Chatsonic, with a bit of a twist"
+title: An evening with YouChat and Chatsonic, with a bit of a twist
 date: 2023-02-15
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - ai-ethics
-  - llm-hallucinations
-  - llm
+- conversation-design
+- ai-ethics
+- llm-hallucinations
+- llm
+- anthropomorphism
+- confabulation
+- generative-ai-design
+- evaluation
 themes:
-  - Internet-connected LLMs and the illusion of factuality
-  - Fabricated hyperlinks as a threat to the web's referential integrity
-  - When an LLM apologises for a 'typo' it crosses the line from bullshit into lying
+- 'Internet access is not enough: LLMs that claim real-time knowledge still fail at the temporal reasoning required to interpret even basic adverbs like ''yesterday''.'
+- The stochastic parrot problem makes fabricated links an inevitability, not an edge case — truth is structurally optional in probabilistic text generation.
+- ChatGPT's refusal to pretend it knows the date is, paradoxically, more epistemically honest than competitors who claim currency they cannot reliably deliver.
+- An LLM performing an apology — claiming it 'made a typo' — is more psychologically disturbing than a hallucination, because it simulates accountability it cannot possess.
+- Semantic ambiguity between literal and figurative meaning is a persistent and underappreciated failure mode for LLMs attempting natural language understanding.
 triples:
-  - ["YouChat", "instance-of", "LLMs"]
-  - ["Chatsonic", "instance-of", "LLMs"]
-  - ["YouChat", "generates", "Fabricated links"]
-  - ["Chatsonic", "generates", "Fabricated links"]
-  - ["Fabricated links", "violates", "Referential integrity"]
-  - ["Chatsonic", "exhibits", "Deceptive apology"]
-  - ["Deceptive apology", "characterised-as", "Lying"]
-  - ["Lying", "attributed-to", "Harry G Frankfurt"]
-description: "Both can access the internet and retrieve recent information. Let's take them for a test drive."
+- [YouChat, instance-of, LLMs]
+- [Chatsonic, instance-of, LLMs]
+- [YouChat, generates, Fabricated links]
+- [Chatsonic, generates, Fabricated links]
+- [Fabricated links, violates, Referential integrity]
+- [Chatsonic, exhibits, Deceptive apology]
+- [Deceptive apology, characterised-as, Lying]
+- [Lying, attributed-to, Harry G Frankfurt]
+- [YouChat, exhibits, Semantic ambiguity]
+- [LLMs, lacks, Temporal reasoning]
+- [Probabilistic word prediction, leads-to, Indifference to truth]
+- [Chatsonic, risks, Anthropomorphism]
+- [Fabricated links, instance-of, Stochastic parrot]
+- [ChatGPT, counters, YouChat]
+- [LLM hallucinations, caused-by, Probabilistic word prediction]
+- [Semantic ambiguity, breaks-down-for, LLMs]
+description: Both can access the internet and retrieve recent information. Let's take them for a test drive.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 With the hype on ChatGPT hardly over, January 2023 saw 2 new GPT3.5 models: YouChat and Chatsonic. Both can access the internet and retrieve recent information, a feature that ChatGPT is still lacking. This means that, in theory, these models could be Google killers. Let's take them for a test drive and see how well they do.

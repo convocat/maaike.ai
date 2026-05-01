@@ -6576,6 +6576,26 @@
     "asimov's-laws-of-robotics": {
       "label": "Asimov's Laws of Robotics",
       "type": "philosophical-framework"
+    },
+    "semantic-ambiguity": {
+      "label": "Semantic ambiguity",
+      "type": "linguistic-concept"
+    },
+    "temporal-reasoning": {
+      "label": "Temporal reasoning",
+      "type": "technical-mechanism"
+    },
+    "adverb-of-time": {
+      "label": "Adverb of time",
+      "type": "linguistic-concept"
+    },
+    "connotation-and-denotation": {
+      "label": "Connotation and denotation",
+      "type": "linguistic-concept"
+    },
+    "epistemological-contract": {
+      "label": "Epistemological contract",
+      "type": "epistemological-concept"
     }
   },
   "associations": [
@@ -7794,62 +7814,6 @@
       "predicate": "contrasted-with",
       "object": "chatgpt",
       "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "youchat",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatsonic",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "youchat",
-      "predicate": "generates",
-      "object": "fabricated-links",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatsonic",
-      "predicate": "generates",
-      "object": "fabricated-links",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "fabricated-links",
-      "predicate": "violates",
-      "object": "referential-integrity",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatsonic",
-      "predicate": "exhibits",
-      "object": "deceptive-apology",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "deceptive-apology",
-      "predicate": "characterised-as",
-      "object": "lying",
-      "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "lying",
-      "predicate": "attributed-to",
-      "object": "harry-g-frankfurt",
-      "source": "an-evening-with-youchat-and-chatsonic",
       "collection": "articles"
     },
     {
@@ -11518,6 +11482,76 @@
       "predicate": "caused-by",
       "object": "training-data-bias",
       "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "youchat",
+      "predicate": "exhibits",
+      "object": "semantic-ambiguity",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatsonic",
+      "predicate": "generates",
+      "object": "fabricated-links",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "youchat",
+      "predicate": "generates",
+      "object": "fabricated-links",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "temporal-reasoning",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "probabilistic-word-prediction",
+      "predicate": "leads-to",
+      "object": "indifference-to-truth",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatsonic",
+      "predicate": "risks",
+      "object": "anthropomorphism",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "fabricated-links",
+      "predicate": "instance-of",
+      "object": "stochastic-parrot",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "counters",
+      "object": "youchat",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-hallucinations",
+      "predicate": "caused-by",
+      "object": "probabilistic-word-prediction",
+      "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "semantic-ambiguity",
+      "predicate": "breaks-down-for",
+      "object": "llms",
+      "source": "an-evening-with-youchat-and-chatsonic",
       "collection": "articles"
     }
   ]

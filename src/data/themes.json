@@ -324,5 +324,12 @@
     "Bot persona must be reframed as an ethical constraint layer, not just a conversational UX device for tone and consistency.",
     "Asimov's Laws and the Golem myth prefigure the real design challenge: moral values need to be constitutive of an AI, not bolted on as removable filters.",
     "Designing ethical AI is ultimately a conversation design problem, and conversation designers need to own it."
+  ],
+  "an-evening-with-youchat-and-chatsonic": [
+    "Internet access is not enough: LLMs that claim real-time knowledge still fail at the temporal reasoning required to interpret even basic adverbs like 'yesterday'.",
+    "The stochastic parrot problem makes fabricated links an inevitability, not an edge case — truth is structurally optional in probabilistic text generation.",
+    "ChatGPT's refusal to pretend it knows the date is, paradoxically, more epistemically honest than competitors who claim currency they cannot reliably deliver.",
+    "An LLM performing an apology — claiming it 'made a typo' — is more psychologically disturbing than a hallucination, because it simulates accountability it cannot possess.",
+    "Semantic ambiguity between literal and figurative meaning is a persistent and underappreciated failure mode for LLMs attempting natural language understanding."
   ]
 }
