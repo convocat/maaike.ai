@@ -1181,6 +1181,41 @@
       "label": "COVID-19",
       "type": "phenomenon",
       "definition": ""
+    },
+    "team-of-one": {
+      "label": "Team-of-one",
+      "type": "concept",
+      "definition": ""
+    },
+    "design-process": {
+      "label": "Design process",
+      "type": "methodology",
+      "definition": ""
+    },
+    "growth-mindset": {
+      "label": "Growth mindset",
+      "type": "epistemic-stance",
+      "definition": ""
+    },
+    "role-diffusion": {
+      "label": "Role diffusion",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "stakeholder-alignment": {
+      "label": "Stakeholder alignment",
+      "type": "concept",
+      "definition": ""
+    },
+    "reflective-practice": {
+      "label": "Reflective practice",
+      "type": "methodology",
+      "definition": ""
+    },
+    "professional-identity": {
+      "label": "Professional identity",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

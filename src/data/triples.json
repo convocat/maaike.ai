@@ -5892,6 +5892,26 @@
     "covid-19": {
       "label": "COVID-19",
       "type": "phenomenon"
+    },
+    "team-of-one": {
+      "label": "Team-of-one",
+      "type": "concept"
+    },
+    "design-process": {
+      "label": "Design process",
+      "type": "methodology"
+    },
+    "role-diffusion": {
+      "label": "Role diffusion",
+      "type": "phenomenon"
+    },
+    "reflective-practice": {
+      "label": "Reflective practice",
+      "type": "methodology"
+    },
+    "professional-identity": {
+      "label": "Professional identity",
+      "type": "concept"
     }
   },
   "associations": [
@@ -7873,41 +7893,6 @@
       "predicate": "reinforces",
       "object": "critical-thinking",
       "source": "stay-calm-and-keep-thinking-for-yourself",
-      "collection": "articles"
-    },
-    {
-      "subject": "lone-designer",
-      "predicate": "requires",
-      "object": "allies",
-      "source": "the-lone-convo-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-designer",
-      "predicate": "requires",
-      "object": "self-designed-process",
-      "source": "the-lone-convo-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "growth-mindset",
-      "predicate": "counters",
-      "object": "imposter-syndrome",
-      "source": "the-lone-convo-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "release-rhythm",
-      "predicate": "instance-of",
-      "object": "self-imposed-structure",
-      "source": "the-lone-convo-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-person-trap",
-      "predicate": "risks",
-      "object": "role-dilution",
-      "source": "the-lone-convo-designer",
       "collection": "articles"
     },
     {
@@ -10386,6 +10371,62 @@
       "predicate": "presupposes",
       "object": "freelancing",
       "source": "the-long-and-winding-road",
+      "collection": "articles"
+    },
+    {
+      "subject": "team-of-one",
+      "predicate": "requires",
+      "object": "stakeholder-alignment",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "solo-practitioner",
+      "predicate": "risks",
+      "object": "role-diffusion",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "role-diffusion",
+      "predicate": "caused-by",
+      "object": "lack-of-defined-design-process",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "visualised-design-process",
+      "predicate": "leads-to",
+      "object": "stakeholder-alignment",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "release-rhythm",
+      "predicate": "reinforces",
+      "object": "design-process",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "professional-identity",
+      "predicate": "defined-as",
+      "object": "self-declaration-through-reflective-practice",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "reflective-practice",
+      "predicate": "leads-to",
+      "object": "growth-mindset",
+      "source": "the-lone-convo-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "characterised-as",
+      "object": "maturing-field-with-no-hard-certification-metric",
+      "source": "the-lone-convo-designer",
       "collection": "articles"
     }
   ]

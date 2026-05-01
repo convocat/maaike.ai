@@ -1,26 +1,41 @@
 ---
-title: "The lone convo designer: a checklist for a team-of-one"
+title: 'The lone convo designer: a checklist for a team-of-one'
 date: 2022-02-17
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - career
-  - community
-  - imposter-syndrome
+- conversation-design
+- career
+- community
+- imposter-syndrome
+- future-of-work
+- design
+- skill-based-work
+- role-based-collaboration
+- epistemic-humility
 themes:
-  - Solo practitioners need self-designed processes and allies
-  - Identity as a designer is claimed, not certified
-  - Growth mindset replaces seeking external validation
+- Professional identity in a nascent field is self-declared, not externally certified — calling yourself a conversation designer makes you one.
+- 'The solo practitioner''s greatest risk is role diffusion: being absorbed into generic ''content person'' duties at the expense of the analytical and interaction-design value they actually bring.'
+- A deliberately visualised solo design process is simultaneously a personal workflow tool and a stakeholder communication artefact.
+- Release rhythms and self-imposed deadlines are a structural substitute for the team accountability that solo designers lack.
+- Reflective design questions — what decisions did I make, why, and what are the alternatives — are a more reliable growth engine than any external benchmark.
 triples:
-  - ["Lone designer", "requires", "Allies"]
-  - ["Conversation designer", "requires", "Self-designed process"]
-  - ["Growth mindset", "counters", "Imposter syndrome"]
-  - ["Release rhythm", "instance-of", "Self-imposed structure"]
-  - ["Content person trap", "risks", "Role dilution"]
-description: "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!"
+- [Lone designer, requires, Allies]
+- [Conversation designer, requires, Self-designed process]
+- [Growth mindset, counters, Imposter syndrome]
+- [Release rhythm, instance-of, Self-imposed structure]
+- [Content person trap, risks, Role dilution]
+- [Team-of-one, requires, Stakeholder alignment]
+- [Solo practitioner, risks, Role diffusion]
+- [Role diffusion, caused-by, Lack of defined design process]
+- [Visualised Design Process, leads-to, Stakeholder alignment]
+- [Release rhythm, reinforces, Design process]
+- [Professional identity, defined-as, Self-declaration through reflective practice]
+- [Reflective practice, leads-to, Growth mindset]
+- [Conversation Design, characterised-as, Maturing field with no hard certification metric]
+description: Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 When I just started working as a tech writer (a long, long time ago), I often found myself wondering how to do things. How to find a way in which my activities made most sense. And most of all…whether I did things right.
