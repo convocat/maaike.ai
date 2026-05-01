@@ -9,7 +9,6 @@ tags:
 - art-based-research
 - speculative-practice
 - environmental-media
-- multispecies
 - fieldwork
 - climate
 description: '*Fieldwork for Future Ecologies* (Onomatopee 225, 2022) is a 544-page edited volume that argues art practice and art-based research can radically expand the concept of "fieldwork" beyond its conventional scientific framing, positioning creative and speculative methodologies as essential tools for environmental and climate inquiry. Bringing together artists, writers, and theorists across diverse geographic contexts, the book proposes that sensing technologies, image, sound, and movement constitute legitimate and necessary forms of ecological knowledge-making. It functions simultaneously as a practitioner''s handbook and a philosophical speculation, insisting that radical ecological times demand radical artistic practices.'
