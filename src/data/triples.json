@@ -5812,6 +5812,30 @@
     "speech-vs.-writing-distinction": {
       "label": "Speech vs. writing distinction",
       "type": "linguistic-principle"
+    },
+    "dall-e": {
+      "label": "DALL-E",
+      "type": "technology"
+    },
+    "ai-bias": {
+      "label": "AI bias",
+      "type": "phenomenon"
+    },
+    "stereotype": {
+      "label": "Stereotype",
+      "type": "concept"
+    },
+    "inclusive-ai": {
+      "label": "Inclusive AI",
+      "type": "concept"
+    },
+    "ai-representation": {
+      "label": "AI representation",
+      "type": "concept"
+    },
+    "bias-auditing": {
+      "label": "Bias auditing",
+      "type": "methodology"
     }
   },
   "associations": [
@@ -7611,34 +7635,6 @@
       "predicate": "structured-as",
       "object": "role-based-collaboration",
       "source": "off-to-a-good-start",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-workshop",
-      "predicate": "demonstrates",
-      "object": "debiasing",
-      "source": "online-prompt-workshop-de-biasing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "exhibits",
-      "object": "cultural-stereotyping",
-      "source": "online-prompt-workshop-de-biasing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "debiasing",
-      "predicate": "requires",
-      "object": "conscious-prompting",
-      "source": "online-prompt-workshop-de-biasing-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-design",
-      "predicate": "counters",
-      "object": "us-centred-bias",
-      "source": "online-prompt-workshop-de-biasing-dall-e",
       "collection": "articles"
     },
     {
@@ -10257,6 +10253,55 @@
       "predicate": "contrasted-with",
       "object": "back-channel",
       "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e",
+      "predicate": "exhibits",
+      "object": "ai-bias",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "ai-bias",
+      "predicate": "caused-by",
+      "object": "stereotype",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "counters",
+      "object": "ai-bias",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "demonstrates",
+      "object": "bias-auditing",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "image-generation",
+      "predicate": "lacks",
+      "object": "inclusive-ai",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "bias-auditing",
+      "predicate": "leads-to",
+      "object": "ai-representation",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e",
+      "predicate": "instance-of",
+      "object": "image-generation",
+      "source": "online-prompt-workshop-de-biasing-dall-e",
       "collection": "articles"
     }
   ]

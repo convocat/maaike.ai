@@ -1021,6 +1021,46 @@
       "label": "Voice action",
       "type": "technology-category",
       "definition": ""
+    },
+    "dall-e": {
+      "label": "DALL-E",
+      "type": "technology",
+      "definition": ""
+    },
+    "prompt-engineering": {
+      "label": "Prompt engineering",
+      "type": "methodology",
+      "definition": ""
+    },
+    "ai-bias": {
+      "label": "AI bias",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "stereotype": {
+      "label": "Stereotype",
+      "type": "concept",
+      "definition": ""
+    },
+    "inclusive-ai": {
+      "label": "Inclusive AI",
+      "type": "concept",
+      "definition": ""
+    },
+    "image-generation": {
+      "label": "Image generation",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "ai-representation": {
+      "label": "AI representation",
+      "type": "concept",
+      "definition": ""
+    },
+    "bias-auditing": {
+      "label": "Bias auditing",
+      "type": "methodology",
+      "definition": ""
     }
   }
 }

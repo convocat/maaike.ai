@@ -161,5 +161,12 @@
     "Discourse markers and backchannelling cues look similar but serve opposite roles (speaker vs. listener), and conflating them is a diagnostic error in conversation design.",
     "Not all discourse markers are portable across modalities: visual-text signposts ('see above', 'in conclusion') break down in speech, exposing a fundamental medium mismatch.",
     "Designing a bot's 'continuer strategy' is as important as designing its intent coverage — engagement is sustained through acknowledgment, not just correct answers."
+  ],
+  "online-prompt-workshop-de-biasing-dall-e": [
+    "Bias in AI image generation is not a passive flaw — it is an active misrepresentation that requires deliberate intervention to counter.",
+    "Prompt design is not just a productivity skill; it is a tool for social critique and bias auditing.",
+    "Studying DALL-E's stereotypes through prompting reveals as much about human bias as it does about the model's training data.",
+    "Inclusive AI representation demands meticulous, conscious effort from users — it does not emerge automatically from the technology.",
+    "Community-based, hands-on experimentation is a valid and powerful form of AI literacy and critical practice."
   ]
 }
