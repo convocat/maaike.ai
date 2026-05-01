@@ -1061,6 +1061,81 @@
       "label": "Bias auditing",
       "type": "methodology",
       "definition": ""
+    },
+    "ssml": {
+      "label": "SSML",
+      "type": "technology",
+      "definition": ""
+    },
+    "voice-assistant": {
+      "label": "Voice assistant",
+      "type": "technology",
+      "definition": ""
+    },
+    "speech": {
+      "label": "Speech",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "breath": {
+      "label": "Breath",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "prosody": {
+      "label": "Prosody",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "intonation": {
+      "label": "Intonation",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "pitch": {
+      "label": "Pitch",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "intensity": {
+      "label": "Intensity",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "vocal-folds": {
+      "label": "Vocal folds",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "fundamental-frequency": {
+      "label": "Fundamental frequency",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "mirror-neurons": {
+      "label": "Mirror neurons",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "speech-style": {
+      "label": "Speech style",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "one-breath-test": {
+      "label": "One-breath test",
+      "type": "methodology",
+      "definition": ""
+    },
+    "spoken-sample-dialog": {
+      "label": "Spoken sample dialog",
+      "type": "methodology",
+      "definition": ""
+    },
+    "turn": {
+      "label": "Turn",
+      "type": "linguistic-concept",
+      "definition": ""
     }
   }
 }

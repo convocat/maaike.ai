@@ -168,5 +168,12 @@
     "Studying DALL-E's stereotypes through prompting reveals as much about human bias as it does about the model's training data.",
     "Inclusive AI representation demands meticulous, conscious effort from users — it does not emerge automatically from the technology.",
     "Community-based, hands-on experimentation is a valid and powerful form of AI literacy and critical practice."
+  ],
+  "understanding-speech-part-1": [
+    "Breath is the natural unit of spoken turn-taking, making it a design constraint that text-based thinking systematically ignores",
+    "Voice design fluency demands phonetic and linguistic knowledge, not just interface design skills",
+    "Mirror neurons make listening a physically embodied experience — rambling speech is uncomfortable for listeners, not just speakers",
+    "Pitch alone does not determine perceived gender; speech style is equally or more important, opening richer possibilities for voice persona design",
+    "SSML is a tool, but it only works well in the hands of someone who understands the underlying speech concepts it encodes"
   ]
 }

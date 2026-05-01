@@ -1,27 +1,42 @@
 ---
-title: "Understanding speech, part 1"
+title: Understanding speech, part 1
 date: 2020-02-13
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - voice
-  - linguistics
-  - prosody
+- conversation-design
+- voice
+- linguistics
+- prosody
+- voice-design
+- ssml
+- speech-and-language
+- human-machine-interface
+- design
 themes:
-  - Speech is bounded by breath in ways text is not
-  - Prosody carries meaning beyond words
-  - Voice design requires physical and phonetic literacy
+- Breath is the natural unit of spoken turn-taking, making it a design constraint that text-based thinking systematically ignores
+- Voice design fluency demands phonetic and linguistic knowledge, not just interface design skills
+- Mirror neurons make listening a physically embodied experience — rambling speech is uncomfortable for listeners, not just speakers
+- Pitch alone does not determine perceived gender; speech style is equally or more important, opening richer possibilities for voice persona design
+- SSML is a tool, but it only works well in the hands of someone who understands the underlying speech concepts it encodes
 triples:
-  - ["Speech", "contrasted-with", "Written text"]
-  - ["Speech", "requires", "Breath"]
-  - ["Prosody", "defined-as", "Utterance-level sound properties"]
-  - ["Voice design", "requires", "Prosody"]
-  - ["Pitch", "characterised-as", "Perceived fundamental frequency"]
-  - ["Intonation", "characterised-as", "Sentence melody"]
-description: "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation."
+- [Speech, contrasted-with, Written text]
+- [Speech, requires, Breath]
+- [Prosody, defined-as, Utterance-level sound properties]
+- [Voice design, requires, Prosody]
+- [Pitch, characterised-as, Perceived fundamental frequency]
+- [Intonation, characterised-as, Sentence melody]
+- [Breath, defined-as, the natural boundary of a spoken turn]
+- [Voice assistant design, requires, Prosody]
+- [SSML, requires, Speech]
+- [Mirror neurons, leads-to, listener discomfort when speech turns are too long]
+- [Pitch, contrasted-with, Speech style as the primary cue to perceived speaker gender]
+- [Prosody, instance-of, Intonation]
+- [One-breath test, defined-as, a design heuristic for keeping spoken turns within a natural breath length]
+- [Speech, contrasted-with, written text as a design medium]
+description: A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 With voice assistants on the rise, you probably have heard of SSML as a way to make your voice assistant sound less robotic and more humanlike. To use SSML effectively, it really helps if you're familiar with some of the core concepts of speech. So I've put together a primer of voice and speech terms. Here's part 1, more to follow soon.

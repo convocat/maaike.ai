@@ -5836,6 +5836,42 @@
     "bias-auditing": {
       "label": "Bias auditing",
       "type": "methodology"
+    },
+    "voice-assistant": {
+      "label": "Voice assistant",
+      "type": "technology"
+    },
+    "intensity": {
+      "label": "Intensity",
+      "type": "acoustic-concept"
+    },
+    "vocal-folds": {
+      "label": "Vocal folds",
+      "type": "technical-mechanism"
+    },
+    "fundamental-frequency": {
+      "label": "Fundamental frequency",
+      "type": "acoustic-concept"
+    },
+    "mirror-neurons": {
+      "label": "Mirror neurons",
+      "type": "technical-mechanism"
+    },
+    "speech-style": {
+      "label": "Speech style",
+      "type": "linguistic-concept"
+    },
+    "one-breath-test": {
+      "label": "One-breath test",
+      "type": "methodology"
+    },
+    "spoken-sample-dialog": {
+      "label": "Spoken sample dialog",
+      "type": "methodology"
+    },
+    "turn": {
+      "label": "Turn",
+      "type": "linguistic-concept"
     }
   },
   "associations": [
@@ -7894,48 +7930,6 @@
       "predicate": "better-fits",
       "object": "freelance-work",
       "source": "the-long-and-winding-road",
-      "collection": "articles"
-    },
-    {
-      "subject": "speech",
-      "predicate": "contrasted-with",
-      "object": "written-text",
-      "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "speech",
-      "predicate": "requires",
-      "object": "breath",
-      "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "prosody",
-      "predicate": "defined-as",
-      "object": "utterance-level-sound-properties",
-      "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "voice-design",
-      "predicate": "requires",
-      "object": "prosody",
-      "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "pitch",
-      "predicate": "characterised-as",
-      "object": "perceived-fundamental-frequency",
-      "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "intonation",
-      "predicate": "characterised-as",
-      "object": "sentence-melody",
-      "source": "understanding-speech-part-1",
       "collection": "articles"
     },
     {
@@ -10302,6 +10296,62 @@
       "predicate": "instance-of",
       "object": "image-generation",
       "source": "online-prompt-workshop-de-biasing-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "breath",
+      "predicate": "defined-as",
+      "object": "the-natural-boundary-of-a-spoken-turn",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "voice-assistant-design",
+      "predicate": "requires",
+      "object": "prosody",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml",
+      "predicate": "requires",
+      "object": "speech",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "mirror-neurons",
+      "predicate": "leads-to",
+      "object": "listener-discomfort-when-speech-turns-are-too-long",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "pitch",
+      "predicate": "contrasted-with",
+      "object": "speech-style-as-the-primary-cue-to-perceived-speaker-gender",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "prosody",
+      "predicate": "instance-of",
+      "object": "intonation",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "one-breath-test",
+      "predicate": "defined-as",
+      "object": "a-design-heuristic-for-keeping-spoken-turns-within-a-natural",
+      "source": "understanding-speech-part-1",
+      "collection": "articles"
+    },
+    {
+      "subject": "speech",
+      "predicate": "contrasted-with",
+      "object": "written-text-as-a-design-medium",
+      "source": "understanding-speech-part-1",
       "collection": "articles"
     }
   ]
