@@ -9978,13 +9978,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "system-3-artificial-cognition",
-      "predicate": "defined-as",
-      "object": "human-ai-cognition",
-      "source": "ai-artificialintelligence-behavior-behaviour-behav",
-      "collection": "weblinks"
-    },
-    {
       "subject": "cognitive-surrender",
       "predicate": "leads-to",
       "object": "cognitive-autonomy",

@@ -1,5 +1,5 @@
 ---
-title: '#ai #artificialintelligence #behavior #behaviour #behaviorchange #behaviourchange #gedrag #gedragsverandering #thinking #noise #doinggoodlouder | Vincent Rump'
+title: Tri-System Theory (Shaw & Nave, 2026)
 url: https://www.linkedin.com/posts/vincentrump_ai-artificialintelligence-behavior-share-7452626642155372545-XrK9?utm_source=share&utm_medium=member_android&rcm=ACoAAADZio0B3fvibsQhqorZYUThaK9aae5bgWs
 date: 2026-04-26
 updated: 2026-04-26
@@ -23,7 +23,6 @@ triples:
 - [Tri-System Theory, attributed-to, Shaw and Nave]
 - [Tri-System Theory, counters, Dual-process theory]
 - [Dual-process theory, theorised-by, Daniel Kahneman]
-- [System 3 (artificial cognition), defined-as, Human-AI cognition]
 - [Cognitive surrender, leads-to, Cognitive autonomy]
 - [Cognitive surrender, characterised-as, cognitive-laziness]
 - [System 3 (artificial cognition), risks, Cognitive autonomy]
