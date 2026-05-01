@@ -110,6 +110,7 @@ def fm_to_item(fm, collection):
         "updated":     str(fm.get("updated") or fm.get("date", "")),
         "reviewed":    str(fm.get("reviewed") or ""),
         "description": fm.get("description", ""),
+        "body":        fm.get("_body", ""),
         "tags":        fm.get("tags") or [],
         "themes":      fm.get("themes") or [],
         "associations": associations,
@@ -170,18 +171,19 @@ def _represent_flow_list(dumper, data):
 yaml.SafeDumper.add_representer(_FlowList, _represent_flow_list)
 
 
-def apply_edits(path: Path, tags, description, triples, title=None, themes=None):
+def apply_edits(path: Path, tags, description, triples, title=None, themes=None, body=None):
     """Parse the frontmatter, update fields, write it back via pyyaml.
 
     Preserves existing fields (and their order, since dict iteration is ordered).
     Triples are written in flow style `- [s, p, o]` to match convention.
+    Pass body=str to replace the markdown body; omit/None to preserve existing.
     """
     text = path.read_text(encoding="utf-8")
     m = FRONTMATTER_RE.match(text)
     if not m:
         raise ValueError("Invalid frontmatter")
     fm = yaml.safe_load(m.group(1)) or {}
-    body = m.group(2)
+    existing_body = m.group(2)
 
     if title is not None:
         fm["title"] = title
@@ -204,7 +206,10 @@ def apply_edits(path: Path, tags, description, triples, title=None, themes=None)
         default_flow_style=False,
         width=10000,
     )
-    new_text = f"---\n{dumped}---\n{body}"
+    new_body = (body if body is not None else existing_body)
+    # Ensure a single blank line separates frontmatter from body when body is non-empty
+    separator = "\n" if new_body.strip() else ""
+    new_text = f"---\n{dumped}---\n{separator}{new_body}"
     tmp = path.with_suffix(".tmp")
     tmp.write_text(new_text, encoding="utf-8")
     tmp.replace(path)
@@ -327,9 +332,16 @@ def api_approve():
     if not path.exists():
         return jsonify({"error": f"not found: {slug}"}), 404
     try:
-        # Optional edits: tags, description, triples (list of [s,p,o])
-        if any(k in data for k in ("tags", "description", "triples")):
-            apply_edits(path, data.get("tags"), data.get("description"), data.get("triples"), title=data.get("title"))
+        # Optional edits: tags, description, body, triples (list of [s,p,o])
+        if any(k in data for k in ("tags", "description", "triples", "body")):
+            apply_edits(
+                path,
+                data.get("tags"),
+                data.get("description"),
+                data.get("triples"),
+                title=data.get("title"),
+                body=data.get("body"),
+            )
             if "triples" in data:
                 sync_triples_json(slug, "weblinks", data["triples"])
         flip_draft_false(path)
