@@ -1661,6 +1661,61 @@
       "label": "Visionary experience",
       "type": "philosophical-concept",
       "definition": ""
+    },
+    "bing-chat": {
+      "label": "Bing Chat",
+      "type": "technology",
+      "definition": ""
+    },
+    "sydney-(bing-persona)": {
+      "label": "Sydney (Bing persona)",
+      "type": "technology",
+      "definition": ""
+    },
+    "n.j.-enfield": {
+      "label": "N.J. Enfield",
+      "type": "person",
+      "definition": ""
+    },
+    "moral-commitment-in-conversation": {
+      "label": "Moral commitment in conversation",
+      "type": "philosophical-concept",
+      "definition": ""
+    },
+    "conversational-intentionality": {
+      "label": "Conversational intentionality",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "dialogue-as-collaboration": {
+      "label": "Dialogue as collaboration",
+      "type": "linguistic-principle",
+      "definition": ""
+    },
+    "the-conversation-machine": {
+      "label": "The conversation machine",
+      "type": "theoretical-concept",
+      "definition": ""
+    },
+    "task-based-dialogue": {
+      "label": "Task-based dialogue",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "persona-design": {
+      "label": "Persona design",
+      "type": "design-discipline",
+      "definition": ""
+    },
+    "mirroring-(conversational)": {
+      "label": "Mirroring (conversational)",
+      "type": "technical-phenomenon",
+      "definition": ""
+    },
+    "interpersonal-cognition": {
+      "label": "Interpersonal cognition",
+      "type": "cognitive-tendency",
+      "definition": ""
     }
   }
 }

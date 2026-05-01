@@ -6204,6 +6204,46 @@
     "visionary-experience": {
       "label": "Visionary experience",
       "type": "philosophical-concept"
+    },
+    "sydney-(bing-persona)": {
+      "label": "Sydney (Bing persona)",
+      "type": "technology"
+    },
+    "n.j.-enfield": {
+      "label": "N.J. Enfield",
+      "type": "person"
+    },
+    "moral-commitment-in-conversation": {
+      "label": "Moral commitment in conversation",
+      "type": "philosophical-concept"
+    },
+    "conversational-intentionality": {
+      "label": "Conversational intentionality",
+      "type": "linguistic-concept"
+    },
+    "dialogue-as-collaboration": {
+      "label": "Dialogue as collaboration",
+      "type": "linguistic-principle"
+    },
+    "the-conversation-machine": {
+      "label": "The conversation machine",
+      "type": "theoretical-concept"
+    },
+    "task-based-dialogue": {
+      "label": "Task-based dialogue",
+      "type": "communication-type"
+    },
+    "persona-design": {
+      "label": "Persona design",
+      "type": "design-discipline"
+    },
+    "mirroring-(conversational)": {
+      "label": "Mirroring (conversational)",
+      "type": "technical-phenomenon"
+    },
+    "interpersonal-cognition": {
+      "label": "Interpersonal cognition",
+      "type": "cognitive-tendency"
     }
   },
   "associations": [
@@ -7877,48 +7917,6 @@
       "predicate": "requires",
       "object": "critical-appraisal",
       "source": "how-to-create-your-own-content-quality-audit",
-      "collection": "articles"
-    },
-    {
-      "subject": "bing-chat",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversational-interface",
-      "predicate": "presupposes",
-      "object": "conversational-grounding",
-      "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "bing-chat",
-      "predicate": "lacks",
-      "object": "conversational-grounding",
-      "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation",
-      "predicate": "characterised-as",
-      "object": "collaborative-effort",
-      "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "bing-chat",
-      "predicate": "risks",
-      "object": "anthropomorphism",
-      "source": "microsoft-youre-using-bing-wrong",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation",
-      "predicate": "requires",
-      "object": "moral-commitment",
-      "source": "microsoft-youre-using-bing-wrong",
       "collection": "articles"
     },
     {
@@ -10908,6 +10906,90 @@
       "predicate": "demonstrates",
       "object": "gender-equality",
       "source": "hildegard-von-bingen",
+      "collection": "articles"
+    },
+    {
+      "subject": "bing-chat",
+      "predicate": "instance-of",
+      "object": "conversational-interface",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "microsoft",
+      "predicate": "demonstrates",
+      "object": "anthropomorphism",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "sydney-bing-persona",
+      "predicate": "lacks",
+      "object": "moral-commitment-in-conversation",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "sydney-bing-persona",
+      "predicate": "lacks",
+      "object": "conversational-intentionality",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "mirroring-conversational",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "breaks-down-for",
+      "object": "dialogue-as-collaboration",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "task-based-dialogue",
+      "predicate": "instance-of",
+      "object": "the-conversation-machine",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "leads-to",
+      "object": "anthropomorphism",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "dialogue-as-collaboration",
+      "predicate": "theorised-by",
+      "object": "n-j-enfield",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "the-conversation-machine",
+      "predicate": "requires",
+      "object": "moral-commitment-in-conversation",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "persona-design",
+      "predicate": "causes",
+      "object": "anthropomorphism",
+      "source": "microsoft-youre-using-bing-wrong",
+      "collection": "articles"
+    },
+    {
+      "subject": "sydney-bing-persona",
+      "predicate": "contrasted-with",
+      "object": "chatgpt",
+      "source": "microsoft-youre-using-bing-wrong",
       "collection": "articles"
     }
   ]

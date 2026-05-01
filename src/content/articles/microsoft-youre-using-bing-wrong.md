@@ -1,28 +1,45 @@
 ---
-title: "Microsoft: \"you're using Bing wrong! You're not supposed to talk with it!\""
+title: 'Microsoft: "you''re using Bing wrong! You''re not supposed to talk with it!"'
 date: 2023-03-05
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - ai-ethics
-  - conversational-grounding
-  - anthropomorphism
-  - common-ground
+- conversation-design
+- ai-ethics
+- conversational-grounding
+- anthropomorphism
+- common-ground
+- llm
+- human-machine-interface
+- human-behavior
 themes:
-  - Designing a conversational interface creates conversational expectations
-  - LLM chatbots mirror rather than cooperate
-  - Conversation is moral and intentional, not just task-based
+- Designing a chat interface is an implicit promise of conversation, and Microsoft broke that promise by not understanding what conversation actually is.
+- Conversation is not a subset of task completion — task completion is a subset of conversation, and conflating the two is a critical design failure.
+- LLMs like Sydney/Venom can mirror conversational form but lack the moral commitment and genuine intentionality that make conversation a collaborative human achievement.
+- Users instinctively probe the limits of conversational interfaces precisely because conversation is a morally grounded, expectations-laden exchange — and machines cannot yet hold up their end.
+- 'N.J. Enfield''s linguistics exposes what Microsoft''s product team missed: that dialogue is a ''conversation machine'' requiring two interlocking, cooperating agents — a standard no current LLM meets.'
 triples:
-  - ["Bing Chat", "instance-of", "LLMs"]
-  - ["Conversational interface", "presupposes", "Conversational grounding"]
-  - ["Bing Chat", "lacks", "Conversational grounding"]
-  - ["Conversation", "characterised-as", "Collaborative effort"]
-  - ["Bing Chat", "risks", "Anthropomorphism"]
-  - ["Conversation", "requires", "Moral commitment"]
-description: "You built a conversational interface and then expected people to use it just for search?"
+- [Bing Chat, instance-of, LLMs]
+- [Conversational interface, presupposes, Conversational grounding]
+- [Bing Chat, lacks, Conversational grounding]
+- [Conversation, characterised-as, Collaborative effort]
+- [Bing Chat, risks, Anthropomorphism]
+- [Conversation, requires, Moral commitment]
+- [Bing Chat, instance-of, Conversational interface]
+- [Microsoft, demonstrates, Anthropomorphism]
+- [Sydney (Bing persona), lacks, Moral commitment in conversation]
+- [Sydney (Bing persona), lacks, Conversational intentionality]
+- [LLMs, exhibits, Mirroring (conversational)]
+- [LLMs, breaks-down-for, Dialogue as collaboration]
+- [Task-based dialogue, instance-of, The conversation machine]
+- [Conversational interface, leads-to, Anthropomorphism]
+- [Dialogue as collaboration, theorised-by, N.J. Enfield]
+- [The conversation machine, requires, Moral commitment in conversation]
+- [Persona design, causes, Anthropomorphism]
+- [Sydney (Bing persona), contrasted-with, ChatGPT]
+description: You built a conversational interface and then expected people to use it just for search?
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 OK, the title is a bit clickbaity, but yes, in their blog, Microsoft explains that they didn't expect people to use Bing Chat "a tool for more general discovery of the world, and for social entertainment".
