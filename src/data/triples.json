@@ -6024,6 +6024,50 @@
     "prompt-accuracy": {
       "label": "Prompt accuracy",
       "type": "epistemological-concept"
+    },
+    "dialogflow": {
+      "label": "Dialogflow",
+      "type": "technology"
+    },
+    "google-assistant": {
+      "label": "Google Assistant",
+      "type": "technology"
+    },
+    "amazon-alexa": {
+      "label": "Amazon Alexa",
+      "type": "technology"
+    },
+    "text-to-speech": {
+      "label": "Text-to-speech",
+      "type": "technology-category"
+    },
+    "speech-rate": {
+      "label": "Speech rate",
+      "type": "acoustic-concept"
+    },
+    "breath-pause": {
+      "label": "Breath pause",
+      "type": "acoustic-concept"
+    },
+    "natural-speech-rhythm": {
+      "label": "Natural speech rhythm",
+      "type": "linguistic-concept"
+    },
+    "markup-language": {
+      "label": "Markup language",
+      "type": "technical-mechanism"
+    },
+    "klm-bluebot": {
+      "label": "KLM Bluebot",
+      "type": "artefact"
+    },
+    "billie-(bol.com)": {
+      "label": "Billie (Bol.com)",
+      "type": "artefact"
+    },
+    "appie-(albert-heijn)": {
+      "label": "Appie (Albert Heijn)",
+      "type": "artefact"
     }
   },
   "associations": [
@@ -7851,41 +7895,6 @@
       "predicate": "requires",
       "object": "bodily-grounding",
       "source": "online-uitgeput-pak-een-kruk",
-      "collection": "articles"
-    },
-    {
-      "subject": "ssml",
-      "predicate": "defined-as",
-      "object": "speech-synthesis-markup-language",
-      "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "ssml",
-      "predicate": "instance-of",
-      "object": "voice-markup",
-      "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "voice-action",
-      "predicate": "requires",
-      "object": "prosody",
-      "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "ssml",
-      "predicate": "counters",
-      "object": "monotone-synthesis",
-      "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "voice-design",
-      "predicate": "requires",
-      "object": "ssml",
-      "source": "onthaast-je-voice-action-met-ssml",
       "collection": "articles"
     },
     {
@@ -10602,6 +10611,62 @@
       "predicate": "reinforces",
       "object": "prompt-engineering",
       "source": "putting-the-design-in-prompt-design",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml",
+      "predicate": "defined-as",
+      "object": "markup-language-applied-to-dialogue-text-to-control-how-tts-",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "default-tts-voice",
+      "predicate": "characterised-as",
+      "object": "monotone-and-unnatural-for-dutch-language-voice-actions",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml-paragraph-and-sentence-tags",
+      "predicate": "leads-to",
+      "object": "more-natural-sentence-melody-and-breath-pauses",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "voice-action",
+      "predicate": "lacks",
+      "object": "natural-prosody-without-ssml-markup",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml",
+      "predicate": "requires",
+      "object": "dialogflow-or-compatible-voice-platform",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "breath-pause",
+      "predicate": "instance-of",
+      "object": "prosody",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "ssml",
+      "predicate": "reinforces",
+      "object": "conversation-design",
+      "source": "onthaast-je-voice-action-met-ssml",
+      "collection": "articles"
+    },
+    {
+      "subject": "speech-rate-control",
+      "predicate": "instance-of",
+      "object": "ssml",
+      "source": "onthaast-je-voice-action-met-ssml",
       "collection": "articles"
     }
   ]

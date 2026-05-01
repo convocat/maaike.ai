@@ -210,5 +210,12 @@
     "Demonstration sets are the prompt-design equivalent of labelled NLU training data — the analogy is structural, not cosmetic, and reveals deep methodological continuity.",
     "Few-shot prompting and zero-shot prompting should be treated as iterative design artefacts, not magic incantations, subject to the same candidate-testing loops used in bot development.",
     "Conversation designers already hold the transferable skills needed to bring rigour to the LLM hype cycle; the challenge is recognising and articulating that transfer."
+  ],
+  "onthaast-je-voice-action-met-ssml": [
+    "The default synthetic voice in Dutch-language voice actions is a UX problem that designers can partially solve without waiting for better platform infrastructure.",
+    "SSML markup — especially paragraph and sentence tags — is the minimum viable intervention for making TTS output sound human and breathable.",
+    "Pace and prosody are design materials: slowing down a voice action is as much a design decision as choosing words.",
+    "Conversation designers working within constrained voice platforms (four default voices) must rely on markup craft, not platform variety, to improve audio quality.",
+    "Experimenting with alternative voices and SSML together represents a compounding improvement strategy, not a single silver bullet."
   ]
 }

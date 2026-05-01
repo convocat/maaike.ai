@@ -1401,6 +1401,61 @@
       "label": "Prompt accuracy",
       "type": "epistemological-concept",
       "definition": ""
+    },
+    "dialogflow": {
+      "label": "Dialogflow",
+      "type": "technology",
+      "definition": ""
+    },
+    "google-assistant": {
+      "label": "Google Assistant",
+      "type": "technology",
+      "definition": ""
+    },
+    "amazon-alexa": {
+      "label": "Amazon Alexa",
+      "type": "technology",
+      "definition": ""
+    },
+    "text-to-speech": {
+      "label": "Text-to-speech",
+      "type": "technology-category",
+      "definition": ""
+    },
+    "speech-rate": {
+      "label": "Speech rate",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "breath-pause": {
+      "label": "Breath pause",
+      "type": "acoustic-concept",
+      "definition": ""
+    },
+    "natural-speech-rhythm": {
+      "label": "Natural speech rhythm",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "markup-language": {
+      "label": "Markup language",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "klm-bluebot": {
+      "label": "KLM Bluebot",
+      "type": "artefact",
+      "definition": ""
+    },
+    "billie-(bol.com)": {
+      "label": "Billie (Bol.com)",
+      "type": "artefact",
+      "definition": ""
+    },
+    "appie-(albert-heijn)": {
+      "label": "Appie (Albert Heijn)",
+      "type": "artefact",
+      "definition": ""
     }
   }
 }
