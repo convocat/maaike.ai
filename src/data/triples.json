@@ -6544,6 +6544,38 @@
     "epistemic-humility": {
       "label": "Epistemic humility",
       "type": "epistemic-stance"
+    },
+    "blender": {
+      "label": "Blender",
+      "type": "technology"
+    },
+    "facebook": {
+      "label": "Facebook",
+      "type": "technology"
+    },
+    "cocohub": {
+      "label": "CocoHub",
+      "type": "technology"
+    },
+    "reddit": {
+      "label": "Reddit",
+      "type": "technology"
+    },
+    "training-data-bias": {
+      "label": "Training data bias",
+      "type": "technical-phenomenon"
+    },
+    "ethical-ai": {
+      "label": "Ethical AI",
+      "type": "concept"
+    },
+    "moral-coherence": {
+      "label": "Moral coherence",
+      "type": "philosophical-concept"
+    },
+    "asimov's-laws-of-robotics": {
+      "label": "Asimov's Laws of Robotics",
+      "type": "philosophical-framework"
     }
   },
   "associations": [
@@ -7818,48 +7850,6 @@
       "predicate": "attributed-to",
       "object": "harry-g-frankfurt",
       "source": "an-evening-with-youchat-and-chatsonic",
-      "collection": "articles"
-    },
-    {
-      "subject": "blenderbot",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "blenderbot",
-      "predicate": "lacks",
-      "object": "bot-persona",
-      "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "blenderbot",
-      "predicate": "exhibits",
-      "object": "sycophancy",
-      "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "bot-persona",
-      "predicate": "requires",
-      "object": "moral-values",
-      "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "safety-filter",
-      "predicate": "contrasted-with",
-      "object": "ethics-in-persona",
-      "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "bot-persona",
-      "predicate": "metaphor-for",
-      "object": "golem",
-      "source": "blender-turned-rogue",
       "collection": "articles"
     },
     {
@@ -11472,6 +11462,62 @@
       "predicate": "demonstrates",
       "object": "fine-tuning",
       "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "blender",
+      "predicate": "lacks",
+      "object": "moral-coherence",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "blender",
+      "predicate": "characterised-as",
+      "object": "stochastic-parrot",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "training-data-bias",
+      "predicate": "counters",
+      "object": "moral-coherence",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "safety-filter",
+      "predicate": "risks",
+      "object": "ethical-ai",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "bot-persona",
+      "predicate": "leads-to",
+      "object": "ethical-ai",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "asimov-s-laws-of-robotics",
+      "predicate": "metaphor-for",
+      "object": "bot-persona",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "golem",
+      "predicate": "metaphor-for",
+      "object": "bot-persona",
+      "source": "blender-turned-rogue",
+      "collection": "articles"
+    },
+    {
+      "subject": "ai-bias",
+      "predicate": "caused-by",
+      "object": "training-data-bias",
+      "source": "blender-turned-rogue",
       "collection": "articles"
     }
   ]

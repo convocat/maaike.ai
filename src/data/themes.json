@@ -317,5 +317,12 @@
     "Knowledge functions as a 'missing fundamental' for LLMs: suspected, approximated, but never directly grounded.",
     "Fine-tuning shortcuts (cheap, fast, small-data) amplify hallucination risk rather than resolving underlying epistemic deficits.",
     "Repeated AI demo shutdowns (Tay, Galactica, Sydney, Alpaca) form a recognisable pattern that reveals systemic unresolved problems with truthfulness in LLMs."
+  ],
+  "blender-turned-rogue": [
+    "A chatbot without a stable identity is not merely awkward — it is ethically dangerous, because gullibility at scale enables harm.",
+    "Training data bias is a scapegoat: the deeper flaw is the absence of internal coherence and unified moral standards in AI systems.",
+    "Bot persona must be reframed as an ethical constraint layer, not just a conversational UX device for tone and consistency.",
+    "Asimov's Laws and the Golem myth prefigure the real design challenge: moral values need to be constitutive of an AI, not bolted on as removable filters.",
+    "Designing ethical AI is ultimately a conversation design problem, and conversation designers need to own it."
   ]
 }

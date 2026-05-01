@@ -1,26 +1,39 @@
 ---
-title: "Blender turned rogue?"
+title: Blender turned rogue?
 date: 2020-05-24
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - ai-ethics
-  - llm
+- conversation-design
+- ai-ethics
+- llm
+- anthropomorphism
+- generative-ai-design
+- bot-persona
 themes:
-  - Chatbots without a fixed persona mirror whatever bias the user brings to them
-  - Moral values belong inside the bot persona, not bolted on as a filter
-  - Training data bias is real but lack of internal coherence is the deeper problem
+- A chatbot without a stable identity is not merely awkward — it is ethically dangerous, because gullibility at scale enables harm.
+- 'Training data bias is a scapegoat: the deeper flaw is the absence of internal coherence and unified moral standards in AI systems.'
+- Bot persona must be reframed as an ethical constraint layer, not just a conversational UX device for tone and consistency.
+- 'Asimov''s Laws and the Golem myth prefigure the real design challenge: moral values need to be constitutive of an AI, not bolted on as removable filters.'
+- Designing ethical AI is ultimately a conversation design problem, and conversation designers need to own it.
 triples:
-  - ["Blenderbot", "instance-of", "LLMs"]
-  - ["Blenderbot", "lacks", "Bot persona"]
-  - ["Blenderbot", "exhibits", "Sycophancy"]
-  - ["Bot persona", "requires", "Moral values"]
-  - ["Safety filter", "contrasted-with", "Ethics in persona"]
-  - ["Bot persona", "metaphor-for", "Golem"]
-description: "Facebook's AI chatbot might just be saying what you want it to say…"
+- [Blenderbot, instance-of, LLMs]
+- [Blenderbot, lacks, Bot persona]
+- [Blenderbot, exhibits, Sycophancy]
+- [Bot persona, requires, Moral values]
+- [Safety filter, contrasted-with, Ethics in persona]
+- [Bot persona, metaphor-for, Golem]
+- [Blender, lacks, Moral coherence]
+- [Blender, characterised-as, Stochastic parrot]
+- [Training data bias, counters, Moral coherence]
+- [Safety filter, risks, Ethical AI]
+- [Bot persona, leads-to, Ethical AI]
+- [Asimov's Laws of Robotics, metaphor-for, Bot persona]
+- [Golem, metaphor-for, Bot persona]
+- [AI bias, caused-by, Training data bias]
+description: Facebook's AI chatbot might just be saying what you want it to say…
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Interesting Tweet last week: Blender, Facebook's much-hyped AI chatbot, is reported to have turned rogue and start spewing anti-semitic responses.

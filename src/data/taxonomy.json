@@ -2151,6 +2151,56 @@
       "label": "Epistemic humility",
       "type": "epistemic-stance",
       "definition": ""
+    },
+    "blender": {
+      "label": "Blender",
+      "type": "technology",
+      "definition": ""
+    },
+    "facebook": {
+      "label": "Facebook",
+      "type": "technology",
+      "definition": ""
+    },
+    "cocohub": {
+      "label": "CocoHub",
+      "type": "technology",
+      "definition": ""
+    },
+    "reddit": {
+      "label": "Reddit",
+      "type": "technology",
+      "definition": ""
+    },
+    "training-data-bias": {
+      "label": "Training data bias",
+      "type": "technical-phenomenon",
+      "definition": ""
+    },
+    "safety-filter": {
+      "label": "Safety filter",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "ethical-ai": {
+      "label": "Ethical AI",
+      "type": "concept",
+      "definition": ""
+    },
+    "moral-coherence": {
+      "label": "Moral coherence",
+      "type": "philosophical-concept",
+      "definition": ""
+    },
+    "asimov's-laws-of-robotics": {
+      "label": "Asimov's Laws of Robotics",
+      "type": "philosophical-framework",
+      "definition": ""
+    },
+    "golem": {
+      "label": "Golem",
+      "type": "artefact",
+      "definition": ""
     }
   }
 }
