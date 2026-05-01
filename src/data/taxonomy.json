@@ -2116,6 +2116,41 @@
       "label": "Sketchnoting",
       "type": "methodology",
       "definition": ""
+    },
+    "stanford-alpaca": {
+      "label": "Stanford Alpaca",
+      "type": "technology",
+      "definition": ""
+    },
+    "llama": {
+      "label": "LLaMA",
+      "type": "technology",
+      "definition": ""
+    },
+    "tay": {
+      "label": "Tay",
+      "type": "technology",
+      "definition": ""
+    },
+    "galactica": {
+      "label": "Galactica",
+      "type": "technology",
+      "definition": ""
+    },
+    "sydney": {
+      "label": "Sydney",
+      "type": "technology",
+      "definition": ""
+    },
+    "fine-tuning": {
+      "label": "Fine-tuning",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "epistemic-humility": {
+      "label": "Epistemic humility",
+      "type": "epistemic-stance",
+      "definition": ""
     }
   }
 }

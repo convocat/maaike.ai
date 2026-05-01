@@ -6520,6 +6520,30 @@
     "sketchnoting": {
       "label": "Sketchnoting",
       "type": "methodology"
+    },
+    "llama": {
+      "label": "LLaMA",
+      "type": "technology"
+    },
+    "tay": {
+      "label": "Tay",
+      "type": "technology"
+    },
+    "galactica": {
+      "label": "Galactica",
+      "type": "technology"
+    },
+    "sydney": {
+      "label": "Sydney",
+      "type": "technology"
+    },
+    "fine-tuning": {
+      "label": "Fine-tuning",
+      "type": "technical-mechanism"
+    },
+    "epistemic-humility": {
+      "label": "Epistemic humility",
+      "type": "epistemic-stance"
     }
   },
   "associations": [
@@ -7836,41 +7860,6 @@
       "predicate": "metaphor-for",
       "object": "golem",
       "source": "blender-turned-rogue",
-      "collection": "articles"
-    },
-    {
-      "subject": "stanford-alpaca",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "collection": "articles"
-    },
-    {
-      "subject": "stanford-alpaca",
-      "predicate": "exhibits",
-      "object": "llm-hallucinations",
-      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "collection": "articles"
-    },
-    {
-      "subject": "llm-hallucinations",
-      "predicate": "caused-by",
-      "object": "probabilistic-word-prediction",
-      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "lacks",
-      "object": "ground-truth",
-      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "collection": "articles"
-    },
-    {
-      "subject": "missing-fundamental",
-      "predicate": "metaphor-for",
-      "object": "ground-truth",
-      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
       "collection": "articles"
     },
     {
@@ -11427,6 +11416,62 @@
       "predicate": "generates",
       "object": "conversation-design",
       "source": "convoclub-clubhouse",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-hallucinations",
+      "predicate": "caused-by",
+      "object": "probabilistic-word-prediction",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "ground-truth",
+      "predicate": "inaccessible-via",
+      "object": "probabilistic-word-prediction",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "missing-fundamental",
+      "predicate": "metaphor-for",
+      "object": "knowledge-in-llms",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "stanford-alpaca",
+      "predicate": "instance-of",
+      "object": "llm-hallucinations",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "incompatible-with",
+      "object": "epistemic-humility",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "confabulation",
+      "predicate": "leads-to",
+      "object": "llm-hallucinations",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
+      "collection": "articles"
+    },
+    {
+      "subject": "stanford-alpaca",
+      "predicate": "demonstrates",
+      "object": "fine-tuning",
+      "source": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
       "collection": "articles"
     }
   ]

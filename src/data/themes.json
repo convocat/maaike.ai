@@ -310,5 +310,12 @@
     "Sketchnoting is framed as a lightweight documentation practice that adds value to ephemeral audio conversations.",
     "Social audio platforms like Clubhouse offer a distinct, low-friction communication medium that suits the oral, conversational nature of the conversation design field.",
     "Regular ritual (weekly Friday sessions) is the mechanism that transforms a one-off event into a sustainable community."
+  ],
+  "bye-bye-alpaca-knowledge-as-the-missing-fundamental": [
+    "Hallucinations are not bugs to be patched but symptoms of a deeper architectural incapacity to represent true/false states.",
+    "An LLM cannot genuinely say 'I don't know' because that would require a binary epistemic state its probabilistic nature cannot produce.",
+    "Knowledge functions as a 'missing fundamental' for LLMs: suspected, approximated, but never directly grounded.",
+    "Fine-tuning shortcuts (cheap, fast, small-data) amplify hallucination risk rather than resolving underlying epistemic deficits.",
+    "Repeated AI demo shutdowns (Tay, Galactica, Sydney, Alpaca) form a recognisable pattern that reveals systemic unresolved problems with truthfulness in LLMs."
   ]
 }

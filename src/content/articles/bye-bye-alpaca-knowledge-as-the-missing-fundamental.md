@@ -1,26 +1,38 @@
 ---
-title: "Bye bye Alpaca...knowledge as the missing fundamental?"
+title: Bye bye Alpaca...knowledge as the missing fundamental?
 date: 2023-03-26
 updated: 2026-03-11
 maturity: complete
 tags:
-  - ai-ethics
-  - prompt-design
-  - llm-hallucinations
-  - confabulation
+- ai-ethics
+- prompt-design
+- llm-hallucinations
+- confabulation
+- llm
+- epistemic-humility
+- generative-ai-design
+- music
 themes:
-  - Hallucinations as a structural property of LLMs, not a solvable bug
-  - Knowledge as a missing fundamental in probabilistic text generation
-  - The timpani metaphor for tuning a system that has no clear pitch to tune to
+- Hallucinations are not bugs to be patched but symptoms of a deeper architectural incapacity to represent true/false states.
+- An LLM cannot genuinely say 'I don't know' because that would require a binary epistemic state its probabilistic nature cannot produce.
+- 'Knowledge functions as a ''missing fundamental'' for LLMs: suspected, approximated, but never directly grounded.'
+- Fine-tuning shortcuts (cheap, fast, small-data) amplify hallucination risk rather than resolving underlying epistemic deficits.
+- Repeated AI demo shutdowns (Tay, Galactica, Sydney, Alpaca) form a recognisable pattern that reveals systemic unresolved problems with truthfulness in LLMs.
 triples:
-  - ["Stanford Alpaca", "instance-of", "LLMs"]
-  - ["Stanford Alpaca", "exhibits", "LLM hallucinations"]
-  - ["LLM hallucinations", "caused-by", "Probabilistic word prediction"]
-  - ["LLMs", "lacks", "Ground truth"]
-  - ["Missing fundamental", "metaphor-for", "Ground truth"]
-description: "Wow, that went down fast!"
+- [Stanford Alpaca, instance-of, LLMs]
+- [Stanford Alpaca, exhibits, LLM hallucinations]
+- [LLM hallucinations, caused-by, Probabilistic word prediction]
+- [LLMs, lacks, Ground truth]
+- [Missing fundamental, metaphor-for, Ground truth]
+- [Ground truth, inaccessible-via, Probabilistic word prediction]
+- [Missing fundamental, metaphor-for, Knowledge in LLMs]
+- [Stanford Alpaca, instance-of, LLM hallucinations]
+- [LLMs, incompatible-with, Epistemic humility]
+- [Confabulation, leads-to, LLM hallucinations]
+- [Stanford Alpaca, demonstrates, Fine-tuning]
+description: Wow, that went down fast!
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 You don't have to be a machine learning model to discover a pattern here…Stanford Alpaca apparently has joined the ranks of Tay, Galactica, and Sydney/Venom. Alpaca was announced last week as a model that fine-tunes Meta's LLaMA AI using OpenAI's text-davinci-003 at an incredibly low price of $600, and needing only a few hours.
