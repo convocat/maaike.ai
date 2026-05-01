@@ -80,10 +80,11 @@
     "The tooling problem in conversational AI is not just about the model; it's about dashboards that expose content component relationships, channel dependencies, and release provenance."
   ],
   "saturday-design-thoughts": [
-    "LLMs are trained to fill silence, making negative space a structural absence",
-    "Negative space in music as a model for what conversational AI lacks",
-    "Meaningful friction as a design response to LLM over-fluency",
-    "The conversational interface as a conscious design choice, not a necessity"
+    "Silence is not an absence of design but a design material in its own right — and LLMs, left unchecked, destroy it.",
+    "The 'gift of the gab' of current LLM interfaces is a conscious big-tech design decision, not a technical inevitability, which means it can be undone.",
+    "Meaningful friction — designing constraint and hesitation into an LLM — is a more honest interaction model than frictionless completion.",
+    "Music and singing reveal that silence shapes and co-creates meaning; the same principle applies to conversational AI, where the unspoken is as significant as the spoken.",
+    "System prompting is a legitimate philosophical and design lever for building receptive, silence-informed LLM behaviour."
   ],
   "hey-chatgpt-whos-the-boss": [
     "ChatGPT's apparent knowledge of post-cutoff events is best explained by probabilistic co-occurrence, not by internet access or deliberate training",

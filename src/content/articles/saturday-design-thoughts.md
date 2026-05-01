@@ -4,27 +4,37 @@ date: 2025-06-07
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - philosophy
-  - interaction-model
-  - music
-  - generative-ai-design
+- conversation-design
+- philosophy
+- interaction-model
+- music
+- generative-ai-design
+- design
+- designing-for-doubt
 description: Designing for negative space
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 themes:
-  - "LLMs are trained to fill silence, making negative space a structural absence"
-  - "Negative space in music as a model for what conversational AI lacks"
-  - "Meaningful friction as a design response to LLM over-fluency"
-  - "The conversational interface as a conscious design choice, not a necessity"
+- Silence is not an absence of design but a design material in its own right — and LLMs, left unchecked, destroy it.
+- The 'gift of the gab' of current LLM interfaces is a conscious big-tech design decision, not a technical inevitability, which means it can be undone.
+- Meaningful friction — designing constraint and hesitation into an LLM — is a more honest interaction model than frictionless completion.
+- Music and singing reveal that silence shapes and co-creates meaning; the same principle applies to conversational AI, where the unspoken is as significant as the spoken.
+- System prompting is a legitimate philosophical and design lever for building receptive, silence-informed LLM behaviour.
 triples:
-  - ["LLMs", "lacks", "Negative space"]
-  - ["LLMs", "exhibits", "Conviction"]
-  - ["Meaningful friction", "counters", "Conviction"]
-  - ["Designing for doubt", "requires", "Meaningful friction"]
-  - ["System prompt", "generates", "Meaningful friction"]
+- [LLMs, lacks, Negative space]
+- [LLMs, exhibits, Conviction]
+- [Meaningful friction, counters, Conviction]
+- [Designing for doubt, requires, Meaningful friction]
+- [System prompt, generates, Meaningful friction]
+- [LLMs, lacks, Silence]
+- [LLMs, lacks, Rhythm]
+- [Probabilistic word prediction, leads-to, Meaningful friction]
+- [Negative space, incompatible-with, Probabilistic word prediction]
+- [Conversational interface, characterised-as, Interaction model]
+- [Meaningful friction, counters, Probabilistic word prediction]
+- [System prompt, requires, Constraint design]
+- [Silence, metaphor-for, Negative space]
 ---
-
 LLMs are impossible to shut up. They always have the last word, not unlike when you were on the phone with your crush and kept telling each other 'I'm really hanging up now'. They're trained to fill, to complete. No questions asked, just spit out something as soon as you can, even if it doesn't know the real question yet. They're basically allergic to silence.
 
 From a design perspective, I'm wondering a lot about where [negative space](https://en.wikipedia.org/wiki/Negative_space) lives in an LLM. Because human conversation lives in the unspoken, as much as the spoken. So I'm asking myself, what does it mean to design for negative space when a machine is trained to avoid it?

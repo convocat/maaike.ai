@@ -5660,6 +5660,30 @@
       "subject": [
         "llm"
       ]
+    },
+    "silence": {
+      "label": "Silence",
+      "type": "acoustic-concept"
+    },
+    "rhythm": {
+      "label": "Rhythm",
+      "type": "acoustic-concept"
+    },
+    "interaction-model": {
+      "label": "Interaction model",
+      "type": "concept"
+    },
+    "reflection": {
+      "label": "Reflection",
+      "type": "epistemological-concept"
+    },
+    "constraint-design": {
+      "label": "Constraint design",
+      "type": "design-discipline"
+    },
+    "receptive-interaction": {
+      "label": "Receptive interaction",
+      "type": "interaction-metaphor"
     }
   },
   "associations": [
@@ -6550,41 +6574,6 @@
       "object": "ai-safety",
       "source": "china-s-approach-to-ai-anthropomorphism",
       "collection": "weblinks"
-    },
-    {
-      "subject": "llms",
-      "predicate": "lacks",
-      "object": "negative-space",
-      "source": "saturday-design-thoughts",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "exhibits",
-      "object": "conviction",
-      "source": "saturday-design-thoughts",
-      "collection": "articles"
-    },
-    {
-      "subject": "meaningful-friction",
-      "predicate": "counters",
-      "object": "conviction",
-      "source": "saturday-design-thoughts",
-      "collection": "articles"
-    },
-    {
-      "subject": "designing-for-doubt",
-      "predicate": "requires",
-      "object": "meaningful-friction",
-      "source": "saturday-design-thoughts",
-      "collection": "articles"
-    },
-    {
-      "subject": "system-prompt",
-      "predicate": "generates",
-      "object": "meaningful-friction",
-      "source": "saturday-design-thoughts",
-      "collection": "articles"
     },
     {
       "subject": "chatgpt",
@@ -9860,6 +9849,62 @@
       "predicate": "enables",
       "object": "serendipity",
       "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "silence",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "rhythm",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "probabilistic-word-prediction",
+      "predicate": "leads-to",
+      "object": "meaningful-friction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "negative-space",
+      "predicate": "incompatible-with",
+      "object": "probabilistic-word-prediction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "characterised-as",
+      "object": "interaction-model",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "meaningful-friction",
+      "predicate": "counters",
+      "object": "probabilistic-word-prediction",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "system-prompt",
+      "predicate": "requires",
+      "object": "constraint-design",
+      "source": "saturday-design-thoughts",
+      "collection": "articles"
+    },
+    {
+      "subject": "silence",
+      "predicate": "metaphor-for",
+      "object": "negative-space",
+      "source": "saturday-design-thoughts",
       "collection": "articles"
     }
   ]
