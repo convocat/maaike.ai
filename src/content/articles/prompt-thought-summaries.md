@@ -1,26 +1,38 @@
 ---
-title: "Prompt thought: summaries"
+title: 'Prompt thought: summaries'
 date: 2023-12-16
 updated: 2026-03-15
 maturity: complete
 tags:
-  - prompt-design
-  - llm
-  - writing
-  - summarization
+- prompt-design
+- llm
+- writing
+- summarization
+- prompting
+- generative-ai-design
+- conversation-design
+- skill-based-work
 themes:
-  - LLMs work better from concepts than from condensing source text
-  - Human summarisation intuitions mislead prompt design
-  - Constructive prompting outperforms reductive prompting
+- The traditional notion that summarisation requires a source text is a human-centric assumption that breaks down when working with LLMs.
+- LLMs are structurally better at constructing text from concepts than at reducing full texts — making keyword-first prompting a more effective summary strategy.
+- Human summarisation is cognitively sophisticated, drawing on deep semantic and rhetorical understanding; LLMs substitute this with superficial container-filling heuristics.
+- The best prompt Maaike found essentially asked the model to discard the source text entirely — revealing that the text itself may be unnecessary scaffolding when prompting for summaries.
+- Counterintuitive prompting strategies (construction over reduction) expose hidden assumptions in how we map human writing processes onto LLM capabilities.
 triples:
-  - ["Summarisation", "characterised-as", "Key-concept extraction"]
-  - ["Constructive prompting", "better-fits", "LLMs"]
-  - ["LLMs", "breaks-down-for", "Reductive summarisation"]
-  - ["Keyword-first prompting", "counters", "Source-text summarisation"]
-  - ["Chain of Density", "instance-of", "Summarisation method"]
+- [Summarisation, characterised-as, Key-concept extraction]
+- [Constructive prompting, better-fits, LLMs]
+- [LLMs, breaks-down-for, Reductive summarisation]
+- [Keyword-first prompting, counters, Source-text summarisation]
+- [Chain of Density, instance-of, Summarisation method]
+- [Summarisation, presupposes, Reductionist writing]
+- [Keyword extraction, leads-to, Summarisation]
+- [LLMs, lacks, Foregrounding and backgrounding]
+- [Chain of Density, breaks-down-for, Summarisation]
+- [Human summarisation, requires, Cohesion and coherence]
+- [Prompt design, counters, Reductionist writing]
 description: Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Intuitively, you'd think that a summary presupposes the existence of a piece of content that needs to be summarized. The Dutch word for summary, 'samenvatting', reflects that quite beautifully: samen (together) + vatten (grasp/contain): you bring together the key concepts of your original text. You go from large to small.

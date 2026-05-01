@@ -806,6 +806,51 @@
       "label": "Information and climate crisis overlap",
       "type": "phenomenon",
       "definition": ""
+    },
+    "summarisation": {
+      "label": "Summarisation",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "keyword-extraction": {
+      "label": "Keyword extraction",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "reductionist-writing": {
+      "label": "Reductionist writing",
+      "type": "theoretical-concept",
+      "definition": ""
+    },
+    "constructionist-writing": {
+      "label": "Constructionist writing",
+      "type": "theoretical-concept",
+      "definition": ""
+    },
+    "chain-of-density": {
+      "label": "Chain of Density",
+      "type": "methodology",
+      "definition": ""
+    },
+    "foregrounding-and-backgrounding": {
+      "label": "Foregrounding and backgrounding",
+      "type": "linguistic-principle",
+      "definition": ""
+    },
+    "semantic-roles": {
+      "label": "Semantic roles",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "cohesion-and-coherence": {
+      "label": "Cohesion and coherence",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "key-concept-identification": {
+      "label": "Key concept identification",
+      "type": "cognitive-tendency",
+      "definition": ""
     }
   }
 }

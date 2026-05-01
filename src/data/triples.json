@@ -5684,6 +5684,34 @@
     "receptive-interaction": {
       "label": "Receptive interaction",
       "type": "interaction-metaphor"
+    },
+    "keyword-extraction": {
+      "label": "Keyword extraction",
+      "type": "technical-mechanism"
+    },
+    "reductionist-writing": {
+      "label": "Reductionist writing",
+      "type": "theoretical-concept"
+    },
+    "constructionist-writing": {
+      "label": "Constructionist writing",
+      "type": "theoretical-concept"
+    },
+    "foregrounding-and-backgrounding": {
+      "label": "Foregrounding and backgrounding",
+      "type": "linguistic-principle"
+    },
+    "semantic-roles": {
+      "label": "Semantic roles",
+      "type": "linguistic-concept"
+    },
+    "cohesion-and-coherence": {
+      "label": "Cohesion and coherence",
+      "type": "linguistic-concept"
+    },
+    "key-concept-identification": {
+      "label": "Key concept identification",
+      "type": "cognitive-tendency"
     }
   },
   "associations": [
@@ -7616,41 +7644,6 @@
       "predicate": "requires",
       "object": "ssml",
       "source": "onthaast-je-voice-action-met-ssml",
-      "collection": "articles"
-    },
-    {
-      "subject": "summarisation",
-      "predicate": "characterised-as",
-      "object": "key-concept-extraction",
-      "source": "prompt-thought-summaries",
-      "collection": "articles"
-    },
-    {
-      "subject": "constructive-prompting",
-      "predicate": "better-fits",
-      "object": "llms",
-      "source": "prompt-thought-summaries",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "breaks-down-for",
-      "object": "reductive-summarisation",
-      "source": "prompt-thought-summaries",
-      "collection": "articles"
-    },
-    {
-      "subject": "keyword-first-prompting",
-      "predicate": "counters",
-      "object": "source-text-summarisation",
-      "source": "prompt-thought-summaries",
-      "collection": "articles"
-    },
-    {
-      "subject": "chain-of-density",
-      "predicate": "instance-of",
-      "object": "summarisation-method",
-      "source": "prompt-thought-summaries",
       "collection": "articles"
     },
     {
@@ -10095,6 +10088,48 @@
       "object": "creative-international-non-profit-building-civil-society-cap",
       "source": "announcing-supercharged-human",
       "collection": "weblinks"
+    },
+    {
+      "subject": "summarisation",
+      "predicate": "presupposes",
+      "object": "reductionist-writing",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "keyword-extraction",
+      "predicate": "leads-to",
+      "object": "summarisation",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "foregrounding-and-backgrounding",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "chain-of-density",
+      "predicate": "breaks-down-for",
+      "object": "summarisation",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "human-summarisation",
+      "predicate": "requires",
+      "object": "cohesion-and-coherence",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-design",
+      "predicate": "counters",
+      "object": "reductionist-writing",
+      "source": "prompt-thought-summaries",
+      "collection": "articles"
     }
   ]
 }
