@@ -1,24 +1,39 @@
 ---
-title: "Fingers crossed is a figure of speech, DALL-E!"
+title: Fingers crossed is a figure of speech, DALL-E!
 date: 2023-11-04
 updated: 2026-03-11
 maturity: complete
 tags:
-  - prompt-design
-  - ai-ethics
-  - generative-ai-design
-  - llm
-  - anthropomorphism
+- prompt-design
+- ai-ethics
+- generative-ai-design
+- llm
+- anthropomorphism
+- llm-hallucinations
+- image-generation
+- prompting
+- evaluation
 description: DALL-E 3 is still digitally challenged.
 triples:
-  - ["DALL-E 3", "instance-of", "LLMs"]
-  - ["DALL-E 3", "exhibits", "Prompt augmentation"]
-  - ["Prompt augmentation", "counters", "Prompt design"]
-  - ["Emotional prompting", "leads-to", "Anthropomorphism"]
-  - ["DALL-E 3", "lacks", "Context window"]
-  - ["Image generation", "exhibits", "LLM hallucinations"]
+- [DALL-E 3, instance-of, LLMs]
+- [DALL-E 3, exhibits, Prompt augmentation]
+- [Prompt augmentation, counters, Prompt design]
+- [Emotional prompting, leads-to, Anthropomorphism]
+- [DALL-E 3, lacks, Context window]
+- [Image generation, exhibits, LLM hallucinations]
+- [Prompt augmentation, risks, Bias propagation]
+- [Prompt augmentation, leads-to, divergence from user intent]
+- [1-shot prompt completion, incompatible-with, Iterative refinement]
+- [DALL-E 3, contrasted-with, Midjourney]
+- [DALL-E 3, demonstrates, LLM hallucinations]
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
+themes:
+- 'Prompt augmentation is a double-edged sword: DALL-E 3''s automatic prompt rewriting trades fidelity to user intent for visual polish, and that trade-off is not the user''s to make.'
+- The inability to carry context across image generation prompts exposes a critical architectural gap — 1-shot completion is fundamentally at odds with iterative creative work.
+- Marketing claims about AI capability advances (reliable hands, faces, text) do not survive contact with real-world use cases, and practitioners must test rather than trust.
+- Explicit technical prompting strategies (ISO, f-stop, film stock) expose the gap between DALL-E 3's surface fluency with photography vocabulary and its inability to operationalise that vocabulary into consistent outputs.
+- Iteration without memory is not iteration — each prompt round in DALL-E 3 is effectively a cold start, making refinement a lottery rather than a craft.
 ---
 
 With the introduction of DALL-E 3 in the ChatGPT, hopes were high. This most capable image generation engine to date would be able to create reliable, accurate and crisp images that are not only more visually striking but also crisper in detail. It was supposed to reliably render intricate details, including text, hands, and faces.

@@ -1871,6 +1871,46 @@
       "label": "Terry Pratchett",
       "type": "person",
       "definition": ""
+    },
+    "dall-e-3": {
+      "label": "DALL-E 3",
+      "type": "technology",
+      "definition": ""
+    },
+    "midjourney": {
+      "label": "Midjourney",
+      "type": "technology",
+      "definition": ""
+    },
+    "prompt-augmentation": {
+      "label": "Prompt augmentation",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "1-shot-prompt-completion": {
+      "label": "1-shot prompt completion",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "seed-number": {
+      "label": "Seed number",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "bias-propagation": {
+      "label": "Bias propagation",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "anatomical-accuracy": {
+      "label": "Anatomical accuracy",
+      "type": "concept",
+      "definition": ""
+    },
+    "figure-of-speech": {
+      "label": "Figure of speech",
+      "type": "linguistic-concept",
+      "definition": ""
     }
   }
 }

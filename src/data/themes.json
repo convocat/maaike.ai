@@ -275,5 +275,12 @@
     "Writing for conversational interfaces is fundamentally different from writing for screens — it is spoken language in written form, governed by entirely different conventions.",
     "A chatbot without a defined use case is a solution in search of a problem — the research phase is as essential as the design phase.",
     "Bot persona, tone of voice, and style guides are not nice-to-haves but core design deliverables that determine whether a bot is trustworthy and consistent."
+  ],
+  "fingers-crossed-is-a-figure-of-speech-dall-e": [
+    "Prompt augmentation is a double-edged sword: DALL-E 3's automatic prompt rewriting trades fidelity to user intent for visual polish, and that trade-off is not the user's to make.",
+    "The inability to carry context across image generation prompts exposes a critical architectural gap — 1-shot completion is fundamentally at odds with iterative creative work.",
+    "Marketing claims about AI capability advances (reliable hands, faces, text) do not survive contact with real-world use cases, and practitioners must test rather than trust.",
+    "Explicit technical prompting strategies (ISO, f-stop, film stock) expose the gap between DALL-E 3's surface fluency with photography vocabulary and its inability to operationalise that vocabulary into consistent outputs.",
+    "Iteration without memory is not iteration — each prompt round in DALL-E 3 is effectively a cold start, making refinement a lottery rather than a craft."
   ]
 }

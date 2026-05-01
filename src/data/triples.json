@@ -6352,6 +6352,30 @@
     "terry-pratchett": {
       "label": "Terry Pratchett",
       "type": "person"
+    },
+    "midjourney": {
+      "label": "Midjourney",
+      "type": "technology"
+    },
+    "1-shot-prompt-completion": {
+      "label": "1-shot prompt completion",
+      "type": "technical-mechanism"
+    },
+    "seed-number": {
+      "label": "Seed number",
+      "type": "technical-mechanism"
+    },
+    "bias-propagation": {
+      "label": "Bias propagation",
+      "type": "phenomenon"
+    },
+    "anatomical-accuracy": {
+      "label": "Anatomical accuracy",
+      "type": "concept"
+    },
+    "figure-of-speech": {
+      "label": "Figure of speech",
+      "type": "linguistic-concept"
     }
   },
   "associations": [
@@ -7276,48 +7300,6 @@
       "predicate": "risks",
       "object": "conversational-grounding",
       "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "exhibits",
-      "object": "prompt-augmentation",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "prompt-augmentation",
-      "predicate": "counters",
-      "object": "prompt-design",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "emotional-prompting",
-      "predicate": "leads-to",
-      "object": "anthropomorphism",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "dall-e-3",
-      "predicate": "lacks",
-      "object": "context-window",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "image-generation",
-      "predicate": "exhibits",
-      "object": "llm-hallucinations",
-      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
       "collection": "articles"
     },
     {
@@ -11189,6 +11171,62 @@
       "predicate": "risks",
       "object": "training-data-error",
       "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "exhibits",
+      "object": "prompt-augmentation",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-augmentation",
+      "predicate": "risks",
+      "object": "bias-propagation",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-augmentation",
+      "predicate": "leads-to",
+      "object": "divergence-from-user-intent",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "1-shot-prompt-completion",
+      "predicate": "incompatible-with",
+      "object": "iterative-refinement",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "lacks",
+      "object": "context-window",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "contrasted-with",
+      "object": "midjourney",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "dall-e-3",
+      "predicate": "demonstrates",
+      "object": "llm-hallucinations",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
+      "collection": "articles"
+    },
+    {
+      "subject": "prompt-augmentation",
+      "predicate": "counters",
+      "object": "prompt-design",
+      "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
       "collection": "articles"
     }
   ]
