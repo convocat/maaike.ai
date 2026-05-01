@@ -1,27 +1,40 @@
 ---
-title: "An evening with ChatGPT"
+title: An evening with ChatGPT
 date: 2022-12-04
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - prompt-design
-  - llm
-  - anthropomorphism
+- conversation-design
+- prompt-design
+- llm
+- anthropomorphism
+- chatgpt
+- conversational-grounding
+- generative-ai-design
 themes:
-  - First-encounter testing of ChatGPT from a conversation designer's perspective
-  - Persona consistency as a source of trust in conversational AI
-  - How context tracking and refusal to confabulate create the illusion of reasoning
+- Consistent persona maintenance — not mimicking humanity — is the real foundation of trust in conversational AI.
+- Logical grounding (refusing to accept false premises) marks a genuine inflection point in LLM capability, distinguishing ChatGPT from its credulous predecessors.
+- Coreference resolution and multi-turn context tracking are underrated benchmarks for evaluating conversational AI quality.
+- Unintentional humor emerges from the collision of literal consistency and human indirectness — a design property worth studying.
+- A bot persona need not be human-like to be effective; non-human transparency can coexist with sophisticated language understanding.
 triples:
-  - ["ChatGPT", "instance-of", "LLMs"]
-  - ["Bot persona", "reinforces", "Trust"]
-  - ["ChatGPT", "exhibits", "Coreference handling"]
-  - ["ChatGPT", "exhibits", "Context tracking"]
-  - ["ChatGPT", "counters", "Syllogism"]
-  - ["Blenderbot", "contrasted-with", "ChatGPT"]
-description: "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT."
+- [ChatGPT, instance-of, LLMs]
+- [Bot persona, reinforces, Trust]
+- [ChatGPT, exhibits, Coreference handling]
+- [ChatGPT, exhibits, Context tracking]
+- [ChatGPT, counters, Syllogism]
+- [Blenderbot, contrasted-with, ChatGPT]
+- [ChatGPT, demonstrates, Coreference resolution]
+- [ChatGPT, exhibits, Bot persona]
+- [Bot persona, leads-to, Anthropomorphism]
+- [ChatGPT, counters, Anthropomorphism]
+- [BlenderBot, lacks, Ground truth]
+- [ChatGPT, contrasted-with, BlenderBot]
+- [Consistent bot persona, leads-to, Designing for doubt]
+- [Syllogism, demonstrates, Logical inference]
+description: 'Part 1: you can call me Al. A conversation designer''s first encounters with ChatGPT.'
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 If you've been online in the CxD community over the last few days, you've probably heard people talking about ChatGPT, OpenAI's newest Large Language Model. It's the youngest branch on the GPT family that brought us GPT-3 and BlenderBot, and I must say, it's really impressive. Almost too impressive even?

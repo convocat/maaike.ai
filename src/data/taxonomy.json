@@ -2241,6 +2241,46 @@
       "label": "Epistemological contract",
       "type": "epistemological-concept",
       "definition": ""
+    },
+    "blenderbot": {
+      "label": "BlenderBot",
+      "type": "technology",
+      "definition": ""
+    },
+    "gpt-3": {
+      "label": "GPT-3",
+      "type": "technology",
+      "definition": ""
+    },
+    "coreference-resolution": {
+      "label": "Coreference resolution",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "syllogism": {
+      "label": "Syllogism",
+      "type": "philosophical-method",
+      "definition": ""
+    },
+    "logical-inference": {
+      "label": "Logical inference",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "context-tracking": {
+      "label": "Context tracking",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "pronoun-resolution": {
+      "label": "Pronoun resolution",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "face-threatening-act": {
+      "label": "Face-threatening act",
+      "type": "linguistic-concept",
+      "definition": ""
     }
   }
 }

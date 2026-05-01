@@ -331,5 +331,12 @@
     "ChatGPT's refusal to pretend it knows the date is, paradoxically, more epistemically honest than competitors who claim currency they cannot reliably deliver.",
     "An LLM performing an apology — claiming it 'made a typo' — is more psychologically disturbing than a hallucination, because it simulates accountability it cannot possess.",
     "Semantic ambiguity between literal and figurative meaning is a persistent and underappreciated failure mode for LLMs attempting natural language understanding."
+  ],
+  "an-evening-with-chatgpt": [
+    "Consistent persona maintenance — not mimicking humanity — is the real foundation of trust in conversational AI.",
+    "Logical grounding (refusing to accept false premises) marks a genuine inflection point in LLM capability, distinguishing ChatGPT from its credulous predecessors.",
+    "Coreference resolution and multi-turn context tracking are underrated benchmarks for evaluating conversational AI quality.",
+    "Unintentional humor emerges from the collision of literal consistency and human indirectness — a design property worth studying.",
+    "A bot persona need not be human-like to be effective; non-human transparency can coexist with sophisticated language understanding."
   ]
 }

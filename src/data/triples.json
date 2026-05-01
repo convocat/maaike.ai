@@ -6596,6 +6596,26 @@
     "epistemological-contract": {
       "label": "Epistemological contract",
       "type": "epistemological-concept"
+    },
+    "gpt-3": {
+      "label": "GPT-3",
+      "type": "technology"
+    },
+    "coreference-resolution": {
+      "label": "Coreference resolution",
+      "type": "technical-mechanism"
+    },
+    "logical-inference": {
+      "label": "Logical inference",
+      "type": "technical-mechanism"
+    },
+    "pronoun-resolution": {
+      "label": "Pronoun resolution",
+      "type": "linguistic-concept"
+    },
+    "face-threatening-act": {
+      "label": "Face-threatening act",
+      "type": "linguistic-concept"
     }
   },
   "associations": [
@@ -7772,48 +7792,6 @@
       "predicate": "lacks",
       "object": "usability",
       "source": "an-evening-with-chatgpt-september-2023",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "instance-of",
-      "object": "llms",
-      "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "bot-persona",
-      "predicate": "reinforces",
-      "object": "trust",
-      "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "exhibits",
-      "object": "coreference-handling",
-      "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "exhibits",
-      "object": "context-tracking",
-      "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "counters",
-      "object": "syllogism",
-      "source": "an-evening-with-chatgpt",
-      "collection": "articles"
-    },
-    {
-      "subject": "blenderbot",
-      "predicate": "contrasted-with",
-      "object": "chatgpt",
-      "source": "an-evening-with-chatgpt",
       "collection": "articles"
     },
     {
@@ -11552,6 +11530,62 @@
       "predicate": "breaks-down-for",
       "object": "llms",
       "source": "an-evening-with-youchat-and-chatsonic",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "demonstrates",
+      "object": "coreference-resolution",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "exhibits",
+      "object": "bot-persona",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "bot-persona",
+      "predicate": "leads-to",
+      "object": "anthropomorphism",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "blenderbot",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "contrasted-with",
+      "object": "blenderbot",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "consistent-bot-persona",
+      "predicate": "leads-to",
+      "object": "designing-for-doubt",
+      "source": "an-evening-with-chatgpt",
+      "collection": "articles"
+    },
+    {
+      "subject": "syllogism",
+      "predicate": "demonstrates",
+      "object": "logical-inference",
+      "source": "an-evening-with-chatgpt",
       "collection": "articles"
     }
   ]
