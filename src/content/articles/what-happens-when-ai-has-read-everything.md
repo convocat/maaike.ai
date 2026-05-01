@@ -1,28 +1,41 @@
 ---
-title: "What happens when AI has read everything?"
+title: What happens when AI has read everything?
 date: 2023-03-05
 updated: 2026-03-15
 maturity: complete
 tags:
-  - ai-ethics
-  - writing
-  - llm
-  - critical-thinking
+- ai-ethics
+- writing
+- llm
+- critical-thinking
+- generative-ai-design
+- future-of-work
+- role-of-ai
+- human-behavior
 themes:
-  - "Books as high-quality training data: what makes human writing irreplaceable for LLMs"
-  - "Training data scarcity as a structural threat to LLM development"
-  - "Synthetic data and surveillance as dystopian non-solutions"
-  - "The humanistic argument: lived experience is the beating heart of good writing"
+- 'The quality of LLM training data is not just a technical constraint but a humanistic one: books are valuable precisely because they are the product of sustained human effort and judgment.'
+- Synthetic training data generated without human readership is not a solution but a category error—it mistakes the statistical form of knowledge for its substance.
+- Proposals to harvest human speech through surveillance ('dongles around our necks') reveal a troubling instrumentalisation of human communication as raw material.
+- A training loop in which AI feeds its own outputs back into itself as training data risks an epistemically closed system, detached from human experience and novelty.
+- 'The looming data scarcity crisis exposes a deeper question: if AI cannot originate, can it ever produce genuine literary novelty, style, or genre?'
 triples:
-  - ["LLMs", "requires", "Training data"]
-  - ["Training data scarcity", "caused-by", "LLMs"]
-  - ["writing-as-craft", "reinforces", "LLMs"]
-  - ["Training data scarcity", "leads-to", "Synthetic training data"]
-  - ["Synthetic training data", "leads-to", "AI feedback loop"]
-  - ["LLMs", "lacks", "writing-as-craft"]
-description: "Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!"
+- [LLMs, requires, Training data]
+- [Training data scarcity, caused-by, LLMs]
+- [writing-as-craft, reinforces, LLMs]
+- [Training data scarcity, leads-to, Synthetic training data]
+- [Synthetic training data, leads-to, AI feedback loop]
+- [LLMs, lacks, writing-as-craft]
+- [LLMs, requires, High-quality language data]
+- [Books as training data, reinforces, LLMs]
+- [Synthetic training data, risks, Self-referential feedback loop]
+- [Self-referential feedback loop, leads-to, Collective human knowledge]
+- [Synthetic training data, lacks, Human in the loop]
+- [Stochastic parrot, characterised-as, Synthetic training data]
+- [Speech act surveillance, contrasted-with, Collective human knowledge]
+- [Ambient AI, presupposes, Training data]
+description: Are you a writer scared that you might soon be without a job? Fear not! We need more books for AI to work properly!
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Are you a writer scared that you might soon be without a job? Fear not, according to an article in the Atlantic, it seems like we may need more books now than ever. According to a research team led by Pablo Villalobos, as soon as 2023, we may already run out of high-quality language data, and somewhere between 2030 and 2070, we'll be likely to have run out of vision data.

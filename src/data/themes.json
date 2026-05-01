@@ -92,10 +92,11 @@
     "Million-to-one probabilistic coincidences are an underexplored explanation for AI behavior"
   ],
   "what-happens-when-ai-has-read-everything": [
-    "Books as high-quality training data: what makes human writing irreplaceable for LLMs",
-    "Training data scarcity as a structural threat to LLM development",
-    "Synthetic data and surveillance as dystopian non-solutions",
-    "The humanistic argument: lived experience is the beating heart of good writing"
+    "The quality of LLM training data is not just a technical constraint but a humanistic one: books are valuable precisely because they are the product of sustained human effort and judgment.",
+    "Synthetic training data generated without human readership is not a solution but a category error—it mistakes the statistical form of knowledge for its substance.",
+    "Proposals to harvest human speech through surveillance ('dongles around our necks') reveal a troubling instrumentalisation of human communication as raw material.",
+    "A training loop in which AI feeds its own outputs back into itself as training data risks an epistemically closed system, detached from human experience and novelty.",
+    "The looming data scarcity crisis exposes a deeper question: if AI cannot originate, can it ever produce genuine literary novelty, style, or genre?"
   ],
   "new-paper-from-microsoft-this-is-an-important-read": [
     "Limits of LLM delegation in knowledge work",

@@ -5712,6 +5712,54 @@
     "key-concept-identification": {
       "label": "Key concept identification",
       "type": "cognitive-tendency"
+    },
+    "data-scarcity": {
+      "label": "Data scarcity",
+      "type": "phenomenon"
+    },
+    "high-quality-language-data": {
+      "label": "High-quality language data",
+      "type": "concept"
+    },
+    "vision-data": {
+      "label": "Vision data",
+      "type": "concept"
+    },
+    "books-as-training-data": {
+      "label": "Books as training data",
+      "type": "concept"
+    },
+    "human-in-the-loop": {
+      "label": "Human in the loop",
+      "type": "concept"
+    },
+    "collective-human-knowledge": {
+      "label": "Collective human knowledge",
+      "type": "epistemological-concept"
+    },
+    "ambient-ai": {
+      "label": "Ambient AI",
+      "type": "phenomenon"
+    },
+    "speech-act-surveillance": {
+      "label": "Speech act surveillance",
+      "type": "phenomenon"
+    },
+    "pablo-villalobos": {
+      "label": "Pablo Villalobos",
+      "type": "person"
+    },
+    "self-referential-feedback-loop": {
+      "label": "Self-referential feedback loop",
+      "type": "technical-phenomenon"
+    },
+    "literary-originality": {
+      "label": "Literary originality",
+      "type": "philosophical-concept"
+    },
+    "digitisation": {
+      "label": "Digitisation",
+      "type": "concept"
     }
   },
   "associations": [
@@ -6706,48 +6754,6 @@
       "predicate": "exhibits",
       "object": "llm-hallucinations",
       "source": "fingers-crossed-is-a-figure-of-speech-dall-e",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "requires",
-      "object": "training-data",
-      "source": "what-happens-when-ai-has-read-everything",
-      "collection": "articles"
-    },
-    {
-      "subject": "training-data-scarcity",
-      "predicate": "caused-by",
-      "object": "llms",
-      "source": "what-happens-when-ai-has-read-everything",
-      "collection": "articles"
-    },
-    {
-      "subject": "writing-as-craft",
-      "predicate": "reinforces",
-      "object": "llms",
-      "source": "what-happens-when-ai-has-read-everything",
-      "collection": "articles"
-    },
-    {
-      "subject": "training-data-scarcity",
-      "predicate": "leads-to",
-      "object": "synthetic-training-data",
-      "source": "what-happens-when-ai-has-read-everything",
-      "collection": "articles"
-    },
-    {
-      "subject": "synthetic-training-data",
-      "predicate": "leads-to",
-      "object": "ai-feedback-loop",
-      "source": "what-happens-when-ai-has-read-everything",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "lacks",
-      "object": "writing-as-craft",
-      "source": "what-happens-when-ai-has-read-everything",
       "collection": "articles"
     },
     {
@@ -10129,6 +10135,62 @@
       "predicate": "counters",
       "object": "reductionist-writing",
       "source": "prompt-thought-summaries",
+      "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "requires",
+      "object": "high-quality-language-data",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "books-as-training-data",
+      "predicate": "reinforces",
+      "object": "llms",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "synthetic-training-data",
+      "predicate": "risks",
+      "object": "self-referential-feedback-loop",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "self-referential-feedback-loop",
+      "predicate": "leads-to",
+      "object": "collective-human-knowledge",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "synthetic-training-data",
+      "predicate": "lacks",
+      "object": "human-in-the-loop",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "stochastic-parrot",
+      "predicate": "characterised-as",
+      "object": "synthetic-training-data",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "speech-act-surveillance",
+      "predicate": "contrasted-with",
+      "object": "collective-human-knowledge",
+      "source": "what-happens-when-ai-has-read-everything",
+      "collection": "articles"
+    },
+    {
+      "subject": "ambient-ai",
+      "predicate": "presupposes",
+      "object": "training-data",
+      "source": "what-happens-when-ai-has-read-everything",
       "collection": "articles"
     }
   ]

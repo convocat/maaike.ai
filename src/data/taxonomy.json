@@ -851,6 +851,76 @@
       "label": "Key concept identification",
       "type": "cognitive-tendency",
       "definition": ""
+    },
+    "training-data": {
+      "label": "Training data",
+      "type": "concept",
+      "definition": ""
+    },
+    "data-scarcity": {
+      "label": "Data scarcity",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "synthetic-training-data": {
+      "label": "Synthetic training data",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "high-quality-language-data": {
+      "label": "High-quality language data",
+      "type": "concept",
+      "definition": ""
+    },
+    "vision-data": {
+      "label": "Vision data",
+      "type": "concept",
+      "definition": ""
+    },
+    "books-as-training-data": {
+      "label": "Books as training data",
+      "type": "concept",
+      "definition": ""
+    },
+    "human-in-the-loop": {
+      "label": "Human in the loop",
+      "type": "concept",
+      "definition": ""
+    },
+    "collective-human-knowledge": {
+      "label": "Collective human knowledge",
+      "type": "epistemological-concept",
+      "definition": ""
+    },
+    "ambient-ai": {
+      "label": "Ambient AI",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "speech-act-surveillance": {
+      "label": "Speech act surveillance",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "pablo-villalobos": {
+      "label": "Pablo Villalobos",
+      "type": "person",
+      "definition": ""
+    },
+    "self-referential-feedback-loop": {
+      "label": "Self-referential feedback loop",
+      "type": "technical-phenomenon",
+      "definition": ""
+    },
+    "literary-originality": {
+      "label": "Literary originality",
+      "type": "philosophical-concept",
+      "definition": ""
+    },
+    "digitisation": {
+      "label": "Digitisation",
+      "type": "concept",
+      "definition": ""
     }
   }
 }
