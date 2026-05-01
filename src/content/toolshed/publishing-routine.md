@@ -15,7 +15,7 @@ Every post follows the same path from draft to live. The `/publish` skill handle
 
 ## Content enrichment (on creation)
 
-Before a post is published — usually right after it's written — `/auto-tag` runs a structured analysis of the full content and enriches it with semantic metadata. This is the most intellectually complex step in the workflow: everything else is mechanical.
+Before a post is published, usually right after it's written, `/auto-tag` runs a structured analysis of the full content and enriches it with semantic metadata. This is the most intellectually complex step in the workflow: everything else is mechanical.
 
 ### The three-pass read
 
@@ -31,10 +31,10 @@ Every named thing worth knowing about is extracted as a topic: people, technolog
 
 Each topic is classified on four faceted dimensions from controlled vocabularies:
 
-- **type** (one value, required) — what kind of thing: `person`, `technology`, `mechanism`, `phenomenon`, `discipline`, `concept`, `metaphor`, `principle`, `method`
-- **lens** (one or more, required) — the discipline(s) through which the topic is understood: `philosophy`, `epistemology`, `linguistics`, `rhetoric`, `design`, `interaction`, `cognition`, `culture`, `personal`, `observability`, `analytics`, `development`
-- **subject** (one or more, required) — the topic area(s) the concept is about: `conversation`, `content`, `writing`, `voice`, `language`, `linguistics`, `llm`, `prompt`, `agent`, `knowledge`, `mind`, `pragmatics`, `psycholinguistics`, `content-design`, `conversation-design`, `prompt-design`, `information-architecture`, `structured-authoring`, `interaction-design`, `future-of-work`, `digital-garden`, `music`, `tooling`
-- **role** (optional) — the function the topic plays in arguments: `instrument`, `position`, `framework`, `counter-position`, `stance`, `tendency`
+- **type** (one value, required), what kind of thing: `person`, `technology`, `mechanism`, `phenomenon`, `discipline`, `concept`, `metaphor`, `principle`, `method`
+- **lens** (one or more, required), the discipline(s) through which the topic is understood: `philosophy`, `epistemology`, `linguistics`, `rhetoric`, `design`, `interaction`, `cognition`, `culture`, `personal`, `observability`, `analytics`, `development`
+- **subject** (one or more, required), the topic area(s) the concept is about: `conversation`, `content`, `writing`, `voice`, `language`, `linguistics`, `llm`, `prompt`, `agent`, `knowledge`, `mind`, `pragmatics`, `psycholinguistics`, `content-design`, `conversation-design`, `prompt-design`, `information-architecture`, `structured-authoring`, `interaction-design`, `future-of-work`, `digital-garden`, `music`, `tooling`
+- **role** (optional), the function the topic plays in arguments: `instrument`, `position`, `framework`, `counter-position`, `stance`, `tendency`
 
 Before creating a new topic, the existing topic registry in `src/data/triples.json` is checked for near-duplicates. Canonical IDs and labels are reused rather than creating fragmented duplicates of the same concept.
 
@@ -66,11 +66,11 @@ For named concepts, people, or theories that are significant, well-documented on
 
 After review and approval:
 
-- **Frontmatter tags** — updated with accepted tags
-- **New tag files** — created at `src/content/tags/<slug>.md` for any newly proposed tags
-- **Frontmatter triples** — `triples:` array updated with accepted associations in canonical label format
-- **`src/data/triples.json`** — the central graph registry. New topics are appended to the `topics` object. Accepted associations are appended to the `associations` array (with `source` and `collection` fields). If the post has existing associations in the registry, they are replaced, not duplicated.
-- **Body text** — plain phrases replaced with `[[slug|phrase]]` wiki-link syntax and Wikipedia links wrapped in markdown anchor syntax
+- **Frontmatter tags**: updated with accepted tags
+- **New tag files**: created at `src/content/tags/<slug>.md` for any newly proposed tags
+- **Frontmatter triples**: `triples:` array updated with accepted associations in canonical label format
+- **`src/data/triples.json`**: the central graph registry. New topics are appended to the `topics` object. Accepted associations are appended to the `associations` array (with `source` and `collection` fields). If the post has existing associations in the registry, they are replaced, not duplicated.
+- **Body text**: plain phrases replaced with `[[slug|phrase]]` wiki-link syntax and Wikipedia links wrapped in markdown anchor syntax
 
 ---
 
@@ -81,7 +81,7 @@ After review and approval:
 - `A` (added/untracked) = new post: set `draft: false` only
 - `M` (modified) = update: set `draft: false` and `updated: today`
 
-The `updated` field is set automatically — no need to remember. It feeds the "Tended [date]" label on cards and the sort-by-last-tended option in the stream.
+The `updated` field is set automatically, no need to remember. It feeds the "Tended [date]" label on cards and the sort-by-last-tended option in the stream.
 
 ## 2. Validate frontmatter
 
@@ -91,7 +91,7 @@ npm run validate
 
 Checks required fields (`title`, `date`, `maturity`, `tags`), valid enum values, slug hygiene, description length, and presence of the `ai` field. Errors halt the process. Warnings (missing description, missing AI) are shown but don't block.
 
-Running validation before commit catches broken frontmatter early — before Astro's own build-time validation, and faster.
+Running validation before commit catches broken frontmatter early, before Astro's own build-time validation, and faster.
 
 ## 3. Generate OG images
 
@@ -130,7 +130,7 @@ Triggers GitHub Actions. The site is live on maaike.ai in approximately 2 minute
 
 ## 7. Share to LinkedIn
 
-Articles and jottings only. New posts only — updates are never shared.
+Articles and jottings only. New posts only, updates are never shared.
 
 If the post contains a `<div class="linkedin">` block, the `/share-linkedin` skill is called automatically. If no block exists, it asks. Field notes, seeds, weblinks, videos, and project files never trigger LinkedIn.
 

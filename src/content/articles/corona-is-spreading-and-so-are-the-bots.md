@@ -17,7 +17,7 @@ triples:
   - ["Crisis chatbot", "requires", "Content maintenance"]
   - ["Unverified chatbots", "risks", "Misinformation"]
   - ["Official bodies", "better-fits", "Crisis communication"]
-description: "How to build Coronabots responsibly — if you want to build one at all."
+description: "How to build Coronabots responsibly, if you want to build one at all."
 draft: false
 ai: "100% Maai"
 ---

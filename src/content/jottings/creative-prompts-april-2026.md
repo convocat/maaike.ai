@@ -43,11 +43,11 @@ I really liked the idea of a place where things are allowed to be messy, unfinis
 
 ## What's in the news
 
-[Designing for agentic AI: practical UX patterns for control, consent, and accountability](https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/) — Smashing Magazine on UX patterns for agentic AI: how do you design for consent and accountability when AI acts on your behalf?
+[Designing for agentic AI: practical UX patterns for control, consent, and accountability](https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/), Smashing Magazine on UX patterns for agentic AI: how do you design for consent and accountability when AI acts on your behalf?
 
-[The arrival of AI demands a new epistemic paradigm](https://etcjournal.com/2026/03/28/the-arrival-of-ai-demands-a-new-epistemic-paradigm/) — argues we need a distributed epistemology that assigns credit and responsibility across human-AI networks, not just individual minds.
+[The arrival of AI demands a new epistemic paradigm](https://etcjournal.com/2026/03/28/the-arrival-of-ai-demands-a-new-epistemic-paradigm/), argues we need a distributed epistemology that assigns credit and responsibility across human-AI networks, not just individual minds.
 
-[The internet's hidden creative renaissance](https://newpublic.substack.com/p/the-handmade-internet-is-making-a) — people building personal, intentional sites again as a quiet rebellion against algorithmic platforms.
+[The internet's hidden creative renaissance](https://newpublic.substack.com/p/the-handmade-internet-is-making-a), people building personal, intentional sites again as a quiet rebellion against algorithmic platforms.
 
 ## Seed of thought
 

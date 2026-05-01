@@ -35,7 +35,7 @@ At first, I thought this was because my prompt is a bit sparse in terms of infor
 
 One of things that gets consistently reprompted, are groups of people. To make sure that they're ethnically and gender-diverse.
 
-I think that's a debatable practise at best — it keeps inserting all kinds of background elements in my images, extra props and people that I didn't ask for. Also, how ethnically sound is it to have my own text forcefully rewritten? At its worst, this rewrite mechanism introduces a whole host of cultural stereotypes. As we'll see in my exploration of generating pictures of 3 women.
+I think that's a debatable practise at best, it keeps inserting all kinds of background elements in my images, extra props and people that I didn't ask for. Also, how ethnically sound is it to have my own text forcefully rewritten? At its worst, this rewrite mechanism introduces a whole host of cultural stereotypes. As we'll see in my exploration of generating pictures of 3 women.
 
 ## My goal of this exploration
 

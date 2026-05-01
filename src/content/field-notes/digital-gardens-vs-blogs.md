@@ -23,9 +23,9 @@ triples:
 
 A blog is chronological. [[a-digital-garden-as-central-space|A garden is topological]].
 
-Blogs are streams — new posts push old ones down. Gardens are networks — ideas connect to other ideas regardless of when they were planted.
+Blogs are streams, new posts push old ones down. Gardens are networks, ideas connect to other ideas regardless of when they were planted.
 
-The key difference is that gardens embrace **imperfection**. You can publish a half-formed thought and come back to develop it later — what I call [[thinking-in-public]]. A blog post feels like it should be finished.
+The key difference is that gardens embrace **imperfection**. You can publish a half-formed thought and come back to develop it later, what I call [[thinking-in-public]]. A blog post feels like it should be finished.
 
 ## Related
 

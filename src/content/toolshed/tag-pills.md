@@ -37,7 +37,7 @@ Rendered by `TagList.astro`. Each tag is an `<a>` linking to `/tags/[tag]`:
 
 `min-height: 36px` satisfies touch target guidelines without making desktop pills feel oversized. `border-radius: 1em` creates the capsule regardless of content length.
 
-The hover state inverts the pill — background becomes the accent pink, text becomes white. No border needed; the background fill is enough.
+The hover state inverts the pill, background becomes the accent pink, text becomes white. No border needed; the background fill is enough.
 
 ## Tag colors
 
@@ -58,7 +58,7 @@ The checkbox input itself is visually hidden; only the label is styled.
 
 ## Tag index page
 
-Every tag links to `/tags/[tag]` — a page that collects all posts across all collections that include that tag. This makes tags a cross-collection navigation axis alongside the collection pages.
+Every tag links to `/tags/[tag]`, a page that collects all posts across all collections that include that tag. This makes tags a cross-collection navigation axis alongside the collection pages.
 
 ## Tag cloud on /tags
 

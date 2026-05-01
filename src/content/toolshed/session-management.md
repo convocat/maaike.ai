@@ -31,7 +31,7 @@ A flat list of items at `.claude/backlog.md`. Each entry has:
 - An optional `blocker:` field when something is waiting on a decision
 - A ready-to-paste opening message for the next session
 
-The backlog is groomed regularly using `/backlog`, which scans for stale items, unresolved blockers, in-progress work that has drifted, and inbox notes from the tablet — then asks what to work on.
+The backlog is groomed regularly using `/backlog`, which scans for stale items, unresolved blockers, in-progress work that has drifted, and inbox notes from the tablet, then asks what to work on.
 
 ## The inbox
 

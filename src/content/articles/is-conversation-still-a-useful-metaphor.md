@@ -171,7 +171,7 @@ Also the notes become executionable.
 **Thinking and metacognition as interaction paradigms:**
 - [Thought as a Substrate in Human-AI Interaction](https://dl.acm.org/doi/10.1145/3746058.3758466) (2024, ACM UIST): proposes treating thought itself as the primary substrate for human-AI interaction, arguing that interfaces should be built around cognitive processes rather than conversational turn-taking
 - [Interacting with Thoughtful AI](https://arxiv.org/html/2502.18676v1) (2025): proposes a paradigm where AI functions as a continuously thinking entity rather than a passive responder, enabling proactive collaboration through surfacing intermediate thoughts, full-duplex processing, and shared cognitive workspaces
-- [Tools for Thought](https://arxiv.org/abs/2508.21036) (2025, CHI workshop): synthesises research from 34 papers on how GenAI expands automation while simultaneously creating both risks and opportunities for human cognition — memory, creativity, and critical thinking
+- [Tools for Thought](https://arxiv.org/abs/2508.21036) (2025, CHI workshop): synthesises research from 34 papers on how GenAI expands automation while simultaneously creating both risks and opportunities for human cognition, memory, creativity, and critical thinking
 
 
 

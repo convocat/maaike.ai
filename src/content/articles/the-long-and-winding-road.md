@@ -26,7 +26,7 @@ ai: "100% Maai"
 
 This week, it's been 2 years since I went to the Chamber of Commerce and registered Convocat as my own freelance company. 2 years…and what a ride it has been so far! While I usually share my learnings and insights into conversation design with you, starting Convocat also meant starting a career as an entrepreneur. I'd like to take some time to reflect and ponder a bit on that part of my journey.
 
-I keep a folder on my desktop called 'Troepjes' — little pieces of junk, which is basically a collection of drafts, braindumps, observations, snippets and small texts that are all waiting for a moment in my schedule to be unified into an article. Like this one, which is about what it took to move out of corporate life, the moment I took the plunge into entrepreneurship, the impact of COVID and how building communities has helped me reshape and redefine my core business.
+I keep a folder on my desktop called 'Troepjes', little pieces of junk, which is basically a collection of drafts, braindumps, observations, snippets and small texts that are all waiting for a moment in my schedule to be unified into an article. Like this one, which is about what it took to move out of corporate life, the moment I took the plunge into entrepreneurship, the impact of COVID and how building communities has helped me reshape and redefine my core business.
 
 ## Saying goodbye to corporate life
 

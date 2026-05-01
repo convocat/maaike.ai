@@ -9,7 +9,7 @@ section: Foundation
 ai: co-created
 ---
 
-All colors are CSS custom properties defined in `src/styles/tokens.css`. Nothing uses hardcoded values in components — everything references a token.
+All colors are CSS custom properties defined in `src/styles/tokens.css`. Nothing uses hardcoded values in components, everything references a token.
 
 ## Primary palette
 
@@ -29,9 +29,9 @@ All colors are CSS custom properties defined in `src/styles/tokens.css`. Nothing
 
 Some colors are used directly in components where they are meaningful:
 
-- **Double-line meta bar accent**: `rgba(180, 60, 60, 0.3)` — washed-out red, mimics ruling on paper
-- **Rubber stamp red**: `#CC2020` — featured card stamp, 45% opacity + 10deg rotate
-- **Quote mark**: `#8B7355` — warm brown, evokes ink on paper
+- **Double-line meta bar accent**: `rgba(180, 60, 60, 0.3)`, washed-out red, mimics ruling on paper
+- **Rubber stamp red**: `#CC2020`, featured card stamp, 45% opacity + 10deg rotate
+- **Quote mark**: `#8B7355`, warm brown, evokes ink on paper
 
 ## Dark mode implementation
 
@@ -55,7 +55,7 @@ Tokens are redefined under `[data-theme="dark"]`:
 
 ## Collection strip colors
 
-Each collection has a distinct background for its bookmark strip. These are not tokenized — they live directly in `MosaicCard.astro`.
+Each collection has a distinct background for its bookmark strip. These are not tokenized, they live directly in `MosaicCard.astro`.
 
 | Collection | Light strip | Dark strip |
 |---|---|---|

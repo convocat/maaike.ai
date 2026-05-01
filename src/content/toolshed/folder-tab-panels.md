@@ -24,7 +24,7 @@ The tab is rendered via a `::before` pseudo-element using `data-label` on the co
 ```css
 .ts-panel {
   position: relative;
-  background: #F0EAE4;            /* sand — varies by context */
+  background: #F0EAE4;            /* sand, varies by context */
   border-radius: 0 0.75rem 0.75rem 0.75rem;   /* top-left square = where tab sits */
   padding: var(--space-sm) var(--space-md) var(--space-md);
   margin-top: 1.5rem;             /* space for the tab above */
@@ -63,7 +63,7 @@ Dark mode: always `#1e2025` (near-black) regardless of context.
 
 ## Collapsible variant
 
-For long content (style guides, reference material), wrap the panel in a `<details>` element. The summary acts as a secondary reveal trigger inside the panel — not a replacement for the tab.
+For long content (style guides, reference material), wrap the panel in a `<details>` element. The summary acts as a secondary reveal trigger inside the panel, not a replacement for the tab.
 
 ```html
 <details class="ts-panel ts-style-guide-panel" data-label="Style guide">
@@ -76,6 +76,6 @@ For long content (style guides, reference material), wrap the panel in a `<detai
 
 ## Where used
 
-- `src/pages/index.astro` — three filter sidebar panels (Collection, Maturity, Written by)
-- `src/pages/library/index.astro` — four filter sidebar panels (Status, Format, Topic, Book type)
-- `src/pages/toolshed/index.astro` — Garden health and Toolshed nav panels
+- `src/pages/index.astro`, three filter sidebar panels (Collection, Maturity, Written by)
+- `src/pages/library/index.astro`, four filter sidebar panels (Status, Format, Topic, Book type)
+- `src/pages/toolshed/index.astro`, Garden health and Toolshed nav panels

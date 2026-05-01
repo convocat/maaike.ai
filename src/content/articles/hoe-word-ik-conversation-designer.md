@@ -83,12 +83,12 @@ Nee. Je komt op de meeste platformen al best ver met de standaard bot-bouwomgevi
 ## Wat zijn de beste platformen om zelf te beginnen?
 
 **Instapniveau:**
-- **engati.com** — Gratis, makkelijk in gebruik, mooie chatwidget die je prima als prototype kunt gebruiken.
-- **landbot.io** — Gratis, makkelijk, vooral heel leuk om snel een knoppenbot of conversational landing page te bouwen.
+- **engati.com**: Gratis, makkelijk in gebruik, mooie chatwidget die je prima als prototype kunt gebruiken.
+- **landbot.io**: Gratis, makkelijk, vooral heel leuk om snel een knoppenbot of conversational landing page te bouwen.
 
 **Voice:**
-- **dialogflow.com** — Om voice actions te bouwen op je Google Assistant.
-- **voiceflow.com** — Heerlijk bruikbaar platform voor zowel Google Assistant als Alexa.
+- **dialogflow.com**: Om voice actions te bouwen op je Google Assistant.
+- **voiceflow.com**: Heerlijk bruikbaar platform voor zowel Google Assistant als Alexa.
 
 ## Related
 

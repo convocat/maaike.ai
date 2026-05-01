@@ -35,7 +35,7 @@ const baseSchema = z.object({
 });
 ```
 
-The `updated` field uses a `preprocess` step to coerce empty strings and null to `undefined` — this prevents Zod from rejecting a YAML field that's been cleared to an empty value in Typora.
+The `updated` field uses a `preprocess` step to coerce empty strings and null to `undefined`, this prevents Zod from rejecting a YAML field that's been cleared to an empty value in Typora.
 
 ## Per-collection extensions
 
@@ -43,7 +43,7 @@ Each collection extends `baseSchema` with its own additional fields:
 
 | Collection | Extra fields |
 |------------|-------------|
-| `articles` | `pruning?: string` — notes on what to cut · `image?: string` — path to featured image, drives split OG card |
+| `articles` | `pruning?: string`, notes on what to cut · `image?: string`, path to featured image, drives split OG card |
 | `weblinks` | `url: string` (required URL) |
 | `videos` | `url: string` (required URL) |
 | `library` | `author`, `cover?`, `status`, `genre?`, `book_type?`, `purpose?`, `reason?`, `notes?`, `rating?`, `review?`, `recommended?`, `recommended_score?` |
@@ -71,7 +71,7 @@ The `glob` loader scans the base directory recursively for `.md` files. The `id`
 .filter((e) => !e.data.draft)
 ```
 
-There is no global draft filter — each route is responsible for its own exclusion.
+There is no global draft filter, each route is responsible for its own exclusion.
 
 ## Collection name mapping
 
@@ -85,4 +85,4 @@ This means routes use `/field-notes/[slug]` while the Astro API uses `getCollect
 
 ## Dev server restart
 
-When adding new `.md` files to a collection, the Astro dev server must be restarted. The content store is built at startup — new files are not picked up by hot reload.
+When adding new `.md` files to a collection, the Astro dev server must be restarted. The content store is built at startup, new files are not picked up by hot reload.

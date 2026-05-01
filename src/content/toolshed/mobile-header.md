@@ -34,7 +34,7 @@ The nav slides down from the header as an absolutely positioned panel:
 .site-nav.open { display: block; }
 ```
 
-It's not an overlay — it pushes the page content down. This avoids z-index conflicts with sticky elements and keeps the one-scrollbar principle intact.
+It's not an overlay, it pushes the page content down. This avoids z-index conflicts with sticky elements and keeps the one-scrollbar principle intact.
 
 ## All items start collapsed
 
@@ -55,7 +55,7 @@ This keeps the initial drawer compact and avoids assuming which section the user
 | Box shadow | Yes | No |
 | Border | Yes | No |
 
-Descriptions remain visible on mobile — they're useful when deciding where to navigate, and the drawer scrolls naturally if it's tall.
+Descriptions remain visible on mobile, they're useful when deciding where to navigate, and the drawer scrolls naturally if it's tall.
 
 ## Full-width triggers
 
@@ -77,10 +77,10 @@ This makes the entire row tappable rather than just the text label.
 
 ## Views row on mobile
 
-The views strip (Stream, Map, Collections, Stack, Graph) stays horizontal on mobile — it wraps to a second row if needed. Stacking vertically would make the drawer unnecessarily long.
+The views strip (Stream, Map, Collections, Stack, Graph) stays horizontal on mobile, it wraps to a second row if needed. Stacking vertically would make the drawer unnecessarily long.
 
 ## Close behaviors
 
 - Tap outside the drawer
 - Press Escape (keyboard)
-- No close-on-link-click — the navigation itself handles page change, which resets state
+- No close-on-link-click, the navigation itself handles page change, which resets state

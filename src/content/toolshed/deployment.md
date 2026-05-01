@@ -9,7 +9,7 @@ section: Infrastructure
 ai: co-created
 ---
 
-The garden is a static Astro site deployed to GitHub Pages. Every push to `main` triggers a build and deploy. There are no staging environments — main is production.
+The garden is a static Astro site deployed to GitHub Pages. Every push to `main` triggers a build and deploy. There are no staging environments, main is production.
 
 ## Build pipeline
 
@@ -31,7 +31,7 @@ A separate workflow (`share-link.yml`) handles optional LinkedIn publishing. It 
 - Push to `main` (checking if any new posts were added)
 - Manual dispatch
 
-The workflow uses `git diff` to check the status of content files between the current commit and the previous one. A file with status `A` (added) is a new post — it triggers LinkedIn publishing. A file with status `M` (modified) is an update — it skips LinkedIn.
+The workflow uses `git diff` to check the status of content files between the current commit and the previous one. A file with status `A` (added) is a new post, it triggers LinkedIn publishing. A file with status `M` (modified) is an update, it skips LinkedIn.
 
 ```bash
 git diff --name-status HEAD~1 HEAD -- src/content/articles/ src/content/jottings/
@@ -57,10 +57,10 @@ The site deploys to `maaike.ai`. The `CNAME` file in `/public/` contains the dom
 
 ## OG image generation
 
-OG images are generated locally (not in CI) before pushing. The `/publish` skill runs `node scripts/generate-og-images.cjs` which writes PNGs to `public/images/og/`. These are committed and pushed as static assets — GitHub Actions doesn't regenerate them.
+OG images are generated locally (not in CI) before pushing. The `/publish` skill runs `node scripts/generate-og-images.cjs` which writes PNGs to `public/images/og/`. These are committed and pushed as static assets, GitHub Actions doesn't regenerate them.
 
 ## No branch strategy
 
 Everything goes directly to `main`. There are no feature branches, no PRs, no staging. The Claude Code session is the editorial moment: Maaike reviews diffs before committing, and commits before pushing.
 
-For large experimental changes (redesigns, structural refactors), a git worktree is used instead — a second folder on disk mapped to a separate branch. This avoids uncommitted changes bleeding into main during long-running experiments.
+For large experimental changes (redesigns, structural refactors), a git worktree is used instead, a second folder on disk mapped to a separate branch. This avoids uncommitted changes bleeding into main during long-running experiments.

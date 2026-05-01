@@ -27,14 +27,14 @@ Every collection in the garden has a doodle-style SVG icon. The icons are hand-d
 | jottings | `pencil.svg` |
 | projects | `rocket.svg` |
 
-The component accepts a `size` prop (default 24px) and renders an `<img>` with `aria-hidden="true"` — icons are decorative, not informational.
+The component accepts a `size` prop (default 24px) and renders an `<img>` with `aria-hidden="true"`, icons are decorative, not informational.
 
 ## Where they appear
 
-1. **Header mega menu** — 20px, with the sketchy SVG filter applied, beside each collection link
-2. **Collection index headers** — 32–48px, with sketchy filter, as the page heading icon
-3. **Post detail header** — 16px, beside the collection label (no filter — small enough that the wobble would be invisible)
-4. **Sidebar links** — 14px, beside backlinks and related post titles
+1. **Header mega menu**: 20px, with the sketchy SVG filter applied, beside each collection link
+2. **Collection index headers**: 32–48px, with sketchy filter, as the page heading icon
+3. **Post detail header**: 16px, beside the collection label (no filter, small enough that the wobble would be invisible)
+4. **Sidebar links**: 14px, beside backlinks and related post titles
 
 ## CSS filter tinting
 
@@ -56,7 +56,7 @@ One SVG file, eight different tints. No separate colored asset per collection. T
 
 ## Sketchy filter
 
-On the mega menu and collection index headers, icons have `filter="url(#sketchy)"` applied — the SVG feTurbulence filter defined in `SketchyFilter.astro`. At 20px+ sizes this produces a visible hand-drawn wobble. See [Sketchy filter](/toolshed/sketchy-filter) for the full implementation.
+On the mega menu and collection index headers, icons have `filter="url(#sketchy)"` applied, the SVG feTurbulence filter defined in `SketchyFilter.astro`. At 20px+ sizes this produces a visible hand-drawn wobble. See [Sketchy filter](/toolshed/sketchy-filter) for the full implementation.
 
 ## Jotting-type icons
 

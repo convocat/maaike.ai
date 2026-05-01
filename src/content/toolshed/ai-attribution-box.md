@@ -54,7 +54,7 @@ The left border uses the brand pink accent. The label color is a slightly deeper
 
 ## In the stream / cards
 
-The AI field is also shown in the top meta bar of every index card: a small all-caps label (e.g., `100% MAAI`) aligned to the right of the meta bar. Posts with `ai: generated` are excluded from the stream entirely — they don't appear on the homepage.
+The AI field is also shown in the top meta bar of every index card: a small all-caps label (e.g., `100% MAAI`) aligned to the right of the meta bar. Posts with `ai: generated` are excluded from the stream entirely, they don't appear on the homepage.
 
 ## Frontmatter
 

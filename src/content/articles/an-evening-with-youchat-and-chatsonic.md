@@ -1,5 +1,5 @@
 ---
-title: "An evening with YouChat and Chatsonic — with a bit of a twist"
+title: "An evening with YouChat and Chatsonic, with a bit of a twist"
 date: 2023-02-15
 updated: 2026-03-15
 maturity: complete

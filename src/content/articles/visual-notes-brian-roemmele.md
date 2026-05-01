@@ -8,7 +8,7 @@ tags:
   - voicelunch
   - sketchnotes
   - community
-description: "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended."
+description: "Sketchnotes of the Voicelunch session with Brian Roemmele, the best voicelunch I never attended."
 draft: false
 ai: "100% Maai"
 themes:

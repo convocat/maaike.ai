@@ -23,13 +23,13 @@ ai: "100% Maai"
 
 Ik zie op social media steeds meer berichten voorbijkomen over hoe online vergaderen ons uitput. Als oorzaak wordt dan vaak gekeken naar communicatie, zoals het gebrek aan lichaamstaal, het elkaar niet in de ogen kunnen kijken, en verwarrende signalen. Of naar imperfecties in de bedrijfscultuur, zoals onderling wantrouwen dat online genadeloos boven komt drijven. Dat put je uit.
 
-Da's zeker waar, maar ook je lichaamshouding speelt een rol! Hoe uitgeputter je raakt, hoe meer je in elkaar zakt. Hoe verder je hoofd (al snel goed voor zo'n 10 kilo!) je scherm wordt ingezogen. Hoe minder je knippert, en hoe minder je opmerkt van de zaken buiten je scherm. Totdat je er inderdaad zo bijzit zoals je je voelt — ingestort.
+Da's zeker waar, maar ook je lichaamshouding speelt een rol! Hoe uitgeputter je raakt, hoe meer je in elkaar zakt. Hoe verder je hoofd (al snel goed voor zo'n 10 kilo!) je scherm wordt ingezogen. Hoe minder je knippert, en hoe minder je opmerkt van de zaken buiten je scherm. Totdat je er inderdaad zo bijzit zoals je je voelt, ingestort.
 
 Maar andersom werkt het gelukkig ook zo! Met deze tips geef je je lijf en je geest letterlijk een zetje omhoog. Zodat je ook bij het online vergaderen overeind blijft.
 
 ## Pak een kruk…
 
-Vervang je bureaustoel, keukenstoel of bank eens door een kruk of een stoel met een rechte, harde zitting. Met een harde zitting kun je goed je zitbotjes voelen. Dat zijn die puntige botjes waar je — inderdaad, hoe raad je het zo — op zit. Je kunt er ook een beetje overheenrollen, van voor naar achteren en weer terug. Je kunt zelfs met je zitbotjes over je kruk wandelen.
+Vervang je bureaustoel, keukenstoel of bank eens door een kruk of een stoel met een rechte, harde zitting. Met een harde zitting kun je goed je zitbotjes voelen. Dat zijn die puntige botjes waar je, inderdaad, hoe raad je het zo, op zit. Je kunt er ook een beetje overheenrollen, van voor naar achteren en weer terug. Je kunt zelfs met je zitbotjes over je kruk wandelen.
 
 Je zitbotjes zijn je basis, vanuit daar richt je lijf zich op.
 

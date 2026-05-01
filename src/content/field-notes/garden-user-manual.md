@@ -98,12 +98,12 @@ ai: "100% Maai"
 | Collection | Use when... | Extra fields |
 |---|---|---|
 | Articles | You've thought it through. It's been mulled over. | `pruning` (optional) |
-| Field notes | You built, tried, or documented something hands-on. | — |
-| Seeds | It's an idea, a question, a hunch. Not fully formed yet. | — |
+| Field notes | You built, tried, or documented something hands-on. |, |
+| Seeds | It's an idea, a question, a hunch. Not fully formed yet. |, |
 | Weblinks | You found something elsewhere worth remembering. | `url` (required) |
 | Videos | Same, but it's a video. | `url` (required) |
 | Library | It's a book. | `author`, `status` (reading/read/to-read), `cover` |
-| Experiments | You're testing something. | — |
+| Experiments | You're testing something. |, |
 
 ---
 

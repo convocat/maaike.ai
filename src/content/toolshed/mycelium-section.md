@@ -9,11 +9,11 @@ section: Components
 ai: co-created
 ---
 
-At the bottom of each post, a collapsible `<details>` element holds the post's metadata: tags, relations (semantic triples), and thematic arguments ("what this post argues"). It's called the Mycelium section — the connective tissue beneath the garden.
+At the bottom of each post, a collapsible `<details>` element holds the post's metadata: tags, relations (semantic triples), and thematic arguments ("what this post argues"). It's called the Mycelium section, the connective tissue beneath the garden.
 
 ## Why a drawer
 
-The metadata is valuable for navigation but visually noisy. A `<details>` element hides it by default, keeps the prose clean, and lets curious readers expand it deliberately. The browser handles open/closed state natively — no JavaScript needed.
+The metadata is valuable for navigation but visually noisy. A `<details>` element hides it by default, keeps the prose clean, and lets curious readers expand it deliberately. The browser handles open/closed state natively, no JavaScript needed.
 
 ## Trigger design
 
@@ -41,7 +41,7 @@ The metadata is valuable for navigation but visually noisy. A `<details>` elemen
 }
 ```
 
-The triangle rotates 90° when open. The hint text ("tags, relations & arguments") sits baseline-aligned next to the label at 0.8rem, italic, muted — visible enough to describe the drawer but light enough not to compete with the heading.
+The triangle rotates 90° when open. The hint text ("tags, relations & arguments") sits baseline-aligned next to the label at 0.8rem, italic, muted, visible enough to describe the drawer but light enough not to compete with the heading.
 
 ## Content: tags
 

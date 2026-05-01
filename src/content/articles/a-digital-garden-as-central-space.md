@@ -27,11 +27,11 @@ triples:
 - [non-linear-thinking, enables, serendipity]
 themes:
 - The early web enabled a kind of personal expression that the algorithm era has taken away
-- Non-linear thinking needs a non-linear writing environment — not a blog, not a social feed
+- Non-linear thinking needs a non-linear writing environment, not a blog, not a social feed
 - A digital garden is the right infrastructure for how my mind actually works
 - Serendipity is an organising principle, not a side effect
 - Writing as craft requires a space that doesn't talk back and doesn't distract
-- AI has a legitimate role in the garden, but only as assistant — never as author
+- AI has a legitimate role in the garden, but only as assistant, never as author
 ---
 One thing that I really miss doing lately, is writing longer pieces that require a bit of thinking, mulling and reordering. I typically resort to videos nowadays, and, to be honest, Claude is a pretty mean writing assistant for factual, functional texts. But I really miss sitting in front of a screen that doesn't talk back, doesn't distract and just offers me space for my own head. 
 

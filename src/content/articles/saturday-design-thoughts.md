@@ -15,9 +15,9 @@ description: Designing for negative space
 draft: false
 ai: 100% Maai
 themes:
-- Silence is not an absence of design but a design material in its own right — and LLMs, left unchecked, destroy it.
+- Silence is not an absence of design but a design material in its own right, and LLMs, left unchecked, destroy it.
 - The 'gift of the gab' of current LLM interfaces is a conscious big-tech design decision, not a technical inevitability, which means it can be undone.
-- Meaningful friction — designing constraint and hesitation into an LLM — is a more honest interaction model than frictionless completion.
+- Meaningful friction, designing constraint and hesitation into an LLM, is a more honest interaction model than frictionless completion.
 - Music and singing reveal that silence shapes and co-creates meaning; the same principle applies to conversational AI, where the unspoken is as significant as the spoken.
 - System prompting is a legitimate philosophical and design lever for building receptive, silence-informed LLM behaviour.
 triples:

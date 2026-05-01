@@ -50,7 +50,7 @@ Your observation here.
 }
 ```
 
-The teal color (`--color-accent-2`) distinguishes observations from blockquotes (pink). The subtle green background wash makes the block feel like a sticky note rather than a hard boundary. This is where thinking happens — not just citation.
+The teal color (`--color-accent-2`) distinguishes observations from blockquotes (pink). The subtle green background wash makes the block feel like a sticky note rather than a hard boundary. This is where thinking happens, not just citation.
 
 ## Tended revision note
 
@@ -85,7 +85,7 @@ Tended April 2026: Added the observation block pattern after using it extensivel
 }
 ```
 
-The pencil emoji is generated via `::before`, so the HTML stays clean. "Tended" is the garden word for "revised" — aligns with the maturity vocabulary.
+The pencil emoji is generated via `::before`, so the HTML stays clean. "Tended" is the garden word for "revised", aligns with the maturity vocabulary.
 
 ## LinkedIn draft block
 
@@ -105,7 +105,7 @@ Draft LinkedIn post here.
 }
 ```
 
-`display: none` hides it completely from the rendered page. In Typora the raw HTML is visible, so it serves as an inline scratchpad for the companion post. The LinkedIn publishing flow uses a separate script — this block is purely for drafting.
+`display: none` hides it completely from the rendered page. In Typora the raw HTML is visible, so it serves as an inline scratchpad for the companion post. The LinkedIn publishing flow uses a separate script, this block is purely for drafting.
 
 ## h6 as paragraph header
 
@@ -124,7 +124,7 @@ Draft LinkedIn post here.
 
 This gives a lightweight section label that doesn't break the prose flow the way `h3` or `h4` would. Use it for named subsections inside a long paragraph cluster, or when a full heading feels too heavy.
 
-`h1`–`h5` use Lora serif. `h6` is the exception — it reads as prose, just bold.
+`h1`–`h5` use Lora serif. `h6` is the exception, it reads as prose, just bold.
 
 ## hr as major section break
 

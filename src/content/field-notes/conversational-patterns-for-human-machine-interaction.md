@@ -29,10 +29,10 @@ If we do want to use conversation as an interaction model (which I think should 
 
 ## Deliverables
 
-- [ ] [[conversational-patterns-literature-review]] — why conversation became the default model, and whether it has evidence behind it
-- [ ] [[conversational-patterns-catalogue]] — a set of patterns specific to human-AI interaction
-- [ ] [[conversational-patterns-article]] — published article on the garden
-- [x] [[conversational-patterns-for-human-machine-interaction]] — seed written 2026-03-27
+- [ ] [[conversational-patterns-literature-review]], why conversation became the default model, and whether it has evidence behind it
+- [ ] [[conversational-patterns-catalogue]], a set of patterns specific to human-AI interaction
+- [ ] [[conversational-patterns-article]], published article on the garden
+- [x] [[conversational-patterns-for-human-machine-interaction]], seed written 2026-03-27
 
 ## Log
 

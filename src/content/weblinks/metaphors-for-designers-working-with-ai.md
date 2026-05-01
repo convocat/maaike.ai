@@ -43,7 +43,7 @@ triples:
   - ["paper", "attributed-to", "Dan Lockton"]
   - ["useful metaphors", "better-fits", "design thinking about AI systems"]
   - ["design practice", "presupposes", "conceptual foundations of AI"]
-description: "A peer-reviewed conference paper from DRS 2022 that examines how metaphors shape designers' understanding of machine learning and AI systems — exploring both where common metaphors mislead and what qualities make metaphors genuinely useful for design thinking."
+description: "A peer-reviewed conference paper from DRS 2022 that examines how metaphors shape designers' understanding of machine learning and AI systems, exploring both where common metaphors mislead and what qualities make metaphors genuinely useful for design thinking."
 ai: "assisted"
 draft: false
 ---

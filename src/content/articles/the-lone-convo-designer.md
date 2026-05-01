@@ -29,7 +29,7 @@ I hear from a lot of conversation designers who are in a comparable position tod
 
 ## 1. Find your allies
 
-Even if you're the only official conversational content person in your company, chances are that there are people who can advocate for you. Typically, I look out for people in customer support — they talk to your target audience every day. Software testers and functional administrators are your potentially best friends too. And secretaries and project management officers often unofficially run a place.
+Even if you're the only official conversational content person in your company, chances are that there are people who can advocate for you. Typically, I look out for people in customer support, they talk to your target audience every day. Software testers and functional administrators are your potentially best friends too. And secretaries and project management officers often unofficially run a place.
 
 ## 2. Find your business sponsor or manager
 

@@ -29,9 +29,9 @@ The entry was discovered in April 2026 during a library audit triggered by an un
 
 ## Root cause
 
-The import session scraped my public Notion library page and treated every page entry as a potential book. "Tech skills for conversation designers" is actually a Notion resource page I built myself — a curated list of courses and articles, not a book. Its Author field in Notion was empty ("Leeg").
+The import session scraped my public Notion library page and treated every page entry as a potential book. "Tech skills for conversation designers" is actually a Notion resource page I built myself, a curated list of courses and articles, not a book. Its Author field in Notion was empty ("Leeg").
 
-When Claude encountered a plausible-sounding title with no author, it did not stop or flag the gap. It generated a plausible-sounding author name instead. Hans van Dam is a known name in conversation design: that is almost certainly how his name surfaced. The hallucination was confident and structurally valid — a complete frontmatter entry with description, tags, reason, and status — which is exactly what makes it dangerous.
+When Claude encountered a plausible-sounding title with no author, it did not stop or flag the gap. It generated a plausible-sounding author name instead. Hans van Dam is a known name in conversation design: that is almost certainly how his name surfaced. The hallucination was confident and structurally valid, a complete frontmatter entry with description, tags, reason, and status, which is exactly what makes it dangerous.
 
 ## Why this is serious
 
@@ -48,5 +48,5 @@ Empty fields are always better than hallucinated ones.
 ## Still to do
 
 - Full audit of all `ai: assisted` library entries against the original Notion source
-- Check "Bacteria to AI" (attributed to N. Katherine Hayles, status: reading) — may be real, needs verification
+- Check "Bacteria to AI" (attributed to N. Katherine Hayles, status: reading), may be real, needs verification
 - Add Open Library verification step to the `/new-book` skill

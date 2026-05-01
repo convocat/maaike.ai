@@ -17,6 +17,6 @@ reason: How children acquire language is surprisingly relevant to how we design 
 
 ## Related
 
-- [[understanding-speech-part-1|Understanding speech — part 1]]
+- [[understanding-speech-part-1|Understanding speech, part 1]]
 - [[because-internet|Because Internet]]
 - [[speech-and-language-processing|Speech and language processing]]

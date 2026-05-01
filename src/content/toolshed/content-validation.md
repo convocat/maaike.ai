@@ -27,8 +27,8 @@ The script prints a report to stdout. Errors (missing required fields, invalid v
 
 ```
 ✓ articles/my-post.md
-⚠ seeds/rough-idea.md — description missing
-✗ field-notes/broken.md — maturity "in-progress" is not a valid value
+⚠ seeds/rough-idea.md, description missing
+✗ field-notes/broken.md, maturity "in-progress" is not a valid value
 ```
 
 ## Where it runs
@@ -39,7 +39,7 @@ The script prints a report to stdout. Errors (missing required fields, invalid v
 
 ## Why not rely on Zod alone
 
-Astro's Zod schema validation runs at build time and will fail the build if required fields are missing. The validate script is a faster, earlier check — it runs in under a second without starting the full Astro build. It also surfaces warnings (like missing descriptions) that Zod doesn't cover because those fields are optional in the schema.
+Astro's Zod schema validation runs at build time and will fail the build if required fields are missing. The validate script is a faster, earlier check, it runs in under a second without starting the full Astro build. It also surfaces warnings (like missing descriptions) that Zod doesn't cover because those fields are optional in the schema.
 
 ## Adding new checks
 

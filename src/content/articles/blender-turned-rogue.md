@@ -29,7 +29,7 @@ The problem is there. When you ask certain questions, you get anti-semitic respo
 
 I do read people saying that this is what you can expect when you train a chatbot on Reddit. I thought so myself initially. But is this really the only problem here?
 
-There might be more to it than a bot turned toxic. I took Blender for a test run on CocoHub, and got it to switch from a fervent equal rights-supporter to a sour mysogynist — and back again — in about 20 turns. After that, Blender melted down into an incoherent mess.
+There might be more to it than a bot turned toxic. I took Blender for a test run on CocoHub, and got it to switch from a fervent equal rights-supporter to a sour mysogynist, and back again, in about 20 turns. After that, Blender melted down into an incoherent mess.
 
 ## No personality of its own
 

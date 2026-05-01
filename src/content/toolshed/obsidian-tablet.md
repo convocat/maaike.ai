@@ -13,8 +13,8 @@ Quick notes and observations are captured on a Samsung Tab using Samsung Notes a
 
 ## Setup
 
-- **Writing app**: Samsung Notes — best S-Pen support on Samsung devices
-- **Sync**: GitSync — pushes to the `main` branch on GitHub
+- **Writing app**: Samsung Notes, best S-Pen support on Samsung devices
+- **Sync**: GitSync, pushes to the `main` branch on GitHub
 - **Sync frequency**: manual, after finishing a writing session
 
 ## Workflow
@@ -27,7 +27,7 @@ Quick notes and observations are captured on a Samsung Tab using Samsung Notes a
 
 `src/content/_inbox/` contains a single persistent running note. Maaike adds to it over time using Samsung Notes, with each entry date-stamped (e.g. `2026-04-05:`).
 
-Claude reads new entries each morning and pulls them into the backlog or gives them the `/new-post` treatment. The file is never deleted — only entries that have been processed are marked as done.
+Claude reads new entries each morning and pulls them into the backlog or gives them the `/new-post` treatment. The file is never deleted, only entries that have been processed are marked as done.
 
 ## Creating new posts
 

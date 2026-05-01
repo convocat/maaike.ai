@@ -54,11 +54,11 @@ The track is a horizontal flex row of emoji + connector lines. Unreached stages 
 
 ## In the post header
 
-The track appears in the post header below the title. It's interactive: hovering a stage shows its label. Clicking a stage has no effect — it's display-only.
+The track appears in the post header below the title. It's interactive: hovering a stage shows its label. Clicking a stage has no effect, it's display-only.
 
 ## In stream cards
 
-The maturity emoji appears in the top meta bar of every index card, alongside the AI label. Just the emoji, no label — it's a quick visual signal, not a detailed description.
+The maturity emoji appears in the top meta bar of every index card, alongside the AI label. Just the emoji, no label, it's a quick visual signal, not a detailed description.
 
 ## Frontmatter
 
@@ -66,8 +66,8 @@ The maturity emoji appears in the top meta bar of every index card, alongside th
 maturity: solid   # draft | developing | solid | complete | compost
 ```
 
-Draft posts with `draft: true` are excluded from all collections at build time. A post with `maturity: draft` but `draft: false` is visible — it just signals the content is early-stage.
+Draft posts with `draft: true` are excluded from all collections at build time. A post with `maturity: draft` but `draft: false` is visible, it just signals the content is early-stage.
 
 ## Why plant metaphors
 
-The garden is built around growth as a metaphor for ideas. Posts aren't "published" or "unpublished" — they're at different stages of development. The plant scale makes this concrete without requiring explanation. A 🌱 is obviously less developed than a 🌳.
+The garden is built around growth as a metaphor for ideas. Posts aren't "published" or "unpublished", they're at different stages of development. The plant scale makes this concrete without requiring explanation. A 🌱 is obviously less developed than a 🌳.

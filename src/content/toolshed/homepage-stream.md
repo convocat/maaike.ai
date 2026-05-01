@@ -9,7 +9,7 @@ section: Layout
 ai: co-created
 ---
 
-The homepage is the garden's stream: a chronological feed of content across all collections, with filter controls and a contextual sidebar. It's built entirely at build time — no API calls on page load.
+The homepage is the garden's stream: a chronological feed of content across all collections, with filter controls and a contextual sidebar. It's built entirely at build time, no API calls on page load.
 
 ## Feed eligibility rules
 
@@ -28,7 +28,7 @@ The result is a curated stream of articles, seeds, field notes (non-meta), webli
 
 ## Pinned article
 
-The most recent article is pulled out of the feed order and rendered as a **hero card** at the top — visually larger, with ruled lines and a "FEATURED" rubber stamp. The rest of the feed follows in date-descending order.
+The most recent article is pulled out of the feed order and rendered as a **hero card** at the top, visually larger, with ruled lines and a "FEATURED" rubber stamp. The rest of the feed follows in date-descending order.
 
 ```js
 const latestArticle = mainFeedEligible.find((e) => e.collection === 'articles');
@@ -43,10 +43,10 @@ The stream paginates at 6 items per page on mobile and 12 per page on desktop. F
 
 The sidebar (desktop) and mobile filter panel offer four filter groups:
 
-- **Collection** — checkboxes per collection (articles, seeds, field notes, jottings, weblinks, videos)
-- **Maturity** — 🌱 Draft, 🌿 Developing, 🪴 Solid, 🌳 Complete
-- **AI level** — ✍️ 100% Maaike, ✏️ Assisted, ✨ Co-created
-- **Sort** — pill bar: Date planted / Date tended
+- **Collection**: checkboxes per collection (articles, seeds, field notes, jottings, weblinks, videos)
+- **Maturity**: 🌱 Draft, 🌿 Developing, 🪴 Solid, 🌳 Complete
+- **AI level**: ✍️ 100% Maaike, ✏️ Assisted, ✨ Co-created
+- **Sort**: pill bar: Date planted / Date tended
 
 Data attributes on each card (`data-collection`, `data-maturity`, `data-tags`, `data-date`, `data-updated`, `data-ai`) power the client-side filter with no server round-trip.
 
@@ -54,9 +54,9 @@ Data attributes on each card (`data-collection`, `data-maturity`, `data-tags`, `
 
 The homepage sidebar is contextual:
 
-- **Currently reading** — up to 3 books from the library with `status: 'reading'`
-- **Active projects** — up to 8 posts with `hub: true`
-- **blogroll recent posts** — latest item from each blogroll site that has an RSS feed, fetched at build time
+- **Currently reading**: up to 3 books from the library with `status: 'reading'`
+- **Active projects**: up to 8 posts with `hub: true`
+- **blogroll recent posts**: latest item from each blogroll site that has an RSS feed, fetched at build time
 
 The blogroll fetch runs at build time via `rss-parser`:
 
@@ -72,7 +72,7 @@ const feedResults = await Promise.allSettled(
 );
 ```
 
-Failed feeds are silently dropped (allSettled). Stale data is acceptable — it's updated on each deploy.
+Failed feeds are silently dropped (allSettled). Stale data is acceptable, it's updated on each deploy.
 
 ## Body preview
 
@@ -89,4 +89,4 @@ function extractBodyPreview(body, maxLen = 220) {
 }
 ```
 
-Tended revision notes are specifically stripped from previews — they're editorial metadata, not content.
+Tended revision notes are specifically stripped from previews, they're editorial metadata, not content.

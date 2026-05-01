@@ -15,9 +15,9 @@ Documenting the garden's evolution: how it grows, how it's tended, and what it's
 
 ## Deliverables
 
-- [x] [[garden-as-metaphor]] — The garden as a metaphor (article, published)
-- [ ] [[garden-lifecycle-weeds]] — The weeds question: formalise the greenhouse/compost/soil lifecycle model
-- [ ] [[pruning-field-investigation]] — How to use the pruning field systematically
+- [x] [[garden-as-metaphor]], The garden as a metaphor (article, published)
+- [ ] [[garden-lifecycle-weeds]], The weeds question: formalise the greenhouse/compost/soil lifecycle model
+- [ ] [[pruning-field-investigation]], How to use the pruning field systematically
 
 ## Log
 

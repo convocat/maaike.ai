@@ -54,8 +54,8 @@ Post titles use a separate scale: `clamp(1.8rem, 4vw, 2.5rem)`.
 ## Body text
 
 - Base font-size: `1rem` (browser default 16px)
-- Line-height: `1.7` — generous for comfortable reading
-- Prose max-width: `42rem` — keeps line lengths readable
+- Line-height: `1.7`, generous for comfortable reading
+- Prose max-width: `42rem`, keeps line lengths readable
 
 ## Label and meta typography
 

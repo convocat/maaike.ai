@@ -27,7 +27,7 @@ In my previous articles I had a look at some core CxD components, and showed how
 
 ## Let's revisit the pizza bot
 
-When I built the 'Hello world pizzabot' in ChatGPT, I provided quite a lot of prompts and logic, with pretty amazing results. Some of you asked whether ChatGPT would be able to be a pizzabot straight out-of-the-bot, with just the prompt 'Pretend you're a chatbot for ordering pizzas'. And what do you know — it produced a very plausible and usable bot, without me specifying anything in advance.
+When I built the 'Hello world pizzabot' in ChatGPT, I provided quite a lot of prompts and logic, with pretty amazing results. Some of you asked whether ChatGPT would be able to be a pizzabot straight out-of-the-bot, with just the prompt 'Pretend you're a chatbot for ordering pizzas'. And what do you know, it produced a very plausible and usable bot, without me specifying anything in advance.
 
 ## List the intents and entities
 

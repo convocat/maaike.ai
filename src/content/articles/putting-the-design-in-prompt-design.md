@@ -19,7 +19,7 @@ triples:
   - ["Prompt design", "requires", "Evaluation"]
   - ["Conversation design", "reinforces", "Prompt design"]
   - ["Prompt design", "structured-as", "Input-output pairs"]
-description: "Blind prompting vs. prompt engineering — and what it means for conversation designers."
+description: "Blind prompting vs. prompt engineering, and what it means for conversation designers."
 draft: false
 ai: "100% Maai"
 ---
@@ -37,7 +37,7 @@ The real difference between blind prompting and prompt engineering is one that w
 This means that each prompt needs to be clear in terms of:
 
 - **Input:** what's the expected input that this prompt should be able to handle, both in terms of scope and format?
-- **Output:** what output do we expect from this prompt? And how can we check & test whether this output is correct — all the time? Often, the output of a prompt serves as input for another step or action. So we need to make sure that output satisfies the output criteria again and again.
+- **Output:** what output do we expect from this prompt? And how can we check & test whether this output is correct, all the time? Often, the output of a prompt serves as input for another step or action. So we need to make sure that output satisfies the output criteria again and again.
 - **Examples:** What kind of examples does this prompt need (if any)? If we're using few-shot prompting (giving the prompt a few examples, not very different from giving an intent a few training phrases), what examples would be usable? How do we keep bias out of our examples?
 
 ## Step 1: create a demonstration set

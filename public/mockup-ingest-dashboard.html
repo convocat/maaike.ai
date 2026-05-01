@@ -72,6 +72,14 @@ input, textarea { font: inherit; color: inherit; }
 }
 #sync-btn:hover { border-color: var(--accent); color: var(--accent); }
 #sync-btn:disabled { opacity: 0.5; cursor: default; }
+#enrich-one-btn, #enrich-all-btn {
+  padding: 5px 12px; font-size: 13px; font-weight: 500; cursor: pointer;
+  background: transparent; border: 1px solid var(--rule); border-radius: var(--radius-md);
+  color: var(--ink-3); font-family: var(--font-b); transition: all 150ms ease;
+}
+#enrich-one-btn:hover { border-color: #C87D2F; color: #C87D2F; }
+#enrich-all-btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
+#enrich-one-btn:disabled, #enrich-all-btn:disabled { opacity: 0.5; cursor: default; }
 .queue-count {
   font-family: var(--font-b); font-size: 12.5px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
@@ -149,37 +157,42 @@ input, textarea { font: inherit; color: inherit; }
 }
 #filter-status:focus, #sort-select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
 
-#queue-list { overflow-y: auto; flex: 1; padding: 8px; display: flex; flex-direction: column; gap: 2px; }
+#queue-list { overflow-y: auto; flex: 1; padding: 8px; display: flex; flex-direction: column; gap: 4px; }
 
 .queue-item {
-  padding: 8px 10px 8px 0;
-  border-radius: var(--radius-sm); cursor: pointer;
-  display: flex; flex-direction: row; overflow: hidden;
-  transition: background 150ms ease;
+  height: 90px;
+  background: #FAFAF8; border-radius: 4px; cursor: pointer;
+  display: flex; align-items: stretch; overflow: hidden;
+  flex-shrink: 0;
+  transition: background 120ms;
 }
-.queue-item:hover { background: var(--rule-soft); }
-.queue-item.active { background: var(--bg-card); box-shadow: inset 0 0 0 1px var(--rule); border-radius: var(--radius-sm); }
-.queue-item.done { opacity: 0.45; }
+.queue-item.s-pending { background: #FEF4EA; }
+.queue-item.s-done    { background: #EAF6F1; }
+.queue-item.s-skipped { background: #F5F4F1; opacity: 0.55; }
+.queue-item:hover { filter: brightness(0.96); }
+.queue-item.active { box-shadow: inset 0 0 0 1.5px rgba(0,0,0,0.15); }
 
-.qi-strip {
-  width: 4px; flex-shrink: 0; border-radius: 2px;
-  background: var(--rule); margin: 2px 10px 2px 6px; align-self: stretch;
+.qi-strip { width: 3px; flex-shrink: 0; }
+.qi-strip.s-pending { background: #C87D2F; }
+.qi-strip.s-done    { background: #2A8C6E; }
+.qi-strip.s-skipped { background: #C8C4BB; }
+
+.qi-body {
+  flex: 1; min-width: 0;
+  padding: 7px 10px;
+  display: flex; flex-direction: column; gap: 4px;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
 }
-.queue-item.active .qi-strip { background: var(--accent-2); }
-.qi-body { flex: 1; min-width: 0; display: flex; flex-direction: row; align-items: center; gap: 8px; }
 
 .qi-title {
-  flex: 1; font-size: 13.5px; font-weight: 500; color: var(--ink);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 13px; font-weight: 400; color: #1A1A1A; line-height: 1.4;
+  overflow: hidden; flex: 1;
 }
-.qi-status {
-  font-family: var(--font-b); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 2px 7px; border-radius: 3px; border: none; flex-shrink: 0; font-weight: 600;
+.qi-preview {
+  font-size: 11px; color: #888; line-height: 1.35;
+  flex-shrink: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
-.qi-status.pending    { background: #9B9B9B; color: #fff; }
-.qi-status.approved   { background: var(--accent); color: #fff; }
-.qi-status.dismissed  { background: var(--rule); color: var(--ink-3); }
-.qi-status.extracting { background: #A8C49A; color: #2A4A20; }
 
 /* ── Review panel ── */
 #review {
@@ -299,6 +312,12 @@ input, textarea { font: inherit; color: inherit; }
 }
 #preview-close:hover { background: var(--rule-soft); color: var(--ink); }
 #preview-frame { flex: 1; border: none; width: 100%; background: #fff; }
+#preview-article {
+  flex: 1; overflow-y: auto; padding: 20px 24px; display: none;
+  font-size: 13.5px; line-height: 1.7; color: var(--ink-2);
+  white-space: pre-wrap; font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+}
 
 /* Extract button */
 .btn-extract {
@@ -388,6 +407,74 @@ input, textarea { font: inherit; color: inherit; }
   max-width: 280px; text-align: center; line-height: 1.5;
 }
 
+.argument-box {
+  background: var(--bg-card); border-left: 3px solid var(--accent-2);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 12px 16px; margin-bottom: 4px;
+}
+.argument-box p { font-size: 14px; line-height: 1.6; color: var(--ink); margin-bottom: 6px; }
+.argument-box p:last-child { margin-bottom: 0; }
+.tradition-text { font-size: 12.5px; color: var(--ink-3); font-style: italic; }
+
+.enrich-section {
+  border: 1px solid var(--rule); border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.enrich-section summary {
+  padding: 9px 14px; cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); user-select: none;
+  font-family: var(--font-b); font-size: 12.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3);
+}
+.enrich-section summary::-webkit-details-marker { display: none; }
+.enrich-section summary::after {
+  content: '▸'; font-size: 11px; transition: transform 150ms ease;
+}
+.enrich-section[open] summary::after { transform: rotate(90deg); }
+.enrich-section[open] summary { border-bottom: 1px solid var(--rule); }
+.enrich-section-body { padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; }
+
+.check-row {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 4px 0; font-size: 13.5px;
+}
+.check-row input[type=checkbox] { flex-shrink: 0; accent-color: var(--accent); margin-top: 2px; }
+.theme-edit {
+  flex: 1; font-family: var(--font-b); font-size: 13.5px;
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  padding: 2px 6px; background: transparent; color: var(--ink);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.theme-edit:focus { outline: none; border-color: var(--accent); background: var(--bg); }
+.theme-edit:hover { border-color: var(--rule); }
+
+.tag-pills-wrap { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 2px; }
+.tag-toggle {
+  display: flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-b); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em; border: 1px solid var(--rule);
+  background: var(--bg-rail); color: var(--ink-3);
+  transition: all 120ms ease;
+}
+.tag-toggle:has(input:checked) { background: var(--tag-bg); color: var(--tag-ink); border-color: var(--tag-bg); }
+.tag-toggle input { display: none; }
+
+.topic-row { display: flex; align-items: center; gap: 8px; }
+.topic-name { font-size: 13.5px; flex: 1; color: var(--ink); }
+.topic-type { font-size: 11px; color: var(--ink-3); font-family: var(--font-m); }
+.badge-new      { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; background: #fde8f0; color: var(--accent-2); }
+.badge-existing { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; background: var(--rule-soft); color: var(--ink-3); }
+
+.assoc-row { display: flex; align-items: baseline; gap: 6px; font-size: 13px; }
+.assoc-s { font-weight: 500; color: var(--ink); }
+.assoc-p { font-family: var(--font-m); font-size: 11.5px; color: var(--ink-3); font-style: italic; }
+.assoc-o { color: var(--ink-2); }
+
+.gap-row { font-size: 13px; color: var(--ink-2); padding: 2px 0; }
+.gap-row code { font-family: var(--font-m); font-size: 11.5px; color: var(--ink-3); }
+
 /* Toast */
 .toast {
   position: fixed; bottom: 18px; right: 18px; padding: 8px 14px;
@@ -406,8 +493,8 @@ input, textarea { font: inherit; color: inherit; }
   <img src="/images/watercolor-leaf-trimmed.png" alt="Garden logo" style="height:28px;width:auto;flex-shrink:0;">
   <h1>Garden admin</h1>
   <div class="tab-group">
-    <button class="tab active" onclick="switchTab('weblinks')" data-tab="weblinks">Weblinks</button>
-    <button class="tab" onclick="switchTab('content')" data-tab="content">My content</button>
+    <button class="tab active" onclick="switchTab('weblinks')" data-tab="weblinks">My inbox</button>
+    <button class="tab" onclick="switchTab('enrich')" data-tab="enrich">Enrich my content</button>
     <button class="tab" onclick="switchTab('write')" data-tab="write">Write</button>
     <button class="tab">Eval</button>
     <button class="tab">Pipeline</button>
@@ -415,6 +502,8 @@ input, textarea { font: inherit; color: inherit; }
   </div>
   <div class="spacer"></div>
   <button id="sync-btn" onclick="syncTelegram()" title="Pull new messages from Telegram">Sync Telegram</button>
+  <button id="enrich-one-btn" onclick="enrichSelected()" title="Run /ingest-source on the selected weblink" style="display:none">Enrich this link</button>
+  <button id="enrich-all-btn" onclick="enrichAll()" title="Enrich all un-enriched draft weblinks" style="display:none">Enrich all</button>
   <span class="queue-count">3 pending</span>
 </div>
 
@@ -470,6 +559,7 @@ input, textarea { font: inherit; color: inherit; }
       <button id="preview-close" onclick="closePreview()">✕</button>
     </div>
     <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <div id="preview-article"></div>
   </div>
 
 </div>
@@ -489,7 +579,8 @@ input, textarea { font: inherit; color: inherit; }
 // ── State ──────────────────────────────────────────────────────────────────
 let queueItems = [];
 let currentIdx = -1;
-let activeTab = 'weblinks';  // 'weblinks' | 'content'
+let activeTab = 'weblinks';  // 'weblinks' | 'enrich'
+let currentProposal = null;  // full proposal data for the selected enrich item
 
 async function switchTab(tab) {
   if (tab === activeTab) return;
@@ -511,8 +602,19 @@ async function switchTab(tab) {
   writePane.classList.add('hidden');
 
   const headLabel = document.querySelector('#queue-head > span');
-  if (headLabel) headLabel.textContent = tab === 'content' ? 'Posts to review' : 'Draft weblinks';
+  const labels = { weblinks: 'My inbox', enrich: 'Enrich my content' };
+  if (headLabel) headLabel.textContent = labels[tab] || tab;
   currentIdx = -1;
+  currentProposal = null;
+  document.getElementById('review-content').innerHTML = '';
+  closePreview();
+
+  // Show inbox-specific buttons only on weblinks tab
+  const isInbox = tab === 'weblinks';
+  document.getElementById('sync-btn').style.display = isInbox ? '' : 'none';
+  document.getElementById('enrich-one-btn').style.display = isInbox ? '' : 'none';
+  document.getElementById('enrich-all-btn').style.display = isInbox ? '' : 'none';
+
   await loadInbox();
 }
 
@@ -579,11 +681,25 @@ async function saveScratch() {
 // ── Preview pane ───────────────────────────────────────────────────────────
 function openPreview(url, label) {
   document.getElementById('preview-url').textContent = label || url;
+  document.getElementById('preview-frame').style.display = 'block';
   document.getElementById('preview-frame').src = url;
+  document.getElementById('preview-article').style.display = 'none';
+  document.getElementById('preview-article').textContent = '';
+}
+function openArticlePreview(text, label) {
+  document.getElementById('preview-url').textContent = label || '';
+  document.getElementById('preview-frame').style.display = 'none';
+  document.getElementById('preview-frame').src = '';
+  const el = document.getElementById('preview-article');
+  el.style.display = 'block';
+  el.textContent = text;
 }
 function closePreview() {
   document.getElementById('preview-url').textContent = '';
+  document.getElementById('preview-frame').style.display = 'none';
   document.getElementById('preview-frame').src = '';
+  document.getElementById('preview-article').style.display = 'none';
+  document.getElementById('preview-article').textContent = '';
 }
 
 // ── Utilities ──────────────────────────────────────────────────────────────
@@ -608,17 +724,25 @@ function setBusy(busy) {
 
 // ── Queue loader ───────────────────────────────────────────────────────────
 async function loadInbox() {
-  const endpoint = activeTab === 'content' ? '/api/content-review' : '/api/inbox';
+  const endpoints = { weblinks: '/api/inbox', content: '/api/content-review', enrich: '/api/proposals' };
+  const endpoint = endpoints[activeTab] || '/api/inbox';
   const res = await fetch(endpoint);
   queueItems = await res.json();
   renderQueue();
   updateQueueCount();
-  if (queueItems.length) showItem(0);
+  const firstIdx = activeTab === 'enrich'
+    ? queueItems.findIndex(it => it.status === 'pending')
+    : 0;
+  if (firstIdx >= 0) showItem(firstIdx);
+  else if (queueItems.length) showItem(0);
   else {
     const el = document.getElementById('review-content');
-    if (el) el.innerHTML = activeTab === 'content'
-      ? '<p style="color:var(--ink-3);padding:8px 0;">All posts up to date. Nothing new to review.</p>'
-      : '<p style="color:var(--ink-3);padding:8px 0;">No draft weblinks. Click Sync Telegram to pull new items.</p>';
+    const msgs = {
+      content: 'All posts up to date. Nothing new to review.',
+      enrich: 'No pending proposals. Run the batch extractor to generate new ones.',
+      weblinks: 'No draft weblinks. Click Sync Telegram to pull new items.',
+    };
+    if (el) el.innerHTML = `<p style="color:var(--ink-3);padding:8px 0;">${msgs[activeTab] || ''}</p>`;
   }
 }
 
@@ -645,34 +769,70 @@ function renderQueue() {
 
   list.innerHTML = visible.map(it => {
     const realIdx = queueItems.indexOf(it);
-    const reviewed = it.justReviewed;
-    const published = it.justPublished;
-    const doneState = reviewed || published || it.processed;
-    const status = reviewed ? 'approved' : (published ? 'approved' : (it.processed ? 'processed' : 'pending'));
-    const statusLabel = reviewed ? 'Reviewed' : (published ? 'Published' : (it.processed ? 'Done' : 'Pending'));
+    let doneState, status, statusLabel;
+    if (activeTab === 'enrich') {
+      const st = it.justApplied ? 'applied' : it.justSkipped ? 'skipped' : (it.status || 'pending');
+      doneState = st !== 'pending';
+      status = st === 'applied' ? 'applied' : st === 'skipped' ? 'skipped' : 'pending';
+      statusLabel = st === 'applied' ? 'Applied' : st === 'skipped' ? 'Skipped' : 'Pending';
+    } else {
+      const reviewed = it.justReviewed;
+      const published = it.justPublished;
+      doneState = reviewed || published || it.processed;
+      status = reviewed ? 'approved' : (published ? 'approved' : (it.processed ? 'processed' : 'pending'));
+      statusLabel = reviewed ? 'Reviewed' : (published ? 'Published' : (it.processed ? 'Done' : 'Pending'));
+    }
     const active = realIdx === currentIdx ? 'active' : '';
-    const done = doneState ? 'done' : '';
-    return `<div class="queue-item ${active} ${done}" onclick="showItem(${realIdx})">
-      <span class="qi-strip"></span>
+    const stripClass = doneState ? 's-done' : (status === 'skipped' ? 's-skipped' : 's-pending');
+    const previewText = it.argument || it.description || '';
+    const previewLine = previewText
+      ? `<div class="qi-preview">${escHtml(previewText.slice(0, 120))}</div>`
+      : '';
+    return `<div class="queue-item ${active} ${stripClass}" onclick="showItem(${realIdx})">
+      <div class="qi-strip ${stripClass}"></div>
       <div class="qi-body">
-        <span class="qi-title">${escHtml(it.title)}</span>
-        <span class="qi-status ${status}">${statusLabel}</span>
+        <div class="qi-title">${escHtml(it.title)}</div>
+        ${previewLine}
       </div>
     </div>`;
   }).join('');
 }
 
 function updateQueueCount() {
-  const label = activeTab === 'content' ? 'to review' : 'drafts';
-  document.querySelector('.queue-count').textContent = `${queueItems.length} ${label}`;
+  let n, label;
+  if (activeTab === 'enrich') {
+    n = queueItems.filter(it => it.status === 'pending' && !it.justApplied && !it.justSkipped).length;
+    label = 'pending';
+  } else {
+    n = queueItems.length; label = 'drafts';
+  }
+  document.querySelector('.queue-count').textContent = `${n} ${label}`;
 }
 
 // ── Review panel ───────────────────────────────────────────────────────────
-function showItem(idx) {
+async function showItem(idx) {
   currentIdx = idx;
   renderQueue();
   const item = queueItems[idx];
   if (!item) return;
+
+  if (activeTab === 'enrich') {
+    // Fetch full proposal data, then render
+    currentProposal = null;
+    document.getElementById('review-content').innerHTML =
+      '<p style="color:var(--ink-3);font-size:13.5px;padding:4px 0">Loading…</p>';
+    try {
+      const res = await fetch(`/api/proposals/${item.slug}`);
+      currentProposal = await res.json();
+    } catch (e) {
+      document.getElementById('review-content').innerHTML =
+        `<p style="color:var(--accent-2)">Failed to load proposal: ${escHtml(e.message)}</p>`;
+      return;
+    }
+    renderEnrichPanel(currentProposal, item);
+    return;
+  }
+
   renderReviewPanel(item);
 
   // Preview: external URL for weblinks, local Astro page for my-content
@@ -739,25 +899,14 @@ function renderReviewPanel(item) {
   const hint = document.querySelector('.action-hint');
   const approveBtn = document.querySelector('.btn-approve');
   const dismissBtn = document.querySelector('.btn-dismiss');
-  if (activeTab === 'content') {
-    if (hint) hint.textContent = item.justReviewed
-      ? `Reviewed ${item.reviewed || 'today'} — revisit or move on`
-      : 'Approve → saves edits, stamps reviewed date, and commits';
-    if (approveBtn) {
-      approveBtn.textContent = item.justReviewed ? 'Re-approve and commit' : 'Approve and commit';
-      approveBtn.disabled = false;
-    }
-    if (dismissBtn) dismissBtn.style.display = 'none';
-  } else {
-    const alreadyPublished = item.processed || item.justPublished;
-    if (hint) hint.textContent = alreadyPublished
-      ? 'Already published — kept in queue for situation awareness'
-      : (enriched
-          ? 'Approve → flips draft:false and commits'
-          : 'Draft not yet enriched — approve will publish without triples');
-    if (approveBtn) approveBtn.textContent = alreadyPublished ? 'Update and re-commit' : 'Approve and publish';
-    if (dismissBtn) dismissBtn.style.display = alreadyPublished ? 'none' : '';
-  }
+  const alreadyPublished = item.processed || item.justPublished;
+  if (hint) hint.textContent = alreadyPublished
+    ? 'Already published — kept in queue for situation awareness'
+    : (enriched
+        ? 'Approve → flips draft:false and commits'
+        : 'Draft not yet enriched — approve will publish without triples');
+  if (approveBtn) approveBtn.textContent = alreadyPublished ? 'Update and re-commit' : 'Approve and publish';
+  if (dismissBtn) dismissBtn.style.display = alreadyPublished ? 'none' : '';
   approveBtn.disabled = false;
   if (dismissBtn) dismissBtn.disabled = false;
 }
@@ -794,8 +943,168 @@ function removeTriple(idx) {
   }
 }
 
+// ── Enrich panel ───────────────────────────────────────────────────────────
+async function renderEnrichPanel(proposal, item) {
+  // Fetch article body in parallel with rendering
+  let articleBody = '';
+  try {
+    const r = await fetch(`/api/article/${item.slug}`);
+    const d = await r.json();
+    articleBody = d.body || '';
+  } catch (_) {}
+
+  // Simple markdown → plain text: strip headers, bold, links, code fences
+  const plainBody = articleBody
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\[\[([^\]]+)\]\]/g, '$1')
+    .trim();
+
+  // Show article in the right preview pane
+  if (plainBody) openArticlePreview(plainBody, item.title);
+  const ext = proposal.extracted || {};
+  const themes = ext.themes || [];
+  const tags = ext.tags || [];
+  const topics = ext.topics || [];
+  const assocs = ext.associations || [];
+  const oqs = ext.open_questions || [];
+  const gaps = ext.gaps || [];
+
+  const themesHtml = themes.map((t, i) => `
+    <div class="check-row">
+      <input type="checkbox" id="theme-${i}" checked>
+      <input class="theme-edit" type="text" value="${escHtml(t)}" data-theme-idx="${i}">
+    </div>`).join('');
+
+  const tagsHtml = tags.map((t, i) => `
+    <label class="tag-toggle">
+      <input type="checkbox" id="tag-${i}" checked onchange="this.closest('label').classList.toggle('active',this.checked)" checked>
+      ${escHtml(t)}
+    </label>`).join('');
+
+  const topicsHtml = topics.map((t, i) => `
+    <div class="check-row topic-row">
+      <input type="checkbox" id="topic-${i}" checked>
+      <span class="topic-name">${escHtml(t.label)}</span>
+      <span class="topic-type">${escHtml(t.type)}</span>
+      <span class="${t.is_new ? 'badge-new' : 'badge-existing'}">${t.is_new ? 'new' : 'existing'}</span>
+    </div>`).join('');
+
+  const assocsHtml = assocs.map((a, i) => `
+    <div class="check-row assoc-row">
+      <input type="checkbox" id="assoc-${i}" checked>
+      <span class="assoc-s">${escHtml(a.subject)}</span>
+      <span class="assoc-p">${escHtml(a.predicate)}</span>
+      <span class="assoc-o">${escHtml(a.object)}</span>
+    </div>`).join('');
+
+  const oqsHtml = oqs.map((q, i) => `
+    <div class="check-row">
+      <input type="checkbox" id="oq-${i}" checked>
+      <span style="font-size:13px">${escHtml(q)}</span>
+    </div>`).join('');
+
+  const gapsHtml = gaps.map(g => `
+    <div class="gap-row">${escHtml(g.label)} — <code>${escHtml(g.suggested_type || '?')}</code></div>`).join('');
+
+  const alreadyApplied = proposal.status === 'applied';
+
+  document.getElementById('review-content').innerHTML = `
+    <div>
+      <h2 style="font-family:var(--font-d);font-size:18px;font-weight:600;margin-bottom:4px">${escHtml(item.title)}</h2>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:16px">${escHtml(item.slug)} · ${escHtml(item.date || '')}</div>
+    </div>
+    ${ext.argument ? `<div class="argument-box">
+      <p>${escHtml(ext.argument)}</p>
+      ${ext.tradition ? `<p class="tradition-text">${escHtml(ext.tradition)}</p>` : ''}
+    </div>` : ''}
+    ${themes.length ? `<details class="enrich-section" open>
+      <summary>Themes (${themes.length})</summary>
+      <div class="enrich-section-body">${themesHtml}</div>
+    </details>` : ''}
+    ${tags.length ? `<details class="enrich-section" open>
+      <summary>Tags (${tags.length})</summary>
+      <div class="enrich-section-body">
+        <div class="tag-pills-wrap">${tagsHtml}</div>
+      </div>
+    </details>` : ''}
+    ${topics.length ? `<details class="enrich-section" open>
+      <summary>Topics (${topics.length})</summary>
+      <div class="enrich-section-body">${topicsHtml}</div>
+    </details>` : ''}
+    ${assocs.length ? `<details class="enrich-section" open>
+      <summary>Associations (${assocs.length})</summary>
+      <div class="enrich-section-body">${assocsHtml}</div>
+    </details>` : ''}
+    ${oqs.length ? `<details class="enrich-section">
+      <summary>Open questions (${oqs.length})</summary>
+      <div class="enrich-section-body">${oqsHtml}</div>
+    </details>` : ''}
+    ${gaps.length ? `<details class="enrich-section">
+      <summary>Gaps (${gaps.length}) — info only</summary>
+      <div class="enrich-section-body">${gapsHtml}</div>
+    </details>` : ''}
+  `;
+
+  const hint = document.querySelector('.action-hint');
+  const approveBtn = document.querySelector('.btn-approve');
+  const dismissBtn = document.querySelector('.btn-dismiss');
+  if (hint) hint.textContent = alreadyApplied ? 'Already applied' : 'Uncheck anything you want to skip, then apply';
+  if (approveBtn) { approveBtn.textContent = alreadyApplied ? 'Re-apply' : 'Apply'; approveBtn.disabled = false; }
+  if (dismissBtn) { dismissBtn.style.display = ''; dismissBtn.textContent = 'Skip'; dismissBtn.disabled = false; }
+}
+
+function collectEnrichAccepted() {
+  const ext = (currentProposal || {}).extracted || {};
+  const themes = (ext.themes || []).reduce((acc, t, i) => {
+    const cb = document.getElementById(`theme-${i}`);
+    const inp = document.querySelector(`[data-theme-idx="${i}"]`);
+    if (cb && cb.checked) acc.push(inp ? inp.value.trim() : t);
+    return acc;
+  }, []);
+  const tags = (ext.tags || []).filter((_, i) => {
+    const cb = document.getElementById(`tag-${i}`); return cb && cb.checked;
+  });
+  const topics = (ext.topics || []).filter((_, i) => {
+    const cb = document.getElementById(`topic-${i}`); return cb && cb.checked;
+  });
+  const associations = (ext.associations || []).filter((_, i) => {
+    const cb = document.getElementById(`assoc-${i}`); return cb && cb.checked;
+  });
+  return { themes, tags, topics, associations };
+}
+
+async function applyProposal() {
+  const item = queueItems[currentIdx];
+  if (!item || !currentProposal) return;
+  const accepted = collectEnrichAccepted();
+  setBusy(true);
+  try {
+    const res = await fetch('/api/apply-proposal', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ slug: item.slug, accepted })
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'Unknown error');
+    item.justApplied = true;
+    item.status = 'applied';
+    toast('Applied: ' + item.slug);
+    renderQueue();
+    updateQueueCount();
+    const next = queueItems.findIndex((it, i) => i !== currentIdx && it.status === 'pending' && !it.justApplied);
+    if (next >= 0) setTimeout(() => showItem(next), 500);
+  } catch (e) {
+    toast('Apply failed: ' + e.message, true);
+  }
+  setBusy(false);
+}
+
 // ── Approve / Dismiss ──────────────────────────────────────────────────────
 async function approveItem() {
+  if (activeTab === 'enrich') { await applyProposal(); return; }
   const item = queueItems[currentIdx];
   if (!item) return;
 
@@ -806,10 +1115,8 @@ async function approveItem() {
   const description = document.getElementById('meta-desc')?.value ?? item.description ?? '';
   const triples = (item.associations || []).map(a => [a.subject, a.predicate, a.object]);
 
-  const endpoint = activeTab === 'content' ? '/api/mark-reviewed' : '/api/approve';
-  const body = activeTab === 'content'
-    ? {slug: item.slug, collection: item.collection, title, tags, description, triples}
-    : {slug: item.slug, title, tags, description, triples};
+  const endpoint = '/api/approve';
+  const body = {slug: item.slug, title, tags, description, triples};
 
   setBusy(true);
   try {
@@ -820,23 +1127,16 @@ async function approveItem() {
     });
     const data = await res.json();
     if (data.error) throw new Error(data.error);
-    if (activeTab === 'content') {
-      // Keep item in queue, mark it reviewed for before/after comparison
-      item.reviewed = data.reviewed;
-      item.justReviewed = true;
-      toast('Marked reviewed');
-    } else {
-      // Weblinks: keep item in queue too, mark it published
-      item.justPublished = true;
-      toast('Published: ' + item.slug);
-    }
+    // Weblinks: keep item in queue, mark it published
+    item.justPublished = true;
+    toast('Published: ' + item.slug);
     renderQueue();
     updateQueueCount();
     // Advance to next unprocessed item, but keep the current one visible
-    const next = queueItems.findIndex((it, i) => i !== currentIdx && !it.justReviewed && !it.justPublished);
+    const next = queueItems.findIndex((it, i) => i !== currentIdx && !it.justPublished);
     if (next >= 0) setTimeout(() => showItem(next), 500);
   } catch (e) {
-    toast((activeTab === 'content' ? 'Mark reviewed' : 'Approve') + ' failed: ' + e.message, true);
+    toast('Approve failed: ' + e.message, true);
   }
   setBusy(false);
 }
@@ -844,6 +1144,26 @@ async function approveItem() {
 async function dismissItem() {
   const item = queueItems[currentIdx];
   if (!item) return;
+
+  if (activeTab === 'enrich') {
+    setBusy(true);
+    try {
+      await fetch('/api/skip-proposal', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ slug: item.slug })
+      });
+      item.justSkipped = true;
+      item.status = 'skipped';
+      toast('Skipped: ' + item.slug);
+      renderQueue();
+      updateQueueCount();
+      const next = queueItems.findIndex((it, i) => i !== currentIdx && it.status === 'pending' && !it.justApplied && !it.justSkipped);
+      if (next >= 0) setTimeout(() => showItem(next), 500);
+    } catch (e) { toast('Skip failed: ' + e.message, true); }
+    setBusy(false);
+    return;
+  }
+
   if (!confirm(`Dismiss "${item.title}"? The draft will be deleted.`)) return;
 
   setBusy(true);
@@ -898,6 +1218,72 @@ async function syncTelegram() {
   }
   btn.textContent = 'Sync Telegram';
   btn.disabled = false;
+}
+
+async function enrichOne(slug) {
+  const btn = document.getElementById('enrich-one-btn');
+  const allBtn = document.getElementById('enrich-all-btn');
+  btn.disabled = true;
+  allBtn.disabled = true;
+  btn.textContent = 'Enriching…';
+  try {
+    const r = await fetch('/api/enrich-weblink', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ slug })
+    });
+    const d = await r.json();
+    if (!r.ok || !d.ok) throw new Error(d.error || 'Enrichment failed');
+    toast(`Enriched: ${slug} — ${d.topics_new} new topics, ${d.associations} associations`);
+    await loadInbox();
+    // Re-select the item to refresh the panel
+    const idx = queueItems.findIndex(it => it.slug === slug);
+    if (idx >= 0) showItem(idx);
+  } catch (e) {
+    toast('Enrichment failed: ' + e.message, true);
+  }
+  btn.textContent = 'Enrich this link';
+  btn.disabled = false;
+  allBtn.disabled = false;
+}
+
+async function enrichSelected() {
+  const item = queueItems[currentIdx];
+  if (!item) { toast('Select a weblink first', true); return; }
+  if (item.enriched) { toast('Already enriched — use Approve to publish'); return; }
+  if (!item.url) { toast('No URL on this item', true); return; }
+  await enrichOne(item.slug);
+}
+
+async function enrichAll() {
+  const unenriched = queueItems.filter(it => !it.processed && !it.enriched && it.url);
+  if (!unenriched.length) { toast('No un-enriched drafts found'); return; }
+  const btn = document.getElementById('enrich-all-btn');
+  const oneBtn = document.getElementById('enrich-one-btn');
+  btn.disabled = true;
+  oneBtn.disabled = true;
+  let done = 0, failed = 0;
+  for (const item of unenriched) {
+    btn.textContent = `Enriching ${done + 1}/${unenriched.length}…`;
+    try {
+      const r = await fetch('/api/enrich-weblink', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ slug: item.slug })
+      });
+      const d = await r.json();
+      if (!r.ok || !d.ok) throw new Error(d.error || 'failed');
+      done++;
+    } catch (e) {
+      console.warn(`enrich-all: ${item.slug} failed:`, e.message);
+      failed++;
+    }
+  }
+  toast(`Enriched ${done} link${done !== 1 ? 's' : ''}${failed ? `, ${failed} failed` : ''}`);
+  await loadInbox();
+  btn.textContent = 'Enrich all';
+  btn.disabled = false;
+  oneBtn.disabled = false;
 }
 
 function advanceQueue() {

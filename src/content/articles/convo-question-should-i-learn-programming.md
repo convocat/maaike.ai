@@ -29,7 +29,7 @@ I often coach new conversation designers who come from a writing and language ba
 
 Even the most no-code or lo-code platform will use some form of programming logic somewhere. Variables, conditional flows, slot filling, snippets of JSON, even the very happy paths and disambiguations that you design: you're bound to encounter elements of code logic in your day-to-day conversation design.
 
-Mind you, this doesn't mean that you need to become a full-blown developer! But learning to read some basic JSON, HTML, CSS or — of course — SSML, experimenting and tweaking it…for sure!
+Mind you, this doesn't mean that you need to become a full-blown developer! But learning to read some basic JSON, HTML, CSS or, of course, SSML, experimenting and tweaking it…for sure!
 
 ## No, don't water down your skill
 

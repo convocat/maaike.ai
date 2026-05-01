@@ -9,11 +9,11 @@ section: Infrastructure
 ai: co-created
 ---
 
-The "Suggested reading" section in the post sidebar recommends library books based on the current post's content. It runs entirely at build time — no server, no API, no vector database. All logic lives in `src/utils/recommender.ts`.
+The "Suggested reading" section in the post sidebar recommends library books based on the current post's content. It runs entirely at build time, no server, no API, no vector database. All logic lives in `src/utils/recommender.ts`.
 
 ## The approach
 
-Each post and each book gets a keyword profile — a weighted map of tokens extracted from title, description, and body. Similarity is computed using cosine similarity between these two profiles. A tag bonus adds signal when posts and books share tags directly or via a synonym table.
+Each post and each book gets a keyword profile, a weighted map of tokens extracted from title, description, and body. Similarity is computed using cosine similarity between these two profiles. A tag bonus adds signal when posts and books share tags directly or via a synonym table.
 
 ## Keyword profiles
 
@@ -26,7 +26,7 @@ const bodyKeywords     = buildKeywordMap(tokenize(postBody), 1);
 const articleProfile   = mergeKeywordMaps(titleKeywords, descKeywords, bodyKeywords);
 ```
 
-Title carries the most weight — it expresses the post's core topic. Body has the lowest weight because it's noisy.
+Title carries the most weight, it expresses the post's core topic. Body has the lowest weight because it's noisy.
 
 ## Cosine similarity
 
@@ -69,8 +69,8 @@ The library collection is fetched once and cached in module scope. All posts in 
 
 ## Limitations
 
-- Cosine similarity is bag-of-words — word order and semantics are ignored. Two posts using the same words in different contexts score identically.
-- The tag synonym table is handwritten — it doesn't update automatically as the tag vocabulary grows.
+- Cosine similarity is bag-of-words, word order and semantics are ignored. Two posts using the same words in different contexts score identically.
+- The tag synonym table is handwritten, it doesn't update automatically as the tag vocabulary grows.
 - Books without body content (no notes written yet) rely entirely on title and tag matching.
 
 ## When suggestions appear

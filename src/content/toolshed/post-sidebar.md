@@ -15,13 +15,13 @@ The 14rem sidebar on every post is contextual: it shows different sections depen
 
 ### Part of
 
-Shown when the post has a `develops: <slug>` frontmatter field. Renders a single link to the hub post — the project this file belongs to.
+Shown when the post has a `develops: <slug>` frontmatter field. Renders a single link to the hub post, the project this file belongs to.
 
 The hub is resolved at build time by scanning all content for a post whose `id` matches the `develops` slug. If no match is found, the section is suppressed.
 
 ### Linked from / Project files
 
-Shows backlinks — other posts that link to this one via `[[Wiki link]]` syntax. The heading adapts:
+Shows backlinks, other posts that link to this one via `[[Wiki link]]` syntax. The heading adapts:
 
 - **Hub post** (`hub: true`): heading is "Project files"
 - **Regular post**: heading is "Linked from"
@@ -38,7 +38,7 @@ Shown when the post body contains `[[wiki links]]` to library entries. `getLinke
 
 ### Suggested reading
 
-Uses `getSuggestedBooks()` — a recommender that finds books in the library relevant to the post's collection and tags. Shown only when there are matches and the post isn't already saturated with linked books.
+Uses `getSuggestedBooks()`, a recommender that finds books in the library relevant to the post's collection and tags. Shown only when there are matches and the post isn't already saturated with linked books.
 
 ## Visual design
 
@@ -62,15 +62,15 @@ Uses `getSuggestedBooks()` — a recommender that finds books in the library rel
 }
 ```
 
-Section headings are small-caps, muted, 0.72rem — they label without competing with content. Links are muted by default and turn accent on hover.
+Section headings are small-caps, muted, 0.72rem, they label without competing with content. Links are muted by default and turn accent on hover.
 
 ## Sticky behavior
 
-`.sidebar-content` uses `position: sticky; top: var(--space-xl)`. No `max-height` or `overflow-y` — the sidebar scrolls with the page rather than independently. See [One page, one scrollbar](/toolshed/one-page-one-scrollbar) for why.
+`.sidebar-content` uses `position: sticky; top: var(--space-xl)`. No `max-height` or `overflow-y`, the sidebar scrolls with the page rather than independently. See [One page, one scrollbar](/toolshed/one-page-one-scrollbar) for why.
 
 ## Mobile behavior
 
-At `68rem` breakpoint, the sidebar drops below the article and goes `position: static`. Links switch from vertical stacking to `flex-wrap: row` — they spread horizontally at the bottom of the post rather than forming a column.
+At `68rem` breakpoint, the sidebar drops below the article and goes `position: static`. Links switch from vertical stacking to `flex-wrap: row`, they spread horizontally at the bottom of the post rather than forming a column.
 
 ## Book card design
 

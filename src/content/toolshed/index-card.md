@@ -39,7 +39,7 @@ Every card is a flex row with two areas:
 
 Left edge, 52px wide, colored by collection. Contains a doodle icon (hand-drawn SVG from `/images/icons/`). Separated from the main column by a `3px double #B8B0AA` border.
 
-Strip colors are soft, desaturated pastels — each a lightened version of the collection's icon stroke color. They don't shout; they identify.
+Strip colors are soft, desaturated pastels, each a lightened version of the collection's icon stroke color. They don't shout; they identify.
 
 ## The meta bar
 
@@ -50,7 +50,7 @@ Strip colors are soft, desaturated pastels — each a lightened version of the c
 }
 ```
 
-The double-line bottom border is the ruling of the index card. The color — a washed-out, transparent red — references pencil lines on paper without being literal about it.
+The double-line bottom border is the ruling of the index card. The color, a washed-out, transparent red, references pencil lines on paper without being literal about it.
 
 Contents: `COLLECTION LABEL · DATE · [TENDED DATE] · MATURITY EMOJI · AI LABEL`
 
@@ -111,4 +111,4 @@ This lets a single greyscale SVG icon take on any hue without maintaining separa
 
 ## Where used
 
-`src/components/MosaicCard.astro` — rendered in `src/pages/index.astro` (stream) and `src/pages/library/index.astro` (library). The toolshed kanban cards adapt this pattern at a smaller scale.
+`src/components/MosaicCard.astro`, rendered in `src/pages/index.astro` (stream) and `src/pages/library/index.astro` (library). The toolshed kanban cards adapt this pattern at a smaller scale.

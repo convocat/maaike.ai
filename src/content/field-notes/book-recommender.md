@@ -86,4 +86,4 @@ Researched the approach using Claude. Decided on logic-based scoring over embedd
 - [x] Port Python scoring script to Node.js: `scripts/generate-book-recommendations.cjs`
 - [x] Score all 110 library books (previously only 3 were scored)
 - [x] Add "include books I already read" toggle on dashboard
-- [x] Add test suite: `scripts/test-book-recommendations.cjs` — parser edge cases, type safety, output structure
+- [x] Add test suite: `scripts/test-book-recommendations.cjs`, parser edge cases, type safety, output structure

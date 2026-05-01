@@ -18,7 +18,7 @@ triples:
   - ["Audience modelling", "counters", "Expert-centric writing"]
   - ["Content quality", "characterised-as", "Trade-off"]
   - ["Feedback", "requires", "Critical appraisal"]
-description: "5 checks to keep your content on track — and your clients happy."
+description: "5 checks to keep your content on track, and your clients happy."
 draft: false
 ai: "100% Maai"
 ---

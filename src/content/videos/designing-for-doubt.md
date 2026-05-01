@@ -21,7 +21,7 @@ This talk builds on ideas from [[why-chatgpt-is-bullshit-and-why-we-should-desig
 ## Related
 
 - [[an-evening-with-chatgpt-2|An evening with ChatGPT (2)]]
-- [[an-evening-with-youchat-and-chatsonic|An evening with YouChat and Chatsonic — with a bit of a twist]]
+- [[an-evening-with-youchat-and-chatsonic|An evening with YouChat and Chatsonic, with a bit of a twist]]
 - [[an-evening-with-chatgpt|An evening with ChatGPT]]
 - [[an-evening-with-chatgpt-3|An evening with ChatGPT (3)]]
 - [[microsoft-youre-using-bing-wrong|Microsoft: \"you're using Bing wrong! You're not supposed to talk with it!\"]]

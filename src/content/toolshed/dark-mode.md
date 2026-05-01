@@ -13,7 +13,7 @@ The garden supports a light and dark theme. The active theme is stored in `local
 
 ## The no-flash script
 
-In `BaseLayout.astro`, an inline `<script>` runs synchronously in `<head>` — before any CSS or DOM is painted:
+In `BaseLayout.astro`, an inline `<script>` runs synchronously in `<head>`, before any CSS or DOM is painted:
 
 ```html
 <script is:inline>
@@ -26,7 +26,7 @@ In `BaseLayout.astro`, an inline `<script>` runs synchronously in `<head>` — b
 </script>
 ```
 
-`is:inline` tells Astro not to bundle this script — it must run synchronously, not deferred. The `data-theme` attribute on `<html>` is set before the browser renders anything.
+`is:inline` tells Astro not to bundle this script, it must run synchronously, not deferred. The `data-theme` attribute on `<html>` is set before the browser renders anything.
 
 ## Token switching
 
@@ -48,7 +48,7 @@ All colors are CSS custom properties. The dark mode overrides live in `src/style
 }
 ```
 
-Switching themes is instant — just changing the attribute triggers all the custom property recalculations simultaneously. No JavaScript manipulates individual element styles.
+Switching themes is instant, just changing the attribute triggers all the custom property recalculations simultaneously. No JavaScript manipulates individual element styles.
 
 ## The toggle button
 
@@ -69,7 +69,7 @@ body {
 }
 ```
 
-A 250ms ease transition on color and background makes the switch feel smooth rather than abrupt. Not all properties are transitioned — only the two most noticeable ones.
+A 250ms ease transition on color and background makes the switch feel smooth rather than abrupt. Not all properties are transitioned, only the two most noticeable ones.
 
 ## Component-level dark variants
 

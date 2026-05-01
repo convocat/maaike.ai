@@ -9,7 +9,7 @@ section: Interactive controls
 ai: co-created
 ---
 
-Wiki links (`[[Page Title]]`) connect posts across collections. Hovering one shows a small popup with the target's title and description — a preview before committing to navigate.
+Wiki links (`[[Page Title]]`) connect posts across collections. Hovering one shows a small popup with the target's title and description, a preview before committing to navigate.
 
 ## Syntax
 
@@ -69,4 +69,4 @@ This keeps broken links visible in the editor (Typora) and in the rendered page,
 
 ## Implementation
 
-`src/components/WikiLinkPreview.astro` — outputs all preview popup HTML for posts referenced on the current page. Included once in `PostLayout.astro`.
+`src/components/WikiLinkPreview.astro`, outputs all preview popup HTML for posts referenced on the current page. Included once in `PostLayout.astro`.

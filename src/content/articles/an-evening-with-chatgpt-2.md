@@ -23,7 +23,7 @@ In my first encounters with ChatGPT, I had a look at that convo design classic: 
 
 ## I'd like to order a pizza
 
-I'd like to order pizza — computer says no. OK, so I guess that ended quickly. But remember our syllogisms from [[an-evening-with-chatgpt|the last article]]? I asked Assistant to imagine that pigs could fly, and it reluctantly solved our syllogism. What if I try the same thing here?
+I'd like to order pizza, computer says no. OK, so I guess that ended quickly. But remember our syllogisms from [[an-evening-with-chatgpt|the last article]]? I asked Assistant to imagine that pigs could fly, and it reluctantly solved our syllogism. What if I try the same thing here?
 
 So how do you explain someone that they're a Pizza Bot? Well, I guess the same way you build a traditional bot from scratch. You tell it something about its scope, and hey, why not try some [slot filling](https://en.wikipedia.org/wiki/Slot_filling) while we're at it?
 

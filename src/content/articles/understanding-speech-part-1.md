@@ -1,5 +1,5 @@
 ---
-title: "Understanding speech — part 1"
+title: "Understanding speech, part 1"
 date: 2020-02-13
 updated: 2026-03-11
 maturity: complete
@@ -34,7 +34,7 @@ Speech is the act of establishing communication between a sender and a receiver 
 
 Yet, this is an important difference to note, because it influences the way you design your conversation. In written dialogue, a turn can be as long as you wish: your keyboard doesn't object, and as long as your customers don't mind a bit of reading, you can afford the extra text bubble.
 
-In speech, not quite so. A turn in speech has a very different — and rather finite — boundary: breath.
+In speech, not quite so. A turn in speech has a very different, and rather finite, boundary: breath.
 
 ## Breath
 

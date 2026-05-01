@@ -19,7 +19,7 @@ draft: false
 ai: co-created
 ---
 
-I'd love to write a tutorial that walks through the entire process of creating this digital garden — from choosing Astro and setting up content collections, to wiki links, backlinks, maturity stages, and the CMS. Not just the technical how, but the why behind each decision. A guide for anyone who wants to grow their own.
+I'd love to write a tutorial that walks through the entire process of creating this digital garden, from choosing Astro and setting up content collections, to wiki links, backlinks, maturity stages, and the CMS. Not just the technical how, but the why behind each decision. A guide for anyone who wants to grow their own.
 
 ## Related
 

@@ -27,7 +27,7 @@ ai: "100% Maai"
 
 I'm really proud to announce that we just welcomed our 700th member into our Convoclub community!
 
-When I started Convoclub in late 2021, I knew I'd love to have a space where I could meet other conversation designers, share knowledge and insights, and basically create a safe space for learning and growing. Fast forward 2 years and I can certainly say that that space is real, with meetups, some online courses (yes, I know, I've got more in the pipeline), a rather long list of resources — but most of all: a community of people that learn, support and grow together. It's been such pleasure to see real connections being made, and get to know so many of you!
+When I started Convoclub in late 2021, I knew I'd love to have a space where I could meet other conversation designers, share knowledge and insights, and basically create a safe space for learning and growing. Fast forward 2 years and I can certainly say that that space is real, with meetups, some online courses (yes, I know, I've got more in the pipeline), a rather long list of resources, but most of all: a community of people that learn, support and grow together. It's been such pleasure to see real connections being made, and get to know so many of you!
 
 ## Challenges for conversation designers: insights from real designers
 
@@ -83,6 +83,6 @@ Measuring end-to-end journey success, in particular, seems to be hard to do, and
 
 ## But also...we love our job!
 
-One other central theme that emerged from your responses is our passion and our determination. We love what we do, and we're determined to make things better for our end users. In that light, perhaps we shouldn't think of this list as challenges, but as potential for growth and advancement in our profession that we all love so much. And hopefully this list will show you one thing: you're not alone in your doubts — there's a whole community that can relate!
+One other central theme that emerged from your responses is our passion and our determination. We love what we do, and we're determined to make things better for our end users. In that light, perhaps we shouldn't think of this list as challenges, but as potential for growth and advancement in our profession that we all love so much. And hopefully this list will show you one thing: you're not alone in your doubts, there's a whole community that can relate!
 
 ![Convoclub meetup](/images/articles/convoclub-insights/5-meetup.jpeg)

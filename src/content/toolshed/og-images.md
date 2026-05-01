@@ -9,7 +9,7 @@ section: Content
 ai: co-created
 ---
 
-Every published post has an Open Graph image — a 1200×627 PNG that appears when the URL is shared on LinkedIn, Slack, or in a browser preview. They're generated at build time, not dynamically.
+Every published post has an Open Graph image, a 1200×627 PNG that appears when the URL is shared on LinkedIn, Slack, or in a browser preview. They're generated at build time, not dynamically.
 
 ## The pipeline
 
@@ -25,7 +25,7 @@ For each post:
 
 ## The background
 
-`scripts/og-bg.png` is a pre-rendered 1200×627 PNG — a sage green wash with a watercolor leaf in the upper right. It's generated once and reused for every image.
+`scripts/og-bg.png` is a pre-rendered 1200×627 PNG, a sage green wash with a watercolor leaf in the upper right. It's generated once and reused for every image.
 
 ## Text layout
 
@@ -71,7 +71,7 @@ If no image exists (collections not in the generation script, or unpublished dra
 
 ## CopyCardImage component
 
-`CopyCardImage.astro` (in the post footer share section) lets readers copy the OG image to their clipboard as a PNG — for pasting directly into LinkedIn without uploading. It reads the pre-generated file at the `imagePath` prop and uses the Clipboard API with a Canvas fallback.
+`CopyCardImage.astro` (in the post footer share section) lets readers copy the OG image to their clipboard as a PNG, for pasting directly into LinkedIn without uploading. It reads the pre-generated file at the `imagePath` prop and uses the Clipboard API with a Canvas fallback.
 
 ## Article images: split layout
 

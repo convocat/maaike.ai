@@ -20,4 +20,4 @@ reason: Elizabeth Stokoe on conversation and how talk actually works in real int
 
 - [[sequence-organization-in-interaction|Sequence Organization in Interaction]]
 - [[is-conversation-still-a-useful-metaphor|Is conversation still a useful metaphor for human-machine interaction?]]
-- [[understanding-speech-part-1|Understanding speech — part 1]]
+- [[understanding-speech-part-1|Understanding speech, part 1]]

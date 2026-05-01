@@ -86,10 +86,10 @@ Mind you, after spending a while in bot land, you might have seen so much code a
 
 ## What bot platforms would you recommend for beginners?
 
-- **engati.com** — My favorite platform for sketching out my own bots. It's free, extremely easy to use, and it has a beautiful web widget that you can tweak to your own liking.
-- **landbot.io** — Free, easy and fun. Very suitable for clicking together a button bot or a conversational landing page.
-- **dialogflow.com** — For building voice actions on Google Assistant.
-- **voiceflow.com** — The pinnacle of user friendliness when it comes to building voice actions & skills for both Google Assistant and Alexa. Love it.
+- **engati.com**: My favorite platform for sketching out my own bots. It's free, extremely easy to use, and it has a beautiful web widget that you can tweak to your own liking.
+- **landbot.io**: Free, easy and fun. Very suitable for clicking together a button bot or a conversational landing page.
+- **dialogflow.com**: For building voice actions on Google Assistant.
+- **voiceflow.com**: The pinnacle of user friendliness when it comes to building voice actions & skills for both Google Assistant and Alexa. Love it.
 
 ## Related
 

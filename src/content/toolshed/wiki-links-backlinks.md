@@ -15,7 +15,7 @@ Wiki links (`[[Page Title]]`) are the garden's primary cross-referencing mechani
 
 Wiki links are handled by `remark-wiki-link`, configured in `astro.config.mjs`. The plugin intercepts `[[...]]` syntax during Markdown processing and transforms it into HTML `<a>` tags.
 
-The resolver maps a wiki link's text to a URL path. Unresolved links (no matching post) get a `wiki-link--new` CSS class and a `cursor: help` cursor — they stay visible but are visually distinct.
+The resolver maps a wiki link's text to a URL path. Unresolved links (no matching post) get a `wiki-link--new` CSS class and a `cursor: help` cursor, they stay visible but are visually distinct.
 
 ## Slug normalization
 
@@ -55,12 +55,12 @@ The map is lazily built on first call and cached in module scope (`let backlinkM
 
 ## Module-level caching
 
-Because Astro's build runs in a single Node.js process, module-level variables persist across component renders. The backlink map is built once and reused for every `PostSidebar` render. This matters because the backlinks utility scans all 8 collections — without caching, it would run hundreds of times.
+Because Astro's build runs in a single Node.js process, module-level variables persist across component renders. The backlink map is built once and reused for every `PostSidebar` render. This matters because the backlinks utility scans all 8 collections, without caching, it would run hundreds of times.
 
 ## Used by
 
-- `PostSidebar.astro` — shows "Linked from" or "Project files" in the sidebar
-- `src/utils/collections.ts` / `getLinkedBooks()` — identifies wiki links that point to library entries specifically, for the "Books mentioned" sidebar section
+- `PostSidebar.astro`, shows "Linked from" or "Project files" in the sidebar
+- `src/utils/collections.ts` / `getLinkedBooks()`, identifies wiki links that point to library entries specifically, for the "Books mentioned" sidebar section
 
 ## Alias syntax
 
@@ -72,4 +72,4 @@ The text before `|` is the slug used for resolution and backlink indexing. The t
 
 ## Limitations
 
-Backlinks are computed from the raw Markdown body. If a post is excluded from the build (e.g., `draft: true`), its links are still indexed — but the href will lead to a 404. In practice this is rare since drafts don't link extensively.
+Backlinks are computed from the raw Markdown body. If a post is excluded from the build (e.g., `draft: true`), its links are still indexed, but the href will lead to a 404. In practice this is rare since drafts don't link extensively.

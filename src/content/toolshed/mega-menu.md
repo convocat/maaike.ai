@@ -59,7 +59,7 @@ Each collection item: icon (20px, sketchy filter applied) + label + description.
 
 ## The Toolshed menu
 
-Simpler — three links in a single column, each with an icon and description. Width 260px (about half the Garden menu).
+Simpler, three links in a single column, each with an icon and description. Width 260px (about half the Garden menu).
 
 ```css
 .toolshed-mega-menu {
@@ -84,4 +84,4 @@ Escape closes any open dropdown and returns focus to the trigger button. Clickin
 
 ## Implementation
 
-`src/components/Header.astro` — both dropdowns, their JavaScript (`setupGardenDropdown`, `setupToolshedDropdown`), and all CSS. Initialized on load and on `astro:after-swap` for view transitions.
+`src/components/Header.astro`, both dropdowns, their JavaScript (`setupGardenDropdown`, `setupToolshedDropdown`), and all CSS. Initialized on load and on `astro:after-swap` for view transitions.

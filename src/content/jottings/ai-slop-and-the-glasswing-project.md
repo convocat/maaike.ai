@@ -1,7 +1,7 @@
 ---
 reviewed: 2026-04-24
 title: AI slop and the Glasswing project
-description: Anthropic's project to secure critical software for the AI era — and why AI slop might be the bigger threat.
+description: Anthropic's project to secure critical software for the AI era, and why AI slop might be the bigger threat.
 date: 2026-04-08
 maturity: complete
 draft: false

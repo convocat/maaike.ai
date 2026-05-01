@@ -38,7 +38,7 @@ Load all ~200 content files as raw markdown. No prior structure, no embeddings. 
 ### Approach B: graph-augmented thematic analysis
 Start from existing embeddings and key phrases, cluster by similarity, then read representative files per cluster to name themes. Tests whether existing infrastructure accelerates or constrains discovery.
 
-**Risk noted before starting:** B might just confirm what the existing tag/relation structure already captures — locking us into the known rather than surfacing the unknown.
+**Risk noted before starting:** B might just confirm what the existing tag/relation structure already captures, locking us into the known rather than surfacing the unknown.
 
 ## Findings
 

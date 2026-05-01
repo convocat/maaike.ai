@@ -1,5 +1,5 @@
 ---
-title: "Understanding speech — Part 2"
+title: "Understanding speech, part 2"
 date: 2020-04-04
 updated: 2026-03-11
 maturity: complete
@@ -43,7 +43,7 @@ In their paper *The Effect of Back-Channeling Cues on Motivation to Continue Hum
 1. **Basic Interjection:** general, non-verbal cues for acknowledgment, like Yes, Yeah, Hmm…
 2. **Linguistic response:** verbal cues for expressing agreement, like I see, Indeed, OK
 3. **Emotive Interjection:** cues for expressing certain emotion, like surprise (A-ha!) or disbelief (Really? No way!)
-4. **Repetition:** repetition of a part of speaker's utterance (I went to town yesterday. — To town?)
+4. **Repetition:** repetition of a part of speaker's utterance (I went to town yesterday., To town?)
 
 These four types can be grouped into two categories:
 

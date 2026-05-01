@@ -21,6 +21,6 @@ recommended_score: 53.3
 
 ## Related
 
-- [[understanding-speech-part-1|Understanding speech — part 1]]
+- [[understanding-speech-part-1|Understanding speech, part 1]]
 - [[because-internet|Because Internet]]
 - [[is-conversation-still-a-useful-metaphor|Is conversation still a useful metaphor for human-machine interaction?]]
