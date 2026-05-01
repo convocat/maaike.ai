@@ -10046,6 +10046,55 @@
       "object": "multispecies-entanglement",
       "source": "fieldwork-for-future-ecologies-onomatopee",
       "collection": "weblinks"
+    },
+    {
+      "subject": "tactical-tech",
+      "predicate": "generates",
+      "object": "ai-literacy",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-literacy",
+      "predicate": "counters",
+      "object": "cognitive-laziness",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "youth-tech-education",
+      "predicate": "requires",
+      "object": "critical-thinking",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-and-climate-crisis-overlap",
+      "predicate": "caused-by",
+      "object": "digital-extractivism",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "osint-open-source-investigations",
+      "predicate": "instance-of",
+      "object": "digital-media-literacy",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-literacy",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tactical-tech",
+      "predicate": "characterised-as",
+      "object": "creative-international-non-profit-building-civil-society-cap",
+      "source": "announcing-supercharged-human",
+      "collection": "weblinks"
     }
   ]
 }

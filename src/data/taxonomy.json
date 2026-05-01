@@ -776,6 +776,36 @@
       "label": "Clay metaphor",
       "type": "metaphor",
       "definition": ""
+    },
+    "tactical-tech": {
+      "label": "Tactical Tech",
+      "type": "concept",
+      "definition": ""
+    },
+    "ai-literacy": {
+      "label": "AI literacy",
+      "type": "concept",
+      "definition": ""
+    },
+    "digital-media-literacy": {
+      "label": "Digital media literacy",
+      "type": "discipline",
+      "definition": ""
+    },
+    "youth-tech-education": {
+      "label": "Youth tech education",
+      "type": "discipline",
+      "definition": ""
+    },
+    "osint-(open-source-investigations)": {
+      "label": "OSINT (Open-Source Investigations)",
+      "type": "method",
+      "definition": ""
+    },
+    "information-and-climate-crisis-overlap": {
+      "label": "Information and climate crisis overlap",
+      "type": "phenomenon",
+      "definition": ""
     }
   }
 }
