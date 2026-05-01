@@ -4,30 +4,35 @@ date: 2026-03-11
 updated: 2026-03-15
 maturity: solid
 tags:
-  - digital-gardens
-  - web-history
-  - personal-web
-  - non-linear-thinking
-  - role-of-ai
-  - serendipity
-  - writing-as-craft
-  - pkm
-  - indie-web
-  - thinking-in-public
-description: "Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet."
+- digital-gardens
+- web-history
+- personal-web
+- non-linear-thinking
+- role-of-ai
+- serendipity
+- writing-as-craft
+- pkm
+- indie-web
+- thinking-in-public
+description: 'Why I built a digital garden: non-linear thinking, early web nostalgia, and the need for a personal space on the internet.'
 ai: 100% Maai
 triples:
-  - ["digital-garden", "counters", "algorithmic-feed"]
-  - ["digital-garden", "enables", "non-linear-thinking"]
-  - ["digital-garden", "inspired-by", "personal-web"]
-  - ["serendipity", "characterised-as", "organising-principle"]
-  - ["writing-as-craft", "contrasts-with", "algorithmic-feed"]
-  - ["personal-web", "preceded", "algorithmic-feed"]
-  - ["ai-as-writing-partner", "supports", "writing-as-craft"]
-  - ["non-linear-thinking", "enables", "serendipity"]
+- [digital-garden, counters, algorithmic-feed]
+- [digital-garden, enables, non-linear-thinking]
+- [digital-garden, inspired-by, personal-web]
+- [serendipity, characterised-as, organising-principle]
+- [writing-as-craft, contrasts-with, algorithmic-feed]
+- [personal-web, preceded, algorithmic-feed]
+- [ai-as-writing-partner, supports, writing-as-craft]
+- [non-linear-thinking, enables, serendipity]
+themes:
+- The early web enabled a kind of personal expression that the algorithm era has taken away
+- Non-linear thinking needs a non-linear writing environment — not a blog, not a social feed
+- A digital garden is the right infrastructure for how my mind actually works
+- Serendipity is an organising principle, not a side effect
+- Writing as craft requires a space that doesn't talk back and doesn't distract
+- AI has a legitimate role in the garden, but only as assistant — never as author
 ---
-
-
 One thing that I really miss doing lately, is writing longer pieces that require a bit of thinking, mulling and reordering. I typically resort to videos nowadays, and, to be honest, Claude is a pretty mean writing assistant for factual, functional texts. But I really miss sitting in front of a screen that doesn't talk back, doesn't distract and just offers me space for my own head. 
 
 Thing is: I did start writing on Substack, and even revived my Wordpress blog that I started all the way back in 2003, but when you're used to the conveniences of jotting a quick note on LinkedIn, or generating quick drafts with Claude, starting a new blog in Wordpress feels like moving to prehistory again. It's not the writing per se, but the backlinking, the categorying, the tagging, the finding-an-image-for-the-frontpage...ugh!

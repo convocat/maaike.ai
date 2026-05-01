@@ -6217,54 +6217,6 @@
       "collection": "videos"
     },
     {
-      "subject": "digital-garden",
-      "predicate": "counters",
-      "object": "algorithmic-feed",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "enables",
-      "object": "non-linear-thinking",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "digital-garden",
-      "predicate": "inspired-by",
-      "object": "personal-web",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "serendipity",
-      "predicate": "characterised-as",
-      "object": "organising-principle",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "writing-as-craft",
-      "predicate": "contrasts-with",
-      "object": "algorithmic-feed",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "personal-web",
-      "predicate": "preceded",
-      "object": "algorithmic-feed",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "ai-as-writing-partner",
-      "predicate": "supports",
-      "object": "writing-as-craft",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
-      "subject": "non-linear-thinking",
-      "predicate": "enables",
-      "object": "serendipity",
-      "source": "a-digital-garden-as-central-space"
-    },
-    {
       "subject": "llm-wiki",
       "predicate": "attributed-to",
       "object": "andrej-karpathy",
@@ -9881,6 +9833,62 @@
       "object": "ai-critique",
       "source": "dont-show-me-your-ai",
       "collection": "weblinks"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "counters",
+      "object": "algorithmic-feed",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "enables",
+      "object": "non-linear-thinking",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "inspired-by",
+      "object": "personal-web",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "serendipity",
+      "predicate": "characterised-as",
+      "object": "organising-principle",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "writing-as-craft",
+      "predicate": "contrasts-with",
+      "object": "algorithmic-feed",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "personal-web",
+      "predicate": "preceded",
+      "object": "algorithmic-feed",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "ai-as-writing-partner",
+      "predicate": "supports",
+      "object": "writing-as-craft",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
+    },
+    {
+      "subject": "non-linear-thinking",
+      "predicate": "enables",
+      "object": "serendipity",
+      "source": "a-digital-garden-as-central-space",
+      "collection": "articles"
     }
   ]
 }
