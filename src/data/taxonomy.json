@@ -731,6 +731,51 @@
       "label": "Behavioral science",
       "type": "discipline",
       "definition": ""
+    },
+    "frank-a.-kalman": {
+      "label": "Frank A. Kalman",
+      "type": "person",
+      "definition": ""
+    },
+    "ai-assisted-writing": {
+      "label": "AI-assisted writing",
+      "type": "method",
+      "definition": ""
+    },
+    "voice-memo-as-ideation-tool": {
+      "label": "Voice memo as ideation tool",
+      "type": "method",
+      "definition": ""
+    },
+    "productive-wrongness": {
+      "label": "Productive wrongness",
+      "type": "principle",
+      "definition": ""
+    },
+    "ai-writing-stigma": {
+      "label": "AI writing stigma",
+      "type": "phenomenon",
+      "definition": ""
+    },
+    "claude": {
+      "label": "Claude",
+      "type": "technology",
+      "definition": ""
+    },
+    "gemini": {
+      "label": "Gemini",
+      "type": "technology",
+      "definition": ""
+    },
+    "drafting-as-obstacle": {
+      "label": "Drafting as obstacle",
+      "type": "metaphor",
+      "definition": ""
+    },
+    "clay-metaphor": {
+      "label": "Clay metaphor",
+      "type": "metaphor",
+      "definition": ""
     }
   }
 }

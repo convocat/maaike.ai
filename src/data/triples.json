@@ -9997,6 +9997,55 @@
       "object": "multispecies-entanglement",
       "source": "fieldwork-for-future-ecologies-onomatopee",
       "collection": "weblinks"
+    },
+    {
+      "subject": "ai-assisted-writing",
+      "predicate": "attributed-to",
+      "object": "frank-a-kalman",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "productive-wrongness",
+      "predicate": "defined-as",
+      "object": "the-value-an-ai-collaborator-generates-when-its-response-is-",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "productive-wrongness",
+      "predicate": "metaphor-for",
+      "object": "dialectical-thinking",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-assisted-writing",
+      "predicate": "counters",
+      "object": "ai-writing-stigma",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "clay-metaphor",
+      "predicate": "metaphor-for",
+      "object": "ai-assisted-writing",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-writing-stigma",
+      "predicate": "caused-by",
+      "object": "conflation-of-drafting-suffering-with-writerly-identity",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "voice-memo-as-ideation-tool",
+      "predicate": "leads-to",
+      "object": "ai-assisted-writing",
+      "source": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "collection": "weblinks"
     }
   ]
 }
