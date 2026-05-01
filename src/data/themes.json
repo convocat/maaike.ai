@@ -154,5 +154,12 @@
     "Community knowledge transfer — tweets, conversations, shared enthusiasm — can substitute for direct experience and even ignite original creative work like sketchnoting.",
     "Missing out on a live event is reframed as a generative act: the gap between absence and experience becomes productive rather than merely frustrating.",
     "The best intellectual experiences are non-reproducible; their scarcity is precisely what makes them meaningful."
+  ],
+  "understanding-speech-part-2": [
+    "Voice interface design fails when it imitates writing: the spoken channel has structural features — backchannelling, discourse markers — that written conventions erase.",
+    "Backchannelling is not noise but load-bearing conversational infrastructure; ignoring it in bot design produces experiences that feel hollow and one-sided.",
+    "Discourse markers and backchannelling cues look similar but serve opposite roles (speaker vs. listener), and conflating them is a diagnostic error in conversation design.",
+    "Not all discourse markers are portable across modalities: visual-text signposts ('see above', 'in conclusion') break down in speech, exposing a fundamental medium mismatch.",
+    "Designing a bot's 'continuer strategy' is as important as designing its intent coverage — engagement is sustained through acknowledgment, not just correct answers."
   ]
 }

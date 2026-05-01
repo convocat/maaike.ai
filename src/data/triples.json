@@ -5772,6 +5772,46 @@
     "safe-space": {
       "label": "Safe space",
       "type": "concept"
+    },
+    "backchannelling": {
+      "label": "Backchannelling",
+      "type": "linguistic-concept"
+    },
+    "front-channel": {
+      "label": "Front channel",
+      "type": "communication-type"
+    },
+    "back-channel": {
+      "label": "Back channel",
+      "type": "communication-type"
+    },
+    "basic-interjection": {
+      "label": "Basic interjection",
+      "type": "linguistic-concept"
+    },
+    "linguistic-response": {
+      "label": "Linguistic response",
+      "type": "linguistic-concept"
+    },
+    "emotive-interjection": {
+      "label": "Emotive interjection",
+      "type": "linguistic-concept"
+    },
+    "recognition-cues": {
+      "label": "Recognition cues",
+      "type": "linguistic-concept"
+    },
+    "continuers": {
+      "label": "Continuers",
+      "type": "linguistic-concept"
+    },
+    "turn-taking": {
+      "label": "Turn-taking",
+      "type": "linguistic-concept"
+    },
+    "speech-vs.-writing-distinction": {
+      "label": "Speech vs. writing distinction",
+      "type": "linguistic-principle"
     }
   },
   "associations": [
@@ -7900,48 +7940,6 @@
       "predicate": "characterised-as",
       "object": "sentence-melody",
       "source": "understanding-speech-part-1",
-      "collection": "articles"
-    },
-    {
-      "subject": "backchanneling",
-      "predicate": "attributed-to",
-      "object": "victor-yngve",
-      "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "backchanneling",
-      "predicate": "defined-as",
-      "object": "listener-side-signalling",
-      "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "discourse-markers",
-      "predicate": "contrasted-with",
-      "object": "backchanneling",
-      "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "deixis",
-      "predicate": "defined-as",
-      "object": "reference-relative-to-speaker",
-      "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "deixis",
-      "predicate": "reinforces",
-      "object": "bot-persona",
-      "source": "understanding-speech-part-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "voice-bot",
-      "predicate": "requires",
-      "object": "backchanneling-strategy",
-      "source": "understanding-speech-part-2",
       "collection": "articles"
     },
     {
@@ -10203,6 +10201,62 @@
       "predicate": "contrasted-with",
       "object": "recorded-and-replayable-media",
       "source": "visual-notes-brian-roemmele",
+      "collection": "articles"
+    },
+    {
+      "subject": "backchannelling",
+      "predicate": "coined-by",
+      "object": "victor-yngve",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "backchannelling",
+      "predicate": "defined-as",
+      "object": "providing-acknowledgment-and-encouragement-cues-without-taki",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "discourse-markers",
+      "predicate": "contrasted-with",
+      "object": "backchannelling",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "discourse-markers",
+      "predicate": "inaccessible-via",
+      "object": "speech-vs-writing-distinction",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "voice-action",
+      "predicate": "requires",
+      "object": "backchannelling",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "recognition-cues",
+      "predicate": "instance-of",
+      "object": "backchannelling",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "continuers",
+      "predicate": "instance-of",
+      "object": "backchannelling",
+      "source": "understanding-speech-part-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "front-channel",
+      "predicate": "contrasted-with",
+      "object": "back-channel",
+      "source": "understanding-speech-part-2",
       "collection": "articles"
     }
   ]

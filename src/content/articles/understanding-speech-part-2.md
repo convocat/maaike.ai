@@ -1,27 +1,41 @@
 ---
-title: "Understanding speech, part 2"
+title: Understanding speech, part 2
 date: 2020-04-04
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - voice
-  - linguistics
-  - pragmatics
+- conversation-design
+- voice
+- linguistics
+- pragmatics
+- communication
+- human-machine-interface
+- communication-medium
+- acknowledgment
 themes:
-  - Listeners shape conversation through backchannel signals
-  - Discourse markers structure turn-taking
-  - Deixis anchors speech to shared space and time
+- 'Voice interface design fails when it imitates writing: the spoken channel has structural features — backchannelling, discourse markers — that written conventions erase.'
+- Backchannelling is not noise but load-bearing conversational infrastructure; ignoring it in bot design produces experiences that feel hollow and one-sided.
+- Discourse markers and backchannelling cues look similar but serve opposite roles (speaker vs. listener), and conflating them is a diagnostic error in conversation design.
+- 'Not all discourse markers are portable across modalities: visual-text signposts (''see above'', ''in conclusion'') break down in speech, exposing a fundamental medium mismatch.'
+- Designing a bot's 'continuer strategy' is as important as designing its intent coverage — engagement is sustained through acknowledgment, not just correct answers.
 triples:
-  - ["Backchanneling", "attributed-to", "Victor Yngve"]
-  - ["Backchanneling", "defined-as", "Listener-side signalling"]
-  - ["Discourse markers", "contrasted-with", "Backchanneling"]
-  - ["Deixis", "defined-as", "Reference relative to speaker"]
-  - ["Deixis", "reinforces", "Bot persona"]
-  - ["Voice bot", "requires", "Backchanneling strategy"]
-description: "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis."
+- [Backchanneling, attributed-to, Victor Yngve]
+- [Backchanneling, defined-as, Listener-side signalling]
+- [Discourse markers, contrasted-with, Backchanneling]
+- [Deixis, defined-as, Reference relative to speaker]
+- [Deixis, reinforces, Bot persona]
+- [Voice bot, requires, Backchanneling strategy]
+- [Backchannelling, coined-by, Victor Yngve]
+- [Backchannelling, defined-as, providing acknowledgment and encouragement cues without taking the conversational turn]
+- [Discourse markers, contrasted-with, Backchannelling]
+- [Discourse markers, inaccessible-via, Speech vs. writing distinction]
+- [Voice action, requires, Backchannelling]
+- [Recognition cues, instance-of, Backchannelling]
+- [Continuers, instance-of, Backchannelling]
+- [Front channel, contrasted-with, Back channel]
+description: Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Want to know what you can do to make your voice action sound more speech-like? Let's continue with part 2 of my [[understanding-speech-part-1|speech primer]] for conversation designers, in which I discuss backchannelling, discourse markers, and deixis.

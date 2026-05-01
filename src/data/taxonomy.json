@@ -951,6 +951,76 @@
       "label": "Safe space",
       "type": "concept",
       "definition": ""
+    },
+    "backchannelling": {
+      "label": "Backchannelling",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "discourse-markers": {
+      "label": "Discourse markers",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "deixis": {
+      "label": "Deixis",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "victor-yngve": {
+      "label": "Victor Yngve",
+      "type": "person",
+      "definition": ""
+    },
+    "front-channel": {
+      "label": "Front channel",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "back-channel": {
+      "label": "Back channel",
+      "type": "communication-type",
+      "definition": ""
+    },
+    "basic-interjection": {
+      "label": "Basic interjection",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "linguistic-response": {
+      "label": "Linguistic response",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "emotive-interjection": {
+      "label": "Emotive interjection",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "recognition-cues": {
+      "label": "Recognition cues",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "continuers": {
+      "label": "Continuers",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "turn-taking": {
+      "label": "Turn-taking",
+      "type": "linguistic-concept",
+      "definition": ""
+    },
+    "speech-vs.-writing-distinction": {
+      "label": "Speech vs. writing distinction",
+      "type": "linguistic-principle",
+      "definition": ""
+    },
+    "voice-action": {
+      "label": "Voice action",
+      "type": "technology-category",
+      "definition": ""
     }
   }
 }
