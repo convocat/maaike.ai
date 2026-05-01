@@ -7973,34 +7973,6 @@
       "collection": "articles"
     },
     {
-      "subject": "text-detachment",
-      "predicate": "counters",
-      "object": "emotional-labor",
-      "source": "youre-not-married-to-your-texts",
-      "collection": "articles"
-    },
-    {
-      "subject": "feedback-resilience",
-      "predicate": "requires",
-      "object": "text-detachment",
-      "source": "youre-not-married-to-your-texts",
-      "collection": "articles"
-    },
-    {
-      "subject": "content-quality",
-      "predicate": "requires",
-      "object": "feedback",
-      "source": "youre-not-married-to-your-texts",
-      "collection": "articles"
-    },
-    {
-      "subject": "writing-as-craft",
-      "predicate": "leads-to",
-      "object": "feedback-resilience",
-      "source": "youre-not-married-to-your-texts",
-      "collection": "articles"
-    },
-    {
       "subject": "book-recommender-tool",
       "predicate": "instance-of",
       "object": "scoring-algorithm",

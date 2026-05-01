@@ -1,27 +1,26 @@
 ---
-title: "You're not married to your texts"
+title: You're not married to your texts
 date: 2020-11-28
 updated: 2026-03-11
 maturity: complete
 tags:
-  - writing
-  - content-quality
-  - feedback
-  - detachment
-description: "Relax, it's not about you :-) How to handle feedback on your content without losing your mind."
+- writing
+- content-quality
+- feedback
+- detachment
+description: Relax, it's not about you :-) How to handle feedback on your content without losing your mind.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 themes:
-  - Emotional detachment from your own writing
-  - Feedback as a tool for quality, not an attack
-  - Writing as a craft that gets easier with practice
+- Emotional detachment from your own writing
+- Feedback as a tool for quality, not an attack
+- Writing as a craft that gets easier with practice
 triples:
-  - ["Text detachment", "counters", "Emotional labor"]
-  - ["Feedback resilience", "requires", "Text detachment"]
-  - ["Content quality", "requires", "Feedback"]
-  - ["writing-as-craft", "leads-to", "Feedback resilience"]
+- [Text detachment, counters, Emotional labor]
+- [Feedback resilience, requires, Text detachment]
+- [Content quality, requires, Feedback]
+- [writing-as-craft, leads-to, Feedback resilience]
 ---
-
 So you've spent hours crafting that one article. Shed blood, sweat and tears designing that one perfect conversational flow. You hand it over to your editor, your peer reviewer or your client…and they smash it to pieces.
 
 Believe me, I've been there. Some people used red pens :-) And if there's one thing that years of cross-outs, angry red circles and exclamation marks have taught me, it's that I'm not married to my texts. My content is not an extension of my ego.
