@@ -6324,6 +6324,18 @@
     "stakeholder-research": {
       "label": "Stakeholder research",
       "type": "methodology"
+    },
+    "conversation-flow": {
+      "label": "Conversation flow",
+      "type": "artefact"
+    },
+    "use-case-definition": {
+      "label": "Use case definition",
+      "type": "methodology"
+    },
+    "brand-voice": {
+      "label": "Brand voice",
+      "type": "linguistic-concept"
     }
   },
   "associations": [
@@ -7892,41 +7904,6 @@
       "predicate": "demonstrates",
       "object": "social-good",
       "source": "european-chatbot-conference-10-talks",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "instance-of",
-      "object": "design-discipline",
-      "source": "hoe-word-ik-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "conversational-writing",
-      "source": "hoe-word-ik-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "instructional-design",
-      "source": "hoe-word-ik-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "structured-thinking",
-      "source": "hoe-word-ik-conversation-designer",
-      "collection": "articles"
-    },
-    {
-      "subject": "bot-persona",
-      "predicate": "structured-as",
-      "object": "design-artefact",
-      "source": "hoe-word-ik-conversation-designer",
       "collection": "articles"
     },
     {
@@ -11112,6 +11089,62 @@
       "predicate": "contrasted-with",
       "object": "ux-writing",
       "source": "how-do-i-become-a-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "requires",
+      "object": "use-case-definition",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "generates",
+      "object": "bot-persona",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "generates",
+      "object": "conversation-flow",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "bot-persona",
+      "predicate": "reinforces",
+      "object": "tone-of-voice",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "instance-of",
+      "object": "communication-medium",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-flow",
+      "predicate": "presupposes",
+      "object": "use-case-definition",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "ux-writing",
+      "predicate": "contrasted-with",
+      "object": "tone-of-voice",
+      "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatbot",
+      "predicate": "characterised-as",
+      "object": "spoken-medium-in-written-form",
+      "source": "hoe-word-ik-conversation-designer",
       "collection": "articles"
     }
   ]

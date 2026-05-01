@@ -1831,6 +1831,21 @@
       "label": "Stakeholder research",
       "type": "methodology",
       "definition": ""
+    },
+    "conversation-flow": {
+      "label": "Conversation flow",
+      "type": "artefact",
+      "definition": ""
+    },
+    "use-case-definition": {
+      "label": "Use case definition",
+      "type": "methodology",
+      "definition": ""
+    },
+    "brand-voice": {
+      "label": "Brand voice",
+      "type": "linguistic-concept",
+      "definition": ""
     }
   }
 }

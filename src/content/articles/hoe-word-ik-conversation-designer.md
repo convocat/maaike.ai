@@ -8,30 +8,34 @@ tags:
 - skill-based-work
 - future-of-work
 - writing
+- human-machine-interface
+- design
+- communication-medium
 themes:
-- Conversation design as a career on the rise but still without a fixed name
-- 'The skill stack: curiosity, conversational writing, instructional design, structured thinking'
-- How to enter the field when job titles don't yet match the work
+- Conversation design is a real profession, not just a feature of tech — it deserves its own name, toolset, and career path.
+- The gap between what conversation designers do and what employers call the role is itself a structural barrier to entering the field.
+- Writing for conversational interfaces is fundamentally different from writing for screens — it is spoken language in written form, governed by entirely different conventions.
+- A chatbot without a defined use case is a solution in search of a problem — the research phase is as essential as the design phase.
+- Bot persona, tone of voice, and style guides are not nice-to-haves but core design deliverables that determine whether a bot is trustworthy and consistent.
 triples:
-- - Conversation design
-  - instance-of
-  - Design discipline
-- - Conversation design
-  - requires
-  - Conversational writing
-- - Conversation design
-  - requires
-  - Instructional design
-- - Conversation design
-  - requires
-  - Structured thinking
-- - Bot persona
-  - structured-as
-  - Design artefact
+- [Conversation design, instance-of, Design discipline]
+- [Conversation design, requires, Conversational writing]
+- [Conversation design, requires, Instructional design]
+- [Conversation design, requires, Structured thinking]
+- [Bot persona, structured-as, Design artefact]
+- [Conversation design, requires, Use case definition]
+- [Conversation design, generates, Bot persona]
+- [Conversation design, generates, Conversation flow]
+- [Bot persona, reinforces, Tone of voice]
+- [Conversational interface, instance-of, Communication medium]
+- [Conversation flow, presupposes, Use case definition]
+- [UX writing, contrasted-with, Tone of voice]
+- [Chatbot, characterised-as, Spoken medium in written form]
 description: Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?
 draft: false
 ai: 100% Maai
 ---
+
 Conversation design is een vak met toekomst! En dat merk ik aan mijn inbox. Ik krijg steeds vaker berichtjes van mensen die meer willen weten over dit prachtvak. Helaas heb ik niet de tijd om iedereen persoonlijk te woord te staan. Vandaar dat ik de meest gestelde vragen hier voor je op een rijtje heb gezet.
 
 ## Wat is een conversation designer?
