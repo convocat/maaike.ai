@@ -1846,6 +1846,31 @@
       "label": "Brand voice",
       "type": "linguistic-concept",
       "definition": ""
+    },
+    "training-cutoff": {
+      "label": "Training cutoff",
+      "type": "technical-concept",
+      "definition": ""
+    },
+    "token-co-occurrence": {
+      "label": "Token co-occurrence",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "openai": {
+      "label": "OpenAI",
+      "type": "technology",
+      "definition": ""
+    },
+    "elon-musk": {
+      "label": "Elon Musk",
+      "type": "person",
+      "definition": ""
+    },
+    "terry-pratchett": {
+      "label": "Terry Pratchett",
+      "type": "person",
+      "definition": ""
     }
   }
 }

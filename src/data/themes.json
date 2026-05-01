@@ -87,9 +87,11 @@
     "System prompting is a legitimate philosophical and design lever for building receptive, silence-informed LLM behaviour."
   ],
   "hey-chatgpt-whos-the-boss": [
-    "ChatGPT's apparent knowledge of post-cutoff events is best explained by probabilistic co-occurrence, not by internet access or deliberate training",
-    "Understanding LLMs as probabilistic models demystifies seemingly surprising outputs",
-    "Million-to-one probabilistic coincidences are an underexplored explanation for AI behavior"
+    "Probabilistic word prediction, not knowledge retrieval, is the correct frame for understanding surprising ChatGPT outputs",
+    "Popular explanations for ChatGPT's apparent post-cutoff knowledge (internet access, covert retraining) are less parsimonious than a statistical co-occurrence account",
+    "ChatGPT's 'accurate' outputs can be a coincidence of high token co-occurrence, not evidence of understanding or updated facts",
+    "The temptation to anthropomorphise or mystify ChatGPT's behaviour obscures the simpler, mechanistic explanation",
+    "Million-to-one probabilistic coincidences are not just possible but expected at the scale LLMs operate — Terry Pratchett's magicians' law applies"
   ],
   "what-happens-when-ai-has-read-everything": [
     "The quality of LLM training data is not just a technical constraint but a humanistic one: books are valuable precisely because they are the product of sustained human effort and judgment.",

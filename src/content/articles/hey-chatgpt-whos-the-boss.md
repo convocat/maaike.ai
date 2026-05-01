@@ -1,25 +1,39 @@
 ---
-title: "Hey ChatGPT, who's the boss?"
+title: Hey ChatGPT, who's the boss?
 date: 2023-01-14
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - prompt-design
-  - llm
-  - critical-thinking
+- conversation-design
+- prompt-design
+- llm
+- critical-thinking
+- llm-hallucinations
+- confabulation
+- generative-ai-design
+- anthropomorphism
 themes:
-  - "ChatGPT's apparent knowledge of post-cutoff events is best explained by probabilistic co-occurrence, not by internet access or deliberate training"
-  - "Understanding LLMs as probabilistic models demystifies seemingly surprising outputs"
-  - "Million-to-one probabilistic coincidences are an underexplored explanation for AI behavior"
+- Probabilistic word prediction, not knowledge retrieval, is the correct frame for understanding surprising ChatGPT outputs
+- Popular explanations for ChatGPT's apparent post-cutoff knowledge (internet access, covert retraining) are less parsimonious than a statistical co-occurrence account
+- ChatGPT's 'accurate' outputs can be a coincidence of high token co-occurrence, not evidence of understanding or updated facts
+- The temptation to anthropomorphise or mystify ChatGPT's behaviour obscures the simpler, mechanistic explanation
+- Million-to-one probabilistic coincidences are not just possible but expected at the scale LLMs operate — Terry Pratchett's magicians' law applies
 triples:
-  - ["ChatGPT", "characterized-as", "Probabilistic word prediction"]
-  - ["LLMs", "exhibits", "Training cutoff"]
-  - ["Ground truth", "inaccessible-via", "Training cutoff"]
-  - ["Probabilistic word prediction", "counters", "Anthropomorphism"]
-description: "Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think."
+- [ChatGPT, characterized-as, Probabilistic word prediction]
+- [LLMs, exhibits, Training cutoff]
+- [Ground truth, inaccessible-via, Training cutoff]
+- [Probabilistic word prediction, counters, Anthropomorphism]
+- [ChatGPT, instance-of, Probabilistic word prediction]
+- [ChatGPT, lacks, Ground truth]
+- [Token co-occurrence, caused-by, Training data distribution]
+- [Probabilistic word prediction, generates, Factually coincidental outputs]
+- [Apparent post-cutoff knowledge, better-fits, Token co-occurrence]
+- [Apparent post-cutoff knowledge, counters, Anthropomorphism]
+- [ChatGPT, characterised-as, Stochastic parrot]
+- [Human-in-the-loop, risks, Training data error]
+description: Why does ChatGPT seem to 'know' things it shouldn't? The reason might be much more mundane than you think.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 Something interesting has happened this week. How can ChatGPT return that Elon Musk is Twitter's CEO when that happened long after its training cut-off date?

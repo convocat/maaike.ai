@@ -6336,6 +6336,22 @@
     "brand-voice": {
       "label": "Brand voice",
       "type": "linguistic-concept"
+    },
+    "token-co-occurrence": {
+      "label": "Token co-occurrence",
+      "type": "technical-mechanism"
+    },
+    "openai": {
+      "label": "OpenAI",
+      "type": "technology"
+    },
+    "elon-musk": {
+      "label": "Elon Musk",
+      "type": "person"
+    },
+    "terry-pratchett": {
+      "label": "Terry Pratchett",
+      "type": "person"
     }
   },
   "associations": [
@@ -7226,34 +7242,6 @@
       "object": "ai-safety",
       "source": "china-s-approach-to-ai-anthropomorphism",
       "collection": "weblinks"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "characterized-as",
-      "object": "probabilistic-word-prediction",
-      "source": "hey-chatgpt-whos-the-boss",
-      "collection": "articles"
-    },
-    {
-      "subject": "llms",
-      "predicate": "exhibits",
-      "object": "training-cutoff",
-      "source": "hey-chatgpt-whos-the-boss",
-      "collection": "articles"
-    },
-    {
-      "subject": "ground-truth",
-      "predicate": "inaccessible-via",
-      "object": "training-cutoff",
-      "source": "hey-chatgpt-whos-the-boss",
-      "collection": "articles"
-    },
-    {
-      "subject": "probabilistic-word-prediction",
-      "predicate": "counters",
-      "object": "anthropomorphism",
-      "source": "hey-chatgpt-whos-the-boss",
-      "collection": "articles"
     },
     {
       "subject": "chatgpt",
@@ -11145,6 +11133,62 @@
       "predicate": "characterised-as",
       "object": "spoken-medium-in-written-form",
       "source": "hoe-word-ik-conversation-designer",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "instance-of",
+      "object": "probabilistic-word-prediction",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "token-co-occurrence",
+      "predicate": "caused-by",
+      "object": "training-data-distribution",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "probabilistic-word-prediction",
+      "predicate": "generates",
+      "object": "factually-coincidental-outputs",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "apparent-post-cutoff-knowledge",
+      "predicate": "better-fits",
+      "object": "token-co-occurrence",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "apparent-post-cutoff-knowledge",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "characterised-as",
+      "object": "stochastic-parrot",
+      "source": "hey-chatgpt-whos-the-boss",
+      "collection": "articles"
+    },
+    {
+      "subject": "human-in-the-loop",
+      "predicate": "risks",
+      "object": "training-data-error",
+      "source": "hey-chatgpt-whos-the-boss",
       "collection": "articles"
     }
   ]
