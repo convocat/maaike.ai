@@ -2336,6 +2336,36 @@
       "label": "Pizza bot",
       "type": "artefact",
       "definition": ""
+    },
+    "slot-filling": {
+      "label": "Slot filling",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "welcome-message": {
+      "label": "Welcome message",
+      "type": "artefact",
+      "definition": ""
+    },
+    "state-tracking": {
+      "label": "State tracking",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "natural-language-specification": {
+      "label": "Natural-language specification",
+      "type": "concept",
+      "definition": ""
+    },
+    "roleplay-prompting": {
+      "label": "Roleplay prompting",
+      "type": "technical-mechanism",
+      "definition": ""
+    },
+    "if/then-conditionals": {
+      "label": "If/then conditionals",
+      "type": "technical-mechanism",
+      "definition": ""
     }
   }
 }

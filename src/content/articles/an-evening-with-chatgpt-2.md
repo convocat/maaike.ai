@@ -1,22 +1,38 @@
 ---
-title: "An evening with ChatGPT (2)"
+title: An evening with ChatGPT (2)
 date: 2022-12-05
 updated: 2026-03-15
 maturity: complete
 tags:
-  - conversation-design
-  - prompt-design
-  - llm
-  - generative-ai-design
-description: "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?"
+- conversation-design
+- prompt-design
+- llm
+- generative-ai-design
+- interaction-model
+- building-as-specification
+description: 'Let''s build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?'
 triples:
-  - ["ChatGPT", "demonstrates", "Slot filling"]
-  - ["Roleplay prompting", "leads-to", "Conversation design"]
-  - ["ChatGPT", "contrasted-with", "NLU-based bot"]
-  - ["ChatGPT", "exhibits", "Conversational grounding"]
-  - ["Probabilistic word prediction", "risks", "Conversational grounding"]
+- [ChatGPT, demonstrates, Slot filling]
+- [Roleplay prompting, leads-to, Conversation design]
+- [ChatGPT, contrasted-with, NLU-based bot]
+- [ChatGPT, exhibits, Conversational grounding]
+- [Probabilistic word prediction, risks, Conversational grounding]
+- [ChatGPT, demonstrates, State tracking]
+- [Natural-language specification, counters, Articulation barrier]
+- [Roleplay prompting, leads-to, Conversational interface]
+- [Slot filling, contrasted-with, Natural-language specification]
+- [ChatGPT, risks, Probabilistic word prediction]
+- [ChatGPT, instance-of, LLMs]
+- [Pizza Bot, instance-of, Conversation design]
+- [Natural-language specification, requires, Roleplay prompting]
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
+themes:
+- Prompting ChatGPT in natural language is a legitimate substitute for traditional bot-flow authoring, at least at the prototyping stage.
+- The Pizza Bot exercise reveals that ChatGPT implicitly tracks state and context in ways that take significant engineering effort to replicate in classical dialogue systems.
+- Natural-language specification collapses the articulation barrier between designer intent and system behaviour, but does not eliminate the probabilistic unreliability of the underlying model.
+- ChatGPT's ability to generalise missing-item errors across an entire order — rather than surfacing them one-by-one — shows emergent conversational intelligence that classical slot-filling cannot easily match.
+- Roleplay and framing (rather than direct instruction) are necessary workarounds for ChatGPT's content guardrails, exposing a design tension between safety constraints and interactive simulation.
 ---
 
 In my first encounters with ChatGPT, I had a look at that convo design classic: the welcome message. So now that we've passed that first hurdle, let's do what I always do when I test drive a new platform: build the official 'hello world' of conversation design, aka the Pizza Bot!

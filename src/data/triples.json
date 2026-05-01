@@ -6644,6 +6644,22 @@
     "pizza-bot": {
       "label": "Pizza bot",
       "type": "artefact"
+    },
+    "welcome-message": {
+      "label": "Welcome message",
+      "type": "artefact"
+    },
+    "state-tracking": {
+      "label": "State tracking",
+      "type": "technical-mechanism"
+    },
+    "natural-language-specification": {
+      "label": "Natural-language specification",
+      "type": "concept"
+    },
+    "if/then-conditionals": {
+      "label": "If/then conditionals",
+      "type": "technical-mechanism"
     }
   },
   "associations": [
@@ -7534,41 +7550,6 @@
       "object": "ai-safety",
       "source": "china-s-approach-to-ai-anthropomorphism",
       "collection": "weblinks"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "demonstrates",
-      "object": "slot-filling",
-      "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "roleplay-prompting",
-      "predicate": "leads-to",
-      "object": "conversation-design",
-      "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "contrasted-with",
-      "object": "nlu-based-bot",
-      "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "exhibits",
-      "object": "conversational-grounding",
-      "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
-    },
-    {
-      "subject": "probabilistic-word-prediction",
-      "predicate": "risks",
-      "object": "conversational-grounding",
-      "source": "an-evening-with-chatgpt-2",
-      "collection": "articles"
     },
     {
       "subject": "linkedin",
@@ -11656,6 +11637,62 @@
       "predicate": "lacks",
       "object": "ground-truth",
       "source": "an-evening-with-chatgpt-3",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "demonstrates",
+      "object": "state-tracking",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "natural-language-specification",
+      "predicate": "counters",
+      "object": "articulation-barrier",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "roleplay-prompting",
+      "predicate": "leads-to",
+      "object": "conversational-interface",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "slot-filling",
+      "predicate": "contrasted-with",
+      "object": "natural-language-specification",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "risks",
+      "object": "probabilistic-word-prediction",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "instance-of",
+      "object": "llms",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "pizza-bot",
+      "predicate": "instance-of",
+      "object": "conversation-design",
+      "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "natural-language-specification",
+      "predicate": "requires",
+      "object": "roleplay-prompting",
+      "source": "an-evening-with-chatgpt-2",
       "collection": "articles"
     }
   ]
