@@ -359,5 +359,12 @@
     "Natural-language specification collapses the articulation barrier between designer intent and system behaviour, but does not eliminate the probabilistic unreliability of the underlying model.",
     "ChatGPT's ability to generalise missing-item errors across an entire order — rather than surfacing them one-by-one — shows emergent conversational intelligence that classical slot-filling cannot easily match.",
     "Roleplay and framing (rather than direct instruction) are necessary workarounds for ChatGPT's content guardrails, exposing a design tension between safety constraints and interactive simulation."
+  ],
+  "2-years-and-700-members-insights-from-convoclub": [
+    "Imposter syndrome in conversation design is not a personal weakness but a rational response to a field that is evolving faster than any individual can master.",
+    "The immaturity of conversation design tools is not just a vendor problem — it is a symptom of a profession that has not yet accumulated enough institutional weight to set standards.",
+    "Stakeholder misalignment is the most politically consequential challenge conversation designers face: the field cannot mature until its value is legible to decision-makers.",
+    "Community-building is a form of professional infrastructure: Convoclub's 700 members represent collective sense-making in the absence of formal disciplinary structures.",
+    "The universality of perceived knowledge gaps across experience levels suggests that conversation design is defined by permanent epistemic precarity, not a learnable fixed body of knowledge."
   ]
 }

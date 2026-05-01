@@ -1,28 +1,40 @@
 ---
-title: "2 years and 700 members: insights from Convoclub"
+title: '2 years and 700 members: insights from Convoclub'
 date: 2023-08-16
 updated: 2026-03-11
 maturity: complete
 tags:
-  - conversation-design
-  - convocat
-  - future-of-work
-  - community
-  - evaluation
+- conversation-design
+- convocat
+- future-of-work
+- community
+- evaluation
+- skill-based-work
+- cognitive-load
 themes:
-  - Conversation design as an emerging, still-maturing profession
-  - Community as a way to surface shared challenges in a young discipline
-  - The gap between design ambition and the tooling and analytics that are actually available
+- Imposter syndrome in conversation design is not a personal weakness but a rational response to a field that is evolving faster than any individual can master.
+- The immaturity of conversation design tools is not just a vendor problem — it is a symptom of a profession that has not yet accumulated enough institutional weight to set standards.
+- 'Stakeholder misalignment is the most politically consequential challenge conversation designers face: the field cannot mature until its value is legible to decision-makers.'
+- 'Community-building is a form of professional infrastructure: Convoclub''s 700 members represent collective sense-making in the absence of formal disciplinary structures.'
+- The universality of perceived knowledge gaps across experience levels suggests that conversation design is defined by permanent epistemic precarity, not a learnable fixed body of knowledge.
 triples:
-  - ["Convoclub", "demonstrates", "Conversation design"]
-  - ["Conversation design", "characterised-as", "Emerging discipline"]
-  - ["Conversation designers", "exhibits", "Imposter syndrome"]
-  - ["Conversation design", "lacks", "Mature tooling"]
-  - ["Conversation design", "requires", "Stakeholder alignment"]
-  - ["Conversation design", "lacks", "Evaluation analytics"]
-description: "The top 5 challenges that conversation designers face, based on 300 real answers."
+- [Convoclub, demonstrates, Conversation design]
+- [Conversation design, characterised-as, Emerging discipline]
+- [Conversation designers, exhibits, Imposter syndrome]
+- [Conversation design, lacks, Mature tooling]
+- [Conversation design, requires, Stakeholder alignment]
+- [Conversation design, lacks, Evaluation analytics]
+- [Imposter Syndrome, instance-of, Cognitive Load]
+- [Conversation Design, characterised-as, emerging design discipline]
+- [Perceived Knowledge Gaps, caused-by, LLMs]
+- [Design Tooling, lacks, Conversation Design]
+- [Stakeholder Alignment, requires, Conversation Design]
+- [Convoclub, demonstrates, Community of Practice]
+- [Imposter Syndrome, exhibits, Professional Identity]
+- [Stakeholder Alignment, leads-to, Conversation Design]
+description: The top 5 challenges that conversation designers face, based on 300 real answers.
 draft: false
-ai: "100% Maai"
+ai: 100% Maai
 ---
 
 I'm really proud to announce that we just welcomed our 700th member into our Convoclub community!

@@ -2366,6 +2366,16 @@
       "label": "If/then conditionals",
       "type": "technical-mechanism",
       "definition": ""
+    },
+    "imposter-syndrome": {
+      "label": "Imposter Syndrome",
+      "type": "cognitive-tendency",
+      "definition": ""
+    },
+    "design-tooling": {
+      "label": "Design Tooling",
+      "type": "concept",
+      "definition": ""
     }
   }
 }

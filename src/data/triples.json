@@ -6660,6 +6660,10 @@
     "if/then-conditionals": {
       "label": "If/then conditionals",
       "type": "technical-mechanism"
+    },
+    "design-tooling": {
+      "label": "Design Tooling",
+      "type": "concept"
     }
   },
   "associations": [
@@ -7697,48 +7701,6 @@
       "object": "entity-linking",
       "source": "saga-knowledge-platform",
       "collection": "weblinks"
-    },
-    {
-      "subject": "convoclub",
-      "predicate": "demonstrates",
-      "object": "conversation-design",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "characterised-as",
-      "object": "emerging-discipline",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-designers",
-      "predicate": "exhibits",
-      "object": "imposter-syndrome",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "lacks",
-      "object": "mature-tooling",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "requires",
-      "object": "stakeholder-alignment",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
-    },
-    {
-      "subject": "conversation-design",
-      "predicate": "lacks",
-      "object": "evaluation-analytics",
-      "source": "2-years-and-700-members-insights-from-convoclub",
-      "collection": "articles"
     },
     {
       "subject": "book-recommender-tool",
@@ -11693,6 +11655,62 @@
       "predicate": "requires",
       "object": "roleplay-prompting",
       "source": "an-evening-with-chatgpt-2",
+      "collection": "articles"
+    },
+    {
+      "subject": "imposter-syndrome",
+      "predicate": "instance-of",
+      "object": "cognitive-load",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "characterised-as",
+      "object": "emerging-design-discipline",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "perceived-knowledge-gaps",
+      "predicate": "caused-by",
+      "object": "llms",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "design-tooling",
+      "predicate": "lacks",
+      "object": "conversation-design",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "stakeholder-alignment",
+      "predicate": "requires",
+      "object": "conversation-design",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "convoclub",
+      "predicate": "demonstrates",
+      "object": "community-of-practice",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "imposter-syndrome",
+      "predicate": "exhibits",
+      "object": "professional-identity",
+      "source": "2-years-and-700-members-insights-from-convoclub",
+      "collection": "articles"
+    },
+    {
+      "subject": "stakeholder-alignment",
+      "predicate": "leads-to",
+      "object": "conversation-design",
+      "source": "2-years-and-700-members-insights-from-convoclub",
       "collection": "articles"
     }
   ]
