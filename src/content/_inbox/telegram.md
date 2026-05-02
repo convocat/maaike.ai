@@ -19,3 +19,6 @@ https://www.onomatopee.net/exhibition/fieldwork-for-future-ecologies/
 
 2026-05-02: Structured-Prompt-Driven Development (SPDD)
 https://martinfowler.com/articles/structured-prompt-driven/
+
+2026-05-02: It’s like this: Why perceptions are our realities - Flux
+https://flux.community/matthew-sheffield/2026/01/its-like-this-why-perceptions-are-our-realities/
