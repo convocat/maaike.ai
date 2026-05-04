@@ -107,6 +107,9 @@ def fetch_page_meta(url):
             )
         if desc_match:
             description = decode_html_entities(desc_match.group(1).strip())
+            # Keep max 2 sentences
+            sentences = re.split(r'(?<=[.!?])\s+', description)
+            description = ' '.join(sentences[:2])
     except Exception:
         pass
     return title, description
