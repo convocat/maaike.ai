@@ -10,7 +10,7 @@
       "x": 0.3269,
       "y": 0.215,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "7-new-skills-for-conversation-designers-2022",
@@ -22,7 +22,7 @@
       "x": 0.2317,
       "y": 0.1983,
       "keyphrases": [],
-      "connections": 9
+      "connections": 6
     },
     {
       "slug": "a-digital-garden-as-central-space",
@@ -34,7 +34,7 @@
       "x": 0.8609,
       "y": 0.6376,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "air-canadas-bot-mishap-pre-dates-chatgpt",
@@ -46,19 +46,19 @@
       "x": 0.02,
       "y": 0.2998,
       "keyphrases": [],
-      "connections": 11
+      "connections": 8
     },
     {
       "slug": "an-evening-with-chatgpt-2",
       "title": "An evening with ChatGPT (2)",
       "collection": "articles",
       "maturity": "complete",
-      "description": "Let's build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
+      "description": "Let''s build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
       "url": "/articles/an-evening-with-chatgpt-2",
       "x": 0.1316,
       "y": 0.2908,
       "keyphrases": [],
-      "connections": 20
+      "connections": 0
     },
     {
       "slug": "an-evening-with-chatgpt-3",
@@ -70,7 +70,7 @@
       "x": 0.0297,
       "y": 0.3453,
       "keyphrases": [],
-      "connections": 20
+      "connections": 0
     },
     {
       "slug": "an-evening-with-chatgpt-september-2023",
@@ -82,23 +82,23 @@
       "x": 0.0668,
       "y": 0.223,
       "keyphrases": [],
-      "connections": 13
+      "connections": 0
     },
     {
       "slug": "an-evening-with-chatgpt",
       "title": "An evening with ChatGPT",
       "collection": "articles",
       "maturity": "complete",
-      "description": "Part 1: you can call me Al. A conversation designer's first encounters with ChatGPT.",
+      "description": "Part 1: you can call me Al. A conversation designer''s first encounters with ChatGPT.",
       "url": "/articles/an-evening-with-chatgpt",
       "x": 0.1077,
       "y": 0.3867,
       "keyphrases": [],
-      "connections": 20
+      "connections": 0
     },
     {
       "slug": "an-evening-with-youchat-and-chatsonic",
-      "title": "An evening with YouChat and Chatsonic — with a bit of a twist",
+      "title": "An evening with YouChat and Chatsonic, with a bit of a twist",
       "collection": "articles",
       "maturity": "complete",
       "description": "Both can access the internet and retrieve recent information. Let's take them for a test drive.",
@@ -106,7 +106,7 @@
       "x": 0.1064,
       "y": 0.247,
       "keyphrases": [],
-      "connections": 16
+      "connections": 0
     },
     {
       "slug": "blender-turned-rogue",
@@ -118,7 +118,7 @@
       "x": 0.1862,
       "y": 0.2041,
       "keyphrases": [],
-      "connections": 13
+      "connections": 0
     },
     {
       "slug": "bye-bye-alpaca-knowledge-as-the-missing-fundamental",
@@ -130,7 +130,7 @@
       "x": 0.3899,
       "y": 0.3731,
       "keyphrases": [],
-      "connections": 4
+      "connections": 0
     },
     {
       "slug": "chatgpt-presentation-prep",
@@ -142,7 +142,7 @@
       "x": 0.0765,
       "y": 0.3418,
       "keyphrases": [],
-      "connections": 5
+      "connections": 3
     },
     {
       "slug": "context-engineering-lets-call-it-design",
@@ -154,7 +154,7 @@
       "x": 0.1704,
       "y": 0.3147,
       "keyphrases": [],
-      "connections": 16
+      "connections": 9
     },
     {
       "slug": "conversational-interfaces-are-not-easy",
@@ -166,7 +166,7 @@
       "x": 0.3058,
       "y": 0.3524,
       "keyphrases": [],
-      "connections": 18
+      "connections": 10
     },
     {
       "slug": "convo-question-should-i-learn-programming",
@@ -178,7 +178,7 @@
       "x": 0.196,
       "y": 0.2488,
       "keyphrases": [],
-      "connections": 4
+      "connections": 0
     },
     {
       "slug": "convoclub-clubhouse",
@@ -190,19 +190,19 @@
       "x": 0.2602,
       "y": 0.1633,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "corona-is-spreading-and-so-are-the-bots",
       "title": "Corona is spreading…and so are the bots",
       "collection": "articles",
       "maturity": "complete",
-      "description": "How to build Coronabots responsibly — if you want to build one at all.",
+      "description": "How to build Coronabots responsibly, if you want to build one at all.",
       "url": "/articles/corona-is-spreading-and-so-are-the-bots",
       "x": 0.2029,
       "y": 0.1623,
       "keyphrases": [],
-      "connections": 5
+      "connections": 0
     },
     {
       "slug": "de-biassing-dall-e",
@@ -214,11 +214,11 @@
       "x": 0.2953,
       "y": 0.3971,
       "keyphrases": [],
-      "connections": 4
+      "connections": 0
     },
     {
       "slug": "european-chatbot-conference-10-talks",
-      "title": "European chatbot conference: 10 talks that I'm going to rewatch",
+      "title": "European chatbot conference: 10 talks that I''m going to rewatch",
       "collection": "articles",
       "maturity": "complete",
       "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
@@ -226,7 +226,7 @@
       "x": 0.415,
       "y": 0.232,
       "keyphrases": [],
-      "connections": 8
+      "connections": 0
     },
     {
       "slug": "fingers-crossed-is-a-figure-of-speech-dall-e",
@@ -238,7 +238,7 @@
       "x": 0.2566,
       "y": 0.3623,
       "keyphrases": [],
-      "connections": 21
+      "connections": 0
     },
     {
       "slug": "garden-as-metaphor",
@@ -262,7 +262,7 @@
       "x": 0.0482,
       "y": 0.2646,
       "keyphrases": [],
-      "connections": 19
+      "connections": 0
     },
     {
       "slug": "hildegard-von-bingen",
@@ -305,12 +305,12 @@
       "title": "How to create your own content quality audit",
       "collection": "articles",
       "maturity": "complete",
-      "description": "5 checks to keep your content on track — and your clients happy.",
+      "description": "5 checks to keep your content on track, and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
       "x": 0.4083,
       "y": 0.2802,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "is-conversation-still-a-useful-metaphor",
@@ -322,7 +322,7 @@
       "x": 0.2543,
       "y": 0.2312,
       "keyphrases": [],
-      "connections": 26
+      "connections": 16
     },
     {
       "slug": "llm-hallucinations-knowledge-as-missing-fundamental",
@@ -334,7 +334,7 @@
       "x": 0.334,
       "y": 0.4216,
       "keyphrases": [],
-      "connections": 10
+      "connections": 5
     },
     {
       "slug": "llmops-analyst-conversation-designers-next-career-step",
@@ -346,11 +346,11 @@
       "x": 0.6002,
       "y": 0.3098,
       "keyphrases": [],
-      "connections": 23
+      "connections": 11
     },
     {
       "slug": "microsoft-youre-using-bing-wrong",
-      "title": "Microsoft: \\\"you're using Bing wrong! You're not supposed to talk with it!\\\"",
+      "title": "Microsoft: \"you''re using Bing wrong! You''re not supposed to talk with it!\"",
       "collection": "articles",
       "maturity": "complete",
       "description": "You built a conversational interface and then expected people to use it just for search?",
@@ -358,7 +358,7 @@
       "x": 0.1515,
       "y": 0.2339,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "nieuwe-editie-voicelunch",
@@ -370,7 +370,7 @@
       "x": 0.3051,
       "y": 0.1589,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "off-to-a-good-start",
@@ -382,7 +382,7 @@
       "x": 0.3734,
       "y": 0.2504,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "online-prompt-workshop-de-biasing-dall-e",
@@ -394,7 +394,7 @@
       "x": 0.1977,
       "y": 0.3942,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "online-uitgeput-pak-een-kruk",
@@ -418,7 +418,7 @@
       "x": 0.4397,
       "y": 0.1688,
       "keyphrases": [],
-      "connections": 2
+      "connections": 0
     },
     {
       "slug": "prompt-thought-summaries",
@@ -430,19 +430,19 @@
       "x": 0.2599,
       "y": 0.4257,
       "keyphrases": [],
-      "connections": 8
+      "connections": 0
     },
     {
       "slug": "putting-the-design-in-prompt-design",
       "title": "Putting the design in prompt design",
       "collection": "articles",
       "maturity": "complete",
-      "description": "Blind prompting vs. prompt engineering — and what it means for conversation designers.",
+      "description": "Blind prompting vs. prompt engineering, and what it means for conversation designers.",
       "url": "/articles/putting-the-design-in-prompt-design",
       "x": 0.2022,
       "y": 0.3474,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "saturday-design-thoughts",
@@ -454,7 +454,7 @@
       "x": 0.35,
       "y": 0.3425,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "scrum-for-conversational-teams",
@@ -478,7 +478,7 @@
       "x": 0.6475,
       "y": 0.3536,
       "keyphrases": [],
-      "connections": 5
+      "connections": 0
     },
     {
       "slug": "the-lone-convo-designer",
@@ -490,7 +490,7 @@
       "x": 0.2842,
       "y": 0.275,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "the-long-and-winding-road",
@@ -502,11 +502,11 @@
       "x": 0.329,
       "y": 0.2609,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "understanding-speech-part-1",
-      "title": "Understanding speech — part 1",
+      "title": "Understanding speech, part 1",
       "collection": "articles",
       "maturity": "complete",
       "description": "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.",
@@ -514,11 +514,11 @@
       "x": 0.3554,
       "y": 0.1254,
       "keyphrases": [],
-      "connections": 5
+      "connections": 0
     },
     {
       "slug": "understanding-speech-part-2",
-      "title": "Understanding speech — Part 2",
+      "title": "Understanding speech, part 2",
       "collection": "articles",
       "maturity": "complete",
       "description": "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.",
@@ -526,19 +526,19 @@
       "x": 0.4083,
       "y": 0.129,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "visual-notes-brian-roemmele",
       "title": "Visual notes: Brian Roemmele @voicelunch",
       "collection": "articles",
       "maturity": "complete",
-      "description": "Sketchnotes of the Voicelunch session with Brian Roemmele — the best voicelunch I never attended.",
+      "description": "Sketchnotes of the Voicelunch session with Brian Roemmele, the best voicelunch I never attended.",
       "url": "/articles/visual-notes-brian-roemmele",
       "x": 0.3488,
       "y": 0.1753,
       "keyphrases": [],
-      "connections": 7
+      "connections": 0
     },
     {
       "slug": "what-happens-when-ai-has-read-everything",
@@ -550,7 +550,7 @@
       "x": 0.5951,
       "y": 0.3534,
       "keyphrases": [],
-      "connections": 11
+      "connections": 0
     },
     {
       "slug": "why-chatgpt-is-bullshit-and-why-we-should-design-for-that",
@@ -562,7 +562,7 @@
       "x": 0.0846,
       "y": 0.2913,
       "keyphrases": [],
-      "connections": 25
+      "connections": 12
     },
     {
       "slug": "youre-not-married-to-your-texts",
@@ -583,8 +583,8 @@
       "maturity": "draft",
       "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
       "url": "/field-notes/book-recommender",
-      "x": 0.4472,
-      "y": 0.8142,
+      "x": 0.4482,
+      "y": 0.8145,
       "keyphrases": [],
       "connections": 7
     },
@@ -646,7 +646,7 @@
       "x": 0.9363,
       "y": 0.5988,
       "keyphrases": [],
-      "connections": 8
+      "connections": 7
     },
     {
       "slug": "embedding-models-for-the-garden",
@@ -715,8 +715,8 @@
       "maturity": "developing",
       "description": "Running LLM-based key phrase extraction on all 92 garden items. What the results reveal about phrase overlap, short-text limits, and the role of key phrases in the knowledge graph.",
       "url": "/field-notes/full-scale-key-phrase-extraction",
-      "x": 0.5475,
-      "y": 0.7478,
+      "x": 0.5491,
+      "y": 0.7497,
       "keyphrases": [],
       "connections": 16
     },
@@ -814,7 +814,7 @@
       "x": 0.7842,
       "y": 0.7469,
       "keyphrases": [],
-      "connections": 5
+      "connections": 4
     },
     {
       "slug": "thematic-analysis-approach-b-graph-augmented",
@@ -850,7 +850,7 @@
       "x": 0.9029,
       "y": 0.5972,
       "keyphrases": [],
-      "connections": 6
+      "connections": 5
     },
     {
       "slug": "tuning-the-similarity-threshold",
@@ -859,8 +859,8 @@
       "maturity": "developing",
       "description": "How to go from \"everything is related to everything\" to a useful set of link candidates. Data analysis, filtering strategies, and the research behind them.",
       "url": "/field-notes/tuning-the-similarity-threshold",
-      "x": 0.4984,
-      "y": 0.7373,
+      "x": 0.5118,
+      "y": 0.7439,
       "keyphrases": [],
       "connections": 15
     },
@@ -905,12 +905,12 @@
       "title": "AI transparency in content",
       "collection": "seeds",
       "maturity": "draft",
-      "description": "How should I indicate when content was made with AI — and share the prompts?",
+      "description": "How should I indicate when content was made with AI, and share the prompts?",
       "url": "/seeds/ai-transparency-in-content",
       "x": 0.4695,
       "y": 0.3553,
       "keyphrases": [],
-      "connections": 2
+      "connections": 1
     },
     {
       "slug": "chatbots-without-ai",
@@ -919,8 +919,8 @@
       "maturity": "draft",
       "description": "Can a chatbot-style UI work without generative AI, using decision trees, hyperlinking, and serendipity instead?",
       "url": "/seeds/chatbots-without-ai",
-      "x": 0.4707,
-      "y": 0.6184,
+      "x": 0.4697,
+      "y": 0.6181,
       "keyphrases": [],
       "connections": 0
     },
@@ -943,8 +943,8 @@
       "maturity": "draft",
       "description": "Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.",
       "url": "/seeds/dutch-aware-quantization",
-      "x": 0.4809,
-      "y": 0.7721,
+      "x": 0.483,
+      "y": 0.7756,
       "keyphrases": [],
       "connections": 0
     },
@@ -958,7 +958,7 @@
       "x": 0.6722,
       "y": 0.7299,
       "keyphrases": [],
-      "connections": 21
+      "connections": 20
     },
     {
       "slug": "garden-to-do-list",
@@ -970,7 +970,7 @@
       "x": 0.7702,
       "y": 0.7017,
       "keyphrases": [],
-      "connections": 4
+      "connections": 3
     },
     {
       "slug": "how-to-build-a-digital-garden",
@@ -982,7 +982,7 @@
       "x": 0.9425,
       "y": 0.6247,
       "keyphrases": [],
-      "connections": 6
+      "connections": 5
     },
     {
       "slug": "knowledge-gardens-and-serendipity",
@@ -994,7 +994,7 @@
       "x": 0.7102,
       "y": 0.7592,
       "keyphrases": [],
-      "connections": 11
+      "connections": 10
     },
     {
       "slug": "my-changing-role-in-an-ultrasmall-development-team",
@@ -1006,19 +1006,19 @@
       "x": 0.2349,
       "y": 0.5941,
       "keyphrases": [],
-      "connections": 2
+      "connections": 1
     },
     {
       "slug": "principles-behind-this-garden",
       "title": "Principles behind this garden",
       "collection": "seeds",
       "maturity": "draft",
-      "description": "What design principles shaped this site — and why do they matter?",
+      "description": "What design principles shaped this site, and why do they matter?",
       "url": "/seeds/principles-behind-this-garden",
       "x": 0.965,
       "y": 0.6296,
       "keyphrases": [],
-      "connections": 6
+      "connections": 5
     },
     {
       "slug": "reading-notes-bacteria-to-ai",
@@ -1066,7 +1066,7 @@
       "x": 0.8836,
       "y": 0.6177,
       "keyphrases": [],
-      "connections": 14
+      "connections": 8
     },
     {
       "slug": "thematic-analysis-as-interaction-model-and-research-method",
@@ -1078,7 +1078,7 @@
       "x": 0.2268,
       "y": 0.2344,
       "keyphrases": [],
-      "connections": 4
+      "connections": 3
     },
     {
       "slug": "writing-as-a-conversation-with-yourself",
@@ -1102,7 +1102,7 @@
       "x": 0.4857,
       "y": 0.8532,
       "keyphrases": [],
-      "connections": 9
+      "connections": 2
     },
     {
       "slug": "algorithmic-epistemic-injustice-ai-s-knowledge-hie",
@@ -1114,7 +1114,19 @@
       "x": 0.6679,
       "y": 0.1905,
       "keyphrases": [],
-      "connections": 3
+      "connections": 1
+    },
+    {
+      "slug": "china-s-approach-to-ai-anthropomorphism",
+      "title": "China's Approach to AI Anthropomorphism",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "China''s proposed AI law acknowledges AI-related human vulnerabilities and establishes contextual technical measures to prevent AI harms | Edition #264",
+      "url": "/weblinks/china-s-approach-to-ai-anthropomorphism",
+      "x": 0.7064,
+      "y": 0.8358,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "digital-garden-history",
@@ -1126,7 +1138,7 @@
       "x": 0.8044,
       "y": 0.6924,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "do-llms-feel-emotion-circuits-discovery-and-contro",
@@ -1138,7 +1150,79 @@
       "x": 0.8265,
       "y": 0.3427,
       "keyphrases": [],
-      "connections": 3
+      "connections": 1
+    },
+    {
+      "slug": "dont-show-me-your-ai",
+      "title": "Don't show me your AI. It is rude!",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Marek Tuszynski (Tactical Tech) argues that the synthetic intimacy people develop with generative AI tools (an 'ELIZA effect') makes critical conversation about AI almost impossible: dependency forecloses critique. The piece curates 30 resources mapping AI's labor exploitation, environmental costs, military use, and concentration of power, framing AI critique as a moral and political project rather than a technical one.",
+      "url": "/weblinks/dont-show-me-your-ai",
+      "x": 0.2321,
+      "y": 0.3186,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "instagram",
+      "title": "6 plugins that turn Claude Code into a full dev team",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "'6 plugins that turn Claude Code into a full dev team in 5 minutes. Each one covers a different role; planning, design, code review, security, memory, and team coordination.",
+      "url": "/weblinks/instagram",
+      "x": 0.6642,
+      "y": 0.5478,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "metaphors-for-designers-working-with-ai",
+      "title": "Metaphors for Designers Working with AI",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "A peer-reviewed conference paper from DRS 2022 that examines how metaphors shape designers' understanding of machine learning and AI systems, exploring both where common metaphors mislead and what qualities make metaphors genuinely useful for design thinking.",
+      "url": "/weblinks/metaphors-for-designers-working-with-ai",
+      "x": 0.3175,
+      "y": 0.5343,
+      "keyphrases": [],
+      "connections": 1
+    },
+    {
+      "slug": "new-paper-from-microsoft-this-is-an-important-read",
+      "title": "LLMs corrupt your documents when you delegate",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Microsoft researchers introduce DELEGATE-52, a benchmark of long document-editing workflows across 52 professional domains. Even frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT-5.4) corrupt about 25% of document content by the end of these workflows, and agentic tool use does not improve performance. The paper argues current LLMs are unreliable delegates: they introduce sparse but severe errors that compound silently over long interactions.",
+      "url": "/weblinks/new-paper-from-microsoft-this-is-an-important-read",
+      "x": 0.6229,
+      "y": 0.4995,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "title": "Nora Bateson: how our ways of knowing shape our collective future",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Nora Bateson argues that applying static, context-free data to living systems is dangerous. Her concept of warm data contextualises information through relationships and interconnection, as an alternative to reductionist measurement. Spans ecology, healthcare, food systems, and education.",
+      "url": "/weblinks/nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
+      "x": 0.4461,
+      "y": 0.313,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "robin-interactions-shared-manifolds",
+      "title": "Recording robin interactions for visual models of shared manifolds",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "A process post by Lucio Arese: he is recording many interactions between robins and using the material to build visual models of 'shared manifolds' between multiple individuals, alongside reading the literature on territorial interactions. The work continues his project of treating birdsong as data; the new dimension is multi-individual rather than single-bird.",
+      "url": "/weblinks/robin-interactions-shared-manifolds",
+      "x": 0.6965,
+      "y": 0.2186,
+      "keyphrases": [],
+      "connections": 1
     },
     {
       "slug": "saga-knowledge-platform",
@@ -1153,16 +1237,40 @@
       "connections": 17
     },
     {
+      "slug": "symbolic-ai-for-the-win-kurt-cagle",
+      "title": "Symbolic AI for the win",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "",
+      "url": "/weblinks/symbolic-ai-for-the-win-kurt-cagle",
+      "x": 0.2041,
+      "y": 0.2904,
+      "keyphrases": [],
+      "connections": 5
+    },
+    {
       "slug": "the-machines-are-fine-i-x27-m-worried-about-us",
       "title": "The machines are fine. I'm worried about us.",
       "collection": "weblinks",
       "maturity": "solid",
       "description": "AI tools can accelerate research, but using them to avoid the hard work of learning undermines the development of independent thinking.",
       "url": "/weblinks/the-machines-are-fine-i-x27-m-worried-about-us",
-      "x": 0.2497,
-      "y": 0.7811,
+      "x": 0.2425,
+      "y": 0.7752,
       "keyphrases": [],
-      "connections": 3
+      "connections": 1
+    },
+    {
+      "slug": "visualising-birdsong-as-data",
+      "title": "Visualising birdsong as a three-dimensional data array",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "A short Instagram reel by Lucio Arese visualises the song of a hemp bunting (Linaria cannabina) as a scatter plot, where pitch, amplitude, and timbre map directly to spatial position and density. The post argues that birdsong is not creativity but a tightly structured signal carrying territorial, genetic, and hormonal information: a 'biological blockchain' rather than a song.",
+      "url": "/weblinks/visualising-birdsong-as-data",
+      "x": 0.7904,
+      "y": 0.6573,
+      "keyphrases": [],
+      "connections": 1
     },
     {
       "slug": "a-little-sunday-afternoon-rant",
@@ -1171,8 +1279,8 @@
       "maturity": "complete",
       "description": "A candid reflection on the challenges of course creation, AI tools, and the mismatch between linear workflows and my non-linear thinking style. I struggle with completing online courses due to procrastination, changing circumstances, and self-doubt about content value. AI writing tools like Jasper.ai can be counterproductive for non-linear thinkers, requiring extensive prompting that defeats the purpose of automation. Linear workflows imposed by course creation platforms and AI tools conflict with my chaotic, organic thinking process. System prompts have become invaluable personal tools for managing rumination and decision-making in my daily life. I am actively seeking to design custom system prompts that accommodate my unique thought patterns rather than conform to existing frameworks.",
       "url": "/videos/a-little-sunday-afternoon-rant",
-      "x": 0.2904,
-      "y": 0.8014,
+      "x": 0.2721,
+      "y": 0.8057,
       "keyphrases": [],
       "connections": 0
     },
@@ -1183,8 +1291,8 @@
       "maturity": "complete",
       "description": "A hands-on exploration of Microsoft Copilot for PowerPoint, testing its capabilities for presentation creation and editing, with humorous comparisons to the legacy Clippy assistant. Copilot has significant limitations in understanding context and user intent, particularly with non-English content and specific editing requests. The AI assistant struggles with co-reference resolution, making it difficult to understand which slide or element I am referring to. Copilot cannot directly access or interact with PowerPoint Online, limiting its functionality for cloud-based workflows. The fallback responses are repetitive and lack conversational variety, making the user experience frustrating. Despite being positioned as an AI assistant, Copilot performs worse than the legacy Clippy assistant from the 1990s in practical usability. Dutch language support is officially unavailable, creating barriers for non-English users even when prompting in English. My experience raises questions about the readiness of Copilot for PowerPoint as a production-ready tool for content creators.",
       "url": "/videos/an-evening-with-copilot-for-powerpoint",
-      "x": 0.3894,
-      "y": 0.707,
+      "x": 0.3898,
+      "y": 0.7063,
       "keyphrases": [],
       "connections": 0
     },
@@ -1195,8 +1303,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.3275,
-      "y": 0.773,
+      "x": 0.3277,
+      "y": 0.7651,
       "keyphrases": [],
       "connections": 0
     },
@@ -1207,10 +1315,10 @@
       "maturity": "complete",
       "description": "A critical analysis of Google Bard failing to adhere to conversational principles by withholding relevant information about Gemini model availability in the EU. Bard violates Grice's Cooperative Principle by failing to proactively communicate that Gemini is unavailable in the EU due to regulatory reviews. The issue is not a hallucination but a failure of the maxim of quality: Bard does not provide necessary information unless explicitly asked. Users must already know the answer to their question before asking it, creating a paradoxical and unhelpful interaction pattern. Bard in Europe still runs on the older Lambda/PaLM model, not the newer Gemini model available in other regions. This violation of conversational principles is arguably worse than generating false information because it presupposes user knowledge.",
       "url": "/videos/bard-violates-grices-maxims-again",
-      "x": 0.2473,
-      "y": 0.8417,
+      "x": 0.2464,
+      "y": 0.843,
       "keyphrases": [],
-      "connections": 4
+      "connections": 3
     },
     {
       "slug": "content-driven-interaction-in-4-steps",
@@ -1232,9 +1340,9 @@
       "description": "Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that's not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?",
       "url": "/videos/designing-for-doubt",
       "x": 0.4084,
-      "y": 0.7704,
+      "y": 0.7724,
       "keyphrases": [],
-      "connections": 5
+      "connections": 4
     },
     {
       "slug": "episode-1-types-of-prompting",
@@ -1243,8 +1351,8 @@
       "maturity": "complete",
       "description": "Episode 1 of the Maai & AI series, on the different types of prompting.",
       "url": "/videos/episode-1-types-of-prompting",
-      "x": 0.4034,
-      "y": 0.624,
+      "x": 0.404,
+      "y": 0.6231,
       "keyphrases": [],
       "connections": 0
     },
@@ -1267,8 +1375,8 @@
       "maturity": "complete",
       "description": "Episode 3 of the Maai & AI series, on how LLMs work and some of their risks.",
       "url": "/videos/episode-3-llms-how-they-work",
-      "x": 0.3793,
-      "y": 0.6631,
+      "x": 0.3784,
+      "y": 0.6625,
       "keyphrases": [],
       "connections": 0
     },
@@ -1279,8 +1387,8 @@
       "maturity": "complete",
       "description": "New roles, skills and tools for content professionals in the age of generative AI.",
       "url": "/videos/generative-ai-new-roles-skills-tools",
-      "x": 0.5034,
-      "y": 0.6292,
+      "x": 0.5039,
+      "y": 0.6283,
       "keyphrases": [],
       "connections": 2
     },
@@ -1291,8 +1399,8 @@
       "maturity": "complete",
       "description": "An analysis of Chevrolet's GPT-based chatbot vulnerability and how the company successfully addressed the security issues through proper monitoring and design improvements. The initial vulnerability was not a sign of stupidity, but a necessary part of the testing process that all chatbots must undergo. The real measure of competence is not whether vulnerabilities exist, but how quickly and effectively they respond. I test the updated bot and demonstrate practical prompt engineering techniques for controlling chatbot behavior, including defensive prompting, topic maintenance, and firm responses to abuse. GPT-based solutions alone are not sufficient for high-risk transactions: a hybrid approach combining multiple design techniques is more effective.",
       "url": "/videos/kudos-to-chevrolet",
-      "x": 0.3836,
-      "y": 0.8703,
+      "x": 0.384,
+      "y": 0.8715,
       "keyphrases": [],
       "connections": 0
     },
@@ -1303,8 +1411,8 @@
       "maturity": "complete",
       "description": "A rant about LinkedIn's AI buttons.",
       "url": "/videos/linkedin-ai-buttons-a-little-rant",
-      "x": 0.363,
-      "y": 0.8038,
+      "x": 0.3691,
+      "y": 0.7957,
       "keyphrases": [],
       "connections": 0
     },
@@ -1315,8 +1423,8 @@
       "maturity": "complete",
       "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
       "url": "/videos/lunchbreak-with-claude-research-papers",
-      "x": 0.3104,
-      "y": 0.6841,
+      "x": 0.3082,
+      "y": 0.6787,
       "keyphrases": [],
       "connections": 0
     },
@@ -1327,8 +1435,8 @@
       "maturity": "complete",
       "description": "A comparative demonstration of how Claude, ChatGPT, and Gemini respond to a web app development request, showcasing Claude's superior capability to generate interactive prototypes and code. Claude outperforms ChatGPT and Gemini by directly generating interactive web app prototypes with a single prompt, rather than just providing plans or design suggestions. Claude creates functional React-based applications with visual mockups, progress bars, and interactive quiz elements in response to simple one-line prompts. The AI demonstrates impressive iterative capabilities, enhancing initial suggestions with more detailed content, interactive elements, and SVG graphics upon request. Claude seamlessly converts React components into static markdown files for alternative platforms, showing flexibility across different deployment methods. I am seriously considering switching from ChatGPT to Claude as my primary LLM due to Claude's superior practical implementation capabilities.",
       "url": "/videos/lunchbreak-with-claude",
-      "x": 0.2863,
-      "y": 0.7529,
+      "x": 0.283,
+      "y": 0.752,
       "keyphrases": [],
       "connections": 0
     },
@@ -1351,8 +1459,8 @@
       "maturity": "solid",
       "description": "An update on my favorite AI-tools...a never ending overview",
       "url": "/videos/my-favorite-ai-tools-2025-edition",
-      "x": 0.5194,
-      "y": 0.6694,
+      "x": 0.5192,
+      "y": 0.6668,
       "keyphrases": [],
       "connections": 0
     },
@@ -1363,8 +1471,8 @@
       "maturity": "complete",
       "description": "A demonstration of Google's NotebookLM interactive podcast feature, where I participate as a guest in an AI-generated podcast discussion about the Coconut research paper on latent reasoning in large language models. NotebookLM now features an interactive podcast mode (beta) that allows users to join AI-generated podcast discussions about uploaded documents. The Coconut paper introduces a breakthrough method where AI can reason in continuous latent space rather than through explicit chain-of-thought language, potentially improving reasoning for complex problems. I raise philosophical questions about verification of hidden reasoning, and critical concerns about transparency, compliance, and explainability. Latent reasoning creates a black box problem: we see inputs and outputs but cannot observe the reasoning process. I also test the feature's limits by requesting humor, making Monty Python references, and asking the hosts to switch to Dutch, revealing important insights about inclusivity, turn-taking, and accessibility in AI-generated conversations. Despite current limitations where AI hosts can become condescending or defensive, the feature represents a significant step toward more natural, bidirectional conversations with documents and AI systems.",
       "url": "/videos/notebooklm-podcast-guest",
-      "x": 0.3668,
-      "y": 0.7485,
+      "x": 0.3695,
+      "y": 0.747,
       "keyphrases": [],
       "connections": 0
     },
@@ -1378,7 +1486,7 @@
       "x": 0.3819,
       "y": 0.5465,
       "keyphrases": [],
-      "connections": 8
+      "connections": 3
     },
     {
       "slug": "quickstart-ssml-les-1-intonatie",
@@ -1447,8 +1555,8 @@
       "maturity": "complete",
       "description": "The strawberry problem, and how one model gets it right.",
       "url": "/videos/strawberries-and-how-one-model-gets-it-right",
-      "x": 0.5626,
-      "y": 0.7116,
+      "x": 0.5639,
+      "y": 0.711,
       "keyphrases": [],
       "connections": 0
     },
@@ -1459,8 +1567,8 @@
       "maturity": "complete",
       "description": "Building an interactive tutorial with Claude on a Sunday afternoon.",
       "url": "/videos/sunday-afternoon-with-claude-interactive-tutorial",
-      "x": 0.3255,
-      "y": 0.7274,
+      "x": 0.3277,
+      "y": 0.7195,
       "keyphrases": [],
       "connections": 0
     },
@@ -1471,8 +1579,8 @@
       "maturity": "complete",
       "description": "A technical exploration of DeepSeek's content moderation and reasoning capabilities through testing its responses to sensitive geopolitical questions about Taiwan's political status. I discover that prompting DeepSeek in Dutch triggers the model's reasoning mechanism, revealing internal moderation instructions. By using linguistic workarounds like misspellings that exploit tokenization differences, I expose DeepSeek's internal guidelines for handling Taiwan-related questions, which include instructions to balance factual information with political sensitivity while avoiding language implying support for independence. This demonstrates that censorship occurs at the application level rather than within the model itself, similar to how ChatGPT handles restricted content. The model's reasoning shows it is capable of nuanced discussion about sensitive geopolitical topics, but the application layer prevents users from accessing these capabilities. I plan follow-up testing via API access, which may operate under different moderation policies than the web application, to further investigate the technical architecture of AI content moderation.",
       "url": "/videos/taking-deepseek-for-a-testdrive",
-      "x": 0.4608,
-      "y": 0.7253,
+      "x": 0.4721,
+      "y": 0.7416,
       "keyphrases": [],
       "connections": 0
     },
@@ -1510,7 +1618,7 @@
       "x": 0.516,
       "y": 0.4494,
       "keyphrases": [],
-      "connections": 7
+      "connections": 6
     },
     {
       "slug": "alone-together",
@@ -1570,7 +1678,7 @@
       "x": 0.2362,
       "y": 0.3947,
       "keyphrases": [],
-      "connections": 11
+      "connections": 10
     },
     {
       "slug": "chatbot-marketing-mastery",
@@ -1654,7 +1762,7 @@
       "x": 0.5438,
       "y": 0.4719,
       "keyphrases": [],
-      "connections": 5
+      "connections": 3
     },
     {
       "slug": "grounding-in-communication",
@@ -1666,7 +1774,7 @@
       "x": 0.5421,
       "y": 0.166,
       "keyphrases": [],
-      "connections": 10
+      "connections": 6
     },
     {
       "slug": "hey-cyba",
@@ -1711,8 +1819,8 @@
       "maturity": "developing",
       "description": "Proposes a paradigm where AI functions as a continuously thinking entity rather than a passive responder, enabling proactive collaboration through surfacing intermediate thoughts, full-duplex processing, and shared cognitive workspaces.",
       "url": "/library/interacting-with-thoughtful-ai",
-      "x": 0.4012,
-      "y": 0.8093,
+      "x": 0.4045,
+      "y": 0.8125,
       "keyphrases": [],
       "connections": 1
     },
@@ -1786,7 +1894,7 @@
       "x": 0.3805,
       "y": 0.1547,
       "keyphrases": [],
-      "connections": 8
+      "connections": 5
     },
     {
       "slug": "pragmatics-beyond-humans",
@@ -1819,8 +1927,8 @@
       "maturity": "draft",
       "description": "An accessible introduction to semiotics, explaining how signs, codes, and meaning-making work across language, images, and culture",
       "url": "/library/semiotics-the-basics",
-      "x": 0.4633,
-      "y": 0.787,
+      "x": 0.4625,
+      "y": 0.7876,
       "keyphrases": [],
       "connections": 0
     },
@@ -1999,8 +2107,8 @@
       "maturity": "draft",
       "description": "Extract key phrases from 10 garden items using Ollama, compare LLM-based extraction with YAKE.",
       "url": "/experiments/key-phrase-extraction-prototype",
-      "x": 0.5239,
-      "y": 0.7308,
+      "x": 0.5335,
+      "y": 0.7272,
       "keyphrases": [],
       "connections": 15
     },
@@ -2011,8 +2119,8 @@
       "maturity": "developing",
       "description": "How to install and run embedding models locally using Ollama, compare three models on garden content, and run a full-scale embedding pass.",
       "url": "/experiments/setting-up-local-embedding-models",
-      "x": 0.5257,
-      "y": 0.7026,
+      "x": 0.5254,
+      "y": 0.702,
       "keyphrases": [],
       "connections": 15
     },
@@ -2021,7 +2129,7 @@
       "title": "AI slop and the Glasswing project",
       "collection": "jottings",
       "maturity": "complete",
-      "description": "Anthropic's project to secure critical software for the AI era — and why AI slop might be the bigger threat.",
+      "description": "Anthropic's project to secure critical software for the AI era, and why AI slop might be the bigger threat.",
       "url": "/jottings/ai-slop-and-the-glasswing-project",
       "x": 0.8703,
       "y": 0.2683,
@@ -2074,7 +2182,7 @@
       "x": 0.3614,
       "y": 0.4446,
       "keyphrases": [],
-      "connections": 8
+      "connections": 7
     },
     {
       "slug": "thinking-in-action-precision-matters",
@@ -2101,112 +2209,76 @@
       "connections": 0
     },
     {
-      "slug": "china-s-approach-to-ai-anthropomorphism",
-      "title": "China's Approach to AI Anthropomorphism",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "China''s proposed AI law acknowledges AI-related human vulnerabilities and establishes contextual technical measures to prevent AI harms | Edition #264",
-      "url": "/weblinks/china-s-approach-to-ai-anthropomorphism",
-      "x": 0.7064,
-      "y": 0.8358,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "dont-show-me-your-ai",
-      "title": "Don't show me your AI. It is rude!",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Marek Tuszynski (Tactical Tech) argues that the synthetic intimacy people develop with generative AI tools (an 'ELIZA effect') makes critical conversation about AI almost impossible: dependency forecloses critique. The piece curates 30 resources mapping AI's labor exploitation, environmental costs, military use, and concentration of power, framing AI critique as a moral and political project rather than a technical one.",
-      "url": "/weblinks/dont-show-me-your-ai",
-      "x": 0.2321,
-      "y": 0.3186,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "instagram",
-      "title": "6 plugins that turn Claude Code into a full dev team",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "'6 plugins that turn Claude Code into a full dev team in 5 minutes. Each one covers a different role; planning, design, code review, security, memory, and team coordination.",
-      "url": "/weblinks/instagram",
-      "x": 0.6642,
-      "y": 0.5478,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "metaphors-for-designers-working-with-ai",
-      "title": "Metaphors for Designers Working with AI",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "A peer-reviewed conference paper from DRS 2022 that examines how metaphors shape designers' understanding of machine learning and AI systems — exploring both where common metaphors mislead and what qualities make metaphors genuinely useful for design thinking.",
-      "url": "/weblinks/metaphors-for-designers-working-with-ai",
-      "x": 0.3175,
-      "y": 0.5343,
-      "keyphrases": [],
-      "connections": 3
-    },
-    {
-      "slug": "new-paper-from-microsoft-this-is-an-important-read",
-      "title": "LLMs corrupt your documents when you delegate",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Microsoft researchers introduce DELEGATE-52, a benchmark of long document-editing workflows across 52 professional domains. Even frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT-5.4) corrupt about 25% of document content by the end of these workflows, and agentic tool use does not improve performance. The paper argues current LLMs are unreliable delegates: they introduce sparse but severe errors that compound silently over long interactions.",
-      "url": "/weblinks/new-paper-from-microsoft-this-is-an-important-read",
-      "x": 0.6229,
-      "y": 0.4995,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
-      "title": "Nora Bateson: how our ways of knowing shape our collective future",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Nora Bateson argues that applying static, context-free data to living systems is dangerous. Her concept of warm data contextualises information through relationships and interconnection, as an alternative to reductionist measurement. Spans ecology, healthcare, food systems, and education.",
-      "url": "/weblinks/nora-bateson-how-our-ways-of-knowing-shape-our-collective-future",
-      "x": 0.4461,
-      "y": 0.313,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "robin-interactions-shared-manifolds",
-      "title": "Recording robin interactions for visual models of shared manifolds",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "A process post by Lucio Arese: he is recording many interactions between robins and using the material to build visual models of 'shared manifolds' between multiple individuals, alongside reading the literature on territorial interactions. The work continues his project of treating birdsong as data; the new dimension is multi-individual rather than single-bird.",
-      "url": "/weblinks/robin-interactions-shared-manifolds",
-      "x": 0.6965,
-      "y": 0.2186,
+      "slug": "from-conversation-to-application-building-on-method-documents",
+      "title": "From conversation to application: building on method documents",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "The next step beyond conversation-driven interaction: using Claude Code to turn method documents into working applications and dashboards.",
+      "url": "/seeds/from-conversation-to-application-building-on-method-documents",
+      "x": 0.1074,
+      "y": 0.2003,
       "keyphrases": [],
       "connections": 1
     },
     {
-      "slug": "symbolic-ai-for-the-win-kurt-cagle",
-      "title": "Symbolic AI for the win",
+      "slug": "ai-artificialintelligence-behavior-behaviour-behav",
+      "title": "Tri-System Theory (Shaw & Nave, 2026)",
       "collection": "weblinks",
       "maturity": "solid",
-      "description": "",
-      "url": "/weblinks/symbolic-ai-for-the-win-kurt-cagle",
-      "x": 0.2041,
-      "y": 0.2904,
+      "description": "Vincent Rump introduces the Tri-System Theory (Shaw & Nave, 2026), which extends Kahneman's dual-process model by proposing a third cognitive system — artificial cognition (AI) — that actively participates in human reasoning and decision-making. The post argues that humans increasingly defer to AI outputs with minimal critical reflection, a phenomenon the authors call \"cognitive surrender,\" which improves decision quality when AI is correct but degrades it when AI is wrong — while trust remains consistently high either way. This raises urgent questions about human autonomy, expertise, and responsibility as cognition becomes a hybrid, human-AI process.",
+      "url": "/weblinks/ai-artificialintelligence-behavior-behaviour-behav",
+      "x": 0.4253,
+      "y": 0.6836,
       "keyphrases": [],
-      "connections": 5
+      "connections": 0
     },
     {
-      "slug": "visualising-birdsong-as-data",
-      "title": "Visualising birdsong as a three-dimensional data array",
+      "slug": "announcing-supercharged-human",
+      "title": "Announcing: \"Supercharged Human?\"",
       "collection": "weblinks",
       "maturity": "solid",
-      "description": "A short Instagram reel by Lucio Arese visualises the song of a hemp bunting (Linaria cannabina) as a scatter plot, where pitch, amplitude, and timbre map directly to spatial position and density. The post argues that birdsong is not creativity but a tightly structured signal carrying territorial, genetic, and hormonal information: a 'biological blockchain' rather than a song.",
-      "url": "/weblinks/visualising-birdsong-as-data",
-      "x": 0.7904,
-      "y": 0.6573,
+      "description": "Tactical Tech is a Berlin-based international non-profit that develops creative interventions, toolkits, and training programs to help individuals, communities, and educators critically understand the socio-political and environmental impacts of digital technologies. Its flagship announcement, \"Supercharged Human?\", targets teens and educators with ready-to-use AI literacy resources designed to foster critical engagement rather than passive adoption. The organisation frames its work around building civil society capacity to resist misinformation, digital extractivism, and uncritical AI use.",
+      "url": "/weblinks/announcing-supercharged-human",
+      "x": 0.4363,
+      "y": 0.7206,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
+    },
+    {
+      "slug": "fieldwork-for-future-ecologies-onomatopee",
+      "title": "Fieldwork for Future Ecologies | Onomatopee",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Fieldwork for Future Ecologies (Onomatopee 225, 2022) argues art practice and art-based research can radically expand the concept of \"fieldwork\" beyond its conventional scientific framing, positioning creative and speculative methodologies as essential tools for environmental and climate inquiry. ",
+      "url": "/weblinks/fieldwork-for-future-ecologies-onomatopee",
+      "x": 0.3143,
+      "y": 0.805,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "the-ai-draft-a-process-essay-nobody-asked-for",
+      "title": "The AI Draft: A Process Essay Nobody Asked For",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Frank A. Kalman, a formally trained journalist, argues that using AI as a collaborative drafting partner is not a betrayal of craft but an honest extension of a writer's editorial process. He frames AI as a responsive thinking partner whose \"wrongness\" is productive, pushing the writer to clarify what they actually mean. The piece is a transparent, process-level account of how an experienced writer uses voice memos, AI chat, and iterative editing to reach a finished essay, positioned against the performative outrage of writers who conflate the suffering of drafting with the value of writing itself.",
+      "url": "/weblinks/the-ai-draft-a-process-essay-nobody-asked-for",
+      "x": 0.8839,
+      "y": 0.3187,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "title": "Latest addition to my Thinking Tools collection: a tiny e-reader",
+      "collection": "jottings",
+      "maturity": "solid",
+      "description": "On replacing the phone reflex with an e-reader that fits in a pocket.",
+      "url": "/jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "x": 0.9018,
+      "y": 0.177,
+      "keyphrases": [],
+      "connections": 0
     }
   ],
   "territories": [
@@ -2220,7 +2292,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 37
+      "itemCount": 39
     },
     {
       "label": "design",
@@ -2244,25 +2316,25 @@
       "label": "prompt-design",
       "centerX": 0.204,
       "centerY": 0.3004,
-      "itemCount": 38
+      "itemCount": 39
     },
     {
       "label": "knowledge-graph",
       "centerX": 0.4974,
       "centerY": 0.7123,
-      "itemCount": 45
+      "itemCount": 47
     },
     {
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 24
+      "itemCount": 26
     },
     {
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 23
+      "itemCount": 24
     }
   ],
   "topography": {
@@ -2273,55 +2345,51 @@
           [
             [
               0,
-              0.159
+              0.147
             ],
             [
-              0.032,
-              0.13
-            ],
-            [
-              0.033,
+              0.019,
               0.129
             ],
             [
-              0.065,
-              0.106
+              0.032,
+              0.118
             ],
             [
-              0.08,
+              0.065,
+              0.097
+            ],
+            [
+              0.065,
               0.097
             ],
             [
               0.097,
-              0.087
+              0.078
             ],
             [
               0.129,
-              0.071
+              0.065
             ],
             [
-              0.144,
+              0.13,
               0.065
             ],
             [
               0.161,
-              0.056
+              0.051
             ],
             [
               0.194,
-              0.043
+              0.041
             ],
             [
               0.226,
-              0.034
-            ],
-            [
-              0.232,
               0.032
             ],
             [
               0.258,
-              0.024
+              0.023
             ],
             [
               0.29,
@@ -2341,7 +2409,7 @@
             ],
             [
               0.419,
-              0.007
+              0.008
             ],
             [
               0.452,
@@ -2381,91 +2449,91 @@
             ],
             [
               0.742,
-              0.004
+              0.003
             ],
             [
               0.774,
-              0.005
+              0.004
             ],
             [
               0.806,
-              0.009
+              0.006
             ],
             [
               0.839,
-              0.017
-            ],
-            [
-              0.87,
-              0.032
+              0.012
             ],
             [
               0.871,
-              0.033
+              0.024
+            ],
+            [
+              0.884,
+              0.032
             ],
             [
               0.903,
-              0.06
+              0.045
             ],
             [
-              0.907,
+              0.924,
               0.065
             ],
             [
-              0.928,
+              0.935,
+              0.08
+            ],
+            [
+              0.947,
               0.097
             ],
             [
-              0.935,
-              0.114
-            ],
-            [
-              0.942,
+              0.962,
               0.129
             ],
             [
-              0.95,
+              0.968,
+              0.15
+            ],
+            [
+              0.971,
               0.161
             ],
             [
-              0.955,
+              0.977,
               0.194
             ],
             [
-              0.956,
+              0.98,
               0.226
             ],
             [
-              0.955,
+              0.979,
               0.258
             ],
             [
-              0.953,
+              0.976,
               0.29
             ],
             [
-              0.95,
+              0.973,
               0.323
             ],
             [
-              0.951,
+              0.972,
               0.355
             ],
             [
-              0.964,
+              0.981,
               0.387
             ],
             [
-              0.968,
-              0.392
-            ],
-            [
-              0.99,
+              0.999,
               0.419
             ],
             [
               1,
-              0.43
+              0.421
             ]
           ],
           [
@@ -2494,128 +2562,128 @@
               0.516
             ],
             [
-              0.084,
+              0.085,
               0.548
             ],
             [
-              0.097,
+              0.096,
               0.581
             ],
             [
               0.097,
-              0.581
+              0.583
             ],
             [
-              0.103,
+              0.102,
               0.613
             ],
             [
-              0.108,
+              0.107,
               0.645
             ],
             [
-              0.113,
+              0.11,
               0.677
             ],
             [
-              0.117,
+              0.114,
               0.71
             ],
             [
-              0.122,
+              0.117,
               0.742
             ],
             [
-              0.129,
+              0.123,
               0.774
             ],
             [
               0.129,
-              0.775
+              0.798
             ],
             [
-              0.137,
+              0.131,
               0.806
             ],
             [
-              0.151,
+              0.144,
               0.839
             ],
             [
               0.161,
-              0.854
+              0.865
             ],
             [
-              0.174,
+              0.166,
               0.871
             ],
             [
               0.194,
-              0.889
+              0.898
             ],
             [
-              0.212,
+              0.201,
               0.903
             ],
             [
               0.226,
-              0.912
+              0.919
             ],
             [
               0.258,
-              0.928
+              0.934
             ],
             [
-              0.281,
+              0.264,
               0.935
             ],
             [
               0.29,
-              0.939
+              0.945
             ],
             [
               0.323,
-              0.949
+              0.954
             ],
             [
               0.355,
-              0.957
+              0.96
             ],
             [
               0.387,
-              0.962
+              0.965
             ],
             [
-              0.419,
-              0.966
-            ],
-            [
-              0.44,
+              0.41,
               0.968
             ],
             [
-              0.452,
+              0.419,
               0.969
+            ],
+            [
+              0.452,
+              0.972
             ],
             [
               0.484,
-              0.97
+              0.972
             ],
             [
               0.516,
-              0.969
+              0.971
             ],
             [
-              0.53,
+              0.547,
               0.968
             ],
             [
               0.548,
-              0.966
+              0.968
             ],
             [
               0.581,
-              0.963
+              0.964
             ],
             [
               0.613,
@@ -2627,7 +2695,7 @@
             ],
             [
               0.677,
-              0.944
+              0.945
             ],
             [
               0.704,
@@ -2654,7 +2722,7 @@
               0.889
             ],
             [
-              0.837,
+              0.836,
               0.871
             ],
             [
@@ -2663,15 +2731,15 @@
             ],
             [
               0.871,
-              0.852
+              0.851
             ],
             [
-              0.892,
+              0.891,
               0.839
             ],
             [
               0.903,
-              0.833
+              0.832
             ],
             [
               0.935,
@@ -2691,7 +2759,7 @@
             ],
             [
               1,
-              0.766
+              0.765
             ]
           ]
         ]
@@ -2701,12 +2769,12 @@
         "polylines": [
           [
             [
-              0.247,
+              0.241,
               0.097
             ],
             [
               0.258,
-              0.094
+              0.092
             ],
             [
               0.29,
@@ -2726,7 +2794,7 @@
             ],
             [
               0.419,
-              0.083
+              0.084
             ],
             [
               0.452,
@@ -2734,15 +2802,15 @@
             ],
             [
               0.484,
-              0.093
+              0.094
             ],
             [
-              0.508,
+              0.504,
               0.097
             ],
             [
               0.516,
-              0.098
+              0.099
             ],
             [
               0.548,
@@ -2750,7 +2818,7 @@
             ],
             [
               0.581,
-              0.101
+              0.102
             ],
             [
               0.613,
@@ -2766,94 +2834,102 @@
             ],
             [
               0.71,
-              0.105
+              0.103
             ],
             [
               0.742,
-              0.11
+              0.106
             ],
             [
               0.774,
-              0.119
+              0.112
             ],
             [
-              0.794,
+              0.806,
+              0.123
+            ],
+            [
+              0.818,
               0.129
             ],
             [
-              0.806,
-              0.137
+              0.839,
+              0.144
             ],
             [
-              0.829,
+              0.853,
               0.161
             ],
             [
-              0.839,
-              0.179
-            ],
-            [
-              0.845,
+              0.87,
               0.194
             ],
             [
-              0.85,
+              0.871,
+              0.199
+            ],
+            [
+              0.876,
               0.226
             ],
             [
-              0.849,
+              0.875,
               0.258
             ],
             [
-              0.839,
+              0.871,
+              0.274
+            ],
+            [
+              0.866,
               0.29
             ],
             [
-              0.839,
-              0.292
-            ],
-            [
-              0.82,
+              0.848,
               0.323
             ],
             [
-              0.806,
-              0.339
+              0.839,
+              0.337
             ],
             [
-              0.787,
+              0.818,
               0.355
             ],
             [
-              0.774,
+              0.806,
               0.365
             ],
             [
-              0.742,
-              0.383
+              0.774,
+              0.38
             ],
             [
-              0.731,
+              0.751,
               0.387
             ],
             [
-              0.71,
-              0.4
+              0.742,
+              0.391
             ],
             [
-              0.678,
+              0.71,
+              0.404
+            ],
+            [
+              0.68,
               0.419
             ],
             [
               0.677,
-              0.421
+              0.422
             ],
             [
               0.657,
               0.452
             ],
             [
-              0.665,
+              0.664,
               0.484
             ],
             [
@@ -2862,46 +2938,46 @@
             ],
             [
               0.71,
-              0.493
+              0.492
             ],
             [
               0.742,
-              0.489
+              0.488
             ],
             [
-              0.767,
+              0.759,
               0.484
             ],
             [
               0.774,
-              0.482
+              0.479
             ],
             [
               0.806,
-              0.475
+              0.47
             ],
             [
               0.839,
-              0.473
+              0.468
             ],
             [
               0.871,
-              0.476
+              0.471
             ],
             [
               0.903,
-              0.484
+              0.48
             ],
             [
-              0.903,
+              0.91,
               0.484
             ],
             [
               0.935,
-              0.499
+              0.496
             ],
             [
-              0.958,
+              0.959,
               0.516
             ],
             [
@@ -2917,11 +2993,11 @@
               0.581
             ],
             [
-              0.998,
+              0.997,
               0.613
             ],
             [
-              0.992,
+              0.991,
               0.645
             ],
             [
@@ -2930,15 +3006,15 @@
             ],
             [
               0.968,
-              0.691
+              0.69
             ],
             [
-              0.952,
+              0.951,
               0.71
             ],
             [
               0.935,
-              0.725
+              0.724
             ],
             [
               0.912,
@@ -2953,24 +3029,24 @@
               0.767
             ],
             [
-              0.858,
+              0.857,
               0.774
             ],
             [
               0.839,
-              0.785
+              0.784
             ],
             [
               0.806,
               0.801
             ],
             [
-              0.796,
+              0.795,
               0.806
             ],
             [
               0.774,
-              0.818
+              0.817
             ],
             [
               0.742,
@@ -2986,115 +3062,115 @@
             ],
             [
               0.677,
-              0.856
+              0.857
             ],
             [
               0.645,
-              0.865
+              0.867
             ],
             [
-              0.621,
+              0.629,
               0.871
             ],
             [
               0.613,
-              0.873
-            ],
-            [
-              0.581,
-              0.88
-            ],
-            [
-              0.548,
-              0.885
-            ],
-            [
-              0.516,
-              0.889
-            ],
-            [
-              0.484,
-              0.891
-            ],
-            [
-              0.452,
-              0.891
-            ],
-            [
-              0.419,
-              0.889
-            ],
-            [
-              0.387,
-              0.883
-            ],
-            [
-              0.355,
               0.875
             ],
             [
-              0.343,
-              0.871
+              0.581,
+              0.883
+            ],
+            [
+              0.548,
+              0.889
+            ],
+            [
+              0.516,
+              0.894
+            ],
+            [
+              0.484,
+              0.896
+            ],
+            [
+              0.452,
+              0.897
+            ],
+            [
+              0.419,
+              0.895
+            ],
+            [
+              0.387,
+              0.89
+            ],
+            [
+              0.355,
+              0.883
             ],
             [
               0.323,
-              0.863
+              0.872
+            ],
+            [
+              0.319,
+              0.871
             ],
             [
               0.29,
-              0.847
+              0.857
             ],
             [
-              0.279,
+              0.263,
               0.839
             ],
             [
               0.258,
-              0.82
+              0.835
             ],
             [
-              0.246,
+              0.233,
               0.806
             ],
             [
-              0.227,
+              0.226,
+              0.793
+            ],
+            [
+              0.217,
               0.774
             ],
             [
-              0.226,
-              0.77
-            ],
-            [
-              0.216,
+              0.208,
               0.742
             ],
             [
-              0.21,
+              0.203,
               0.71
             ],
             [
-              0.206,
+              0.2,
               0.677
             ],
             [
-              0.205,
+              0.2,
               0.645
             ],
             [
-              0.204,
+              0.2,
               0.613
             ],
             [
-              0.202,
+              0.2,
               0.581
             ],
             [
-              0.197,
+              0.196,
               0.548
             ],
             [
               0.194,
-              0.541
+              0.543
             ],
             [
               0.183,
@@ -3102,7 +3178,7 @@
             ],
             [
               0.161,
-              0.486
+              0.485
             ],
             [
               0.16,
@@ -3118,86 +3194,86 @@
             ],
             [
               0.097,
-              0.425
+              0.426
             ],
             [
-              0.091,
+              0.09,
               0.419
             ],
             [
               0.065,
-              0.392
+              0.394
             ],
             [
-              0.06,
+              0.058,
               0.387
             ],
             [
-              0.038,
+              0.036,
               0.355
             ],
             [
               0.032,
-              0.339
-            ],
-            [
-              0.026,
-              0.323
+              0.346
             ],
             [
               0.023,
+              0.323
+            ],
+            [
+              0.018,
               0.29
             ],
             [
-              0.029,
+              0.022,
               0.258
             ],
             [
               0.032,
-              0.25
+              0.233
             ],
             [
-              0.044,
+              0.035,
               0.226
             ],
             [
-              0.065,
-              0.2
-            ],
-            [
-              0.07,
+              0.058,
               0.194
             ],
             [
-              0.097,
-              0.169
+              0.065,
+              0.187
             ],
             [
-              0.107,
+              0.093,
               0.161
             ],
             [
+              0.097,
+              0.159
+            ],
+            [
               0.129,
-              0.147
+              0.139
             ],
             [
-              0.161,
+              0.148,
               0.129
             ],
             [
               0.161,
-              0.129
+              0.123
             ],
             [
               0.194,
-              0.114
+              0.11
             ],
             [
               0.226,
-              0.103
+              0.1
             ],
             [
-              0.247,
+              0.241,
               0.097
             ]
           ]

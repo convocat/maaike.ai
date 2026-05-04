@@ -3,7 +3,7 @@ title: "Latest addition to my Thinking Tools collection: a tiny e-reader"
 description: "On replacing the phone reflex with an e-reader that fits in a pocket."
 date: 2026-05-04
 maturity: solid
-draft: true
+draft: false
 type: post
 url: "https://www.linkedin.com/posts/maaikegroenewege_fortheloveoflearning-books-reading-ugcPost-7456259570848632832-NNsk"
 tags: [reading, books, thinking-tools, e-reader]
