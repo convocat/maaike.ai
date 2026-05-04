@@ -6664,9 +6664,70 @@
     "design-tooling": {
       "label": "Design Tooling",
       "type": "concept"
+    },
+    "phone-as-default-device": {
+      "label": "Phone as default device",
+      "type": "phenomenon",
+      "lens": ["cognition", "personal"],
+      "subject": ["mind", "interaction-design"]
+    },
+    "intentional-reading": {
+      "label": "Intentional reading",
+      "type": "concept",
+      "lens": ["personal", "cognition"],
+      "subject": ["mind"],
+      "role": "stance"
+    },
+    "mindless-scrolling": {
+      "label": "Mindless scrolling",
+      "type": "phenomenon",
+      "lens": ["cognition", "personal"],
+      "subject": ["mind", "interaction-design"]
+    },
+    "e-ink-reader": {
+      "label": "E-ink reader",
+      "type": "technology",
+      "lens": ["personal", "design"],
+      "subject": ["tooling"],
+      "role": "instrument"
+    },
+    "thinking-tools-collection": {
+      "label": "Thinking Tools collection",
+      "type": "concept",
+      "lens": ["personal", "design"],
+      "subject": ["tooling"],
+      "role": "framework"
     }
   },
   "associations": [
+    {
+      "subject": "phone-as-default-device",
+      "predicate": "leads-to",
+      "object": "mindless-scrolling",
+      "source": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "collection": "jottings"
+    },
+    {
+      "subject": "phone-as-default-device",
+      "predicate": "counters",
+      "object": "intentional-reading",
+      "source": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "collection": "jottings"
+    },
+    {
+      "subject": "e-ink-reader",
+      "predicate": "leads-to",
+      "object": "intentional-reading",
+      "source": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "collection": "jottings"
+    },
+    {
+      "subject": "e-ink-reader",
+      "predicate": "instance-of",
+      "object": "thinking-tools-collection",
+      "source": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
+      "collection": "jottings"
+    },
     {
       "subject": "dialectical-thinking",
       "predicate": "attributed-to",
