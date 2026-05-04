@@ -946,6 +946,74 @@ def api_enrich_weblink():
     return jsonify({"error": "no tool_use block in API response"}), 500
 
 
+@app.route("/api/enrich-and-save", methods=["POST"])
+def api_enrich_and_save():
+    """Enrich a draft weblink and write result directly to frontmatter.
+    User-triggered only (called by syncTelegram after pull). Does not publish."""
+    try:
+        import anthropic
+    except ImportError:
+        return jsonify({"error": "anthropic package not installed"}), 500
+
+    data = request.json or {}
+    slug = data.get("slug", "").strip()
+    if not slug:
+        return jsonify({"error": "slug required"}), 400
+
+    path = WEBLINKS_DIR / f"{slug}.md"
+    if not path.exists():
+        return jsonify({"error": f"not found: {slug}"}), 404
+
+    fm = parse_weblink(path)
+    if not fm:
+        return jsonify({"error": "could not parse frontmatter"}), 500
+
+    url = fm.get("url", "")
+    title = fm.get("title", slug)
+    if not url:
+        return jsonify({"error": "no URL in weblink frontmatter"}), 400
+
+    try:
+        page_text = _fetch_page_text(url)
+    except Exception as e:
+        return jsonify({"error": f"fetch failed: {e}"}), 500
+
+    prompt = _build_weblink_prompt(
+        title, url, page_text,
+        _load_topics_for_prompt(),
+        _load_tags_for_prompt(),
+    )
+
+    try:
+        client = anthropic.Anthropic()
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=2048,
+            tools=[WEBLINK_EXTRACTION_TOOL],
+            tool_choice={"type": "tool", "name": "save_weblink_enrichment"},
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        return jsonify({"error": f"API call failed: {e}"}), 500
+
+    for block in response.content:
+        if block.type == "tool_use" and block.name == "save_weblink_enrichment":
+            p = block.input
+            tags = p.get("tags") or []
+            description = p.get("description") or None
+            themes = p.get("themes") or None
+            assocs = p.get("associations") or []
+            triples = [[a["subject"], a["predicate"], a["object"]] for a in assocs]
+            apply_edits(path, tags or None, description, triples or None, themes=themes or None)
+            if triples:
+                sync_triples_json(slug, "weblinks", triples)
+            if themes:
+                _update_themes_json(slug, themes)
+            return jsonify({"ok": True, "slug": slug})
+
+    return jsonify({"error": "no tool_use block in API response"}), 500
+
+
 if __name__ == "__main__":
     print(f"Garden admin dashboard: http://localhost:{PORT}")
     app.run(port=PORT, debug=False)

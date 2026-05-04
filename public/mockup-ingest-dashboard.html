@@ -1360,7 +1360,19 @@ async function syncTelegram() {
         if (s.conclusion === 'success') {
           btn.textContent = 'Pulling…';
           await fetch('/api/git-pull', { method: 'POST' });
-          toast('Sync complete. Run /check-inbox in Claude Code to enrich new drafts. Reloading…');
+          const inbox = await fetch('/api/inbox').then(r => r.json());
+          const unenriched = inbox.filter(x => !x.processed && !x.enriched);
+          for (let i = 0; i < unenriched.length; i++) {
+            btn.textContent = `Enriching ${i + 1}/${unenriched.length}…`;
+            try {
+              await fetch('/api/enrich-and-save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ slug: unenriched[i].slug }),
+              });
+            } catch (_) { /* skip on error, still show the draft */ }
+          }
+          toast('Sync complete' + (unenriched.length ? ` — ${unenriched.length} draft(s) enriched` : '') + '. Reloading…');
           await loadInbox();
         } else {
           toast('Workflow finished: ' + (s.conclusion || 'unknown'), true);
