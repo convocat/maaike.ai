@@ -72,14 +72,13 @@ input, textarea { font: inherit; color: inherit; }
 }
 #sync-btn:hover { border-color: var(--accent); color: var(--accent); }
 #sync-btn:disabled { opacity: 0.5; cursor: default; }
-#enrich-one-btn, #enrich-all-btn {
+#enrich-btn {
   padding: 5px 12px; font-size: 13px; font-weight: 500; cursor: pointer;
   background: transparent; border: 1px solid var(--rule); border-radius: var(--radius-md);
-  color: var(--ink-3); font-family: var(--font-b); transition: all 150ms ease;
+  color: var(--ink-3); font-family: var(--font-b); transition: all 150ms ease; display: none;
 }
-#enrich-one-btn:hover { border-color: #C87D2F; color: #C87D2F; }
-#enrich-all-btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
-#enrich-one-btn:disabled, #enrich-all-btn:disabled { opacity: 0.5; cursor: default; }
+#enrich-btn:hover { border-color: var(--accent); color: var(--accent); }
+#enrich-btn:disabled { opacity: 0.5; cursor: default; }
 .queue-count {
   font-family: var(--font-b); font-size: 12.5px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
@@ -548,8 +547,7 @@ input, textarea { font: inherit; color: inherit; }
   </div>
   <div class="spacer"></div>
   <button id="sync-btn" onclick="syncTelegram()" title="Pull new messages from Telegram">Sync Telegram</button>
-  <button id="enrich-one-btn" onclick="enrichSelected()" title="Run /ingest-source on the selected weblink" style="display:none">Enrich this link</button>
-  <button id="enrich-all-btn" onclick="enrichAll()" title="Enrich all un-enriched draft weblinks" style="display:none">Enrich all</button>
+  <button id="enrich-btn" onclick="enrichSelected()" title="Enrich selected weblink with TAO data via API">Enrich</button>
   <span class="queue-count">3 pending</span>
 </div>
 
@@ -683,11 +681,10 @@ async function switchTab(tab) {
   document.getElementById('review-content').innerHTML = '';
   closePreview();
 
-  // Show inbox-specific buttons only on weblinks tab
+  // Show inbox-specific controls only on weblinks tab
   const isInbox = tab === 'weblinks';
   document.getElementById('sync-btn').style.display = isInbox ? '' : 'none';
-  document.getElementById('enrich-one-btn').style.display = isInbox ? '' : 'none';
-  document.getElementById('enrich-all-btn').style.display = isInbox ? '' : 'none';
+  document.getElementById('enrich-btn').style.display = isInbox ? '' : 'none';
 
   await loadInbox();
 }
@@ -796,6 +793,8 @@ function setBusy(busy) {
   document.querySelectorAll('.btn-approve, .btn-dismiss').forEach(b => b.disabled = busy);
   const bookBtn = document.getElementById('book-btn');
   if (bookBtn) bookBtn.disabled = busy;
+  const enrichBtn = document.getElementById('enrich-btn');
+  if (enrichBtn) enrichBtn.disabled = busy;
 }
 
 // ── Queue loader ───────────────────────────────────────────────────────────
@@ -1177,7 +1176,10 @@ function collectEnrichAccepted() {
   const associations = (ext.associations || []).filter((_, i) => {
     const cb = document.getElementById(`assoc-${i}`); return cb && cb.checked;
   });
-  return { themes, tags, topics, associations };
+  const open_questions = (ext.open_questions || []).filter((_, i) => {
+    const cb = document.getElementById(`oq-${i}`); return cb && cb.checked;
+  });
+  return { themes, tags, topics, associations, open_questions };
 }
 
 async function applyProposal() {
@@ -1220,7 +1222,8 @@ async function approveItem() {
   const triples = (item.associations || []).map(a => [a.subject, a.predicate, a.object]);
 
   const endpoint = '/api/approve';
-  const body = {slug: item.slug, title, tags, description, body: notesBody, triples};
+  const themes = item.themes && item.themes.length ? item.themes : undefined;
+  const body = {slug: item.slug, title, tags, description, body: notesBody, triples, themes};
 
   setBusy(true);
   try {
@@ -1372,70 +1375,38 @@ async function syncTelegram() {
   btn.disabled = false;
 }
 
-async function enrichOne(slug) {
-  const btn = document.getElementById('enrich-one-btn');
-  const allBtn = document.getElementById('enrich-all-btn');
-  btn.disabled = true;
-  allBtn.disabled = true;
-  btn.textContent = 'Enriching…';
-  try {
-    const r = await fetch('/api/enrich-weblink', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ slug })
-    });
-    const d = await r.json();
-    if (!r.ok || !d.ok) throw new Error(d.error || 'Enrichment failed');
-    toast(`Enriched: ${slug} — ${d.topics_new} new topics, ${d.associations} associations`);
-    await loadInbox();
-    // Re-select the item to refresh the panel
-    const idx = queueItems.findIndex(it => it.slug === slug);
-    if (idx >= 0) showItem(idx);
-  } catch (e) {
-    toast('Enrichment failed: ' + e.message, true);
-  }
-  btn.textContent = 'Enrich this link';
-  btn.disabled = false;
-  allBtn.disabled = false;
-}
-
+// ── Weblink enrichment (Anthropic API, user-triggered) ─────────────────────
 async function enrichSelected() {
   const item = queueItems[currentIdx];
   if (!item) { toast('Select a weblink first', true); return; }
-  if (item.enriched) { toast('Already enriched — use Approve to publish'); return; }
-  if (!item.url) { toast('No URL on this item', true); return; }
-  await enrichOne(item.slug);
-}
-
-async function enrichAll() {
-  const unenriched = queueItems.filter(it => !it.processed && !it.enriched && it.url);
-  if (!unenriched.length) { toast('No un-enriched drafts found'); return; }
-  const btn = document.getElementById('enrich-all-btn');
-  const oneBtn = document.getElementById('enrich-one-btn');
-  btn.disabled = true;
-  oneBtn.disabled = true;
-  let done = 0, failed = 0;
-  for (const item of unenriched) {
-    btn.textContent = `Enriching ${done + 1}/${unenriched.length}…`;
-    try {
-      const r = await fetch('/api/enrich-weblink', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ slug: item.slug })
-      });
-      const d = await r.json();
-      if (!r.ok || !d.ok) throw new Error(d.error || 'failed');
-      done++;
-    } catch (e) {
-      console.warn(`enrich-all: ${item.slug} failed:`, e.message);
-      failed++;
+  const btn = document.getElementById('enrich-btn');
+  const origLabel = btn ? btn.textContent : 'Enrich';
+  if (btn) { btn.textContent = 'Enriching…'; btn.disabled = true; }
+  try {
+    const res = await fetch('/api/enrich-weblink', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: item.slug }),
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'API error');
+    const p = data.proposal;
+    // Pre-fill item with enrichment data so the panel re-renders with it
+    if (p.description) item.description = p.description;
+    if (p.tags && p.tags.length) item.tags = p.tags;
+    if (p.themes && p.themes.length) item.themes = p.themes;
+    if (p.associations && p.associations.length) {
+      item.associations = p.associations.map(a => ({
+        subject: a.subject, predicate: a.predicate, object: a.object,
+      }));
+      item.enriched = true;
     }
+    renderReviewPanel(item);
+    toast('Enriched: review and approve');
+  } catch (e) {
+    toast('Enrichment failed: ' + e.message, true);
   }
-  toast(`Enriched ${done} link${done !== 1 ? 's' : ''}${failed ? `, ${failed} failed` : ''}`);
-  await loadInbox();
-  btn.textContent = 'Enrich all';
-  btn.disabled = false;
-  oneBtn.disabled = false;
+  if (btn) { btn.textContent = origLabel; btn.disabled = false; }
 }
 
 function advanceQueue() {

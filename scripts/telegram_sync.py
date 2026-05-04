@@ -252,9 +252,15 @@ def main():
             continue
 
         if URL_RE.match(text):
+            # Pure URL message
             create_weblink(text, date)
         else:
-            append_to_inbox(text, date)
+            # Check if a URL is embedded in the text (e.g. "Title\nhttps://...")
+            embedded_urls = re.findall(r'https?://\S+', text)
+            if embedded_urls:
+                create_weblink(embedded_urls[0], date)
+            else:
+                append_to_inbox(text, date)
 
         count += 1
 
