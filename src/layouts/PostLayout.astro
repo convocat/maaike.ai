@@ -15,6 +15,7 @@ interface Props {
   tags: string[];
   triples?: [string, string, string][];
   themes?: string[];
+  open_questions?: string[];
   description?: string;
   collection: string;
   slug: string;
@@ -26,7 +27,7 @@ interface Props {
   backLabel?: string;
 }
 
-const { title, date, updated, maturity, tags, triples, themes, description, collection, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream' } = Astro.props;
+const { title, date, updated, maturity, tags, triples, themes, open_questions, description, collection, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream' } = Astro.props;
 
 const isHub = hub === true;
 const ogImage = `/images/og/${collection}/${slug}.png`;
@@ -125,11 +126,11 @@ const formattedUpdated = updated
       </div>
 
       <footer class="post-footer">
-        {(tags.length > 0 || (triples && triples.length > 0) || (themes && themes.length > 0)) && (
+        {(tags.length > 0 || (triples && triples.length > 0) || (themes && themes.length > 0) || (open_questions && open_questions.length > 0)) && (
           <details class="mycelium-section">
             <summary class="mycelium-summary">
               <span class="mycelium-label">Mycelium</span>
-              <span class="mycelium-hint">tags, relations &amp; arguments</span>
+              <span class="mycelium-hint">tags, relations, arguments &amp; questions</span>
             </summary>
             <div class="mycelium-content">
               {tags.length > 0 && (
@@ -160,6 +161,16 @@ const formattedUpdated = updated
                   <ul class="themes-list">
                     {themes.map((theme) => (
                       <li class="theme-item">{theme}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {open_questions && open_questions.length > 0 && (
+                <div class="post-footer-questions">
+                  <h3 class="post-footer-heading">Questions this raises</h3>
+                  <ul class="questions-list">
+                    {open_questions.map((q) => (
+                      <li class="question-item">{q}</li>
                     ))}
                   </ul>
                 </div>
@@ -496,7 +507,8 @@ const formattedUpdated = updated
   }
 
   .post-footer-triples,
-  .post-footer-themes {
+  .post-footer-themes,
+  .post-footer-questions {
     background: var(--color-bg-card);
     border-left: 3px solid var(--color-accent);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -510,7 +522,8 @@ const formattedUpdated = updated
   }
 
   .post-footer-triples .triples-list,
-  .post-footer-themes .themes-list {
+  .post-footer-themes .themes-list,
+  .post-footer-questions .questions-list {
     margin-block-start: var(--space-sm);
   }
 
@@ -553,6 +566,36 @@ const formattedUpdated = updated
     opacity: 0.5;
     font-size: 0.75rem;
     top: 0.15em;
+  }
+
+  .questions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .question-item {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: 1.5;
+    padding-left: var(--space-sm);
+    position: relative;
+  }
+
+  .question-item::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    opacity: 0.5;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    top: 0.1em;
   }
 
   .triples-list {

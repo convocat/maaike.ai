@@ -176,7 +176,7 @@ def _represent_flow_list(dumper, data):
 yaml.SafeDumper.add_representer(_FlowList, _represent_flow_list)
 
 
-def apply_edits(path: Path, tags, description, triples, title=None, themes=None, body=None):
+def apply_edits(path: Path, tags, description, triples, title=None, themes=None, open_questions=None, body=None):
     """Parse the frontmatter, update fields, write it back via pyyaml.
 
     Preserves existing fields (and their order, since dict iteration is ordered).
@@ -198,6 +198,8 @@ def apply_edits(path: Path, tags, description, triples, title=None, themes=None,
         fm["description"] = description
     if themes is not None:
         fm["themes"] = list(themes)
+    if open_questions is not None:
+        fm["open_questions"] = list(open_questions)
     if triples is not None:
         fm["triples"] = [_FlowList(list(t)) for t in triples]
     elif "triples" in fm and isinstance(fm["triples"], list):
@@ -337,20 +339,26 @@ def api_approve():
     if not path.exists():
         return jsonify({"error": f"not found: {slug}"}), 404
     try:
-        # Optional edits: tags, description, body, triples (list of [s,p,o])
-        if any(k in data for k in ("tags", "description", "triples", "body")):
+        # Optional edits: tags, description, body, triples, themes
+        if any(k in data for k in ("tags", "description", "triples", "body", "themes")):
             apply_edits(
                 path,
                 data.get("tags"),
                 data.get("description"),
                 data.get("triples"),
                 title=data.get("title"),
+                themes=data.get("themes") or None,
                 body=data.get("body"),
             )
             if "triples" in data:
                 sync_triples_json(slug, "weblinks", data["triples"])
+            if data.get("themes"):
+                _update_themes_json(slug, data["themes"])
         flip_draft_false(path)
-        git_commit_push([path, TRIPLES_PATH], f"Publish weblink: {slug}")
+        commit_files = [path, TRIPLES_PATH]
+        if data.get("themes"):
+            commit_files.append(THEMES_PATH)
+        git_commit_push(commit_files, f"Publish weblink: {slug}")
         return jsonify({"ok": True, "slug": slug})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -667,10 +675,11 @@ def api_apply_proposal():
 
     try:
         msgs = []
-        accepted_tags   = accepted.get("tags", [])
-        accepted_assocs = accepted.get("associations", [])
-        accepted_themes = accepted.get("themes", [])
-        accepted_topics = accepted.get("topics", [])
+        accepted_tags      = accepted.get("tags", [])
+        accepted_assocs    = accepted.get("associations", [])
+        accepted_themes    = accepted.get("themes", [])
+        accepted_topics    = accepted.get("topics", [])
+        accepted_questions = accepted.get("open_questions", [])
 
         # Read existing frontmatter to merge (don't overwrite what's already there)
         text = article_path.read_text(encoding="utf-8")
@@ -687,8 +696,10 @@ def api_apply_proposal():
                 existing_triples.append(list(key))
                 existing_set.add(key)
 
-        apply_edits(article_path, merged_tags, None, existing_triples, themes=accepted_themes or None)
-        msgs.append(f"Frontmatter: {len(merged_tags)} tags, {len(existing_triples)} triples, {len(accepted_themes)} themes")
+        apply_edits(article_path, merged_tags, None, existing_triples,
+                    themes=accepted_themes or None,
+                    open_questions=accepted_questions or None)
+        msgs.append(f"Frontmatter: {len(merged_tags)} tags, {len(existing_triples)} triples, {len(accepted_themes)} themes, {len(accepted_questions)} questions")
 
         # triples.json: associations + new topic stubs
         sync_triples_json(slug, collection, [[a["subject"], a["predicate"], a["object"]] for a in accepted_assocs])
@@ -744,22 +755,30 @@ def api_skip_proposal():
         return jsonify({"error": str(e)}), 500
 
 
-# ── Weblink enrichment via Anthropic API ───────────────────────────────────────
+# ── Weblink enrichment via Anthropic API ──────────────────────────────────────
+# For on-demand, user-triggered enrichment of individual draft weblinks.
+# Uses claude-haiku-4-5 to keep per-call costs low.
+# NEVER call in a loop, from CI, or from any automated workflow.
 
 WEBLINK_EXTRACTION_TOOL = {
     "name": "save_weblink_enrichment",
-    "description": "Save the TAO enrichment result for a weblink.",
+    "description": "Save structured enrichment data for a weblink.",
     "input_schema": {
         "type": "object",
         "properties": {
-            "summary": {
+            "description": {
                 "type": "string",
-                "description": "2-3 sentence summary of the source's central argument. Focus on the claim, not a description of the article.",
+                "description": "2-3 sentence summary of what the source argues. No em-dashes.",
             },
             "themes": {
                 "type": "array",
                 "items": {"type": "string"},
-                "description": "2-4 opinionated one-liner theme statements about what the source argues.",
+                "description": "2-4 opinionated theme statements. No em-dashes.",
+            },
+            "tags": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "2-5 kebab-case tag slugs. Reuse existing where possible.",
             },
             "topics": {
                 "type": "array",
@@ -767,224 +786,164 @@ WEBLINK_EXTRACTION_TOOL = {
                     "type": "object",
                     "properties": {
                         "label": {"type": "string"},
-                        "type":  {"type": "string"},
+                        "type": {"type": "string"},
                         "is_new": {"type": "boolean"},
                     },
                     "required": ["label", "type", "is_new"],
                 },
-                "description": "Named things worth knowing about. is_new=true if not in existing taxonomy.",
+                "description": "Named topics: people, technologies, concepts. is_new=true if not in existing taxonomy.",
             },
             "associations": {
                 "type": "array",
                 "items": {
                     "type": "object",
                     "properties": {
-                        "subject":   {"type": "string"},
+                        "subject": {"type": "string"},
                         "predicate": {"type": "string"},
-                        "object":    {"type": "string"},
+                        "object": {"type": "string"},
                     },
                     "required": ["subject", "predicate", "object"],
                 },
-                "description": "3-7 typed S-P-O relationships using only the allowed predicate vocabulary.",
-            },
-            "tags": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "2-6 kebab-cased tag slugs.",
+                "description": "3-6 typed S-P-O relationships using the allowed predicate vocabulary.",
             },
         },
-        "required": ["summary", "themes", "topics", "associations", "tags"],
+        "required": ["description", "themes", "tags", "topics", "associations"],
     },
 }
 
 
-def _fetch_page_text(url: str) -> tuple[str, str]:
-    """Fetch a URL and return (title, body_text). title falls back to domain."""
-    import html as html_mod
-    title = ""
-    body  = ""
-    try:
-        r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-        r.raise_for_status()
-        raw = r.text
-
-        t_match = re.search(r"<title[^>]*>([^<]+)</title>", raw, re.IGNORECASE)
-        if t_match:
-            title = html_mod.unescape(t_match.group(1).strip())
-
-        # Strip scripts, styles, then tags — keep text nodes
-        clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw, flags=re.DOTALL | re.IGNORECASE)
-        clean = re.sub(r"<[^>]+>", " ", clean)
-        clean = re.sub(r"&[a-z#0-9]+;", " ", clean)
-        clean = re.sub(r"\s+", " ", clean).strip()
-        body  = clean[:8000]
-    except Exception as exc:
-        print(f"[enrich] fetch failed for {url}: {exc}")
-    return title, body
+def _fetch_page_text(url: str, max_chars: int = 6000) -> str:
+    """Fetch a URL and return stripped plain text."""
+    import html as html_lib
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; GardenBot/1.0)"}
+    r = requests.get(url, timeout=15, headers=headers, allow_redirects=True)
+    r.raise_for_status()
+    content = r.text
+    content = re.sub(r"<(script|style)[^>]*>.*?</(script|style)>", " ", content, flags=re.DOTALL | re.IGNORECASE)
+    content = re.sub(r"<[^>]+>", " ", content)
+    content = html_lib.unescape(content)
+    content = re.sub(r"\s+", " ", content).strip()
+    return content[:max_chars]
 
 
 def _load_topics_for_prompt() -> str:
     if not TRIPLES_PATH.exists():
-        return ""
+        return "(none)"
     data = json.loads(TRIPLES_PATH.read_text(encoding="utf-8"))
+    topics = data.get("topics", {})
     lines = [
         f"  {slug}: {v.get('label', slug)} ({v.get('type', '?')})"
-        for slug, v in list(data.get("topics", {}).items())[:80]
+        for slug, v in list(topics.items())[:80]
     ]
-    return "\n".join(lines)
+    return "\n".join(lines) or "(none)"
 
 
 def _load_tags_for_prompt() -> str:
-    tags_dir = CONTENT_DIR / "tags"
+    tags_dir = GARDEN_ROOT / "src/content/tags"
     if not tags_dir.exists():
-        return ""
-    slugs = [p.stem for p in sorted(tags_dir.glob("*.md"))]
-    return ", ".join(slugs[:80])
+        return "(none)"
+    slugs = [f.stem for f in sorted(tags_dir.glob("*.md"))[:60]]
+    return ", ".join(slugs) or "(none)"
 
 
-def _build_weblink_prompt(url: str, title: str, body: str) -> str:
-    topics_ctx = _load_topics_for_prompt()
-    tags_ctx   = _load_tags_for_prompt()
-    return f"""You are performing a TAO (Thematic-Associations-Occurrences) enrichment pass on an external source that Maaike Groenewege (conversation designer, maaike.ai) has bookmarked for her digital garden.
+def _build_weblink_prompt(title: str, url: str, page_text: str, topics_str: str, tags_str: str) -> str:
+    return f"""You are enriching a weblink for Maaike Groenewege's digital garden (maaike.ai). Maaike is a conversation designer who writes about AI, conversational interfaces, language, and design.
 
 ## Source
 
-**URL:** {url}
 **Title:** {title}
+**URL:** {url}
 
-**Page text (first 8000 chars):**
+## Page content
+
 ---
-{body}
+{page_text}
 ---
 
-## Task
+## Your task
 
-Run a three-pass analysis:
+Perform a three-pass TAO analysis:
 
-**Pass 1 — Thematic read:** What are the 2-4 overarching themes? What is the central argument?
+**Pass 1 (Thematic read):** What is the central argument and 2-4 overarching themes?
 
-**Pass 2 — TAO extraction:**
-- Topics: people, technologies, concepts, frameworks. Assign ONE type from: `person` `technology` `mechanism` `phenomenon` `discipline` `concept` `metaphor` `principle` `method`
-- Mark `is_new: false` if found in existing taxonomy, `is_new: true` if genuinely new.
-- Associations: 3-7 typed S-P-O relationships. Use ONLY these predicates: `attributed-to` `structured-as` `counters` `reinforces` `contrasted-with` `demonstrates` `lacks` `caused-by` `metaphor-for` `inaccessible-via` `instance-of` `characterised-as` `coined-by` `defined-as` `theorised-by` `exhibits` `violates` `presupposes` `leads-to` `breaks-down-for` `better-fits` `risks` `incompatible-with` `generates` `requires`
+**Pass 2 (TAO extraction):**
 
-**Pass 3 — Coherence check:** Remove weak associations, connect new topics to existing hubs.
+Topics: named people, technologies, concepts worth knowing about. Assign ONE type from:
+`person` `technology` `technology-category` `technical-mechanism` `technical-phenomenon` `philosophical-method` `philosophical-framework` `philosophical-concept` `epistemological-concept` `epistemic-stance` `cognitive-tendency` `belief-type` `linguistic-concept` `linguistic-principle` `communication-type` `theoretical-concept` `interaction-metaphor` `design-discipline` `methodology` `concept` `phenomenon` `principle` `discipline`
+
+Mark `is_new: false` if already in the taxonomy below. Mark `is_new: true` if genuinely new.
 
 **Existing taxonomy topics:**
-{topics_ctx}
+{topics_str}
 
-**Existing tags:** {tags_ctx}
+Associations: 3-6 typed S-P-O relationships. Use ONLY these predicates:
+`attributed-to` `structured-as` `counters` `reinforces` `contrasted-with` `demonstrates` `lacks` `caused-by` `metaphor-for` `inaccessible-via` `instance-of` `characterised-as` `coined-by` `defined-as` `theorised-by` `exhibits` `violates` `presupposes` `leads-to` `breaks-down-for` `better-fits` `risks` `incompatible-with` `generates` `requires`
 
-**Style rule:** Never use em-dashes (—) in any generated text. Use commas, colons, or periods instead.
+Tags: 2-5 kebab-case slugs. Reuse from existing where possible.
+**Existing tags:** {tags_str}
+
+**Pass 3 (Coherence check):** Remove associations that don't reflect the source's actual argument.
+
+**Style rule:** Never use em-dashes in any generated text. Use commas, colons, or periods instead.
 
 Call save_weblink_enrichment with your complete analysis."""
 
 
 @app.route("/api/enrich-weblink", methods=["POST"])
 def api_enrich_weblink():
-    """Fetch a draft weblink URL, run TAO extraction via Anthropic API, write results."""
-    import traceback
+    """Call Anthropic API to enrich a single draft weblink.
+    User-triggered only. Returns proposal for review before apply."""
     try:
         import anthropic
     except ImportError:
-        return jsonify({"error": "anthropic package not installed — run: pip install anthropic"}), 500
+        return jsonify({"error": "anthropic package not installed"}), 500
 
-    data   = request.json or {}
-    slug   = data.get("slug", "")
+    data = request.json or {}
+    slug = data.get("slug", "").strip()
     if not slug:
         return jsonify({"error": "slug required"}), 400
 
     path = WEBLINKS_DIR / f"{slug}.md"
     if not path.exists():
-        return jsonify({"error": f"weblink not found: {slug}"}), 404
+        return jsonify({"error": f"not found: {slug}"}), 404
 
     fm = parse_weblink(path)
     if not fm:
-        return jsonify({"error": f"could not parse frontmatter: {slug}"}), 500
+        return jsonify({"error": "could not parse frontmatter"}), 500
 
     url = fm.get("url", "")
+    title = fm.get("title", slug)
     if not url:
-        return jsonify({"error": f"no url in frontmatter: {slug}"}), 400
-
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        return jsonify({"error": "ANTHROPIC_API_KEY not set"}), 500
+        return jsonify({"error": "no URL in weblink frontmatter"}), 400
 
     try:
-        # 1. Fetch page content
-        fetched_title, body = _fetch_page_text(url)
-        display_title = fm.get("title") or fetched_title or url
+        page_text = _fetch_page_text(url)
+    except Exception as e:
+        return jsonify({"error": f"fetch failed: {e}"}), 500
 
-        # 2. Call Anthropic API
-        client = anthropic.Anthropic(api_key=api_key)
-        prompt = _build_weblink_prompt(url, display_title, body)
+    prompt = _build_weblink_prompt(
+        title, url, page_text,
+        _load_topics_for_prompt(),
+        _load_tags_for_prompt(),
+    )
+
+    try:
+        client = anthropic.Anthropic()
         response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=4096,
+            model="claude-sonnet-4-5",
+            max_tokens=2048,
             tools=[WEBLINK_EXTRACTION_TOOL],
             tool_choice={"type": "tool", "name": "save_weblink_enrichment"},
             messages=[{"role": "user", "content": prompt}],
         )
-
-        extracted = None
-        for block in response.content:
-            if block.type == "tool_use" and block.name == "save_weblink_enrichment":
-                extracted = block.input
-                break
-        if not extracted:
-            return jsonify({"error": "No tool_use block returned by API"}), 500
-
-        summary      = extracted.get("summary", "")
-        themes       = extracted.get("themes", [])
-        topics       = extracted.get("topics", [])
-        associations = extracted.get("associations", [])
-        tags         = extracted.get("tags", [])
-
-        # 3. Write frontmatter (tags, description, themes, triples)
-        triples = [[a["subject"], a["predicate"], a["object"]] for a in associations]
-        apply_edits(
-            path,
-            tags=tags,
-            description=summary,
-            triples=triples,
-            themes=themes,
-        )
-
-        # 4. Flip draft: false
-        flip_draft_false(path)
-
-        # 5. triples.json
-        sync_triples_json(slug, "weblinks", triples)
-
-        # 6. taxonomy.json — new topic stubs
-        new_topics = [t for t in topics if t.get("is_new")]
-        if new_topics:
-            _update_taxonomy_json(new_topics)
-
-        # 7. themes.json
-        if themes:
-            _update_themes_json(slug, themes)
-
-        # 8. Commit
-        commit_files = [path, TRIPLES_PATH]
-        if themes:
-            commit_files.append(THEMES_PATH)
-        if new_topics:
-            commit_files.append(TAXONOMY_PATH)
-        git_commit_push(commit_files, f"Enrich weblink: {slug}")
-
-        return jsonify({
-            "ok":          True,
-            "slug":        slug,
-            "topics_new":  len(new_topics),
-            "topics_total": len(topics),
-            "associations": len(associations),
-            "tags":        tags,
-            "summary":     summary[:120] + ("…" if len(summary) > 120 else ""),
-        })
-
     except Exception as e:
-        return jsonify({"ok": False, "error": str(e), "trace": traceback.format_exc()}), 500
+        return jsonify({"error": f"API call failed: {e}"}), 500
+
+    for block in response.content:
+        if block.type == "tool_use" and block.name == "save_weblink_enrichment":
+            return jsonify({"ok": True, "slug": slug, "proposal": block.input})
+
+    return jsonify({"error": "no tool_use block in API response"}), 500
 
 
 if __name__ == "__main__":
