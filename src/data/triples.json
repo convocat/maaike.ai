@@ -6657,10 +6657,6 @@
       "label": "Natural-language specification",
       "type": "concept"
     },
-    "if/then-conditionals": {
-      "label": "If/then conditionals",
-      "type": "technical-mechanism"
-    },
     "design-tooling": {
       "label": "Design Tooling",
       "type": "concept"
@@ -6668,35 +6664,66 @@
     "phone-as-default-device": {
       "label": "Phone as default device",
       "type": "phenomenon",
-      "lens": ["cognition", "personal"],
-      "subject": ["mind", "interaction-design"]
+      "lens": [
+        "cognition",
+        "personal"
+      ],
+      "subject": [
+        "mind",
+        "interaction-design"
+      ]
     },
     "intentional-reading": {
       "label": "Intentional reading",
       "type": "concept",
-      "lens": ["personal", "cognition"],
-      "subject": ["mind"],
+      "lens": [
+        "personal",
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ],
       "role": "stance"
     },
     "mindless-scrolling": {
       "label": "Mindless scrolling",
       "type": "phenomenon",
-      "lens": ["cognition", "personal"],
-      "subject": ["mind", "interaction-design"]
+      "lens": [
+        "cognition",
+        "personal"
+      ],
+      "subject": [
+        "mind",
+        "interaction-design"
+      ]
     },
     "e-ink-reader": {
       "label": "E-ink reader",
       "type": "technology",
-      "lens": ["personal", "design"],
-      "subject": ["tooling"],
+      "lens": [
+        "personal",
+        "design"
+      ],
+      "subject": [
+        "tooling"
+      ],
       "role": "instrument"
     },
     "thinking-tools-collection": {
       "label": "Thinking Tools collection",
       "type": "concept",
-      "lens": ["personal", "design"],
-      "subject": ["tooling"],
+      "lens": [
+        "personal",
+        "design"
+      ],
+      "subject": [
+        "tooling"
+      ],
       "role": "framework"
+    },
+    "if-then-conditionals": {
+      "label": "If/then conditionals",
+      "type": "technical-mechanism"
     }
   },
   "associations": [
