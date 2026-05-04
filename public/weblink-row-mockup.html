@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weblink layout — mockup v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: 'Roboto', -apple-system, sans-serif;
+    background: #FCFCFB;
+    color: #1A1A1A;
+    padding: 2.5rem 1.5rem 4rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .option-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.25rem;
+  }
+  .option-divider {
+    border: none;
+    border-top: 1px solid #e0ddd8;
+    margin: 3.5rem 0;
+  }
+
+  /* ── Mosaic card ── */
+  .mosaic-card {
+    border: 1px solid #E5E5E5;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .mosaic-link {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+  .mosaic-strip {
+    width: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mosaic-doodle-icon { width: 32px; height: 32px; display: block; }
+  .mosaic-card--articles   .mosaic-strip { background: #EEE6DF; }
+  .mosaic-card--seeds      .mosaic-strip { background: #EDE8D5; }
+  .mosaic-card--field-notes .mosaic-strip { background: #D8ECD8; }
+  .mosaic-card--articles   .mosaic-doodle-icon { filter: invert(30%) sepia(50%) saturate(500%) hue-rotate(-15deg); }
+  .mosaic-card--seeds      .mosaic-doodle-icon { filter: invert(45%) sepia(60%) saturate(400%) hue-rotate(10deg); }
+  .mosaic-card--field-notes .mosaic-doodle-icon { filter: invert(40%) sepia(30%) saturate(600%) hue-rotate(100deg); }
+  .mosaic-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px double #B8B0AA;
+    min-width: 0;
+  }
+  .mosaic-top-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.45rem 1rem;
+    border-bottom: 4px double rgba(180, 60, 60, 0.3);
+    flex-wrap: wrap;
+  }
+  .mosaic-meta-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-shrink: 0;
+  }
+  .mosaic-collection-label {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #6b6258; white-space: nowrap;
+  }
+  .mosaic-dot { font-size: 0.62rem; color: #c4bdb5; flex-shrink: 0; }
+  .mosaic-date { font-size: 0.62rem; color: #6B6B6B; white-space: nowrap; }
+  .mosaic-maturity, .mosaic-ai-label {
+    font-size: 0.58rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #9a8f84; white-space: nowrap;
+  }
+  .mosaic-body {
+    padding: 0.75rem 1rem 0.9rem;
+    flex: 1; display: flex; flex-direction: column; gap: 0.25rem;
+  }
+  .mosaic-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem; font-weight: 600; color: #111111; line-height: 1.3; margin: 0;
+  }
+  .mosaic-desc { font-size: 0.82rem; color: #6B6B6B; line-height: 1.5; margin: 0; }
+
+  /* ── Weblink row ── */
+  .wl-row {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    line-height: 1.5;
+  }
+  .wl-icon {
+    width: 13px; height: 13px; flex-shrink: 0; display: block;
+    opacity: 0.55;
+    filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg);
+  }
+  a.wl-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.76rem; font-weight: 500; color: #2a2a28;
+    text-decoration: underline; text-decoration-color: #bbb;
+    text-underline-offset: 2px;
+  }
+  a.wl-title:hover { color: #D6006C; text-decoration-color: #D6006C; }
+  .wl-domain { font-size: 0.68rem; color: #3A7080; letter-spacing: 0.02em; }
+  .wl-date   { font-size: 0.68rem; color: #bbb; }
+  .wl-desc   { font-size: 0.72rem; color: #999; line-height: 1.4; }
+
+
+
+  /* ═══════════════════════════════════════
+     OPTION A — Horizontal split
+  ═══════════════════════════════════════ */
+
+  .layout-a {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .layout-a .stream {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .layout-a .links-section {
+    border-top: 1px solid #E5E5E5;
+    padding-top: 1.5rem;
+  }
+  .layout-a .links-heading {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a8f84;
+    margin-bottom: 1rem;
+  }
+  .layout-a .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .layout-a .wl-item .wl-date {
+    margin-left: auto;
+  }
+
+
+
+  /* ═══════════════════════════════════════
+     OPTION B — Vertical split
+  ═══════════════════════════════════════ */
+
+  .layout-b {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .layout-b .stream {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .layout-b .links-panel {
+    position: sticky;
+    top: 2rem;
+    border-left: 1px solid #E5E5E5;
+    padding-left: 1.75rem;
+  }
+  .layout-b .links-heading {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a8f84;
+    margin-bottom: 1rem;
+  }
+  .layout-b .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .layout-b .wl-item .wl-date {
+    display: block;
+    margin-top: 0.1rem;
+    padding-left: 1.35rem;
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════
+     OPTION A: Horizontal split
+     Cards stream → divider → Links below
+════════════════════════════════════════ -->
+
+<p class="option-label" style="max-width:640px;margin:0 auto 1.25rem">Option A: horizontal split</p>
+
+<div class="layout-a">
+  <div class="stream">
+
+    <article class="mosaic-card mosaic-card--articles">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/doc.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Article</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">14 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🪴</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">LLMOps analyst: conversation designer's next career step</h3>
+            <p class="mosaic-desc">How conversation designers are evolving into LLMOps analysts, and why linguists are uniquely suited for the role.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--seeds">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/bulb.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Seed</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">4 MAY 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🌱</span><span class="mosaic-ai-label">Assisted</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">From conversation to application: building on method documents</h3>
+            <p class="mosaic-desc">The next step beyond conversation-driven interaction: using Claude Code to turn method documents into working applications.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--field-notes">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/note.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Field note</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">5 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🪴</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">The garden as a metaphor</h3>
+            <p class="mosaic-desc">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--seeds">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/bulb.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Seed</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">22 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🌱</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">The return of the button</h3>
+            <p class="mosaic-desc">Claude Code is reintroducing structured, constrained input. Which is actually IVR. And that might be exactly right.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+  </div>
+
+  <div class="links-section">
+    <p class="links-heading">Links</p>
+    <div class="links-list">
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">Structured-Prompt-Driven Development (SPDD)</a>
+          <span class="wl-domain">martinfowler.com</span>
+          <span class="wl-date">2 MAY 2026</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">A structured approach to building LLM-powered applications using prompt templates as the primary design artifact.</p>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">It's like this: Why perceptions are our realities</a>
+          <span class="wl-domain">flux.community</span>
+          <span class="wl-date">2 MAY 2026</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Minds do not create experience, experience creates minds.</p>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">Fieldwork for Future Ecologies | Onomatopee</a>
+          <span class="wl-domain">onomatopee.net</span>
+          <span class="wl-date">29 APR 2026</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Art practice and ecological thinking are inseparable modes of attention.</p>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">AI metaphors: how to think about AI</a>
+          <span class="wl-domain">jdmeier.com</span>
+          <span class="wl-date">22 APR 2026</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Various metaphors for AI that are helpful when working with ChatGPT, POE, Gemini, and other AI tools.</p>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">The AI draft: a process essay nobody asked for</a>
+          <span class="wl-domain">substack.com</span>
+          <span class="wl-date">25 APR 2026</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">How a formally trained journalist uses artificial intelligence to write, and why the process matters.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<hr class="option-divider" style="max-width:960px;margin:3.5rem auto">
+
+
+<!-- ══════════════════════════════════════
+     OPTION B: Vertical split
+     Cards left column, links right sidebar
+════════════════════════════════════════ -->
+
+<p class="option-label" style="max-width:960px;margin:0 auto 1.25rem">Option B: vertical split</p>
+
+<div class="layout-b">
+  <div class="stream">
+
+    <article class="mosaic-card mosaic-card--articles">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/doc.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Article</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">14 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🪴</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">LLMOps analyst: conversation designer's next career step</h3>
+            <p class="mosaic-desc">How conversation designers are evolving into LLMOps analysts, and why linguists are uniquely suited for the role.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--seeds">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/bulb.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Seed</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">4 MAY 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🌱</span><span class="mosaic-ai-label">Assisted</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">From conversation to application: building on method documents</h3>
+            <p class="mosaic-desc">The next step beyond conversation-driven interaction: using Claude Code to turn method documents into working applications.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--field-notes">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/note.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Field note</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">5 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🪴</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">The garden as a metaphor</h3>
+            <p class="mosaic-desc">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="mosaic-card mosaic-card--seeds">
+      <a href="#" class="mosaic-link">
+        <div class="mosaic-strip"><img src="/images/icons/bulb.svg" alt="" class="mosaic-doodle-icon" /></div>
+        <div class="mosaic-main">
+          <div class="mosaic-top-meta">
+            <span class="mosaic-collection-label">Seed</span><span class="mosaic-dot">·</span>
+            <time class="mosaic-date">22 APR 2026</time>
+            <div class="mosaic-meta-right"><span class="mosaic-maturity">MATURITY 🌱</span><span class="mosaic-ai-label">100% Maai</span></div>
+          </div>
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">The return of the button</h3>
+            <p class="mosaic-desc">Claude Code is reintroducing structured, constrained input. Which is actually IVR. And that might be exactly right.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+  </div>
+
+  <div class="links-panel">
+    <p class="links-heading">Links</p>
+    <div class="links-list">
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">Structured-Prompt-Driven Development (SPDD)</a>
+          <span class="wl-domain">martinfowler.com</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">A structured approach to building LLM-powered applications.</p>
+        <span class="wl-date" style="padding-left:1.35rem;display:block;margin-top:0.1rem">2 MAY 2026</span>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">It's like this: Why perceptions are our realities</a>
+          <span class="wl-domain">flux.community</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Minds do not create experience, experience creates minds.</p>
+        <span class="wl-date" style="padding-left:1.35rem;display:block;margin-top:0.1rem">2 MAY 2026</span>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">Fieldwork for Future Ecologies | Onomatopee</a>
+          <span class="wl-domain">onomatopee.net</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Art practice and ecological thinking are inseparable modes of attention.</p>
+        <span class="wl-date" style="padding-left:1.35rem;display:block;margin-top:0.1rem">29 APR 2026</span>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">AI metaphors: how to think about AI</a>
+          <span class="wl-domain">jdmeier.com</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">Various metaphors helpful when working with AI tools.</p>
+        <span class="wl-date" style="padding-left:1.35rem;display:block;margin-top:0.1rem">22 APR 2026</span>
+      </div>
+
+      <div class="wl-item">
+        <div class="wl-row">
+          <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+          <a class="wl-title" href="#">The AI draft: a process essay nobody asked for</a>
+          <span class="wl-domain">substack.com</span>
+        </div>
+        <p class="wl-desc" style="padding-left:1.35rem">How a journalist uses AI to write, and why the process matters.</p>
+        <span class="wl-date" style="padding-left:1.35rem;display:block;margin-top:0.1rem">25 APR 2026</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -7,33 +7,6 @@ import SketchyFilter from '../components/SketchyFilter.astro';
 import MosaicCard from '../components/MosaicCard.astro';
 import { getAllContent, sortByDate } from '../utils/collections';
 import settings from '../data/settings.json';
-import blogroll from '../data/blogroll.json';
-import Parser from 'rss-parser';
-
-// Fetch latest post from blogroll sites with RSS feeds (at build time)
-const _parser = new Parser({ timeout: 6000 });
-type FeedEntry = { name: string; postTitle: string | null; postUrl: string | null; postDate: Date | null };
-const _feedResults = await Promise.allSettled(
-  blogroll
-    .filter((site): site is typeof site & { feed: string } => Boolean((site as any).feed))
-    .map(async (site) => {
-      const feed = await _parser.parseURL((site as any).feed);
-      const latest = feed.items[0];
-      return {
-        name: site.name,
-        postTitle: latest?.title?.trim() ?? null,
-        postUrl: latest?.link ?? null,
-        postDate: latest?.pubDate ? new Date(latest.pubDate) : null,
-      } satisfies FeedEntry;
-    })
-);
-const latestPosts = new Map<string, FeedEntry>();
-_feedResults.forEach((r) => { if (r.status === 'fulfilled') latestPosts.set(r.value.name, r.value); });
-function formatFeedDate(date: Date | null): string {
-  if (!date) return '';
-  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-}
-
 const allContent = sortByDate(await getAllContent());
 
 // Main feed: all content types except hubs, stubs, and generated-only
@@ -48,10 +21,12 @@ const mainFeedEligible = allContent.filter((e) => {
   return true;
 });
 
-// Pinned: three most recent articles sit first
-const pinnedArticles = mainFeedEligible.filter((e) => e.collection === 'articles').slice(0, 3);
+// Hero: most recent article floated to top as featured
+const pinnedArticles = mainFeedEligible.filter((e) => e.collection === 'articles').slice(0, 1);
 const pinnedSet = new Set(pinnedArticles.map((e) => e.id));
-const feedItems = mainFeedEligible.filter((e) => !pinnedSet.has(e.id));
+const feedItems = mainFeedEligible.filter((e) => !pinnedSet.has(e.id) && e.collection !== 'weblinks');
+const weblinks = mainFeedEligible.filter((e) => e.collection === 'weblinks');
+const wlDateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
 // Sidebar: currently reading books
 const library = sortByDate(
@@ -65,8 +40,7 @@ const hubs = allContent
   .slice(0, 8);
 
 const filterCollections = [
-  'articles', 'seeds', 'field-notes', 'jottings',
-  'weblinks', 'videos',
+  'articles', 'seeds', 'field-notes', 'jottings', 'videos',
 ];
 const collectionLabels: Record<string, string> = {
   articles:    'Articles',
@@ -252,6 +226,35 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           <span class="page-indicator" id="page-indicator"></span>
           <button class="page-btn" id="page-next" aria-label="Next page">Next &rarr;</button>
         </nav>
+
+        {weblinks.length > 0 && (
+          <div class="links-section">
+            <p class="links-heading">Links</p>
+            <div class="links-list">
+              {weblinks.map((link) => {
+                const data = link.data as any;
+                let domain: string | undefined;
+                try { domain = data.url ? new URL(data.url).hostname.replace('www.', '') : undefined; } catch {}
+                return (
+                  <div class="wl-item">
+                    <div class="wl-row">
+                      <img src="/images/icons/globe.svg" alt="" class="wl-icon" />
+                      <a href={data.url} class="wl-title" target="_blank" rel="noopener noreferrer">{data.title}</a>
+                      {domain && <span class="wl-domain">{domain}</span>}
+                      <time class="wl-date">{wlDateFmt.format(data.date).toUpperCase()}</time>
+                    </div>
+                    {data.description && <p class="wl-desc">{data.description}</p>}
+                  </div>
+                );
+              })}
+            </div>
+            <nav class="stream-pagination" id="links-pagination" aria-label="Links pages" hidden>
+              <button class="page-btn" id="links-page-prev" aria-label="Previous page">&larr; Previous</button>
+              <span class="page-indicator" id="links-page-indicator"></span>
+              <button class="page-btn" id="links-page-next" aria-label="Next page">Next &rarr;</button>
+            </nav>
+          </div>
+        )}
       </div>
 
       <!-- Sidebar: filter panels -->
@@ -418,34 +421,6 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
           </div>
         </article>
 
-        <!-- Blogroll -->
-        <article class="sidebar-card sidebar-card--blogroll">
-          <div class="sidebar-strip">
-            <span class="sidebar-strip-title">Blogroll</span>
-          </div>
-          <div class="sidebar-body">
-            <ul class="blogroll-sidebar-list">
-              {blogroll.map(site => {
-                const latest = latestPosts.get(site.name);
-                return (
-                  <li class="blogroll-sidebar-item">
-                    <a href={site.url} target="_blank" rel="noopener noreferrer" class="blogroll-sidebar-link">
-                      {site.name}
-                    </a>
-                    {latest?.postTitle && latest?.postUrl && (
-                      <a href={latest.postUrl} target="_blank" rel="noopener noreferrer" class="blogroll-latest-post">
-                        <span class="blogroll-latest-title">{latest.postTitle}</span>
-                        {latest.postDate && <span class="blogroll-latest-date">{formatFeedDate(latest.postDate)}</span>}
-                      </a>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-            <a href="/blogroll" class="sidebar-read-more">Full blogroll &rarr;</a>
-          </div>
-        </article>
-
       </aside>
     </div>
 
@@ -580,6 +555,37 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     });
 
     render();
+
+    // ── Links pagination ──
+    const LINKS_PAGE_SIZE = 10;
+    const linkItems = Array.from(document.querySelectorAll<HTMLElement>('.wl-item'));
+    const linksPagination = document.getElementById('links-pagination');
+    const linksPrev    = document.getElementById('links-page-prev') as HTMLButtonElement | null;
+    const linksNext    = document.getElementById('links-page-next') as HTMLButtonElement | null;
+    const linksIndicator = document.getElementById('links-page-indicator');
+    let linksPage = 1;
+
+    function renderLinks() {
+      const totalPages = Math.max(1, Math.ceil(linkItems.length / LINKS_PAGE_SIZE));
+      if (linksPage > totalPages) linksPage = totalPages;
+      const start = (linksPage - 1) * LINKS_PAGE_SIZE;
+      const end   = start + LINKS_PAGE_SIZE;
+      linkItems.forEach((item) => { item.style.display = 'none'; });
+      linkItems.slice(start, end).forEach((item) => { item.style.display = ''; });
+      if (linksPagination) linksPagination.hidden = totalPages <= 1;
+      if (linksIndicator)  linksIndicator.textContent = `Page ${linksPage} of ${totalPages}`;
+      if (linksPrev)       linksPrev.disabled = linksPage === 1;
+      if (linksNext)       linksNext.disabled = linksPage === totalPages;
+    }
+
+    linksPrev?.addEventListener('click', () => {
+      if (linksPage > 1) { linksPage--; renderLinks(); document.querySelector('.links-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+    linksNext?.addEventListener('click', () => {
+      linksPage++; renderLinks(); document.querySelector('.links-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    renderLinks();
   }
 
   initStream();
@@ -1094,63 +1100,60 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
   }
   .project-link:hover { color: #0D7C66; }
 
-  .sidebar-card--blogroll {
-    background: #D8E8D0;
+  /* ═══════════════════════════════════════════
+     LINKS SECTION
+  ═══════════════════════════════════════════ */
+  .links-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
   }
-  :root[data-theme="dark"] .sidebar-card--blogroll { background: #1a2b23; }
-
-  .blogroll-sidebar-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .links-heading {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a8f84;
+    margin-bottom: 1rem;
+  }
+  .links-list {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.75rem;
   }
-
-  .blogroll-sidebar-item {
+  .wl-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    line-height: 1.5;
   }
-
-  .blogroll-sidebar-link {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--color-text);
-    text-decoration: none;
+  .wl-icon {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    opacity: 0.55;
+    filter: invert(35%) sepia(30%) saturate(500%) hue-rotate(140deg);
     display: block;
-    transition: color 150ms;
   }
-
-  .blogroll-sidebar-link:hover { color: var(--color-accent); }
-
-  .blogroll-latest-post {
-    display: flex;
-    align-items: baseline;
-    gap: 0.35rem;
-    text-decoration: none;
-    line-height: 1.3;
+  a.wl-title {
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: #2a2a28;
+    text-decoration: underline;
+    text-decoration-color: #bbb;
+    text-underline-offset: 2px;
   }
-
-  .blogroll-latest-post:hover .blogroll-latest-title { color: var(--color-accent); }
-
-  .blogroll-latest-title {
-    font-size: 0.74rem;
-    color: var(--color-text-muted);
-    transition: color 150ms;
-    overflow: hidden;
+  a.wl-title:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+  :root[data-theme="dark"] a.wl-title { color: #ccc; }
+  .wl-domain { font-size: 0.68rem; color: #3A7080; letter-spacing: 0.02em; }
+  .wl-date { font-size: 0.68rem; color: #bbb; margin-left: auto; }
+  .wl-desc {
+    font-size: 0.72rem; color: #999; line-height: 1.4; padding-left: 1.35rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-  }
-
-  .blogroll-latest-date {
-    font-size: 0.68rem;
-    color: var(--color-text-muted);
-    white-space: nowrap;
-    opacity: 0.7;
-    flex-shrink: 0;
+    overflow: hidden;
   }
 
   .sidebar-read-more {
