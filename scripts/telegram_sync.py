@@ -121,8 +121,26 @@ def slugify(text):
     return text.strip('-')[:50]
 
 
+def url_already_exists(url):
+    """Return True if this URL is already stored in any weblink file."""
+    url_base = re.sub(r'\?.*', '', url.rstrip('/'))
+    for p in WEBLINKS_DIR.glob('*.md'):
+        text = p.read_text(encoding='utf-8')
+        m = re.search(r'^url:\s*(.+)$', text, re.MULTILINE)
+        if not m:
+            continue
+        existing = m.group(1).strip()
+        existing_base = re.sub(r'\?.*', '', existing.rstrip('/'))
+        if existing == url or existing_base == url_base:
+            print(f'Skipped (already exists as {p.name}): {url[:60]}')
+            return True
+    return False
+
+
 def create_weblink(url, date):
     url = resolve_redirect_url(url)
+    if url_already_exists(url):
+        return
     title, description = fetch_page_meta(url)
     slug = slugify(title) or f'link-{date.strftime("%Y%m%d%H%M%S")}'
     date_str = date.strftime('%Y-%m-%d')
