@@ -9,7 +9,7 @@
  *   node scripts/validate-content.mjs --fix-report   # show fixable issues only
  */
 
-import { readFileSync, readdirSync, statSync } from 'fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, relative, extname } from 'path';
 import { createRequire } from 'module';
 
@@ -216,6 +216,31 @@ for (const file of files) {
     console.warn(`⚠ ${rel}`);
     fileWarnings.forEach(w => console.warn(w));
     warnings += fileWarnings.length;
+  }
+}
+
+// ── triples.json topic ID check ───────────────────────────────────────────────
+// Topic IDs are used as URL slugs in /research/[slug].astro — they must be
+// URL-safe: no slashes, spaces, or other characters that break routing.
+const TRIPLES_PATH = join(ROOT, 'src', 'data', 'triples.json');
+const URL_UNSAFE = /[/\s?#%&=+]/;
+
+if (existsSync(TRIPLES_PATH)) {
+  let triplesData;
+  try {
+    triplesData = JSON.parse(readFileSync(TRIPLES_PATH, 'utf8'));
+  } catch (e) {
+    console.error(`✗ triples.json: JSON parse error: ${e.message}`);
+    errors++;
+  }
+  if (triplesData?.topics) {
+    for (const id of Object.keys(triplesData.topics)) {
+      if (URL_UNSAFE.test(id)) {
+        console.error(`✗ triples.json: topic ID contains URL-unsafe character: "${id}"`);
+        console.error(`  Rename to use only lowercase letters, digits, and hyphens.`);
+        errors++;
+      }
+    }
   }
 }
 
