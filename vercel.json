@@ -1,5 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "echo 'No build, API-only deploy. Astro static site is served from GitHub Pages.'",
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/index" }
   ],
