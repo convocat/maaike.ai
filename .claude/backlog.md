@@ -425,11 +425,11 @@ Deliverables: one article and one LinkedIn post. Use `/new-post` to start. I wil
 ---
 
 ## 🟡 Content: About page rewrite
-*added: 2026-03-27 · last-touched: 2026-03-28*
+*added: 2026-03-27 · last-touched: 2026-05-05*
 
-The About page is due for a rewrite (flagged during stream redesign session). The sidebar bio blurb in `src/pages/index.astro` is a placeholder and should be updated to match once the About page is done. Start with `/new-post` or direct editing.
+Structure is now in place: `about.astro` replaced by `src/pages/about.md` with full frontmatter (date, maturity, tags, description, ai). Editable in Typora. Renders with PostLayout like all other garden posts. What's still needed: Maaike rewrites the actual content (bio, what grows here, etc.) to reflect where the garden is now. Also update the sidebar bio blurb in `src/pages/index.astro` once the About page is done.
 
-Key files: `src/pages/about.astro`, `src/pages/index.astro` (sidebar bio)
+Key files: `src/pages/about.md`, `src/pages/index.astro` (sidebar bio)
 
 ---
 
