@@ -2,7 +2,7 @@
 title: "Reading notes: manifesto for an acentric design (Masure, 2019)"
 date: 2026-05-05
 maturity: draft
-draft: true
+draft: false
 tags: [interface-design, metaphor, UCD, design-history, HCI, anthropomorphism]
 description: "Annotation of Masure (2019). Interface Critique no. 2. Argues against user-centered design as a reductive framing, tracing from Xerox Star through Don Norman to experience design."
 ai: "100% Maai"

@@ -577,6 +577,18 @@
       "connections": 0
     },
     {
+      "slug": "beyond-anthropomorphism-reading-notes",
+      "title": "Reading notes: beyond anthropomorphism (So et al., CHI EA '26)",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Annotation of So, Cheng & Krishna Murthy (2026). CHI EA '26. Proposes a spectrum of LLM interface metaphors from anti- to hyper-anthropomorphism to encourage critical engagement.",
+      "url": "/field-notes/beyond-anthropomorphism-reading-notes",
+      "x": 0.3169,
+      "y": 0.2809,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "book-recommender",
       "title": "Book recommender",
       "collection": "field-notes",
@@ -625,6 +637,18 @@
       "connections": 1
     },
     {
+      "slug": "conference-talk-guildford",
+      "title": "Conference talk Guildford",
+      "collection": "field-notes",
+      "maturity": "draft",
+      "description": "Capturing ideas from the Guildford session and shaping them into a talk.",
+      "url": "/field-notes/conference-talk-guildford",
+      "x": 0.7226,
+      "y": 0.5785,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "content-chunk-size-and-embeddings",
       "title": "How content chunk size influences embedding representations",
       "collection": "field-notes",
@@ -655,8 +679,8 @@
       "maturity": "developing",
       "description": "A non-coder's guide to text embedding models, from word counting to semantic understanding, surveyed for use in a personal knowledge garden.",
       "url": "/field-notes/embedding-models-for-the-garden",
-      "x": 0.6865,
-      "y": 0.7049,
+      "x": 0.6958,
+      "y": 0.6974,
       "keyphrases": [],
       "connections": 15
     },
@@ -955,8 +979,8 @@
       "maturity": "draft",
       "description": "Academic research on embeddings hasn't caught up with how PKM tools actually use them. There might be something worth writing here.",
       "url": "/seeds/embeddings-for-knowledge-gardens-research-gap",
-      "x": 0.6722,
-      "y": 0.7299,
+      "x": 0.672,
+      "y": 0.7355,
       "keyphrases": [],
       "connections": 20
     },
@@ -983,6 +1007,18 @@
       "y": 0.7017,
       "keyphrases": [],
       "connections": 3
+    },
+    {
+      "slug": "guildford-talk-ideas",
+      "title": "Ideas, brainwaves and jottings for Guildford talk",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Running scratchpad for the Guildford conference talk. Ideas as they arrive.",
+      "url": "/seeds/guildford-talk-ideas",
+      "x": 0.4493,
+      "y": 0.6972,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "how-to-build-a-digital-garden",
@@ -2281,38 +2317,14 @@
       "connections": 0
     },
     {
-      "slug": "beyond-anthropomorphism-reading-notes",
-      "title": "Reading notes: beyond anthropomorphism (So et al., CHI EA '26)",
+      "slug": "masure-acentric-design-reading-notes",
+      "title": "Reading notes: manifesto for an acentric design (Masure, 2019)",
       "collection": "field-notes",
       "maturity": "draft",
-      "description": "Annotation of So, Cheng & Krishna Murthy (2026). CHI EA '26. Proposes a spectrum of LLM interface metaphors from anti- to hyper-anthropomorphism to encourage critical engagement.",
-      "url": "/field-notes/beyond-anthropomorphism-reading-notes",
-      "x": 0.3169,
-      "y": 0.2809,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "conference-talk-guildford",
-      "title": "Conference talk Guildford",
-      "collection": "field-notes",
-      "maturity": "draft",
-      "description": "Capturing ideas from the Guildford session and shaping them into a talk.",
-      "url": "/field-notes/conference-talk-guildford",
-      "x": 0.7226,
-      "y": 0.5785,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "guildford-talk-ideas",
-      "title": "Ideas, brainwaves and jottings for Guildford talk",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Running scratchpad for the Guildford conference talk. Ideas as they arrive.",
-      "url": "/seeds/guildford-talk-ideas",
-      "x": 0.4493,
-      "y": 0.6972,
+      "description": "Annotation of Masure (2019). Interface Critique no. 2. Argues against user-centered design as a reductive framing, tracing from Xerox Star through Don Norman to experience design.",
+      "url": "/field-notes/masure-acentric-design-reading-notes",
+      "x": 0.6715,
+      "y": 0.7119,
       "keyphrases": [],
       "connections": 0
     }
@@ -2370,7 +2382,7 @@
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 25
+      "itemCount": 26
     }
   ],
   "topography": {
@@ -2707,14 +2719,14 @@
             ],
             [
               0.484,
-              0.971
+              0.972
             ],
             [
               0.516,
               0.97
             ],
             [
-              0.535,
+              0.538,
               0.968
             ],
             [
@@ -2727,66 +2739,66 @@
             ],
             [
               0.613,
-              0.958
+              0.959
             ],
             [
               0.645,
-              0.952
+              0.953
             ],
             [
               0.677,
-              0.943
+              0.944
             ],
             [
-              0.7,
+              0.705,
               0.935
             ],
             [
               0.71,
-              0.933
+              0.934
             ],
             [
               0.742,
-              0.92
+              0.922
             ],
             [
               0.774,
-              0.904
+              0.906
             ],
             [
-              0.775,
+              0.779,
               0.903
             ],
             [
               0.806,
-              0.887
+              0.889
             ],
             [
-              0.834,
+              0.836,
               0.871
             ],
             [
               0.839,
-              0.868
+              0.87
             ],
             [
               0.871,
-              0.85
+              0.851
             ],
             [
-              0.889,
+              0.891,
               0.839
             ],
             [
               0.903,
-              0.831
+              0.832
             ],
             [
               0.935,
-              0.811
+              0.812
             ],
             [
-              0.942,
+              0.943,
               0.806
             ],
             [
@@ -2954,39 +2966,39 @@
             ],
             [
               0.71,
-              0.405
+              0.406
             ],
             [
-              0.685,
+              0.687,
               0.419
             ],
             [
               0.677,
-              0.434
+              0.438
             ],
             [
-              0.668,
+              0.67,
               0.452
             ],
             [
               0.677,
-              0.464
+              0.46
             ],
             [
               0.71,
-              0.474
+              0.471
             ],
             [
               0.742,
-              0.473
+              0.47
             ],
             [
               0.774,
-              0.468
+              0.467
             ],
             [
               0.806,
-              0.465
+              0.464
             ],
             [
               0.839,
@@ -3049,72 +3061,72 @@
               0.722
             ],
             [
-              0.909,
+              0.91,
               0.742
             ],
             [
               0.903,
-              0.746
+              0.747
             ],
             [
               0.871,
-              0.765
+              0.767
             ],
             [
-              0.854,
+              0.858,
               0.774
             ],
             [
               0.839,
-              0.783
+              0.785
             ],
             [
               0.806,
-              0.799
+              0.803
             ],
             [
-              0.792,
+              0.799,
               0.806
             ],
             [
               0.774,
-              0.816
+              0.82
             ],
             [
               0.742,
-              0.831
+              0.835
             ],
             [
-              0.723,
+              0.733,
               0.839
             ],
             [
               0.71,
-              0.844
+              0.849
             ],
             [
               0.677,
-              0.855
+              0.859
             ],
             [
               0.645,
-              0.865
+              0.868
             ],
             [
-              0.623,
+              0.633,
               0.871
             ],
             [
               0.613,
-              0.874
+              0.876
             ],
             [
               0.581,
-              0.881
+              0.883
             ],
             [
               0.548,
-              0.888
+              0.889
             ],
             [
               0.516,
@@ -3126,7 +3138,7 @@
             ],
             [
               0.452,
-              0.896
+              0.897
             ],
             [
               0.419,
@@ -3377,6 +3389,18 @@
       "type": "project"
     },
     {
+      "id": "project-conference-talk-guildford",
+      "name": "Conference talk Guildford",
+      "description": "Capturing ideas from the Guildford session and shaping them into a talk.",
+      "items": [
+        "conference-talk-guildford",
+        "beyond-anthropomorphism-reading-notes",
+        "guildford-talk-ideas",
+        "masure-acentric-design-reading-notes"
+      ],
+      "type": "project"
+    },
+    {
       "id": "project-explore-page-design",
       "name": "Explore page: a visual browsing UI for the garden",
       "description": "Design document for an /explore page that lets visitors walk through the garden visually, using semantic maps, serendipity, and trails.",
@@ -3413,17 +3437,6 @@
         "key-phrase-extraction-prototype",
         "external-content-discovery",
         "typed-relations-as-garden-infrastructure"
-      ],
-      "type": "project"
-    },
-    {
-      "id": "project-conference-talk-guildford",
-      "name": "Conference talk Guildford",
-      "description": "Capturing ideas from the Guildford session and shaping them into a talk.",
-      "items": [
-        "conference-talk-guildford",
-        "beyond-anthropomorphism-reading-notes",
-        "guildford-talk-ideas"
       ],
       "type": "project"
     }
