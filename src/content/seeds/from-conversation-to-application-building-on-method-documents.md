@@ -9,7 +9,7 @@ tags:
   - conversation-design
   - claude-code
   - cdim
-ai: "assisted"
+ai: "100% Maai"
 ---
 
 My Conversation-driven Interaction Model teaches how to build interactive experiences that draw from a source document: the document is the knowledge base, the conversation is the interface.
