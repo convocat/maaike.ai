@@ -24,3 +24,8 @@ Capture ideas from the Guildford session and shape them into a talk.
 ## Log
 
 *Project started 2026-05-05.*
+
+- **2026-05-05** — Added scratchpad [[guildford-talk-ideas|Ideas, brainwaves and jottings for Guildford talk]]
+- **2026-05-05** — Added reading notes [[beyond-anthropomorphism-reading-notes|Beyond anthropomorphism]]
+- **2026-05-05** — Added reading notes [[masure-acentric-design-reading-notes|Masure: Manifesto for an acentric design]]
+- **2026-05-05** — Added jotting [[how-to-design-when-concept-of-operations-is-opaque|How to design when the concept of operations is opaque?]]
