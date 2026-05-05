@@ -76,7 +76,7 @@ Failed feeds are silently dropped (allSettled). Stale data is acceptable, it's u
 
 ## Body preview
 
-Some cards in the stream show a short body preview. This is extracted at build time by `extractBodyPreview()`:
+Article cards always show a 3-line body excerpt. Jotting cards show one only when `ai: "100% Maai"`. All other collection types show the `description` field instead. The excerpt is extracted at build time by `extractBodyPreview()`:
 
 ```js
 function extractBodyPreview(body, maxLen = 220) {

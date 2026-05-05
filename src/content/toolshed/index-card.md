@@ -71,19 +71,21 @@ The card lifts 2px. Border disappears (shadow takes over). 250ms ease transition
 ## Hero card variant
 
 The pinned/featured card gets:
-- Larger strip (64px)
-- Ruled lines on the main column (repeating blue linear-gradient, every 1.75rem)
+- Same strip width as regular cards (52px)
+- Warm parchment background (#FEFAE8) on the main column
+- Ruled lines on top of the parchment (repeating blue linear-gradient, every 1.75rem)
 - A rubber stamp: "FEATURED" in red at bottom-right, 10deg rotation, 45% opacity
 - `scale(1.01)` on hover instead of translate
 
 ```css
 .mosaic-card--hero .mosaic-main {
+  background-color: #FEFAE8;
   background-image: repeating-linear-gradient(
     to bottom,
     transparent,
     transparent calc(1.75rem - 1px),
-    rgba(80, 120, 200, 0.1) calc(1.75rem - 1px),
-    rgba(80, 120, 200, 0.1) 1.75rem
+    rgba(80, 120, 200, 0.12) calc(1.75rem - 1px),
+    rgba(80, 120, 200, 0.12) 1.75rem
   );
 }
 
