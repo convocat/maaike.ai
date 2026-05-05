@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 About page: content rewrite
+*2026-05-05*
+
+The about page structure is fully in place — PostLayout, frontmatter, editable in Typora at `src/pages/about.md`. What's still needed: Maaike rewrites the actual content (bio, what grows here, how maturity works, etc.) to reflect where the garden is now. Once done, update the sidebar bio blurb in `src/pages/index.astro` to match.
+
+Key files: `src/pages/about.md`, `src/pages/index.astro` (sidebar bio)
+
+**Opening message for next session:**
+> Open `src/pages/about.md` in Typora and rewrite the about page content. The structure and frontmatter are already in place. Once the text is done, update the sidebar bio blurb in `src/pages/index.astro` to match.
+
+---
+
 ## 🟡 Stream redesign follow-ups (May 5 session)
 *2026-05-05*
 
