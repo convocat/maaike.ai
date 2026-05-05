@@ -595,8 +595,8 @@
       "maturity": "draft",
       "description": "A personal book recommender that matches candidates against my library and garden interests. No AI, just logic and situational vibe chips.",
       "url": "/field-notes/book-recommender",
-      "x": 0.4482,
-      "y": 0.8145,
+      "x": 0.4398,
+      "y": 0.8195,
       "keyphrases": [],
       "connections": 7
     },
@@ -979,8 +979,8 @@
       "maturity": "draft",
       "description": "Standard quantization damages non-English languages disproportionately. A Dutch-first approach to model compression shows there's a better way.",
       "url": "/seeds/dutch-aware-quantization",
-      "x": 0.483,
-      "y": 0.7756,
+      "x": 0.485,
+      "y": 0.7749,
       "keyphrases": [],
       "connections": 0
     },
@@ -1159,8 +1159,8 @@
       "maturity": "solid",
       "description": "Vincent Rump introduces the Tri-System Theory (Shaw & Nave, 2026), which extends Kahneman's dual-process model by proposing a third cognitive system — artificial cognition (AI) — that actively participates in human reasoning and decision-making. The post argues that humans increasingly defer to AI outputs with minimal critical reflection, a phenomenon the authors call \"cognitive surrender,\" which improves decision quality when AI is correct but degrades it when AI is wrong — while trust remains consistently high either way. This raises urgent questions about human autonomy, expertise, and responsibility as cognition becomes a hybrid, human-AI process.",
       "url": "/weblinks/ai-artificialintelligence-behavior-behaviour-behav",
-      "x": 0.4231,
-      "y": 0.6813,
+      "x": 0.4242,
+      "y": 0.6805,
       "keyphrases": [],
       "connections": 0
     },
@@ -1171,8 +1171,8 @@
       "maturity": "solid",
       "description": "",
       "url": "/weblinks/alcpe-a-practitioner-s-guide-r-verity-vabolis",
-      "x": 0.4857,
-      "y": 0.8532,
+      "x": 0.4845,
+      "y": 0.8551,
       "keyphrases": [],
       "connections": 2
     },
@@ -1269,6 +1269,18 @@
       "url": "/weblinks/instagram",
       "x": 0.6642,
       "y": 0.5478,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "masure-manifesto-acentric-design",
+      "title": "Manifesto for an acentric design",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Anthony Masure traces UCD from Xerox Star through Don Norman, arguing that design cannot be centered on anything. A world built on invisible technology is a world without experience.",
+      "url": "/weblinks/masure-manifesto-acentric-design",
+      "x": 0.6557,
+      "y": 0.7458,
       "keyphrases": [],
       "connections": 0
     },
@@ -1399,8 +1411,8 @@
       "maturity": "complete",
       "description": "A hands-on exploration of Microsoft Copilot for PowerPoint, testing its capabilities for presentation creation and editing, with humorous comparisons to the legacy Clippy assistant. Copilot has significant limitations in understanding context and user intent, particularly with non-English content and specific editing requests. The AI assistant struggles with co-reference resolution, making it difficult to understand which slide or element I am referring to. Copilot cannot directly access or interact with PowerPoint Online, limiting its functionality for cloud-based workflows. The fallback responses are repetitive and lack conversational variety, making the user experience frustrating. Despite being positioned as an AI assistant, Copilot performs worse than the legacy Clippy assistant from the 1990s in practical usability. Dutch language support is officially unavailable, creating barriers for non-English users even when prompting in English. My experience raises questions about the readiness of Copilot for PowerPoint as a production-ready tool for content creators.",
       "url": "/videos/an-evening-with-copilot-for-powerpoint",
-      "x": 0.3898,
-      "y": 0.7063,
+      "x": 0.39,
+      "y": 0.7062,
       "keyphrases": [],
       "connections": 0
     },
@@ -1411,8 +1423,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.3277,
-      "y": 0.7651,
+      "x": 0.3267,
+      "y": 0.7655,
       "keyphrases": [],
       "connections": 0
     },
@@ -1447,8 +1459,8 @@
       "maturity": "complete",
       "description": "Before 2022, it was pretty clear whether you were talking to a bot or a human. With the arrival of ChatGPT, this changed – radically. With a user interface that combines the gift of the gab with information that's not necessarily accurate, designers are faced with a novel challenge. How do we design for interfaces that are so convincing that people instinctively drop their guards and trust them more than might be good for them? And do our traditional design paradigms still serve us here?",
       "url": "/videos/designing-for-doubt",
-      "x": 0.4083,
-      "y": 0.7726,
+      "x": 0.4081,
+      "y": 0.7717,
       "keyphrases": [],
       "connections": 4
     },
@@ -1483,8 +1495,8 @@
       "maturity": "complete",
       "description": "Episode 3 of the Maai & AI series, on how LLMs work and some of their risks.",
       "url": "/videos/episode-3-llms-how-they-work",
-      "x": 0.3784,
-      "y": 0.6625,
+      "x": 0.3781,
+      "y": 0.6615,
       "keyphrases": [],
       "connections": 0
     },
@@ -1579,8 +1591,8 @@
       "maturity": "complete",
       "description": "A demonstration of Google's NotebookLM interactive podcast feature, where I participate as a guest in an AI-generated podcast discussion about the Coconut research paper on latent reasoning in large language models. NotebookLM now features an interactive podcast mode (beta) that allows users to join AI-generated podcast discussions about uploaded documents. The Coconut paper introduces a breakthrough method where AI can reason in continuous latent space rather than through explicit chain-of-thought language, potentially improving reasoning for complex problems. I raise philosophical questions about verification of hidden reasoning, and critical concerns about transparency, compliance, and explainability. Latent reasoning creates a black box problem: we see inputs and outputs but cannot observe the reasoning process. I also test the feature's limits by requesting humor, making Monty Python references, and asking the hosts to switch to Dutch, revealing important insights about inclusivity, turn-taking, and accessibility in AI-generated conversations. Despite current limitations where AI hosts can become condescending or defensive, the feature represents a significant step toward more natural, bidirectional conversations with documents and AI systems.",
       "url": "/videos/notebooklm-podcast-guest",
-      "x": 0.3695,
-      "y": 0.747,
+      "x": 0.3684,
+      "y": 0.7479,
       "keyphrases": [],
       "connections": 0
     },
@@ -2011,8 +2023,8 @@
       "maturity": "developing",
       "description": "Pragmatic meaning relies on communicative situatedness: knowing who you are, what you want, and what the other party understands. LLMs lack this situatedness, making their pragmatic outputs structurally different from human communication.",
       "url": "/library/pragmatics-beyond-humans",
-      "x": 0.5003,
-      "y": 0.8855,
+      "x": 0.501,
+      "y": 0.8868,
       "keyphrases": [],
       "connections": 1
     },
@@ -2035,8 +2047,8 @@
       "maturity": "draft",
       "description": "An accessible introduction to semiotics, explaining how signs, codes, and meaning-making work across language, images, and culture",
       "url": "/library/semiotics-the-basics",
-      "x": 0.4625,
-      "y": 0.7876,
+      "x": 0.4623,
+      "y": 0.7817,
       "keyphrases": [],
       "connections": 0
     },
@@ -2269,6 +2281,18 @@
       "connections": 0
     },
     {
+      "slug": "how-to-design-when-concept-of-operations-is-opaque",
+      "title": "How to design when the concept of operations is opaque?",
+      "collection": "jottings",
+      "maturity": "complete",
+      "description": "On working with Claude: unlike traditional software, LLMs have no pre-baked concept of operations. You have to define it yourself, and that requires an expert-level mental model.",
+      "url": "/jottings/how-to-design-when-concept-of-operations-is-opaque",
+      "x": 0.2094,
+      "y": 0.6039,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "latest-addition-to-my-thinking-tools-a-tiny-e-reader",
       "title": "Latest addition to my Thinking Tools collection: a tiny e-reader",
       "collection": "jottings",
@@ -2329,26 +2353,14 @@
       "connections": 0
     },
     {
-      "slug": "masure-manifesto-acentric-design",
-      "title": "Manifesto for an acentric design",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Anthony Masure traces UCD from Xerox Star through Don Norman, arguing that design cannot be centered on anything. A world built on invisible technology is a world without experience.",
-      "url": "/weblinks/masure-manifesto-acentric-design",
-      "x": 0.6557,
-      "y": 0.7458,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "how-to-design-when-concept-of-operations-is-opaque",
-      "title": "How to design when the concept of operations is opaque?",
-      "collection": "jottings",
+      "slug": "beyond-the-chat-box",
+      "title": "Beyond the Chat Box",
+      "collection": "experiments",
       "maturity": "complete",
-      "description": "On working with Claude: unlike traditional software, LLMs have no pre-baked concept of operations. You have to define it yourself, and that requires an expert-level mental model.",
-      "url": "/jottings/how-to-design-when-concept-of-operations-is-opaque",
-      "x": 0.2094,
-      "y": 0.6039,
+      "description": "A curated reader on alternative interface metaphors for LLMs, structured by metaphor family and prepared as keynote sparring material for linguists and HCI researchers.",
+      "url": "/experiments/beyond-the-chat-box",
+      "x": 0.4925,
+      "y": 0.8138,
       "keyphrases": [],
       "connections": 0
     }
@@ -2394,7 +2406,7 @@
       "label": "knowledge-graph",
       "centerX": 0.4974,
       "centerY": 0.7123,
-      "itemCount": 48
+      "itemCount": 49
     },
     {
       "label": "philosophy",
@@ -2687,7 +2699,7 @@
             ],
             [
               0.161,
-              0.864
+              0.865
             ],
             [
               0.166,
@@ -2703,91 +2715,91 @@
             ],
             [
               0.226,
-              0.918
+              0.919
             ],
             [
               0.258,
-              0.932
+              0.933
             ],
             [
-              0.267,
+              0.264,
               0.935
             ],
             [
               0.29,
-              0.944
+              0.946
             ],
             [
               0.323,
-              0.953
+              0.955
             ],
             [
               0.355,
-              0.96
+              0.962
             ],
             [
               0.387,
-              0.965
+              0.968
             ],
             [
-              0.415,
+              0.388,
               0.968
             ],
             [
               0.419,
-              0.968
+              0.973
             ],
             [
               0.452,
-              0.971
+              0.976
             ],
             [
               0.484,
-              0.972
+              0.977
             ],
             [
               0.516,
-              0.97
-            ],
-            [
-              0.546,
-              0.968
+              0.976
             ],
             [
               0.548,
+              0.972
+            ],
+            [
+              0.576,
               0.968
             ],
             [
               0.581,
-              0.964
+              0.967
             ],
             [
               0.613,
-              0.96
+              0.963
             ],
             [
               0.645,
-              0.955
+              0.956
             ],
             [
               0.677,
-              0.947
+              0.948
             ],
             [
               0.71,
-              0.936
+              0.937
             ],
             [
-              0.711,
+              0.713,
               0.935
             ],
             [
               0.742,
-              0.924
+              0.925
             ],
             [
               0.774,
-              0.908
+              0.909
             ],
             [
               0.783,
@@ -3117,7 +3129,7 @@
               0.824
             ],
             [
-              0.744,
+              0.745,
               0.839
             ],
             [
@@ -3126,99 +3138,99 @@
             ],
             [
               0.71,
-              0.853
+              0.854
             ],
             [
               0.677,
-              0.864
+              0.866
             ],
             [
-              0.649,
+              0.658,
               0.871
             ],
             [
               0.645,
-              0.872
+              0.875
             ],
             [
               0.613,
-              0.88
+              0.884
             ],
             [
               0.581,
-              0.886
-            ],
-            [
-              0.548,
               0.891
             ],
             [
+              0.548,
+              0.897
+            ],
+            [
               0.516,
-              0.895
+              0.901
             ],
             [
               0.484,
-              0.897
+              0.903
             ],
             [
               0.452,
-              0.897
+              0.903
             ],
             [
               0.419,
-              0.895
+              0.9
             ],
             [
               0.387,
-              0.89
+              0.894
             ],
             [
               0.355,
-              0.883
+              0.886
             ],
             [
               0.323,
-              0.872
+              0.875
             ],
             [
-              0.32,
+              0.315,
               0.871
             ],
             [
               0.29,
-              0.857
+              0.859
             ],
             [
-              0.263,
+              0.261,
               0.839
             ],
             [
               0.258,
-              0.834
+              0.836
             ],
             [
-              0.233,
+              0.232,
               0.806
             ],
             [
               0.226,
-              0.795
+              0.796
             ],
             [
               0.215,
               0.774
             ],
             [
-              0.205,
+              0.204,
               0.742
             ],
             [
-              0.198,
+              0.197,
               0.71
             ],
             [
               0.194,
-              0.68
+              0.681
             ],
             [
               0.193,
@@ -3421,7 +3433,8 @@
         "beyond-anthropomorphism-reading-notes",
         "masure-acentric-design-reading-notes",
         "guildford-talk-ideas",
-        "how-to-design-when-concept-of-operations-is-opaque"
+        "how-to-design-when-concept-of-operations-is-opaque",
+        "beyond-the-chat-box"
       ],
       "type": "project"
     },

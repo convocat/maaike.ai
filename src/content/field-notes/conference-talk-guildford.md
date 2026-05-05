@@ -29,3 +29,4 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-05** — Added reading notes [[beyond-anthropomorphism-reading-notes|Beyond anthropomorphism]]
 - **2026-05-05** — Added reading notes [[masure-acentric-design-reading-notes|Masure: Manifesto for an acentric design]]
 - **2026-05-05** — Added jotting [[how-to-design-when-concept-of-operations-is-opaque|How to design when the concept of operations is opaque?]]
+- **2026-05-05** — Added reader [[beyond-the-chat-box|Beyond the Chat Box]]
