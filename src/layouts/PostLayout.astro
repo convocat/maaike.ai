@@ -18,6 +18,7 @@ interface Props {
   open_questions?: string[];
   description?: string;
   collection: string;
+  collectionOverride?: string;
   slug: string;
   url?: string;
   ai?: '100% Maai' | 'assisted' | 'co-created' | 'generated';
@@ -25,13 +26,20 @@ interface Props {
   develops?: string;
   backHref?: string;
   backLabel?: string;
+  postUrlOverride?: string;
+  ogImageOverride?: string;
 }
 
-const { title, date, updated, maturity, tags, triples, themes, open_questions, description, collection, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream' } = Astro.props;
+// Markdown layout pages pass all frontmatter under Astro.props.frontmatter;
+// content collection routes pass props directly.
+const source = Astro.props.frontmatter ?? Astro.props;
+const { title, updated, maturity, tags, triples, themes, open_questions, description, collection: collectionProp, collectionOverride, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream', postUrlOverride, ogImageOverride } = source;
+const collection = collectionOverride ?? collectionProp;
+const date = source.date instanceof Date ? source.date : new Date(source.date);
 
 const isHub = hub === true;
-const ogImage = `/images/og/${collection}/${slug}.png`;
-const postUrl = `https://maaike.ai/${collection}/${slug}/`;
+const ogImage = ogImageOverride ?? `/images/og/${collection}/${slug}.png`;
+const postUrl = postUrlOverride ?? `https://maaike.ai/${collection}/${slug}/`;
 
 const aiLabels: Record<string, { label: string; description: string }> = {
   '100% Maai': { label: '100% Maai', description: 'Fully written by me.' },
@@ -77,7 +85,7 @@ const formattedUpdated = updated
         </div>
         <h1>{title}</h1>
         {description && <p class="post-subtitle">{description}</p>}
-        {url && collection !== 'videos' && (
+        {url && url.startsWith('http') && collection !== 'videos' && (
           <a href={url} class="external-link" target="_blank" rel="noopener noreferrer">
             {new URL(url).hostname.replace('www.', '')} ↗
             <span class="visually-hidden">(opens in new window)</span>

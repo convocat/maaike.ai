@@ -8,16 +8,17 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  narrow?: boolean;
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, narrow } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage}>
   <SketchyFilter />
   <Header />
   <main id="main-content" class="container">
-    <slot />
+    {narrow ? <div class="prose-page"><slot /></div> : <slot />}
   </main>
   <Footer />
 </BaseLayout>
@@ -26,5 +27,32 @@ const { title, description, ogImage } = Astro.props;
   main {
     padding-block: var(--space-2xl);
     min-height: calc(100vh - 200px);
+  }
+
+  .prose-page {
+    max-width: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .prose-page :global(p) {
+    margin-block: var(--space-md);
+  }
+
+  .prose-page :global(h2) {
+    margin-block-start: var(--space-2xl);
+    margin-block-end: var(--space-sm);
+  }
+
+  .prose-page :global(h3) {
+    margin-block-start: var(--space-xl);
+    margin-block-end: var(--space-sm);
+  }
+
+  .prose-page :global(ul), .prose-page :global(ol) {
+    padding-inline-start: var(--space-lg);
+  }
+
+  .prose-page :global(li) {
+    margin-block: var(--space-xs);
   }
 </style>
