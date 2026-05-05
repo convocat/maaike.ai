@@ -1,15 +1,41 @@
 ---
 import '../styles/global.css';
+import ChatPanel from '../components/ChatPanel.astro';
+
+export interface PageContext {
+  type: string;
+  title: string;
+  url: string;
+  description?: string;
+  collection?: string;
+  slug?: string;
+  tags?: string[];
+  themes?: string[];
+  triples?: [string, string, string][];
+  open_questions?: string[];
+  maturity?: string;
+  date?: string;
+  updated?: string;
+  ai?: string;
+}
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  pageContext?: PageContext;
 }
 
-const { title, description = 'A personal digital garden', ogImage } = Astro.props;
+const { title, description = 'A personal digital garden', ogImage, pageContext } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://www.maaike.ai').href;
 const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : 'https://www.maaike.ai/images/og-default.png';
+
+const ctx: PageContext = pageContext ?? {
+  type: 'page',
+  title,
+  description,
+  url: Astro.url.pathname,
+};
 ---
 
 <!doctype html>
@@ -19,7 +45,7 @@ const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : '
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; frame-ancestors 'self' https://www.linkedin.com https://linkedin.com;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' http://localhost:8780 https://maaike-ai.vercel.app; frame-ancestors 'self' https://www.linkedin.com https://linkedin.com;" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -58,5 +84,7 @@ const socialImage = ogImage ? new URL(ogImage, 'https://www.maaike.ai').href : '
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <slot />
+    <script id="page-context" type="application/json" set:html={JSON.stringify(ctx)} />
+    <ChatPanel />
   </body>
 </html>
