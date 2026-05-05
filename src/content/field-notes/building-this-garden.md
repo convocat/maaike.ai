@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-01
+updated: 2026-05-05
 maturity: solid
 tags:
 - about
@@ -405,6 +405,14 @@ A big admin day: the dashboard became a proper enrichment station with one-click
 - **Save to library**: new inline action in the inbox panel; pre-fills title, requires author, defaults to to-read; creates a `library/` entry and dismisses the source draft in one commit
 - **Open questions in Mycelium**: TAO proposals now include open questions; when applied, they appear in the Mycelium section under "Questions this raises" with an italic `?` prefix, alongside themes and relations
 - **Article enrichments**: three articles tagged via the Enrich tab: "A digital garden as central space", "You're not married to your texts", "Saturday design thoughts"
+
+### 5 May
+
+The about page grew up: converted from a static Astro file to a proper markdown post editable in Typora, with full garden frontmatter and the same PostLayout treatment as articles and field notes. Stream cards got more substance too.
+
+- **About page as markdown**: `about.astro` replaced by `src/pages/about.md` with full frontmatter (date, maturity, tags, ai field); PostLayout now handles standalone markdown pages alongside content collection entries
+- **Featured card visual**: strip width now matches regular cards; content area gets a warm parchment background (#FEFAE8) with blue ruled lines
+- **Body excerpts on cards**: article cards and 100% Maai jotting cards show a 3-line body excerpt with "Read more", instead of the short description field
 
 ## Related
 
