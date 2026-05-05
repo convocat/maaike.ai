@@ -44,6 +44,7 @@ const displayAi = ai ?? '100% Maai';
 const isQuote = collection === 'jottings' && jottingType === 'quote';
 const isPost  = collection === 'jottings' && jottingType === 'post';
 const isLink  = collection === 'jottings' && jottingType === 'link';
+const showExcerpt = !!bodyPreview;
 const isVideo = collection === 'videos';
 const isLibrary = collection === 'library';
 
@@ -123,7 +124,14 @@ const doodleIcon = collection === 'jottings'
         ) : isPost ? (
           <Fragment>
             <h3 class="mosaic-title">{title}</h3>
-            {description && <p class="mosaic-desc">{description}</p>}
+            {showExcerpt ? (
+              <Fragment>
+                <p class="mosaic-desc mosaic-excerpt">{bodyPreview}</p>
+                <span class="mosaic-read-more">Read more →</span>
+              </Fragment>
+            ) : (
+              description && <p class="mosaic-desc">{description}</p>
+            )}
           </Fragment>
         ) : (
           <Fragment>
@@ -133,9 +141,10 @@ const doodleIcon = collection === 'jottings'
             <h3 class="mosaic-title">{title}</h3>
             {isLibrary && author && <span class="mosaic-author">{author}</span>}
             {(isLink || collection === 'weblinks') && domain && <span class="mosaic-domain">{domain}</span>}
-            {(collection === 'articles' || collection === 'jottings') ? (
+            {showExcerpt ? (
               <Fragment>
-                {description && <p class="mosaic-desc">{description}</p>}
+                <p class="mosaic-desc mosaic-excerpt">{bodyPreview}</p>
+                <span class="mosaic-read-more">Read more →</span>
               </Fragment>
             ) : (
               description && <p class="mosaic-desc">{description}</p>
@@ -328,6 +337,12 @@ const doodleIcon = collection === 'jottings'
     color: var(--color-text-muted);
     line-height: 1.5;
     margin: 0;
+  }
+  .mosaic-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .mosaic-body-preview {
     font-size: 0.78rem;

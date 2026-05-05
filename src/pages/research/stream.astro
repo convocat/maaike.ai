@@ -97,7 +97,7 @@ const maturities = [
             domain={domain}
             url={data.url}
             ai={data.ai}
-            bodyPreview={(col === 'articles' || col === 'jottings') ? extractBodyPreview(entry.body) : undefined}
+            bodyPreview={col === 'articles' ? extractBodyPreview(entry.body) : (col === 'jottings' && data.ai === '100% Maai') ? extractBodyPreview(entry.body) : undefined}
           />
         );
       })}
