@@ -8,6 +8,20 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🔵 The Garden chatbot v0.1
+*2026-05-05*
+
+The chatbot ships and works end-to-end (mycelium + taxonomy + earth-tone meta pills). Pick up where we paused: write the system-prompt design artefact at `src/content/artefacts/the-garden-voice-v0-1.md` (Maaike approved Option B body format: prose + design notes), backfill the 2 missing `ai:` fields, make `ai` required in the Zod schema, then unconditionally render the pill in `src/layouts/PostLayout.astro`. Also: the Sources block in chat replies is unreliable (model often skips it under length pressure). Library exemption decision still open.
+
+Key files: `src/components/ChatPanel.astro`, `src/scripts/chat-panel.ts`, `src/layouts/PostLayout.astro`, `tools/karpathy-wiki/tools/serve.py` (handle_chat_api_stream + system prompt), `api/index.py` (Vercel /api/chat route), `src/content.config.ts` (where `ai:` needs to become required), `public/preview-meta-line.html` (preview file, can delete).
+
+Local API: `python tools/karpathy-wiki/tools/serve.py` (port 8780). Astro dev: `npm run dev` (port 4321).
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: pick up The Garden chatbot v0.1. Write the system-prompt design artefact at `src/content/artefacts/the-garden-voice-v0-1.md` (prose + design notes format), backfill the 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values I sign off on, then make `ai` required in the Zod schema and drop the conditional render in `src/layouts/PostLayout.astro`. After that, tighten the Sources block enforcement in the chat (model often skips it). Local API is `python tools/karpathy-wiki/tools/serve.py` on port 8780.
+
+---
+
 ## 🟡 About page: content rewrite
 *2026-05-05*
 
