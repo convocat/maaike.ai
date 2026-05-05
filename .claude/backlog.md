@@ -4,7 +4,60 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
 
-**Groomed:** 2026-04-27 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-05-05 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## 🟡 Stream redesign follow-ups (May 5 session)
+*2026-05-05*
+
+Three small items left from the stream redesign + e-reader jotting session. All are independent and can be picked in any order. Photos in stream is a feature request; the PDF stubs and inbox book entry are inbox hygiene.
+
+See individual backlog entries added 2026-05-05:
+- "Photos in stream cards"
+- "Process two PDF stubs"
+- "Telegram inbox: unnamed book entry (Apr 29)"
+
+Key files: `src/content.config.ts`, `src/components/MosaicCard.astro`, `src/content/files/`, `src/content/_inbox/telegram.md`
+
+**Opening message for next session:**
+> Three small follow-ups from the stream redesign session. Pick any order: (1) add photo preview to jotting stream cards (`src/components/MosaicCard.astro`); (2) run `/summarize-pdf` on the two stubs in `src/content/files/`; (3) ask Maaike what the unnamed Apr 29 book was and run `/new-book`.
+
+---
+
+## 🟡 Photos in stream cards
+*2026-05-05*
+
+When a jotting has inline images, they don't appear in the stream card preview. Maaike asked whether they could. Feasible: add optional `image` frontmatter field to jottings schema, pass it through MosaicCard.astro, and display it in the card body for `type: post` jottings.
+
+Key files: `src/content.config.ts`, `src/components/MosaicCard.astro`
+
+**Opening message for next session:**
+> Add photo preview to jotting stream cards. Add optional `image: /path/to/img.jpg` field to the jottings content schema in `src/content.config.ts`, update `MosaicCard.astro` to display it below the body text for `type: post` jottings. Test with `src/content/jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader.md` (has three images in `public/images/jottings/`).
+
+---
+
+## 🟡 Process two PDF stubs
+*2026-05-05*
+
+Two PDF stubs in `src/content/files/` are still unprocessed from the telegram sync (need `/summarize-pdf`):
+- `src/content/files/dingemanse-2026-interactional-foundations-for-crit.md`
+- `src/content/files/s44271-025-00376-6.md`
+
+**Opening message for next session:**
+> Run `/summarize-pdf` on the two pending PDF stubs: `dingemanse-2026-interactional-foundations-for-crit` and `s44271-025-00376-6` in `src/content/files/`. Match each to a library entry or create one, generate a structured summary, run `/auto-tag`, delete the stub.
+
+---
+
+## 🟡 Telegram inbox: unnamed book entry (Apr 29)
+*2026-05-05*
+
+`src/content/_inbox/telegram.md` has an Apr 29 entry: "This is not a weblink, but a book" — no title given. Needs Maaike to provide the book title before a library entry can be created.
+
+blocker: Maaike to provide book title/author
+
+**Opening message for next session:**
+> There's an Apr 29 inbox entry: "This is not a weblink, but a book" with no title. What book was it? Once confirmed, run `/new-book` to add it to the library.
 
 ---
 

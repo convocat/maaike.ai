@@ -76,7 +76,7 @@ Briefly scan the Toolshed posts in `src/content/toolshed/` for any that describe
 
 ### Step 7: Done
 
-Tell the user the handover is in the backlog at `/backlog` on the garden. Remind them to copy the entry text as their opening message for the new thread.
+Tell the user the handover is live at `https://www.maaike.ai/backlog` (the push in Step 4 triggers a rebuild). Remind them to copy the opening message text as the first message in the new thread.
 
 ## Conventions
 

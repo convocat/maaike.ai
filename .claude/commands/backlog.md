@@ -80,7 +80,13 @@ If yes:
 - Update the relevant item's `status`, `last-touched` date, and `blocker` field
 - Add a new entry if a new item was discovered during the session
 - If an item was completed, move it to the Archive section
-- Do NOT commit automatically — show the diff and let Maaike decide whether to commit now or bundle with other work
+- Show the diff, then commit and push immediately:
+  ```
+  git add .claude/backlog.md
+  git commit -m "Backlog: update [item]"
+  git push
+  ```
+  This keeps the visual backlog at `maaike.ai/backlog` current. Do not skip the push.
 
 ---
 
