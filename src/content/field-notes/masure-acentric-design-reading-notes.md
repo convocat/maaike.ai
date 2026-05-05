@@ -9,6 +9,8 @@ ai: "100% Maai"
 develops: conference-talk-guildford
 ---
 
+*Part of [[conference-talk-guildford]].*
+
 **Masure, A. (2019)**
 *Manifesto for an acentric design*
 Interface Critique, no. 2, "Navigating the Human" · [anthonymasure.com](https://www.anthonymasure.com/en/articles/2019-12-manifesto-acentric-design) · CC BY-SA

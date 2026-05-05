@@ -9,6 +9,8 @@ ai: "100% Maai"
 develops: conference-talk-guildford
 ---
 
+*Part of [[conference-talk-guildford]].*
+
 ## Conversation as metaphor
 
 a metaphor is handy because it helps us discover how an abstract concept works and how we should interact with it. It helps us build our mental model of something new. For instance, a desktop helps us understanding a computer by comparing it to a concept we already know. There's objects in that metaphor that we know how to manipulate. 

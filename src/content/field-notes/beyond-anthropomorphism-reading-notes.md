@@ -9,6 +9,8 @@ ai: "100% Maai"
 develops: conference-talk-guildford
 ---
 
+*Part of [[conference-talk-guildford]].*
+
 **So, J., Cheng, C. & Krishna Murthy, S. (2026)**
 *Beyond anthropomorphism: a spectrum of interface metaphors for LLMs*
 CHI EA '26, Article 120 · [doi.org/10.1145/3772363.3798591](https://doi.org/10.1145/3772363.3798591) · CC BY 4.0

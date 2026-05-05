@@ -6724,6 +6724,19 @@
     "if-then-conditionals": {
       "label": "If/then conditionals",
       "type": "technical-mechanism"
+    },
+    "concept-of-operations": {
+      "label": "Concept of operations",
+      "type": "concept",
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design", "tooling"],
+      "role": "framework"
+    },
+    "traditional-software": {
+      "label": "Traditional software",
+      "type": "technology",
+      "lens": ["design", "interaction"],
+      "subject": ["interaction-design", "tooling"]
     }
   },
   "associations": [
@@ -11800,6 +11813,34 @@
       "object": "conversation-design",
       "source": "2-years-and-700-members-insights-from-convoclub",
       "collection": "articles"
+    },
+    {
+      "subject": "llms",
+      "predicate": "lacks",
+      "object": "concept-of-operations",
+      "source": "how-to-design-when-concept-of-operations-is-opaque",
+      "collection": "jottings"
+    },
+    {
+      "subject": "traditional-software",
+      "predicate": "contrasted-with",
+      "object": "llms",
+      "source": "how-to-design-when-concept-of-operations-is-opaque",
+      "collection": "jottings"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "requires",
+      "object": "concept-of-operations",
+      "source": "how-to-design-when-concept-of-operations-is-opaque",
+      "collection": "jottings"
+    },
+    {
+      "subject": "context-engineering",
+      "predicate": "reinforces",
+      "object": "concept-of-operations",
+      "source": "how-to-design-when-concept-of-operations-is-opaque",
+      "collection": "jottings"
     }
   ]
 }
