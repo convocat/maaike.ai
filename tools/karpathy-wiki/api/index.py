@@ -35,6 +35,7 @@ sys.path.insert(0, str(_HERE.parent / "tools"))
 import serve  # noqa: E402  (import order intentional)
 
 MAX_QUESTION_LEN = 500
+MAX_CHAT_MESSAGE_LEN = 1000
 
 # Rate limits: per-IP, in-memory. Not shared across Vercel cold starts or
 # concurrent containers, so this is a best-effort throttle against casual
@@ -210,6 +211,66 @@ class handler(BaseHTTPRequestHandler):
             except Exception:
                 _log("ask", ip=ip, outcome="backend_error", q_len=q_len)
                 write(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+            return
+
+        if path == "/api/chat":
+            ip = _client_ip(self)
+            length = int(self.headers.get("Content-Length", 0) or 0)
+            raw = self.rfile.read(length) if length else b""
+            try:
+                data = json.loads(raw) if raw else {}
+            except Exception:
+                _log("chat", ip=ip, outcome="bad_json")
+                return self._send_json(400, json.dumps({"error": "invalid JSON"}))
+
+            message = str(data.get("message", "")).strip()
+            if not message:
+                return self._send_json(400, json.dumps({"error": "No message provided"}))
+            if len(message) > MAX_CHAT_MESSAGE_LEN:
+                return self._send_json(400, json.dumps({
+                    "error": f"Message too long (max {MAX_CHAT_MESSAGE_LEN} chars)"
+                }))
+
+            allowed, retry_after = _check_rate_limit(ip)
+            if not allowed:
+                self.send_response(429)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Retry-After", str(retry_after))
+                self._send_cors()
+                self.end_headers()
+                self.wfile.write(json.dumps({
+                    "error": f"Too many messages. Try again in {retry_after}s."
+                }).encode("utf-8"))
+                return
+
+            history = data.get("history") if isinstance(data.get("history"), list) else []
+            current = data.get("current") if isinstance(data.get("current"), dict) else {}
+            sanitized = json.dumps({
+                "message": message,
+                "history": history,
+                "current": current,
+            }).encode("utf-8")
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+            self.send_header("Cache-Control", "no-cache, no-transform")
+            self.send_header("X-Accel-Buffering", "no")
+            self._send_cors()
+            self.end_headers()
+
+            def write_chat(chunk):
+                try:
+                    self.wfile.write(chunk.encode("utf-8"))
+                    self.wfile.flush()
+                except (BrokenPipeError, ConnectionResetError):
+                    pass
+
+            try:
+                serve.handle_chat_api_stream(sanitized, write_chat)
+                _log("chat", ip=ip, outcome="ok", m_len=len(message))
+            except Exception:
+                _log("chat", ip=ip, outcome="backend_error")
+                write_chat(json.dumps({"type": "error", "error": "backend error"}) + "\n")
             return
 
         return self._send_json(404, json.dumps({"error": "not found"}))
