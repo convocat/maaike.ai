@@ -8,29 +8,50 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
-## 🟡 Cleanup karpathy-wiki Vercel artefacts
+## 🟡 Karpathy-wiki cleanup: move runtime to api/, lift remaining prompts, rename folder
 *2026-05-06*
 
-The Vercel deploy moved to the repo root and is now live in prod. Two files in tools/karpathy-wiki/ are dead code now and should be deleted to avoid confusion: `tools/karpathy-wiki/api/index.py` (the old Vercel handler, no longer deployed) and `tools/karpathy-wiki/vercel.json` (the old Vercel config). Verify after the cleanup commit deploys: `/api/chat` should still stream a real response. The local dev server (`tools/karpathy-wiki/tools/serve.py`) stays.
+Today's session lifted the chatbot system prompt into `src/content/prompts/garden-system-prompt.md` and seeded the prompt library (collection, schema with `bot_id`, route, loader). Two more prompts are seeded but not yet wired (`wiki-system-prompt.md`, `verifier.md`). The bigger structural cleanup remains: move the chatbot runtime out from under `tools/karpathy-wiki/` (the experiment scaffolding it sits inside is dead-ish, the runtime is load-bearing). Decision recorded: wiki + chat both stay alive, runtime relocates to `api/`, eval scaffolding stays put as `tools/wiki-eval/`.
 
-Key files: `tools/karpathy-wiki/api/index.py` (delete), `tools/karpathy-wiki/vercel.json` (delete), `api/index.py` (keep, the live one), `vercel.json` (keep, the live one).
+Plan file: `C:\Users\mgroe\.claude\plans\hi-claude-i-want-abundant-candle.md` has the full execution order, file moves, code-update list, and 8-step verification.
+
+Concretely, next session:
+1. `git mv` runtime files to `api/`: `tools/karpathy-wiki/tools/serve.py` → `api/server.py`; plus `raw/`, `cache/`, `wiki/`, `requirements.txt`. Manually copy `.env`.
+2. Refactor `api/server.py`: rename `KARPATHY_ROOT` → `API_ROOT`, drop `_load_system_prompt()` + `_ASK_SYSTEM_PROMPT` + `_VERIFY_SYSTEM_PROMPT` literal — replace with `load_prompt('wiki-system-prompt')` and `load_prompt('verifier')`.
+3. Update external references: `api/index.py` import path, `vercel.json` includeFiles, `src/pages/research/[slug].astro:81` cache path, `tools/admin/server.py:38` .env path, `scripts/restart-wiki.bat`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `.gitignore`.
+4. Delete dead Vercel files: `tools/karpathy-wiki/api/index.py`, `tools/karpathy-wiki/vercel.json`, `tools/karpathy-wiki/.vercelignore`, `tools/karpathy-wiki/SYSTEM_PROMPT.md` (lifted), `tools/karpathy-wiki/tools/__pycache__/`. (Folds in the original "Cleanup karpathy-wiki Vercel artefacts" backlog item.)
+5. `git mv tools/karpathy-wiki tools/wiki-eval`.
+6. Rewrite the "Karpathy wiki" section in `CLAUDE.md`: split into "API server (`api/`)" + "Wiki eval (`tools/wiki-eval/`)" + "Prompt library (`src/content/prompts/`)".
+7. Verify: local `python api/server.py` + `npm run dev` chat works, `/research/ask` works, topic-view cache works, eval workflow runs, byte-equivalence of wiki + verifier prompts (chat already confirmed), no stale "karpathy-wiki" string in runtime, `npm run validate` passes, admin server starts.
+8. **Stop. Show diff. Wait for push approval.**
+
+Then (separate next-next session): drop hardcoded `load_prompt('garden-system-prompt')` etc. — replace with `load_prompt_for_bot('garden')` that scans frontmatter for active+matching `bot_id`. Add `src/data/chatbots.json` registry. Eventually a minimal admin dashboard for prompts (list, edit, set-active, test).
+
+Risk: Vercel deploy break if `includeFiles` glob misses runtime files. Mitigation: review deploy log + smoke-test prod immediately. Single-commit revert if broken.
+
+Key files: `tools/karpathy-wiki/tools/serve.py`, `api/index.py`, `vercel.json`, `src/pages/research/[slug].astro`, `tools/admin/server.py`, `scripts/restart-wiki.bat`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `.gitignore`, `CLAUDE.md`.
 
 **Opening message for next session:**
-> Run `/telegram-sync` first, then: delete `tools/karpathy-wiki/api/index.py` and `tools/karpathy-wiki/vercel.json` (now dead code, the Vercel deploy moved to the repo root). Commit + push. Verify `/api/chat` still works in prod after the deploy.
+> Run `/telegram-sync` first, then: pick up the karpathy-wiki cleanup. Plan is at `C:\Users\mgroe\.claude\plans\hi-claude-i-want-abundant-candle.md`. Move chatbot runtime (`serve.py` + raw/ + cache/ + wiki/ + requirements.txt + .env) to `api/`, refactor `KARPATHY_ROOT` → `API_ROOT`, switch `_ASK_SYSTEM_PROMPT` and `_VERIFY_SYSTEM_PROMPT` to `load_prompt(...)` (the prompt files are already at `src/content/prompts/wiki-system-prompt.md` and `src/content/prompts/verifier.md`). Update vercel.json, the research [slug] cache path, admin server .env path, the eval scripts, and .gitignore. Delete the dead Vercel files. `git mv tools/karpathy-wiki tools/wiki-eval`. Rewrite the "Karpathy wiki" section in CLAUDE.md. Verify all 8 steps from the plan. Stop and show diff before pushing.
 
 ---
 
 ## 🔵 The Garden chatbot v0.1
 *2026-05-05 · worktree: `claude/chatbot` at `.claude/worktrees/chatbot`*
 
-The chatbot ships and works end-to-end (mycelium + taxonomy + earth-tone meta pills). Pick up where we paused: write the system-prompt design artefact at `src/content/artefacts/the-garden-voice-v0-1.md` (Maaike approved Option B body format: prose + design notes), backfill the 2 missing `ai:` fields, make `ai` required in the Zod schema, then unconditionally render the pill in `src/layouts/PostLayout.astro`. Also: the Sources block in chat replies is unreliable (model often skips it under length pressure). Library exemption decision still open.
+The chatbot ships and works end-to-end. System prompt now lifted to `src/content/prompts/garden-system-prompt.md` (commit `f199fad`). Remaining v0.1 polish:
+- Backfill 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values Maaike signs off on.
+- Make `ai` required in the Zod schema.
+- Drop the conditional render in `src/layouts/PostLayout.astro` (always show the pill).
+- Tighten the Sources block enforcement in chat replies (the model often skips it under length pressure).
+- Library exemption decision still open.
 
-Key files: `src/components/ChatPanel.astro`, `src/scripts/chat-panel.ts`, `src/layouts/PostLayout.astro`, `tools/karpathy-wiki/tools/serve.py` (handle_chat_api_stream + system prompt), `api/index.py` (Vercel /api/chat route), `src/content.config.ts` (where `ai:` needs to become required), `public/preview-meta-line.html` (preview file, can delete).
+Note: `tools/karpathy-wiki/tools/serve.py` is being moved to `api/server.py` — see the karpathy-wiki cleanup item above. Do that cleanup first (it makes the path references in this work simpler).
 
-Local API: `python tools/karpathy-wiki/tools/serve.py` (port 8780). Astro dev: `npm run dev` (port 4321).
+Key files: `src/components/ChatPanel.astro`, `src/scripts/chat-panel.ts`, `src/layouts/PostLayout.astro`, `api/server.py` (after the cleanup), `src/content.config.ts` (where `ai:` needs to become required), `public/preview-meta-line.html` (preview file, can delete).
 
 **Opening message for next session:**
-> Run `/telegram-sync` first, then: pick up The Garden chatbot v0.1. Write the system-prompt design artefact at `src/content/artefacts/the-garden-voice-v0-1.md` (prose + design notes format), backfill the 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values I sign off on, then make `ai` required in the Zod schema and drop the conditional render in `src/layouts/PostLayout.astro`. After that, tighten the Sources block enforcement in the chat (model often skips it). Local API is `python tools/karpathy-wiki/tools/serve.py` on port 8780.
+> Run `/telegram-sync` first, then: finish The Garden chatbot v0.1 polish. Backfill the 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values I sign off on, make `ai` required in the Zod schema, drop the conditional render in `src/layouts/PostLayout.astro`. Then tighten the Sources block enforcement in the chat (model often skips it under length pressure). System prompt is at `src/content/prompts/garden-system-prompt.md`.
 
 ---
 
