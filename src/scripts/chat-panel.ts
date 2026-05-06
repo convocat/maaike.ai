@@ -409,6 +409,15 @@ export function initChatPanel() {
   closeBtn.addEventListener('click', closeDrawer);
   resetBtn.addEventListener('click', resetConversation);
 
+  history.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement | null;
+    const link = target?.closest('a');
+    if (!link) return;
+    if (link.target === '_blank') return;
+    if (window.innerWidth > 800) return;
+    closeDrawer();
+  });
+
   maxBtn.addEventListener('click', () => {
     applyMaximized(!pane.maximized);
     savePaneSettings(pane);
