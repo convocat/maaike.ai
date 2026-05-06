@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-05
+updated: 2026-05-06
 maturity: solid
 tags:
 - about
@@ -413,6 +413,13 @@ The about page grew up: converted from a static Astro file to a proper markdown 
 - **About page as markdown**: `about.astro` replaced by `src/pages/about.md` with full frontmatter (date, maturity, tags, ai field); PostLayout now handles standalone markdown pages alongside content collection entries
 - **Featured card visual**: strip width now matches regular cards; content area gets a warm parchment background (#FEFAE8) with blue ruled lines
 - **Body excerpts on cards**: article cards and 100% Maai jotting cards show a 3-line body excerpt with "Read more", instead of the short description field
+
+### 6 May
+
+A small but pleasant fix: tapping a link inside the chat on mobile now actually shows you the article.
+
+- **Chatbot mobile link UX**: clicking an internal link in a chat answer auto-closes the drawer on mobile (≤800px) so the destination page is visible. Desktop and external links unchanged.
+- **Six weblinks published**: dive-in-tommi-space, masure-manifesto-acentric-design, it's-like-this-why-perceptions-are-our-realities, fieldwork-for-future-ecologies-onomatopee, structured-prompt-driven-development-spdd, ai-metaphors-how-to-think-about-ai-jd-meier
 
 ## Related
 
