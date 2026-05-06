@@ -21,7 +21,7 @@ Key files: `tools/karpathy-wiki/api/index.py` (delete), `tools/karpathy-wiki/ver
 ---
 
 ## 🔵 The Garden chatbot v0.1
-*2026-05-05*
+*2026-05-05 · worktree: `claude/chatbot` at `.claude/worktrees/chatbot`*
 
 The chatbot ships and works end-to-end (mycelium + taxonomy + earth-tone meta pills). Pick up where we paused: write the system-prompt design artefact at `src/content/artefacts/the-garden-voice-v0-1.md` (Maaike approved Option B body format: prose + design notes), backfill the 2 missing `ai:` fields, make `ai` required in the Zod schema, then unconditionally render the pill in `src/layouts/PostLayout.astro`. Also: the Sources block in chat replies is unreliable (model often skips it under length pressure). Library exemption decision still open.
 
@@ -367,17 +367,19 @@ Work in worktree `C:\Sharing\Maaike\Digital-Garden\.claude\worktrees\karpathy` o
 
 ---
 
-## 🟡 Morning inbox + telegram schedule
-*2026-04-07*
+## 🟡 Verify nightly-inbox-enrichment first real run
+*added: 2026-05-06*
 
-Two daily schedules to set up via `/schedule` (connection keeps failing — retry when available):
-1. Daily 8:00 AM: surface new entries from `src/content/_inbox/` and offer to turn them into posts
-2. Daily telegram sync: run `/telegram-sync` to pull new captures (removed from `/backlog` step 0 — now runs independently)
+Scheduled task `nightly-inbox-enrichment` registered today at 05:04 local daily. It pulls main, finds drafts with `triples: []`, runs the TAO enrichment routine inline (auto-approve, no per-item gates), keeps `draft: true` for morning review, logs to `tools/admin/nightly-enrichment-log.md`, commits + pushes. PDFs are skipped (logged with `pdf-skipped`).
 
-Key files: `src/content/_inbox/telegram.md`, `src/content/_inbox/`, `.claude/commands/backlog.md`
+Tomorrow morning (2026-05-07): scan `tools/admin/nightly-enrichment-log.md` and confirm any drafts captured overnight got enriched and pushed. Spot-check one in the dashboard. If validation/push failed, debug.
+
+Key files: `~/.claude/scheduled-tasks/nightly-inbox-enrichment/SKILL.md`, `tools/admin/nightly-enrichment-log.md`
+
+This supersedes the old "Morning inbox + telegram schedule" backlog item (2026-04-07). Telegram sync is already running via `telegram-sync.yml`. The inbox-content surfacing half (option 1 from the old item) is not covered by this task and remains open if Maaike still wants it.
 
 **Opening message for next session:**
-> Retry /schedule — it's failed three times due to connection errors. Two tasks: (1) daily 8:00 AM inbox check surfacing new entries from `src/content/_inbox/`; (2) daily telegram sync running `/telegram-sync`. Both were removed from the /backlog skill and need their own schedules.
+> Check `tools/admin/nightly-enrichment-log.md` for last night's nightly-inbox-enrichment run. Confirm enriched drafts pushed cleanly, spot-check one in the dashboard at localhost:8900. If skipped or failed, debug.
 
 ---
 
