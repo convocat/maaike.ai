@@ -12198,41 +12198,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "somatic-deixis",
-      "predicate": "theorised-by",
-      "object": "matthew-sheffield",
-      "source": "it-s-like-this-why-perceptions-are-our-realities",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "somatic-tokens",
-      "predicate": "instance-of",
-      "object": "embodied-cognition",
-      "source": "it-s-like-this-why-perceptions-are-our-realities",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "embodied-cognition",
-      "predicate": "presupposes",
-      "object": "perceptual-relativity",
-      "source": "it-s-like-this-why-perceptions-are-our-realities",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "perceptual-relativity",
-      "predicate": "demonstrates",
-      "object": "epistemic-gaps",
-      "source": "it-s-like-this-why-perceptions-are-our-realities",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "somatic-deixis",
-      "predicate": "instance-of",
-      "object": "embodied-cognition",
-      "source": "it-s-like-this-why-perceptions-are-our-realities",
-      "collection": "weblinks"
-    },
-    {
       "subject": "spdd",
       "predicate": "theorised-by",
       "object": "wei-zhang",
@@ -12307,6 +12272,41 @@
       "predicate": "attributed-to",
       "object": "indie-web",
       "source": "dive-in-tommi-space",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-deixis",
+      "predicate": "theorised-by",
+      "object": "matthew-sheffield",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-tokens",
+      "predicate": "instance-of",
+      "object": "embodied-cognition",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "embodied-cognition",
+      "predicate": "presupposes",
+      "object": "perceptual-relativity",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "perceptual-relativity",
+      "predicate": "demonstrates",
+      "object": "epistemic-gaps",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-deixis",
+      "predicate": "instance-of",
+      "object": "embodied-cognition",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
       "collection": "weblinks"
     }
   ]
