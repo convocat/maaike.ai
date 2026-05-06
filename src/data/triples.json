@@ -12149,48 +12149,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "spdd",
-      "predicate": "theorised-by",
-      "object": "wei-zhang",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "spdd",
-      "predicate": "theorised-by",
-      "object": "jessie-jie-xia",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "spdd",
-      "predicate": "structured-as",
-      "object": "reasons-canvas",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "spdd",
-      "predicate": "requires",
-      "object": "prompts-as-artefacts",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "prompts-as-artefacts",
-      "predicate": "contrasted-with",
-      "object": "blind-prompting",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "governable-ai-development",
-      "predicate": "instance-of",
-      "object": "spdd",
-      "source": "structured-prompt-driven-development-spdd",
-      "collection": "weblinks"
-    },
-    {
       "subject": "tommi",
       "predicate": "instance-of",
       "object": "digital-garden",
@@ -12307,6 +12265,48 @@
       "predicate": "better-fits",
       "object": "multispecies-entanglement",
       "source": "fieldwork-for-future-ecologies-onomatopee",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "structured-prompt-driven-development",
+      "predicate": "theorised-by",
+      "object": "wei-zhang",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "structured-prompt-driven-development",
+      "predicate": "theorised-by",
+      "object": "jessie-jie-xia",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "structured-prompt-driven-development",
+      "predicate": "structured-as",
+      "object": "reasons-canvas",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "structured-prompt-driven-development",
+      "predicate": "requires",
+      "object": "prompts-as-delivery-artefacts",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prompts-as-delivery-artefacts",
+      "predicate": "contrasted-with",
+      "object": "blind-prompting",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "governable-ai-development",
+      "predicate": "instance-of",
+      "object": "structured-prompt-driven-development",
+      "source": "structured-prompt-driven-development-spdd",
       "collection": "weblinks"
     }
   ]
