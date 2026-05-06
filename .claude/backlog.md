@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Cleanup karpathy-wiki Vercel artefacts
+*2026-05-06*
+
+The Vercel deploy moved to the repo root and is now live in prod. Two files in tools/karpathy-wiki/ are dead code now and should be deleted to avoid confusion: `tools/karpathy-wiki/api/index.py` (the old Vercel handler, no longer deployed) and `tools/karpathy-wiki/vercel.json` (the old Vercel config). Verify after the cleanup commit deploys: `/api/chat` should still stream a real response. The local dev server (`tools/karpathy-wiki/tools/serve.py`) stays.
+
+Key files: `tools/karpathy-wiki/api/index.py` (delete), `tools/karpathy-wiki/vercel.json` (delete), `api/index.py` (keep, the live one), `vercel.json` (keep, the live one).
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: delete `tools/karpathy-wiki/api/index.py` and `tools/karpathy-wiki/vercel.json` (now dead code, the Vercel deploy moved to the repo root). Commit + push. Verify `/api/chat` still works in prod after the deploy.
+
+---
+
 ## 🔵 The Garden chatbot v0.1
 *2026-05-05*
 
