@@ -112,4 +112,16 @@ const toolshed = defineCollection({
   }),
 });
 
-export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts, toolshed };
+const prompts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/prompts' }),
+  schema: baseSchema.extend({
+    prompt_id: z.string(),
+    prompt_version: z.string(),
+    prompt_category: z.enum(['chatbot', 'workflow', 'brainstorm']),
+    prompt_status: z.enum(['active', 'archived', 'draft']),
+    prompt_model: z.string().optional(),
+    bot_id: z.string().optional(),
+  }),
+});
+
+export const collections = { fieldNotes, seeds, articles, weblinks, videos, library, experiments, jottings, files, artefacts, toolshed, prompts };
