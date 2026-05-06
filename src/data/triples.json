@@ -12100,55 +12100,6 @@
       "collection": "jottings"
     },
     {
-      "subject": "mental-models-for-ai",
-      "predicate": "structured-as",
-      "object": "bionic-mind-metaphor",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "mental-models-for-ai",
-      "predicate": "structured-as",
-      "object": "smart-intern-metaphor",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "mental-models-for-ai",
-      "predicate": "structured-as",
-      "object": "word-calculator-metaphor",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "word-calculator-metaphor",
-      "predicate": "lacks",
-      "object": "ground-truth",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "mental-models-for-ai",
-      "predicate": "attributed-to",
-      "object": "jd-meier",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "smart-colleague-metaphor",
-      "predicate": "instance-of",
-      "object": "delegation-metaphor",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "creative-echo-metaphor",
-      "predicate": "metaphor-for",
-      "object": "llms",
-      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "collection": "weblinks"
-    },
-    {
       "subject": "tommi",
       "predicate": "instance-of",
       "object": "digital-garden",
@@ -12307,6 +12258,55 @@
       "predicate": "instance-of",
       "object": "structured-prompt-driven-development",
       "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "bionic-mind-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "smart-intern-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "word-calculator-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "word-calculator-metaphor",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "attributed-to",
+      "object": "jd-meier",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "smart-colleague-metaphor",
+      "predicate": "instance-of",
+      "object": "delegation-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "creative-echo-metaphor",
+      "predicate": "metaphor-for",
+      "object": "llms",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
       "collection": "weblinks"
     }
   ]
