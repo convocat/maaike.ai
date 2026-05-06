@@ -6728,15 +6728,321 @@
     "concept-of-operations": {
       "label": "Concept of operations",
       "type": "concept",
-      "lens": ["design", "interaction"],
-      "subject": ["interaction-design", "tooling"],
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling"
+      ],
       "role": "framework"
     },
     "traditional-software": {
       "label": "Traditional software",
       "type": "technology",
-      "lens": ["design", "interaction"],
-      "subject": ["interaction-design", "tooling"]
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling"
+      ]
+    },
+    "jd-meier": {
+      "label": "JD Meier",
+      "type": "person",
+      "lens": [
+        "personal"
+      ]
+    },
+    "bionic-mind-metaphor": {
+      "label": "Bionic mind metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "smart-intern-metaphor": {
+      "label": "Smart intern metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "llm",
+        "future-of-work"
+      ]
+    },
+    "word-calculator-metaphor": {
+      "label": "Word calculator metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "linguistics"
+      ],
+      "subject": [
+        "llm",
+        "language"
+      ]
+    },
+    "genie-metaphor": {
+      "label": "Genie metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "culture"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "sparring-partner-metaphor": {
+      "label": "Sparring partner metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "thinking-buddy-metaphor": {
+      "label": "Thinking buddy metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "smart-colleague-metaphor": {
+      "label": "Smart colleague metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "llm",
+        "future-of-work"
+      ]
+    },
+    "creative-echo-metaphor": {
+      "label": "Creative echo metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "culture"
+      ],
+      "subject": [
+        "llm",
+        "writing"
+      ]
+    },
+    "mental-models-for-ai": {
+      "label": "Mental models for AI",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "tommi": {
+      "label": "Tommi",
+      "type": "person",
+      "lens": [
+        "personal",
+        "culture"
+      ]
+    },
+    "indie-web": {
+      "label": "Indie web",
+      "type": "concept",
+      "lens": [
+        "culture",
+        "design"
+      ],
+      "subject": [
+        "digital-garden"
+      ]
+    },
+    "decentralised-internet": {
+      "label": "Decentralised internet",
+      "type": "concept",
+      "lens": [
+        "culture",
+        "philosophy"
+      ],
+      "subject": [
+        "digital-garden"
+      ]
+    },
+    "perpetual-becoming": {
+      "label": "Perpetual becoming",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "personal"
+      ],
+      "subject": [
+        "mind",
+        "digital-garden"
+      ]
+    },
+    "matthew-sheffield": {
+      "label": "Matthew Sheffield",
+      "type": "person",
+      "lens": [
+        "personal"
+      ]
+    },
+    "somatic-deixis": {
+      "label": "Somatic deixis",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "philosophy",
+        "linguistics"
+      ],
+      "subject": [
+        "mind",
+        "language"
+      ]
+    },
+    "execution-states": {
+      "label": "Execution states",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "somatic-tokens": {
+      "label": "Somatic tokens",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "epistemic-gaps": {
+      "label": "Epistemic gaps",
+      "type": "concept",
+      "lens": [
+        "epistemology",
+        "philosophy"
+      ],
+      "subject": [
+        "knowledge",
+        "mind"
+      ]
+    },
+    "perceptual-relativity": {
+      "label": "Perceptual relativity",
+      "type": "phenomenon",
+      "lens": [
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "embodied-cognition": {
+      "label": "Embodied cognition",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "spdd": {
+      "label": "Structured-Prompt-Driven Development",
+      "type": "method",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "prompt-design",
+        "llm"
+      ]
+    },
+    "reasons-canvas": {
+      "label": "REASONS Canvas",
+      "type": "method",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "prompt-design",
+        "structured-authoring"
+      ]
+    },
+    "wei-zhang": {
+      "label": "Wei Zhang",
+      "type": "person",
+      "lens": [
+        "development"
+      ]
+    },
+    "jessie-jie-xia": {
+      "label": "Jessie Jie Xia",
+      "type": "person",
+      "lens": [
+        "development"
+      ]
+    },
+    "prompts-as-artefacts": {
+      "label": "Prompts as delivery artefacts",
+      "type": "concept",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "prompt-design",
+        "structured-authoring"
+      ]
+    },
+    "governable-ai-development": {
+      "label": "Governable AI development",
+      "type": "concept",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "prompt-design"
+      ]
     }
   },
   "associations": [
@@ -11841,6 +12147,167 @@
       "object": "concept-of-operations",
       "source": "how-to-design-when-concept-of-operations-is-opaque",
       "collection": "jottings"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "bionic-mind-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "smart-intern-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "structured-as",
+      "object": "word-calculator-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "word-calculator-metaphor",
+      "predicate": "lacks",
+      "object": "ground-truth",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mental-models-for-ai",
+      "predicate": "attributed-to",
+      "object": "jd-meier",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "smart-colleague-metaphor",
+      "predicate": "instance-of",
+      "object": "delegation-metaphor",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "creative-echo-metaphor",
+      "predicate": "metaphor-for",
+      "object": "llms",
+      "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-deixis",
+      "predicate": "theorised-by",
+      "object": "matthew-sheffield",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-tokens",
+      "predicate": "instance-of",
+      "object": "embodied-cognition",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "embodied-cognition",
+      "predicate": "presupposes",
+      "object": "perceptual-relativity",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "perceptual-relativity",
+      "predicate": "demonstrates",
+      "object": "epistemic-gaps",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "somatic-deixis",
+      "predicate": "instance-of",
+      "object": "embodied-cognition",
+      "source": "it-s-like-this-why-perceptions-are-our-realities",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "spdd",
+      "predicate": "theorised-by",
+      "object": "wei-zhang",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "spdd",
+      "predicate": "theorised-by",
+      "object": "jessie-jie-xia",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "spdd",
+      "predicate": "structured-as",
+      "object": "reasons-canvas",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "spdd",
+      "predicate": "requires",
+      "object": "prompts-as-artefacts",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prompts-as-artefacts",
+      "predicate": "contrasted-with",
+      "object": "blind-prompting",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "governable-ai-development",
+      "predicate": "instance-of",
+      "object": "spdd",
+      "source": "structured-prompt-driven-development-spdd",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tommi",
+      "predicate": "instance-of",
+      "object": "digital-garden",
+      "source": "dive-in-tommi-space",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "indie-web",
+      "predicate": "contrasted-with",
+      "object": "algorithmic-feed",
+      "source": "dive-in-tommi-space",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "decentralised-internet",
+      "predicate": "reinforces",
+      "object": "indie-web",
+      "source": "dive-in-tommi-space",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "perpetual-becoming",
+      "predicate": "characterised-as",
+      "object": "digital-garden",
+      "source": "dive-in-tommi-space",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tommi",
+      "predicate": "attributed-to",
+      "object": "indie-web",
+      "source": "dive-in-tommi-space",
+      "collection": "weblinks"
     }
   ]
 }

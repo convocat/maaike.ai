@@ -366,5 +366,21 @@
     "Stakeholder misalignment is the most politically consequential challenge conversation designers face: the field cannot mature until its value is legible to decision-makers.",
     "Community-building is a form of professional infrastructure: Convoclub's 700 members represent collective sense-making in the absence of formal disciplinary structures.",
     "The universality of perceived knowledge gaps across experience levels suggests that conversation design is defined by permanent epistemic precarity, not a learnable fixed body of knowledge."
+  ],
+  "ai-metaphors-how-to-think-about-ai-jd-meier": [
+    "Mental models for working with AI",
+    "Metaphor as operational toolkit"
+  ],
+  "dive-in-tommi-space": [
+    "Identity-first personal sites",
+    "Indie-web ethics"
+  ],
+  "it-s-like-this-why-perceptions-are-our-realities": [
+    "Perception as substrate, not window",
+    "Embodied roots of cognition"
+  ],
+  "structured-prompt-driven-development-spdd": [
+    "Prompts as governable software artefacts",
+    "Structured authoring for LLM-assisted code"
   ]
 }
