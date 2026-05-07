@@ -799,52 +799,10 @@ export function initChatPanel() {
   const ctx = readPageContext();
   setContextPill(pill, ctx);
 
-  // ── Variant feature flag ──────────────────────────────────────────────
-  // localStorage('garden-chat-variant') = 'classic' (default) | 'mycelium'.
-  // Toggleable from the homepage. When 'mycelium', the size toggle button
-  // unhides and a wide mode unlocks the right-side mycelium pane.
-  const sizeToggleBtn = document.getElementById('chat-size-toggle') as HTMLButtonElement | null;
-  const sizeToggleLabel = sizeToggleBtn?.querySelector('.chat-size-toggle-label') as HTMLElement | null;
-  const mycSvg = document.getElementById('chat-mycelium-svg') as unknown as SVGSVGElement | null;
-  const mycEmpty = document.getElementById('chat-mycelium-empty') as HTMLElement | null;
-  const mycSummary = document.getElementById('chat-mycelium-summary') as HTMLElement | null;
-
-  const variant = (() => {
-    try { return localStorage.getItem('garden-chat-variant') || 'classic'; }
-    catch { return 'classic'; }
-  })();
-  const isMyceliumVariant = variant === 'mycelium';
-
-  if (isMyceliumVariant && sizeToggleBtn) {
-    sizeToggleBtn.hidden = false;
-  }
-
-  let isMyceliumWide = false;
-  const applyMyceliumSize = () => {
-    drawer.classList.toggle('is-mycelium-wide', isMyceliumWide);
-    if (sizeToggleLabel) {
-      sizeToggleLabel.textContent = isMyceliumWide ? 'Collapse' : 'Expand';
-    }
-    if (isMyceliumWide && mycSvg) {
-      // Re-render so SVG sizes to the new pane.
-      renderMycelium(mycSvg, mycEmpty, conv.messages);
-      renderChatSummary(mycSummary, conv.messages);
-    }
-  };
-
-  if (sizeToggleBtn) {
-    sizeToggleBtn.addEventListener('click', () => {
-      isMyceliumWide = !isMyceliumWide;
-      applyMyceliumSize();
-    });
-  }
-
-  const renderMyceliumIfWide = () => {
-    if (isMyceliumVariant && isMyceliumWide && mycSvg) {
-      renderMycelium(mycSvg, mycEmpty, conv.messages);
-      renderChatSummary(mycSummary, conv.messages);
-    }
-  };
+  // The mycelium variant has been retired from the live chat. The
+  // renderMycelium and renderChatSummary functions remain in this file
+  // for the standalone prototype's reference, but are not invoked here.
+  const renderMyceliumIfWide = () => {};
 
   // Prompt selection. URL ?prompt=… > localStorage > server default.
   let promptOptions: PromptOption[] = [];

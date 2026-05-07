@@ -83,41 +83,25 @@
       </div>
     </header>
 
-    <button type="button" id="chat-size-toggle" class="chat-size-toggle" aria-label="Toggle size" hidden>
-      <span class="chat-size-toggle-label">Expand</span>
-    </button>
+    <div class="chat-history" id="chat-history" role="log" aria-live="polite"></div>
 
-    <div class="chat-body">
-      <div class="chat-main">
-        <div class="chat-history" id="chat-history" role="log" aria-live="polite"></div>
-
-        <form class="chat-form" id="chat-form" autocomplete="off">
-          <textarea
-            id="chat-input"
-            class="chat-input"
-            placeholder="Ask about this page, or anything in the garden…"
-            rows="2"
-            maxlength="1000"
-            aria-label="Your message"
-          ></textarea>
-          <div class="chat-form-row">
-            <span class="chat-disclaimer">The Garden can be wrong. Check the page.</span>
-            <button type="submit" id="chat-send" class="chat-send" disabled>
-              Send
-            </button>
-          </div>
-        </form>
-        <p class="chat-disclaimer-floating">The Garden can be wrong. Check the page.</p>
+    <form class="chat-form" id="chat-form" autocomplete="off">
+      <textarea
+        id="chat-input"
+        class="chat-input"
+        placeholder="Ask about this page, or anything in the garden…"
+        rows="2"
+        maxlength="1000"
+        aria-label="Your message"
+      ></textarea>
+      <div class="chat-form-row">
+        <span class="chat-disclaimer">The Garden can be wrong. Check the page.</span>
+        <button type="submit" id="chat-send" class="chat-send" disabled>
+          Send
+        </button>
       </div>
-
-      <aside class="chat-mycelium" id="chat-mycelium" aria-label="Mycelium of this conversation">
-        <div class="chat-mycelium-canvas">
-          <svg class="chat-mycelium-svg" id="chat-mycelium-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
-          <p class="chat-mycelium-empty" id="chat-mycelium-empty">As you and the garden talk, the conversation will grow its own mycelium here.</p>
-        </div>
-        <div class="chat-mycelium-summary" id="chat-mycelium-summary"></div>
-      </aside>
-    </div>
+    </form>
+    <p class="chat-disclaimer-floating">The Garden can be wrong. Check the page.</p>
   </div>
 </aside>
 
@@ -364,202 +348,6 @@
     color: var(--color-text-muted);
     line-height: 1.4;
   }
-
-  /* Two-pane wrapper. Mycelium pane is hidden by default. The 'mycelium'
-     variant unlocks the size-toggle button and reveals the right-side pane
-     when the drawer is in wide mode. */
-  .chat-body {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-  .chat-main {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-  .chat-mycelium { display: none; }
-
-  .chat-drawer.is-mycelium-wide .chat-body {
-    flex-direction: row;
-  }
-  .chat-drawer.is-mycelium-wide .chat-main {
-    flex: 1 1 50%;
-    min-width: 0;
-  }
-  .chat-drawer.is-mycelium-wide .chat-mycelium {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 50%;
-    min-width: 0;
-    background: #FAF7F2;
-    border-left: 1px solid #EDE8DC;
-  }
-  .chat-mycelium-canvas {
-    flex: 1 1 55%;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid #EDE5D2;
-    min-height: 0;
-  }
-  .chat-mycelium-svg { width: 100%; height: 100%; display: block; }
-  .chat-mycelium-empty {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 80%;
-    max-width: 320px;
-    height: fit-content;
-    text-align: center;
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 1.05rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    pointer-events: none;
-  }
-  .chat-mycelium-empty[hidden] { display: none; }
-  .chat-mycelium-summary {
-    flex: 1 1 45%;
-    overflow-y: auto;
-    padding: 18px 24px;
-    background: #FFFFFF;
-    min-height: 0;
-  }
-  .chat-mycelium-summary-h {
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 1.15rem;
-    color: var(--color-text);
-    margin: 0 0 12px;
-  }
-  .chat-mycelium-summary-empty {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    font-style: italic;
-    line-height: 1.5;
-  }
-  .chat-myc-section { margin-bottom: 16px; }
-  .chat-myc-section h3 {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-    font-weight: 600;
-    margin: 0 0 6px;
-  }
-  .chat-myc-topics { display: flex; flex-wrap: wrap; gap: 4px 6px; }
-  .chat-myc-topic {
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 1rem;
-    color: var(--color-text);
-    background: var(--chat-tag-bg);
-    padding: 1px 9px;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background 0.18s, color 0.18s;
-  }
-  .chat-myc-topic:hover { background: #DDE6D0; color: #2A3D26; }
-  .chat-myc-topic.is-recurring { background: #DDE6D0; color: #2A3D26; }
-  .chat-myc-cite-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
-  .chat-myc-cite-item {
-    display: grid; grid-template-columns: 6px 1fr;
-    background: #FAF7F2;
-    border: 1px solid #EDE5D2;
-    border-radius: 4px;
-    overflow: hidden;
-    text-decoration: none; color: inherit;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .chat-myc-cite-item:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.06); }
-  .chat-myc-cite-strip { width: 6px; }
-  .chat-myc-cite-body { padding: 6px 10px; }
-  .chat-myc-cite-coll { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin: 0 0 2px; }
-  .chat-myc-cite-title { font-family: 'Lora', serif; font-size: 0.92rem; font-weight: 600; margin: 0; line-height: 1.3; color: var(--color-text); }
-  .chat-myc-action {
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid #EDE5D2;
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .chat-myc-action-btn {
-    align-self: flex-start;
-    border: 1px solid var(--color-accent);
-    background: var(--color-accent);
-    color: #FFFFFF;
-    font: inherit; font-size: 0.85rem; font-weight: 500;
-    padding: 7px 16px; border-radius: 999px;
-    cursor: pointer;
-    transition: background 0.18s, transform 0.18s;
-  }
-  .chat-myc-action-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); }
-  .chat-myc-action-btn:disabled { background: var(--color-accent-2); border-color: var(--color-accent-2); cursor: default; transform: none; }
-  .chat-myc-action-hint { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.4; margin: 0; }
-  .chat-myc-action-confirmation {
-    background: var(--chat-tag-bg);
-    border: 1px solid #DCD0B0;
-    border-radius: 6px;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    color: var(--color-text);
-    line-height: 1.5;
-  }
-
-  /* Size toggle as a tab sticking out of the drawer's left edge.
-     - Narrow (drawer floats over article): tab extrudes left, visible against the page.
-     - Wide / fullscreen (drawer fills viewport): tab stays inside the drawer's left edge. */
-  .chat-size-toggle {
-    position: absolute;
-    left: 0;
-    top: 96px;
-    transform: translateX(-100%);
-    z-index: 4;
-    border: 1px solid var(--chat-rule);
-    border-right: none;
-    background: var(--chat-bg-card);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    padding: 16px 7px;
-    border-radius: 8px 0 0 8px;
-    font: inherit;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    writing-mode: vertical-rl;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: -4px 4px 12px var(--color-shadow);
-    transition: padding 0.15s ease;
-  }
-  /* When the drawer fills the viewport, the tab can't extrude (offscreen).
-     Pull it back inside the drawer's left edge so it stays clickable. */
-  .chat-drawer.is-mycelium-wide .chat-size-toggle,
-  .chat-drawer.is-maximized .chat-size-toggle {
-    transform: translateX(0);
-    border-right: 1px solid var(--chat-rule);
-    border-radius: 0 8px 8px 0;
-    box-shadow: 4px 4px 12px var(--color-shadow);
-  }
-  .chat-size-toggle:hover {
-    color: var(--color-text);
-    border-color: var(--color-accent);
-  }
-  .chat-size-toggle:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-  .chat-size-toggle[hidden] { display: none; }
-  .chat-size-toggle-label {
-    /* Read top-to-bottom (default for vertical-rl is top-to-bottom). */
-  }
-
-  /* Wide-mode drawer for mycelium variant: full viewport. */
-  .chat-drawer.is-mycelium-wide {
-    width: 100vw !important;
-  }
-  /* Narrow stays whatever the user's default is (420px). */
 
   .chat-history {
     flex: 1 1 auto;
@@ -1052,10 +840,6 @@
     .chat-resize {
       display: none;
     }
-    /* Mycelium variant's expand tab is desktop-only.
-       On mobile the drawer fills the viewport already, so there is no
-       narrow / wide distinction to surface. */
-    .chat-size-toggle { display: none !important; }
     .chat-toggle {
       right: var(--space-md);
       bottom: var(--space-md);
