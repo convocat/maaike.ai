@@ -163,6 +163,197 @@ function scheduleScrollToBottom(el: HTMLElement) {
   });
 }
 
+// ── Mycelium pane (wide-view only) ────────────────────────────────────────
+//
+// Renders an SVG visualisation of the conversation: each turn is a node
+// (acorn for user, leaf for the garden) on a meandering path from top to
+// bottom of the canvas, connected by faint sage threads, with a cursive
+// caption next to it. Cited posts are added as small painted cards near
+// the bot turn that mentioned them.
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function renderMycelium(svg: SVGSVGElement, emptyHint: HTMLElement | null, messages: ChatMessage[]) {
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  if (!messages.length) {
+    if (emptyHint) emptyHint.hidden = false;
+    return;
+  }
+  if (emptyHint) emptyHint.hidden = true;
+
+  const W = svg.clientWidth || 400;
+  const H = svg.clientHeight || 600;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  // Pad so labels don't run off edges.
+  const padX = 60;
+  const padY = 50;
+  const usableW = W - padX * 2;
+  const usableH = H - padY * 2;
+
+  // Position each turn along a meandering path.
+  const n = messages.length;
+  type Node = { x: number; y: number; msg: ChatMessage; index: number; size: number; href: string; caption: string };
+  const nodes: Node[] = messages.map((m, i) => {
+    const t = n === 1 ? 0.5 : i / (n - 1);
+    const y = padY + t * usableH;
+    // Sin curve so the path meanders left-right as it descends.
+    const phase = i * 0.9;
+    const x = padX + usableW / 2 + Math.sin(phase) * (usableW * 0.32);
+    const isUser = m.role === 'user';
+    const size = isUser ? 26 : 30;
+    const href = isUser
+      ? '/images/watercolor-acorn-trimmed.png'
+      : '/images/watercolor-leaf-trimmed.png';
+    // Strip markdown for caption + truncate.
+    const stripped = m.content
+      .replace(/<<CHIPS:[^>]*>>/g, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_`#]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const caption = stripped.length > 42 ? stripped.slice(0, 40) + '…' : stripped;
+    return { x, y, msg: m, index: i, size, href, caption };
+  });
+
+  // Threads: a curved path between consecutive nodes, behind everything.
+  for (let i = 1; i < nodes.length; i++) {
+    const a = nodes[i - 1];
+    const b = nodes[i];
+    const cx = (a.x + b.x) / 2 + (i % 2 === 0 ? 28 : -28);
+    const cy = (a.y + b.y) / 2;
+    const path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', `M ${a.x} ${a.y} Q ${cx} ${cy} ${b.x} ${b.y}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#9C7A3E');
+    path.setAttribute('stroke-width', '1');
+    path.setAttribute('stroke-dasharray', '3 5');
+    path.setAttribute('opacity', '0.5');
+    svg.appendChild(path);
+  }
+
+  // Citation parsing: grab markdown links of the form [Title](/collection/slug/)
+  type Citation = { title: string; href: string; collection: string; turnIndex: number };
+  const citations: Citation[] = [];
+  messages.forEach((m, i) => {
+    if (m.role !== 'assistant') return;
+    const re = /\[([^\]]+)\]\((\/[a-z0-9-]+\/[a-z0-9-]+\/?)\)/gi;
+    let match: RegExpExecArray | null;
+    const seen = new Set<string>();
+    while ((match = re.exec(m.content)) !== null) {
+      const href = match[2];
+      if (seen.has(href)) continue;
+      seen.add(href);
+      const title = match[1];
+      const collection = (href.split('/').filter(Boolean)[0] || 'articles');
+      citations.push({ title, href, collection, turnIndex: i });
+    }
+  });
+
+  // Render each turn's node + caption.
+  nodes.forEach((node) => {
+    // Watercolor avatar.
+    const img = document.createElementNS(SVG_NS, 'image');
+    img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', node.href);
+    img.setAttribute('href', node.href);
+    img.setAttribute('x', String(node.x - node.size / 2));
+    img.setAttribute('y', String(node.y - node.size / 2));
+    img.setAttribute('width', String(node.size));
+    img.setAttribute('height', String(node.size));
+    svg.appendChild(img);
+
+    // Caption: place to the right by default, flip to the left if past the midline.
+    const onLeft = node.x > W / 2;
+    const captionX = onLeft ? node.x - node.size / 2 - 8 : node.x + node.size / 2 + 8;
+    const text = document.createElementNS(SVG_NS, 'text');
+    text.setAttribute('x', String(captionX));
+    text.setAttribute('y', String(node.y + 4));
+    text.setAttribute('font-family', "'Cedarville Cursive', cursive");
+    text.setAttribute('font-size', '13');
+    text.setAttribute('fill', '#1A1A1A');
+    text.setAttribute('text-anchor', onLeft ? 'end' : 'start');
+    text.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
+    svg.appendChild(text);
+  });
+
+  // Render citation cards near their turn's node.
+  // Stack vertically below the node so they don't collide with the caption.
+  const placedPerTurn = new Map<number, number>();
+  citations.forEach((c) => {
+    const node = nodes[c.turnIndex];
+    if (!node) return;
+    const slot = placedPerTurn.get(c.turnIndex) || 0;
+    placedPerTurn.set(c.turnIndex, slot + 1);
+
+    const onLeft = node.x > W / 2;
+    const cardW = 130;
+    const cardH = 24;
+    const cardX = onLeft ? node.x - node.size / 2 - 8 - cardW : node.x + node.size / 2 + 8;
+    const cardY = node.y + 14 + slot * (cardH + 4);
+
+    const g = document.createElementNS(SVG_NS, 'g');
+    g.setAttribute('class', 'myc-citation');
+    g.setAttribute('cursor', 'pointer');
+    g.addEventListener('click', () => { window.open(c.href, '_blank', 'noopener'); });
+
+    // Strip (collection-coloured tab on the left).
+    const stripColors: Record<string, string> = {
+      articles: '#C5A87A',
+      'field-notes': '#8DBE8D',
+      seeds: '#D6B07A',
+      jottings: '#A8B5D6',
+      weblinks: '#9CC4BD',
+      videos: '#C5A0BD',
+      library: '#B5A89C',
+      experiments: '#7EBDC4',
+      toolshed: '#6B7A52',
+    };
+    const strip = document.createElementNS(SVG_NS, 'rect');
+    strip.setAttribute('x', String(cardX));
+    strip.setAttribute('y', String(cardY));
+    strip.setAttribute('width', '6');
+    strip.setAttribute('height', String(cardH));
+    strip.setAttribute('fill', stripColors[c.collection] || '#C5A87A');
+    g.appendChild(strip);
+
+    // Card background.
+    const bg = document.createElementNS(SVG_NS, 'rect');
+    bg.setAttribute('x', String(cardX + 6));
+    bg.setAttribute('y', String(cardY));
+    bg.setAttribute('width', String(cardW - 6));
+    bg.setAttribute('height', String(cardH));
+    bg.setAttribute('fill', '#FFFFFF');
+    bg.setAttribute('stroke', '#EDE5D2');
+    bg.setAttribute('stroke-width', '1');
+    g.appendChild(bg);
+
+    // Title.
+    const title = document.createElementNS(SVG_NS, 'text');
+    title.setAttribute('x', String(cardX + 12));
+    title.setAttribute('y', String(cardY + 16));
+    title.setAttribute('font-family', "'Lora', Georgia, serif");
+    title.setAttribute('font-size', '11');
+    title.setAttribute('fill', '#1A1A1A');
+    const truncTitle = c.title.length > 22 ? c.title.slice(0, 20) + '…' : c.title;
+    title.textContent = truncTitle;
+    g.appendChild(title);
+
+    svg.appendChild(g);
+
+    // Thread from node to card.
+    const thread = document.createElementNS(SVG_NS, 'path');
+    const tx = onLeft ? cardX + cardW : cardX;
+    const ty = cardY + cardH / 2;
+    thread.setAttribute('d', `M ${node.x} ${node.y + node.size / 2} Q ${(node.x + tx) / 2} ${(node.y + ty) / 2 + 6} ${tx} ${ty}`);
+    thread.setAttribute('fill', 'none');
+    thread.setAttribute('stroke', '#6B7A52');
+    thread.setAttribute('stroke-width', '0.8');
+    thread.setAttribute('stroke-dasharray', '2 4');
+    thread.setAttribute('opacity', '0.5');
+    svg.insertBefore(thread, g);
+  });
+}
+
 function renderMarkdown(text: string): string {
   let html = escapeHtml(text);
   html = html.replace(/`([^`\n]+)`/g, '<code>$1</code>');
@@ -461,8 +652,37 @@ export function initChatPanel() {
   if (!toggle || !drawer || !closeBtn || !resetBtn || !maxBtn || !resize || !form || !input || !sendBtn || !history || !pill) return;
   if (!settingsBtn || !settingsPanel || !promptSelect) return;
 
+  const mycSvg = document.getElementById('chat-mycelium-svg') as unknown as SVGSVGElement | null;
+  const mycEmpty = document.getElementById('chat-mycelium-empty') as HTMLElement | null;
+
   const ctx = readPageContext();
   setContextPill(pill, ctx);
+
+  // Toggle .is-wide on the drawer when its width crosses 700px, so the
+  // mycelium pane shows or hides automatically when the user resizes the
+  // drawer or maximises it.
+  const WIDE_THRESHOLD = 700;
+  let lastIsWide: boolean | null = null;
+  const updateWide = () => {
+    const w = drawer.getBoundingClientRect().width;
+    const isWide = w >= WIDE_THRESHOLD;
+    if (isWide === lastIsWide) return;
+    lastIsWide = isWide;
+    drawer.classList.toggle('is-wide', isWide);
+    if (isWide && mycSvg) renderMycelium(mycSvg, mycEmpty, conv.messages);
+  };
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(updateWide).observe(drawer);
+  }
+  // Also listen on window resize for browsers without RO observed-element
+  // semantics; cheap and idempotent.
+  window.addEventListener('resize', updateWide);
+
+  const renderMyceliumIfWide = () => {
+    if (drawer.classList.contains('is-wide') && mycSvg) {
+      renderMycelium(mycSvg, mycEmpty, conv.messages);
+    }
+  };
 
   // Prompt selection. URL ?prompt=… > localStorage > server default.
   let promptOptions: PromptOption[] = [];
@@ -596,6 +816,7 @@ export function initChatPanel() {
     conv.messages = [];
     saveConversation(conv);
     renderHistory();
+    renderMyceliumIfWide();
     input.value = '';
     sendBtn.disabled = true;
     if (!isMobile()) input.focus();
@@ -638,6 +859,7 @@ export function initChatPanel() {
       conv.messages = [];
       saveConversation(conv);
       renderHistory();
+      renderMyceliumIfWide();
     }
   });
 
@@ -725,6 +947,7 @@ export function initChatPanel() {
     const userMsg: ChatMessage = { role: 'user', content: text };
     conv.messages.push(userMsg);
     saveConversation(conv);
+    renderMyceliumIfWide();
 
     if (conv.messages.length === 1) {
       renderHistory();
@@ -831,6 +1054,7 @@ export function initChatPanel() {
       conv.messages.push({ role: 'assistant', content: assistantText });
       saveConversation(conv);
       appendFollowups(history, submitText, chipItems || undefined);
+      renderMyceliumIfWide();
     } else {
       typingNode.remove();
     }
@@ -845,6 +1069,10 @@ export function initChatPanel() {
   });
 
   renderHistory();
+  // Run an initial wide-detection so the mycelium pane renders immediately
+  // if the drawer is already wide on first paint (e.g. restored maximised).
+  updateWide();
+  renderMyceliumIfWide();
   if (conv.open) {
     openDrawer();
   }

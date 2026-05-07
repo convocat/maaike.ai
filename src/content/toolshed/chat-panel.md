@@ -21,6 +21,25 @@ A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer 
 - **Input**: there is no separate textarea. The fourth pebble in the chips area IS the input. Type into it, press Enter to send. The original `<textarea>` and Send button still exist in the DOM for accessibility / programmatic submit, but are hidden via `display: none` (the chip click and input-pebble Enter both fill the hidden textarea and call `form.requestSubmit()` so streaming logic stays untouched).
 - A small disclaimer line below the chips: "The Garden can be wrong. Check the page."
 
+## Wide-view mycelium (prototype)
+
+When the drawer is at least 700px wide (typically: maximised, or a manually-widened drawer on a roomy desktop), the right half of the drawer is a `chat-mycelium` pane. It is hidden in narrow / mobile layouts.
+
+The pane is an SVG canvas that re-renders on every conversation change. Each turn becomes a node:
+- User question → small watercolor acorn at a calculated point on a meandering path
+- Bot reply → small watercolor leaf at the next point
+- Cursive (Cedarville) caption to the side of each node, flipped to the other side past the canvas midline so labels don't run off
+
+Faint dashed sage threads connect each node to the previous one in conversation order, drawn as quadratic Bezier curves with alternating control-point bias so the threads gently meander.
+
+Cited posts are detected by parsing markdown links of the form `[Title](/collection/slug/)` from assistant messages. Each becomes a small painted card (collection-coloured strip + Lora title) anchored near the bot turn that mentioned it, with its own thread back to the node.
+
+Status: prototype. The visualisation is read-only for now. Ideas worth trying next: hover a node to highlight its threads, click a citation card to scroll the underlying page, recurring concept detection so the second mention of "stream" links back to the first.
+
+Toggling: `is-wide` class added to `.chat-drawer` when its `getBoundingClientRect().width >= 700`. A `ResizeObserver` watches the drawer; the class flips automatically on resize, maximise, or window changes.
+
+Files: `src/components/ChatPanel.astro` (markup + CSS), `src/scripts/chat-panel.ts` (`renderMycelium` function + ResizeObserver wiring).
+
 ## Cedarville Cursive (chat-only spidery accent)
 
 Several short, secondary, decorative texts in the chat use **Cedarville Cursive** (self-hosted at `public/fonts/cedarville-400-latin.woff2`) for a handwritten "margin note" feel. Specifically:

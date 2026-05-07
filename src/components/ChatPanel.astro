@@ -83,25 +83,33 @@
       </div>
     </header>
 
-    <div class="chat-history" id="chat-history" role="log" aria-live="polite"></div>
+    <div class="chat-body">
+      <div class="chat-main">
+        <div class="chat-history" id="chat-history" role="log" aria-live="polite"></div>
 
-    <form class="chat-form" id="chat-form" autocomplete="off">
-      <textarea
-        id="chat-input"
-        class="chat-input"
-        placeholder="Ask about this page, or anything in the garden…"
-        rows="2"
-        maxlength="1000"
-        aria-label="Your message"
-      ></textarea>
-      <div class="chat-form-row">
-        <span class="chat-disclaimer">The Garden can be wrong. Check the page.</span>
-        <button type="submit" id="chat-send" class="chat-send" disabled>
-          Send
-        </button>
+        <form class="chat-form" id="chat-form" autocomplete="off">
+          <textarea
+            id="chat-input"
+            class="chat-input"
+            placeholder="Ask about this page, or anything in the garden…"
+            rows="2"
+            maxlength="1000"
+            aria-label="Your message"
+          ></textarea>
+          <div class="chat-form-row">
+            <span class="chat-disclaimer">The Garden can be wrong. Check the page.</span>
+            <button type="submit" id="chat-send" class="chat-send" disabled>
+              Send
+            </button>
+          </div>
+        </form>
+        <p class="chat-disclaimer-floating">The Garden can be wrong. Check the page.</p>
       </div>
-    </form>
-    <p class="chat-disclaimer-floating">The Garden can be wrong. Check the page.</p>
+      <aside class="chat-mycelium" id="chat-mycelium" aria-label="Mycelium of this conversation">
+        <svg class="chat-mycelium-svg" id="chat-mycelium-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+        <p class="chat-mycelium-empty" id="chat-mycelium-empty">As you and the garden talk, the conversation will grow its own mycelium here.</p>
+      </aside>
+    </div>
   </div>
 </aside>
 
@@ -350,6 +358,59 @@
     color: var(--color-text-muted);
     line-height: 1.4;
   }
+
+  /* Wrapper that switches between single-column (narrow) and two-column
+     (wide) layouts. The mycelium pane only appears in two-column. */
+  .chat-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .chat-main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .chat-mycelium { display: none; }
+
+  .chat-drawer.is-wide .chat-body {
+    flex-direction: row;
+  }
+  .chat-drawer.is-wide .chat-main {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+  .chat-drawer.is-wide .chat-mycelium {
+    display: block;
+    flex: 1 1 50%;
+    min-width: 0;
+    background: #FAF7F2;
+    border-left: 1px solid #EDE8DC;
+    position: relative;
+    overflow: hidden;
+  }
+  .chat-mycelium-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .chat-mycelium-empty {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 80%;
+    max-width: 320px;
+    height: fit-content;
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    pointer-events: none;
+  }
+  .chat-mycelium-empty[hidden] { display: none; }
 
   .chat-history {
     flex: 1 1 auto;

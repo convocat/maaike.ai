@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chat wide view — reading-surface simulation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@460;500;600&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+
+  .top {
+    padding: 18px 24px;
+    border-bottom: 1px solid #E5DFD4;
+    background: #FFFFFF;
+  }
+  .top h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 6px; font-weight: 600; }
+  .top p { color: #7A7268; font-size: 13px; margin: 0; max-width: 800px; line-height: 1.5; }
+
+  /* Step controls */
+  .stepper {
+    display: flex; gap: 10px; align-items: center;
+    padding: 12px 24px; border-bottom: 1px solid #E5DFD4;
+    background: #FAF7F2;
+    position: sticky; top: 0; z-index: 5;
+  }
+  .stepper button {
+    border: 1px solid #DCD0B0;
+    background: #FFFFFF; color: #1A1A1A;
+    padding: 6px 14px; border-radius: 999px;
+    font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .stepper button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .stepper .step-info {
+    font-size: 13px; color: #7A7268; flex: 1 1 auto;
+  }
+  .stepper .step-info strong { color: #1A1A1A; font-weight: 600; margin-right: 8px; }
+
+  /* The drawer */
+  .drawer {
+    margin: 24px;
+    border: 1px solid #E5DFD4; border-radius: 8px;
+    background: #FFFFFF;
+    overflow: hidden;
+    height: 720px;
+    display: flex; flex-direction: column;
+  }
+  .drawer-header {
+    padding: 16px 22px; border-bottom: 1px solid #E5DFD4;
+    background: #FFFFFF;
+  }
+  .drawer-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; margin: 0; }
+  .drawer-ctx {
+    font-family: 'Cedarville Cursive', cursive; font-size: 1rem;
+    color: #7A7268; margin: 4px 0 0; line-height: 1.4;
+  }
+  .drawer-ctx strong { color: #9C7A3E; font-weight: 400; }
+
+  .drawer-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  /* Left: chat */
+  .chat-side {
+    overflow-y: auto;
+    padding: 24px 28px 32px;
+    border-right: 1px solid #EDE8DC;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .chat-empty {
+    color: #B5AC9C; font-style: italic; font-size: 0.85rem;
+    line-height: 1.5; padding: 8px 0;
+  }
+  .msg { display: flex; gap: 12px; align-items: flex-start; }
+  .avatar { flex: 0 0 auto; }
+  .avatar img { width: 34px; height: auto; display: block; object-fit: contain; }
+  .msg-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .msg-role { font-family: 'Cedarville Cursive', cursive; font-size: 1.05rem; color: #7A7268; line-height: 1.4; padding-bottom: 2px; }
+  .msg-bubble { font-family: 'Nunito', sans-serif; font-weight: 460; font-size: 0.95rem; line-height: 1.65; }
+  .msg.user .msg-bubble {
+    background: #ECE2CE;
+    border-radius: 0.55rem;
+    padding: 0.5rem 0.75rem;
+    align-self: flex-start;
+  }
+  .msg-bubble strong { color: #111; }
+  .msg-bubble a {
+    color: #3E5638; text-decoration: underline; text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  .msg-bubble a:hover { color: #2A3D26; }
+  .msg-bubble a.is-active-cite { background: rgba(156, 122, 62, 0.18); padding: 0 2px; border-radius: 2px; }
+
+  /* Right: reading panel */
+  .reading {
+    display: flex; flex-direction: column;
+    background: #FAF7F2;
+    min-width: 0;
+  }
+  .reading-tabs {
+    display: flex; gap: 4px;
+    padding: 12px 18px 0;
+    border-bottom: 1px solid #EDE5D2;
+    overflow-x: auto;
+  }
+  .reading-tab {
+    flex: 0 0 auto;
+    border: 1px solid transparent; border-bottom: none;
+    background: transparent; color: #7A7268;
+    padding: 8px 12px 10px;
+    font: inherit; font-size: 12px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    margin-bottom: -1px;
+    display: flex; align-items: center; gap: 6px;
+    max-width: 200px;
+  }
+  .reading-tab .tab-icon { width: 12px; height: 12px; flex: 0 0 auto; border-radius: 3px; background: #DCD0B0; }
+  .reading-tab .tab-icon.articles { background: #C5A87A; }
+  .reading-tab .tab-icon.field-notes { background: #8DBE8D; }
+  .reading-tab .tab-label {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    flex: 1 1 auto;
+  }
+  .reading-tab.is-active {
+    background: #FFFFFF; border-color: #EDE5D2;
+    color: #1A1A1A; font-weight: 600;
+  }
+  .reading-tab.is-current::after { content: '·'; margin-left: 4px; color: #9C7A3E; }
+  .reading-tab.is-new {
+    animation: tab-arrives 0.6s ease;
+  }
+  @keyframes tab-arrives {
+    from { transform: translateY(-4px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .reading-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 18px 28px 28px;
+    background: #FFFFFF;
+  }
+  .reading-meta {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #7A7268; margin: 0 0 6px;
+  }
+  .reading-meta a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .reading-h1 {
+    font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 600;
+    margin: 0 0 6px; line-height: 1.25; color: #1A1A1A;
+  }
+  .reading-sub {
+    font-size: 14px; color: #6B6B6B; line-height: 1.5;
+    margin: 0 0 16px; font-style: italic;
+  }
+  .reading-body p {
+    font-family: 'Lora', serif; font-size: 14px; line-height: 1.65;
+    margin: 0 0 12px; color: #1A1A1A;
+    transition: background 0.4s ease;
+    border-radius: 3px;
+    padding: 2px 4px;
+    margin-left: -4px;
+  }
+  .reading-body p.is-highlighted {
+    background: rgba(156, 122, 62, 0.18);
+  }
+  .reading-body p strong { font-weight: 600; }
+
+  .reading-footer {
+    margin-top: 18px; padding-top: 14px; border-top: 1px solid #EDE5D2;
+    font-size: 12px; color: #7A7268;
+  }
+  .reading-footer a { color: #3E5638; text-decoration: underline; }
+
+  .reading-empty {
+    flex: 1 1 auto; display: flex; align-items: center; justify-content: center;
+    color: #B5AC9C; font-style: italic; font-size: 0.9rem; padding: 32px;
+    text-align: center;
+  }
+
+  /* Badge that flickers when a new tab arrives */
+  .arrive-flash {
+    position: fixed; pointer-events: none;
+  }
+
+  .principles {
+    margin: 24px;
+    padding: 18px 22px;
+    background: #FAF7F2;
+    border-left: 3px solid #3E5638;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px; color: #555; line-height: 1.6;
+  }
+  .principles h2 { font-family: 'Lora', serif; font-size: 15px; margin: 0 0 8px; color: #1A1A1A; }
+  .principles ul { margin: 0; padding-left: 18px; }
+  .principles li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Chat wide view — reading-surface simulation</h1>
+  <p>Two-panel layout. Chat on the left exactly as it is today. The right panel is a <strong>reading surface</strong>: it shows the current page on open, then accumulates cited posts as the bot mentions them. Hovering a citation in the chat highlights the relevant paragraph in the panel. Step through the conversation to see how this actually feels.</p>
+</div>
+
+<div class="stepper">
+  <button id="prev" disabled>← Back</button>
+  <span class="step-info"><strong id="step-num">Step 1 of 7</strong><span id="step-desc">Reader opens the chat on the page</span></span>
+  <button id="next">Forward →</button>
+  <button id="reset">⟲ Reset</button>
+</div>
+
+<div class="drawer">
+  <div class="drawer-header">
+    <p class="drawer-title">Talk about this page</p>
+    <p class="drawer-ctx">Talking about <strong>The garden as a metaphor</strong></p>
+  </div>
+  <div class="drawer-body">
+    <div class="chat-side" id="chat-side"></div>
+    <aside class="reading">
+      <div class="reading-tabs" id="reading-tabs"></div>
+      <div class="reading-body" id="reading-body"></div>
+    </aside>
+  </div>
+</div>
+
+<div class="principles">
+  <h2>Why this design (not the earlier mockups)</h2>
+  <ul>
+    <li><strong>The need:</strong> when the bot says "Maaike argues X in [post Y]", the reader wants to verify or skim Y without leaving the chat. Today they'd open Y in a new tab and lose the conversation.</li>
+    <li><strong>The mechanism:</strong> cited posts arrive as tabs in the right panel. The current page is always there. Hovering a chat citation highlights the relevant paragraph.</li>
+    <li><strong>What it doesn't do:</strong> duplicate the chat's content as cards (variant A did this). Show structured triples that only Maaike cares about (variant B). Try to do everything (variant C).</li>
+    <li><strong>Mobile / narrow:</strong> right panel hides; chat behaves exactly as today.</li>
+  </ul>
+</div>
+
+<script>
+  const POSTS = {
+    'garden-metaphor': {
+      title: 'The garden as a metaphor',
+      collection: 'articles',
+      collectionLabel: 'Article',
+      sub: 'Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.',
+      paras: [
+        'The metaphor of a <strong>digital garden</strong> matters. It says posts are alive, not finished.',
+        'Some posts are seeds (a half-formed thought). Some are saplings (in progress). Some have grown into trees (settled). The reader is wandering through, not consuming a feed.',
+        "Most of what you write online is published into a stream that flattens everything: the off-the-cuff jotting and the carefully reasoned essay sit in the same shape. <strong>That flattening is editorial.</strong> Choosing a garden metaphor is a way of refusing it.",
+        'An open question I have not resolved: does the garden metaphor scale beyond personal sites? Most public examples are individuals.'
+      ],
+      isCurrent: true
+    },
+    'central-space': {
+      title: 'A digital garden as central space',
+      collection: 'articles',
+      collectionLabel: 'Article',
+      sub: 'Why this site replaced five platforms.',
+      paras: [
+        'The garden is the home base. <strong>Five platforms before, one place now.</strong>',
+        'A WordPress blog from 2003. A Substack from 2020 to 2025. A YouTube channel under Convocat. Books and projects in Notion. Articles on Medium and LinkedIn. None of these felt fully mine, and none of them talked to each other.',
+        'Astro static site, content collections, GitHub Pages. The mechanics are unremarkable. The interesting thing is what the consolidation does to the writing: there is now a single place where old notes can sit alongside new ones, and where a half-formed thought can be a seed instead of a tweet.'
+      ]
+    },
+    'chatbots-forms': {
+      title: 'Why most chatbots should be forms',
+      collection: 'field-notes',
+      collectionLabel: 'Field note',
+      sub: 'A short field note on the productisation gap between conversation and language models.',
+      paras: [
+        'Most products labelled "AI conversation" would be better served by a <strong>well-designed form</strong>.',
+        'The cost of <em>open input</em> is rarely worth the marginal value over a few well-placed fields. Open input means the system has to handle every possible phrasing, every possible misunderstanding, every possible adversarial input. Forms make scope legible.',
+        'This is offered as an example of a position that has settled. Not a question still in the soil.'
+      ]
+    }
+  };
+
+  const STEPS = [
+    {
+      desc: 'Drawer opens. Reader is on the page. Right panel shows the current page, scrolled to top.',
+      messages: [],
+      panelPosts: ['garden-metaphor'],
+      activePost: 'garden-metaphor',
+      highlights: [],
+    },
+    {
+      desc: 'Reader types: "Where do I start?" Right panel unchanged.',
+      messages: [{ role: 'user', text: 'Where do I start?' }],
+      panelPosts: ['garden-metaphor'],
+      activePost: 'garden-metaphor',
+      highlights: [],
+    },
+    {
+      desc: 'Bot replies. Mentions the current page in passing, alongside two adjacent threads. No new tab yet because nothing new is cited specifically.',
+      messages: [
+        { role: 'user', text: 'Where do I start?' },
+        { role: 'garden', text: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong> (the practice), <strong>where AI tools are going</strong> (the recent work), or <strong>the garden idea itself</strong> (this site as a thing). What\'s the angle?' }
+      ],
+      panelPosts: ['garden-metaphor'],
+      activePost: 'garden-metaphor',
+      highlights: [],
+    },
+    {
+      desc: 'Reader picks the garden idea.',
+      messages: [
+        { role: 'user', text: 'Where do I start?' },
+        { role: 'garden', text: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong> (the practice), <strong>where AI tools are going</strong> (the recent work), or <strong>the garden idea itself</strong> (this site as a thing). What\'s the angle?' },
+        { role: 'user', text: 'The garden idea.' }
+      ],
+      panelPosts: ['garden-metaphor'],
+      activePost: 'garden-metaphor',
+      highlights: [],
+    },
+    {
+      desc: 'Bot cites two posts: the current page (already in the panel, paragraphs 0–2 highlight) and a new one. New tab arrives at the top of the panel and becomes active.',
+      messages: [
+        { role: 'user', text: 'Where do I start?' },
+        { role: 'garden', text: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong> (the practice), <strong>where AI tools are going</strong> (the recent work), or <strong>the garden idea itself</strong> (this site as a thing). What\'s the angle?' },
+        { role: 'user', text: 'The garden idea.' },
+        { role: 'garden', text: 'Two pieces are load-bearing here. <a data-cite="garden-metaphor" data-paras="0,2">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a data-cite="central-space" data-paras="0,1">A digital garden as central space</a> tells the story of replacing five platforms with this one. The thread that runs through both: <strong>publish-as-thinking</strong>, not publish-as-finished.' }
+      ],
+      panelPosts: ['garden-metaphor', 'central-space'],
+      activePost: 'central-space',
+      highlights: ['central-space-0', 'central-space-1'],
+    },
+    {
+      desc: 'Reader asks: does the metaphor work for organisations?',
+      messages: [
+        { role: 'user', text: 'Where do I start?' },
+        { role: 'garden', text: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+        { role: 'user', text: 'The garden idea.' },
+        { role: 'garden', text: 'Two pieces are load-bearing here. <a data-cite="garden-metaphor" data-paras="0,2">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a data-cite="central-space" data-paras="0,1">A digital garden as central space</a> tells the story of replacing five platforms with this one. The thread: <strong>publish-as-thinking</strong>, not publish-as-finished.' },
+        { role: 'user', text: 'Does the metaphor work for organisations or just individuals?' }
+      ],
+      panelPosts: ['garden-metaphor', 'central-space'],
+      activePost: 'central-space',
+      highlights: [],
+    },
+    {
+      desc: 'Bot answers honestly that the page raises but doesn\'t resolve this, and points to an adjacent piece. Garden-metaphor tab activates, paragraph 3 (the open question) highlights. Chatbots-forms tab is added but left in the background.',
+      messages: [
+        { role: 'user', text: 'Where do I start?' },
+        { role: 'garden', text: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+        { role: 'user', text: 'The garden idea.' },
+        { role: 'garden', text: 'Two pieces are load-bearing here. <a data-cite="garden-metaphor" data-paras="0,2">The garden as a metaphor</a> lays out the editorial logic. <a data-cite="central-space" data-paras="0,1">A digital garden as central space</a> tells the consolidation story.' },
+        { role: 'user', text: 'Does the metaphor work for organisations or just individuals?' },
+        { role: 'garden', text: 'Maaike has only made the case for individuals. <a data-cite="garden-metaphor" data-paras="3">The page raises this question explicitly</a> but does not resolve it. <a data-cite="chatbots-forms" data-paras="2">Why most chatbots should be forms</a> is adjacent in a different way: an example of a stance she has settled on, not a question still in the soil.' }
+      ],
+      panelPosts: ['garden-metaphor', 'central-space', 'chatbots-forms'],
+      activePost: 'garden-metaphor',
+      highlights: ['garden-metaphor-3'],
+    }
+  ];
+
+  let stepIdx = 0;
+  let activeTabOverride = null; // user-clicked tab overrides the step's default
+  let hoverHighlights = null;   // hovering a citation overrides step highlights
+
+  function renderChat(step) {
+    const root = document.getElementById('chat-side');
+    if (!step.messages.length) {
+      root.innerHTML = '<p class="chat-empty">Empty. The reader has just opened the chat.</p>';
+      return;
+    }
+    root.innerHTML = step.messages.map(m => {
+      if (m.role === 'user') {
+        return `<div class="msg user"><div class="avatar"><img src="/images/watercolor-acorn-trimmed.png" alt=""/></div><div class="msg-body"><span class="msg-role">You</span><div class="msg-bubble">${m.text}</div></div></div>`;
+      }
+      return `<div class="msg garden"><div class="avatar"><img src="/images/watercolor-leaf-trimmed.png" alt=""/></div><div class="msg-body"><span class="msg-role">The Garden</span><div class="msg-bubble">${m.text}</div></div></div>`;
+    }).join('');
+    // Bind citation hover-to-highlight
+    root.querySelectorAll('.msg-bubble a[data-cite]').forEach(a => {
+      a.addEventListener('mouseenter', () => {
+        const post = a.dataset.cite;
+        const paras = (a.dataset.paras || '').split(',').filter(Boolean).map(n => `${post}-${n.trim()}`);
+        hoverHighlights = { post, paras };
+        activeTabOverride = post;
+        render(false);
+      });
+      a.addEventListener('mouseleave', () => {
+        hoverHighlights = null;
+        activeTabOverride = null;
+        render(false);
+      });
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        activeTabOverride = a.dataset.cite;
+        render(false);
+      });
+    });
+    root.scrollTop = root.scrollHeight;
+  }
+
+  function renderPanel(step) {
+    const tabs = document.getElementById('reading-tabs');
+    const body = document.getElementById('reading-body');
+    const active = activeTabOverride || step.activePost;
+    const highlights = hoverHighlights ? hoverHighlights.paras : step.highlights;
+
+    tabs.innerHTML = step.panelPosts.map(key => {
+      const p = POSTS[key];
+      const cls = [
+        'reading-tab',
+        active === key ? 'is-active' : '',
+        p.isCurrent ? 'is-current' : '',
+      ].filter(Boolean).join(' ');
+      return `<button class="${cls}" data-tab="${key}"><span class="tab-icon ${p.collection}"></span><span class="tab-label">${p.title}</span></button>`;
+    }).join('');
+    tabs.querySelectorAll('.reading-tab').forEach(b => {
+      b.addEventListener('click', () => {
+        activeTabOverride = b.dataset.tab;
+        render(false);
+      });
+    });
+
+    const post = POSTS[active];
+    if (!post) {
+      body.innerHTML = '<p class="reading-empty">Nothing yet.</p>';
+      return;
+    }
+    const para = post.paras.map((p, i) => {
+      const id = `${active}-${i}`;
+      const isHL = highlights.includes(id) ? ' is-highlighted' : '';
+      return `<p class="${isHL.trim()}" data-id="${id}">${p}</p>`;
+    }).join('');
+    body.innerHTML = `
+      <p class="reading-meta">${post.collectionLabel}${post.isCurrent ? ' · current page' : ''}</p>
+      <h1 class="reading-h1">${post.title}</h1>
+      <p class="reading-sub">${post.sub}</p>
+      ${para}
+      <p class="reading-footer"><a href="#">Open full post in a new tab →</a></p>
+    `;
+  }
+
+  function render(advanceState = true) {
+    const step = STEPS[stepIdx];
+    if (advanceState) {
+      activeTabOverride = null;
+      hoverHighlights = null;
+    }
+    document.getElementById('step-num').textContent = `Step ${stepIdx + 1} of ${STEPS.length}`;
+    document.getElementById('step-desc').textContent = step.desc;
+    document.getElementById('prev').disabled = stepIdx === 0;
+    document.getElementById('next').disabled = stepIdx === STEPS.length - 1;
+    renderChat(step);
+    renderPanel(step);
+  }
+
+  document.getElementById('prev').addEventListener('click', () => { if (stepIdx > 0) { stepIdx--; render(); } });
+  document.getElementById('next').addEventListener('click', () => { if (stepIdx < STEPS.length - 1) { stepIdx++; render(); } });
+  document.getElementById('reset').addEventListener('click', () => { stepIdx = 0; render(); });
+
+  render();
+</script>
+</body>
+</html>
