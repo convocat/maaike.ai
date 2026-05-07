@@ -69,7 +69,7 @@ const API_BASE =
 // Avatars
 const GARDEN_AVATAR_HTML = `<img src="/images/watercolor-leaf-trimmed.png" alt="" loading="lazy" />`;
 
-const USER_AVATAR_SVG = `<img src="/images/watercolor-oak.png" alt="" loading="lazy" />`;
+const USER_AVATAR_SVG = `<img src="/images/watercolor-acorn-trimmed.png" alt="" loading="lazy" />`;
 
 const ASSISTANT_LABEL = 'The Garden';
 

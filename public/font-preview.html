@@ -5,27 +5,22 @@
 <title>Body font preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lato:wght@400;500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lato:wght@400;500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600&family=Karla:wght@400;500;700&family=Manrope:wght@400;500;600&family=Fira+Sans:wght@400;500;600&family=Mulish:wght@400;500;700&family=Cabin:wght@400;500;700&family=Work+Sans:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    background: #FFFFFF;
-    color: #1A1A1A;
-  }
+  :root { --active-font: 'Roboto', system-ui, sans-serif; }
+  body { margin: 0; background: #FFFFFF; color: #1A1A1A; font-family: 'Inter', system-ui, sans-serif; }
   .tabs {
     position: sticky; top: 0; z-index: 10;
-    display: flex; gap: 0;
+    display: flex; gap: 0; flex-wrap: wrap;
     background: #FFFFFF;
     border-bottom: 1px solid #E5DFD4;
     padding: 8px 16px 0;
-    font-family: 'Inter', system-ui, sans-serif;
-    flex-wrap: wrap;
   }
   .tab {
     border: 1px solid transparent;
     border-bottom: none;
     background: transparent;
-    padding: 10px 16px 12px;
+    padding: 10px 14px 12px;
     font: inherit; font-size: 13px;
     cursor: pointer; color: #7A7268;
     border-radius: 6px 6px 0 0;
@@ -37,86 +32,231 @@
     border-color: #E5DFD4;
     color: #1A1A1A; font-weight: 600;
   }
-  .meta {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 12px; color: #7A7268;
-    padding: 8px 16px;
-    background: #FFFFFF;
+  /* Each tab labelled in its own font so differences read at-a-glance */
+  .tab[data-font*="Roboto"]              { font-family: 'Roboto', sans-serif; }
+  .tab[data-font*="Source Sans 3"]       { font-family: 'Source Sans 3', sans-serif; }
+  .tab[data-font*="IBM Plex"]            { font-family: 'IBM Plex Sans', sans-serif; }
+  .tab[data-font*="Lato"]                { font-family: 'Lato', sans-serif; }
+  .tab[data-font*="Atkinson"]            { font-family: 'Atkinson Hyperlegible', sans-serif; }
+  .tab[data-font*="Inter"]               { font-family: 'Inter', sans-serif; }
+  .tab[data-font*="Karla"]               { font-family: 'Karla', sans-serif; }
+  .tab[data-font*="Manrope"]             { font-family: 'Manrope', sans-serif; }
+  .tab[data-font*="Fira Sans"]           { font-family: 'Fira Sans', sans-serif; }
+  .tab[data-font*="Mulish"]              { font-family: 'Mulish', sans-serif; }
+  .tab[data-font*="Cabin"]               { font-family: 'Cabin', sans-serif; }
+  .tab[data-font*="Work Sans"]           { font-family: 'Work Sans', sans-serif; }
+  .tab[data-font*="DM Sans"]             { font-family: 'DM Sans', sans-serif; }
+  .tab[data-font*="Nunito"]              { font-family: 'Nunito', sans-serif; }
+  .tab[data-font*="Rubik"]               { font-family: 'Rubik', sans-serif; }
+
+  .sample {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px 24px;
     border-bottom: 1px solid #E5DFD4;
   }
+  .sample-h {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .sample-sub {
+    font-family: var(--active-font);
+    font-size: 16px;
+    color: #6B6B6B;
+    margin: 0 0 18px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .sample-body {
+    font-family: var(--active-font);
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    margin: 0;
+  }
+  .sample-body p { margin: 0 0 14px; }
+  .sample-body strong { color: #111; }
+  .sample-body em { font-style: italic; }
+  .sample-body a { color: #3E5638; text-decoration: underline; text-underline-offset: 2px; }
+  .sample-meta {
+    font-family: var(--active-font);
+    font-size: 12px;
+    color: #7A7268;
+    margin-top: 6px;
+  }
+  .meta-bar {
+    font-size: 12px; color: #7A7268;
+    padding: 8px 24px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5DFD4;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .meta-bar select {
+    font: inherit; font-size: 12px;
+    padding: 2px 6px; border: 1px solid #E5DFD4; border-radius: 4px; background: #fff;
+  }
+  .frame-wrap { padding: 0 0 32px; }
   iframe {
     display: block; width: 100%;
-    height: calc(100vh - 84px);
-    border: none; background: #FFFFFF;
+    height: 70vh;
+    border: 1px solid #E5DFD4;
+    border-left: none; border-right: none;
+    background: #FFFFFF;
   }
 </style>
 </head>
 <body>
 
 <div class="tabs">
-  <button class="tab is-active" data-font='"Roboto", -apple-system, sans-serif'>Roboto (current)</button>
-  <button class="tab" data-font='"Source Sans 3", -apple-system, sans-serif'>Source Sans 3</button>
-  <button class="tab" data-font='"IBM Plex Sans", -apple-system, sans-serif'>IBM Plex Sans</button>
-  <button class="tab" data-font='"Lato", -apple-system, sans-serif'>Lato</button>
-  <button class="tab" data-font='"Atkinson Hyperlegible", -apple-system, sans-serif'>Atkinson Hyperlegible</button>
-  <button class="tab" data-font='"Inter", -apple-system, sans-serif'>Inter</button>
+  <button class="tab is-active" data-font="Roboto">Roboto (current)</button>
+  <button class="tab" data-font="Source Sans 3">Source Sans 3</button>
+  <button class="tab" data-font="IBM Plex Sans">IBM Plex Sans</button>
+  <button class="tab" data-font="Lato">Lato</button>
+  <button class="tab" data-font="Atkinson Hyperlegible">Atkinson Hyperlegible</button>
+  <button class="tab" data-font="Inter">Inter</button>
+  <button class="tab" data-font="Karla">Karla</button>
+  <button class="tab" data-font="Manrope">Manrope</button>
+  <button class="tab" data-font="Fira Sans">Fira Sans</button>
+  <button class="tab" data-font="Mulish">Mulish</button>
+  <button class="tab" data-font="Cabin">Cabin</button>
+  <button class="tab" data-font="Work Sans">Work Sans</button>
+  <button class="tab" data-font="DM Sans">DM Sans</button>
+  <button class="tab" data-font="Nunito">Nunito</button>
+  <button class="tab" data-font="Rubik">Rubik</button>
 </div>
 
-<div class="meta">Article: <a href="#" id="open-tab" style="color:#3E5638; text-decoration:none">/articles/garden-as-metaphor/ ↗</a> &middot; body font swaps live in the iframe; headings stay Lora.</div>
+<div class="meta-bar">
+  Showing: <strong id="active-name" style="font-family: var(--active-font); color:#1A1A1A">Roboto</strong>
+  &middot; In iframe:
+  <select id="article-select">
+    <option value="/articles/garden-as-metaphor/">garden-as-metaphor</option>
+    <option value="/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that/">why-chatgpt-is-bullshit</option>
+    <option value="/articles/context-engineering-lets-call-it-design/">context-engineering</option>
+  </select>
+</div>
 
-<iframe id="frame" src="/articles/garden-as-metaphor/"></iframe>
+<section class="sample">
+  <h1 class="sample-h">The garden as a metaphor</h1>
+  <p class="sample-sub">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+  <div class="sample-body">
+    <p>The metaphor of a <strong>digital garden</strong> matters. It says posts are alive, not finished. Some are seeds (a half-formed thought), some are saplings (in progress), some have grown into trees (settled). The reader is wandering through, not consuming a feed.</p>
+    <p>Most of what you write online is published into a stream that flattens everything: the off-the-cuff jotting and the carefully reasoned essay sit in the same shape. <em>That flattening is editorial.</em> Choosing a garden metaphor is a way of refusing it.</p>
+    <p>For more, see <a href="#">why most chatbots should be forms</a> or browse the wider <a href="#">archive of articles</a>.</p>
+  </div>
+  <p class="sample-meta">Published 5 April 2026 · Tended 2 May 2026 · 100% Maai</p>
+</section>
+
+<div class="frame-wrap">
+  <iframe id="frame" src="/articles/garden-as-metaphor/"></iframe>
+</div>
 
 <script>
-  // Inject the chosen font into the iframe by overriding --font-body.
-  // Lora for headings stays.
-  function applyFont(font) {
+  function applyFontToParent(font) {
+    document.documentElement.style.setProperty('--active-font', `"${font}", -apple-system, "Segoe UI", sans-serif`);
+    document.getElementById('active-name').textContent = font;
+  }
+
+  // The iframe (Astro article page) can't reach fonts.gstatic.com directly,
+  // but this parent page can. So: parent fetches the Google Fonts CSS,
+  // parses the @font-face URLs, fetches each woff2 as ArrayBuffer, then
+  // hands a FontFace into the iframe's document.fonts. Same-origin lets
+  // us share the buffers.
+  let _fontsCssPromise = null;
+  function fetchFontsCss() {
+    if (_fontsCssPromise) return _fontsCssPromise;
+    const link = document.querySelector('link[href*="fonts.googleapis.com/css2?family=Lora"]');
+    _fontsCssPromise = link
+      ? fetch(link.href).then(r => r.text()).catch(() => '')
+      : Promise.resolve('');
+    return _fontsCssPromise;
+  }
+
+  // Parse @font-face blocks for a family, return [{weight, style, url}].
+  function parseFontFacesForFamily(css, family) {
+    const blocks = css.match(/@font-face\s*\{[^}]*\}/g) || [];
+    const out = [];
+    for (const block of blocks) {
+      const fam = (block.match(/font-family:\s*['"]([^'"]+)['"]/) || [])[1];
+      if (fam !== family) continue;
+      const weight = (block.match(/font-weight:\s*([^;]+);/) || [])[1]?.trim() || '400';
+      const style  = (block.match(/font-style:\s*([^;]+);/)  || [])[1]?.trim() || 'normal';
+      const url    = (block.match(/url\(([^)]+)\)\s*format\(['"]?woff2['"]?\)/) || [])[1];
+      const range  = (block.match(/unicode-range:\s*([^;]+);/) || [])[1];
+      if (url) out.push({ weight, style, url, range });
+    }
+    return out;
+  }
+
+  // Cache loaded fonts per family so we only fetch once.
+  const _loadedFamilies = new Set();
+
+  async function ensureFontInIframe(family) {
+    if (_loadedFamilies.has(family)) return;
     const frame = document.getElementById('frame');
     const doc = frame.contentDocument;
     if (!doc) return;
+    const css = await fetchFontsCss();
+    const faces = parseFontFacesForFamily(css, family);
+    // Limit to "latin" range faces (keep payload small) plus any without range.
+    // Google's "latin" subset is the unicode-range that includes basic Latin.
+    const latinFaces = faces.filter(f => !f.range || /U\+0000-00FF/i.test(f.range) || /U\+0000-007F/i.test(f.range)) ;
+    const chosen = latinFaces.length ? latinFaces : faces.slice(0, 4);
+    await Promise.all(chosen.map(async (face) => {
+      try {
+        const buf = await fetch(face.url).then(r => r.arrayBuffer());
+        const ff = new FontFace(family, buf, { weight: face.weight, style: face.style });
+        await ff.load();
+        doc.fonts.add(ff);
+      } catch (e) {}
+    }));
+    _loadedFamilies.add(family);
+  }
+
+  async function applyFontToIframe(font) {
+    const frame = document.getElementById('frame');
+    const doc = frame.contentDocument;
+    if (!doc) return;
+    await ensureFontInIframe(font);
+
     const old = doc.getElementById('font-override');
     if (old) old.remove();
-    // Inject the Google Fonts link too so the iframe can render it.
-    const fontHrefs = {
-      '"Source Sans 3", -apple-system, sans-serif': 'https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap',
-      '"IBM Plex Sans", -apple-system, sans-serif': 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap',
-      '"Lato", -apple-system, sans-serif': 'https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap',
-      '"Atkinson Hyperlegible", -apple-system, sans-serif': 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap',
-      '"Inter", -apple-system, sans-serif': 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap',
-    };
-    const link = fontHrefs[font];
-    const oldLink = doc.getElementById('font-override-link');
-    if (oldLink) oldLink.remove();
-    if (link) {
-      const l = doc.createElement('link');
-      l.rel = 'stylesheet'; l.href = link; l.id = 'font-override-link';
-      doc.head.appendChild(l);
-    }
-    const css = `:root { --font-body: ${font} !important; } body, p, li, dd, dt, button, input, textarea, select { font-family: ${font} !important; }`;
+    const stack = `"${font}", -apple-system, "Segoe UI", sans-serif`;
+    const cssOverride = `
+      :root { --font-body: ${stack} !important; }
+      body, p, li, dd, dt, button, input, textarea, select, blockquote, figcaption,
+      .post-subtitle, .meta-pill, .post-collection-label, .back-to-stream, label, caption {
+        font-family: ${stack} !important;
+      }
+    `;
     const s = doc.createElement('style');
-    s.id = 'font-override'; s.textContent = css;
+    s.id = 'font-override'; s.textContent = cssOverride;
     doc.head.appendChild(s);
+  }
+
+  function setFont(font) {
+    applyFontToParent(font);
+    applyFontToIframe(font);
   }
 
   document.querySelectorAll('.tab').forEach((btn) => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      const font = btn.getAttribute('data-font');
-      // 'Roboto' default = no override, just clear
-      if (btn.textContent.includes('current')) {
-        const frame = document.getElementById('frame');
-        const doc = frame.contentDocument;
-        doc.getElementById('font-override')?.remove();
-        doc.getElementById('font-override-link')?.remove();
-      } else {
-        applyFont(font);
-      }
+      setFont(btn.getAttribute('data-font'));
     });
   });
 
-  document.getElementById('open-tab').addEventListener('click', (e) => {
-    e.preventDefault();
-    window.open(document.getElementById('frame').src, '_blank');
+  document.getElementById('frame').addEventListener('load', () => {
+    const active = document.querySelector('.tab.is-active');
+    setFont(active?.getAttribute('data-font') || 'Roboto');
+  });
+
+  document.getElementById('article-select').addEventListener('change', (e) => {
+    document.getElementById('frame').src = e.target.value;
   });
 </script>
 </body>
