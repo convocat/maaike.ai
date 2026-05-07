@@ -255,15 +255,15 @@ function isMobile(): boolean {
 function buildSuggestions(ctx: PageContext): string[] {
   if (ctx.collection && ctx.slug) {
     return [
-      'What is this about?',
-      'How does this connect to the rest of the garden?',
-      "What's Maaike's view here?",
+      "What's this about?",
+      'How does it connect?',
+      "Maaike's view?",
     ];
   }
   return [
-    "What is Maaike's garden about?",
-    'What has Maaike published recently?',
-    'Recommend a starting article.',
+    "What's the garden?",
+    'Recently tended?',
+    'Where to start?',
   ];
 }
 
@@ -282,20 +282,39 @@ function renderEmpty(history: HTMLElement, ctx: PageContext, onSuggestion: (q: s
   const buttons = suggestions
     .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span class="chip-pebble" aria-hidden="true"></span><span class="chip-text">${escapeHtml(q)}</span></button>`)
     .join('');
+  const inputPebble = `
+    <span class="chat-followup chat-followup-input">
+      <span class="chip-pebble" aria-hidden="true"></span>
+      <input type="text" class="chat-followup-input-field" placeholder="type your own…" aria-label="Your question" />
+    </span>
+  `;
 
   history.innerHTML = `
     <div class="chat-empty">
       <p>${intro}</p>
-      <div class="chat-followups chat-empty-followups">${buttons}</div>
+      <div class="chat-followups chat-empty-followups">${buttons}${inputPebble}</div>
     </div>
   `;
 
-  history.querySelectorAll<HTMLButtonElement>('.chat-followup').forEach((btn) => {
+  history.querySelectorAll<HTMLButtonElement>('.chat-followup:not(.chat-followup-input)').forEach((btn) => {
     btn.addEventListener('click', () => {
       const q = btn.dataset.q || '';
       if (q) onSuggestion(q);
     });
   });
+  const customInput = history.querySelector<HTMLInputElement>('.chat-followup-input-field');
+  if (customInput) {
+    customInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = customInput.value.trim();
+        if (q) {
+          customInput.value = '';
+          onSuggestion(q);
+        }
+      }
+    });
+  }
 }
 
 function appendMessage(history: HTMLElement, role: ChatRole, html: string): { wrap: HTMLElement; bubble: HTMLElement } {
@@ -356,16 +375,37 @@ function appendFollowups(history: HTMLElement, onPick: (q: string) => void, item
   const chips = (items && items.length) ? items.slice(0, 3) : pickSerendipityChips(3);
   const wrap = document.createElement('div');
   wrap.className = 'chat-followups';
-  wrap.innerHTML = chips
+  const chipHtml = chips
     .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span class="chip-pebble" aria-hidden="true"></span><span class="chip-text">${escapeHtml(q)}</span></button>`)
     .join('');
+  // The fourth pebble is an input the visitor can fill in themselves.
+  const inputHtml = `
+    <span class="chat-followup chat-followup-input">
+      <span class="chip-pebble" aria-hidden="true"></span>
+      <input type="text" class="chat-followup-input-field" placeholder="type your own…" aria-label="Your question" />
+    </span>
+  `;
+  wrap.innerHTML = chipHtml + inputHtml;
   history.appendChild(wrap);
-  wrap.querySelectorAll<HTMLButtonElement>('.chat-followup').forEach((btn) => {
+  wrap.querySelectorAll<HTMLButtonElement>('.chat-followup:not(.chat-followup-input)').forEach((btn) => {
     btn.addEventListener('click', () => {
       const q = btn.dataset.q || '';
       if (q) onPick(q);
     });
   });
+  const customInput = wrap.querySelector<HTMLInputElement>('.chat-followup-input-field');
+  if (customInput) {
+    customInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = customInput.value.trim();
+        if (q) {
+          customInput.value = '';
+          onPick(q);
+        }
+      }
+    });
+  }
   history.scrollTop = history.scrollHeight;
 }
 

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Input pebble — fourth chip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@460;500&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 24px; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+  h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 28px; max-width: 680px; }
+
+  .group { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px dashed #E5DFD4; }
+  .group h2 { font-family: 'Lora', serif; font-size: 16px; font-weight: 600; margin: 0 0 4px; color: #1A1A1A; }
+  .group p { font-size: 13px; color: #7A7268; margin: 0 0 14px; max-width: 680px; line-height: 1.5; }
+
+  /* Drawer-like surface */
+  .drawer {
+    border: 1px solid #E5DFD4; border-radius: 8px;
+    width: 420px; padding: 16px 18px;
+    background: #FFFFFF;
+    margin-left: 44px;
+  }
+  .drawer-title {
+    font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; margin: 0;
+  }
+  .drawer-context {
+    font-family: 'Cedarville Cursive', cursive; font-size: 0.95rem;
+    color: #7A7268; margin: 4px 0 0; line-height: 1.7;
+  }
+  .drawer-context strong { color: #9C7A3E; font-weight: 400; }
+  .drawer-divider { height: 1px; background: #E5DFD4; margin: 16px -18px; }
+
+  .row {
+    display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem;
+    padding: 16px 0 8px;
+    align-items: flex-start;
+    min-height: 110px;
+  }
+
+  /* Pebble chip — variant F */
+  .chip {
+    display: inline-flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; border: none; padding: 0;
+    font: inherit; font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.95rem; line-height: 1.2;
+    color: #1A1A1A; cursor: pointer; text-align: center;
+    background: transparent;
+    transition: transform 0.18s ease;
+    max-width: 140px;
+    word-break: normal; overflow-wrap: break-word;
+  }
+  .chip-pebble {
+    display: block; width: 100px; height: 36px;
+    background: center/100% 100% no-repeat;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.18));
+  }
+  .chip:nth-child(4n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-6deg); }
+  .chip:nth-child(4n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(3deg); }
+  .chip:nth-child(4n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-2deg); }
+  .chip:nth-child(4n+4) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(4deg); }
+
+  /* Stagger: scattered pebble layout */
+  .chip:nth-child(4n+1) { transform: translate(2px, 14px) rotate(2deg); }
+  .chip:nth-child(4n+2) { transform: translate(-4px, -8px) rotate(-1.5deg); }
+  .chip:nth-child(4n+3) { transform: translate(6px, 22px) rotate(1deg); }
+  .chip:nth-child(4n+4) { transform: translate(-2px, 0) rotate(-2deg); }
+
+  /* The fourth chip is the input pebble */
+  .chip-input-pebble {
+    cursor: text;
+  }
+  .chip-input-pebble .chip-pebble {
+    /* slightly bigger so the input fits naturally */
+    width: 130px; height: 44px;
+    background-image: url('/images/watercolor-pebble-2.png') !important;
+    transform: rotate(4deg);
+  }
+  .chip-input-pebble input {
+    border: none;
+    background: transparent;
+    font: inherit;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    text-align: center;
+    width: 130px;
+    padding: 2px 0;
+    outline: none;
+  }
+  .chip-input-pebble input::placeholder {
+    font-family: 'Cedarville Cursive', cursive;
+    color: #7A7268;
+    opacity: 0.7;
+  }
+  .chip-input-pebble:focus-within .chip-pebble {
+    filter: drop-shadow(0 7px 6px rgba(0, 0, 0, 0.25));
+  }
+
+  .chip:hover, .chip:focus-visible {
+    transform: translateY(-2px);
+    outline: none;
+  }
+  .chip-input-pebble:focus-within {
+    transform: translateY(-2px) rotate(0deg);
+  }
+
+  /* Variant 2: with bottom textarea kept */
+  .form {
+    padding: 8px 0 0; border-top: 1px solid #E5DFD4; margin-top: 16px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .input-text {
+    width: 100%; resize: none;
+    border: 1px solid #E5DFD4; border-radius: 1.1rem;
+    padding: 0.6rem 0.95rem;
+    font: inherit; font-size: 0.9rem; line-height: 1.5;
+    background: #FFFFFF;
+  }
+  .input-text::placeholder {
+    font-family: 'Cedarville Cursive', cursive; font-size: 1rem;
+    color: #7A7268; opacity: 0.7;
+  }
+  .form-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #7A7268; }
+  .send {
+    border: none; border-radius: 999px; padding: 5px 14px;
+    background: #6B7A52; color: white; font-size: 12px; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Input pebble — fourth chip</h1>
+<p class="lede">Like Claude Code desktop: three predefined chips + one chip you fill in yourself. Two layouts shown: A keeps the bottom textarea for long messages, B drops it entirely and the input pebble is the only way to type.</p>
+
+<div class="group">
+  <h2>A. Four pebbles + textarea below (hybrid)</h2>
+  <p>Three predefined chips, one input pebble for short questions, plus the textarea below for longer messages. Belt-and-braces.</p>
+  <div class="drawer">
+    <p class="drawer-title">Talk about this page</p>
+    <p class="drawer-context">Talking about <strong>The garden as a metaphor</strong></p>
+    <div class="drawer-divider"></div>
+    <div class="row">
+      <button class="chip"><span class="chip-pebble"></span><span>Stream tension</span></button>
+      <button class="chip"><span class="chip-pebble"></span><span>Maturity stages</span></button>
+      <button class="chip"><span class="chip-pebble"></span><span>Other metaphors?</span></button>
+      <span class="chip chip-input-pebble">
+        <span class="chip-pebble"></span>
+        <input type="text" placeholder="type your own…" />
+      </span>
+    </div>
+    <div class="form">
+      <textarea class="input-text" rows="2" placeholder="Or write a longer message here…"></textarea>
+      <div class="form-row"><span>The Garden can be wrong.</span><button class="send">Send</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="group">
+  <h2>B. Four pebbles only (textarea removed)</h2>
+  <p>The input pebble grows when you type. No separate textarea. Cleaner, but long messages get awkward.</p>
+  <div class="drawer">
+    <p class="drawer-title">Talk about this page</p>
+    <p class="drawer-context">Talking about <strong>The garden as a metaphor</strong></p>
+    <div class="drawer-divider"></div>
+    <div class="row">
+      <button class="chip"><span class="chip-pebble"></span><span>Stream tension</span></button>
+      <button class="chip"><span class="chip-pebble"></span><span>Maturity stages</span></button>
+      <button class="chip"><span class="chip-pebble"></span><span>Other metaphors?</span></button>
+      <span class="chip chip-input-pebble">
+        <span class="chip-pebble"></span>
+        <input type="text" placeholder="type your own…" />
+      </span>
+    </div>
+    <div style="margin-top: 12px; font-size: 11px; color: #7A7268;">The Garden can be wrong. Press Enter on the input pebble to send.</div>
+  </div>
+</div>
+
+<div class="group">
+  <h2>C. Pebbles as a heap (hover to surface one)</h2>
+  <p>Pebbles overlap into a small pile, like stones tossed on a beach. Hover or focus a pebble and it lifts and rotates upright, bringing its caption with it. The fourth (input) pebble is in the heap too. Works at any width because it doesn't depend on horizontal space.</p>
+  <div class="drawer">
+    <p class="drawer-title">Talk about this page</p>
+    <p class="drawer-context">Talking about <strong>The garden as a metaphor</strong></p>
+    <div class="drawer-divider"></div>
+    <div class="heap">
+      <button class="chip-h hp1"><span class="chip-pebble pb1"></span><span class="cap">Stream tension</span></button>
+      <button class="chip-h hp2"><span class="chip-pebble pb2"></span><span class="cap">Maturity stages</span></button>
+      <button class="chip-h hp3"><span class="chip-pebble pb3"></span><span class="cap">Other metaphors?</span></button>
+      <span class="chip-h chip-input-pebble hp4"><span class="chip-pebble pb2"></span><input type="text" placeholder="type your own…" /></span>
+    </div>
+    <div style="margin-top: 12px; font-size: 11px; color: #7A7268;">Hover any pebble in the heap to bring it forward.</div>
+  </div>
+</div>
+
+<style>
+  .heap {
+    position: relative;
+    height: 140px;
+    margin: 16px 0 0;
+  }
+  .chip-h {
+    position: absolute;
+    border: none; background: transparent; padding: 0;
+    cursor: pointer; text-align: center;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 0.35rem;
+    font-family: 'Cedarville Cursive', cursive; font-size: 0.95rem; line-height: 1.2;
+    color: #1A1A1A;
+    transition: transform 0.22s ease, z-index 0s, filter 0.22s ease;
+    width: 130px;
+  }
+  .chip-h .chip-pebble {
+    display: block; width: 110px; height: 38px;
+    background: center/100% 100% no-repeat;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.18));
+  }
+  .chip-h .pb1 { background-image: url('/images/watercolor-pebble-1.png'); }
+  .chip-h .pb2 { background-image: url('/images/watercolor-pebble-2.png'); }
+  .chip-h .pb3 { background-image: url('/images/watercolor-pebble-3.png'); }
+  .chip-h .cap {
+    opacity: 0; transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  /* Heap layout: overlap with rotations */
+  .hp1 { left: 0;    top: 8px;  transform: rotate(-12deg); z-index: 1; }
+  .hp2 { left: 60px; top: 32px; transform: rotate(8deg);   z-index: 2; }
+  .hp3 { left: 120px;top: 12px; transform: rotate(-4deg);  z-index: 3; }
+  .hp4 { left: 180px;top: 38px; transform: rotate(6deg);   z-index: 4; }
+
+  .chip-h:hover, .chip-h:focus-within {
+    transform: translateY(-6px) rotate(0deg) scale(1.04);
+    z-index: 10;
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.22));
+  }
+  .chip-h:hover .cap, .chip-h:focus-within .cap {
+    opacity: 1; transform: translateY(0);
+  }
+  .chip-input-pebble.hp4 .chip-pebble {
+    width: 130px; height: 44px;
+  }
+  .chip-input-pebble.hp4 input {
+    border: none; background: transparent; outline: none;
+    font: inherit; font-family: 'Cedarville Cursive', cursive;
+    color: #1A1A1A; text-align: center; width: 130px; padding: 2px 0;
+    opacity: 0; transition: opacity 0.18s ease;
+    pointer-events: none;
+  }
+  .chip-input-pebble.hp4:focus-within input,
+  .chip-input-pebble.hp4:hover input {
+    opacity: 1; pointer-events: auto;
+  }
+  .chip-input-pebble.hp4 input::placeholder {
+    font-family: 'Cedarville Cursive', cursive; color: #7A7268; opacity: 0.7;
+  }
+</style>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">
+A: hybrid (input pebble + textarea). B: input pebble only. C: heap of pebbles, hover to surface.
+</p>
+
+</body>
+</html>

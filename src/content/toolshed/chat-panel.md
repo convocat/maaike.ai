@@ -18,7 +18,8 @@ A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer 
 - **Header**: title, context pill ("Talking about X"), settings cogwheel + reset / maximize / close icons.
 - **History**: scrollable region with assistant + user bubbles, each prefixed by an avatar. Assistant avatar is the watercolor leaf at 32px (circular crop); user avatar is the watercolor acorn at 34px (no crop, full painted shape, transparent background).
 - **User bubble**: sand-colored background (`--chat-tag-bg: #ECE2CE` light, `#352E25` dark), scoped to the drawer so the wider site's tag-bg can stay distinct.
-- **Form**: textarea + Send button, with a one-line disclaimer ("The Garden can be wrong. Check the page.").
+- **Input**: there is no separate textarea. The fourth pebble in the chips area IS the input. Type into it, press Enter to send. The original `<textarea>` and Send button still exist in the DOM for accessibility / programmatic submit, but are hidden via `display: none` (the chip click and input-pebble Enter both fill the hidden textarea and call `form.requestSubmit()` so streaming logic stays untouched).
+- A small disclaimer line below the chips: "The Garden can be wrong. Check the page."
 
 ## Cedarville Cursive (chat-only spidery accent)
 
@@ -44,13 +45,23 @@ Rule of thumb: Cedarville for short, annotational, decorative text. Body sans fo
 
 After every assistant turn, three follow-up chips render below the bubble. They invite the user to keep tapping instead of typing. The empty state (chat just opened, no messages yet) uses the same chip layout for its starter suggestions.
 
-Design intent: organic, hand-painted, slightly playful. Not the standard rounded pill.
+Design intent: scattered watercolor stones, like pebbles tossed on a beach. Each chip is a small painted pebble (~100×36) with a soft drop-shadow and its caption written below in Cedarville. The chip set always renders four pebbles: three follow-up suggestions plus a fourth "input pebble" the visitor can type into directly.
 
-- **Background**: each chip uses one of three actual watercolor pebble PNGs (`/images/watercolor-pebble-1/2/3.png`), set as `background-size: 100% 100%` so the pebble stretches to wrap the chip text. Three variants, one per chip in a row, via `nth-child(3n+1/2/3)`.
-- **Tilt (option E)**: chip rotated `5°`, `-3°`, `2°`. The inner `<span>` rotates again at `-2°`, `1°`, `-1°` so the text sits off-axis even relative to the chip's own tilt. Reads as deliberately scattered.
-- **Text font**: Cedarville Cursive, the chat-only spidery accent.
-- **Hover**: chip straightens, lifts, gets a soft drop-shadow. Inner span un-rotates so the text reads upright when targeted.
-- **No SVG filter**: the watercolor edges already carry the hand-painted wobble, so the global `#sketchy` displacement filter is no longer applied.
+- **Pebble PNGs**: `/images/watercolor-pebble-1/2/3.png`, used as background-image on a small `.chip-pebble` element above the caption (variant F: pebble as a layer, not a stretched fill).
+- **Caption font**: Cedarville Cursive, the chat-only spidery accent.
+- **Input pebble (4th chip)**: same pebble shape, contains an `<input>` instead of a static caption. Pressing Enter submits the typed text exactly as if a chip had been clicked.
+
+### Desktop: heap layout
+
+On viewports wider than 800px the chips area is a 150px-tall `position: relative` box, and each chip is `position: absolute` at its own `left` / `top` plus a tilt. The four pebbles overlap into a small pile. Captions are hidden until interaction. Hovering, focusing, or focus-within on a chip lifts it (`translateY(-8px) rotate(0deg) scale(1.04)`), bumps z-index, and fades the caption in. The input pebble's `<input>` field becomes interactive on hover/focus (`opacity: 0` → `1`, `pointer-events: none` → `auto`).
+
+### Mobile: flat row
+
+At ≤800px the heap CSS is overridden: chips return to `position: relative`, the followups container becomes `display: flex; flex-wrap: wrap`, and captions stay always visible (no hover on touch). Per-chip translate offsets give a casually-scattered look without the overlap.
+
+### No SVG filter
+
+Earlier versions used the global `#sketchy` `feTurbulence` displacement filter on chip borders. The watercolor pebble PNGs already carry the hand-painted wobble, so the filter is no longer applied.
 
 ### Source: contextual, model-generated (v0.2 prompt)
 

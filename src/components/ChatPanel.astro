@@ -101,6 +101,7 @@
         </button>
       </div>
     </form>
+    <p class="chat-disclaimer-floating">The Garden can be wrong. Check the page.</p>
   </div>
 </aside>
 
@@ -402,20 +403,52 @@
     border-color: var(--color-accent-2);
   }
 
+  /* Heap layout (desktop default): pebbles overlap absolutely, hover surfaces. */
   .chat-followups {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    margin: var(--space-sm) 0 var(--space-xs) 44px;
+    position: relative;
+    height: 150px;
+    margin: var(--space-md) 0 var(--space-md) 44px;
   }
-
   .chat-empty-followups {
     margin-left: 0;
   }
+  .chat-followup {
+    position: absolute;
+  }
+  /* Place each of the (up to 4) chips. nth-child positions are sized for a
+     420px-wide drawer; on mobile the heap is replaced by a flat row. */
+  .chat-followup:nth-child(1) { left: 0;    top: 8px;  }
+  .chat-followup:nth-child(2) { left: 88px; top: 38px; }
+  .chat-followup:nth-child(3) { left: 176px;top: 8px;  }
+  .chat-followup:nth-child(4) { left: 256px;top: 42px; }
+
+  /* Mobile (≤ 800px): drop the heap, lay chips out as a wrapped row. */
+  @media (max-width: 800px) {
+    .chat-followups {
+      position: static;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.4rem;
+      margin: var(--space-md) 0 var(--space-md) 44px;
+    }
+    .chat-empty-followups {
+      margin-left: 0;
+    }
+    .chat-followup {
+      position: relative;
+      left: auto !important;
+      top: auto !important;
+    }
+    /* Re-introduce the scattered look on mobile via translate offsets. */
+    .chat-followup:nth-child(3n+1) { transform: translate(2px, 14px) rotate(2deg); }
+    .chat-followup:nth-child(3n+2) { transform: translate(-4px, -8px) rotate(-1.5deg); }
+    .chat-followup:nth-child(3n+3) { transform: translate(6px, 22px) rotate(1deg); }
+  }
 
   /* Variant F: small pebble with a soft drop-shadow as if resting on paper,
-     text written below it. Reads three-dimensional and gives long text room
-     to breathe without distorting the pebble. */
+     text written below it. Pebbles sit at staggered vertical offsets so the
+     row reads as casually scattered, not aligned. */
   .chat-followup {
     display: inline-flex;
     flex-direction: column;
@@ -432,10 +465,20 @@
     text-align: center;
     background: transparent;
     transition: transform 0.18s ease, filter 0.18s ease;
-    max-width: 160px;
+    max-width: 140px;
     word-break: normal;
     overflow-wrap: break-word;
     white-space: normal;
+  }
+  /* Desktop heap rotations: each pebble tilts so the pile looks tossed. */
+  .chat-followup:nth-child(1) { transform: rotate(-12deg); z-index: 1; }
+  .chat-followup:nth-child(2) { transform: rotate(  8deg); z-index: 2; }
+  .chat-followup:nth-child(3) { transform: rotate( -4deg); z-index: 3; }
+  .chat-followup:nth-child(4) { transform: rotate(  6deg); z-index: 4; }
+  /* Hide each chip's caption until the chip is surfaced. */
+  .chat-followup .chip-text {
+    opacity: 0; transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
 
   /* The pebble itself, sized small and shadowed. */
@@ -460,13 +503,62 @@
   }
 
   .chat-followup:hover,
-  .chat-followup:focus-visible {
-    transform: translateY(-2px);
+  .chat-followup:focus-visible,
+  .chat-followup:focus-within {
+    transform: translateY(-8px) rotate(0deg) scale(1.04);
+    z-index: 10;
     outline: none;
   }
   .chat-followup:hover .chip-pebble,
-  .chat-followup:focus-visible .chip-pebble {
-    filter: drop-shadow(0 7px 6px rgba(0, 0, 0, 0.22));
+  .chat-followup:focus-visible .chip-pebble,
+  .chat-followup:focus-within .chip-pebble {
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.22));
+  }
+  .chat-followup:hover .chip-text,
+  .chat-followup:focus-visible .chip-text,
+  .chat-followup:focus-within .chip-text {
+    opacity: 1; transform: translateY(0);
+  }
+  /* On mobile, captions are always visible (no hover). */
+  @media (max-width: 800px) {
+    .chat-followup .chip-text {
+      opacity: 1; transform: none;
+    }
+    .chat-followup:hover,
+    .chat-followup:focus-visible,
+    .chat-followup:focus-within {
+      transform: translateY(-2px);
+      z-index: auto;
+    }
+  }
+
+  /* Input pebble: the fourth chip. Has its own input element instead of a text span. */
+  .chat-followup-input { cursor: text; }
+  .chat-followup-input .chat-followup-input-field {
+    width: 110px;
+    border: none; background: transparent; outline: none;
+    font: inherit;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.9rem; line-height: 1.2;
+    color: var(--color-text);
+    text-align: center; padding: 2px 0;
+    /* On desktop the input is hidden until the pebble surfaces (matches caption). */
+    opacity: 0; transition: opacity 0.18s ease;
+    pointer-events: none;
+  }
+  .chat-followup-input:hover .chat-followup-input-field,
+  .chat-followup-input:focus-within .chat-followup-input-field {
+    opacity: 1; pointer-events: auto;
+  }
+  .chat-followup-input .chat-followup-input-field::placeholder {
+    font-family: 'Cedarville Cursive', cursive;
+    color: var(--color-text-muted); opacity: 0.7;
+  }
+  /* On mobile the input is always visible (no hover state). */
+  @media (max-width: 800px) {
+    .chat-followup-input .chat-followup-input-field {
+      opacity: 1; pointer-events: auto;
+    }
   }
 
   [data-theme='dark'] .chat-drawer {
@@ -654,13 +746,18 @@
     30% { opacity: 1; transform: translateY(-2px); }
   }
 
+  /* The bottom textarea form is hidden: the input pebble (fourth chip in
+     the chips area) is the only typing surface. The form stays in the DOM
+     because chip clicks reuse its submit handler — they programmatically
+     fill chat-input and call form.requestSubmit(). */
   .chat-form {
-    padding: var(--space-sm) var(--space-lg) var(--space-md);
-    border-top: 1px solid var(--chat-rule);
-    background: var(--chat-bg-card);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    display: none;
+  }
+  /* Disclaimer moves to a small line under the chips. */
+  .chat-disclaimer-floating {
+    margin: 0 var(--space-lg) var(--space-md);
+    font-size: 0.7rem; color: var(--color-text-muted);
+    line-height: 1.4; text-align: center;
   }
 
   .chat-input {
