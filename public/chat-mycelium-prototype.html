@@ -86,6 +86,41 @@
     color: #3E5638; text-decoration: underline; text-underline-offset: 2px;
   }
 
+  /* Chip pebbles (matches the live chatbot) */
+  .chips-wrap {
+    display: flex; flex-wrap: wrap; gap: 1rem 1.4rem;
+    margin: var(--space-md, 1rem) 0 var(--space-md, 1rem) 44px;
+  }
+  .chips-wrap .chip {
+    display: inline-flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; padding: 0;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.95rem; line-height: 1.2;
+    color: #1A1A1A; cursor: pointer; text-align: center;
+    background: none; border: none;
+    max-width: 140px;
+  }
+  .chips-wrap .chip-pebble {
+    display: block; width: 100px; height: 36px;
+    background: center/100% 100% no-repeat;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.18));
+  }
+  .chips-wrap .chip:nth-child(4n+1) { transform: translate(2px, 14px) rotate(2deg); }
+  .chips-wrap .chip:nth-child(4n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-6deg); }
+  .chips-wrap .chip:nth-child(4n+2) { transform: translate(-4px, -8px) rotate(-1.5deg); }
+  .chips-wrap .chip:nth-child(4n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(3deg); }
+  .chips-wrap .chip:nth-child(4n+3) { transform: translate(6px, 22px) rotate(1deg); }
+  .chips-wrap .chip:nth-child(4n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-2deg); }
+  .chips-wrap .chip:nth-child(4n+4) { transform: translate(-2px, 0) rotate(-2deg); }
+  .chips-wrap .chip:nth-child(4n+4) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(4deg); }
+  .chips-wrap .chip-input input {
+    border: none; background: transparent;
+    font: inherit; font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.9rem; color: #1A1A1A;
+    text-align: center; width: 110px; padding: 2px 0; outline: none;
+  }
+  .chips-wrap .chip-input input::placeholder { color: #7A7268; opacity: 0.7; }
+
   /* Mycelium pane: top half mycelium SVG, bottom half curated summary */
   .myc {
     background: #FAF7F2;
@@ -140,10 +175,42 @@
     color: #1A1A1A;
     background: #ECE2CE;
     padding: 1px 9px; border-radius: 999px;
-    transition: background 0.18s;
+    transition: background 0.18s, color 0.18s;
+    text-decoration: none;
+    cursor: pointer;
   }
+  .myc-topic:hover { background: #DDE6D0; color: #2A3D26; }
   .myc-topic.is-recurring {
     background: #DDE6D0; color: #2A3D26;
+  }
+  .myc-topic.is-recurring:hover { background: #C5D9C0; }
+
+  /* Submit-conversation action */
+  .myc-action {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #EDE5D2;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .myc-action-btn {
+    align-self: flex-start;
+    border: 1px solid #3E5638;
+    background: #3E5638;
+    color: #FFFFFF;
+    font: inherit; font-size: 0.85rem; font-weight: 500;
+    padding: 7px 16px; border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s;
+  }
+  .myc-action-btn:hover { background: #2A3D26; transform: translateY(-1px); }
+  .myc-action-btn:disabled { background: #9C7A3E; border-color: #9C7A3E; cursor: default; transform: none; }
+  .myc-action-hint { font-size: 0.75rem; color: #7A7268; line-height: 1.4; margin: 0; }
+  .myc-action-confirmation {
+    background: #EDE6D2;
+    border: 1px solid #DCD0B0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.82rem; color: #1A1A1A; line-height: 1.5;
   }
 
   .myc-cite-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -288,10 +355,31 @@ let stepIdx = 0;
 
 function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
+// Per-step contextual chips (3 model-generated + 1 input pebble), keyed by
+// the index of the bot turn that would produce them in real life. Empty
+// state (step 0) gets generic starter chips.
+const CHIPS_BY_STEP = {
+  0: ["What's this about?", 'How does it connect?', "Maaike's view?"],
+  2: ['Conversation design', 'AI tools direction', 'The garden idea'],
+  4: ['Stream tension', 'Maturity stages', 'Other metaphors?'],
+  6: ['Frankfurt-bullshit', 'Designing around models', "Where she pushes back"],
+};
+
+function renderChips(root, items) {
+  if (!items) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'chips-wrap';
+  wrap.innerHTML =
+    items.map((q) => `<button class="chip" type="button"><span class="chip-pebble" aria-hidden="true"></span><span class="chip-text">${escapeHtml(q)}</span></button>`).join('') +
+    `<span class="chip chip-input"><span class="chip-pebble" aria-hidden="true"></span><input type="text" placeholder="type your own…" /></span>`;
+  root.appendChild(wrap);
+}
+
 function renderChat(messages) {
   const root = document.getElementById('chat-side');
   if (!messages.length) {
     root.innerHTML = '<p class="chat-empty">Empty. The reader has just opened the chat.</p>';
+    renderChips(root, CHIPS_BY_STEP[0]);
     return;
   }
   root.innerHTML = messages.map((m, i) => {
@@ -300,6 +388,11 @@ function renderChat(messages) {
     }
     return `<div class="msg garden" data-turn="${i}"><div class="avatar"><img src="/images/watercolor-leaf-trimmed.png" alt=""/></div><div class="msg-body"><span class="msg-role">The Garden</span><div class="msg-bubble">${m.content}</div></div></div>`;
   }).join('');
+  // Show chips only after the most recent bot reply (matches the live chat).
+  const lastMsg = messages[messages.length - 1];
+  if (lastMsg && lastMsg.role === 'assistant') {
+    renderChips(root, CHIPS_BY_STEP[stepIdx]);
+  }
 }
 
 function renderMycelium(messages) {
@@ -329,12 +422,7 @@ function renderMycelium(messages) {
     const href = isUser
       ? '/images/watercolor-acorn-trimmed.png'
       : '/images/watercolor-leaf-trimmed.png';
-    const stripped = (m.content || '')
-      .replace(/<a[^>]*>([^<]*)<\/a>/g, '$1')
-      .replace(/<[^>]+>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-    const caption = stripped.length > 42 ? stripped.slice(0, 40) + '…' : stripped;
+    const caption = summarizeForNode(m.content, m.role);
     return { x, y, size, href, caption, msg: m, index: i };
   });
 
@@ -445,7 +533,11 @@ function renderMycelium(messages) {
   // Nodes (foreground)
   nodes.forEach((node) => {
     const onLeft = node.x > W / 2;
-    const captionX = onLeft ? node.x - node.size / 2 - 8 : node.x + node.size / 2 + 8;
+    const captionW = 170;
+    const captionH = 70;
+    const captionX = onLeft
+      ? node.x - node.size / 2 - 10 - captionW
+      : node.x + node.size / 2 + 10;
 
     const group = document.createElementNS(SVG_NS, 'g');
     group.setAttribute('class', 'myc-node-group');
@@ -461,16 +553,26 @@ function renderMycelium(messages) {
     img.setAttribute('class', 'myc-node');
     group.appendChild(img);
 
-    const text = document.createElementNS(SVG_NS, 'text');
-    text.setAttribute('x', String(captionX));
-    text.setAttribute('y', String(node.y + 4));
-    text.setAttribute('font-family', "'Cedarville Cursive', cursive");
-    text.setAttribute('font-size', '13');
-    text.setAttribute('fill', '#1A1A1A');
-    text.setAttribute('text-anchor', onLeft ? 'end' : 'start');
-    text.setAttribute('class', 'myc-caption');
-    text.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
-    group.appendChild(text);
+    // Use foreignObject so the caption wraps and stays self-contained.
+    const fo = document.createElementNS(SVG_NS, 'foreignObject');
+    fo.setAttribute('x', String(captionX));
+    fo.setAttribute('y', String(node.y - captionH / 2));
+    fo.setAttribute('width', String(captionW));
+    fo.setAttribute('height', String(captionH));
+    const wrap = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+    wrap.setAttribute('class', 'myc-caption-html');
+    wrap.style.cssText = `
+      font-family: 'Cedarville Cursive', cursive;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #1A1A1A;
+      text-align: ${onLeft ? 'right' : 'left'};
+      white-space: normal;
+      overflow: hidden;
+    `;
+    wrap.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
+    fo.appendChild(wrap);
+    group.appendChild(fo);
 
     // Hover/click interactivity
     group.addEventListener('mouseenter', () => activateTurn(node.index));
@@ -479,6 +581,21 @@ function renderMycelium(messages) {
 
     svg.appendChild(group);
   });
+}
+
+function summarizeForNode(content, role) {
+  const plain = (content || '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (role === 'user') {
+    // Short user questions: full text. Cap if absurdly long.
+    return plain.length > 80 ? plain.slice(0, 78) + '…' : plain;
+  }
+  // Bot replies: first sentence as a self-contained unit.
+  const m = plain.match(/^(.{20,160}?[.!?])\s/);
+  if (m) return m[1];
+  return plain.length > 110 ? plain.slice(0, 108) + '…' : plain;
 }
 
 function activateTurn(turnIndex) {
@@ -570,7 +687,13 @@ function renderSummary(messages) {
       <div class="myc-section">
         <h3>Threads pulled</h3>
         <div class="myc-topics">
-          ${topics.map(t => `<span class="myc-topic ${t.count > 1 ? 'is-recurring' : ''}" title="mentioned ${t.count}x">${escapeHtml(t.term)}</span>`).join('')}
+          ${topics.map(t => {
+            const slug = t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const href = `/tags/${slug}/`;
+            const cls = t.count > 1 ? 'myc-topic is-recurring' : 'myc-topic';
+            const title = t.count > 1 ? `mentioned ${t.count}× — open the tag page` : 'open the tag page';
+            return `<a class="${cls}" href="${href}" target="_blank" rel="noopener" title="${title}">${escapeHtml(t.term)}</a>`;
+          }).join('')}
         </div>
       </div>
     `);
@@ -613,7 +736,30 @@ function renderSummary(messages) {
     return;
   }
 
-  root.innerHTML = `<p class="myc-summary-h">What you have talked about</p>${sections.join('')}`;
+  // Submit-to-garden action: only meaningful once there is something to submit
+  // (at least one bot turn). In production this would POST to an endpoint that
+  // writes a draft into src/content/_inbox/ for Maaike to review.
+  const hasBotTurn = messages.some((m) => m.role === 'assistant');
+  const actionHtml = hasBotTurn ? `
+    <div class="myc-action">
+      <button class="myc-action-btn" id="myc-submit">Submit this conversation to the garden</button>
+      <p class="myc-action-hint">A draft of this conversation gets queued in Maaike's inbox for review. If she finds something useful, she may shape it into a post and credit you. Visitors stay anonymous unless they sign it.</p>
+    </div>
+  ` : '';
+
+  root.innerHTML = `<p class="myc-summary-h">What you have talked about</p>${sections.join('')}${actionHtml}`;
+
+  const submit = document.getElementById('myc-submit');
+  if (submit) {
+    submit.addEventListener('click', () => {
+      submit.disabled = true;
+      submit.textContent = 'Submitted ✓';
+      const hint = submit.nextElementSibling;
+      if (hint) {
+        hint.outerHTML = '<div class="myc-action-confirmation">Queued for review. Maaike sees this in her inbox alongside Telegram drops and email shares. Nothing gets published without her go-ahead.</div>';
+      }
+    });
+  }
 }
 
 function render() {
