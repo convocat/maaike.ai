@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chat mycelium — interactive prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@460;500;600&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+
+  .top { padding: 16px 24px; border-bottom: 1px solid #E5DFD4; }
+  .top h1 { font-family: 'Lora', serif; font-size: 18px; margin: 0; font-weight: 600; }
+  .top p { color: #7A7268; font-size: 12px; margin: 2px 0 0; }
+
+  .stepper {
+    display: flex; gap: 10px; align-items: center;
+    padding: 10px 24px;
+    background: #FAF7F2;
+    border-bottom: 1px solid #E5DFD4;
+  }
+  .stepper button {
+    border: 1px solid #DCD0B0;
+    background: #FFFFFF; color: #1A1A1A;
+    padding: 6px 14px; border-radius: 999px;
+    font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .stepper button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .stepper .info { flex: 1 1 auto; font-size: 12px; color: #7A7268; }
+  .stepper .info strong { color: #1A1A1A; margin-right: 8px; font-weight: 600; }
+
+  /* Drawer that mimics the maximised chat */
+  .drawer {
+    margin: 16px 24px;
+    border: 1px solid #E5DFD4; border-radius: 8px;
+    background: #FFFFFF;
+    overflow: hidden;
+    height: calc(100vh - 140px);
+    display: flex; flex-direction: column;
+  }
+  .drawer-header {
+    padding: 14px 22px; border-bottom: 1px solid #E5DFD4;
+  }
+  .drawer-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; margin: 0; }
+  .drawer-ctx {
+    font-family: 'Cedarville Cursive', cursive; font-size: 0.95rem;
+    color: #7A7268; margin: 4px 0 0; line-height: 1.4;
+  }
+  .drawer-ctx strong { color: #9C7A3E; font-weight: 400; }
+
+  .drawer-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .chat-side {
+    overflow-y: auto;
+    padding: 22px 26px;
+    border-right: 1px solid #EDE8DC;
+    display: flex; flex-direction: column; gap: 20px;
+    scroll-behavior: smooth;
+  }
+  .chat-empty {
+    color: #B5AC9C; font-style: italic; font-size: 0.85rem;
+    line-height: 1.5; padding: 8px 0;
+  }
+  .msg { display: flex; gap: 12px; align-items: flex-start; transition: background 0.25s ease; padding: 6px 8px; margin: -6px -8px; border-radius: 6px; }
+  .msg.is-highlight { background: rgba(156, 122, 62, 0.12); }
+  .msg .avatar { flex: 0 0 auto; }
+  .msg .avatar img { width: 34px; height: auto; display: block; object-fit: contain; }
+  .msg-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .msg-role { font-family: 'Cedarville Cursive', cursive; font-size: 1.05rem; color: #7A7268; line-height: 1.4; }
+  .msg-bubble { font-family: 'Nunito', sans-serif; font-weight: 460; font-size: 0.95rem; line-height: 1.65; }
+  .msg.user .msg-bubble {
+    background: #ECE2CE;
+    border-radius: 0.55rem;
+    padding: 0.5rem 0.75rem;
+    align-self: flex-start;
+  }
+  .msg-bubble strong { color: #111; }
+  .msg-bubble a {
+    color: #3E5638; text-decoration: underline; text-underline-offset: 2px;
+  }
+
+  /* Mycelium pane */
+  .myc {
+    background: #FAF7F2;
+    position: relative;
+    overflow: hidden;
+  }
+  .myc-svg {
+    width: 100%; height: 100%; display: block;
+  }
+  .myc-empty {
+    position: absolute; inset: 0; margin: auto;
+    width: 80%; max-width: 320px; height: fit-content;
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.05rem; color: #7A7268; line-height: 1.5;
+    pointer-events: none;
+  }
+  .myc-empty[hidden] { display: none; }
+  .myc-node { cursor: pointer; transition: transform 0.18s ease; transform-origin: center; transform-box: fill-box; }
+  .myc-node:hover { transform: scale(1.18); }
+  .myc-thread { transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease; }
+  .myc-thread.is-active { stroke-width: 1.6; stroke-opacity: 0.9; }
+  .myc-citation { cursor: pointer; transition: transform 0.18s ease; }
+  .myc-citation:hover { transform: translateY(-1px); }
+  .myc-caption { pointer-events: none; user-select: none; transition: opacity 0.15s ease; }
+  .myc-node-group:hover .myc-caption { opacity: 1; }
+  .myc-node-group .myc-caption { opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Chat mycelium — interactive prototype</h1>
+  <p>Step forward through the conversation. The mycelium on the right grows. Hover a node to highlight its threads and scroll the chat to that turn. Click a node to pin focus on it. Click a citation card to open the post.</p>
+</div>
+
+<div class="stepper">
+  <button id="prev" disabled>← Back</button>
+  <span class="info"><strong id="step-num">Step 0 of 7</strong><span id="step-desc">Empty drawer.</span></span>
+  <button id="next">Forward →</button>
+  <button id="reset">⟲ Reset</button>
+</div>
+
+<div class="drawer">
+  <div class="drawer-header">
+    <p class="drawer-title">Talk about this page</p>
+    <p class="drawer-ctx">Talking about <strong>The garden as a metaphor</strong></p>
+  </div>
+  <div class="drawer-body">
+    <div class="chat-side" id="chat-side"></div>
+    <aside class="myc">
+      <svg class="myc-svg" id="myc-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      <p class="myc-empty" id="myc-empty">As you and the garden talk, the conversation will grow its own mycelium here.</p>
+    </aside>
+  </div>
+</div>
+
+<script>
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+const STEPS = [
+  // Step 0: empty
+  [],
+  // Step 1
+  [{ role: 'user', content: 'Where do I start?' }],
+  // Step 2
+  [
+    { role: 'user', content: 'Where do I start?' },
+    { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+  ],
+  // Step 3
+  [
+    { role: 'user', content: 'Where do I start?' },
+    { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+    { role: 'user', content: 'The garden idea.' },
+  ],
+  // Step 4 (cites two posts)
+  [
+    { role: 'user', content: 'Where do I start?' },
+    { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+    { role: 'user', content: 'The garden idea.' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+  ],
+  // Step 5
+  [
+    { role: 'user', content: 'Where do I start?' },
+    { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+    { role: 'user', content: 'The garden idea.' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+    { role: 'user', content: 'Does the metaphor work for organisations?' },
+  ],
+  // Step 6 (cites a third post)
+  [
+    { role: 'user', content: 'Where do I start?' },
+    { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
+    { role: 'user', content: 'The garden idea.' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+    { role: 'user', content: 'Does the metaphor work for organisations?' },
+    { role: 'assistant', content: 'Maaike has only made the case for individuals. The page raises the question explicitly but does not resolve it. <a href="/field-notes/why-most-chatbots-should-be-forms/">Why most chatbots should be forms</a> is adjacent: an example of a stance she has settled on, not a question still in the soil.' },
+  ],
+];
+
+const STEP_DESCS = [
+  'Empty drawer. Mycelium just shows the hint.',
+  'Reader plants the first seed.',
+  'The garden replies. Two nodes connected.',
+  'Reader picks the garden idea.',
+  'Bot cites two posts. Citation cards anchor to the leaf node.',
+  'Reader asks about scale.',
+  'Bot answers, cites a third post.',
+];
+
+let stepIdx = 0;
+
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function renderChat(messages) {
+  const root = document.getElementById('chat-side');
+  if (!messages.length) {
+    root.innerHTML = '<p class="chat-empty">Empty. The reader has just opened the chat.</p>';
+    return;
+  }
+  root.innerHTML = messages.map((m, i) => {
+    if (m.role === 'user') {
+      return `<div class="msg user" data-turn="${i}"><div class="avatar"><img src="/images/watercolor-acorn-trimmed.png" alt=""/></div><div class="msg-body"><span class="msg-role">You</span><div class="msg-bubble">${m.content}</div></div></div>`;
+    }
+    return `<div class="msg garden" data-turn="${i}"><div class="avatar"><img src="/images/watercolor-leaf-trimmed.png" alt=""/></div><div class="msg-body"><span class="msg-role">The Garden</span><div class="msg-bubble">${m.content}</div></div></div>`;
+  }).join('');
+}
+
+function renderMycelium(messages) {
+  const svg = document.getElementById('myc-svg');
+  const empty = document.getElementById('myc-empty');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  if (!messages.length) { empty.hidden = false; return; }
+  empty.hidden = true;
+
+  const W = svg.clientWidth || 600;
+  const H = svg.clientHeight || 600;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const padX = 70;
+  const padY = 60;
+  const usableW = W - padX * 2;
+  const usableH = H - padY * 2;
+
+  const n = messages.length;
+  const nodes = messages.map((m, i) => {
+    const t = n === 1 ? 0.5 : i / (n - 1);
+    const y = padY + t * usableH;
+    const phase = i * 0.95;
+    const x = padX + usableW / 2 + Math.sin(phase) * (usableW * 0.32);
+    const isUser = m.role === 'user';
+    const size = isUser ? 26 : 32;
+    const href = isUser
+      ? '/images/watercolor-acorn-trimmed.png'
+      : '/images/watercolor-leaf-trimmed.png';
+    const stripped = (m.content || '')
+      .replace(/<a[^>]*>([^<]*)<\/a>/g, '$1')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const caption = stripped.length > 42 ? stripped.slice(0, 40) + '…' : stripped;
+    return { x, y, size, href, caption, msg: m, index: i };
+  });
+
+  // Threads
+  const threadEls = [];
+  for (let i = 1; i < nodes.length; i++) {
+    const a = nodes[i - 1], b = nodes[i];
+    const cx = (a.x + b.x) / 2 + (i % 2 === 0 ? 32 : -32);
+    const cy = (a.y + b.y) / 2;
+    const path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', `M ${a.x} ${a.y} Q ${cx} ${cy} ${b.x} ${b.y}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#9C7A3E');
+    path.setAttribute('stroke-width', '1');
+    path.setAttribute('stroke-dasharray', '3 5');
+    path.setAttribute('stroke-opacity', '0.55');
+    path.setAttribute('class', 'myc-thread');
+    path.setAttribute('data-from', String(i - 1));
+    path.setAttribute('data-to', String(i));
+    svg.appendChild(path);
+    threadEls.push(path);
+  }
+
+  // Parse citations from links in assistant messages
+  const citationThreads = [];
+  const placedPerTurn = new Map();
+  messages.forEach((m, i) => {
+    if (m.role !== 'assistant') return;
+    const re = /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g;
+    let mt;
+    while ((mt = re.exec(m.content)) !== null) {
+      const href = mt[1], title = mt[2];
+      const collection = (href.split('/').filter(Boolean)[0] || 'articles');
+      const slot = placedPerTurn.get(i) || 0;
+      placedPerTurn.set(i, slot + 1);
+      const node = nodes[i];
+      const onLeft = node.x > W / 2;
+      const cardW = 150;
+      const cardH = 26;
+      const cardX = onLeft ? node.x - node.size / 2 - 12 - cardW : node.x + node.size / 2 + 12;
+      const cardY = node.y + 14 + slot * (cardH + 6);
+
+      const stripColors = {
+        articles: '#C5A87A',
+        'field-notes': '#8DBE8D',
+        seeds: '#D6B07A',
+        jottings: '#A8B5D6',
+        weblinks: '#9CC4BD',
+        videos: '#C5A0BD',
+        library: '#B5A89C',
+        experiments: '#7EBDC4',
+        toolshed: '#6B7A52',
+      };
+
+      // Thread first (so card sits on top)
+      const tx = onLeft ? cardX + cardW : cardX;
+      const ty = cardY + cardH / 2;
+      const thread = document.createElementNS(SVG_NS, 'path');
+      thread.setAttribute('d', `M ${node.x} ${node.y + node.size / 2} Q ${(node.x + tx) / 2} ${(node.y + ty) / 2 + 8} ${tx} ${ty}`);
+      thread.setAttribute('fill', 'none');
+      thread.setAttribute('stroke', '#6B7A52');
+      thread.setAttribute('stroke-width', '0.9');
+      thread.setAttribute('stroke-dasharray', '2 4');
+      thread.setAttribute('stroke-opacity', '0.6');
+      thread.setAttribute('class', 'myc-thread myc-citation-thread');
+      thread.setAttribute('data-turn', String(i));
+      svg.appendChild(thread);
+      citationThreads.push(thread);
+
+      // Card group
+      const g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('class', 'myc-citation');
+      g.setAttribute('data-href', href);
+      g.setAttribute('data-turn', String(i));
+      g.addEventListener('click', () => alert('In production this would open ' + href + ' in a new tab.'));
+
+      const strip = document.createElementNS(SVG_NS, 'rect');
+      strip.setAttribute('x', String(cardX));
+      strip.setAttribute('y', String(cardY));
+      strip.setAttribute('width', '6');
+      strip.setAttribute('height', String(cardH));
+      strip.setAttribute('fill', stripColors[collection] || '#C5A87A');
+      g.appendChild(strip);
+
+      const bg = document.createElementNS(SVG_NS, 'rect');
+      bg.setAttribute('x', String(cardX + 6));
+      bg.setAttribute('y', String(cardY));
+      bg.setAttribute('width', String(cardW - 6));
+      bg.setAttribute('height', String(cardH));
+      bg.setAttribute('fill', '#FFFFFF');
+      bg.setAttribute('stroke', '#EDE5D2');
+      bg.setAttribute('stroke-width', '1');
+      g.appendChild(bg);
+
+      const titleEl = document.createElementNS(SVG_NS, 'text');
+      titleEl.setAttribute('x', String(cardX + 12));
+      titleEl.setAttribute('y', String(cardY + 17));
+      titleEl.setAttribute('font-family', "'Lora', Georgia, serif");
+      titleEl.setAttribute('font-size', '11');
+      titleEl.setAttribute('fill', '#1A1A1A');
+      titleEl.textContent = title.length > 24 ? title.slice(0, 22) + '…' : title;
+      g.appendChild(titleEl);
+
+      svg.appendChild(g);
+    }
+  });
+
+  // Nodes (foreground)
+  nodes.forEach((node) => {
+    const onLeft = node.x > W / 2;
+    const captionX = onLeft ? node.x - node.size / 2 - 8 : node.x + node.size / 2 + 8;
+
+    const group = document.createElementNS(SVG_NS, 'g');
+    group.setAttribute('class', 'myc-node-group');
+    group.setAttribute('data-turn', String(node.index));
+
+    const img = document.createElementNS(SVG_NS, 'image');
+    img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', node.href);
+    img.setAttribute('href', node.href);
+    img.setAttribute('x', String(node.x - node.size / 2));
+    img.setAttribute('y', String(node.y - node.size / 2));
+    img.setAttribute('width', String(node.size));
+    img.setAttribute('height', String(node.size));
+    img.setAttribute('class', 'myc-node');
+    group.appendChild(img);
+
+    const text = document.createElementNS(SVG_NS, 'text');
+    text.setAttribute('x', String(captionX));
+    text.setAttribute('y', String(node.y + 4));
+    text.setAttribute('font-family', "'Cedarville Cursive', cursive");
+    text.setAttribute('font-size', '13');
+    text.setAttribute('fill', '#1A1A1A');
+    text.setAttribute('text-anchor', onLeft ? 'end' : 'start');
+    text.setAttribute('class', 'myc-caption');
+    text.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
+    group.appendChild(text);
+
+    // Hover/click interactivity
+    group.addEventListener('mouseenter', () => activateTurn(node.index));
+    group.addEventListener('mouseleave', () => deactivate());
+    group.addEventListener('click', () => scrollChatToTurn(node.index));
+
+    svg.appendChild(group);
+  });
+}
+
+function activateTurn(turnIndex) {
+  // Highlight chat message
+  document.querySelectorAll('.msg').forEach((m) => {
+    m.classList.toggle('is-highlight', Number(m.dataset.turn) === turnIndex);
+  });
+  // Highlight any thread touching this node
+  document.querySelectorAll('.myc-thread').forEach((t) => {
+    const from = Number(t.dataset.from);
+    const to = Number(t.dataset.to);
+    const turn = Number(t.dataset.turn);
+    const touches = (from === turnIndex || to === turnIndex || turn === turnIndex);
+    t.classList.toggle('is-active', touches);
+  });
+}
+function deactivate() {
+  document.querySelectorAll('.msg').forEach((m) => m.classList.remove('is-highlight'));
+  document.querySelectorAll('.myc-thread').forEach((t) => t.classList.remove('is-active'));
+}
+function scrollChatToTurn(turnIndex) {
+  const el = document.querySelector(`.msg[data-turn="${turnIndex}"]`);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function render() {
+  const messages = STEPS[stepIdx] || [];
+  document.getElementById('step-num').textContent = `Step ${stepIdx} of ${STEPS.length - 1}`;
+  document.getElementById('step-desc').textContent = STEP_DESCS[stepIdx] || '';
+  document.getElementById('prev').disabled = stepIdx === 0;
+  document.getElementById('next').disabled = stepIdx === STEPS.length - 1;
+  renderChat(messages);
+  renderMycelium(messages);
+}
+
+document.getElementById('prev').addEventListener('click', () => { if (stepIdx > 0) { stepIdx--; render(); } });
+document.getElementById('next').addEventListener('click', () => { if (stepIdx < STEPS.length - 1) { stepIdx++; render(); } });
+document.getElementById('reset').addEventListener('click', () => { stepIdx = 0; render(); });
+window.addEventListener('resize', render);
+
+render();
+</script>
+</body>
+</html>
