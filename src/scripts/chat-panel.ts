@@ -151,6 +151,18 @@ function escapeHtml(text: string): string {
   return div.innerHTML;
 }
 
+// rAF-throttled smooth scroll to bottom. CSS scroll-behavior: smooth on the
+// chat-history container makes the actual scroll animate; this helper just
+// makes sure we only set scrollTop once per frame during fast token streams.
+let _scrollScheduled: number | null = null;
+function scheduleScrollToBottom(el: HTMLElement) {
+  if (_scrollScheduled !== null) return;
+  _scrollScheduled = requestAnimationFrame(() => {
+    _scrollScheduled = null;
+    el.scrollTop = el.scrollHeight;
+  });
+}
+
 function renderMarkdown(text: string): string {
   let html = escapeHtml(text);
   html = html.replace(/`([^`\n]+)`/g, '<code>$1</code>');
@@ -303,6 +315,7 @@ function renderEmpty(history: HTMLElement, ctx: PageContext, onSuggestion: (q: s
     });
   });
   const customInput = history.querySelector<HTMLInputElement>('.chat-followup-input-field');
+  const customWrap = history.querySelector<HTMLElement>('.chat-followup-input');
   if (customInput) {
     customInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -313,6 +326,11 @@ function renderEmpty(history: HTMLElement, ctx: PageContext, onSuggestion: (q: s
           onSuggestion(q);
         }
       }
+    });
+  }
+  if (customWrap && customInput) {
+    customWrap.addEventListener('click', (e) => {
+      if (e.target !== customInput) customInput.focus();
     });
   }
 }
@@ -394,6 +412,7 @@ function appendFollowups(history: HTMLElement, onPick: (q: string) => void, item
     });
   });
   const customInput = wrap.querySelector<HTMLInputElement>('.chat-followup-input-field');
+  const customWrap = wrap.querySelector<HTMLElement>('.chat-followup-input');
   if (customInput) {
     customInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -404,6 +423,14 @@ function appendFollowups(history: HTMLElement, onPick: (q: string) => void, item
           onPick(q);
         }
       }
+    });
+  }
+  // Tapping anywhere on the input pebble (including its watercolor body)
+  // focuses the input. Without this, on mobile only direct taps on the
+  // input's text area would activate it.
+  if (customWrap && customInput) {
+    customWrap.addEventListener('click', (e) => {
+      if (e.target !== customInput) customInput.focus();
     });
   }
   history.scrollTop = history.scrollHeight;
@@ -773,7 +800,7 @@ export function initChatPanel() {
               firstToken = false;
             }
             bubble.innerHTML = renderMarkdown(assistantText) + '<span class="chat-cursor" aria-hidden="true"></span>';
-            history.scrollTop = history.scrollHeight;
+            scheduleScrollToBottom(history);
           } else if (msg.type === 'chips' && Array.isArray(msg.items)) {
             chipItems = msg.items.filter((s: any) => typeof s === 'string').slice(0, 3);
           } else if (msg.type === 'error') {
