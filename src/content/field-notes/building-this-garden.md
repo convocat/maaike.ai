@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-06
+updated: 2026-05-07
 maturity: solid
 tags:
 - about
@@ -420,6 +420,14 @@ A small but pleasant fix: tapping a link inside the chat on mobile now actually 
 
 - **Chatbot mobile link UX**: clicking an internal link in a chat answer auto-closes the drawer on mobile (≤800px) so the destination page is visible. Desktop and external links unchanged.
 - **Six weblinks published**: dive-in-tommi-space, masure-manifesto-acentric-design, it's-like-this-why-perceptions-are-our-realities, fieldwork-for-future-ecologies-onomatopee, structured-prompt-driven-development-spdd, ai-metaphors-how-to-think-about-ai-jd-meier
+
+### 7 May
+
+The chatbot got friendlier on a phone: no more keyboard ambush, and a row of hand-drawn chips after every answer so you can keep tapping instead of typing.
+
+- **No mobile auto-focus**: the chat input is no longer auto-focused on mobile (≤800px) when the drawer opens, after a reset, or after a streaming response finishes. The keyboard only appears when the user taps the textarea.
+- **Serendipitous follow-up chips**: three irregular pebble-shaped chips render below every assistant turn, drawn from a bank of oblique prompts ("Find a strange neighbour", "Take me somewhere unexpected", "What is the quiet idea?"). Earth-tone palette (sand, clay, sage), slight tilt, sketchy SVG-filter edge.
+- **Chat panel toolshed entry**: documented the panel's layout, mobile rules, and chip design at `/toolshed/chat-panel`.
 
 ## Related
 
