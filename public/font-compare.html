@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Font comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lato:wght@400;500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600&family=Karla:wght@400;500;700&family=Manrope:wght@400;500;600&family=Fira+Sans:wght@400;500;600&family=Mulish:wght@400;500;700&family=Cabin:wght@400;500;700&family=Work+Sans:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  header {
+    padding: 12px 24px;
+    border-bottom: 1px solid #E5DFD4;
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    font-size: 13px; color: #7A7268;
+  }
+  header h1 {
+    font-family: 'Lora', serif;
+    font-size: 16px; margin: 0; color: #1A1A1A; font-weight: 600;
+    flex: 0 0 auto;
+  }
+  header .ctrl {
+    display: flex; gap: 6px; align-items: center;
+  }
+  header label { font-size: 12px; }
+  header select {
+    font: inherit; font-size: 13px;
+    padding: 4px 8px;
+    border: 1px solid #E5DFD4; border-radius: 4px; background: #fff;
+    min-width: 180px;
+  }
+  header a {
+    color: #3E5638; text-decoration: none; font-size: 12px; margin-left: auto;
+  }
+  header a:hover { text-decoration: underline; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 60px);
+  }
+  .col {
+    padding: 32px 36px;
+    border-right: 1px solid #E5DFD4;
+    overflow-y: auto;
+  }
+  .col:last-child { border-right: none; }
+  .col-label {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    color: #7A7268;
+    background: #DDE6D0;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .col-h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 30px; line-height: 1.2;
+    color: #111; margin: 0 0 8px; font-weight: 600;
+  }
+  .col-sub {
+    font-size: 16px; color: #6B6B6B;
+    margin: 0 0 18px; line-height: 1.5; font-style: italic;
+  }
+  .col-body {
+    font-size: 16px; line-height: 1.7;
+  }
+  .col-body p { margin: 0 0 14px; }
+  .col-body strong { color: #111; }
+  .col-body em { font-style: italic; }
+  .col-body a { color: #3E5638; text-decoration: underline; text-underline-offset: 2px; }
+  .col-meta {
+    font-size: 12px; color: #7A7268; margin-top: 6px;
+  }
+  .col-numbers {
+    margin-top: 24px;
+    padding: 12px 16px;
+    background: #FAFAFA;
+    border-radius: 6px;
+    font-size: 22px; color: #444;
+    letter-spacing: 0.02em;
+  }
+  .col-meta-line {
+    margin-top: 22px; font-size: 13px; color: #555;
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .col-meta-line .pill {
+    background: #ECE2CE;
+    border: 1px solid #DCD0B0;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 12px;
+  }
+  /* The actual font-family is set inline per column via JS */
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Font comparison</h1>
+  <div class="ctrl">
+    <label for="left-font">Left:</label>
+    <select id="left-font"></select>
+  </div>
+  <div class="ctrl">
+    <label for="right-font">Right:</label>
+    <select id="right-font"></select>
+  </div>
+  <a href="/font-preview.html">← Back to single-font preview</a>
+</header>
+
+<div class="grid">
+  <div class="col" id="col-left">
+    <span class="col-label" id="left-label">Roboto</span>
+    <h1 class="col-h1">The garden as a metaphor</h1>
+    <p class="col-sub">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+    <div class="col-body">
+      <p>The metaphor of a <strong>digital garden</strong> matters. It says posts are alive, not finished. Some are seeds (a half-formed thought), some are saplings (in progress), some have grown into trees (settled).</p>
+      <p>Most of what you write online is published into a stream that flattens everything: the off-the-cuff jotting and the carefully reasoned essay sit in the same shape. <em>That flattening is editorial.</em> Choosing a garden metaphor is a way of refusing it.</p>
+      <p>For more, see <a href="#">why most chatbots should be forms</a> or browse the wider archive.</p>
+    </div>
+    <div class="col-numbers">0 1 2 3 4 5 6 7 8 9 &mdash; the quick brown fox &mdash; ABCabc</div>
+    <div class="col-meta-line">
+      <span class="pill">Published 5 April 2026</span>
+      <span class="pill">Tended 2 May 2026</span>
+      <span class="pill">100% Maai</span>
+    </div>
+  </div>
+
+  <div class="col" id="col-right">
+    <span class="col-label" id="right-label">Source Sans 3</span>
+    <h1 class="col-h1">The garden as a metaphor</h1>
+    <p class="col-sub">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+    <div class="col-body">
+      <p>The metaphor of a <strong>digital garden</strong> matters. It says posts are alive, not finished. Some are seeds (a half-formed thought), some are saplings (in progress), some have grown into trees (settled).</p>
+      <p>Most of what you write online is published into a stream that flattens everything: the off-the-cuff jotting and the carefully reasoned essay sit in the same shape. <em>That flattening is editorial.</em> Choosing a garden metaphor is a way of refusing it.</p>
+      <p>For more, see <a href="#">why most chatbots should be forms</a> or browse the wider archive.</p>
+    </div>
+    <div class="col-numbers">0 1 2 3 4 5 6 7 8 9 &mdash; the quick brown fox &mdash; ABCabc</div>
+    <div class="col-meta-line">
+      <span class="pill">Published 5 April 2026</span>
+      <span class="pill">Tended 2 May 2026</span>
+      <span class="pill">100% Maai</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const FONTS = [
+    'Roboto','Source Sans 3','IBM Plex Sans','Lato','Atkinson Hyperlegible','Inter',
+    'Karla','Manrope','Fira Sans','Mulish','Cabin','Work Sans','DM Sans','Nunito','Rubik'
+  ];
+
+  for (const sel of [document.getElementById('left-font'), document.getElementById('right-font')]) {
+    for (const f of FONTS) {
+      const o = document.createElement('option');
+      o.value = f; o.textContent = f;
+      sel.appendChild(o);
+    }
+  }
+  // Sensible defaults: current vs a humanist alternative
+  document.getElementById('left-font').value = 'Roboto';
+  document.getElementById('right-font').value = 'Source Sans 3';
+
+  function applyFont(side, font) {
+    const col = document.getElementById('col-' + side);
+    const stack = `"${font}", -apple-system, "Segoe UI", sans-serif`;
+    // Apply to body text + numbers + metadata pills, not to .col-h1 (heading stays Lora)
+    col.querySelectorAll('.col-sub, .col-body, .col-numbers, .col-meta-line, .col-label')
+      .forEach(el => { el.style.fontFamily = stack; });
+    document.getElementById(side + '-label').textContent = font;
+  }
+
+  function renderInitial() {
+    applyFont('left', document.getElementById('left-font').value);
+    applyFont('right', document.getElementById('right-font').value);
+  }
+
+  document.getElementById('left-font').addEventListener('change', e => applyFont('left', e.target.value));
+  document.getElementById('right-font').addEventListener('change', e => applyFont('right', e.target.value));
+
+  renderInitial();
+</script>
+</body>
+</html>
