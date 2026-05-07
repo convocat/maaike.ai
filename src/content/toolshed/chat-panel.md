@@ -44,12 +44,13 @@ Rule of thumb: Cedarville for short, annotational, decorative text. Body sans fo
 
 After every assistant turn, three follow-up chips render below the bubble. They invite the user to keep tapping instead of typing. The empty state (chat just opened, no messages yet) uses the same chip layout for its starter suggestions.
 
-Design intent: organic, hand-drawn, slightly playful. Not the standard rounded pill.
+Design intent: organic, hand-painted, slightly playful. Not the standard rounded pill.
 
-- **Shape**: each chip uses a different irregular `border-radius` (e.g. `30% 70% 60% 40% / 50% 40% 60% 50%`) so the three feel like pebbles or leaves, not buttons.
-- **Color**: rotates through three earth tones, sand `#E8D9B8`, clay `#D9B89A`, sage `#C5D9C0`. Dark-mode equivalents are deeper warm browns and a forest green.
-- **Tilt**: slight per-chip rotation (`-1.5°`, `+1.2°`, `-0.6°`) using `nth-child(3n+1/2/3)`. On hover or focus, the chip straightens (`rotate(0)`) and lifts.
-- **Filter**: the global `#sketchy` SVG filter (a low-amplitude `feTurbulence` displacement) is applied to give the edge a hand-drawn wobble. The filter is removed on hover so the chip looks crisp when targeted.
+- **Background**: each chip uses one of three actual watercolor pebble PNGs (`/images/watercolor-pebble-1/2/3.png`), set as `background-size: 100% 100%` so the pebble stretches to wrap the chip text. Three variants, one per chip in a row, via `nth-child(3n+1/2/3)`.
+- **Tilt (option E)**: chip rotated `5°`, `-3°`, `2°`. The inner `<span>` rotates again at `-2°`, `1°`, `-1°` so the text sits off-axis even relative to the chip's own tilt. Reads as deliberately scattered.
+- **Text font**: Cedarville Cursive, the chat-only spidery accent.
+- **Hover**: chip straightens, lifts, gets a soft drop-shadow. Inner span un-rotates so the text reads upright when targeted.
+- **No SVG filter**: the watercolor edges already carry the hand-painted wobble, so the global `#sketchy` displacement filter is no longer applied.
 
 ### Source: contextual, model-generated (v0.2 prompt)
 
