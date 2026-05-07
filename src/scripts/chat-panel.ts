@@ -214,6 +214,38 @@ function renderMarkdown(text: string): string {
   return out.join('\n');
 }
 
+const SERENDIPITY_PROMPTS = [
+  'Find a strange neighbour',
+  'What would Maaike push back on?',
+  'Show me an outlier',
+  'Where does this break?',
+  'Take me somewhere unexpected',
+  'Find the messiest idea',
+  'Surprise me',
+  'Connect this to something far away',
+  'What is half-baked here?',
+  'Show me the contradiction',
+  'What is the quiet idea?',
+  'Pick a tangent',
+  'What would change my mind?',
+  'Where is the doubt?',
+  'Lead me astray',
+];
+
+function pickSerendipityChips(n = 3): string[] {
+  const pool = [...SERENDIPITY_PROMPTS];
+  const out: string[] = [];
+  while (out.length < n && pool.length) {
+    const i = Math.floor(Math.random() * pool.length);
+    out.push(pool.splice(i, 1)[0]);
+  }
+  return out;
+}
+
+function isMobile(): boolean {
+  return typeof window !== 'undefined' && window.innerWidth <= 800;
+}
+
 function buildSuggestions(ctx: PageContext): string[] {
   if (ctx.collection && ctx.slug) {
     return [
@@ -309,6 +341,28 @@ function setContextPill(pill: HTMLElement, ctx: PageContext) {
   pill.innerHTML = `Talking about <strong>${escapeHtml(label)}</strong>`;
 }
 
+function clearFollowups(history: HTMLElement) {
+  history.querySelectorAll('.chat-followups').forEach((el) => el.remove());
+}
+
+function appendFollowups(history: HTMLElement, onPick: (q: string) => void) {
+  clearFollowups(history);
+  const chips = pickSerendipityChips(3);
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-followups';
+  wrap.innerHTML = chips
+    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}">${escapeHtml(q)}</button>`)
+    .join('');
+  history.appendChild(wrap);
+  wrap.querySelectorAll<HTMLButtonElement>('.chat-followup').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const q = btn.dataset.q || '';
+      if (q) onPick(q);
+    });
+  });
+  history.scrollTop = history.scrollHeight;
+}
+
 export function initChatPanel() {
   const panel = document.getElementById('chat-panel');
   if (!panel) return;
@@ -354,18 +408,24 @@ export function initChatPanel() {
   applyPaneWidth(pane.width);
   applyMaximized(pane.maximized);
 
+  const submitText = (q: string) => {
+    input.value = q;
+    sendBtn.disabled = false;
+    form.requestSubmit();
+  };
+
   const renderHistory = () => {
     history.innerHTML = '';
     if (conv.messages.length === 0) {
-      renderEmpty(history, ctx, (q) => {
-        input.value = q;
-        sendBtn.disabled = false;
-        form.requestSubmit();
-      });
+      renderEmpty(history, ctx, submitText);
       return;
     }
     for (const m of conv.messages) {
       appendMessage(history, m.role, m.role === 'assistant' ? renderMarkdown(m.content) : escapeHtml(m.content));
+    }
+    const last = conv.messages[conv.messages.length - 1];
+    if (last && last.role === 'assistant') {
+      appendFollowups(history, submitText);
     }
   };
 
@@ -376,7 +436,7 @@ export function initChatPanel() {
     toggle.classList.add('is-hidden');
     conv.open = true;
     saveConversation(conv);
-    setTimeout(() => input.focus(), 220);
+    if (!isMobile()) setTimeout(() => input.focus(), 220);
   };
 
   const closeDrawer = () => {
@@ -402,7 +462,7 @@ export function initChatPanel() {
     renderHistory();
     input.value = '';
     sendBtn.disabled = true;
-    input.focus();
+    if (!isMobile()) input.focus();
   };
 
   toggle.addEventListener('click', openDrawer);
@@ -488,12 +548,15 @@ export function initChatPanel() {
     sendBtn.disabled = true;
     inFlight = true;
 
+    clearFollowups(history);
+
     const userMsg: ChatMessage = { role: 'user', content: text };
     conv.messages.push(userMsg);
     saveConversation(conv);
 
     if (conv.messages.length === 1) {
       renderHistory();
+      clearFollowups(history);
     } else {
       appendMessage(history, 'user', escapeHtml(text));
     }
@@ -579,12 +642,13 @@ export function initChatPanel() {
       bubble.innerHTML = renderMarkdown(assistantText);
       conv.messages.push({ role: 'assistant', content: assistantText });
       saveConversation(conv);
+      appendFollowups(history, submitText);
     } else {
       typingNode.remove();
     }
 
     sendBtn.disabled = !input.value.trim();
-    input.focus();
+    if (!isMobile()) input.focus();
   });
 
   // Reapply width on viewport resize so we never overflow
