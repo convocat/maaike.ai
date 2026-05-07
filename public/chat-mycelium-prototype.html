@@ -380,10 +380,11 @@ function escapeHtml(s) { const d = document.createElement('div'); d.textContent 
 // Per-step contextual chips (3 model-generated + 1 input pebble), keyed by
 // the index of the bot turn that would produce them in real life. Empty
 // state (step 0) gets generic starter chips.
-// Step 0 chips are first-turn: must be self-contained questions because
-// nothing has been said yet. After that, chips can pull on what was said.
+// Step 0 chips are first-turn: universal conversation starters that work on
+// any page without needing prior context. After that, chips pull on what
+// was said in the conversation so far.
 const CHIPS_BY_STEP = {
-  0: ["What's this about?", 'Connect to other posts?', "Maaike's take?"],
+  0: ['Tell me more', 'What stands out?', 'Surprise me'],
   2: ['Conversation design', 'AI tools direction', 'The garden idea'],
   4: ['Stream tension', 'Maturity stages', 'Other metaphors?'],
   6: ['Frankfurt-bullshit', 'Designing around models', "Where she pushes back"],
