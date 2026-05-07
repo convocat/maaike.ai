@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chip alternatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@460;500&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 24px; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+  h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 28px; max-width: 640px; }
+
+  .group {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed #E5DFD4;
+  }
+  .group h2 {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
+    margin: 0 0 4px; color: #1A1A1A;
+  }
+  .group p {
+    font-size: 13px; color: #7A7268;
+    margin: 0 0 14px; max-width: 640px; line-height: 1.5;
+  }
+  .row {
+    display: flex; flex-wrap: wrap; gap: 0.65rem 0.9rem;
+    padding: 22px 0 6px;
+    margin-left: 44px;
+    align-items: center;
+    min-height: 80px;
+  }
+  /* Use the chat panel's sand bg in the demo so we see chips on real surface */
+  .row { background: #FFFFFF; }
+  .row.dark-test { background: #FFFFFF; }
+
+  /* Sketchy filter for the variants that need it */
+  svg.filter-defs { position: absolute; width: 0; height: 0; }
+
+  /* ───────────── Variant 0: Current pebble ───────────── */
+  .v0 .chip {
+    position: relative;
+    border: none;
+    padding: 0.5rem 0.5rem 0.55rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem; line-height: 1.2;
+    color: #1A1A1A; cursor: pointer; text-align: center;
+    background: transparent;
+    max-width: 200px;
+    z-index: 0;
+  }
+  .v0 .chip::before {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 170px; height: 60px;
+    transform: translate(-50%, -50%);
+    background: center/100% 100% no-repeat;
+    z-index: -1;
+  }
+  .v0 .chip:nth-child(3n+1)::before { background-image: url('/images/watercolor-pebble-1.png'); }
+  .v0 .chip:nth-child(3n+2)::before { background-image: url('/images/watercolor-pebble-2.png'); }
+  .v0 .chip:nth-child(3n+3)::before { background-image: url('/images/watercolor-pebble-3.png'); }
+  .v0 .chip:nth-child(3n+1) { transform: rotate(5deg); }
+  .v0 .chip:nth-child(3n+2) { transform: rotate(-3deg); }
+  .v0 .chip:nth-child(3n+3) { transform: rotate(2deg); }
+
+  /* ───────────── Variant A: Spidery text + dotted brush underline ───────────── */
+  .vA .chip {
+    border: none; background: transparent;
+    padding: 4px 8px 6px; font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.1rem; line-height: 1.2; color: #1A1A1A; cursor: pointer;
+    text-align: left; max-width: 240px;
+    border-bottom: 2px dotted #9C7A3E;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .vA .chip:hover { color: #3E5638; border-bottom-color: #3E5638; }
+
+  /* ───────────── Variant B: Brushstroke highlight under handwriting ───────────── */
+  .vB .chip {
+    position: relative;
+    border: none; background: transparent;
+    padding: 4px 14px 8px; font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.1rem; line-height: 1.2; color: #1A1A1A; cursor: pointer;
+    text-align: left; max-width: 240px;
+    z-index: 0;
+  }
+  .vB .chip::before {
+    content: ''; position: absolute; bottom: 4px; left: 6px; right: 6px;
+    height: 12px;
+    background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(232, 217, 184, 0.85) 30%, rgba(232, 217, 184, 0.85) 100%);
+    z-index: -1;
+    transform: skewX(-2deg);
+    border-radius: 2px;
+  }
+  .vB .chip:nth-child(3n+2)::before { background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(217, 184, 154, 0.85) 30%, rgba(217, 184, 154, 0.85) 100%); }
+  .vB .chip:nth-child(3n+3)::before { background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(197, 217, 192, 0.85) 30%, rgba(197, 217, 192, 0.85) 100%); }
+
+  /* ───────────── Variant C: Washi-tape strips ───────────── */
+  .vC .chip {
+    border: none;
+    padding: 6px 14px 8px;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.05rem; line-height: 1.2; color: #1A1A1A; cursor: pointer;
+    text-align: left; max-width: 240px;
+    background: rgba(232, 217, 184, 0.7);
+    border-left: 1px dashed rgba(0,0,0,0.08);
+    border-right: 1px dashed rgba(0,0,0,0.08);
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .vC .chip:nth-child(3n+1) { transform: rotate(-1deg); }
+  .vC .chip:nth-child(3n+2) { background: rgba(217, 184, 154, 0.7); transform: rotate(0.5deg); }
+  .vC .chip:nth-child(3n+3) { background: rgba(197, 217, 192, 0.7); transform: rotate(-0.5deg); }
+  .vC .chip:hover { opacity: 0.85; }
+
+  /* ───────────── Variant D: Sticky-note squares (mixed colors) ───────────── */
+  .vD .chip {
+    border: none;
+    padding: 10px 12px;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem; line-height: 1.2; color: #1A1A1A; cursor: pointer;
+    text-align: left;
+    width: 130px; height: 90px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .vD .chip:nth-child(3n+1) { background: #F0E8C4; transform: rotate(-2deg); }
+  .vD .chip:nth-child(3n+2) { background: #E8D9C4; transform: rotate(1.5deg); }
+  .vD .chip:nth-child(3n+3) { background: #D5E5D0; transform: rotate(-1deg); }
+
+  /* ───────────── Variant E: Hand-drawn frames (outline only, no fill) ───────────── */
+  .vE .chip {
+    border: 1.5px solid #1A1A1A;
+    padding: 0.5rem 1rem 0.6rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem; line-height: 1.2; color: #1A1A1A; cursor: pointer;
+    text-align: center;
+    background: transparent;
+    filter: url(#sketchy);
+    max-width: 220px;
+    transition: background 0.15s;
+  }
+  .vE .chip:nth-child(3n+1) { border-radius: 50% / 50%; transform: rotate(-1deg); }
+  .vE .chip:nth-child(3n+2) { border-radius: 30% 70% 60% 40% / 50% 50% 50% 50%; transform: rotate(1deg); }
+  .vE .chip:nth-child(3n+3) { border-radius: 50% / 50%; transform: rotate(-0.5deg); }
+  .vE .chip:hover { background: rgba(0,0,0,0.04); }
+
+  /* ───────────── Variant F: Mixed natural shapes (1 leaf, 1 acorn, 1 pebble) ───────────── */
+  .vF .chip {
+    position: relative;
+    border: none; background: transparent;
+    padding: 0.55rem 0.5rem 0.6rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem; line-height: 1.2;
+    color: #1A1A1A; cursor: pointer; text-align: center;
+    max-width: 200px; z-index: 0;
+  }
+  .vF .chip::before {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    background: center/contain no-repeat;
+    z-index: -1;
+  }
+  .vF .chip:nth-child(3n+1)::before {
+    width: 100px; height: 130px;
+    background-image: url('/images/watercolor-leaf-trimmed.png');
+    transform: translate(-50%, -50%) rotate(15deg);
+    opacity: 0.6;
+  }
+  .vF .chip:nth-child(3n+2)::before {
+    width: 170px; height: 60px;
+    background-image: url('/images/watercolor-pebble-2.png');
+    transform: translate(-50%, -50%);
+  }
+  .vF .chip:nth-child(3n+3)::before {
+    width: 130px; height: 100px;
+    background-image: url('/images/watercolor-acorn-trimmed.png');
+    transform: translate(-50%, -50%) rotate(-10deg);
+    opacity: 0.55;
+  }
+  .vF .chip:nth-child(3n+1) { transform: rotate(2deg); }
+  .vF .chip:nth-child(3n+3) { transform: rotate(-2deg); }
+
+  /* All chips lift on hover */
+  .chip { transition: transform 0.18s ease, filter 0.18s ease; }
+  .chip:hover, .chip:focus-visible {
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<svg class="filter-defs" aria-hidden="true">
+  <filter id="sketchy">
+    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" seed="5" />
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="0.4" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+
+<h1>Chip alternatives</h1>
+<p class="lede">Same three texts in each row. Current pebble (variant 0) at top, six alternatives below from minimal to graphic. All keep Cedarville for the text.</p>
+
+<div class="group v0">
+  <h2>0. Current — pebble PNG (170×60)</h2>
+  <p>What's live. Watercolor pebble background, fixed dimensions, text overflows when long.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vA">
+  <h2>A. Spidery text + dotted underline</h2>
+  <p>The lightest possible. No shape, just handwriting on a dotted brushstroke underline. Hover changes the underline to moss-green. Reads as inline links rather than buttons. <strong>Quietest of the lot.</strong></p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vB">
+  <h2>B. Highlighter swipe under handwriting</h2>
+  <p>A semi-transparent earth-tone strip behind the bottom of the text, like someone highlighted the words with a fat marker. Three colors rotate.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vC">
+  <h2>C. Washi-tape strips</h2>
+  <p>Translucent earth-tone tape with dashed serrated edges. Slight tilt. Reads as a pinned-on note. Holds long text gracefully (text wraps inside the tape).</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vD">
+  <h2>D. Sticky-note squares</h2>
+  <p>Fixed-size 130×90 squares in three soft colors with a slight drop-shadow and tilt. Like Post-its on a board. Most graphic / most "thing-like" of the alternatives.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vE">
+  <h2>E. Hand-drawn frames (outline only)</h2>
+  <p>Sketchy filter on a 1.5px outline, no fill. Each chip a different organic border-radius. Hover fills very lightly. Quiet but still framed.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vF">
+  <h2>F. Mixed natural shapes (leaf · pebble · acorn)</h2>
+  <p>Each chip uses a different watercolor object behind it: leaf for the first, pebble for the second, acorn for the third. The leaf and acorn are slightly faded so the text reads on top. Ties the chip system to the avatars and hero.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">My picks, in order: <strong>A</strong> if you want lightest weight (treats chips as inline-link follow-ups, not buttons). <strong>C</strong> if you want a sense of objecthood without the chunkiness. <strong>F</strong> if you want them to feel part of the garden's natural-objects family.</p>
+
+</body>
+</html>

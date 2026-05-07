@@ -23,9 +23,6 @@
     aria-expanded="false"
     aria-label="Open chat"
   >
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-    </svg>
     <span class="chat-toggle-label">Ask</span>
   </button>
 
@@ -133,30 +130,35 @@
     bottom: var(--space-lg);
     display: inline-flex;
     align-items: center;
-    gap: var(--space-xs);
-    padding: 0.65rem 1rem;
-    border: 1px solid var(--color-accent-2);
-    border-radius: 999px;
-    background: var(--color-bg-card);
-    color: var(--color-accent-2);
-    font: inherit;
-    font-size: 0.9rem;
-    font-weight: 500;
+    justify-content: center;
+    width: 110px;
+    height: 60px;
+    border: none;
+    background: url('/images/watercolor-pebble-2.png') center/100% 100% no-repeat;
+    color: var(--color-accent);
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     cursor: pointer;
-    box-shadow: 0 4px 12px var(--color-shadow);
-    transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    transition: transform var(--transition-fast), filter var(--transition-fast);
     pointer-events: auto;
-    min-height: 44px;
+    transform: rotate(-2deg);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.15));
+  }
+  .chat-toggle .chat-toggle-label {
+    line-height: 1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
   .chat-toggle:hover {
-    background: var(--color-accent-2);
-    color: var(--color-bg);
-    transform: translateY(-1px);
+    transform: rotate(0deg) translateY(-2px);
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.22));
+    color: var(--color-accent-hover);
   }
 
   .chat-toggle:focus-visible {
-    outline: 2px solid var(--color-accent-2);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
   }
 
@@ -411,58 +413,69 @@
     margin-left: 0;
   }
 
+  /* Variant F: small pebble with a soft drop-shadow as if resting on paper,
+     text written below it. Reads three-dimensional and gives long text room
+     to breathe without distorting the pebble. */
   .chat-followup {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
     border: none;
-    padding: 0.85rem 1.6rem 1rem;
+    padding: 0;
     font: inherit;
     font-family: 'Cedarville Cursive', cursive;
-    font-size: 1rem;
-    line-height: 1.15;
+    font-size: 0.95rem;
+    line-height: 1.2;
     color: var(--color-text);
     cursor: pointer;
     text-align: center;
-    background: transparent center/100% 100% no-repeat;
+    background: transparent;
     transition: transform 0.18s ease, filter 0.18s ease;
-    max-width: 100%;
-    min-height: 56px;
+    max-width: 160px;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
-  /* Watercolor pebble backgrounds. Three variants, one per chip in a row. */
-  .chat-followup:nth-child(3n+1) {
+  /* The pebble itself, sized small and shadowed. */
+  .chat-followup .chip-pebble {
+    display: block;
+    width: 100px;
+    height: 36px;
+    background: center/100% 100% no-repeat;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.18));
+  }
+  .chat-followup:nth-child(3n+1) .chip-pebble {
     background-image: url('/images/watercolor-pebble-1.png');
-    transform: rotate(5deg);
+    transform: rotate(-6deg);
   }
-  .chat-followup:nth-child(3n+2) {
+  .chat-followup:nth-child(3n+2) .chip-pebble {
     background-image: url('/images/watercolor-pebble-2.png');
-    transform: rotate(-3deg);
+    transform: rotate(3deg);
   }
-  .chat-followup:nth-child(3n+3) {
+  .chat-followup:nth-child(3n+3) .chip-pebble {
     background-image: url('/images/watercolor-pebble-3.png');
-    transform: rotate(2deg);
+    transform: rotate(-2deg);
   }
-
-  /* Compound wobble: the inner text rotated slightly relative to the chip. */
-  .chat-followup > * { display: inline-block; }
-  .chat-followup:nth-child(3n+1) > * { transform: rotate(-2deg); }
-  .chat-followup:nth-child(3n+2) > * { transform: rotate(1deg); }
-  .chat-followup:nth-child(3n+3) > * { transform: rotate(-1deg); }
 
   .chat-followup:hover,
   .chat-followup:focus-visible {
-    transform: rotate(0deg) translateY(-2px);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
+    transform: translateY(-2px);
     outline: none;
   }
-  .chat-followup:hover > *,
-  .chat-followup:focus-visible > * { transform: none; }
+  .chat-followup:hover .chip-pebble,
+  .chat-followup:focus-visible .chip-pebble {
+    filter: drop-shadow(0 7px 6px rgba(0, 0, 0, 0.22));
+  }
 
   [data-theme='dark'] .chat-drawer {
     --chat-tag-bg: #352E25;
   }
   /* In dark mode the pebbles still read on the dark bg because they are
-     opaque and their light tones contrast nicely. Text stays light. */
+     opaque and their light tones contrast nicely. */
   [data-theme='dark'] .chat-followup {
-    color: #1a1a1a;
+    color: var(--color-text);
   }
 
   .chat-msg {

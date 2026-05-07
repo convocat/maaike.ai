@@ -280,7 +280,7 @@ function renderEmpty(history: HTMLElement, ctx: PageContext, onSuggestion: (q: s
 
   const suggestions = buildSuggestions(ctx);
   const buttons = suggestions
-    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span>${escapeHtml(q)}</span></button>`)
+    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span class="chip-pebble" aria-hidden="true"></span><span class="chip-text">${escapeHtml(q)}</span></button>`)
     .join('');
 
   history.innerHTML = `
@@ -357,7 +357,7 @@ function appendFollowups(history: HTMLElement, onPick: (q: string) => void, item
   const wrap = document.createElement('div');
   wrap.className = 'chat-followups';
   wrap.innerHTML = chips
-    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span>${escapeHtml(q)}</span></button>`)
+    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}"><span class="chip-pebble" aria-hidden="true"></span><span class="chip-text">${escapeHtml(q)}</span></button>`)
     .join('');
   history.appendChild(wrap);
   wrap.querySelectorAll<HTMLButtonElement>('.chat-followup').forEach((btn) => {

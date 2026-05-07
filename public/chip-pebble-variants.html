@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chip alternatives — pebble variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@460;500&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 24px; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+  h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 28px; max-width: 680px; }
+
+  .group {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed #E5DFD4;
+  }
+  .group h2 {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
+    margin: 0 0 4px; color: #1A1A1A;
+  }
+  .group p {
+    font-size: 13px; color: #7A7268;
+    margin: 0 0 14px; max-width: 680px; line-height: 1.5;
+  }
+  .row {
+    display: flex; flex-wrap: wrap; gap: 1rem 1.4rem;
+    padding: 24px 0 6px;
+    margin-left: 44px;
+    align-items: center;
+    min-height: 90px;
+  }
+  .chip {
+    border: none; background: transparent;
+    cursor: pointer; text-align: left; color: #1A1A1A;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem; line-height: 1.2;
+    padding: 0; transition: transform 0.18s ease, filter 0.18s ease;
+  }
+
+  /* ───────────── Variant 0: current ───────────── */
+  .v0 .chip {
+    position: relative;
+    padding: 0.5rem 0.5rem 0.55rem;
+    font-size: 1rem; text-align: center; max-width: 200px; z-index: 0;
+  }
+  .v0 .chip::before {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 170px; height: 60px;
+    transform: translate(-50%, -50%);
+    background: center/100% 100% no-repeat; z-index: -1;
+  }
+  .v0 .chip:nth-child(3n+1)::before { background-image: url('/images/watercolor-pebble-1.png'); }
+  .v0 .chip:nth-child(3n+2)::before { background-image: url('/images/watercolor-pebble-2.png'); }
+  .v0 .chip:nth-child(3n+3)::before { background-image: url('/images/watercolor-pebble-3.png'); }
+  .v0 .chip:nth-child(3n+1) { transform: rotate(5deg); }
+  .v0 .chip:nth-child(3n+2) { transform: rotate(-3deg); }
+  .v0 .chip:nth-child(3n+3) { transform: rotate(2deg); }
+
+  /* ───────────── Variant A: Smaller pebble + text below (caption style) ───────────── */
+  .vA .chip {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.2rem; max-width: 130px; padding: 0;
+    text-align: center; font-size: 0.9rem;
+  }
+  .vA .chip-pebble {
+    width: 70px; height: 26px;
+    background: center/100% 100% no-repeat;
+  }
+  .vA .chip:nth-child(3n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-4deg); }
+  .vA .chip:nth-child(3n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(2deg); }
+  .vA .chip:nth-child(3n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-2deg); }
+
+  /* ───────────── Variant B: Tiny pebble bullet + inline text ───────────── */
+  .vB .chip {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 4px 8px 4px 4px; max-width: 280px;
+    font-size: 1.1rem;
+  }
+  .vB .chip-pebble {
+    flex: 0 0 auto;
+    width: 28px; height: 14px;
+    background: center/100% 100% no-repeat;
+  }
+  .vB .chip:nth-child(3n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-6deg); }
+  .vB .chip:nth-child(3n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(3deg); }
+  .vB .chip:nth-child(3n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-2deg); }
+
+  /* ───────────── Variant C: Faded pebble halo behind text ───────────── */
+  .vC .chip {
+    position: relative; padding: 0.6rem 1rem; max-width: 240px;
+    text-align: center; font-size: 1.05rem; z-index: 0;
+  }
+  .vC .chip::before {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 260px; height: 100px;
+    transform: translate(-50%, -50%);
+    background: center/100% 100% no-repeat;
+    opacity: 0.45;
+    z-index: -1;
+  }
+  .vC .chip:nth-child(3n+1)::before { background-image: url('/images/watercolor-pebble-1.png'); }
+  .vC .chip:nth-child(3n+2)::before { background-image: url('/images/watercolor-pebble-2.png'); }
+  .vC .chip:nth-child(3n+3)::before { background-image: url('/images/watercolor-pebble-3.png'); }
+  .vC .chip:nth-child(3n+1) { transform: rotate(2deg); }
+  .vC .chip:nth-child(3n+3) { transform: rotate(-2deg); }
+
+  /* ───────────── Variant D: Pebble sits next to text (pinned label) ───────────── */
+  .vD .chip {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    padding: 0.45rem 0.7rem 0.5rem; max-width: 280px;
+    background: rgba(255,255,255,0.6);
+    border: 1px dashed rgba(0,0,0,0.12);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .vD .chip-pebble {
+    flex: 0 0 auto;
+    width: 50px; height: 20px;
+    background: center/100% 100% no-repeat;
+  }
+  .vD .chip:nth-child(3n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-5deg); }
+  .vD .chip:nth-child(3n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(3deg); }
+  .vD .chip:nth-child(3n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-1deg); }
+  .vD .chip:nth-child(3n+1) { transform: rotate(-1deg); }
+  .vD .chip:nth-child(3n+2) { transform: rotate(0.5deg); }
+  .vD .chip:nth-child(3n+3) { transform: rotate(-0.5deg); }
+
+  /* ───────────── Variant E: Pebble cluster (small stones laid out) ───────────── */
+  .vE .chip {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.15rem; padding: 0; max-width: 180px;
+    font-size: 0.95rem; text-align: center;
+  }
+  .vE .pebbles {
+    display: flex; gap: 4px; align-items: center;
+    height: 18px;
+  }
+  .vE .pebble-mini {
+    width: 22px; height: 10px;
+    background: center/100% 100% no-repeat;
+  }
+  .vE .pebble-mini.p1 { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-8deg) translateY(2px); }
+  .vE .pebble-mini.p2 { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(4deg); }
+  .vE .pebble-mini.p3 { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-3deg) translateY(1px); }
+
+  /* ───────────── Variant F: Pebble with text below, soft drop-shadow as if resting on a surface ───────────── */
+  .vF .chip {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; padding: 0;
+    max-width: 160px;
+    font-size: 0.95rem; text-align: center;
+  }
+  .vF .chip-pebble {
+    width: 100px; height: 36px;
+    background: center/100% 100% no-repeat;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.18));
+  }
+  .vF .chip:nth-child(3n+1) .chip-pebble { background-image: url('/images/watercolor-pebble-1.png'); transform: rotate(-6deg); }
+  .vF .chip:nth-child(3n+2) .chip-pebble { background-image: url('/images/watercolor-pebble-2.png'); transform: rotate(3deg); }
+  .vF .chip:nth-child(3n+3) .chip-pebble { background-image: url('/images/watercolor-pebble-3.png'); transform: rotate(-2deg); }
+
+  /* ───────────── Variant G: Pebble with text overlapping bottom edge ───────────── */
+  .vG .chip {
+    position: relative; padding: 1.1rem 0.5rem 0.4rem;
+    max-width: 200px; text-align: center; font-size: 1rem; z-index: 0;
+  }
+  .vG .chip::before {
+    content: ''; position: absolute;
+    left: 50%; top: 0;
+    width: 150px; height: 50px;
+    transform: translateX(-50%);
+    background: center/100% 100% no-repeat;
+    z-index: -1;
+  }
+  .vG .chip:nth-child(3n+1)::before { background-image: url('/images/watercolor-pebble-1.png'); transform: translateX(-50%) rotate(-4deg); }
+  .vG .chip:nth-child(3n+2)::before { background-image: url('/images/watercolor-pebble-2.png'); transform: translateX(-50%) rotate(2deg); }
+  .vG .chip:nth-child(3n+3)::before { background-image: url('/images/watercolor-pebble-3.png'); transform: translateX(-50%) rotate(-1deg); }
+
+  /* Hover */
+  .chip:hover, .chip:focus-visible {
+    transform: rotate(0deg) translateY(-2px);
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Chip alternatives — pebble variants</h1>
+<p class="lede">Same three texts. Current pebble (0) at top, six pebble-specific alternatives below. The pebbles get smaller / move around / become accents rather than full backgrounds.</p>
+
+<div class="group v0">
+  <h2>0. Current — pebble fills the chip</h2>
+  <p>What's live. Pebble is 170×60 behind the text.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vA">
+  <h2>A. Caption style — small pebble, text below</h2>
+  <p>The pebble shrinks to ~70×26, sits as a small painted shape with the question written underneath like a caption.</p>
+  <div class="row">
+    <button class="chip"><span class="chip-pebble"></span><span>What is this about?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vB">
+  <h2>B. Tiny pebble bullet + inline text</h2>
+  <p>Pebble becomes a small painted bullet (~28×14) before the text. Reads more like a list item than a button. Text is the main thing.</p>
+  <div class="row">
+    <button class="chip"><span class="chip-pebble"></span><span>What is this about?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vC">
+  <h2>C. Faded pebble halo behind text</h2>
+  <p>Pebble grows larger but drops to 45% opacity, becoming a soft watercolor halo. Text reads on top in full strength.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vD">
+  <h2>D. Pebble + text in a pinned label</h2>
+  <p>Small pebble paired with the text, inside a translucent rectangle with a dashed border (like a pinned-on note from a notebook).</p>
+  <div class="row">
+    <button class="chip"><span class="chip-pebble"></span><span>What is this about?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vE">
+  <h2>E. Pebble cluster (a path of three small stones)</h2>
+  <p>Above each chip, three tiny pebbles laid in a row like a path. The text follows. Reads as "follow this thread".</p>
+  <div class="row">
+    <button class="chip">
+      <div class="pebbles"><span class="pebble-mini p1"></span><span class="pebble-mini p2"></span><span class="pebble-mini p3"></span></div>
+      <span>What is this about?</span>
+    </button>
+    <button class="chip">
+      <div class="pebbles"><span class="pebble-mini p1"></span><span class="pebble-mini p2"></span><span class="pebble-mini p3"></span></div>
+      <span>How does this connect to the rest of the garden?</span>
+    </button>
+    <button class="chip">
+      <div class="pebbles"><span class="pebble-mini p1"></span><span class="pebble-mini p2"></span><span class="pebble-mini p3"></span></div>
+      <span>What's Maaike's view here?</span>
+    </button>
+  </div>
+</div>
+
+<div class="group vF">
+  <h2>F. Pebble with shadow, text below — like a stone resting on paper</h2>
+  <p>A 100×36 pebble with a soft drop-shadow as if sitting on a surface, text written on the surface beneath. Reads three-dimensional.</p>
+  <div class="row">
+    <button class="chip"><span class="chip-pebble"></span><span>What is this about?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span class="chip-pebble"></span><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<div class="group vG">
+  <h2>G. Pebble overlap — text spills below the bottom edge</h2>
+  <p>Pebble at the top, smaller (150×50), with the text starting partway through the pebble and continuing below it. Long text gets natural breathing room.</p>
+  <div class="row">
+    <button class="chip"><span>What is this about?</span></button>
+    <button class="chip"><span>How does this connect to the rest of the garden?</span></button>
+    <button class="chip"><span>What's Maaike's view here?</span></button>
+  </div>
+</div>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">
+Pebble shrinks: <strong>A</strong>, <strong>B</strong>, <strong>F</strong>. Pebble fades: <strong>C</strong>. Pebble sidekicks the text: <strong>D</strong>. Pebble multiplies: <strong>E</strong>. Pebble loosens its grip: <strong>G</strong>.
+</p>
+
+</body>
+</html>
