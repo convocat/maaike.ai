@@ -1,5 +1,6 @@
 """
 Vercel serverless entry point for the garden chatbot.
+Last touched: 2026-05-07 (chip-marker parser + v0.2 default).
 
 Routes (read-only):
   GET  /api/topics                      → list of topics
