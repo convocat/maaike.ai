@@ -45,6 +45,11 @@
   --transition-base: 250ms ease;
 }
 
+/* Body font choice — applied via data-font on <html>. Default = Roboto. */
+:root[data-font="mulish"]   { --font-body: 'Mulish', -apple-system, sans-serif; }
+:root[data-font="nunito"]   { --font-body: 'Nunito', -apple-system, sans-serif; }
+:root[data-font="atkinson"] { --font-body: 'Atkinson Hyperlegible', -apple-system, sans-serif; }
+
 [data-theme="dark"] {
   --color-bg: #111111;
   --color-bg-card: #1A1A1A;

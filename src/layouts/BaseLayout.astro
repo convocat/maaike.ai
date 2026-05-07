@@ -70,13 +70,18 @@ const ctx: PageContext = pageContext ?? {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
 
-    <!-- Dark mode: prevent FOUC -->
+    <!-- Dark mode + body font preference: prevent FOUC -->
     <script is:inline>
       (function () {
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const theme = stored || (prefersDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
+
+        const font = localStorage.getItem('garden-body-font');
+        if (font && ['mulish', 'nunito', 'atkinson'].includes(font)) {
+          document.documentElement.setAttribute('data-font', font);
+        }
       })();
     </script>
 

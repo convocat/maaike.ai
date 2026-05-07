@@ -122,6 +122,31 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
+    <div class="font-picker">
+      <button class="font-picker-btn" id="font-picker-btn" aria-label="Reading font" aria-expanded="false" aria-controls="font-picker-menu" title="Reading font">
+        <span class="font-picker-letter">A</span><span class="font-picker-letter font-picker-letter--small">a</span>
+      </button>
+      <div class="font-picker-menu" id="font-picker-menu" role="menu" hidden>
+        <span class="font-picker-label">Reading font</span>
+        <button type="button" class="font-picker-option" role="menuitemradio" data-font="default">
+          <span class="font-picker-name" style="font-family: 'Roboto', sans-serif">Roboto</span>
+          <span class="font-picker-meta">Default</span>
+        </button>
+        <button type="button" class="font-picker-option" role="menuitemradio" data-font="mulish">
+          <span class="font-picker-name" style="font-family: 'Mulish', sans-serif">Mulish</span>
+          <span class="font-picker-meta">Soft humanist</span>
+        </button>
+        <button type="button" class="font-picker-option" role="menuitemradio" data-font="nunito">
+          <span class="font-picker-name" style="font-family: 'Nunito', sans-serif">Nunito</span>
+          <span class="font-picker-meta">Rounded warm</span>
+        </button>
+        <button type="button" class="font-picker-option" role="menuitemradio" data-font="atkinson">
+          <span class="font-picker-name" style="font-family: 'Atkinson Hyperlegible', sans-serif">Atkinson Hyperlegible</span>
+          <span class="font-picker-meta">Accessibility-first</span>
+        </button>
+      </div>
+    </div>
+
     <a href="/explore" class="header-search-btn" aria-label="Explore the garden" title="Explore the garden">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10"/>
@@ -218,10 +243,73 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  function setupFontPicker() {
+    const btn = document.getElementById('font-picker-btn');
+    const menu = document.getElementById('font-picker-menu');
+    if (!btn || !menu) return;
+
+    const updateChecked = () => {
+      const current = document.documentElement.getAttribute('data-font') || 'default';
+      menu.querySelectorAll<HTMLButtonElement>('.font-picker-option').forEach((opt) => {
+        const isSelected = opt.dataset.font === current;
+        opt.setAttribute('aria-checked', String(isSelected));
+        opt.classList.toggle('is-selected', isSelected);
+      });
+    };
+
+    const open = () => {
+      menu.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      updateChecked();
+    };
+    const close = () => {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (menu.hidden) open();
+      else close();
+    });
+
+    menu.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('.font-picker-option') as HTMLButtonElement | null;
+      if (!target) return;
+      const font = target.dataset.font || 'default';
+      if (font === 'default') {
+        document.documentElement.removeAttribute('data-font');
+        try { localStorage.removeItem('garden-body-font'); } catch {}
+      } else {
+        document.documentElement.setAttribute('data-font', font);
+        try { localStorage.setItem('garden-body-font', font); } catch {}
+      }
+      updateChecked();
+      close();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menu.hidden) return;
+      const target = e.target as Node | null;
+      if (target && (menu.contains(target) || btn.contains(target))) return;
+      close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        close();
+        btn.focus();
+      }
+    });
+
+    updateChecked();
+  }
+
   setupMenu();
   setupGardenDropdown();
   setupToolshedDropdown();
-  document.addEventListener('astro:after-swap', () => { setupMenu(); setupGardenDropdown(); setupToolshedDropdown(); });
+  setupFontPicker();
+  document.addEventListener('astro:after-swap', () => { setupMenu(); setupGardenDropdown(); setupToolshedDropdown(); setupFontPicker(); });
 </script>
 
 <style>
@@ -386,6 +474,95 @@ const currentPath = Astro.url.pathname;
   .mega-views a.active {
     color: var(--color-accent);
     font-weight: 600;
+  }
+
+  /* Font picker */
+  .font-picker {
+    position: relative;
+  }
+  .font-picker-btn {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1px;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    margin: -8px;
+    border-radius: 50%;
+    min-width: 36px;
+    min-height: 36px;
+    transition: color 0.15s, background 0.15s;
+    font-family: inherit;
+  }
+  .font-picker-btn:hover {
+    color: var(--color-accent);
+    background: var(--color-border);
+  }
+  .font-picker-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .font-picker-letter {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 600;
+  }
+  .font-picker-letter--small { font-size: 0.7rem; }
+
+  .font-picker-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: -4px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-sm);
+    width: 240px;
+    box-shadow: 0 8px 30px var(--color-shadow);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .font-picker-menu[hidden] { display: none; }
+  .font-picker-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-sm) var(--space-xs);
+  }
+  .font-picker-option {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 6px;
+    color: var(--color-text);
+    font: inherit;
+    transition: background 0.15s;
+  }
+  .font-picker-option:hover { background: var(--color-bg-card); }
+  .font-picker-option.is-selected {
+    background: var(--color-tag-bg);
+  }
+  .font-picker-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .font-picker-meta {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
   }
 
   .header-search-btn {
