@@ -423,11 +423,18 @@ A small but pleasant fix: tapping a link inside the chat on mobile now actually 
 
 ### 7 May
 
-The chatbot got friendlier on a phone: no more keyboard ambush, and a row of hand-drawn chips after every answer so you can keep tapping instead of typing.
+A big design pass: pink retired, earth tones in, the chatbot gets new watercolors, and visitors get to pick their own reading font.
 
-- **No mobile auto-focus**: the chat input is no longer auto-focused on mobile (≤800px) when the drawer opens, after a reset, or after a streaming response finishes. The keyboard only appears when the user taps the textarea.
-- **Serendipitous follow-up chips**: three irregular pebble-shaped chips render below every assistant turn, drawn from a bank of oblique prompts ("Find a strange neighbour", "Take me somewhere unexpected", "What is the quiet idea?"). Earth-tone palette (sand, clay, sage), slight tilt, sketchy SVG-filter edge.
-- **Chat panel toolshed entry**: documented the panel's layout, mobile rules, and chip design at `/toolshed/chat-panel`.
+- **Earth-tone palette site-wide**: the company hot pink retired in favour of deep moss-green primary, warm bronze secondary, terracotta for "complete" maturity. Backgrounds in light mode are now pure white (the stream keeps its own cream locally).
+- **Reading font picker**: a small Aa control next to the search icon offers four self-hosted body fonts. Nunito is the new default at weight 460 (it reads light at 400). Mulish, Atkinson Hyperlegible, and Roboto sit alongside it. Choice persists in localStorage and applies before paint.
+- **Hero acorn**: the right-hand image on the stream is now a watercolor acorn at 160px, on a transparent background.
+- **Chatbot user avatar**: a watercolor acorn at 34px with no circular crop, paired with the leaf bot avatar.
+- **Settings cogwheel + prompt picker**: a popover in the chat header lets visitors switch the active system prompt. Prompts moved to a content collection at `src/content/prompts/`, with a v0.2 chip-driven prompt added.
+- **Contextual chips (v0.2 prompt, now default)**: v0.2 is the new default. The model appends `<<CHIPS:["q1","q2","q3"]>>` at the end of every reply (two close-context items plus one "wander" chip). The backend extracts the marker from the stream, suppresses it from visible text, and emits a chips event the frontend renders. v0.1 remains selectable from the cogwheel for the original in-prose handoff design.
+- **Chat panel persists across navigation**: the panel re-inits on `astro:after-swap` so clicking an internal link in the chat lands on a new page with the same conversation, same avatars, same bindings.
+- **No mobile auto-focus**: the chat input is no longer auto-focused on mobile (≤800px), so the keyboard only appears on tap.
+- **Empty-state chips in chip layout**: the chatbot's starter suggestions now use the same hand-drawn pebble shapes as follow-ups, instead of rounded pills.
+- **Toolshed updates**: new entry for font-picker; chat-panel refreshed for the new avatars, sand bubble, settings cogwheel, and contextual chips. Color-tokens doc updated for the palette migration.
 
 ## Related
 

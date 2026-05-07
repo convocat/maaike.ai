@@ -6,6 +6,7 @@ Routes (read-only):
   GET  /api/article/{section}/{slug}    → post markdown
   GET  /api/topic-meta/{slug}           → real triples-derived topic metadata
   GET  /api/topic-view/{slug}           → derived (cached) wiki-view; never regenerates in prod
+  GET  /api/prompts                     → list of selectable system prompts (cogwheel)
   POST /api/ask                         → answer streaming (live Claude call)
   POST /api/chat                        → per-page chat streaming (live Claude call)
 

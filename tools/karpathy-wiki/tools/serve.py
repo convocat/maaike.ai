@@ -1842,7 +1842,7 @@ def load_prompt(prompt_id: str) -> str:
     return body.strip()
 
 
-_DEFAULT_GARDEN_PROMPT_ID = "garden-system-prompt"
+_DEFAULT_GARDEN_PROMPT_ID = "garden-system-prompt-v0-2"
 
 
 def _list_chat_prompts():

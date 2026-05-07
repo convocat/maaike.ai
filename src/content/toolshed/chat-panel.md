@@ -37,9 +37,9 @@ Design intent: organic, hand-drawn, slightly playful. Not the standard rounded p
 - **Tilt**: slight per-chip rotation (`-1.5°`, `+1.2°`, `-0.6°`) using `nth-child(3n+1/2/3)`. On hover or focus, the chip straightens (`rotate(0)`) and lifts.
 - **Filter**: the global `#sketchy` SVG filter (a low-amplitude `feTurbulence` displacement) is applied to give the edge a hand-drawn wobble. The filter is removed on hover so the chip looks crisp when targeted.
 
-### Source: contextual, model-generated
+### Source: contextual, model-generated (v0.2 prompt)
 
-The model is instructed (in the system prompt) to append a single line at the very end of every reply:
+The chip-driven flow is scoped to the v0.2 garden system prompt. v0.1 still has the original in-prose handoff design. The settings cogwheel lets visitors flip between them. When v0.2 is active, the model is instructed to append a single line at the very end of every reply:
 
 ```
 <<CHIPS:["question one","question two","wander question"]>>

@@ -110,6 +110,11 @@
 <script>
   import { initChatPanel } from '../scripts/chat-panel.ts';
   initChatPanel();
+  // Re-init after every Astro view transition so the chat panel on the
+  // new page binds its handlers, restores its conversation from
+  // sessionStorage, and renders avatars from the latest code. Without
+  // this, internal-link navigation leaves a stale chat panel.
+  document.addEventListener('astro:after-swap', () => initChatPanel());
 </script>
 
 <style is:global>
