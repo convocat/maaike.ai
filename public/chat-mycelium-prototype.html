@@ -86,15 +86,20 @@
     color: #3E5638; text-decoration: underline; text-underline-offset: 2px;
   }
 
-  /* Mycelium pane */
+  /* Mycelium pane: top half mycelium SVG, bottom half curated summary */
   .myc {
     background: #FAF7F2;
+    display: flex; flex-direction: column;
+    min-height: 0;
+  }
+  .myc-canvas {
+    flex: 1 1 55%;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid #EDE5D2;
+    min-height: 0;
   }
-  .myc-svg {
-    width: 100%; height: 100%; display: block;
-  }
+  .myc-svg { width: 100%; height: 100%; display: block; }
   .myc-empty {
     position: absolute; inset: 0; margin: auto;
     width: 80%; max-width: 320px; height: fit-content;
@@ -104,6 +109,62 @@
     pointer-events: none;
   }
   .myc-empty[hidden] { display: none; }
+
+  /* Curated summary */
+  .myc-summary {
+    flex: 1 1 45%;
+    overflow-y: auto;
+    padding: 18px 24px;
+    background: #FFFFFF;
+    min-height: 0;
+  }
+  .myc-summary-h {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.15rem; color: #1A1A1A;
+    margin: 0 0 12px;
+  }
+  .myc-summary-empty {
+    font-size: 0.85rem; color: #B5AC9C;
+    font-style: italic; line-height: 1.5;
+  }
+  .myc-section { margin-bottom: 16px; }
+  .myc-section h3 {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #7A7268; font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .myc-topics { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+  .myc-topic {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem;
+    color: #1A1A1A;
+    background: #ECE2CE;
+    padding: 1px 9px; border-radius: 999px;
+    transition: background 0.18s;
+  }
+  .myc-topic.is-recurring {
+    background: #DDE6D0; color: #2A3D26;
+  }
+
+  .myc-cite-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .myc-cite-item {
+    display: grid; grid-template-columns: 6px 1fr;
+    background: #FAF7F2;
+    border: 1px solid #EDE5D2;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none; color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .myc-cite-item:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.06); }
+  .myc-cite-strip { width: 6px; }
+  .myc-cite-body { padding: 6px 10px; }
+  .myc-cite-coll { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #7A7268; margin: 0 0 2px; }
+  .myc-cite-title { font-family: 'Lora', serif; font-size: 0.92rem; font-weight: 600; margin: 0; line-height: 1.3; color: #1A1A1A; }
+
+  .myc-q-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .myc-q { font-size: 0.82rem; color: #555; line-height: 1.4; padding-left: 14px; position: relative; font-style: italic; }
+  .myc-q::before { content: '?'; position: absolute; left: 0; color: #3E5638; font-style: normal; font-weight: 600; }
   .myc-node { cursor: pointer; transition: transform 0.18s ease; transform-origin: center; transform-box: fill-box; }
   .myc-node:hover { transform: scale(1.18); }
   .myc-thread { transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease; }
@@ -137,14 +198,39 @@
   <div class="drawer-body">
     <div class="chat-side" id="chat-side"></div>
     <aside class="myc">
-      <svg class="myc-svg" id="myc-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
-      <p class="myc-empty" id="myc-empty">As you and the garden talk, the conversation will grow its own mycelium here.</p>
+      <div class="myc-canvas">
+        <svg class="myc-svg" id="myc-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+        <p class="myc-empty" id="myc-empty">As you and the garden talk, the conversation will grow its own mycelium here.</p>
+      </div>
+      <div class="myc-summary" id="myc-summary"></div>
     </aside>
   </div>
 </div>
 
 <script>
 const SVG_NS = 'http://www.w3.org/2000/svg';
+
+// Real posts on the live site, with metadata that the curated summary draws on.
+const POSTS = {
+  '/articles/garden-as-metaphor/': {
+    title: 'The garden as a metaphor',
+    collection: 'articles',
+    themes: ['Iterative editing', 'Refusing the stream'],
+    open_questions: ['Does the garden metaphor scale beyond personal sites?'],
+  },
+  '/articles/a-digital-garden-as-central-space/': {
+    title: 'A digital garden as central space',
+    collection: 'articles',
+    themes: ['Consolidation', 'Owning your home online'],
+    open_questions: ["What's lost when you leave the platforms?"],
+  },
+  '/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that/': {
+    title: 'Why ChatGPT is bullshit',
+    collection: 'articles',
+    themes: ['Frankfurt-bullshit', 'Designing around model limits'],
+    open_questions: ['Can a designer ever fully constrain a generative system?'],
+  },
+};
 
 const STEPS = [
   // Step 0: empty
@@ -167,24 +253,24 @@ const STEPS = [
     { role: 'user', content: 'Where do I start?' },
     { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
     { role: 'user', content: 'The garden idea.' },
-    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the <strong>editorial logic</strong>: posts have <strong>maturity stages</strong>, the <strong>stream</strong> is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
   ],
   // Step 5
   [
     { role: 'user', content: 'Where do I start?' },
     { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
     { role: 'user', content: 'The garden idea.' },
-    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
-    { role: 'user', content: 'Does the metaphor work for organisations?' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the <strong>editorial logic</strong>: posts have <strong>maturity stages</strong>, the <strong>stream</strong> is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+    { role: 'user', content: 'Does the metaphor scale to LLMs and chatbots?' },
   ],
-  // Step 6 (cites a third post)
+  // Step 6 (cites a third post — the bullshit article)
   [
     { role: 'user', content: 'Where do I start?' },
     { role: 'assistant', content: 'Depends what brought you here. Three natural entry points: <strong>conversation design</strong>, <strong>where AI tools are going</strong>, or <strong>the garden idea itself</strong>.' },
     { role: 'user', content: 'The garden idea.' },
-    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the editorial logic: posts have maturity stages, the stream is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
-    { role: 'user', content: 'Does the metaphor work for organisations?' },
-    { role: 'assistant', content: 'Maaike has only made the case for individuals. The page raises the question explicitly but does not resolve it. <a href="/field-notes/why-most-chatbots-should-be-forms/">Why most chatbots should be forms</a> is adjacent: an example of a stance she has settled on, not a question still in the soil.' },
+    { role: 'assistant', content: 'Two pieces are load-bearing here. <a href="/articles/garden-as-metaphor/">The garden as a metaphor</a> lays out the <strong>editorial logic</strong>: posts have <strong>maturity stages</strong>, the <strong>stream</strong> is rejected as default. <a href="/articles/a-digital-garden-as-central-space/">A digital garden as central space</a> tells the story of replacing five platforms with this one.' },
+    { role: 'user', content: 'Does the metaphor scale to LLMs and chatbots?' },
+    { role: 'assistant', content: 'Different angle. The garden idea is editorial. For her view on language models specifically, see <a href="/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that/">Why ChatGPT is bullshit</a>. The argument: <strong>Frankfurt-bullshit</strong> is the right frame for these systems, and design has to carry the load the model cannot. That is also a kind of <strong>refusing the stream</strong>: refusing the seductive default of "just let the model talk".' },
   ],
 ];
 
@@ -193,9 +279,9 @@ const STEP_DESCS = [
   'Reader plants the first seed.',
   'The garden replies. Two nodes connected.',
   'Reader picks the garden idea.',
-  'Bot cites two posts. Citation cards anchor to the leaf node.',
-  'Reader asks about scale.',
-  'Bot answers, cites a third post.',
+  'Bot cites two posts. Citation cards anchor to the leaf node. Summary fills in.',
+  'Reader pivots to LLMs and chatbots.',
+  'Bot pulls in a third post (Why ChatGPT is bullshit) and recurring topics surface in the summary.',
 ];
 
 let stepIdx = 0;
@@ -323,7 +409,7 @@ function renderMycelium(messages) {
       g.setAttribute('class', 'myc-citation');
       g.setAttribute('data-href', href);
       g.setAttribute('data-turn', String(i));
-      g.addEventListener('click', () => alert('In production this would open ' + href + ' in a new tab.'));
+      g.addEventListener('click', () => window.open(href, '_blank', 'noopener'));
 
       const strip = document.createElementNS(SVG_NS, 'rect');
       strip.setAttribute('x', String(cardX));
@@ -418,6 +504,118 @@ function scrollChatToTurn(turnIndex) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
+// Pull bolded phrases from assistant messages, count occurrences.
+function extractTopics(messages) {
+  const counts = new Map();
+  messages.forEach((m) => {
+    if (m.role !== 'assistant') return;
+    const re = /<strong>([^<]+)<\/strong>/g;
+    let mt;
+    while ((mt = re.exec(m.content)) !== null) {
+      const term = mt[1].trim();
+      counts.set(term, (counts.get(term) || 0) + 1);
+    }
+  });
+  return [...counts.entries()].map(([term, count]) => ({ term, count }));
+}
+
+function extractCitedHrefs(messages) {
+  const seen = new Set();
+  const out = [];
+  messages.forEach((m) => {
+    if (m.role !== 'assistant') return;
+    const re = /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g;
+    let mt;
+    while ((mt = re.exec(m.content)) !== null) {
+      const href = mt[1];
+      if (seen.has(href)) continue;
+      seen.add(href);
+      out.push(href);
+    }
+  });
+  return out;
+}
+
+function renderSummary(messages) {
+  const root = document.getElementById('myc-summary');
+  if (!messages.length) {
+    root.innerHTML = '<p class="myc-summary-empty">As the conversation grows, a summary of what you have touched on will appear here: topics pulled, posts cited, open questions raised.</p>';
+    return;
+  }
+
+  const topics = extractTopics(messages);
+  const cited = extractCitedHrefs(messages);
+  const citedPosts = cited.map((h) => POSTS[h]).filter(Boolean);
+  const openQs = [];
+  citedPosts.forEach((p) => {
+    (p.open_questions || []).forEach((q) => { if (!openQs.includes(q)) openQs.push(q); });
+  });
+
+  const stripColors = {
+    articles: '#C5A87A',
+    'field-notes': '#8DBE8D',
+    seeds: '#D6B07A',
+    jottings: '#A8B5D6',
+    weblinks: '#9CC4BD',
+    videos: '#C5A0BD',
+    library: '#B5A89C',
+    experiments: '#7EBDC4',
+    toolshed: '#6B7A52',
+  };
+
+  const sections = [];
+
+  if (topics.length) {
+    sections.push(`
+      <div class="myc-section">
+        <h3>Threads pulled</h3>
+        <div class="myc-topics">
+          ${topics.map(t => `<span class="myc-topic ${t.count > 1 ? 'is-recurring' : ''}" title="mentioned ${t.count}x">${escapeHtml(t.term)}</span>`).join('')}
+        </div>
+      </div>
+    `);
+  }
+
+  if (citedPosts.length) {
+    sections.push(`
+      <div class="myc-section">
+        <h3>Posts cited</h3>
+        <ul class="myc-cite-list">
+          ${cited.map((href) => {
+            const p = POSTS[href];
+            if (!p) return '';
+            return `<a class="myc-cite-item" href="${href}" target="_blank" rel="noopener">
+              <span class="myc-cite-strip" style="background: ${stripColors[p.collection] || '#C5A87A'}"></span>
+              <div class="myc-cite-body">
+                <p class="myc-cite-coll">${p.collection.replace('-', ' ')}</p>
+                <p class="myc-cite-title">${escapeHtml(p.title)}</p>
+              </div>
+            </a>`;
+          }).join('')}
+        </ul>
+      </div>
+    `);
+  }
+
+  if (openQs.length) {
+    sections.push(`
+      <div class="myc-section">
+        <h3>Open questions raised</h3>
+        <ul class="myc-q-list">
+          ${openQs.map(q => `<li class="myc-q">${escapeHtml(q)}</li>`).join('')}
+        </ul>
+      </div>
+    `);
+  }
+
+  if (!sections.length) {
+    root.innerHTML = '<p class="myc-summary-empty">No topics or citations yet. Keep going.</p>';
+    return;
+  }
+
+  root.innerHTML = `<p class="myc-summary-h">What you have talked about</p>${sections.join('')}`;
+}
+
 function render() {
   const messages = STEPS[stepIdx] || [];
   document.getElementById('step-num').textContent = `Step ${stepIdx} of ${STEPS.length - 1}`;
@@ -426,6 +624,7 @@ function render() {
   document.getElementById('next').disabled = stepIdx === STEPS.length - 1;
   renderChat(messages);
   renderMycelium(messages);
+  renderSummary(messages);
 }
 
 document.getElementById('prev').addEventListener('click', () => { if (stepIdx > 0) { stepIdx--; render(); } });
