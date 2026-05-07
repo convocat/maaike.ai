@@ -163,15 +163,120 @@ function scheduleScrollToBottom(el: HTMLElement) {
   });
 }
 
-// ── Mycelium pane (experimental, prototype only) ────────────────────────
+// ── Mycelium variant rendering ───────────────────────────────────────────
 //
-// The wide-view mycelium pane is currently a standalone prototype at
-// /chat-mycelium-prototype.html, NOT part of the live chatbot. The
-// renderMycelium function below is preserved for reference / re-enabling
-// later, but is not called from the live init flow. Two designs (classic
-// and mycelium) are kept separate until one is chosen for production.
+// When the visitor has opted into the mycelium variant (homepage toggle →
+// localStorage 'garden-chat-variant' = 'mycelium'), the chat drawer gains
+// a size-toggle button. Clicking it expands the drawer to full viewport
+// and reveals the right-side pane: an SVG visualisation that grows with
+// the conversation, plus a curated summary of topics + cited posts.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
+
+// Strip collection colour for citation cards in the summary.
+const CHAT_MYC_STRIP_COLORS: Record<string, string> = {
+  articles: '#C5A87A',
+  'field-notes': '#8DBE8D',
+  seeds: '#D6B07A',
+  jottings: '#A8B5D6',
+  weblinks: '#9CC4BD',
+  videos: '#C5A0BD',
+  library: '#B5A89C',
+  experiments: '#7EBDC4',
+  toolshed: '#6B7A52',
+};
+
+function chatMycExtractTopics(messages: ChatMessage[]) {
+  const counts = new Map<string, number>();
+  messages.forEach((m) => {
+    if (m.role !== 'assistant') return;
+    const re = /\*\*([^*]+)\*\*/g;
+    let mt: RegExpExecArray | null;
+    while ((mt = re.exec(m.content)) !== null) {
+      const term = mt[1].trim();
+      if (term.length < 60) counts.set(term, (counts.get(term) || 0) + 1);
+    }
+  });
+  return [...counts.entries()].map(([term, count]) => ({ term, count }));
+}
+
+function chatMycExtractCitations(messages: ChatMessage[]) {
+  const seen = new Set<string>();
+  const out: { title: string; href: string; collection: string }[] = [];
+  messages.forEach((m) => {
+    if (m.role !== 'assistant') return;
+    const re = /\[([^\]]+)\]\((\/[a-z0-9-]+\/[a-z0-9-]+\/?)\)/gi;
+    let mt: RegExpExecArray | null;
+    while ((mt = re.exec(m.content)) !== null) {
+      const href = mt[2];
+      if (seen.has(href)) continue;
+      seen.add(href);
+      const collection = href.split('/').filter(Boolean)[0] || 'articles';
+      out.push({ title: mt[1], href, collection });
+    }
+  });
+  return out;
+}
+
+function renderChatSummary(root: HTMLElement | null, messages: ChatMessage[]) {
+  if (!root) return;
+  if (!messages.length) {
+    root.innerHTML = '<p class="chat-mycelium-summary-empty">As the conversation grows, a summary of what you have touched on will appear here: topics pulled, posts cited.</p>';
+    return;
+  }
+  const topics = chatMycExtractTopics(messages);
+  const citations = chatMycExtractCitations(messages);
+  const sections: string[] = [];
+
+  if (topics.length) {
+    const tagsHtml = topics.map((t) => {
+      const slug = t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const cls = t.count > 1 ? 'chat-myc-topic is-recurring' : 'chat-myc-topic';
+      return `<a class="${cls}" href="/tags/${slug}/" target="_blank" rel="noopener" title="${t.count > 1 ? `mentioned ${t.count}× — open the tag page` : 'open the tag page'}">${escapeHtml(t.term)}</a>`;
+    }).join('');
+    sections.push(`<div class="chat-myc-section"><h3>Threads pulled</h3><div class="chat-myc-topics">${tagsHtml}</div></div>`);
+  }
+
+  if (citations.length) {
+    const itemsHtml = citations.map((c) => {
+      const stripColor = CHAT_MYC_STRIP_COLORS[c.collection] || '#C5A87A';
+      return `<a class="chat-myc-cite-item" href="${c.href}" target="_blank" rel="noopener">
+        <span class="chat-myc-cite-strip" style="background: ${stripColor}"></span>
+        <div class="chat-myc-cite-body">
+          <p class="chat-myc-cite-coll">${c.collection.replace('-', ' ')}</p>
+          <p class="chat-myc-cite-title">${escapeHtml(c.title)}</p>
+        </div>
+      </a>`;
+    }).join('');
+    sections.push(`<div class="chat-myc-section"><h3>Posts cited</h3><ul class="chat-myc-cite-list">${itemsHtml}</ul></div>`);
+  }
+
+  if (!sections.length) {
+    root.innerHTML = '<p class="chat-mycelium-summary-empty">Keep going. Topics and cited posts will surface here.</p>';
+    return;
+  }
+
+  const hasBot = messages.some((m) => m.role === 'assistant');
+  const action = hasBot ? `
+    <div class="chat-myc-action">
+      <button class="chat-myc-action-btn" id="chat-myc-submit">Submit this conversation to the garden</button>
+      <p class="chat-myc-action-hint">Queued for Maaike's review. If it helps shape a post, she may pick it up. Visitors stay anonymous unless signed.</p>
+    </div>
+  ` : '';
+
+  root.innerHTML = `<p class="chat-mycelium-summary-h">What you have talked about</p>${sections.join('')}${action}`;
+  const btn = document.getElementById('chat-myc-submit') as HTMLButtonElement | null;
+  if (btn) {
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      btn.textContent = 'Submitted ✓';
+      const hint = btn.nextElementSibling;
+      if (hint) {
+        hint.outerHTML = '<div class="chat-myc-action-confirmation">Queued for review. Maaike sees this in her inbox alongside Telegram drops and email shares. Nothing gets published without her go-ahead.</div>';
+      }
+    });
+  }
+}
 
 function renderMycelium(svg: SVGSVGElement, emptyHint: HTMLElement | null, messages: ChatMessage[]) {
   while (svg.firstChild) svg.removeChild(svg.firstChild);
@@ -205,15 +310,32 @@ function renderMycelium(svg: SVGSVGElement, emptyHint: HTMLElement | null, messa
     const href = isUser
       ? '/images/watercolor-acorn-trimmed.png'
       : '/images/watercolor-leaf-trimmed.png';
-    // Strip markdown for caption + truncate.
+    // First-sentence summary so each node is a self-contained unit.
     const stripped = m.content
       .replace(/<<CHIPS:[^>]*>>/g, '')
       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
       .replace(/[*_`#]/g, '')
       .replace(/\s+/g, ' ')
       .trim();
-    const caption = stripped.length > 42 ? stripped.slice(0, 40) + '…' : stripped;
+    let caption = stripped;
+    if (m.role === 'assistant') {
+      const firstSentence = stripped.match(/^(.{20,160}?[.!?])\s/);
+      if (firstSentence) caption = firstSentence[1];
+      else if (stripped.length > 110) caption = stripped.slice(0, 108) + '…';
+    } else if (stripped.length > 80) {
+      caption = stripped.slice(0, 78) + '…';
+    }
     return { x, y, msg: m, index: i, size, href, caption };
+  });
+
+  // Pre-count citations per turn so caption placement can dodge cards.
+  const citationsPerTurn = new Map<number, number>();
+  messages.forEach((m, i) => {
+    if (m.role !== 'assistant') return;
+    const re = /\[([^\]]+)\]\((\/[a-z0-9-]+\/[a-z0-9-]+\/?)\)/gi;
+    let count = 0;
+    while (re.exec(m.content) !== null) count++;
+    if (count) citationsPerTurn.set(i, count);
   });
 
   // Threads: a curved path between consecutive nodes, behind everything.
@@ -250,7 +372,7 @@ function renderMycelium(svg: SVGSVGElement, emptyHint: HTMLElement | null, messa
     }
   });
 
-  // Render each turn's node + caption.
+  // Render each turn's node + caption (foreignObject so wrapping works).
   nodes.forEach((node) => {
     // Watercolor avatar.
     const img = document.createElementNS(SVG_NS, 'image');
@@ -262,18 +384,44 @@ function renderMycelium(svg: SVGSVGElement, emptyHint: HTMLElement | null, messa
     img.setAttribute('height', String(node.size));
     svg.appendChild(img);
 
-    // Caption: place to the right by default, flip to the left if past the midline.
+    // Caption: above node when there are citation cards beside, otherwise to the side.
     const onLeft = node.x > W / 2;
-    const captionX = onLeft ? node.x - node.size / 2 - 8 : node.x + node.size / 2 + 8;
-    const text = document.createElementNS(SVG_NS, 'text');
-    text.setAttribute('x', String(captionX));
-    text.setAttribute('y', String(node.y + 4));
-    text.setAttribute('font-family', "'Cedarville Cursive', cursive");
-    text.setAttribute('font-size', '13');
-    text.setAttribute('fill', '#1A1A1A');
-    text.setAttribute('text-anchor', onLeft ? 'end' : 'start');
-    text.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
-    svg.appendChild(text);
+    const captionW = 170;
+    const captionH = 60;
+    const hasCards = citationsPerTurn.has(node.index);
+    let captionX: number; let captionY: number; let textAlign: string;
+    if (hasCards) {
+      captionX = node.x - captionW / 2;
+      captionY = node.y - node.size / 2 - captionH - 4;
+      textAlign = 'center';
+    } else if (onLeft) {
+      captionX = node.x - node.size / 2 - 10 - captionW;
+      captionY = node.y - captionH / 2;
+      textAlign = 'right';
+    } else {
+      captionX = node.x + node.size / 2 + 10;
+      captionY = node.y - captionH / 2;
+      textAlign = 'left';
+    }
+    const fo = document.createElementNS(SVG_NS, 'foreignObject');
+    fo.setAttribute('x', String(captionX));
+    fo.setAttribute('y', String(captionY));
+    fo.setAttribute('width', String(captionW));
+    fo.setAttribute('height', String(captionH));
+    const wrap = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+    wrap.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    wrap.style.cssText = `
+      font-family: 'Cedarville Cursive', cursive;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #1A1A1A;
+      text-align: ${textAlign};
+      white-space: normal;
+      overflow: hidden;
+    `;
+    wrap.textContent = node.caption || (node.msg.role === 'user' ? 'You' : 'The Garden');
+    fo.appendChild(wrap);
+    svg.appendChild(fo);
   });
 
   // Render citation cards near their turn's node.
@@ -651,8 +799,52 @@ export function initChatPanel() {
   const ctx = readPageContext();
   setContextPill(pill, ctx);
 
-  // Mycelium pane is a separate prototype; the live chatbot does not render it.
-  const renderMyceliumIfWide = () => {};
+  // ── Variant feature flag ──────────────────────────────────────────────
+  // localStorage('garden-chat-variant') = 'classic' (default) | 'mycelium'.
+  // Toggleable from the homepage. When 'mycelium', the size toggle button
+  // unhides and a wide mode unlocks the right-side mycelium pane.
+  const sizeToggleBtn = document.getElementById('chat-size-toggle') as HTMLButtonElement | null;
+  const sizeToggleLabel = sizeToggleBtn?.querySelector('.chat-size-toggle-label') as HTMLElement | null;
+  const mycSvg = document.getElementById('chat-mycelium-svg') as unknown as SVGSVGElement | null;
+  const mycEmpty = document.getElementById('chat-mycelium-empty') as HTMLElement | null;
+  const mycSummary = document.getElementById('chat-mycelium-summary') as HTMLElement | null;
+
+  const variant = (() => {
+    try { return localStorage.getItem('garden-chat-variant') || 'classic'; }
+    catch { return 'classic'; }
+  })();
+  const isMyceliumVariant = variant === 'mycelium';
+
+  if (isMyceliumVariant && sizeToggleBtn) {
+    sizeToggleBtn.hidden = false;
+  }
+
+  let isMyceliumWide = false;
+  const applyMyceliumSize = () => {
+    drawer.classList.toggle('is-mycelium-wide', isMyceliumWide);
+    if (sizeToggleLabel) {
+      sizeToggleLabel.textContent = isMyceliumWide ? 'Collapse' : 'Expand';
+    }
+    if (isMyceliumWide && mycSvg) {
+      // Re-render so SVG sizes to the new pane.
+      renderMycelium(mycSvg, mycEmpty, conv.messages);
+      renderChatSummary(mycSummary, conv.messages);
+    }
+  };
+
+  if (sizeToggleBtn) {
+    sizeToggleBtn.addEventListener('click', () => {
+      isMyceliumWide = !isMyceliumWide;
+      applyMyceliumSize();
+    });
+  }
+
+  const renderMyceliumIfWide = () => {
+    if (isMyceliumVariant && isMyceliumWide && mycSvg) {
+      renderMycelium(mycSvg, mycEmpty, conv.messages);
+      renderChatSummary(mycSummary, conv.messages);
+    }
+  };
 
   // Prompt selection. URL ?prompt=… > localStorage > server default.
   let promptOptions: PromptOption[] = [];

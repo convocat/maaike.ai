@@ -118,6 +118,24 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
     </div>
   </section>
 
+  <!-- ═══ EXPERIMENT: chat variant toggle ═══ -->
+  <section class="chat-variant-toggle" aria-label="Chat variant">
+    <p class="cvt-label">Try the chatbot in another shape</p>
+    <div class="cvt-options" role="radiogroup">
+      <label class="cvt-opt">
+        <input type="radio" name="garden-chat-variant" value="classic" />
+        <span class="cvt-name">Classic</span>
+        <span class="cvt-desc">The current chat: avatars, bubbles, pebble follow-ups.</span>
+      </label>
+      <label class="cvt-opt">
+        <input type="radio" name="garden-chat-variant" value="mycelium" />
+        <span class="cvt-name">Mycelium</span>
+        <span class="cvt-desc">Adds a fullscreen mode where the conversation grows its own watercolor mycelium and a curated summary on the right.</span>
+      </label>
+    </div>
+    <p class="cvt-note">Saved on this device. Switch any time.</p>
+  </section>
+
   <hr class="home-divider" />
 
   <!-- ═══ STREAM ═══ -->
@@ -431,6 +449,25 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 </BaseLayout>
 
 <script>
+  // ── Chat variant toggle ────────────────────────────────────────────────
+  function initChatVariantToggle() {
+    const radios = document.querySelectorAll<HTMLInputElement>('input[name="garden-chat-variant"]');
+    if (!radios.length) return;
+    let saved: string;
+    try { saved = localStorage.getItem('garden-chat-variant') || 'classic'; }
+    catch { saved = 'classic'; }
+    radios.forEach((r) => { r.checked = (r.value === saved); });
+    radios.forEach((r) => {
+      r.addEventListener('change', () => {
+        if (!r.checked) return;
+        try { localStorage.setItem('garden-chat-variant', r.value); } catch {}
+        // Hard-reload so the chat panel re-inits with the new variant.
+        window.location.reload();
+      });
+    });
+  }
+  initChatVariantToggle();
+
   const PAGE_SIZE = window.innerWidth <= 800 ? 6 : 10;
 
   function initStream() {
@@ -593,6 +630,63 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
 </script>
 
 <style is:global>
+
+  /* ═══════════════════════════════════════════
+     CHAT VARIANT TOGGLE (homepage only, experimental)
+  ═══════════════════════════════════════════ */
+  .chat-variant-toggle {
+    max-width: var(--max-width);
+    margin: var(--space-xl) auto var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    background: #FAF7F2;
+    border: 1px dashed #DCD0B0;
+    border-radius: 8px;
+  }
+  .cvt-label {
+    font-family: var(--font-heading);
+    font-size: 1rem; font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm);
+  }
+  .cvt-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  @media (max-width: 600px) {
+    .cvt-options { grid-template-columns: 1fr; }
+  }
+  .cvt-opt {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    column-gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .cvt-opt:hover { border-color: var(--color-accent); }
+  .cvt-opt input { grid-row: 1 / 3; align-self: start; margin-top: 3px; }
+  .cvt-opt:has(input:checked) { border-color: var(--color-accent); background: var(--chat-tag-bg, #ECE2CE); }
+  .cvt-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+  .cvt-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    grid-column: 2;
+  }
+  .cvt-note {
+    margin: var(--space-sm) 0 0;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
 
   /* ═══════════════════════════════════════════
      HEADER OVERRIDES (homepage only)
