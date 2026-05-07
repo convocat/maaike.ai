@@ -20,6 +20,20 @@ A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer 
 - **User bubble**: sand-colored background (`--chat-tag-bg: #ECE2CE` light, `#352E25` dark), scoped to the drawer so the wider site's tag-bg can stay distinct.
 - **Form**: textarea + Send button, with a one-line disclaimer ("The Garden can be wrong. Check the page.").
 
+## Cedarville Cursive (chat-only spidery accent)
+
+Several short, secondary, decorative texts in the chat use **Cedarville Cursive** (self-hosted at `public/fonts/cedarville-400-latin.woff2`) for a handwritten "margin note" feel. Specifically:
+
+- The follow-up chip text
+- The header context pill ("Talking about *Page Title*")
+- The role labels above each bubble ("You" / "The Garden")
+- The settings popover header ("System prompt")
+- The input field's placeholder ("Ask about this page, or anything in the garden…")
+
+What stays in the body font (Nunito / current picker choice): bubble text, send button, settings dropdown options, the small disclaimer line, the drawer title.
+
+Rule of thumb: Cedarville for short, annotational, decorative text. Body sans for anything the user reads as content or interacts with directly.
+
 ## Mobile rules
 
 - ≤800px: drawer goes full-width (`width: 100vw`), the resize handle is hidden.

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chip tilt — what's technically feasible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@460;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0; padding: 24px; background: #FFFFFF;
+    color: #1A1A1A; font-family: 'Nunito', system-ui, sans-serif; font-weight: 460;
+  }
+  h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 28px; max-width: 640px; }
+  .group { margin-bottom: 36px; }
+  .group h2 {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
+    margin: 0 0 4px; color: #1A1A1A;
+  }
+  .group p {
+    font-size: 13px; color: #7A7268;
+    margin: 0 0 12px; max-width: 640px; line-height: 1.5;
+  }
+
+  /* Sketchy filter */
+  svg.filter-defs { position: absolute; width: 0; height: 0; }
+
+  /* Base chip styles (mirrors the live ones) */
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 0.65rem;
+    padding: 14px 0;
+    margin-left: 44px;
+  }
+  .chip {
+    border: 1.5px solid rgba(0,0,0,0.12);
+    padding: 0.45rem 0.95rem 0.5rem;
+    font: inherit; font-family: 'Nunito', sans-serif; font-weight: 500;
+    font-size: 0.82rem; line-height: 1.25;
+    color: #1A1A1A; cursor: pointer; text-align: left;
+    filter: url(#sketchy);
+    max-width: 100%;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  /* ── A: current (1.5° / 1.2° / 0.6°) ─────────────────── */
+  .a .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; transform: rotate(-1.5deg); }
+  .a .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; transform: rotate( 1.2deg); }
+  .a .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; transform: rotate(-0.6deg); }
+
+  /* ── B: stronger tilt (4° / -3° / 2°) ─────────────────── */
+  .b .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; transform: rotate( 4deg); }
+  .b .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; transform: rotate(-3deg); }
+  .b .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; transform: rotate( 2deg); }
+
+  /* ── C: even stronger (7° / -5° / 4°) ────────────────── */
+  .c .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; transform: rotate( 7deg); }
+  .c .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; transform: rotate(-5deg); }
+  .c .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; transform: rotate( 4deg); }
+
+  /* ── D: text tilted INSIDE upright chip ──────────────── */
+  .d .chip { transform: none; }
+  .d .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; }
+  .d .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; }
+  .d .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; }
+  .d .chip:nth-child(3n+1) span { display: inline-block; transform: rotate(-2deg); }
+  .d .chip:nth-child(3n+2) span { display: inline-block; transform: rotate( 1.5deg); }
+  .d .chip:nth-child(3n+3) span { display: inline-block; transform: rotate(-1deg); }
+
+  /* ── E: chip + text both tilted, slightly different angles ─ */
+  .e .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; transform: rotate( 5deg); }
+  .e .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; transform: rotate(-3deg); }
+  .e .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; transform: rotate( 2deg); }
+  .e .chip:nth-child(3n+1) span { display: inline-block; transform: rotate(-2deg); }
+  .e .chip:nth-child(3n+2) span { display: inline-block; transform: rotate( 1deg); }
+  .e .chip:nth-child(3n+3) span { display: inline-block; transform: rotate(-1deg); }
+
+  /* ── F: per-letter wobble (most random) ──────────────── */
+  .f .chip { transform: none; }
+  .f .chip:nth-child(3n+1) { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; background: #E8D9B8; }
+  .f .chip:nth-child(3n+2) { border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%; background: #D9B89A; }
+  .f .chip:nth-child(3n+3) { border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%; background: #C5D9C0; }
+  .f .letter { display: inline-block; }
+  /* Hover restores upright on every variant for legibility */
+  .chip:hover { transform: rotate(0) translateY(-2px) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+  .chip:hover span, .chip:hover .letter { transform: none !important; }
+</style>
+</head>
+<body>
+
+<svg class="filter-defs" aria-hidden="true">
+  <filter id="sketchy">
+    <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" seed="5" />
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="0.4" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+
+<h1>Chip tilt &mdash; technically feasible variants</h1>
+<p class="lede">Same three chip texts in each row. Hover any chip to see the upright + lift state we already have. Below each variant: notes on what's actually happening and what it costs.</p>
+
+<div class="group a">
+  <h2>A. Current (subtle: 1.5° / 1.2° / 0.6°)</h2>
+  <p>What's live now. The whole chip rotates including its text, but the rotation is so small you may not notice it.</p>
+  <div class="chips">
+    <button class="chip"><span>Strange neighbour to this idea</span></button>
+    <button class="chip"><span>Where she might push back on this</span></button>
+    <button class="chip"><span>Show me the contradiction</span></button>
+  </div>
+</div>
+
+<div class="group b">
+  <h2>B. Stronger (4° / &minus;3° / 2°)</h2>
+  <p>Same approach, just with bigger angles. Reads as deliberately tilted rather than &quot;was the printer skewed?&quot;. Cheap, no markup change.</p>
+  <div class="chips">
+    <button class="chip"><span>Strange neighbour to this idea</span></button>
+    <button class="chip"><span>Where she might push back on this</span></button>
+    <button class="chip"><span>Show me the contradiction</span></button>
+  </div>
+</div>
+
+<div class="group c">
+  <h2>C. Bold (7° / &minus;5° / 4°)</h2>
+  <p>Theatrical. Reads as scattered notes, sticker-on-fridge. Risks looking sloppy if the chip text is long and wraps.</p>
+  <div class="chips">
+    <button class="chip"><span>Strange neighbour to this idea</span></button>
+    <button class="chip"><span>Where she might push back on this</span></button>
+    <button class="chip"><span>Show me the contradiction</span></button>
+  </div>
+</div>
+
+<div class="group d">
+  <h2>D. Upright chip, text tilted inside</h2>
+  <p>The chip border stays straight, the text inside rotates a few degrees. Reads as &quot;handwritten label on a printed badge&quot;. Requires wrapping each chip's text in a <code>&lt;span&gt;</code>.</p>
+  <div class="chips">
+    <button class="chip"><span>Strange neighbour to this idea</span></button>
+    <button class="chip"><span>Where she might push back on this</span></button>
+    <button class="chip"><span>Show me the contradiction</span></button>
+  </div>
+</div>
+
+<div class="group e">
+  <h2>E. Both tilted, different angles (compound wobble)</h2>
+  <p>Chip is rotated, text is rotated <em>relative to the chip</em>. The text ends up slightly off-axis even relative to the chip's tilt. Most random-looking. Same span wrapping as D.</p>
+  <div class="chips">
+    <button class="chip"><span>Strange neighbour to this idea</span></button>
+    <button class="chip"><span>Where she might push back on this</span></button>
+    <button class="chip"><span>Show me the contradiction</span></button>
+  </div>
+</div>
+
+<div class="group f">
+  <h2>F. Per-letter wobble (handwritten feel)</h2>
+  <p>Each letter individually rotated. Reads as hand-lettering. Significantly more DOM (one span per letter) and accessibility-fragile, and breaks naturally with text-to-speech and selection. Including for completeness, but I'd recommend against shipping this.</p>
+  <div class="chips">
+    <button class="chip" id="chip-f1"></button>
+    <button class="chip" id="chip-f2"></button>
+    <button class="chip" id="chip-f3"></button>
+  </div>
+</div>
+
+<script>
+  // Render F's per-letter spans
+  function letterise(el, text) {
+    el.innerHTML = '';
+    [...text].forEach((ch, i) => {
+      const span = document.createElement('span');
+      span.className = 'letter';
+      span.textContent = ch;
+      const rot = ((i * 13) % 7) - 3; // pseudo-random -3..+3
+      const dy  = ((i * 7) % 5) - 2;   // -2..+2 px
+      span.style.transform = `translateY(${dy}px) rotate(${rot}deg)`;
+      el.appendChild(span);
+    });
+  }
+  letterise(document.getElementById('chip-f1'), 'Strange neighbour to this idea');
+  letterise(document.getElementById('chip-f2'), 'Where she might push back on this');
+  letterise(document.getElementById('chip-f3'), 'Show me the contradiction');
+</script>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">My pick: <strong>B</strong> for a quiet upgrade (no markup change), or <strong>E</strong> if you want it to feel more deliberately scattered.</p>
+
+</body>
+</html>

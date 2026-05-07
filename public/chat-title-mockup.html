@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chat header title — Lora vs Cedarville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@460;500;600&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 32px; background: #FFFFFF; color: #1A1A1A;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
+  h1 { font-family: 'Lora', serif; font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 24px; max-width: 640px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; }
+
+  .frame {
+    border: 1px solid #E5DFD4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #FFFFFF;
+    width: 420px;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.06);
+  }
+  .label-pill {
+    font-family: 'Nunito', sans-serif; font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #7A7268; background: #DDE6D0; padding: 2px 10px;
+    border-radius: 999px; display: inline-block; margin-bottom: 10px;
+  }
+
+  .header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid #E5DFD4;
+    background: #FFFFFF;
+  }
+  .header-titles { min-width: 0; flex: 1 1 auto; }
+  .header-context {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.95rem; color: #7A7268;
+    margin: 0; line-height: 1.3;
+  }
+  .header-context strong { color: #9C7A3E; font-weight: 400; }
+  .header-actions {
+    display: flex; gap: 2px; flex: 0 0 auto;
+    color: #7A7268;
+  }
+  .icon-btn {
+    width: 30px; height: 30px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; border: none; color: inherit; cursor: pointer;
+    border-radius: 50%;
+  }
+
+  /* Variant titles */
+  .lora-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem; font-weight: 600; margin: 0 0 2px;
+    color: #1A1A1A; line-height: 1.3;
+  }
+  .cedar-title {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.5rem; font-weight: 400; margin: 0 0 2px;
+    color: #1A1A1A; line-height: 1.1;
+  }
+
+  .body-stub {
+    padding: 24px 18px;
+    font-family: 'Nunito', sans-serif; font-weight: 460;
+    color: #7A7268; font-size: 13px;
+    border-bottom: 1px solid #E5DFD4;
+    min-height: 120px;
+  }
+  .footer-stub {
+    padding: 12px 18px;
+    background: #FFFFFF;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: #7A7268;
+  }
+  .disc { font-family: 'Cedarville Cursive', cursive; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<h1>Chat header title &mdash; Lora vs Cedarville</h1>
+<p class="lede">Same drawer, only the main title changes. Everything else (context pill, disclaimer, etc.) is already in Cedarville.</p>
+
+<div class="grid">
+  <div>
+    <span class="label-pill">A &middot; Current (Lora)</span>
+    <div class="frame">
+      <div class="header">
+        <div class="header-titles">
+          <h2 class="lora-title">Talk about this page</h2>
+          <p class="header-context">Talking about <strong>The garden as a metaphor</strong></p>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33"/></svg>
+          </button>
+          <button class="icon-btn" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
+          <button class="icon-btn" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+      </div>
+      <div class="body-stub">(messages would render here)</div>
+      <div class="footer-stub">
+        <span class="disc">The Garden can be wrong. Check the page.</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <span class="label-pill">B &middot; Cedarville</span>
+    <div class="frame">
+      <div class="header">
+        <div class="header-titles">
+          <h2 class="cedar-title">Talk about this page</h2>
+          <p class="header-context">Talking about <strong>The garden as a metaphor</strong></p>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33"/></svg>
+          </button>
+          <button class="icon-btn" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
+          <button class="icon-btn" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+      </div>
+      <div class="body-stub">(messages would render here)</div>
+      <div class="footer-stub">
+        <span class="disc">The Garden can be wrong. Check the page.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">In B, the title sits more like a hand-painted nameplate. Reads less as "UI affordance", more as "spirit of the thing". A is more standard chrome.</p>
+
+</body>
+</html>

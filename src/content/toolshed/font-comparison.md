@@ -15,7 +15,7 @@ A small standalone tool for comparing body fonts side-by-side. Live at [/font-co
 
 Two columns, two dropdowns. Each column renders the same sample (a short article fragment, a numerals row, a few metadata pills) in the chosen font. Headings stay Lora to match the rest of the site, so only the body typography differs between columns.
 
-Fifteen sans-serif candidates are loaded: Roboto, Source Sans 3, IBM Plex Sans, Lato, Atkinson Hyperlegible, Inter, Karla, Manrope, Fira Sans, Mulish, Cabin, Work Sans, DM Sans, Nunito, Rubik. All Google Fonts, all humanist or near-humanist sans-serifs.
+Fifteen sans-serif candidates plus eight handwriting / cursive options are loaded. Sans: Roboto, Source Sans 3, IBM Plex Sans, Lato, Atkinson Hyperlegible, Inter, Karla, Manrope, Fira Sans, Mulish, Cabin, Work Sans, DM Sans, Nunito, Rubik. Handwriting: Cedarville Cursive, La Belle Aurore, Reenie Beanie, Shadows Into Light, Mrs Saint Delafield, Caveat, Indie Flower, Architects Daughter. All Google Fonts.
 
 ## Why a comparison view
 

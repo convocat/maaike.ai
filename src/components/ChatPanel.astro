@@ -252,10 +252,12 @@
   }
 
   .chat-header-context {
-    font-size: 0.75rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 0.95rem;
     color: var(--color-text-muted);
-    margin: 0;
-    line-height: 1.4;
+    margin: 4px 0 0 0;
+    line-height: 1.7;
+    padding-bottom: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -320,10 +322,12 @@
   }
 
   .chat-settings-label {
-    font-size: 0.7rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem;
     color: var(--color-text-muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.4;
   }
 
   .chat-settings-select {
@@ -411,9 +415,9 @@
     border: 1.5px solid rgba(0, 0, 0, 0.12);
     padding: 0.45rem 0.95rem 0.5rem;
     font: inherit;
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    line-height: 1.25;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem;
+    line-height: 1.2;
     color: var(--color-text);
     cursor: pointer;
     text-align: left;
@@ -514,11 +518,14 @@
   }
 
   .chat-msg-role {
-    font-size: 0.7rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.05rem;
     color: var(--color-text-muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.5;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
   }
 
   .chat-msg-bubble {
@@ -657,6 +664,13 @@
   .chat-input:focus {
     outline: none;
     border-color: var(--color-accent-2);
+  }
+
+  .chat-input::placeholder {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    opacity: 0.7;
   }
 
   .chat-form-row {
