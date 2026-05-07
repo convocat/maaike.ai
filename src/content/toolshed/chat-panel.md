@@ -3,7 +3,7 @@ title: Chat panel
 date: 2026-05-07
 maturity: solid
 tags: [design, components, ai-tools, chatbot]
-description: The Ask drawer for grounded conversation with the garden, plus the serendipitous follow-up chips that suggest the next move.
+description: The Ask drawer for grounded conversation with the garden, plus the contextual follow-up chips and system-prompt picker.
 category: design
 section: Components
 ai: co-created
@@ -15,8 +15,9 @@ A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer 
 
 - **Toggle**: pill-shaped button bottom-right, accent-2 colored, casts a soft shadow. Hides itself when the drawer is open.
 - **Drawer**: fixed right edge, default 420px, resizable from a draggable left edge (pointer + arrow keys), maximizable via header button.
-- **Header**: title, context pill ("Talking about X"), reset / maximize / close icons.
-- **History**: scrollable region with assistant + user bubbles, each prefixed by a 32px circular avatar. Assistant avatar is a watercolor leaf; user avatar is a small SVG silhouette.
+- **Header**: title, context pill ("Talking about X"), settings cogwheel + reset / maximize / close icons.
+- **History**: scrollable region with assistant + user bubbles, each prefixed by an avatar. Assistant avatar is the watercolor leaf at 32px (circular crop); user avatar is the watercolor acorn at 34px (no crop, full painted shape, transparent background).
+- **User bubble**: sand-colored background (`--chat-tag-bg: #ECE2CE` light, `#352E25` dark), scoped to the drawer so the wider site's tag-bg can stay distinct.
 - **Form**: textarea + Send button, with a one-line disclaimer ("The Garden can be wrong. Check the page.").
 
 ## Mobile rules
@@ -27,7 +28,7 @@ A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer 
 
 ## Follow-up chips
 
-After every assistant turn, three serendipitous follow-up chips render below the bubble. They invite the user to keep tapping instead of typing.
+After every assistant turn, three follow-up chips render below the bubble. They invite the user to keep tapping instead of typing. The empty state (chat just opened, no messages yet) uses the same chip layout for its starter suggestions.
 
 Design intent: organic, hand-drawn, slightly playful. Not the standard rounded pill.
 
@@ -36,7 +37,25 @@ Design intent: organic, hand-drawn, slightly playful. Not the standard rounded p
 - **Tilt**: slight per-chip rotation (`-1.5°`, `+1.2°`, `-0.6°`) using `nth-child(3n+1/2/3)`. On hover or focus, the chip straightens (`rotate(0)`) and lifts.
 - **Filter**: the global `#sketchy` SVG filter (a low-amplitude `feTurbulence` displacement) is applied to give the edge a hand-drawn wobble. The filter is removed on hover so the chip looks crisp when targeted.
 
-The prompt bank lives in `src/scripts/chat-panel.ts` as `SERENDIPITY_PROMPTS`. `pickSerendipityChips(3)` draws three without replacement per turn. Examples: "Find a strange neighbour", "Where does this break?", "Take me somewhere unexpected", "Surprise me", "What is the quiet idea?". Add or edit prompts there.
+### Source: contextual, model-generated
+
+The model is instructed (in the system prompt) to append a single line at the very end of every reply:
+
+```
+<<CHIPS:["question one","question two","wander question"]>>
+```
+
+The backend stream parser watches for this marker, suppresses everything from `<<CHIPS:` onward in the visible token stream, and once the closing `>>` arrives, parses the JSON and emits a separate `{type:"chips",items:[...]}` event. The marker text never reaches the user's screen.
+
+The model is told to make item 1 and item 2 close-context (rooted in the just-given answer + page) and item 3 a "wander" chip — an unexpected connection elsewhere in the garden. Chips replace on every turn.
+
+If the marker is missing or malformed, the frontend falls back to `pickSerendipityChips(3)`, which draws from the static `SERENDIPITY_PROMPTS` pool in `src/scripts/chat-panel.ts` (examples: "Find a strange neighbour", "Surprise me", "Where does this break?"). The static pool is the safety net, not the primary path.
+
+## System-prompt picker (settings cogwheel)
+
+The header has a small cogwheel icon. Clicking it opens a popover anchored to the gear with a `<select>` listing the active and draft prompts wired to `bot_id: garden` (read from `src/content/prompts/`). Switching prompt mid-conversation prompts a confirm dialog and clears the conversation on accept.
+
+The popover is hidden by default and reveals only on click. The gear itself stays hidden until `/api/prompts` returns more than one option, so single-prompt deployments don't show the affordance at all.
 
 ## Behavior
 
