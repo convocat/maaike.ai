@@ -83,10 +83,11 @@ Posts are semantically enriched via a three-pass TAO (Thematic-Objects-Associati
 
 ### Colors (src/styles/tokens.css)
 
-- **Primary accent: `#D6006C` (hot pink)**. This is Maaike's company color. Do not change it.
-- Secondary accent: `#0D7C66` (teal), dark mode: `#2DD4A8`
-- Dark mode accent: `#FF4DA6` (bright pink variant of company color)
-- Background: white (`#FFFFFF`) / dark (`#111111`)
+- **Primary accent: `#3E5638` (deep moss-green)** light, `#94B582` (pale moss) dark. Used for links, primary buttons, structural accents.
+- Secondary accent: `#9C7A3E` (warm bronze) light, `#D6B07A` (bronze light) dark. Used for collection labels and secondary callouts.
+- Maturity-complete: `#A04A2C` (terracotta) light, `#D88A6A` (terracotta light) dark. The "🌳 tree" stage, kept distinct from the primary accent so "ripe" reads as a separate signal.
+- Background: pure white (`#FFFFFF`) / dark (`#111111`). The stream/home page intentionally has its own cream `#F5F4F0` set locally on `.site-header` and `.home-hero`.
+- The previous hot-pink palette (`#D6006C` / `#FF4DA6`) was retired in May 2026 in favour of earth tones. Don't reintroduce it.
 
 ### Typography
 
@@ -215,7 +216,6 @@ Rules that must be followed without exception:
 ## Preferences
 
 - **Commit author**: No Co-Authored-By line. Maaike is the sole author.
-- Keep the hot pink (`#D6006C`). It's the company brand color
 - Icons should feel hand-drawn and organic, not polished or geometric
 - The site aesthetic is warm and personal, not corporate
 - Maaike works in Dutch and English; site content is English

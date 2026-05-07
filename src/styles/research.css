@@ -33,10 +33,10 @@
   --rule-soft: #EFEFEF;       /* one step softer than border */
   --accent: #5A7A4D;          /* sage-olive — links, structural */
   --accent-hover: #456039;    /* darker sage */
-  --accent-2: #D6006C;        /* site --color-accent (pink) — featured / complete only */
-  --accent-2-hover: #B0005A;  /* site --color-accent-hover */
-  --tag-bg: #F5E6F0;          /* site --color-tag-bg */
-  --tag-ink: #5A2D4A;         /* site --color-tag-text */
+  --accent-2: #A04A2C;        /* site --color-maturity-complete (terracotta) — featured / complete only */
+  --accent-2-hover: #883E22;
+  --tag-bg: #DDE6D0;          /* site --color-tag-bg */
+  --tag-ink: #2A3D26;         /* site --color-tag-text */
   --highlight: #F5E3A3;
   /* Typography: serif headings, sans body — matches your site exactly */
   --font-display: "Lora", Georgia, "Times New Roman", serif;
@@ -81,10 +81,10 @@
   --rule-soft: #222222;
   --accent: #2DD4A8;           /* site dark --color-accent-2 */
   --accent-hover: #5EEBC4;
-  --accent-2: #FF4DA6;         /* site dark --color-accent */
-  --accent-2-hover: #FF80C0;
-  --tag-bg: #2A1A25;           /* site dark --color-tag-bg */
-  --tag-ink: #E0B0D0;          /* site dark --color-tag-text */
+  --accent-2: #D88A6A;         /* site dark --color-maturity-complete (terracotta light) */
+  --accent-2-hover: #E8A488;
+  --tag-bg: #2A332A;           /* site dark --color-tag-bg */
+  --tag-ink: #C5DCB5;          /* site dark --color-tag-text */
   --highlight: #3A3528;
   --font-display: "Lora", Georgia, serif;
   --font-body: "Roboto", -apple-system, sans-serif;

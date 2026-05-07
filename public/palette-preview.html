@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Palette preview</title>
+<style>
+  body { margin: 0; font-family: 'Segoe UI', Roboto, system-ui, sans-serif; background: #FFFFFF; }
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 0;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5DFD4;
+    padding: 8px 16px 0;
+  }
+  .tab {
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: transparent;
+    padding: 10px 18px 12px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    color: #7A7268;
+    border-radius: 6px 6px 0 0;
+    margin-right: 2px;
+    position: relative;
+    top: 1px;
+  }
+  .tab.is-active {
+    background: #FFFFFF;
+    border-color: #E5DFD4;
+    color: #2A2A2A;
+    font-weight: 600;
+  }
+  .tab .swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: -2px;
+    border: 1px solid #00000018;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: #7A7268;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5DFD4;
+  }
+  .meta select {
+    font: inherit;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #E5DFD4;
+    background: #FFFFFF;
+  }
+  .meta a {
+    color: #4A6038;
+    text-decoration: none;
+  }
+  .meta a:hover { text-decoration: underline; }
+  iframe {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 92px);
+    border: none;
+    background: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab is-active" data-pal="current"><span class="swatch" style="background:#D6006C"></span>Current (pink)</button>
+  <button class="tab" data-pal="terracotta"><span class="swatch" style="background:#A85A3C"></span>Terracotta</button>
+  <button class="tab" data-pal="green"><span class="swatch" style="background:#3E5638"></span>Earth-green</button>
+</div>
+
+<div class="meta">
+  <span>Article:</span>
+  <select id="article-select">
+    <option value="/articles/garden-as-metaphor/">garden-as-metaphor</option>
+    <option value="/articles/why-chatgpt-is-bullshit-and-why-we-should-design-for-that/">why-chatgpt-is-bullshit</option>
+    <option value="/articles/context-engineering-lets-call-it-design/">context-engineering</option>
+    <option value="/articles/is-conversation-still-a-useful-metaphor/">is-conversation-still-a-useful-metaphor</option>
+    <option value="/articles/llm-hallucinations-knowledge-as-missing-fundamental/">llm-hallucinations</option>
+  </select>
+  <span>Theme:</span>
+  <select id="theme-select">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+  <span style="margin-left:auto"><a href="#" id="open-tab">Open in own tab ↗</a></span>
+</div>
+
+<iframe id="frame" src="/articles/garden-as-metaphor/"></iframe>
+
+<script>
+  const PALETTES = {
+    current: {
+      light: {},
+      dark: {}
+    },
+    terracotta: {
+      light: {
+        '--color-accent': '#A85A3C',
+        '--color-accent-hover': '#874228',
+        '--color-tag-bg': '#ECE2CE',
+        '--color-maturity-complete': '#4A6038'
+      },
+      dark: {
+        '--color-accent': '#D88A6A',
+        '--color-accent-hover': '#E8A488',
+        '--color-tag-bg': '#352E25',
+        '--color-maturity-complete': '#7A9968'
+      }
+    },
+    green: {
+      light: {
+        '--color-accent': '#3E5638',
+        '--color-accent-hover': '#2A3D26',
+        '--color-accent-2': '#9C7A3E',
+        '--color-tag-bg': '#DDE6D0',
+        '--color-maturity-complete': '#A04A2C'
+      },
+      dark: {
+        '--color-accent': '#94B582',
+        '--color-accent-hover': '#B0CB9D',
+        '--color-accent-2': '#D6B07A',
+        '--color-tag-bg': '#2A332A',
+        '--color-maturity-complete': '#D88A6A'
+      }
+    }
+  };
+
+  let currentPal = 'current';
+  let currentTheme = 'light';
+
+  function applyOverrides() {
+    const frame = document.getElementById('frame');
+    const doc = frame.contentDocument;
+    if (!doc) return;
+    // Remove any prior override
+    const old = doc.getElementById('palette-override');
+    if (old) old.remove();
+    // Set theme
+    doc.documentElement.setAttribute('data-theme', currentTheme);
+    const palette = PALETTES[currentPal][currentTheme] || {};
+    if (Object.keys(palette).length === 0) return;
+    const css = ':root, [data-theme="dark"] { ' +
+      Object.entries(palette).map(([k, v]) => `${k}: ${v} !important;`).join(' ') +
+      ' }';
+    const style = doc.createElement('style');
+    style.id = 'palette-override';
+    style.textContent = css;
+    doc.head.appendChild(style);
+  }
+
+  document.querySelectorAll('.tab').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      currentPal = btn.getAttribute('data-pal');
+      applyOverrides();
+    });
+  });
+
+  document.getElementById('theme-select').addEventListener('change', (e) => {
+    currentTheme = e.target.value;
+    applyOverrides();
+  });
+
+  document.getElementById('article-select').addEventListener('change', (e) => {
+    document.getElementById('frame').src = e.target.value;
+  });
+
+  document.getElementById('open-tab').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(document.getElementById('frame').src, '_blank');
+  });
+
+  // Re-apply overrides whenever the iframe finishes loading a new doc
+  document.getElementById('frame').addEventListener('load', applyOverrides);
+</script>
+
+</body>
+</html>

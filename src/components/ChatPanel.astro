@@ -46,6 +46,12 @@
         <p class="chat-header-context" id="chat-context-pill">Loading…</p>
       </div>
       <div class="chat-header-actions">
+        <button type="button" id="chat-settings-toggle" class="chat-icon-btn" aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="chat-settings-panel" hidden>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
         <button type="button" id="chat-reset" class="chat-icon-btn" aria-label="Start a new conversation" title="Reset conversation">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="1 4 1 10 7 10" />
@@ -72,6 +78,11 @@
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
+      </div>
+      <div id="chat-settings-panel" class="chat-settings-popover" role="menu" hidden>
+        <label class="chat-settings-label" for="chat-prompt-select">System prompt</label>
+        <select id="chat-prompt-select" class="chat-settings-select" aria-label="Select system prompt"></select>
+        <p class="chat-settings-hint">Switching clears the current conversation.</p>
       </div>
     </header>
 
@@ -156,6 +167,7 @@
     --chat-bg: var(--color-bg);
     --chat-bg-card: var(--color-bg-card);
     --chat-rule: var(--color-border);
+    --chat-tag-bg: #ECE2CE;
     position: fixed;
     top: 0;
     right: 0;
@@ -210,6 +222,7 @@
   }
 
   .chat-header {
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -269,7 +282,7 @@
   }
 
   .chat-icon-btn:hover {
-    background: var(--color-tag-bg);
+    background: var(--chat-tag-bg);
     color: var(--color-text);
   }
 
@@ -281,6 +294,47 @@
   .chat-icon-btn .icon-restore { display: none; }
   .chat-drawer.is-maximized .chat-icon-btn .icon-maximize { display: none; }
   .chat-drawer.is-maximized .chat-icon-btn .icon-restore { display: inline; }
+
+  .chat-settings-popover {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: var(--space-md);
+    z-index: 10;
+    min-width: 240px;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--chat-bg-card);
+    border: 1px solid var(--chat-rule);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 14px var(--color-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .chat-settings-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .chat-settings-select {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--chat-rule);
+    border-radius: 0.4rem;
+    background: var(--chat-bg);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 0.85rem;
+  }
+
+  .chat-settings-hint {
+    margin: 2px 0 0 0;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
 
   .chat-history {
     flex: 1 1 auto;
@@ -330,7 +384,7 @@
   }
 
   .chat-suggestion:hover {
-    background: var(--color-tag-bg);
+    background: var(--chat-tag-bg);
     border-color: var(--color-accent-2);
   }
 
@@ -380,6 +434,10 @@
     outline: none;
   }
 
+  [data-theme='dark'] .chat-drawer {
+    --chat-tag-bg: #352E25;
+  }
+
   [data-theme='dark'] .chat-followup {
     border-color: rgba(255, 255, 255, 0.18);
     color: #f5efe6;
@@ -420,13 +478,19 @@
   }
 
   .chat-avatar-user {
-    background: var(--color-text-muted);
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    width: 40px;
+    height: 40px;
+    margin-top: -2px;
   }
 
-  .chat-avatar-user svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--color-bg);
+  .chat-avatar-user img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
   }
 
   .chat-msg-body {
@@ -452,7 +516,7 @@
   }
 
   .chat-msg-user .chat-msg-bubble {
-    background: var(--color-tag-bg);
+    background: var(--chat-tag-bg);
     border-radius: 0.55rem;
     padding: 0.5rem 0.75rem;
     display: inline-block;
@@ -491,7 +555,7 @@
   .chat-msg-bubble code {
     font-family: var(--font-mono);
     font-size: 0.85em;
-    background: var(--color-tag-bg);
+    background: var(--chat-tag-bg);
     padding: 0.05em 0.3em;
     border-radius: 3px;
   }

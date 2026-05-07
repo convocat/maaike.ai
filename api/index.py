@@ -120,6 +120,9 @@ class handler(BaseHTTPRequestHandler):
             slug = path[len("/api/topic-view/"):]
             return self._send_json(200, serve.handle_topic_view_api(slug, force=False))
 
+        if path == "/api/prompts":
+            return self._send_json(200, serve.handle_prompts_api())
+
         return self._send_json(404, json.dumps({"error": "not found"}))
 
     def do_POST(self):
@@ -212,10 +215,12 @@ class handler(BaseHTTPRequestHandler):
 
             history = data.get("history") if isinstance(data.get("history"), list) else []
             current = data.get("current") if isinstance(data.get("current"), dict) else {}
+            prompt_id = str(data.get("prompt_id") or "").strip()
             sanitized = json.dumps({
                 "message": message,
                 "history": history,
                 "current": current,
+                "prompt_id": prompt_id,
             }).encode("utf-8")
 
             self.send_response(200)

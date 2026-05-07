@@ -48,8 +48,17 @@ interface PaneSettings {
 
 const CONV_STORAGE_KEY = 'garden-chat-v1';
 const PANE_STORAGE_KEY = 'garden-chat-pane-v1';
+const PROMPT_STORAGE_KEY = 'garden-chat-prompt';
 const MIN_WIDTH = 320;
 const MAX_WIDTH_RATIO = 0.9; // up to 90% of viewport
+
+interface PromptOption {
+  prompt_id: string;
+  title: string;
+  version: string;
+  status: string;
+  description?: string;
+}
 
 const API_BASE =
   typeof window !== 'undefined' &&
@@ -60,10 +69,7 @@ const API_BASE =
 // Avatars
 const GARDEN_AVATAR_HTML = `<img src="/images/watercolor-leaf-trimmed.png" alt="" loading="lazy" />`;
 
-const USER_AVATAR_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <circle cx="12" cy="8" r="3.5" />
-  <path d="M5 20 C5 15.5 8 14 12 14 C16 14 19 15.5 19 20" />
-</svg>`;
+const USER_AVATAR_SVG = `<img src="/images/watercolor-oak.png" alt="" loading="lazy" />`;
 
 const ASSISTANT_LABEL = 'The Garden';
 
@@ -381,11 +387,69 @@ export function initChatPanel() {
   const sendBtn = document.getElementById('chat-send') as HTMLButtonElement | null;
   const history = document.getElementById('chat-history') as HTMLElement | null;
   const pill = document.getElementById('chat-context-pill') as HTMLElement | null;
+  const settingsBtn = document.getElementById('chat-settings-toggle') as HTMLButtonElement | null;
+  const settingsPanel = document.getElementById('chat-settings-panel') as HTMLElement | null;
+  const promptSelect = document.getElementById('chat-prompt-select') as HTMLSelectElement | null;
 
   if (!toggle || !drawer || !closeBtn || !resetBtn || !maxBtn || !resize || !form || !input || !sendBtn || !history || !pill) return;
+  if (!settingsBtn || !settingsPanel || !promptSelect) return;
 
   const ctx = readPageContext();
   setContextPill(pill, ctx);
+
+  // Prompt selection. URL ?prompt=… > localStorage > server default.
+  let promptOptions: PromptOption[] = [];
+  let selectedPromptId: string | null = (() => {
+    try {
+      const url = new URL(window.location.href);
+      const fromUrl = (url.searchParams.get('prompt') || '').trim();
+      if (fromUrl) return fromUrl;
+      return localStorage.getItem(PROMPT_STORAGE_KEY);
+    } catch {
+      return null;
+    }
+  })();
+
+  const persistPromptId = (id: string | null) => {
+    try {
+      if (id) localStorage.setItem(PROMPT_STORAGE_KEY, id);
+      else localStorage.removeItem(PROMPT_STORAGE_KEY);
+    } catch {}
+  };
+
+  const renderPromptOptions = () => {
+    if (!promptOptions.length) return;
+    promptSelect.innerHTML = promptOptions
+      .map((p) => {
+        const label = `${escapeHtml(p.title)}${p.version ? ` (v${escapeHtml(p.version)})` : ''}${p.status === 'draft' ? ' · draft' : ''}`;
+        return `<option value="${escapeHtml(p.prompt_id)}">${label}</option>`;
+      })
+      .join('');
+    if (selectedPromptId && promptOptions.some((p) => p.prompt_id === selectedPromptId)) {
+      promptSelect.value = selectedPromptId;
+    } else {
+      selectedPromptId = promptSelect.value || null;
+    }
+    // Only reveal the gear when there's a real choice to make
+    if (promptOptions.length > 1) {
+      settingsBtn.hidden = false;
+    }
+  };
+
+  const fetchPromptOptions = async () => {
+    try {
+      const resp = await fetch(`${API_BASE}/api/prompts`);
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (Array.isArray(data?.prompts)) {
+        promptOptions = data.prompts;
+        if (!selectedPromptId && typeof data.default === 'string') {
+          selectedPromptId = data.default;
+        }
+        renderPromptOptions();
+      }
+    } catch {}
+  };
 
   let conv = loadConversation();
   let pane = loadPaneSettings();
@@ -429,6 +493,7 @@ export function initChatPanel() {
     }
   };
 
+  let promptsFetched = false;
   const openDrawer = () => {
     drawer.hidden = false;
     drawer.setAttribute('aria-hidden', 'false');
@@ -436,6 +501,10 @@ export function initChatPanel() {
     toggle.classList.add('is-hidden');
     conv.open = true;
     saveConversation(conv);
+    if (!promptsFetched) {
+      promptsFetched = true;
+      fetchPromptOptions();
+    }
     if (!isMobile()) setTimeout(() => input.focus(), 220);
   };
 
@@ -468,6 +537,42 @@ export function initChatPanel() {
   toggle.addEventListener('click', openDrawer);
   closeBtn.addEventListener('click', closeDrawer);
   resetBtn.addEventListener('click', resetConversation);
+
+  settingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = settingsPanel.hidden === false;
+    settingsPanel.hidden = open;
+    settingsBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (settingsPanel.hidden) return;
+    const target = e.target as Node | null;
+    if (target && (settingsPanel.contains(target) || settingsBtn.contains(target))) return;
+    settingsPanel.hidden = true;
+    settingsBtn.setAttribute('aria-expanded', 'false');
+  });
+
+  promptSelect.addEventListener('change', () => {
+    const next = promptSelect.value;
+    if (!next || next === selectedPromptId) return;
+    if (conv.messages.length > 0) {
+      const ok = window.confirm(
+        'Switching the system prompt will clear the current conversation. Continue?',
+      );
+      if (!ok) {
+        promptSelect.value = selectedPromptId || '';
+        return;
+      }
+    }
+    selectedPromptId = next;
+    persistPromptId(next);
+    if (conv.messages.length > 0) {
+      conv.messages = [];
+      saveConversation(conv);
+      renderHistory();
+    }
+  });
 
   history.addEventListener('click', (e) => {
     const target = e.target as HTMLElement | null;
@@ -578,6 +683,7 @@ export function initChatPanel() {
           message: text,
           history: historyToSend,
           current: ctx,
+          prompt_id: selectedPromptId || undefined,
         }),
         signal: abortController.signal,
       });
@@ -607,6 +713,18 @@ export function initChatPanel() {
           if (!line.trim()) continue;
           let msg: any;
           try { msg = JSON.parse(line); } catch { continue; }
+          if (msg.type === 'meta' && typeof msg.prompt_id === 'string') {
+            // Backend echoes the resolved prompt_id (after allowlist).
+            // Sync local state in case our request was rejected silently.
+            if (msg.prompt_id !== selectedPromptId) {
+              selectedPromptId = msg.prompt_id;
+              persistPromptId(msg.prompt_id);
+              if (promptOptions.some((p) => p.prompt_id === selectedPromptId)) {
+                promptSelect.value = selectedPromptId!;
+              }
+            }
+            continue;
+          }
           if (msg.type === 'token' && typeof msg.text === 'string') {
             assistantText += msg.text;
             if (firstToken) {

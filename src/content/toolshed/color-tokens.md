@@ -15,10 +15,11 @@ All colors are CSS custom properties defined in `src/styles/tokens.css`. Nothing
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--color-accent` | `#D6006C` | `#FF4DA6` | Brand pink. Primary interactive color. |
-| `--color-accent-2` | `#0D7C66` | `#2DD4A8` | Teal. Secondary links, wiki links, currently reading. |
-| `--color-bg` | `#FCFCFB` | `#111111` | Page background. |
-| `--color-bg-card` | `#FAFAFA` | `#1A1A1A` | Card and panel backgrounds. |
+| `--color-accent` | `#3E5638` | `#94B582` | Deep moss-green. Primary interactive color. |
+| `--color-accent-2` | `#9C7A3E` | `#D6B07A` | Warm bronze. Collection labels, secondary callouts, wiki links. |
+| `--color-maturity-complete` | `#A04A2C` | `#D88A6A` | Terracotta. The "🌳 tree" maturity stage. Distinct from accent so "ripe" reads as a separate signal. |
+| `--color-bg` | `#FFFFFF` | `#111111` | Page background. |
+| `--color-bg-card` | `#FFFFFF` | `#1A1A1A` | Card and panel backgrounds. |
 | `--color-text` | `#1A1A1A` | `#E8E8E8` | Body text. |
 | `--color-text-muted` | `#6B6B6B` | `#999999` | Secondary text, labels, dates. |
 | `--color-heading` | `#111111` | `#F0F0F0` | Headings and card titles. |
@@ -47,7 +48,7 @@ Tokens are redefined under `[data-theme="dark"]`:
 
 ```css
 [data-theme="dark"] {
-  --color-accent: #FF4DA6;
+  --color-accent: #94B582;
   --color-bg: #111111;
   /* etc */
 }
@@ -72,4 +73,4 @@ Each is a desaturated, lightened variant of the collection's icon stroke color.
 
 ## Accent color rule
 
-`#D6006C` is the company brand color. It must not change. Any component that needs a primary interactive color uses `var(--color-accent)`.
+The primary accent is `--color-accent` (deep moss-green light, pale moss dark). Any component that needs a primary interactive color uses the token, never a hardcoded hex. The previous brand pink (`#D6006C` / `#FF4DA6`) was retired in May 2026.

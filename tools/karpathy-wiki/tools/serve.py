@@ -1842,15 +1842,72 @@ def load_prompt(prompt_id: str) -> str:
     return body.strip()
 
 
+_DEFAULT_GARDEN_PROMPT_ID = "garden-system-prompt"
+
+
+def _list_chat_prompts():
+    """Active or draft prompts wired to bot_id=garden, sorted version-desc.
+
+    Used both as the /api/prompts response and as the allowlist for /api/chat.
+    No caching: prompt files change rarely, the scan is cheap, and stale lists
+    would surprise users who just added a draft.
+    """
+    out = []
+    pdir = GARDEN_CONTENT_DIR / "prompts"
+    if not pdir.exists():
+        return out
+    for p in sorted(pdir.glob("*.md")):
+        try:
+            text = p.read_text(encoding="utf-8", errors="ignore")
+            fm, _ = _parse_simple_frontmatter(text)
+        except Exception:
+            continue
+        if fm.get("bot_id") != "garden":
+            continue
+        status = fm.get("prompt_status", "")
+        if status not in ("active", "draft"):
+            continue
+        prompt_id = fm.get("prompt_id") or p.stem
+        out.append({
+            "prompt_id": prompt_id,
+            "title": fm.get("title", prompt_id),
+            "version": fm.get("prompt_version", ""),
+            "status": status,
+            "description": fm.get("description", ""),
+        })
+    out.sort(key=lambda x: (x["status"] != "active", x["version"]), reverse=False)
+    return out
+
+
+def _allowed_prompt_ids():
+    return {p["prompt_id"] for p in _list_chat_prompts()}
+
+
+def handle_prompts_api():
+    return json.dumps({
+        "prompts": _list_chat_prompts(),
+        "default": _DEFAULT_GARDEN_PROMPT_ID,
+    })
+
+
 
 
 def _build_chat_request(body):
-    """Parse the chat body and build the Anthropic request."""
+    """Parse the chat body and build the Anthropic request.
+
+    Returns (client, model_args, resolved_prompt_id).
+    """
     import anthropic
     data = json.loads(body)
     message = (data.get("message") or "").strip()
     if not message:
         raise ValueError("No message provided")
+
+    requested_prompt_id = (data.get("prompt_id") or "").strip()
+    if requested_prompt_id and requested_prompt_id in _allowed_prompt_ids():
+        prompt_id = requested_prompt_id
+    else:
+        prompt_id = _DEFAULT_GARDEN_PROMPT_ID
 
     # Cap conversation history.
     raw_history = data.get("history") if isinstance(data.get("history"), list) else []
@@ -1958,19 +2015,20 @@ def _build_chat_request(body):
     model_args = {
         "model": "claude-sonnet-4-6",
         "max_tokens": 1400,
-        "system": load_prompt("garden-system-prompt"),
+        "system": load_prompt(prompt_id),
         "messages": messages,
     }
-    return client, model_args
+    return client, model_args, prompt_id
 
 
 def handle_chat_api_stream(body, writer):
     """Stream the chat response as JSON-lines.
 
-    Emits: {"type":"token","text":"..."}, {"type":"done"}, {"type":"error","error":"..."}
+    Emits: {"type":"meta","prompt_id":"..."}, {"type":"token","text":"..."},
+           {"type":"done"}, {"type":"error","error":"..."}
     """
     try:
-        client, model_args = _build_chat_request(body)
+        client, model_args, prompt_id = _build_chat_request(body)
     except ValueError as e:
         writer(json.dumps({"type": "error", "error": str(e)}) + "\n")
         return
@@ -1978,6 +2036,7 @@ def handle_chat_api_stream(body, writer):
         writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
         return
 
+    writer(json.dumps({"type": "meta", "prompt_id": prompt_id}) + "\n")
     try:
         with client.messages.stream(**model_args) as stream:
             for text in stream.text_stream:
