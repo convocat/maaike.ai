@@ -163,13 +163,13 @@ function scheduleScrollToBottom(el: HTMLElement) {
   });
 }
 
-// ── Mycelium pane (wide-view only) ────────────────────────────────────────
+// ── Mycelium pane (experimental, prototype only) ────────────────────────
 //
-// Renders an SVG visualisation of the conversation: each turn is a node
-// (acorn for user, leaf for the garden) on a meandering path from top to
-// bottom of the canvas, connected by faint sage threads, with a cursive
-// caption next to it. Cited posts are added as small painted cards near
-// the bot turn that mentioned them.
+// The wide-view mycelium pane is currently a standalone prototype at
+// /chat-mycelium-prototype.html, NOT part of the live chatbot. The
+// renderMycelium function below is preserved for reference / re-enabling
+// later, but is not called from the live init flow. Two designs (classic
+// and mycelium) are kept separate until one is chosen for production.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -652,37 +652,11 @@ export function initChatPanel() {
   if (!toggle || !drawer || !closeBtn || !resetBtn || !maxBtn || !resize || !form || !input || !sendBtn || !history || !pill) return;
   if (!settingsBtn || !settingsPanel || !promptSelect) return;
 
-  const mycSvg = document.getElementById('chat-mycelium-svg') as unknown as SVGSVGElement | null;
-  const mycEmpty = document.getElementById('chat-mycelium-empty') as HTMLElement | null;
-
   const ctx = readPageContext();
   setContextPill(pill, ctx);
 
-  // Toggle .is-wide on the drawer when its width crosses 700px, so the
-  // mycelium pane shows or hides automatically when the user resizes the
-  // drawer or maximises it.
-  const WIDE_THRESHOLD = 700;
-  let lastIsWide: boolean | null = null;
-  const updateWide = () => {
-    const w = drawer.getBoundingClientRect().width;
-    const isWide = w >= WIDE_THRESHOLD;
-    if (isWide === lastIsWide) return;
-    lastIsWide = isWide;
-    drawer.classList.toggle('is-wide', isWide);
-    if (isWide && mycSvg) renderMycelium(mycSvg, mycEmpty, conv.messages);
-  };
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(updateWide).observe(drawer);
-  }
-  // Also listen on window resize for browsers without RO observed-element
-  // semantics; cheap and idempotent.
-  window.addEventListener('resize', updateWide);
-
-  const renderMyceliumIfWide = () => {
-    if (drawer.classList.contains('is-wide') && mycSvg) {
-      renderMycelium(mycSvg, mycEmpty, conv.messages);
-    }
-  };
+  // Mycelium pane is a separate prototype; the live chatbot does not render it.
+  const renderMyceliumIfWide = () => {};
 
   // Prompt selection. URL ?prompt=… > localStorage > server default.
   let promptOptions: PromptOption[] = [];
@@ -1069,10 +1043,6 @@ export function initChatPanel() {
   });
 
   renderHistory();
-  // Run an initial wide-detection so the mycelium pane renders immediately
-  // if the drawer is already wide on first paint (e.g. restored maximised).
-  updateWide();
-  renderMyceliumIfWide();
   if (conv.open) {
     openDrawer();
   }
