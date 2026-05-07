@@ -280,17 +280,17 @@ function renderEmpty(history: HTMLElement, ctx: PageContext, onSuggestion: (q: s
 
   const suggestions = buildSuggestions(ctx);
   const buttons = suggestions
-    .map((q) => `<button type="button" class="chat-suggestion" data-q="${escapeHtml(q)}">${escapeHtml(q)}</button>`)
+    .map((q) => `<button type="button" class="chat-followup" data-q="${escapeHtml(q)}">${escapeHtml(q)}</button>`)
     .join('');
 
   history.innerHTML = `
     <div class="chat-empty">
       <p>${intro}</p>
-      <div class="chat-suggestions">${buttons}</div>
+      <div class="chat-followups chat-empty-followups">${buttons}</div>
     </div>
   `;
 
-  history.querySelectorAll<HTMLButtonElement>('.chat-suggestion').forEach((btn) => {
+  history.querySelectorAll<HTMLButtonElement>('.chat-followup').forEach((btn) => {
     btn.addEventListener('click', () => {
       const q = btn.dataset.q || '';
       if (q) onSuggestion(q);
@@ -351,9 +351,9 @@ function clearFollowups(history: HTMLElement) {
   history.querySelectorAll('.chat-followups').forEach((el) => el.remove());
 }
 
-function appendFollowups(history: HTMLElement, onPick: (q: string) => void) {
+function appendFollowups(history: HTMLElement, onPick: (q: string) => void, items?: string[]) {
   clearFollowups(history);
-  const chips = pickSerendipityChips(3);
+  const chips = (items && items.length) ? items.slice(0, 3) : pickSerendipityChips(3);
   const wrap = document.createElement('div');
   wrap.className = 'chat-followups';
   wrap.innerHTML = chips
@@ -672,6 +672,7 @@ export function initChatPanel() {
     let assistantText = '';
     let errored: string | null = null;
     let firstToken = true;
+    let chipItems: string[] | null = null;
 
     try {
       const historyToSend = conv.messages.slice(0, -1).map((m) => ({ role: m.role, content: m.content }));
@@ -733,6 +734,8 @@ export function initChatPanel() {
             }
             bubble.innerHTML = renderMarkdown(assistantText) + '<span class="chat-cursor" aria-hidden="true"></span>';
             history.scrollTop = history.scrollHeight;
+          } else if (msg.type === 'chips' && Array.isArray(msg.items)) {
+            chipItems = msg.items.filter((s: any) => typeof s === 'string').slice(0, 3);
           } else if (msg.type === 'error') {
             errored = msg.error || 'backend error';
           }
@@ -760,7 +763,7 @@ export function initChatPanel() {
       bubble.innerHTML = renderMarkdown(assistantText);
       conv.messages.push({ role: 'assistant', content: assistantText });
       saveConversation(conv);
-      appendFollowups(history, submitText);
+      appendFollowups(history, submitText, chipItems || undefined);
     } else {
       typingNode.remove();
     }

@@ -2037,10 +2037,62 @@ def handle_chat_api_stream(body, writer):
         return
 
     writer(json.dumps({"type": "meta", "prompt_id": prompt_id}) + "\n")
+
+    # Streaming with chip-marker extraction.
+    # The model is instructed to append `<<CHIPS:[...]>>` at the very end.
+    # We watch the running buffer for the marker, suppress everything from
+    # the marker onward in the visible token stream, and once the closing
+    # `>>` arrives, parse the JSON and emit a chips event.
+    MARKER = "<<CHIPS:"
+    END = ">>"
+    buf = ""           # everything received so far
+    emitted = 0        # how many chars of buf have been emitted as visible tokens
+    in_marker = False  # True once we've seen MARKER in buf
+    chips_emitted = False
+
     try:
         with client.messages.stream(**model_args) as stream:
             for text in stream.text_stream:
-                writer(json.dumps({"type": "token", "text": text}) + "\n")
+                buf += text
+
+                if not in_marker:
+                    pos = buf.find(MARKER, emitted)
+                    if pos >= 0:
+                        visible = buf[emitted:pos]
+                        if visible:
+                            writer(json.dumps({"type": "token", "text": visible}) + "\n")
+                        emitted = pos
+                        in_marker = True
+                    else:
+                        # Hold back the last (len(MARKER)-1) chars so we don't
+                        # emit a partial marker. Safe to emit anything before.
+                        hold = len(MARKER) - 1
+                        safe_end = max(emitted, len(buf) - hold)
+                        if safe_end > emitted:
+                            chunk = buf[emitted:safe_end]
+                            if chunk:
+                                writer(json.dumps({"type": "token", "text": chunk}) + "\n")
+                            emitted = safe_end
+
+                if in_marker and not chips_emitted:
+                    payload_start = buf.find(MARKER) + len(MARKER)
+                    end_pos = buf.find(END, payload_start)
+                    if end_pos >= 0:
+                        try:
+                            items = json.loads(buf[payload_start:end_pos])
+                            if isinstance(items, list):
+                                items = [str(x).strip() for x in items if str(x).strip()][:3]
+                                writer(json.dumps({"type": "chips", "items": items}) + "\n")
+                                chips_emitted = True
+                        except Exception:
+                            pass
+
+        # Stream done. Emit any remaining visible text that wasn't held back.
+        if not in_marker and emitted < len(buf):
+            tail = buf[emitted:]
+            if tail:
+                writer(json.dumps({"type": "token", "text": tail}) + "\n")
+
         writer(json.dumps({"type": "done"}) + "\n")
     except Exception:
         writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
