@@ -11,15 +11,12 @@
   body { margin: 0; background: #FFFFFF; color: #1A1A1A;
     font-family: 'Nunito', system-ui, sans-serif; font-weight: 460; }
 
-  .top { padding: 16px 24px; border-bottom: 1px solid #E5DFD4; }
-  .top h1 { font-family: 'Lora', serif; font-size: 18px; margin: 0; font-weight: 600; }
-  .top p { color: #7A7268; font-size: 12px; margin: 2px 0 0; }
-
   .stepper {
     display: flex; gap: 10px; align-items: center;
     padding: 10px 24px;
     background: #FAF7F2;
     border-bottom: 1px solid #E5DFD4;
+    position: sticky; top: 0; z-index: 50;
   }
   .stepper button {
     border: 1px solid #DCD0B0;
@@ -31,20 +28,41 @@
   .stepper .info { flex: 1 1 auto; font-size: 12px; color: #7A7268; }
   .stepper .info strong { color: #1A1A1A; margin-right: 8px; font-weight: 600; }
 
-  /* Drawer that mimics the chat. Two sizes: narrow (chat only) and wide
-     (chat + mycelium). Toggled by a button in the header. */
-  .drawer {
-    margin: 16px 24px;
-    border: 1px solid #E5DFD4; border-radius: 8px;
-    background: #FFFFFF;
-    overflow: hidden;
-    height: calc(100vh - 140px);
-    display: flex; flex-direction: column;
-    transition: max-width 0.25s ease;
+  /* Faux article page underneath, so the drawer feels like a companion to a real page */
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.7;
+    color: #1A1A1A;
   }
-  .drawer.is-narrow { max-width: 480px; }
+  .page .meta { font-family: 'Nunito', sans-serif; font-size: 12px; color: #7A7268; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px; }
+  .page h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 8px; font-weight: 600; }
+  .page .lede { font-size: 1.05rem; color: #6B6B6B; margin: 0 0 24px; font-style: italic; }
+  .page p { margin: 0 0 14px; font-size: 16px; }
+
+  /* Drawer slides in from the right edge of the page, like the live chat.
+     Two sizes: narrow (chat only, ~420px) and wide (chat + mycelium, ~80vw). */
+  .drawer {
+    position: fixed;
+    top: 56px;       /* below the stepper bar */
+    right: 0;
+    bottom: 0;
+    width: 420px;
+    background: #FFFFFF;
+    border-left: 1px solid #E5DFD4;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: width 0.3s ease;
+    z-index: 40;
+  }
+  .drawer.is-wide { width: 100vw; max-width: none; }
   .drawer.is-narrow .myc { display: none; }
   .drawer.is-narrow .drawer-body { grid-template-columns: minmax(0, 1fr); }
+  /* In narrow mode, the chat-side has no right border because there's no mycelium beside it */
+  .drawer.is-narrow .chat-side { border-right: none; }
   .drawer-header {
     padding: 14px 22px; border-bottom: 1px solid #E5DFD4;
     display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
@@ -261,11 +279,6 @@
 </head>
 <body>
 
-<div class="top">
-  <h1>Chat mycelium — interactive prototype</h1>
-  <p>Step forward through the conversation. The mycelium on the right grows. Hover a node to highlight its threads and scroll the chat to that turn. Click a node to pin focus on it. Click a citation card to open the post.</p>
-</div>
-
 <div class="stepper">
   <button id="prev" disabled>← Back</button>
   <span class="info"><strong id="step-num">Step 0 of 7</strong><span id="step-desc">Empty drawer.</span></span>
@@ -273,7 +286,18 @@
   <button id="reset">⟲ Reset</button>
 </div>
 
-<div class="drawer">
+<!-- Faux article page in the background, simulating a real post the chat is companion to. -->
+<article class="page">
+  <p class="meta">Article · 5 April 2026 · 100% Maai</p>
+  <h1>The garden as a metaphor</h1>
+  <p class="lede">Why this site is called a garden, what plant growth means for ideas, and how the metaphor shapes every editorial decision.</p>
+  <p>The metaphor of a digital garden matters. It says posts are alive, not finished. Some are seeds (a half-formed thought), some are saplings (in progress), some have grown into trees (settled).</p>
+  <p>Most of what you write online is published into a stream that flattens everything: the off-the-cuff jotting and the carefully reasoned essay sit in the same shape. That flattening is editorial. Choosing a garden metaphor is a way of refusing it.</p>
+  <p>The reader is wandering through a place, not consuming a feed. There is no "newest first". There is no infinite scroll. Posts cluster by topic and by maturity, not by recency.</p>
+  <p>An open question I have not resolved: does the garden metaphor scale beyond personal sites? Most public examples are individuals.</p>
+</article>
+
+<div class="drawer is-narrow">
   <div class="drawer-header">
     <div class="drawer-titles">
       <p class="drawer-title">Talk about this page</p>
@@ -828,22 +852,26 @@ document.getElementById('next').addEventListener('click', () => { if (stepIdx < 
 document.getElementById('reset').addEventListener('click', () => { stepIdx = 0; render(); });
 window.addEventListener('resize', render);
 
-// Two-size toggle: narrow (chat only) vs wide (chat + mycelium).
-let isNarrow = false;
+// Two-size toggle: narrow (chat only, slide-in companion) vs wide
+// (chat + mycelium, takes more screen real estate). Default is narrow,
+// matching what visitors see in production today.
+let isNarrow = true;
 const drawer = document.querySelector('.drawer');
 const toggleBtn = document.getElementById('size-toggle');
 const toggleIcon = document.getElementById('size-toggle-icon');
 const toggleLabel = document.getElementById('size-toggle-label');
 function applySize() {
   drawer.classList.toggle('is-narrow', isNarrow);
-  toggleIcon.textContent = isNarrow ? '↔' : '↤';
-  toggleLabel.textContent = isNarrow ? 'Wide' : 'Narrow';
+  drawer.classList.toggle('is-wide', !isNarrow);
+  toggleIcon.textContent = isNarrow ? '↤' : '↔';
+  toggleLabel.textContent = isNarrow ? 'Expand' : 'Collapse';
   // Re-render mycelium so SVG resizes to new pane width.
   render();
 }
 toggleBtn.addEventListener('click', () => { isNarrow = !isNarrow; applySize(); });
 
 render();
+applySize();
 </script>
 </body>
 </html>
