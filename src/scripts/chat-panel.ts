@@ -456,11 +456,15 @@ function isMobile(): boolean {
 }
 
 function buildSuggestions(ctx: PageContext): string[] {
+  // First-turn chips have to stand on their own: nothing has been said yet,
+  // so questions like "How does it connect?" make no sense. Each suggestion
+  // here is a self-contained question about the page (or the garden, on
+  // index pages) that needs no prior context.
   if (ctx.collection && ctx.slug) {
     return [
       "What's this about?",
-      'How does it connect?',
-      "Maaike's view?",
+      'Connect to other posts?',
+      "Maaike's take?",
     ];
   }
   return [

@@ -31,7 +31,8 @@
   .stepper .info { flex: 1 1 auto; font-size: 12px; color: #7A7268; }
   .stepper .info strong { color: #1A1A1A; margin-right: 8px; font-weight: 600; }
 
-  /* Drawer that mimics the maximised chat */
+  /* Drawer that mimics the chat. Two sizes: narrow (chat only) and wide
+     (chat + mycelium). Toggled by a button in the header. */
   .drawer {
     margin: 16px 24px;
     border: 1px solid #E5DFD4; border-radius: 8px;
@@ -39,16 +40,31 @@
     overflow: hidden;
     height: calc(100vh - 140px);
     display: flex; flex-direction: column;
+    transition: max-width 0.25s ease;
   }
+  .drawer.is-narrow { max-width: 480px; }
+  .drawer.is-narrow .myc { display: none; }
+  .drawer.is-narrow .drawer-body { grid-template-columns: minmax(0, 1fr); }
   .drawer-header {
     padding: 14px 22px; border-bottom: 1px solid #E5DFD4;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
   }
+  .drawer-titles { flex: 1 1 auto; min-width: 0; }
   .drawer-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; margin: 0; }
   .drawer-ctx {
     font-family: 'Cedarville Cursive', cursive; font-size: 0.95rem;
     color: #7A7268; margin: 4px 0 0; line-height: 1.4;
   }
   .drawer-ctx strong { color: #9C7A3E; font-weight: 400; }
+  .size-toggle {
+    flex: 0 0 auto;
+    border: 1px solid #DCD0B0; background: #FFFFFF;
+    color: #7A7268; cursor: pointer; font: inherit; font-size: 12px;
+    padding: 6px 12px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .size-toggle:hover { color: #1A1A1A; border-color: #9C7A3E; }
+  .size-toggle .icon { font-size: 14px; line-height: 1; }
 
   .drawer-body {
     display: grid;
@@ -259,8 +275,14 @@
 
 <div class="drawer">
   <div class="drawer-header">
-    <p class="drawer-title">Talk about this page</p>
-    <p class="drawer-ctx">Talking about <strong>The garden as a metaphor</strong></p>
+    <div class="drawer-titles">
+      <p class="drawer-title">Talk about this page</p>
+      <p class="drawer-ctx">Talking about <strong>The garden as a metaphor</strong></p>
+    </div>
+    <button class="size-toggle" id="size-toggle" aria-label="Toggle size">
+      <span class="icon" id="size-toggle-icon">↔</span>
+      <span id="size-toggle-label">Narrow</span>
+    </button>
   </div>
   <div class="drawer-body">
     <div class="chat-side" id="chat-side"></div>
@@ -358,8 +380,10 @@ function escapeHtml(s) { const d = document.createElement('div'); d.textContent 
 // Per-step contextual chips (3 model-generated + 1 input pebble), keyed by
 // the index of the bot turn that would produce them in real life. Empty
 // state (step 0) gets generic starter chips.
+// Step 0 chips are first-turn: must be self-contained questions because
+// nothing has been said yet. After that, chips can pull on what was said.
 const CHIPS_BY_STEP = {
-  0: ["What's this about?", 'How does it connect?', "Maaike's view?"],
+  0: ["What's this about?", 'Connect to other posts?', "Maaike's take?"],
   2: ['Conversation design', 'AI tools direction', 'The garden idea'],
   4: ['Stream tension', 'Maturity stages', 'Other metaphors?'],
   6: ['Frankfurt-bullshit', 'Designing around models', "Where she pushes back"],
@@ -445,6 +469,16 @@ function renderMycelium(messages) {
     svg.appendChild(path);
     threadEls.push(path);
   }
+
+  // Pre-count citations per turn so caption placement can dodge cards.
+  const citationsPerTurn = new Map();
+  messages.forEach((m, i) => {
+    if (m.role !== 'assistant') return;
+    const re = /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g;
+    let count = 0;
+    while (re.exec(m.content) !== null) count++;
+    if (count) citationsPerTurn.set(i, count);
+  });
 
   // Parse citations from links in assistant messages
   const citationThreads = [];
@@ -534,10 +568,25 @@ function renderMycelium(messages) {
   nodes.forEach((node) => {
     const onLeft = node.x > W / 2;
     const captionW = 170;
-    const captionH = 70;
-    const captionX = onLeft
-      ? node.x - node.size / 2 - 10 - captionW
-      : node.x + node.size / 2 + 10;
+    const captionH = 60;
+    const hasCards = citationsPerTurn.has(node.index);
+
+    // If this node has citation cards (placed to its side, below), put the
+    // caption ABOVE the node instead of to the side. Otherwise side as before.
+    let captionX, captionY, textAlign;
+    if (hasCards) {
+      captionX = node.x - captionW / 2;
+      captionY = node.y - node.size / 2 - captionH - 4;
+      textAlign = 'center';
+    } else if (onLeft) {
+      captionX = node.x - node.size / 2 - 10 - captionW;
+      captionY = node.y - captionH / 2;
+      textAlign = 'right';
+    } else {
+      captionX = node.x + node.size / 2 + 10;
+      captionY = node.y - captionH / 2;
+      textAlign = 'left';
+    }
 
     const group = document.createElementNS(SVG_NS, 'g');
     group.setAttribute('class', 'myc-node-group');
@@ -556,7 +605,7 @@ function renderMycelium(messages) {
     // Use foreignObject so the caption wraps and stays self-contained.
     const fo = document.createElementNS(SVG_NS, 'foreignObject');
     fo.setAttribute('x', String(captionX));
-    fo.setAttribute('y', String(node.y - captionH / 2));
+    fo.setAttribute('y', String(captionY));
     fo.setAttribute('width', String(captionW));
     fo.setAttribute('height', String(captionH));
     const wrap = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
@@ -566,7 +615,7 @@ function renderMycelium(messages) {
       font-size: 13px;
       line-height: 1.25;
       color: #1A1A1A;
-      text-align: ${onLeft ? 'right' : 'left'};
+      text-align: ${textAlign};
       white-space: normal;
       overflow: hidden;
     `;
@@ -777,6 +826,21 @@ document.getElementById('prev').addEventListener('click', () => { if (stepIdx > 
 document.getElementById('next').addEventListener('click', () => { if (stepIdx < STEPS.length - 1) { stepIdx++; render(); } });
 document.getElementById('reset').addEventListener('click', () => { stepIdx = 0; render(); });
 window.addEventListener('resize', render);
+
+// Two-size toggle: narrow (chat only) vs wide (chat + mycelium).
+let isNarrow = false;
+const drawer = document.querySelector('.drawer');
+const toggleBtn = document.getElementById('size-toggle');
+const toggleIcon = document.getElementById('size-toggle-icon');
+const toggleLabel = document.getElementById('size-toggle-label');
+function applySize() {
+  drawer.classList.toggle('is-narrow', isNarrow);
+  toggleIcon.textContent = isNarrow ? '↔' : '↤';
+  toggleLabel.textContent = isNarrow ? 'Wide' : 'Narrow';
+  // Re-render mycelium so SVG resizes to new pane width.
+  render();
+}
+toggleBtn.addEventListener('click', () => { isNarrow = !isNarrow; applySize(); });
 
 render();
 </script>
