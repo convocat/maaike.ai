@@ -148,14 +148,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 110px;
-    height: 60px;
+    width: 88px;
+    height: 48px;
     border: none;
     background: url('/images/watercolor-pebble-2.png') center/100% 100% no-repeat;
-    color: var(--color-accent);
+    color: #1A1A1A;
     font-family: 'Cedarville Cursive', cursive;
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 400;
     letter-spacing: 0.02em;
     cursor: pointer;
     transition: transform var(--transition-fast), filter var(--transition-fast);
@@ -165,13 +165,11 @@
   }
   .chat-toggle .chat-toggle-label {
     line-height: 1;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
   .chat-toggle:hover {
     transform: rotate(0deg) translateY(-2px);
     filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.22));
-    color: var(--color-accent-hover);
   }
 
   .chat-toggle:focus-visible {
@@ -1054,6 +1052,10 @@
     .chat-resize {
       display: none;
     }
+    /* Mycelium variant's expand tab is desktop-only.
+       On mobile the drawer fills the viewport already, so there is no
+       narrow / wide distinction to surface. */
+    .chat-size-toggle { display: none !important; }
     .chat-toggle {
       right: var(--space-md);
       bottom: var(--space-md);
