@@ -23,7 +23,7 @@
 
   /* Typography */
   --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
-  --font-body: 'Roboto', -apple-system, sans-serif;
+  --font-body: 'Nunito', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Spacing */
@@ -45,10 +45,13 @@
   --transition-base: 250ms ease;
 }
 
-/* Body font choice — applied via data-font on <html>. Default = Roboto. */
-:root[data-font="mulish"]   { --font-body: 'Mulish', -apple-system, sans-serif; }
-:root[data-font="nunito"]   { --font-body: 'Nunito', -apple-system, sans-serif; }
-:root[data-font="atkinson"] { --font-body: 'Atkinson Hyperlegible', -apple-system, sans-serif; }
+/* Body font choice — applied via data-font on <html>. Default = Nunito.
+ * Nunito reads light at 400, so the default body weight is 460. Other fonts
+ * have heavier 400s and use the regular 400. */
+:root { --font-weight-body: 460; }
+:root[data-font="roboto"]   { --font-body: 'Roboto', -apple-system, sans-serif; --font-weight-body: 400; }
+:root[data-font="mulish"]   { --font-body: 'Mulish', -apple-system, sans-serif; --font-weight-body: 400; }
+:root[data-font="atkinson"] { --font-body: 'Atkinson Hyperlegible', -apple-system, sans-serif; --font-weight-body: 400; }
 
 [data-theme="dark"] {
   --color-bg: #111111;

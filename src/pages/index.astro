@@ -114,9 +114,20 @@ function extractBodyPreview(body: string | undefined, maxLen = 220): string {
       <p class="hero-desc">Hoihoi! I'm Maaike Groenewege: natural language interface designer, linguist, and owner of about 50 fountain pens. This space is where I think in public about language, human machine interaction, AI and stuff.</p>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <img src="/images/watercolor-leaf-trimmed.png" alt="" class="hero-leaf-large" style="width: 110px; max-width: 110px;" />
+      <img id="hero-watercolor" src="/images/watercolor-leaf-trimmed.png" alt="" class="hero-leaf-large" style="width: 110px; max-width: 110px;"
+        data-options="watercolor-leaf-trimmed,watercolor-oak,watercolor-acorn-trimmed" />
     </div>
   </section>
+  <script is:inline>
+    (function () {
+      const el = document.getElementById('hero-watercolor');
+      if (!el) return;
+      const opts = (el.dataset.options || '').split(',').filter(Boolean);
+      if (opts.length < 2) return;
+      const pick = opts[Math.floor(Math.random() * opts.length)];
+      el.src = '/images/' + pick + '.png';
+    })();
+  </script>
 
   <hr class="home-divider" />
 

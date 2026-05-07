@@ -79,7 +79,7 @@ const ctx: PageContext = pageContext ?? {
         document.documentElement.setAttribute('data-theme', theme);
 
         const font = localStorage.getItem('garden-body-font');
-        if (font && ['mulish', 'nunito', 'atkinson'].includes(font)) {
+        if (font && ['mulish', 'atkinson', 'roboto'].includes(font)) {
           document.documentElement.setAttribute('data-font', font);
         }
       })();
