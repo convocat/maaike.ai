@@ -400,5 +400,11 @@
     "Three soft defenses (retrieval, system prompt, source attribution) all fail silently",
     "Hard defenses can make hallucination visible, measurable, and refusable without suppressing the answer",
     "Transparency over suppression: surface a verdict per claim, let the reader judge"
+  ],
+  "agentic-ai-design-patterns-2026-edition": [
+    "Agentic AI succeeds or fails based on architecture, not model quality, requiring patterns for state control, failure recovery, and governance",
+    "The four canonical patterns (Reflection, Tool Use, Planning, Multi-Agent) each solve specific architectural risks like hallucinations, cognitive entropy, and blast radius",
+    "Production-ready agentic systems require treating LLMs as CPUs within larger operating systems, with explicit lifecycles, observability, and bounded autonomy",
+    "The shift from single-shot LLM responses to orchestrated agent systems mirrors the historical transition from monoliths to microservices"
   ]
 }
