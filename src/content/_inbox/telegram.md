@@ -15,7 +15,7 @@ https://open.substack.com/pub/frankakalman/p/the-ai-draft-a-process-essay-nobody
 ✅ 2026-04-29: Fieldwork for Future Ecologies | Onomatopee
 https://www.onomatopee.net/exhibition/fieldwork-for-future-ecologies/
 
-2026-04-29: This is not a weblink, but a book. Can you add it to the library claude?
+✅ 2026-04-29: This is not a weblink, but a book. Can you add it to the library claude? (already in library — discarded)
 
 ✅ 2026-05-02: Structured-Prompt-Driven Development (SPDD)
 https://martinfowler.com/articles/structured-prompt-driven/

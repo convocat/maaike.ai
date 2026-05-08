@@ -382,5 +382,23 @@
   "structured-prompt-driven-development-spdd": [
     "Prompts as governable software artefacts",
     "Structured authoring for LLM-assisted code"
+  ],
+  "interactional-foundations-for-critical-ai-literacies": [
+    "LLM appeal is rooted in human interactional infrastructure, not machine intelligence",
+    "Critical AI literacy must be grounded in conversation analysis and sense-making",
+    "RLHF and chat interfaces conspire to produce illusions of understanding",
+    "Reasoning model output is placebic in Langer's sense: structurally similar enough to invite alignment without evidentiary content"
+  ],
+  "metaphors-of-ai-warm-and-human-like": [
+    "Public perception of AI is shifting toward warmth and human-likeness, not competence",
+    "Metaphors reveal implicit perceptions that demographic variables alone cannot capture",
+    "Warmth and competence predict trust and adoption over and above demographics",
+    "Anthropomorphism is rising fastest among women, older adults, and people of colour"
+  ],
+  "three-defenses-against-confabulation": [
+    "Confabulation is the worst failure mode for a wiki built on personal voice",
+    "Three soft defenses (retrieval, system prompt, source attribution) all fail silently",
+    "Hard defenses can make hallucination visible, measurable, and refusable without suppressing the answer",
+    "Transparency over suppression: surface a verdict per claim, let the reader judge"
   ]
 }

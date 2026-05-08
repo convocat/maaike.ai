@@ -1,0 +1,3 @@
+---
+title: Warmth and competence
+---

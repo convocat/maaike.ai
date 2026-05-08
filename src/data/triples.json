@@ -7043,6 +7043,211 @@
         "llm",
         "prompt-design"
       ]
+    },
+    "eliza": {
+      "label": "ELIZA",
+      "type": "technology",
+      "lens": [
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "specific-vagueness": {
+      "label": "Specific vagueness",
+      "type": "concept",
+      "lens": [
+        "linguistics",
+        "interaction"
+      ],
+      "subject": [
+        "pragmatics",
+        "conversation"
+      ],
+      "role": "instrument"
+    },
+    "epistemic-diversion": {
+      "label": "Epistemic diversion",
+      "type": "concept",
+      "lens": [
+        "epistemology",
+        "design"
+      ],
+      "subject": [
+        "llm",
+        "conversation"
+      ],
+      "role": "counter-position"
+    },
+    "placebic-information": {
+      "label": "Placebic information",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "rhetoric"
+      ],
+      "subject": [
+        "pragmatics",
+        "conversation"
+      ],
+      "role": "counter-position"
+    },
+    "rlhf": {
+      "label": "Reinforcement learning with human feedback",
+      "type": "method",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "chain-of-thought-prompting": {
+      "label": "Chain-of-thought prompting",
+      "type": "method",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "prompt-design",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "public-perception-of-ai": {
+      "label": "Public perception of AI",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "cognition"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ],
+      "role": "position"
+    },
+    "warmth-competence": {
+      "label": "Warmth and competence (social perception)",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "mind",
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "metaphor-analysis": {
+      "label": "Metaphor analysis",
+      "type": "method",
+      "lens": [
+        "linguistics",
+        "analytics"
+      ],
+      "subject": [
+        "language",
+        "mind"
+      ],
+      "role": "instrument"
+    },
+    "computers-as-social-actors": {
+      "label": "Computers as social actors",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "cognition"
+      ],
+      "subject": [
+        "conversation",
+        "mind"
+      ],
+      "role": "framework"
+    },
+    "anthroscore": {
+      "label": "AnthroScore",
+      "type": "method",
+      "lens": [
+        "linguistics",
+        "analytics"
+      ],
+      "subject": [
+        "language",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "trust-in-ai": {
+      "label": "Trust in AI",
+      "type": "concept",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ],
+      "role": "position"
+    },
+    "ai-adoption": {
+      "label": "AI adoption",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "analytics"
+      ],
+      "subject": [
+        "llm",
+        "future-of-work"
+      ],
+      "role": "tendency"
+    },
+    "llm-as-judge": {
+      "label": "LLM-as-judge",
+      "type": "method",
+      "lens": [
+        "development",
+        "analytics",
+        "observability"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "groundedness": {
+      "label": "Groundedness",
+      "type": "concept",
+      "lens": [
+        "epistemology",
+        "observability"
+      ],
+      "subject": [
+        "llm",
+        "knowledge"
+      ],
+      "role": "position"
+    },
+    "transparency-over-suppression": {
+      "label": "Transparency over suppression",
+      "type": "principle",
+      "lens": [
+        "design",
+        "epistemology"
+      ],
+      "subject": [
+        "llm"
+      ],
+      "role": "stance"
     }
   },
   "associations": [
@@ -12308,6 +12513,132 @@
       "object": "llms",
       "source": "ai-metaphors-how-to-think-about-ai-jd-meier",
       "collection": "weblinks"
+    },
+    {
+      "subject": "epistemic-diversion",
+      "predicate": "demonstrates",
+      "object": "eliza-effect",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "rlhf",
+      "predicate": "generates",
+      "object": "sycophancy",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "chain-of-thought-prompting",
+      "predicate": "exhibits",
+      "object": "placebic-information",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "eliza",
+      "predicate": "demonstrates",
+      "object": "specific-vagueness",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "critical-ai-literacy",
+      "predicate": "counters",
+      "object": "epistemic-diversion",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "anthropomorphism",
+      "predicate": "exhibits",
+      "object": "eliza-effect",
+      "source": "interactional-foundations-for-critical-ai-literacies",
+      "collection": "library"
+    },
+    {
+      "subject": "public-perception-of-ai",
+      "predicate": "characterised-as",
+      "object": "anthropomorphism",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "metaphor-analysis",
+      "predicate": "demonstrates",
+      "object": "public-perception-of-ai",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "warmth-competence",
+      "predicate": "theorised-by",
+      "object": "computers-as-social-actors",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "warmth-competence",
+      "predicate": "leads-to",
+      "object": "trust-in-ai",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "trust-in-ai",
+      "predicate": "leads-to",
+      "object": "ai-adoption",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "anthropomorphism",
+      "predicate": "leads-to",
+      "object": "trust-in-ai",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "anthroscore",
+      "predicate": "instance-of",
+      "object": "metaphor-analysis",
+      "source": "metaphors-of-ai-warm-and-human-like",
+      "collection": "library"
+    },
+    {
+      "subject": "llm-hallucinations",
+      "predicate": "risks",
+      "object": "confabulation",
+      "source": "three-defenses-against-confabulation",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "retrieval-augmented-generation",
+      "predicate": "lacks",
+      "object": "groundedness",
+      "source": "three-defenses-against-confabulation",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "llm-as-judge",
+      "predicate": "demonstrates",
+      "object": "groundedness",
+      "source": "three-defenses-against-confabulation",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "transparency-over-suppression",
+      "predicate": "counters",
+      "object": "epistemic-diversion",
+      "source": "three-defenses-against-confabulation",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "llm-as-judge",
+      "predicate": "instance-of",
+      "object": "llm-evals",
+      "source": "three-defenses-against-confabulation",
+      "collection": "field-notes"
     }
   ]
 }
