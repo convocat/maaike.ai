@@ -43,11 +43,23 @@ function parseBacklog(content: string): {
 
       let status = '';
       let title  = heading;
-      if      (heading.startsWith('🟡')) { status = 'ready';       title = heading.slice(2).trim(); }
+
+      // New format: [STATUS] Title
+      const pillMatch = heading.match(/^\[(READY|IN PROGRESS|PARKED|DONE)\]\s*(.*)$/);
+      if (pillMatch) {
+        const label = pillMatch[1];
+        title = pillMatch[2].trim();
+        if      (label === 'READY')        status = 'ready';
+        else if (label === 'IN PROGRESS')  status = 'in-progress';
+        else if (label === 'PARKED')       status = 'parked';
+        else if (label === 'DONE')         status = 'done';
+      }
+      // Legacy format: ball emoji prefix (kept for safety in case of partial migrations)
+      else if (heading.startsWith('🟡')) { status = 'ready';       title = heading.slice(2).trim(); }
       else if (heading.startsWith('🔵')) { status = 'in-progress'; title = heading.slice(2).trim(); }
       else if (heading.startsWith('🟠')) { status = 'parked';      title = heading.slice(2).trim(); }
-      else if (doneMode && heading.startsWith('✅')) { status = 'done'; title = heading.replace(/^✅\s*/, '').trim(); }
-      else if (doneMode)                 { status = 'done';         title = heading; }
+      else if (heading.startsWith('✅')) { status = 'done';        title = heading.replace(/^✅\s*/, '').trim(); }
+      else if (doneMode)                 { status = 'done';        title = heading; }
       else continue;
 
       const lines    = rest.split('\n');
