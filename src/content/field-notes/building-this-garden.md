@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-07
+updated: 2026-05-08
 maturity: solid
 tags:
 - about
@@ -435,6 +435,16 @@ A big design pass: pink retired, earth tones in, the chatbot gets new watercolor
 - **No mobile auto-focus**: the chat input is no longer auto-focused on mobile (≤800px), so the keyboard only appears on tap.
 - **Empty-state chips in chip layout**: the chatbot's starter suggestions now use the same hand-drawn pebble shapes as follow-ups, instead of rounded pills.
 - **Toolshed updates**: new entry for font-picker; chat-panel refreshed for the new avatars, sand bubble, settings cogwheel, and contextual chips. Color-tokens doc updated for the palette migration.
+
+### 8 May
+
+A long backlog grooming session that produced two library entries, a new field note, and a restyle of the backlog page itself.
+
+- **Field note: Three defenses against confabulation**: write-up of the wiki eval's truth-verification architecture (Defense A refusal on weak retrieval, Defense B per-claim LLM-as-judge verification, offline aggregate eval). Generated from the internal `TRUTH-AND-VERIFICATION.md` doc.
+- **Two research papers added to the library**: Dingemanse 2026 "Interactional foundations for critical AI literacies" and Cheng et al "Metaphors of AI indicate that people increasingly perceive AI as warm and human-like". Both with structured `## Summary` body and full TAO enrichment. Two pending PDF stubs cleared from the inbox.
+- **Backlog grooming**: 16 active items, 30+ archived. Items folded together where related: working-tree housekeeping into Karpathy cleanup; topic + tag cleanup into ontology research; eval baseline into admin dashboard; themes-as-prompts into chatbot.
+- **Visual backlog restyle at `/backlog`**: ball emojis (🟡🔵🟠✅) replaced by colour-coded text pills using the earth-tone palette (moss / bronze / neutral / terracotta). Card-style typography for h2/h3, bordered blockquotes for opening messages, code spans on cream.
+- **Garden ops kanban parser fix**: the kanban at `/toolshed/` was parsing the old emoji format and silently empty after the backlog rewrite. Parser now matches `[STATUS]` text directly. Counts: READY 10, IN PROGRESS 4, PARKED 3, DONE 8.
 
 ## Related
 

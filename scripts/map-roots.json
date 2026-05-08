@@ -1,14 +1,14 @@
 {
-  "generated": "2026-05-05T07:38:36.036Z",
+  "generated": "2026-05-08T20:36:59.031Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
-      "x": 0.3228,
-      "y": 0.2056
+      "x": 0.3235,
+      "y": 0.2051
     },
     "articles/7-new-skills-for-conversation-designers-2022": {
       "x": 0.2317,
-      "y": 0.1983
+      "y": 0.198
     },
     "articles/a-digital-garden-as-central-space": {
       "x": 0.8609,
@@ -39,12 +39,12 @@
       "y": 0.247
     },
     "articles/blender-turned-rogue": {
-      "x": 0.1862,
-      "y": 0.2041
+      "x": 0.1854,
+      "y": 0.2046
     },
     "articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental": {
-      "x": 0.3907,
-      "y": 0.3737
+      "x": 0.3895,
+      "y": 0.3746
     },
     "articles/chatgpt-presentation-prep": {
       "x": 0.0765,
@@ -55,20 +55,20 @@
       "y": 0.3155
     },
     "articles/conversational-interfaces-are-not-easy": {
-      "x": 0.3024,
-      "y": 0.3578
+      "x": 0.302,
+      "y": 0.3588
     },
     "articles/convo-question-should-i-learn-programming": {
-      "x": 0.1958,
-      "y": 0.2486
+      "x": 0.1956,
+      "y": 0.2485
     },
     "articles/convoclub-clubhouse": {
       "x": 0.2581,
       "y": 0.161
     },
     "articles/corona-is-spreading-and-so-are-the-bots": {
-      "x": 0.2029,
-      "y": 0.1623
+      "x": 0.2034,
+      "y": 0.1612
     },
     "articles/de-biassing-dall-e": {
       "x": 0.2936,
@@ -95,20 +95,20 @@
       "y": 0.1111
     },
     "articles/hoe-word-ik-conversation-designer": {
-      "x": 0.2775,
-      "y": 0.203
+      "x": 0.2766,
+      "y": 0.2022
     },
     "articles/how-do-i-become-a-conversation-designer": {
       "x": 0.2383,
       "y": 0.2678
     },
     "articles/how-to-create-your-own-content-quality-audit": {
-      "x": 0.4108,
-      "y": 0.2825
+      "x": 0.4129,
+      "y": 0.2802
     },
     "articles/is-conversation-still-a-useful-metaphor": {
-      "x": 0.2535,
-      "y": 0.2319
+      "x": 0.254,
+      "y": 0.2327
     },
     "articles/llm-hallucinations-knowledge-as-missing-fundamental": {
       "x": 0.3367,
@@ -119,24 +119,24 @@
       "y": 0.3098
     },
     "articles/microsoft-youre-using-bing-wrong": {
-      "x": 0.1515,
-      "y": 0.2339
+      "x": 0.1507,
+      "y": 0.2346
     },
     "articles/nieuwe-editie-voicelunch": {
       "x": 0.3051,
       "y": 0.1586
     },
     "articles/off-to-a-good-start": {
-      "x": 0.3789,
-      "y": 0.2494
+      "x": 0.3792,
+      "y": 0.2489
     },
     "articles/online-prompt-workshop-de-biasing-dall-e": {
       "x": 0.1977,
       "y": 0.3942
     },
     "articles/online-uitgeput-pak-een-kruk": {
-      "x": 0.319,
-      "y": 0.3146
+      "x": 0.3187,
+      "y": 0.3149
     },
     "articles/onthaast-je-voice-action-met-ssml": {
       "x": 0.4397,
@@ -151,12 +151,12 @@
       "y": 0.3484
     },
     "articles/saturday-design-thoughts": {
-      "x": 0.3538,
-      "y": 0.3463
+      "x": 0.3517,
+      "y": 0.3485
     },
     "articles/scrum-for-conversational-teams": {
-      "x": 0.2737,
-      "y": 0.3198
+      "x": 0.2725,
+      "y": 0.3199
     },
     "articles/stay-calm-and-keep-thinking-for-yourself": {
       "x": 0.6475,
@@ -167,20 +167,20 @@
       "y": 0.2749
     },
     "articles/the-long-and-winding-road": {
-      "x": 0.3327,
-      "y": 0.25
+      "x": 0.3316,
+      "y": 0.2501
     },
     "articles/understanding-speech-part-1": {
-      "x": 0.3557,
-      "y": 0.1232
+      "x": 0.3559,
+      "y": 0.122
     },
     "articles/understanding-speech-part-2": {
-      "x": 0.4093,
-      "y": 0.125
+      "x": 0.4101,
+      "y": 0.124
     },
     "articles/visual-notes-brian-roemmele": {
-      "x": 0.3491,
-      "y": 0.1684
+      "x": 0.3494,
+      "y": 0.168
     },
     "articles/what-happens-when-ai-has-read-everything": {
       "x": 0.5951,
@@ -191,16 +191,16 @@
       "y": 0.2913
     },
     "articles/youre-not-married-to-your-texts": {
-      "x": 0.3632,
-      "y": 0.2959
+      "x": 0.3561,
+      "y": 0.2888
     },
     "field-notes/beyond-anthropomorphism-reading-notes": {
       "x": 0.3169,
       "y": 0.2809
     },
     "field-notes/book-recommender": {
-      "x": 0.4482,
-      "y": 0.8145
+      "x": 0.4398,
+      "y": 0.8195
     },
     "field-notes/building-this-garden": {
       "x": 0.9113,
@@ -327,8 +327,8 @@
       "y": 0.4278
     },
     "seeds/dutch-aware-quantization": {
-      "x": 0.483,
-      "y": 0.7756
+      "x": 0.485,
+      "y": 0.7749
     },
     "seeds/embeddings-for-knowledge-gardens-research-gap": {
       "x": 0.6837,
@@ -355,8 +355,8 @@
       "y": 0.7592
     },
     "seeds/my-changing-role-in-an-ultrasmall-development-team": {
-      "x": 0.2417,
-      "y": 0.5907
+      "x": 0.2497,
+      "y": 0.5931
     },
     "seeds/principles-behind-this-garden": {
       "x": 0.965,
@@ -379,20 +379,20 @@
       "y": 0.6177
     },
     "seeds/thematic-analysis-as-interaction-model-and-research-method": {
-      "x": 0.2269,
-      "y": 0.2339
+      "x": 0.2268,
+      "y": 0.2334
     },
     "seeds/writing-as-a-conversation-with-yourself": {
       "x": 0.5242,
       "y": 0.3839
     },
     "weblinks/ai-artificialintelligence-behavior-behaviour-behav": {
-      "x": 0.4231,
-      "y": 0.6813
+      "x": 0.4242,
+      "y": 0.6805
     },
     "weblinks/alcpe-a-practitioner-s-guide-r-verity-vabolis": {
-      "x": 0.4857,
-      "y": 0.8532
+      "x": 0.4845,
+      "y": 0.8551
     },
     "weblinks/algorithmic-epistemic-injustice-ai-s-knowledge-hie": {
       "x": 0.6679,
@@ -426,6 +426,10 @@
       "x": 0.6642,
       "y": 0.5478
     },
+    "weblinks/masure-manifesto-acentric-design": {
+      "x": 0.6557,
+      "y": 0.7458
+    },
     "weblinks/metaphors-for-designers-working-with-ai": {
       "x": 0.3175,
       "y": 0.5343
@@ -435,8 +439,8 @@
       "y": 0.4995
     },
     "weblinks/nora-bateson-how-our-ways-of-knowing-shape-our-collective-future": {
-      "x": 0.4461,
-      "y": 0.313
+      "x": 0.4488,
+      "y": 0.3099
     },
     "weblinks/robin-interactions-shared-manifolds": {
       "x": 0.6965,
@@ -467,12 +471,12 @@
       "y": 0.8057
     },
     "videos/an-evening-with-copilot-for-powerpoint": {
-      "x": 0.3898,
-      "y": 0.7063
+      "x": 0.39,
+      "y": 0.7062
     },
     "videos/an-evening-with-perplexity-ai": {
-      "x": 0.3277,
-      "y": 0.7651
+      "x": 0.3267,
+      "y": 0.7655
     },
     "videos/bard-violates-grices-maxims-again": {
       "x": 0.2464,
@@ -483,8 +487,8 @@
       "y": 0.5914
     },
     "videos/designing-for-doubt": {
-      "x": 0.4083,
-      "y": 0.7726
+      "x": 0.4081,
+      "y": 0.7717
     },
     "videos/episode-1-types-of-prompting": {
       "x": 0.404,
@@ -495,8 +499,8 @@
       "y": 0.643
     },
     "videos/episode-3-llms-how-they-work": {
-      "x": 0.3784,
-      "y": 0.6625
+      "x": 0.3781,
+      "y": 0.6615
     },
     "videos/generative-ai-new-roles-skills-tools": {
       "x": 0.5039,
@@ -527,20 +531,20 @@
       "y": 0.6668
     },
     "videos/notebooklm-podcast-guest": {
-      "x": 0.3695,
-      "y": 0.747
+      "x": 0.3684,
+      "y": 0.7479
     },
     "videos/prompt-tutorials-for-conversation-designers": {
       "x": 0.3819,
       "y": 0.5465
     },
     "videos/quickstart-ssml-les-1-intonatie": {
-      "x": 0.2575,
-      "y": 0.5587
+      "x": 0.2615,
+      "y": 0.5569
     },
     "videos/quickstart-ssml-les-2-de-ssml-simulator": {
-      "x": 0.1976,
-      "y": 0.649
+      "x": 0.1962,
+      "y": 0.656
     },
     "videos/quickstart-ssml-les-3-ssml-de-basiselementen": {
       "x": 0.2494,
@@ -611,12 +615,12 @@
       "y": 0.9539
     },
     "library/because-internet": {
-      "x": 0.629,
-      "y": 0.1226
+      "x": 0.63,
+      "y": 0.1231
     },
     "library/beyond-anthropomorphism-spectrum-interface-metaphors-llms": {
-      "x": 0.1645,
-      "y": 0.2709
+      "x": 0.1636,
+      "y": 0.2716
     },
     "library/beyond-the-illusion-pragmatic-cues-in-conversation": {
       "x": 0.2362,
@@ -659,8 +663,8 @@
       "y": 0.1858
     },
     "library/dallergut-dream-department": {
-      "x": 0.4723,
-      "y": 0.8087
+      "x": 0.4587,
+      "y": 0.8059
     },
     "library/de-eilanden-van-goed-en-kwaad": {
       "x": 0.4236,
@@ -860,11 +864,11 @@
     },
     "library/plans-and-situated-actions": {
       "x": 0.3851,
-      "y": 0.1541
+      "y": 0.1537
     },
     "library/pragmatics-beyond-humans": {
-      "x": 0.5003,
-      "y": 0.8855
+      "x": 0.501,
+      "y": 0.8868
     },
     "library/reasons-to-stay-alive": {
       "x": 0.3858,
@@ -879,8 +883,8 @@
       "y": 0.2805
     },
     "library/semiotics-the-basics": {
-      "x": 0.4625,
-      "y": 0.7876
+      "x": 0.4623,
+      "y": 0.7817
     },
     "library/sequence-organization-in-interaction": {
       "x": 0.6036,
@@ -911,8 +915,8 @@
       "y": 0.1716
     },
     "library/terry-pratchett-biography": {
-      "x": 0.4629,
-      "y": 0.8328
+      "x": 0.4606,
+      "y": 0.8341
     },
     "library/the-accidental-taxonomist": {
       "x": 0.7968,
@@ -923,8 +927,8 @@
       "y": 0.0968
     },
     "library/the-bewitching-ai": {
-      "x": 0.1283,
-      "y": 0.5396
+      "x": 0.1214,
+      "y": 0.5432
     },
     "library/the-big-con": {
       "x": 0.7084,
@@ -987,12 +991,12 @@
       "y": 0.4506
     },
     "library/toward-metaphor-fluid-conversation-design-vuis": {
-      "x": 0.3637,
-      "y": 0.2139
+      "x": 0.3632,
+      "y": 0.2127
     },
     "library/typography-beyond-borders": {
-      "x": 0.429,
-      "y": 0.8003
+      "x": 0.4285,
+      "y": 0.7997
     },
     "library/unthought": {
       "x": 0.288,
@@ -1021,6 +1025,10 @@
     "library/you-look-like-a-thing-and-i-love-you": {
       "x": 0.8088,
       "y": 0.2727
+    },
+    "experiments/beyond-the-chat-box": {
+      "x": 0.4925,
+      "y": 0.8138
     },
     "experiments/book-recommender-library-audit": {
       "x": 0.9481,
@@ -1055,12 +1063,16 @@
       "y": 0.2683
     },
     "jottings/creative-prompts-april-2026": {
-      "x": 0.3957,
-      "y": 0.1907
+      "x": 0.396,
+      "y": 0.1917
     },
     "jottings/from-role-to-skills-how-claude-code-desilos-the-future-of-work": {
       "x": 0.619,
       "y": 0.8243
+    },
+    "jottings/how-to-design-when-concept-of-operations-is-opaque": {
+      "x": 0.2041,
+      "y": 0.611
     },
     "jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader": {
       "x": 0.9018,
@@ -1079,16 +1091,36 @@
       "y": 0.8253
     },
     "jottings/u2-easter-parade": {
-      "x": 0.4065,
-      "y": 0.3302
+      "x": 0.4268,
+      "y": 0.3454
     },
-    "weblinks/masure-manifesto-acentric-design": {
-      "x": 0.6557,
-      "y": 0.7458
+    "field-notes/three-defenses-against-confabulation": {
+      "x": 0.4609,
+      "y": 0.4613
     },
-    "jottings/how-to-design-when-concept-of-operations-is-opaque": {
-      "x": 0.2094,
-      "y": 0.6039
+    "weblinks/ai-metaphors-how-to-think-about-ai-jd-meier": {
+      "x": 0.6907,
+      "y": 0.3925
+    },
+    "weblinks/dive-in-tommi-space": {
+      "x": 0.6015,
+      "y": 0.1087
+    },
+    "weblinks/it-s-like-this-why-perceptions-are-our-realities": {
+      "x": 0.2218,
+      "y": 0.5716
+    },
+    "weblinks/structured-prompt-driven-development-spdd": {
+      "x": 0.7777,
+      "y": 0.7977
+    },
+    "library/interactional-foundations-for-critical-ai-literacies": {
+      "x": 0.1565,
+      "y": 0.5249
+    },
+    "library/metaphors-of-ai-warm-and-human-like": {
+      "x": 0.3883,
+      "y": 0.3211
     }
   },
   "territories": [
@@ -1096,19 +1128,19 @@
       "label": "conversation-design",
       "centerX": 0.458,
       "centerY": 0.1815,
-      "itemCount": 27
+      "itemCount": 28
     },
     {
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 40
+      "itemCount": 42
     },
     {
       "label": "design",
       "centerX": 0.742,
       "centerY": 0.1073,
-      "itemCount": 32
+      "itemCount": 33
     },
     {
       "label": "digital-gardens",
@@ -1120,7 +1152,7 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 16
+      "itemCount": 18
     },
     {
       "label": "prompt-design",
@@ -1132,7 +1164,7 @@
       "label": "knowledge-graph",
       "centerX": 0.4974,
       "centerY": 0.7123,
-      "itemCount": 48
+      "itemCount": 49
     },
     {
       "label": "philosophy",
@@ -1144,7 +1176,7 @@
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 27
+      "itemCount": 28
     }
   ]
 }
