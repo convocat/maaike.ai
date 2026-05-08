@@ -2,600 +2,315 @@
 
 What's queued up. Each entry is a ready-to-paste opening message for a new thread.
 
-**Status:** 🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale (not touched in 14+ days)
+**Status:** [READY] · [IN PROGRESS] · [PARKED] · [DONE]
 
-**Groomed:** 2026-05-05 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
-
----
-
-## 🟡 Karpathy-wiki cleanup: move runtime to api/, lift remaining prompts, rename folder
-*2026-05-06*
-
-Today's session lifted the chatbot system prompt into `src/content/prompts/garden-system-prompt.md` and seeded the prompt library (collection, schema with `bot_id`, route, loader). Two more prompts are seeded but not yet wired (`wiki-system-prompt.md`, `verifier.md`). The bigger structural cleanup remains: move the chatbot runtime out from under `tools/karpathy-wiki/` (the experiment scaffolding it sits inside is dead-ish, the runtime is load-bearing). Decision recorded: wiki + chat both stay alive, runtime relocates to `api/`, eval scaffolding stays put as `tools/wiki-eval/`.
-
-Plan file: `C:\Users\mgroe\.claude\plans\hi-claude-i-want-abundant-candle.md` has the full execution order, file moves, code-update list, and 8-step verification.
-
-Concretely, next session:
-1. `git mv` runtime files to `api/`: `tools/karpathy-wiki/tools/serve.py` → `api/server.py`; plus `raw/`, `cache/`, `wiki/`, `requirements.txt`. Manually copy `.env`.
-2. Refactor `api/server.py`: rename `KARPATHY_ROOT` → `API_ROOT`, drop `_load_system_prompt()` + `_ASK_SYSTEM_PROMPT` + `_VERIFY_SYSTEM_PROMPT` literal — replace with `load_prompt('wiki-system-prompt')` and `load_prompt('verifier')`.
-3. Update external references: `api/index.py` import path, `vercel.json` includeFiles, `src/pages/research/[slug].astro:81` cache path, `tools/admin/server.py:38` .env path, `scripts/restart-wiki.bat`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `.gitignore`.
-4. Delete dead Vercel files: `tools/karpathy-wiki/api/index.py`, `tools/karpathy-wiki/vercel.json`, `tools/karpathy-wiki/.vercelignore`, `tools/karpathy-wiki/SYSTEM_PROMPT.md` (lifted), `tools/karpathy-wiki/tools/__pycache__/`. (Folds in the original "Cleanup karpathy-wiki Vercel artefacts" backlog item.)
-5. `git mv tools/karpathy-wiki tools/wiki-eval`.
-6. Rewrite the "Karpathy wiki" section in `CLAUDE.md`: split into "API server (`api/`)" + "Wiki eval (`tools/wiki-eval/`)" + "Prompt library (`src/content/prompts/`)".
-7. Verify: local `python api/server.py` + `npm run dev` chat works, `/research/ask` works, topic-view cache works, eval workflow runs, byte-equivalence of wiki + verifier prompts (chat already confirmed), no stale "karpathy-wiki" string in runtime, `npm run validate` passes, admin server starts.
-8. **Stop. Show diff. Wait for push approval.**
-
-Then (separate next-next session): drop hardcoded `load_prompt('garden-system-prompt')` etc. — replace with `load_prompt_for_bot('garden')` that scans frontmatter for active+matching `bot_id`. Add `src/data/chatbots.json` registry. Eventually a minimal admin dashboard for prompts (list, edit, set-active, test).
-
-Risk: Vercel deploy break if `includeFiles` glob misses runtime files. Mitigation: review deploy log + smoke-test prod immediately. Single-commit revert if broken.
-
-Key files: `tools/karpathy-wiki/tools/serve.py`, `api/index.py`, `vercel.json`, `src/pages/research/[slug].astro`, `tools/admin/server.py`, `scripts/restart-wiki.bat`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `.gitignore`, `CLAUDE.md`.
-
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: pick up the karpathy-wiki cleanup. Plan is at `C:\Users\mgroe\.claude\plans\hi-claude-i-want-abundant-candle.md`. Move chatbot runtime (`serve.py` + raw/ + cache/ + wiki/ + requirements.txt + .env) to `api/`, refactor `KARPATHY_ROOT` → `API_ROOT`, switch `_ASK_SYSTEM_PROMPT` and `_VERIFY_SYSTEM_PROMPT` to `load_prompt(...)` (the prompt files are already at `src/content/prompts/wiki-system-prompt.md` and `src/content/prompts/verifier.md`). Update vercel.json, the research [slug] cache path, admin server .env path, the eval scripts, and .gitignore. Delete the dead Vercel files. `git mv tools/karpathy-wiki tools/wiki-eval`. Rewrite the "Karpathy wiki" section in CLAUDE.md. Verify all 8 steps from the plan. Stop and show diff before pushing.
+**Groomed:** 2026-05-08 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
-## 🔵 The Garden chatbot v0.1
+## [READY] Karpathy-wiki cleanup + retire wiki v6 + working-tree housekeeping
+*2026-05-06 · bumped 2026-05-08*
+
+Lift chatbot runtime out of `tools/karpathy-wiki/` into `api/`, switch `_ASK_SYSTEM_PROMPT` and `_VERIFY_SYSTEM_PROMPT` to `load_prompt(...)`, delete dead Vercel files, `git mv tools/karpathy-wiki tools/wiki-eval`, rewrite the relevant CLAUDE.md section. Now also includes:
+
+- **Retire wiki v6** at maaike.ai/wiki (`public/wiki/index.html`). Homepage chat replaces it.
+- **Working-tree housekeeping**. Commit `vercel.json` + `api/` if prod-needed. Decide which `tools/admin/_*.py` and `tools/karpathy-wiki/tools/extract-batch.py` helpers ship. Gitignore `__pycache__/`. Delete the 5 handoff zips at repo root. Triage `public/wiki-v*.html` + `workflow-tool.html` + `preview-server.py`. Leave `public/user-manual.html` (Maaike WIP).
+
+Plan: `~/.claude/plans/hi-claude-i-want-abundant-candle.md`. Risk: Vercel deploy break if `includeFiles` glob misses runtime files. Single-commit revert if broken.
+
+**Opening message:**
+> Run `/telegram-sync` first. Pick up the karpathy-wiki cleanup. Plan at `~/.claude/plans/hi-claude-i-want-abundant-candle.md`. Move chatbot runtime to `api/`, refactor `KARPATHY_ROOT` to `API_ROOT`, switch the two system-prompt loads to `load_prompt(...)`. Update vercel.json, the research [slug] cache path, admin server .env path, eval scripts, .gitignore. Delete dead Vercel files. Retire `public/wiki/` (wiki v6). Triage the working-tree zips and prototypes. `git mv tools/karpathy-wiki tools/wiki-eval`. Rewrite the CLAUDE.md section. Verify all 8 plan steps. Stop and show diff before pushing.
+
+---
+
+## [IN PROGRESS] The Garden chatbot v0.1
 *2026-05-05 · worktree: `claude/chatbot` at `.claude/worktrees/chatbot`*
 
-The chatbot ships and works end-to-end. System prompt now lifted to `src/content/prompts/garden-system-prompt.md` (commit `f199fad`). Remaining v0.1 polish:
-- Backfill 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values Maaike signs off on.
-- Make `ai` required in the Zod schema.
-- Drop the conditional render in `src/layouts/PostLayout.astro` (always show the pill).
-- Tighten the Sources block enforcement in chat replies (the model often skips it under length pressure).
-- Library exemption decision still open.
+Chatbot ships and works end-to-end. Remaining v0.1 polish:
 
-Note: `tools/karpathy-wiki/tools/serve.py` is being moved to `api/server.py` — see the karpathy-wiki cleanup item above. Do that cleanup first (it makes the path references in this work simpler).
+- Backfill 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`)
+- Make `ai` required in the Zod schema
+- Drop the conditional render in `src/layouts/PostLayout.astro`
+- Tighten the Sources block enforcement in chat replies
+- Library exemption decision still open
+- **NEW:** add "What should I write about?" starter button surfacing themes from `src/data/themes.json` as writing prompts (folded from old "Themes as writing prompts" item)
 
-Key files: `src/components/ChatPanel.astro`, `src/scripts/chat-panel.ts`, `src/layouts/PostLayout.astro`, `api/server.py` (after the cleanup), `src/content.config.ts` (where `ai:` needs to become required), `public/preview-meta-line.html` (preview file, can delete).
+Note: `tools/karpathy-wiki/tools/serve.py` is moving to `api/server.py` per the cleanup item. Do that first.
 
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: finish The Garden chatbot v0.1 polish. Backfill the 2 missing `ai:` fields (`field-notes/new-draft`, `weblinks/saga-knowledge-platform`) with values I sign off on, make `ai` required in the Zod schema, drop the conditional render in `src/layouts/PostLayout.astro`. Then tighten the Sources block enforcement in the chat (model often skips it under length pressure). System prompt is at `src/content/prompts/garden-system-prompt.md`.
+**Opening message:**
+> Run `/telegram-sync` first. Finish chatbot v0.1 polish: backfill the 2 missing `ai:` fields, make `ai` required in the Zod schema, drop the conditional render in PostLayout. Tighten the Sources block enforcement. Add a "What should I write about?" starter button surfacing themes as writing prompts. System prompt: `src/content/prompts/garden-system-prompt.md`.
 
 ---
 
-## 🟡 About page: content rewrite
+## [READY] About page: content rewrite
+*2026-05-05 (was also 2026-03-27, duplicate merged)*
+
+Structure in place at `src/pages/about.md`. Editable in Typora. Maaike rewrites bio, what grows here, how maturity works. Once done, update sidebar bio in `src/pages/index.astro`.
+
+**Opening message:**
+> Open `src/pages/about.md` in Typora and rewrite the about page content. Once done, update the sidebar bio blurb in `src/pages/index.astro` to match.
+
+---
+
+## [READY] Photos in stream cards
 *2026-05-05*
 
-The about page structure is fully in place — PostLayout, frontmatter, editable in Typora at `src/pages/about.md`. What's still needed: Maaike rewrites the actual content (bio, what grows here, how maturity works, etc.) to reflect where the garden is now. Once done, update the sidebar bio blurb in `src/pages/index.astro` to match.
+Add optional `image` field to jottings schema, pass through `MosaicCard.astro`, display below body for `type: post` jottings. Test post: `latest-addition-to-my-thinking-tools-a-tiny-e-reader.md` (3 images in `public/images/jottings/`).
 
-Key files: `src/pages/about.md`, `src/pages/index.astro` (sidebar bio)
+Files: `src/content.config.ts`, `src/components/MosaicCard.astro`.
 
-**Opening message for next session:**
-> Open `src/pages/about.md` in Typora and rewrite the about page content. The structure and frontmatter are already in place. Once the text is done, update the sidebar bio blurb in `src/pages/index.astro` to match.
-
----
-
-## 🟡 Stream redesign follow-ups (May 5 session)
-*2026-05-05*
-
-Three small items left from the stream redesign + e-reader jotting session. All are independent and can be picked in any order. Photos in stream is a feature request; the PDF stubs and inbox book entry are inbox hygiene.
-
-See individual backlog entries added 2026-05-05:
-- "Photos in stream cards"
-- "Process two PDF stubs"
-- "Telegram inbox: unnamed book entry (Apr 29)"
-
-Key files: `src/content.config.ts`, `src/components/MosaicCard.astro`, `src/content/files/`, `src/content/_inbox/telegram.md`
-
-**Opening message for next session:**
-> Three small follow-ups from the stream redesign session. Pick any order: (1) add photo preview to jotting stream cards (`src/components/MosaicCard.astro`); (2) run `/summarize-pdf` on the two stubs in `src/content/files/`; (3) ask Maaike what the unnamed Apr 29 book was and run `/new-book`.
+**Opening message:**
+> Add photo preview to jotting stream cards. Add optional `image: /path/to/img.jpg` field to the jottings content schema in `src/content.config.ts`, update `MosaicCard.astro` to display it below the body text for `type: post` jottings. Test with `src/content/jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader.md`.
 
 ---
 
-## 🟡 Photos in stream cards
-*2026-05-05*
+## [IN PROGRESS] Verify nightly-inbox-enrichment
+*re-registered 2026-05-08, next run 2026-05-09 05:04*
 
-When a jotting has inline images, they don't appear in the stream card preview. Maaike asked whether they could. Feasible: add optional `image` frontmatter field to jottings schema, pass it through MosaicCard.astro, and display it in the card body for `type: post` jottings.
+Task `nightly-inbox-enrichment` registered today at cron `0 5 * * *`. Earlier registration was lost (scheduled-tasks MCP doesn't persist across restarts, see memory `reference_scheduled_tasks_persistence.md`). Tomorrow morning: scan `tools/admin/nightly-enrichment-log.md` for the first real entry, spot-check one in the dashboard at `localhost:8900`. If missing or failed, debug.
 
-Key files: `src/content.config.ts`, `src/components/MosaicCard.astro`
-
-**Opening message for next session:**
-> Add photo preview to jotting stream cards. Add optional `image: /path/to/img.jpg` field to the jottings content schema in `src/content.config.ts`, update `MosaicCard.astro` to display it below the body text for `type: post` jottings. Test with `src/content/jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader.md` (has three images in `public/images/jottings/`).
+**Opening message:**
+> Check `tools/admin/nightly-enrichment-log.md` for last night's nightly-inbox-enrichment run. Confirm enriched drafts pushed cleanly, spot-check one in the dashboard at localhost:8900. If skipped or failed, debug. Verify task is still in `mcp__scheduled-tasks__list_scheduled_tasks` first.
 
 ---
 
-## 🟡 Process two PDF stubs
-*2026-05-05*
+## [PARKED] Re-evaluate the /research + admin dashboard work
+*2026-04-25 · blocker: trust before scope*
 
-Two PDF stubs in `src/content/files/` are still unprocessed from the telegram sync (need `/summarize-pdf`):
-- `src/content/files/dingemanse-2026-interactional-foundations-for-crit.md`
-- `src/content/files/s44271-025-00376-6.md`
+`/research` route audit against v0.5 SPEC.md still not done. Admin dashboard half is largely worked out commit-by-commit (now 19 endpoints, far past the 4 originally noted). Single item, not split.
 
-**Opening message for next session:**
-> Run `/summarize-pdf` on the two pending PDF stubs: `dingemanse-2026-interactional-foundations-for-crit` and `s44271-025-00376-6` in `src/content/files/`. Match each to a library entry or create one, generate a structured summary, run `/auto-tag`, delete the stub.
+**Opening message:**
+> Audit each `/research` route (`/`, `/ask`, `/stream`, `/[slug]`, `/map`, `/log`) against `v0.5 SPEC.md`. Surface dead code, spec drift, and any regressions before any new feature work.
 
 ---
 
-## 🟡 Telegram inbox: unnamed book entry (Apr 29)
-*2026-05-05*
-
-`src/content/_inbox/telegram.md` has an Apr 29 entry: "This is not a weblink, but a book" — no title given. Needs Maaike to provide the book title before a library entry can be created.
-
-blocker: Maaike to provide book title/author
-
-**Opening message for next session:**
-> There's an Apr 29 inbox entry: "This is not a weblink, but a book" with no title. What book was it? Once confirmed, run `/new-book` to add it to the library.
-
----
-
-## 🟡 Working-tree housekeeping: Vercel + admin tooling + prototypes
-*2026-04-30*
-
-After the inbox-enrichment thread closed (commits f5775b5, 62af0b7, c808105 pushed), the working tree still has untracked items in three categories. Each needs a quick decision: ship, gitignore, or delete. Independent of any feature work.
-
-**Production-looking (likely commit):**
-- `vercel.json` (deploy config, never tracked)
-- `api/` (likely Vercel serverless functions)
-
-**Admin tooling (decide ship vs keep local):**
-- `tools/admin/_batch_plan.py`
-- `tools/admin/_generate_topic_views.py` (feeds /research topic-view cache)
-- `tools/karpathy-wiki/tools/extract-batch.py`
-
-**Clutter (delete or gitignore):**
-- `tools/admin/__pycache__/`: gitignore
-- 5 handoff zip files at repo root: "Research dashboard.zip", "Research dashboard-handoffv1-0.zip", "esearch-wiki-v0.3-handoff-2026-04-19.zip", "final handoff research assistant v 5.zip", "handoff_v0.4_collections_2026-04-19.zip..zip" (delete or move out)
-- `public/preview-server.py`, `public/wiki-v1.html` through `wiki-v5.html`, `public/workflow-tool.html`: decide keep or archive each
-- `public/user-manual.html`: leave in place per prior backlog (Maaike WIP)
-
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: housekeeping pass on the working tree. Three groups, each independent: (1) commit `vercel.json` + `api/` if prod-needed, (2) decide which `tools/admin/_*.py` and `tools/karpathy-wiki/tools/extract-batch.py` helpers ship, (3) gitignore `__pycache__/`, delete the 5 handoff zips at repo root, and triage the `public/wiki-v*.html` + `workflow-tool.html` + `preview-server.py` prototypes (keep or archive). Leave `public/user-manual.html` alone (Maaike WIP).
-
----
-
-## 🟡 Inbox enrichment + check-inbox skill
-*2026-04-27*
-
-Previous session published 4 enriched weblinks (commit 640c12f) and codified the inbox review workflow as a new /check-inbox skill. The skill file is on disk but uncommitted. Pending: commit the skill, fix misleading dashboard copy, and decide what to do with the un-staged dashboard/server tweaks from earlier work (still showing as modified).
-
-Key files:
-- `.claude/commands/check-inbox.md` (new, uncommitted)
-- `public/mockup-ingest-dashboard.html` (modified, line 875-901 has stale "Enriching…" / "Sync + auto-tag complete" copy that lies to the user; the button does NOT auto-enrich)
-- `tools/admin/server.py` (modified)
-- `scripts/run_auto_tag_on_drafts.py` (modified)
-- `src/content.config.ts` (modified)
-
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: commit the new `.claude/commands/check-inbox.md` skill file, and fix the misleading "Enriching…" / "Sync + auto-tag complete" copy in `public/mockup-ingest-dashboard.html` (lines ~875-901). The dashboard's Sync Telegram button does not auto-enrich (workflow intentionally skips API enrichment per memory rule), so the copy should say something like "Pull complete, run /check-inbox in Claude Code to enrich". Also triage the other modified files (server.py, run_auto_tag_on_drafts.py, content.config.ts) to decide if they ship or revert.
-
----
-
-## 🟠 Re-evaluate the /research + admin dashboard work
+## [READY] Research wiki at /research/ — polish + open ends
 *2026-04-25*
 
-The shell, endpoints and citation system are live but the work was rushed and went off-spec several times before landing. Before adding more, audit what's actually in the repo: do the six `/research` routes match the v0.5 SPEC; is the `tools/karpathy-wiki/raw/` snapshot drift from `src/content/` causing stale answers; are there dead-code remnants from the wiki-v6 detour; do the four committed admin-dashboard endpoints (approve, mark-reviewed, delete, sync-telegram) all behave correctly. blocker: trust before scope.
+Pick a polish target:
+(a) wire `tools/karpathy-wiki/raw/` snapshot to refresh from `src/content/`,
+(b) generate sparse topic views for 46 orphan topics,
+(c) port Tweaks panel for theme/density toggling,
+(d) wire the search field.
 
-Key files: `src/pages/research/`, `src/layouts/ResearchLayout.astro`, `src/styles/research-port.css`, `tools/karpathy-wiki/api/index.py`, `tools/karpathy-wiki/tools/serve.py`, `tools/admin/server.py`, `.claude/plans/calm-roaming-frog.md`, `.claude/backlog.md`
-
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: do a thorough re-evaluation of what was committed during the 25 April session. Audit each /research route against the v0.5 SPEC.md, the live citation flow on /research/ask, and the four admin-dashboard endpoints. Surface dead code, spec drift, and any regressions before any new feature work.
-
----
-
-## 🟡 Research wiki at `/research/` — polish + open ends
-*added: 2026-04-25*
-
-Shipped: full three-pane shell at `/research/` per the v0.5 design handoff. Routes: `/research/`, `/ask`, `/stream`, `/[slug]`, `/map` (links out to `/explore`), `/log`. Shared layout: `src/layouts/ResearchLayout.astro`, components in `src/components/research/`, styles in `src/styles/research.css` + `research-port.css`. Left rail: collapsible Concepts/People/Entities under a single TOPICS header. Stream uses MosaicCard with filters in the right rail. Topic reading view pulls from triples.json + cached topic-views in `tools/karpathy-wiki/cache/topic-views/` (426 of 472 topics). Ask streams from `https://maaike-ai.vercel.app/api/ask` with three-way citations (pink inline links for own writing, sage-green chips for topics, blue chips for external sources) and source-rail accumulating across the thread. Sources stream up-front so the rail populates before the answer finishes.
-
-**Loose ends and known issues:**
-- The `tools/karpathy-wiki/raw/` snapshot of garden content is what the chatbot reads for retrieval and context — it's a copy, not a live read of `src/content/`. No mechanism currently keeps it in sync. New articles won't show up in chat until the snapshot is regenerated.
-- 46 topics didn't get a cached topic-view (no posts touch them). Rendering on those slugs is sparse — just type/lens/relations, no synthesis sections. Decide: prune from taxonomy, or generate a thin view from the topic label alone.
-- Map page is a static placeholder linking to `/explore`. Not integrated.
-- Tweaks panel (theme/density/logo cycling from prototype) wasn't ported — the layout still reads `[data-theme]` and `[data-density]` from localStorage so it works manually, no UI to toggle.
-- Search field in the topbar is a placeholder, no query logic.
-
-**Working with Claude this session was painful** — same instructions repeated multiple times before they landed; layout fundamentals re-broken between fixes; sub-tasks tackled before they were asked for. Logged in `building-this-garden.md` 25 April entry. Worth reflecting on what to change in the project's interaction patterns.
-
-**Opening message for next session:**
-> Pick a polish target on `/research/`. Options: (a) wire the karpathy `raw/` snapshot to refresh from `src/content/` so chat sees fresh posts, (b) generate sparse topic views for the 46 orphan topics, (c) port the Tweaks panel for theme/density toggling, (d) wire the search field. Pick one, scope, then build.
+**Opening message:**
+> Pick a polish target on `/research/`. Options: (a) wire the karpathy `raw/` snapshot to refresh from `src/content/`, (b) generate sparse topic views for the 46 orphan topics, (c) port the Tweaks panel for theme/density toggling, (d) wire the search field. Pick one, scope, then build.
 
 ---
 
-## 🟡 Formal ontology layer research (RDF / SKOS)
-*2026-04-22*
+## [READY] Formal ontology + topic + tag cleanup
+*2026-04-22 · bumped 2026-05-08*
 
-Flagged two days ago as "tomorrow's research" and never picked up. Research-only task, no implementation: what's the effort and benefit of publishing the faceted knowledge graph as formal linked data (RDF / SKOS / schema.org)? Tradeoffs to weigh: interoperability and linked-data-cloud participation vs. tooling/serialization/maintenance overhead for a personal garden. Output is a short written recommendation, not code.
+Three threads, naturally one item:
 
-Context: the graph is now in a clean faceted shape (types, lenses obligatory-array, subjects obligatory-array, roles optional, 25 predicates). That makes a formal serialization more feasible than before, since topics already have structured metadata that maps onto RDF classes and properties.
+1. **Formal ontology research (RDF / SKOS / schema.org).** Effort + benefit of publishing the faceted graph as linked data. Output: written recommendation, no code. Context: the graph is now in a clean faceted shape (types, lenses obligatory-array, subjects obligatory-array, roles optional, 25 predicates).
+2. **Topic cleanup pass.** Review `src/data/triples.json` for duplicate / near-synonymous topics. We've been adding without checking reuse — there are likely under-reused near-duplicates.
+3. **Tag cleanup.** Voice/HMI fragmentation still active: `voice` (4) + `voice-design` (13) + `voice-ux` (1) + `voice-user-interface-design` (1) + `voice-user-interfaces` (3); `human-machine-interface` (9) + `human-machine-interface-design` (8); `chatbots` (1) vs `conversational-ai` (20); `testing` (1), `user-interfaces` (1).
 
-Key files: `src/data/triples.json`, `.claude/commands/auto-tag.md`, `.claude/commands/ingest-source.md`
-
-**Opening message for next session:**
-> Research the effort and benefits of formalising the garden's faceted knowledge graph as RDF / SKOS / schema.org linked data. Output is a written recommendation with tradeoffs, not implementation. The graph schema is now clean (faceted, fully migrated) so the analysis can use the real structure. Draw conclusions on whether it's worth doing for a personal garden.
-
----
-
-## 🟡 Integrated admin dashboard (requirements scoping)
-*added: 2026-04-22*
-
-Big multi-feature project. Four functions brought together in one admin surface:
-
-1. **Inbox watcher + ingest review** — actively monitors `src/content/_inbox/`, runs `/ingest-source` on new URLs, presents each ingestion (metadata, summary, topics, associations) for review, Maaike corrects/approves before anything is written
-2. **Chatbot eval** — embed the existing `tools/karpathy-wiki/eval.html` dashboard (no new functionality, just integration)
-3. **Interactive data model inspector** — visual of the full pipeline (inbox → ingest → triples.json → frontmatter → Mycelium → graph → chat retrieval), per-step detail panel, intended as learning/onboarding tool
-4. **Conversation logs + business KPIs** — persistent chat logs (net-new, chat is currently stateless), KPI panel (questions, verified-claim rate, refusal rate, retrieval-miss rate, return visitors, most-asked topics), privacy-aware
-
-**Rules of engagement set by Maaike:** requirements first, involve her every step, document everything, no code without permission. Each sub-feature gets its own mini-spec signed off before anything is built.
-
-**Six open questions block the first spec session:** hosting model (main domain, subdomain, local-only), auth (magic-link, password, IP allowlist, none), chat-log storage (Vercel KV, Upstash, SQLite, JSON), framework (Astro page, separate app, plain HTML, SPA), priority order (proposed: 2 → 1 → 4 → 3), and scope of feature 3 (internal tool vs public-facing).
-
-**Full project framing:** `C:\Users\mgroe\.claude\plans\first-lets-do-a-eventual-zephyr.md` — existing building blocks, what's reusable, what's net-new.
-
-**Opening message for next session:**
-> Answer the six open questions in the dashboard scoping plan (`C:\Users\mgroe\.claude\plans\first-lets-do-a-eventual-zephyr.md`). Once answered, pick one sub-feature (2 is smallest, suggested first) and we'll write the mini-spec together. No code this session.
+**Opening message:**
+> Three connected jobs: research the effort and benefits of formalising the faceted graph as RDF / SKOS / schema.org linked data (written recommendation, no code); pass over `src/data/triples.json` for duplicate or under-reused topics; consolidate the voice/HMI/conversational-ai tag fragmentation. Output recommendations before any consolidation merges.
 
 ---
 
-## 🟡 Wiki eval dashboard: run the baseline
-*added: 2026-04-20*
+## [READY] Integrated admin dashboard (features 2/3/4)
+*2026-04-22 · feature 1 done*
 
-Full eval stack shipped this session. What got built:
+Feature 1 (inbox watcher + ingest review) is shipped on `localhost:8900` (19 endpoints). Three features remain:
 
-- **Server side** (`tools/karpathy-wiki/tools/serve.py`): graph-based retrieval using the existing semantic layer (triples, taxonomy, themes — no embeddings); **Defense A** (refuse-weak-retrieval: zero LLM call when nothing matched); **Defense B** (`/api/verify` — LLM-as-judge claim classification returning verified/inferred/unverified buckets with a verdict); `/api/health` with feature flags; ThreadingTCPServer, no `SO_REUSEADDR`, so zombies become loud errors.
-- **Dashboard** (`tools/karpathy-wiki/eval.html`): 55-question golden test set across 7 categories (relevant topics + people, ambiguous, out-of-scope, adjacent, adversarial injection + hallucination); live retrieval trace per question (topics matched, triples fired, score breakdown, themes matched); sources with type columns; 10-criterion yes/no HITL rubric; claim verification UI; **automated diagnosis** from the methodology decision tree (retrieval miss / prompt issue / grounding drift / tone-scoping / healthy); editable `expected_source` per question (my original guesses are editable from the UI — if one feels wrong, fix it in place, don't touch Python); **Start fresh** with auto-backup.
-- **Infrastructure**: `scripts/eval-dev.sh` (canonical start, kills-before-start, health-gated), `scripts/eval-smoke-test.sh` (7 checks including dead-DOM detector — catches the class of bug that broke the Run button mid-session).
-- **Docs** all served at `localhost:8782`: `manual.html` (task-based, Information Mapping), `methodology.html` (how to actually evaluate with worked examples), `truth-report.html` (architecture of the three defenses), `TRUTH-AND-VERIFICATION.md`.
+2. **Chatbot eval embed** — embed the existing eval dashboard. Inputs: keep the 55-question test set + methodology from the retired wiki-eval item.
+3. **Interactive data model inspector** — visual of the full pipeline (inbox → ingest → triples.json → frontmatter → Mycelium → graph → chat retrieval), per-step detail panel.
+4. **Conversation logs + business KPIs** — persistent chat logs (chat is currently stateless), KPI panel (questions, verified-claim rate, refusal rate, retrieval-miss rate, return visitors, most-asked topics), privacy-aware.
 
-**Loose ends:**
-- The `runCurrent` race-condition fix landed late in the session. Verify it in a fresh browser session before trusting results. Any Q3-style cross-contaminated localStorage from earlier should be caught by Start fresh + re-run.
-- Expected-source values are my guesses; correct them from the UI as you evaluate.
-- Dashboard state is in `localStorage`, not committed. Export JSON before big changes.
+Six open questions block the next spec session: hosting model, auth, chat-log storage, framework, priority order, scope of feature 3 (internal vs public). Plan: `~/.claude/plans/first-lets-do-a-eventual-zephyr.md`.
 
-**Next session should:** run the 55-question baseline, hand-score it, click Verify all, read the Report view. The headline metric for any future system change is the **unverified-claim rate** from Verify-all. First real test of whether Defense A + B actually work in practice.
-
-Key files: `tools/karpathy-wiki/eval.html`, `tools/karpathy-wiki/tools/serve.py`, `tools/karpathy-wiki/tools/eval.py`, `scripts/eval-dev.sh`, `scripts/eval-smoke-test.sh`, `tools/karpathy-wiki/{manual,methodology,truth-report}.html`, `tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md`
-
-**Opening message for next session:**
-> Run the wiki eval dashboard baseline. Start the stack with `bash scripts/eval-dev.sh`, open http://localhost:8782/eval.html, click **Run all** to fire all 55 questions, hand-score with 1/2/3 + rubric, click **Verify all**, then open **Report** for aggregates and the diagnosis breakdown. If any of my expected-source guesses feel wrong, correct them inline (edit button next to the expected source). Export JSON when done — that's your baseline for any future system change. Read `tools/karpathy-wiki/methodology.html` before scoring if you want the calibration guide.
+**Opening message:**
+> Answer the six open questions in the dashboard scoping plan (`~/.claude/plans/first-lets-do-a-eventual-zephyr.md`). Once answered, pick one of features 2/3/4 (2 is smallest, suggested first) and write the mini-spec together. No code this session.
 
 ---
 
-## 🔵 Sources ingestion layer + topic wiki
-*2026-04-18*
+## [PARKED] User manual HTML mockup
+*2026-04-07 · blocker: Maaike finishing the content*
 
-The ingestion pipeline and topic wiki are live but the wiki page design isn't finalized. Three redesign prototypes are in `public/prototypes/` (dashboard, narrative, hub): pick one, adapt it into `src/pages/topics/[topic].astro`. The current topic page works but uses a plain text layout without the mycelium radial or argument map visualizations. Also: `/telegram-sync` now auto-runs `/ingest-source` on new links, but this hasn't been tested end-to-end with a real Telegram sync yet.
-
-Key files: `src/pages/topics/[topic].astro`, `src/pages/topics/index.astro`, `src/pages/sources.astro`, `.claude/commands/ingest-source.md`, `.claude/commands/telegram-sync.md`, `src/data/triples.json`, `public/prototypes/wiki-redesign-*.html`
-
-**Opening message for next session:**
-> Pick a wiki page redesign (dashboard, narrative, or hub) from `public/prototypes/` and implement it as the real `/topics/[topic].astro` page. Prototypes are at `localhost:4321/prototypes/wiki-redesign-*.html`. Also test `/telegram-sync` end-to-end with a real Telegram link to verify the auto-ingest flow works.
+`public/user-manual.html` — Maaike finishing herself. Leave the file in place.
 
 ---
 
-## 🟡 Wiki chat: polish items after launch
-*added: 2026-04-19*
+## [READY] User manual deliverables
+*2026-04-06 · last-touched 2026-04-12*
 
-Chat is live at maaike.ai/wiki. Four small follow-ups, any order: (1) point the frontend `API` constant at `https://wiki.maaike.ai` instead of `https://maaike-ai.vercel.app` — one-line edit, kills Chrome's lookalike warning for good; (2) decide where the chat gets a nav link on maaike.ai (footer? header?); (3) upgrade in-memory rate limiter to Upstash Redis so it survives Vercel cold starts (free tier, ~2 hrs, rationale in `tools/karpathy-wiki/API.md`); (4) self-host Lora + Roboto in the chat instead of Google Fonts, or add SRI hashes.
+Six approved deliverables to write: TOC, full chapter outline, user/task analysis, persona, pitch deck structure, JTBD journey. Three verbatim Maaike quotes in `_inbox/telegram.md` (2026-04-06) feed in directly. Plan: `~/.claude/plans/smooth-mapping-gizmo.md`.
 
-Key files:
-- `public/wiki/index.html` — frontend, line with `const API = ...` near the top of the `<script>` block
-- `tools/karpathy-wiki/api/index.py` — current in-memory rate limiter (`_rate_state` + `_check_rate_limit`)
-- `tools/karpathy-wiki/SYSTEM_PROMPT.md` — editable prompt; test on the live chat after each push
-
-**Opening message for next session:**
-> Run `/telegram-sync` first, then: polish items on the wiki chat. Swap the frontend `API` constant in `public/wiki/index.html` to `https://wiki.maaike.ai`, decide on a nav link to `/wiki` somewhere on maaike.ai, and (if time) upgrade the in-memory rate limiter in `tools/karpathy-wiki/api/index.py` to Upstash Redis.
+**Opening message:**
+> Write the six user manual deliverables to file (TOC, outline, user/task analysis, persona, pitch deck, JTBD journey) — all approved last session. Three verbatim quotes in `src/content/_inbox/telegram.md` (dated 2026-04-06) feed directly into the content.
 
 ---
 
-## 🟡 Ingestion architecture: build the Karpathy layer
-*added: 2026-04-14*
+## [IN PROGRESS] Karpathy comparison project
+*2026-04-12 · bumped 2026-05-08 · partial draft moved to main*
 
-Agreed architecture from today's session. The garden already has the right shape — three concrete things to build:
-
-**1. `sources` section in `triples.json`**
-External references that contribute associations but have no content page. Format:
-```json
-"sources": {
-  "source-id": { "label": "...", "url": "...", "date": "YYYY-MM-DD" }
-}
-```
-Update the concept graph page (`/graph`) to show source nodes alongside post nodes.
-
-**2. Weblink enrichment step**
-When a weblink arrives via Telegram (or on `/publish`), offer to fetch + run TAO extraction and add associations to `triples.json` using a source ID (not a post slug). Optional, per link, never automatic.
-
-**3. `/ingest-source` skill**
-Takes a URL or PDF, extracts TAO, checks overlap with existing topics in `triples.json` (gate: 2+ existing topics must match), creates a source entry, adds associations. Calls existing `/auto-tag` logic internally.
-
-Full architecture in memory: `project_ingestion_architecture.md`.
-
-**Opening message for next session:**
-> Build the Karpathy ingestion layer. Three deliverables: (1) add `sources` section to `triples.json` and update `/graph` page to show source nodes; (2) add optional weblink enrichment step to telegram-sync; (3) build `/ingest-source` skill. Full architecture in `C:\Users\mgroe\.claude\projects\C--Sharing-Maaike-Digital-Garden\memory\project_ingestion_architecture.md`.
-
----
-
-## 🟡 Newsletter: distribute Creative Prompts, April 2026
-*added: 2026-04-14*
-
-Published to the garden at `/jottings/creative-prompts-april-2026/`. Still needs manual copy-paste to the other channels. Typora has the file open.
-
-- [ ] Substack
-- [ ] Mighty Networks
-- [ ] LinkedIn article
-- [ ] Mailchimp
-
----
-
-## 🟡 Convoclub meetup: garden demo topics
-*added: 2026-04-13*
-
-Six demo topics ready to pull during the meetup. Each stands alone — pick one depending on what the audience is most curious about.
-
-- [ ] **The garden as a second brain for conversation designers** — show the seed/field note/article maturity arc as an analogy for how ideas develop in practice
-- [ ] **Wiki-links as a thinking tool** — pick a topic (e.g. "conversation repair") and trace its connections across notes. Visible argument map.
-- [ ] **Auto-tagging with TAO** — show how Claude extracts Topics, Angles, Observations from a piece of writing and turns them into semantic tags. Linguistically interesting.
-- [ ] **B1 checker skill** — paste a bot utterance or content fragment and check it for B1 compliance live. Directly relevant to conversation designers.
-- [ ] **AI transparency field** — show how every post is labeled (100% Maai / assisted / co-created / generated). Opens a conversation about authorship.
-- [ ] **Live: ask the garden a question** — pick a topic Maaike has written about and let Claude synthesize across her notes and respond in her framework.
-
----
-
-## 🟡 Reading radar: GenAI directions 2026
-*added: 2026-04-11*
-
-Three articles to read and scan. Personal orientation, not for publishing.
-
-- From generative to agentic AI: a roadmap in 2026
-  https://medium.com/@anicomanesh/from-generative-to-agentic-ai-a-roadmap-in-2026-8e553b43aeda
-- State of RAG & GenAI
-  https://squirro.com/squirro-blog/state-of-rag-genai
-- Agentic AI design patterns: 2026 edition
-  https://medium.com/@dewasheesh.rana/agentic-ai-design-patterns-2026-ed-e3a5125162c5
-
----
-
-## 🟠 User manual HTML mockup
-*2026-04-07*
-
-`public/user-manual.html` — a work-in-progress mockup for "How to grow your own digital garden". Maaike is finishing it herself. Leave the file in place.
-
-blocker: Maaike finishing the content
-
----
-
-## 🟡 User manual deliverables
-*2026-04-06 · last-touched: 2026-04-12*
-
-Six deliverables approved and ready to write: TOC, full chapter outline, user/task analysis, persona, pitch deck structure, and JTBD journey.
-
-Inbox quotes from Maaike (2026-04-06 in `src/content/_inbox/telegram.md`) feed directly into this: why the garden, audience/approach, learning philosophy.
-
-Key files: `src/content/seeds/how-to-build-a-digital-garden.md`, `src/content/field-notes/building-this-garden.md`, `src/content/field-notes/garden-user-manual.md`, plan file: `C:\Users\mgroe\.claude\plans\smooth-mapping-gizmo.md`
-
-**Opening message for next session:**
-> Write the six user manual deliverables to file (TOC, outline, user/task analysis, persona, pitch deck, JTBD journey) — all were approved last session. Three verbatim Maaike quotes in `src/content/_inbox/telegram.md` (dated 2026-04-06) feed directly into the content.
-
----
-
-## 🔵 Karpathy comparison project
-*added: 2026-04-12 · worktree: `claude/karpathy`*
-
-Project hub at `src/content/field-notes/karpathy-comparison.md`. Two articles comparing Maaike's approach to Andrej Karpathy's, plus a practical implementation on the garden's content.
+Hub at `src/content/field-notes/karpathy-comparison.md` (not yet on disk). Partial draft of Version B (technical side-by-side, "How we actually compare") moved out of worktree to `src/content/articles/how-we-actually-compare.md`, still `draft: true`. Worktree at `.claude/worktrees/karpathy` can be removed when ready.
 
 Deliverables:
-- [ ] Version A: "The compiler and the gardener" — metaphor-forward, 600-900 words
-- [ ] Version B: "How we actually compare" — technical side-by-side, 700-1000 words
+
+- [ ] Version A: "The compiler and the gardener" (metaphor-forward, 600-900 words). Not started.
+- [partial] Version B: "How we actually compare" (technical side-by-side, 700-1000 words). Draft in main, finish in Typora.
 - [ ] LinkedIn post for Version A
 - [ ] LinkedIn post for Version B
-- [ ] Karpathy implementation — apply his approach to the garden's content (separate page)
+- [ ] Karpathy implementation on the garden's content
+- [ ] Create the hub field-note `karpathy-comparison.md`
 
-Work in worktree `C:\Sharing\Maaike\Digital-Garden\.claude\worktrees\karpathy` on branch `claude/karpathy`.
-
-**Opening message for next session:**
-> Continue the Karpathy comparison project. Hub is at `src/content/field-notes/karpathy-comparison.md`. Start with whichever article version you want first — Version A (metaphor-forward: "The compiler and the gardener") or Version B (technical side-by-side: "How we actually compare"). Use `/new-project-file` to add each article.
-
----
-
-## 🟡 Verify nightly-inbox-enrichment first real run
-*added: 2026-05-06*
-
-Scheduled task `nightly-inbox-enrichment` registered today at 05:04 local daily. It pulls main, finds drafts with `triples: []`, runs the TAO enrichment routine inline (auto-approve, no per-item gates), keeps `draft: true` for morning review, logs to `tools/admin/nightly-enrichment-log.md`, commits + pushes. PDFs are skipped (logged with `pdf-skipped`).
-
-Tomorrow morning (2026-05-07): scan `tools/admin/nightly-enrichment-log.md` and confirm any drafts captured overnight got enriched and pushed. Spot-check one in the dashboard. If validation/push failed, debug.
-
-Key files: `~/.claude/scheduled-tasks/nightly-inbox-enrichment/SKILL.md`, `tools/admin/nightly-enrichment-log.md`
-
-This supersedes the old "Morning inbox + telegram schedule" backlog item (2026-04-07). Telegram sync is already running via `telegram-sync.yml`. The inbox-content surfacing half (option 1 from the old item) is not covered by this task and remains open if Maaike still wants it.
-
-**Opening message for next session:**
-> Check `tools/admin/nightly-enrichment-log.md` for last night's nightly-inbox-enrichment run. Confirm enriched drafts pushed cleanly, spot-check one in the dashboard at localhost:8900. If skipped or failed, debug.
+**Opening message:**
+> Continue the Karpathy comparison project. Hub field-note `karpathy-comparison.md` not yet created. Version B draft is at `src/content/articles/how-we-actually-compare.md` (still draft). Pick: (a) finish Version B in Typora, (b) start Version A "The compiler and the gardener", or (c) create the hub first.
 
 ---
 
-## 🟡 Garden housekeeping
-*2026-04-05*
+## [READY] Growing the digital garden
+*2026-04-05 · bumped 2026-05-08*
 
-Weeded the garden (deleted untitled-draft, test-quote, thin ChatGPT article stub), kept Convoclub as living history. ✅ Weeding confirmed done. Pinned the 3 most recent articles at the top of the stream (first as hero, next two with "Recent" badge). Added the publishing routine to Tech specs in the Toolshed, with a detailed section on the auto-tag enrichment process (TAO method, triples registry, wiki-links). Broken wiki link in chatgpt-presentation-prep was already plain text — closed.
+Project hub at `src/content/field-notes/growing-the-digital-garden.md`. Two deliverables remaining:
 
-Remaining: decide on thin seeds, review Toolshed Workflow section gaps (way of working with Claude, skills overview). Growing the digital garden project files moved to their own backlog item.
+- `field-notes/garden-lifecycle-weeds`. Formalise the greenhouse/compost/soil lifecycle model.
+- `field-notes/pruning-field-investigation`. How to use the pruning field systematically.
 
-Key files: `.claude/backlog.md`, `src/content/toolshed/publishing-routine.md`, `src/pages/index.astro`, `src/components/MosaicCard.astro`
-
----
-
-## 🟡 Growing the digital garden
-*added: 2026-04-05*
-
-Project hub at `src/content/field-notes/growing-the-digital-garden.md`. Documenting the garden's evolution: how it grows, how it's tended, and what it's becoming.
-
-Deliverables:
-- [x] `articles/garden-as-metaphor` — published
-- [ ] `field-notes/garden-lifecycle-weeds` — formalise the greenhouse/compost/soil lifecycle model
-- [ ] `field-notes/pruning-field-investigation` — how to use the pruning field systematically
-
-Use `/new-project-file` to add files, `/complete-project` when done.
+Already shipped: `articles/garden-as-metaphor`. Use `/new-project-file` to add files, `/complete-project` when done.
 
 ---
 
-## 🟡 Toolshed: missing elements
-*added: 2026-04-05*
+## [READY] Toolshed: missing elements
+*2026-04-05 · bumped 2026-05-08 · blocker: review list with Maaike before writing*
 
-The Toolshed content design section is missing posts on: way of working with Claude, Claude skills overview. Maaike to review a list of candidates before any are written.
-
-blocker: review list with Maaike before writing
+Toolshed content design section missing posts on: way of working with Claude, Claude skills overview. Maaike to review candidates before any are written.
 
 ---
 
-## ✅ Rhetoric/Argument triples + Thematic-TAO field note review
-*2026-04-04*
+## [IN PROGRESS] The return of the button
+*2026-03-27 · last-touched 2026-05-04*
 
-Closed two loose ends from the TAO graph session. Added 3 bridge associations to `src/data/triples.json` connecting Rhetoric and Argument into the GenAI cluster (LLMs generates Rhetoric, Rhetoric exhibits Indifference to truth, Argument requires Ground truth) plus predicates `generates` and `requires`. Reviewed the Thematic-TAO field note — already published and good as-is. Backlog groomed and archived both items.
+Working file: `src/content/seeds/the-return-of-the-button.md` (53 lines, draft). Core idea: Claude Code reintroduces structured input (buttons, numbered options) which is essentially IVR. Constraint as feature, not regression. Deliverables noted in the seed: a quick LinkedIn post and an article. Maaike writes herself in Typora.
 
-Key files: `src/data/triples.json`, `src/content/field-notes/thematic-tao-three-pass-method.md`, `.claude/backlog.md`
-
----
-
-## 🟡 Auto-tag all 100% Maai articles
-*added: 2026-03-31*
-
-Run `/auto-tag` on every article with `ai: "100% Maai"` in frontmatter. Five have already been done (see completed auto-enrichment item). Find the remaining ones, process one by one, and update `taxonomy.json`, `themes.json`, and `triples.json` as each one is tagged.
-
-To find candidates: `grep -rl "100% Maai" src/content/articles/` — then cross-check against posts that already have `triples:` and `themes:` in their frontmatter.
+**Opening message:**
+> Open `src/content/seeds/the-return-of-the-button.md` in Typora. The seed has the full thinking. Deliverables noted at the bottom: a quick LinkedIn post and an article.
 
 ---
 
-## 🟡 Themes as writing prompts
-*added: 2026-03-31*
+## [READY] Skill fix: suppress /ingest-source per-item review in batch flows
+*added 2026-05-08*
 
-The `themes` field (now in each post's frontmatter and in `src/data/themes.json`) stores per-post thematic summaries from the TAO analysis. These read like writing prompts: concise, opinionated one-liners about what a post argues. Explore using them as: seed ideas for new posts, newsletter prompts, LinkedIn angle generators, or a "what this garden is really about" overview page.
+`/check-inbox` runs `/ingest-source` per draft, but `/ingest-source` Step 8 presents a chat review block. That's the wrong surface for batch backfill. The dashboard is. Update either:
+(a) drop `/ingest-source` from `/check-inbox` (let the dashboard Enrich button handle), or
+(b) keep it but suppress Step 8 inside batch flows.
 
-Key files: `src/data/themes.json`, post frontmatter (`themes:` array)
+Memory rule already saved: `feedback_dashboard_pre_enriched.md`.
 
----
-
----
-
-## ✅ Tagging, triples, and auto-enrichment
-*2026-03-29 · completed: 2026-03-31*
-
-Ran `/auto-tag` on 5 existing articles. Built `src/data/taxonomy.json` (40+ canonical entities with types and term-definitions), `src/data/themes.json` (per-post thematic summaries), and `src/data/triples.json` (30+ topics, 27+ associations). Added `themes:` to content schema. Added **Mycelium** section to PostLayout: a collapsible serif drawer containing tags, Relations, and "What this post argues" — all three collapsed by default. 15 new tag files created.
+**Opening message:**
+> Pick (a) or (b) for the `/check-inbox` + `/ingest-source` interaction. Read memory `feedback_dashboard_pre_enriched.md`. Update the relevant skill file under `.claude/commands/`. Verify: a fresh `/check-inbox` run no longer floods chat with per-draft review blocks.
 
 ---
 
-## 🔵 The return of the button
-*added: 2026-03-27 · last-touched: 2026-03-28 · article*
+## [PARKED] Claude LabBook project
+*2026-03-27*
 
-I want to write an article called "The return of the button". The seed is at `src/content/seeds/the-return-of-the-button.md` — read it first, that has my literal thinking.
-
-The core idea: Claude Code is reintroducing structured, constrained input (buttons, numbered options) which is essentially IVR. Traditionally seen as a UX relic. But in GenAI, unconstrained free text is actually the problem: hard for users, and a security risk (prompt injection). Constraint is a feature, not a regression.
-
-Deliverables: one article and one LinkedIn post. Use `/new-post` to start. I will write it myself in Typora — just help me structure and develop the idea first.
-
----
-
-## 🟡 Content: About page rewrite
-*added: 2026-03-27 · last-touched: 2026-05-05*
-
-Structure is now in place: `about.astro` replaced by `src/pages/about.md` with full frontmatter (date, maturity, tags, description, ai). Editable in Typora. Renders with PostLayout like all other garden posts. What's still needed: Maaike rewrites the actual content (bio, what grows here, etc.) to reflect where the garden is now. Also update the sidebar bio blurb in `src/pages/index.astro` once the About page is done.
-
-Key files: `src/pages/about.md`, `src/pages/index.astro` (sidebar bio)
-
----
-
----
-
-
-## 🟠 Claude LabBook project
-*added: 2026-03-27 · last-touched: 2026-03-28 · new project*
-
-A system for logging code changes as scientific trials: what was tried, why, what happened, what was learned. Trials are chained so the agent can trace the full evolution of a problem. Includes pre-change safety checks that pull up prior trials on the same component.
-
-**Next step:** use `/new-project` to create the hub, then plan the implementation.
-
-Reference: LinkedIn post by https://www.linkedin.com/in/aimarketerguy, repo at https://lnkd.in/eRGsqYYF
-
----
-
-## 🟠 Standalone LinkedIn posts
-*added: 2026-03-27 · last-touched: 2026-03-28 · feature*
-
-Currently LinkedIn posts must be tied to a garden post. Maaike wants to create standalone LinkedIn posts from within the garden. Required structure: text, image, hashtags.
-
-**blocker:** define the workflow before touching code. Does this live in the garden at all, or is it a separate skill that writes to a staging file?
-
----
-
-## 🟠 Content: thin cards
-*added: 2026-03-27 · last-touched: 2026-03-28*
-
-Some garden cards are thin on content and need tending. No urgency — address opportunistically when working on related content.
-
----
-
-## 🟠 Obsidian templates
-*added: 2026-03-27 · last-touched: 2026-03-28 · housekeeping*
-
-Post templates in Obsidian are not consistent in metadata. **blocker:** check previous conversation history (possibly on another machine) to understand current status. Do not take action until confirmed with Maaike.
-
----
-
-## Garden health (from report: 2026-03-21)
-
-Outstanding issues from the last health scan. Run `/health` (or manually inspect) to refresh.
-
-- **Broken wiki link:** `[[ai-feedback-loops]]` in `articles/chatgpt-presentation-prep.md:37` — quick fix
-- **Library descriptions:** 97 books in `src/content/library/` missing `description` field — ongoing
-- **Tag cleanup:** 8 single-use tags recommended for merging; voice/HMI/LLM tag clusters have near-duplicates
+System for logging code changes as scientific trials. Want to work on it but too big right now. Reference: LinkedIn post by aimarketerguy, repo at https://lnkd.in/eRGsqYYF.
 
 ---
 
 ## Archive
 
-### ✅ Telegram weblinks: LinkedIn redirect URLs
-*2026-04-06 · completed: 2026-04-07*
+### [DONE] Three defenses against confabulation (field note)
+*2026-05-08* — generated from `tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md`, published to `src/content/field-notes/three-defenses-against-confabulation.md`.
 
-Three weblinks arrived via Telegram with LinkedIn safety redirect URLs. Decided to delete rather than resolve — links didn't lead anywhere useful.
+### [DONE] Process two PDF stubs
+*2026-05-08* — Dingemanse 2026 + Cheng et al 2026 to library entries with structured `## Summary`, auto-tag enrichment applied (13 new topics, 13 associations).
 
-### ✅ Tablet + Telegram integration
+### [DONE] Telegram inbox: unnamed book entry (Apr 29)
+*2026-05-08* — book already in library, inbox entry marked discarded.
+
+### [DONE] Reading radar: GenAI directions 2026
+*2026-05-08* — 3 weblinks added as drafts: `from-generative-to-agentic-ai-a-roadmap-in-2026`, `state-of-rag-genai`, `agentic-ai-design-patterns-2026-edition`.
+
+### [DONE] Inbox enrichment + check-inbox skill
+*committed 62af0b7* — `/check-inbox` skill committed. Misleading dashboard copy fix superseded by per-draft Enrich button (already exists in dashboard, see memory `reference_dashboard_features.md`).
+
+### [DONE] Auto-tag all 100% Maai articles
+*verified 2026-05-08* — 49 total, 48 enriched. The 1 outlier is `how-we-actually-compare` (still draft).
+
+### [DONE] Newsletter: distribute Creative Prompts, April 2026
+*2026-05-08*
+
+### [DONE] Garden housekeeping
+*2026-05-08*
+
+### [DONE] Garden health: broken wiki link `[[ai-feedback-loops]]`
+*verified gone 2026-05-08*
+
+### [DONE] Garden health: library descriptions
+*verified 2026-05-08* — 97 to 2 missing.
+
+### [DONE] Stream redesign follow-ups bundle
+*pointer removed, sub-items stand alone (Photos in stream cards is still active above)*
+
+### [DONE] Working-tree housekeeping
+*folded into Karpathy-wiki cleanup*
+
+### [DONE] Wiki chat: polish items after launch
+*folded into Karpathy-wiki cleanup as wiki v6 retirement*
+
+### [DONE] Wiki eval dashboard: run the baseline
+*folded into integrated admin dashboard, feature 2*
+
+### [DONE] Themes as writing prompts
+*folded into chatbot v0.1 polish as starter button*
+
+### [DONE] Ingestion architecture: build the Karpathy layer
+*won't do. `/ingest-source` skill built and in active use; `sources` section of triples.json was retired by skill spec; weblink auto-enrich is partially in place*
+
+### [DONE] Sources ingestion layer + topic wiki
+*discarded as useless experiment*
+
+### [DONE] Convoclub meetup: garden demo topics
+*discarded*
+
+### [DONE] Standalone LinkedIn posts
+*discarded. Easier to write in LinkedIn directly*
+
+### [DONE] Content: thin cards
+*discarded*
+
+### [DONE] Obsidian templates
+*discarded*
+
+### [DONE] Rhetoric/Argument triples + Thematic-TAO field note review
+*2026-04-04*
+
+### [DONE] Tagging, triples, and auto-enrichment
+*2026-03-31*
+
+### [DONE] Telegram weblinks: LinkedIn redirect URLs
+*2026-04-07*
+
+### [DONE] Tablet + Telegram integration
 *2026-04-06*
 
-Full Telegram capture pipeline delivered: @MaaikGardenBot, GitHub Actions sync on 15-min cron, links auto-published as weblinks, text notes to `_inbox/telegram.md`. `/telegram-sync` skill added. Book recommender ported from Python to Node.js, all 110 books scored, "include books I already read" toggle added, 20-test suite written. Tests section added to Toolshed. YAML build failure in `session-management.md` fixed. ViewTransitions removed. Morning inbox schedule still pending (see active item above).
+### [DONE] Tablet setup + inbox workflow
+*2026-04-06*
 
-### ✅ Tablet setup + inbox workflow
-*2026-04-05 · completed: 2026-04-06*
+### [DONE] Toolshed redesign: three-collection structure
+*2026-04-05*
 
-Samsung Notes → GitSync → `_inbox/` pipeline set up and working. Telegram pipeline also shipped this session.
+### [DONE] Library redesign: stream aesthetic, three views, mobile filters
+*2026-04-04*
 
-### ✅ Toolshed redesign: three-collection structure
-*2026-04-04 · completed: 2026-04-05*
+### [DONE] Review: Thematic-TAO method post
+*2026-04-02*
 
-Full Toolshed mini-site shipped. Three sections: Visual design (`/toolshed/design`, 20+ pattern posts), Content design (`/toolshed/content-design`, garden metaphor + prose/attribution/OG posts), Tech specs (`/toolshed/technical`, 5 architecture posts). Megamenu added to header. Mobile header fixed (no auto-expand, full-width triggers, wrapping views row). Content schema extended with `content` category.
+### [DONE] Stream refinement: index card aesthetic, filter sidebar
+*2026-03-29*
 
-### ✅ Library redesign: stream aesthetic, three views, mobile filters
-*2026-04-04 · completed: 2026-04-04*
+### [DONE] Stack page: browsable card browser
+*2026-03-28*
 
-Full rewrite of `src/pages/library/index.astro`. Book cards now use the stream index card aesthetic: bookmark strip, double-line meta bar, collection label, maturity emoji. Three display modes (Cards / List / Covers) with pill bar toggle. Filter sidebar with folder-tab panels (Status / Format / Topic). Sort toolbar (Date added / Title / Author / Last tended). Pagination (12 per page desktop, 6 mobile). Mobile filter bar with toggle button and active-count badge, syncing to sidebar via `data-filter-group` / `data-mobile-group`. Fixed view-switch bug where `.view-btn` selector caught sort spans. Live in production.
+### [DONE] Stream + collections redesign: homepage v2
+*2026-03-29*
 
-Key files: `src/pages/library/index.astro`
-
-### ✅ Rhetoric/Argument: connect to GenAI cluster in triples.json
-*2026-03-30 · completed: 2026-04-04*
-
-Added 3 associations to `src/data/triples.json`: LLMs generates Rhetoric, Rhetoric exhibits Indifference to truth, Argument requires Ground truth. Added predicates `generates` and `requires` to `_predicates`. Rhetoric and Argument now connect into the main GenAI cluster rather than hanging as an isolated pair.
-
-### ✅ Review: Thematic-TAO method post
-*2026-03-30 · completed: 2026-04-02*
-
-Published field note at `/field-notes/thematic-tao-three-pass-method`. Typos fixed, ai field promoted to 100% Maai, Hackos Wikipedia link added.
-
-### ✅ Stream refinement: index card aesthetic, filter sidebar
-*2026-03-29 — completed*
-
-Extended the index card metaphor throughout the stream. Featured hero card: white paper, blue ruled lines, FEATURED rubber stamp, full-height bookmark strip. All cards: white background, washed-out red double line on meta bar. Page background: barely-there greengrey tint (#FCFCFB) so white cards pop. Filter sidebar: three separate cards each with a protruding folder tab (Collection, Maturity, Written by). Legend panel below filters: collapsible, covers maturity and written by definitions with emoji (✍️ ✏️ ✨ ⚙️). Hero visual: large leaf SVG with organic greengrey blob behind it. Doodle icon library (300+ SVGs) added to repo at `public/images/doodle-icons/`. No-em-dash rule extended to all UI copy.
-
-### ✅ Stack page: browsable card browser
-*2026-03-28 — completed*
-
-Physical card browser at `/stack`. Pick a card, browse connections as a stacked deck. Box-shadow trick simulates peek cards. Top connected suggestions + A-Z sequential mode. Search across titles, descriptions, and tags. Resolved the Zettelkasten interaction model question: physical card metaphor won over grid/graph.
-
-### ✅ Stream + collections redesign: homepage v2
-*2026-03-29 — completed*
-
-Full homepage redesign. Hero section (50vh, warm #F5F4F0, leaf SVG, serif heading). Header merged into hero background. 3px double border divider. Stream column (10 items/page with pagination) + filter sidebar (Collection/Maturity/Written by checkboxes with All/Clear, hover-reveal animation from design specs). Currently reading + Projects sidebar cards in deeper green. Stay updated / webring / under construction footer sections. "Latest article" badge in teal. Back button on all post pages. Filter pills replaced entirely by checkbox panels. Library excluded from stream and filters.
-
-### ✅ Stream page redesign: index cards + sidebar
-*2026-03-27 — completed*
-
-Redesigned the stream page around an index card metaphor. Each card has a coloured bookmark strip on the left, a double-line separator, and a horizontal meta bar with collection label, date (year, all caps), maturity emoji and AI indicator. Articles and jottings show a body preview with "Read more". Hero card replaced by a pinned LATEST badge. Sidebar has three portrait cards (About, Currently reading, Projects) with greige strip and brand-pink double lines. Two-column layout, sidebar collapses on mobile.
+### [DONE] Stream page redesign: index cards + sidebar
+*2026-03-27*
