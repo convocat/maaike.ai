@@ -12681,6 +12681,48 @@
       "object": "multi-agent-pattern",
       "source": "agentic-ai-design-patterns-2026-edition",
       "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "requires",
+      "object": "systems-engineering",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "lacks",
+      "object": "state-management",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "contrasted-with",
+      "object": "generative-ai",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "rag",
+      "predicate": "characterised-as",
+      "object": "integration-era-solution",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "autonomous-agents",
+      "predicate": "requires",
+      "object": "orchestration-layer",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "fine-tuning",
+      "predicate": "lacks",
+      "object": "systems-engineering-capabilities",
+      "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "collection": "weblinks"
     }
   ]
 }

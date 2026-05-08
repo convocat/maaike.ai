@@ -406,5 +406,11 @@
     "The four canonical patterns (Reflection, Tool Use, Planning, Multi-Agent) each solve specific architectural risks like hallucinations, cognitive entropy, and blast radius",
     "Production-ready agentic systems require treating LLMs as CPUs within larger operating systems, with explicit lifecycles, observability, and bounded autonomy",
     "The shift from single-shot LLM responses to orchestrated agent systems mirrors the historical transition from monoliths to microservices"
+  ],
+  "from-generative-to-agentic-ai-a-roadmap-in-2026": [
+    "The era of conversational AI demos is over: enterprises now demand autonomous systems that perform complete workflows, not just generate text.",
+    "Building reliable agentic systems requires a paradigm shift from data science (probabilistic, prompt-based) to systems engineering (deterministic, architecture-based).",
+    "The future of AI is about better distributed systems and orchestration layers, not just smarter language models.",
+    "Moving from generative to agentic AI is an architectural leap requiring planning, tool execution, state management, and governance beyond what prompting can achieve."
   ]
 }
