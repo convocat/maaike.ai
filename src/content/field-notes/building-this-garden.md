@@ -448,12 +448,14 @@ A long backlog grooming session that produced two library entries, a new field n
 
 ### 10 May
 
-Wired the chatbot up to Langfuse and merged the two bots into a single panel with a mode toggle.
+Wired the chatbot up to Langfuse, merged the two bots into a single panel with a mode toggle, repointed retrieval to the live garden, and pushed the auto-tag coverage on field-notes and library way up.
 
 - **Langfuse tracing for ask + chat**: every `/api/ask` and `/api/chat` request opens a trace in Langfuse with a hashed user id, a frontend-minted session id, retrieval debug as a span, and the generation linked to the exact prompt version. Both bots tagged so they can be filtered and compared in the UI.
 - **Prompt management in Langfuse**: system prompts (`ask-system-prompt-v1`, `garden-system-prompt-v0-2`, plus older variants) now live under a `garden/` folder in Langfuse. Pulled at runtime with a 60-second cache and the `.md` files in the repo as fallback. A small CLI seeds them: `python tools/karpathy-wiki/tools/sync_prompts_to_langfuse.py`.
 - **Mode toggle in the chat panel**: a "This page / The garden" segmented control in the panel header switches between the per-page chat bot and the RAG ask bot. Each mode keeps its own thread, ask mode renders inline citation chips and a collapsible sources block above each reply, the textarea form surfaces in ask mode while pebbles return for chat.
-- **CLAUDE.md note**: short Langfuse section documenting prompt-source-of-truth, env vars, and trace shape.
+- **Ask bot reads the live garden**: retrieval no longer reads from the frozen `tools/karpathy-wiki/raw/` snapshot (3 weeks stale, 3 collections). It reads `src/content/<section>/` directly across 8 collections (articles, field-notes, seeds, jottings, weblinks, library, experiments, videos), filters drafts and compost. Corpus jumped from ~85 to 281 items.
+- **Auto-tagged 3 published field-notes**: `conference-talk-guildford` (project hub), `beyond-anthropomorphism-reading-notes`, `masure-acentric-design-reading-notes`. 14 new associations, 8 new topics (clifford-nass, interface-metaphor, acentric-design, hyper-anthropomorphism, etc.). Field-notes coverage 72% → 81%.
+- **Auto-tagged 45 library entries**: 8 with substantive bodies got full TAO (Mitchell, Criado Perez, McCulloch, Kahneman, Kirk, Turkle, Corbett, Bear), and 37 description-only stubs got a single `(author, theorised-by, topic)` association where their existing tags mapped to a known graph topic. Library coverage 4% → 44%. 58 new topics across both passes (authors + concepts like dual-process-theory, machine-consciousness, gender-data-gap, classical-rhetoric).
 
 ## Related
 
