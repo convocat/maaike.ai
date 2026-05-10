@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-08
+updated: 2026-05-10
 maturity: solid
 tags:
 - about
@@ -445,6 +445,15 @@ A long backlog grooming session that produced two library entries, a new field n
 - **Backlog grooming**: 16 active items, 30+ archived. Items folded together where related: working-tree housekeeping into Karpathy cleanup; topic + tag cleanup into ontology research; eval baseline into admin dashboard; themes-as-prompts into chatbot.
 - **Visual backlog restyle at `/backlog`**: ball emojis (🟡🔵🟠✅) replaced by colour-coded text pills using the earth-tone palette (moss / bronze / neutral / terracotta). Card-style typography for h2/h3, bordered blockquotes for opening messages, code spans on cream.
 - **Garden ops kanban parser fix**: the kanban at `/toolshed/` was parsing the old emoji format and silently empty after the backlog rewrite. Parser now matches `[STATUS]` text directly. Counts: READY 10, IN PROGRESS 4, PARKED 3, DONE 8.
+
+### 10 May
+
+Wired the chatbot up to Langfuse and merged the two bots into a single panel with a mode toggle.
+
+- **Langfuse tracing for ask + chat**: every `/api/ask` and `/api/chat` request opens a trace in Langfuse with a hashed user id, a frontend-minted session id, retrieval debug as a span, and the generation linked to the exact prompt version. Both bots tagged so they can be filtered and compared in the UI.
+- **Prompt management in Langfuse**: system prompts (`ask-system-prompt-v1`, `garden-system-prompt-v0-2`, plus older variants) now live under a `garden/` folder in Langfuse. Pulled at runtime with a 60-second cache and the `.md` files in the repo as fallback. A small CLI seeds them: `python tools/karpathy-wiki/tools/sync_prompts_to_langfuse.py`.
+- **Mode toggle in the chat panel**: a "This page / The garden" segmented control in the panel header switches between the per-page chat bot and the RAG ask bot. Each mode keeps its own thread, ask mode renders inline citation chips and a collapsible sources block above each reply, the textarea form surfaces in ask mode while pebbles return for chat.
+- **CLAUDE.md note**: short Langfuse section documenting prompt-source-of-truth, env vars, and trace shape.
 
 ## Related
 

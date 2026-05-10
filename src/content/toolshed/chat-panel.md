@@ -1,27 +1,44 @@
 ---
 title: Chat panel
 date: 2026-05-07
+updated: 2026-05-10
 maturity: solid
 tags: [design, components, ai-tools, chatbot]
-description: The Ask drawer for grounded conversation with the garden, plus the contextual follow-up chips and system-prompt picker.
+description: The Ask drawer for grounded conversation with the garden. One panel, two bots (a per-page chat bot and a RAG ask bot), switched via a mode toggle. Plus contextual follow-up chips and a system-prompt picker.
 category: design
 section: Components
 ai: co-created
 ---
 
-A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer talks to a streaming endpoint that has access to the current page and the wider garden as context. Per-page conversation, persisted across navigation.
+A floating "Ask" button in the bottom-right opens a slide-in drawer. The drawer hosts **two bots behind a mode toggle**: "This page" (the per-page chat assistant, knows the page in front of you and the garden index) and "The garden" (a RAG bot that retrieves relevant posts and quotes from them). Each mode keeps its own thread; switching does not blend them. Both modes persist across navigation.
 
 ## Layout
 
 - **Toggle**: pill-shaped button bottom-right, accent-2 colored, casts a soft shadow. Hides itself when the drawer is open.
 - **Drawer**: fixed right edge, default 420px, resizable from a draggable left edge (pointer + arrow keys), maximizable via header button.
-- **Header**: title, context pill ("Talking about X"), settings cogwheel + reset / maximize / close icons.
+- **Header**: title, context pill ("Talking about X"), mode toggle ("This page" / "The garden"), settings cogwheel + reset / maximize / close icons.
 - **History**: scrollable region with assistant + user bubbles, each prefixed by an avatar. Assistant avatar is the watercolor leaf at 32px (circular crop); user avatar is the watercolor acorn at 34px (no crop, full painted shape, transparent background).
 - **User bubble**: sand-colored background (`--chat-tag-bg: #ECE2CE` light, `#352E25` dark), scoped to the drawer so the wider site's tag-bg can stay distinct.
-- **Input**: there is no separate textarea. The fourth pebble in the chips area IS the input. Type into it, press Enter to send. The original `<textarea>` and Send button still exist in the DOM for accessibility / programmatic submit, but are hidden via `display: none` (the chip click and input-pebble Enter both fill the hidden textarea and call `form.requestSubmit()` so streaming logic stays untouched).
+- **Input**: depends on mode. In chat mode there is no separate textarea: the fourth pebble in the chips area IS the input (type, press Enter). In ask mode the chips are hidden and a regular textarea form surfaces at the bottom of the drawer. The form element is the same in both cases; CSS toggles its visibility via `data-mode` on the drawer.
 - A small disclaimer line below the chips: "The Garden can be wrong. Check the page."
 
-## Two parallel chat designs (currently)
+## Mode toggle: This page / The garden
+
+A small segmented control in the panel header switches between two backends:
+
+- **This page** (`/api/chat`) is the per-page chat bot. Receives the current page's body and the flat garden index as context. Knows everything about the page in front of you, can name-drop other posts from the index but cannot quote them.
+- **The garden** (`/api/ask`) is the RAG bot. Runs retrieval against the whole garden using the taxonomy, themes, and triples, then sends the matched post bodies to the model. Quotes from the posts and emits inline `[1]` / `[s1]` citation markers. Same backend as the standalone `/research/ask` page.
+
+Each mode keeps its own thread. Switching modes does not clear or merge them; both are kept under the same `garden-chat-v2` storage key in `sessionStorage` (`{mode, chat: {messages}, ask: {messages}, open}`). The active mode also persists in `localStorage` under `garden-chat-mode` so it survives page reloads.
+
+Behavioural differences:
+
+- **Chat mode**: pebble chips render after every reply (model-generated when the v0.2 prompt is active, falling back to a static pool). The settings cogwheel reveals the prompt picker. The textarea form is hidden.
+- **Ask mode**: no pebble chips, no cogwheel. A collapsible "N sources · M topics" block renders above each assistant reply, listing the matched articles and topics with their `[cid]` numbers. Citation markers in the answer text are rewritten live as the stream arrives: `[s2]` becomes a pink inline link to the matched article, `[1]` becomes a numbered chip linking to the topic page. The textarea form is visible.
+
+The toggle aborts any in-flight request before switching, so a slow ask reply doesn't bleed into the chat thread.
+
+## Two parallel chat designs (legacy note)
 
 Two designs are on the table for the chatbot, kept separate so Maaike can compare and pick one:
 
@@ -100,7 +117,11 @@ The popover is hidden by default and reveals only on click. The gear itself stay
 
 ## Persistence
 
-Conversation lives in `sessionStorage` under `garden-chat-v1` so it survives Astro ViewTransitions. Pane width and maximize state live in `localStorage` under `garden-chat-pane-v1`.
+Conversation lives in `sessionStorage` under `garden-chat-v2` so it survives Astro ViewTransitions. Shape: `{mode: 'chat'|'ask', chat: {messages: [...]}, ask: {messages: [...]}, open: bool}`. Ask-mode assistant messages also store their `sources[]` so the collapsible sources block + inline citations can be re-rendered after a navigation. Pane width and maximize state live in `localStorage` under `garden-chat-pane-v1`. Active mode is mirrored to `localStorage` under `garden-chat-mode`.
+
+## Tracing
+
+Every send opens a Langfuse trace, tagged `bot:chat` or `bot:ask`, with a hashed user_id and a per-page-load session_id minted by the frontend. Ask-mode traces include a `retrieval` span (matched articles, topics, fired triples). Both tag the generation with the prompt version pulled from Langfuse, so prompt-version analytics work for both bots. See the dedicated Langfuse integration entry for trace shape and prompt source-of-truth rules.
 
 ## Files
 

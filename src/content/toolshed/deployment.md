@@ -23,7 +23,9 @@ GitHub Actions workflow:
 
 The Astro build is fully static: no SSR. Everything reader-facing is pre-rendered to HTML at build time.
 
-A separate Vercel deployment handles the chatbot's serverless API (`/api/ask`, `/api/topics`, `/api/article/{section}/{slug}`, `/api/topic-meta/{slug}`, `/api/topic-view/{slug}`) at `https://maaike-ai.vercel.app`. The `/wiki` and `/research/ask` pages on the static site call those endpoints cross-origin. The Vercel function lives at `tools/karpathy-wiki/api/index.py`, imports business logic from `tools/karpathy-wiki/tools/serve.py`, and is configured by `tools/karpathy-wiki/vercel.json`. CORS is locked to `maaike.ai`.
+A separate Vercel deployment handles the chatbot's serverless API (`/api/ask`, `/api/chat`, `/api/topics`, `/api/article/{section}/{slug}`, `/api/topic-meta/{slug}`, `/api/topic-view/{slug}`, `/api/prompts`) at `https://maaike-ai.vercel.app`. The `/wiki`, `/research/ask`, and the per-page chat panel all call those endpoints cross-origin. The Vercel function lives at `tools/karpathy-wiki/api/index.py`, imports business logic from `tools/karpathy-wiki/tools/serve.py`, and is configured by `tools/karpathy-wiki/vercel.json`. CORS is locked to `maaike.ai`.
+
+Required env vars on the Vercel project: `ANTHROPIC_API_KEY` (the bot itself) and `LANGFUSE_PUBLIC_KEY` + `LANGFUSE_SECRET_KEY` + `LANGFUSE_HOST` (tracing + prompt management; if missing, tracing silently no-ops and prompts fall back to the `.md` files in the repo). See the [Langfuse integration](/toolshed/langfuse) entry for details.
 
 ## LinkedIn publish trigger
 
