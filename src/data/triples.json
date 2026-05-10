@@ -7248,6 +7248,99 @@
         "llm"
       ],
       "role": "stance"
+    },
+    "user-centered-design": {
+      "label": "User-centered design",
+      "type": "discipline",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "framework"
+    },
+    "clifford-nass": {
+      "label": "Clifford Nass",
+      "type": "person",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "conversation-design",
+        "mind"
+      ]
+    },
+    "interface-metaphor": {
+      "label": "Interface metaphor",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "instrument"
+    },
+    "acentric-design": {
+      "label": "Acentric design",
+      "type": "concept",
+      "lens": [
+        "design",
+        "philosophy"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "counter-position"
+    },
+    "chat-interface": {
+      "label": "Chat interface",
+      "type": "technology",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "conversation-design"
+      ]
+    },
+    "experience-design": {
+      "label": "Experience design",
+      "type": "discipline",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "anti-anthropomorphism": {
+      "label": "Anti-anthropomorphism",
+      "type": "concept",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "conversation-design",
+        "mind"
+      ],
+      "role": "stance"
+    },
+    "hyper-anthropomorphism": {
+      "label": "Hyper-anthropomorphism",
+      "type": "concept",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "conversation-design",
+        "mind"
+      ],
+      "role": "tendency"
     }
   },
   "associations": [
@@ -12723,6 +12816,104 @@
       "object": "systems-engineering-capabilities",
       "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
       "collection": "weblinks"
+    },
+    {
+      "subject": "conversation-design",
+      "predicate": "leads-to",
+      "object": "agentic-ai",
+      "source": "conference-talk-guildford",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "requires",
+      "object": "concept-of-operations",
+      "source": "conference-talk-guildford",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "anthropomorphism",
+      "predicate": "risks",
+      "object": "agentic-ai",
+      "source": "conference-talk-guildford",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "anthropomorphism",
+      "predicate": "metaphor-for",
+      "object": "llms",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "reinforces",
+      "object": "anthropomorphism",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "anti-anthropomorphism",
+      "predicate": "counters",
+      "object": "anthropomorphism",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "hyper-anthropomorphism",
+      "predicate": "exhibits",
+      "object": "anthropomorphism",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "clifford-nass",
+      "predicate": "theorised-by",
+      "object": "anthropomorphism",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "interface-metaphor",
+      "predicate": "structured-as",
+      "object": "anthropomorphism",
+      "source": "beyond-anthropomorphism-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "acentric-design",
+      "predicate": "counters",
+      "object": "user-centered-design",
+      "source": "masure-acentric-design-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "user-centered-design",
+      "predicate": "characterised-as",
+      "object": "experience-design",
+      "source": "masure-acentric-design-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "don-norman",
+      "predicate": "theorised-by",
+      "object": "user-centered-design",
+      "source": "masure-acentric-design-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "user-centered-design",
+      "predicate": "structured-as",
+      "object": "interface-metaphor",
+      "source": "masure-acentric-design-reading-notes",
+      "collection": "field-notes"
+    },
+    {
+      "subject": "acentric-design",
+      "predicate": "presupposes",
+      "object": "concept-of-operations",
+      "source": "masure-acentric-design-reading-notes",
+      "collection": "field-notes"
     }
   ]
 }

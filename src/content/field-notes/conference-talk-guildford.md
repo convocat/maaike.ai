@@ -4,9 +4,13 @@ description: "Capturing ideas from the Guildford session and shaping them into a
 date: 2026-05-05
 maturity: draft
 draft: false
-tags: [conference, talk, guildford]
+tags: [conference, talk, guildford, agentic-ai, conversation-design, anthropomorphism]
 ai: "100% Maai"
 hub: true
+triples:
+- ["Conversation design", "leads-to", "Agentic AI"]
+- ["Agentic AI", "requires", "Concept of operations"]
+- ["Anthropomorphism", "risks", "Agentic AI"]
 ---
 
 ## Goal

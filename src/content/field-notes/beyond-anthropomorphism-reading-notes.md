@@ -3,10 +3,31 @@ title: "Reading notes: beyond anthropomorphism (So et al., CHI EA '26)"
 date: 2026-05-05
 maturity: draft
 draft: false
-tags: [anthropomorphism, interface-design, metaphor, LLM, HCI]
+tags: [anthropomorphism, interface-design, metaphor, LLM, HCI, llms, interface-metaphor, chat-interface]
 description: "Annotation of So, Cheng & Krishna Murthy (2026). CHI EA '26. Proposes a spectrum of LLM interface metaphors from anti- to hyper-anthropomorphism to encourage critical engagement."
 ai: "100% Maai"
 develops: conference-talk-guildford
+marginalia:
+  - |-
+    Anthropomorphizing conversational technology is a natural human tendency. 
+    
+    Anthropomorphism — the ascription of human qualities to non-human entities — is a natural human tendency. In the field of Human-Computer Interaction (HCI), anthropomorphism has served as a powerful design metaphor, used to render technologies more approachable and socially intelligible by framing them as human-like. 
+    
+    BUt this article doesn't take into consideration that there's another, way more powerful metaphor that we've using for ages: the desktop & GUI.
+    
+    Soundbite: In the 1990's, Clifford Nass identified that people treat computers as social actors.
+    
+    In this design provocation, we explore how the anthropomorphic metaphor is overly reinforced in LLMs through interface design. 
+    
+    **Mental model**
+    "successful metaphors can create clear and useful mental models, especially for new and complex concepts, such as intelligent technology. However, metaphors are inherently partial, meant to capture both similarities and differences"
+triples:
+- ["Anthropomorphism", "metaphor-for", "LLMs"]
+- ["Chat interface", "reinforces", "Anthropomorphism"]
+- ["Anti-anthropomorphism", "counters", "Anthropomorphism"]
+- ["Hyper-anthropomorphism", "exhibits", "Anthropomorphism"]
+- ["Clifford Nass", "theorised-by", "Anthropomorphism"]
+- ["Interface metaphor", "structured-as", "Anthropomorphism"]
 ---
 
 *Part of [[conference-talk-guildford]].*
