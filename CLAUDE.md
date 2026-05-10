@@ -77,7 +77,7 @@ Posts are semantically enriched via a three-pass TAO (Thematic-Objects-Associati
 
 **Rule for any apply/write step:** always write to **both** frontmatter and the relevant JSON file. Writing to only one leaves the site in an inconsistent state.
 
-**Untagged articles** (missing `triples: []` or no triples field) have no Mycelium section and are excluded from the knowledge graph. As of 2026-04-19, 40 of 48 articles are untagged.
+**Untagged posts** (missing `triples: []` or no triples field) have no Mycelium section and are excluded from the knowledge graph. To see live coverage, count distinct `source` values in `src/data/triples.json`'s `associations` array against the file count in each `src/content/<collection>/`. Library and videos are mostly catalog stubs and intentionally stay sparse.
 
 ## Design system
 
