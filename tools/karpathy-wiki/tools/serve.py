@@ -42,6 +42,15 @@ MAAIKE_BUILD  = MAAIKE_ROOT / "maaike-wiki" / "tools" / "build.py"
 RAW_DIR = KARPATHY_ROOT / "raw"
 _SRC_DATA = GARDEN_SRC / "data"
 
+# The ask bot reads its corpus directly from the live garden, not from the
+# frozen tools/karpathy-wiki/raw/ snapshot which goes stale between manual
+# resyncs and only contains a subset of collections.
+_LIVE_CONTENT_DIR = GARDEN_SRC / "content"
+_ASK_SECTIONS = (
+    "articles", "field-notes", "seeds", "jottings",
+    "weblinks", "library", "experiments", "videos",
+)
+
 def _semantic_path(name):
     p = _SRC_DATA / name
     return p if p.exists() else RAW_DIR / name
@@ -776,34 +785,50 @@ def render_404(slug):
 # ── API: Q&A ─────────────────────────────────────────────────────────────────
 
 def _load_raw_articles():
-    """Load frontmatter + body snippet from Maaike's raw garden articles/notes/seeds."""
+    """Load frontmatter + body snippet from Maaike's live garden corpus.
+
+    Reads `src/content/<section>/*.md` directly. Filters draft and compost
+    posts. Covers all collections referenced by the ask bot's retrieval
+    layer, not just articles/field-notes/seeds.
+    """
     out = []
-    raw_dir = KARPATHY_ROOT / "raw"
-    for section in ("articles", "field-notes", "seeds"):
-        section_dir = raw_dir / section
+    for section in _ASK_SECTIONS:
+        section_dir = _LIVE_CONTENT_DIR / section
         if not section_dir.exists():
             continue
         for f in sorted(section_dir.glob("*.md")):
-            text = f.read_text(encoding="utf-8", errors="ignore")
+            try:
+                text = f.read_text(encoding="utf-8", errors="ignore")
+            except Exception:
+                continue
             title = f.stem.replace("-", " ")
             desc = ""
             date = ""
+            draft = False
+            maturity = ""
             fm_match = re.match(r'^---\n(.+?)\n---\n', text, re.DOTALL)
             if fm_match:
                 fm = fm_match.group(1)
-                for key, target in (("title", "title"), ("description", "desc"), ("date", "date")):
+                for key, target in (
+                    ("title", "title"), ("description", "desc"), ("date", "date"),
+                    ("draft", "draft"), ("maturity", "maturity"),
+                ):
                     m = re.search(rf'^{key}:\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
                     if m:
                         val = m.group(1).strip().strip('"\'')
                         if target == "title": title = val
                         elif target == "desc": desc = val
                         elif target == "date": date = val
+                        elif target == "draft": draft = val.lower() in ("true", "yes")
+                        elif target == "maturity": maturity = val.lower()
+            if draft or maturity == "compost":
+                continue
             body_text = re.sub(r'^---\n.+?\n---\n', '', text, count=1, flags=re.DOTALL)
             body_snippet = " ".join(body_text.strip().split()[:160])  # ~160 words
             out.append({
                 "slug": f.stem, "title": title, "section": section,
                 "desc": desc, "date": date, "snippet": body_snippet,
-                "href": f"/raw/{section}/{f.stem}",
+                "href": f"/{section}/{f.stem}",
                 "url": f"https://maaike.ai/{section}/{f.stem}",
             })
     return out
@@ -1296,14 +1321,24 @@ def _retrieve_articles(question: str):
     if not article_scores:
         return [], topic_defs, trace
 
-    # Step 5: resolve slugs to files, skip non-resolvable (library/videos/jottings)
+    # Step 5: resolve slugs to files in the live garden, across all ask sections.
+    # Skip drafts and compost so retrieval matches the user-visible corpus.
     resolved = []
     for src_slug, score in sorted(article_scores.items(), key=lambda x: -x[1]):
-        for section in ("articles", "field-notes", "seeds"):
-            p = RAW_DIR / section / f"{src_slug}.md"
-            if p.exists():
-                resolved.append({"slug": src_slug, "section": section, "path": p, "score": score})
-                break
+        for section in _ASK_SECTIONS:
+            p = _LIVE_CONTENT_DIR / section / f"{src_slug}.md"
+            if not p.exists():
+                continue
+            try:
+                head = p.read_text(encoding="utf-8", errors="ignore")[:2000]
+            except Exception:
+                continue
+            if re.search(r'^draft:\s*true\b', head, re.MULTILINE | re.IGNORECASE):
+                continue
+            if re.search(r'^maturity:\s*["\']?compost', head, re.MULTILINE | re.IGNORECASE):
+                continue
+            resolved.append({"slug": src_slug, "section": section, "path": p, "score": score})
+            break
 
     return resolved[:8], topic_defs, trace
 
@@ -1619,11 +1654,11 @@ def handle_verify_api(body):
         if not question or not answer:
             return json.dumps({"error": "question and answer required"})
 
-        # Load source article text for the provided slugs
+        # Load source article text for the provided slugs from the live corpus.
         source_blocks = []
         for slug in source_slugs[:8]:  # cap
-            for section in ("articles", "field-notes", "seeds"):
-                p = RAW_DIR / section / f"{slug}.md"
+            for section in _ASK_SECTIONS:
+                p = _LIVE_CONTENT_DIR / section / f"{slug}.md"
                 if p.exists():
                     text = p.read_text(encoding="utf-8", errors="ignore")
                     body_md = re.sub(r'^---\n.+?\n---\n', '', text, count=1, flags=re.DOTALL).strip()
