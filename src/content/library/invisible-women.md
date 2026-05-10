@@ -7,12 +7,15 @@ date: 2026-03-12
 updated:
 status: read
 maturity: draft
-tags:
-  - feminism
+tags: [feminism, gender-data-gap, design-bias]
 ai: assisted
 book_type: non-fiction
 purpose: personal
 reason: Caroline Criado Perez on the gender data gap. An important and infuriating book that changed how I think about whose needs get centred in design.
+triples:
+- ["Caroline Criado Perez", "theorised-by", "Gender data gap"]
+- ["Gender data gap", "leads-to", "Design bias"]
+- ["Design bias", "exhibits", "Gender data gap"]
 ---
 
 Data is fundamental to the modern world. 

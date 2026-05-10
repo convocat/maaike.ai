@@ -7,13 +7,15 @@ date: 2026-03-12
 updated:
 status: read
 maturity: draft
-tags:
-  - writing
-  - linguistics
+tags: [writing, linguistics, classical-rhetoric, rhetoric]
 ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Classical rhetoric is the foundation of persuasive communication. Understanding argument and style at this level has shaped how I think about voice and tone in conversation design.
+triples:
+- ["Edward P.J. Corbett", "theorised-by", "Classical rhetoric"]
+- ["Classical rhetoric", "structured-as", "Argument"]
+- ["Classical rhetoric", "instance-of", "Rhetoric"]
 ---
 
 The most widely used textbook of its kind for courses in advanced composition and writing, Classical Rhetoric for the Modern Student discusses the three vital components of classical rhetoric - argument, arrangement, and style - bringing these elements to life and demonstrating their effective application in yesterday's and today's writing.

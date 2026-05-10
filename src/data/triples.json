@@ -7341,6 +7341,305 @@
         "mind"
       ],
       "role": "tendency"
+    },
+    "melanie-mitchell": {
+      "label": "Melanie Mitchell",
+      "type": "person",
+      "lens": [
+        "cognition",
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "mind"
+      ]
+    },
+    "douglas-hofstadter": {
+      "label": "Douglas Hofstadter",
+      "type": "person",
+      "lens": [
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "caroline-criado-perez": {
+      "label": "Caroline Criado Perez",
+      "type": "person",
+      "lens": [
+        "culture",
+        "design"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "gretchen-mcculloch": {
+      "label": "Gretchen McCulloch",
+      "type": "person",
+      "lens": [
+        "linguistics"
+      ],
+      "subject": [
+        "language",
+        "linguistics"
+      ]
+    },
+    "daniel-kahneman": {
+      "label": "Daniel Kahneman",
+      "type": "person",
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "robert-kirk": {
+      "label": "Robert Kirk",
+      "type": "person",
+      "lens": [
+        "philosophy",
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "sherry-turkle": {
+      "label": "Sherry Turkle",
+      "type": "person",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "mind"
+      ]
+    },
+    "edward-corbett": {
+      "label": "Edward P.J. Corbett",
+      "type": "person",
+      "lens": [
+        "rhetoric",
+        "linguistics"
+      ],
+      "subject": [
+        "writing",
+        "language"
+      ]
+    },
+    "greg-bear": {
+      "label": "Greg Bear",
+      "type": "person",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "machine-learning": {
+      "label": "Machine learning",
+      "type": "discipline",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm"
+      ]
+    },
+    "gender-data-gap": {
+      "label": "Gender data gap",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "design"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "counter-position"
+    },
+    "design-bias": {
+      "label": "Design bias",
+      "type": "phenomenon",
+      "lens": [
+        "design",
+        "culture"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "internet-language": {
+      "label": "Internet language",
+      "type": "phenomenon",
+      "lens": [
+        "linguistics",
+        "culture"
+      ],
+      "subject": [
+        "language",
+        "linguistics"
+      ]
+    },
+    "sociolinguistics": {
+      "label": "Sociolinguistics",
+      "type": "discipline",
+      "lens": [
+        "linguistics"
+      ],
+      "subject": [
+        "language",
+        "linguistics"
+      ]
+    },
+    "language-change": {
+      "label": "Language change",
+      "type": "phenomenon",
+      "lens": [
+        "linguistics"
+      ],
+      "subject": [
+        "language"
+      ]
+    },
+    "dual-process-theory": {
+      "label": "Dual-process theory",
+      "type": "concept",
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ],
+      "role": "framework"
+    },
+    "cognitive-bias": {
+      "label": "Cognitive bias",
+      "type": "phenomenon",
+      "lens": [
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "machine-consciousness": {
+      "label": "Machine consciousness",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "functionalism": {
+      "label": "Functionalism",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "cognition"
+      ],
+      "subject": [
+        "mind"
+      ],
+      "role": "framework"
+    },
+    "philosophical-zombie": {
+      "label": "Philosophical zombie",
+      "type": "concept",
+      "lens": [
+        "philosophy"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "chinese-room": {
+      "label": "Chinese Room argument",
+      "type": "concept",
+      "lens": [
+        "philosophy",
+        "cognition"
+      ],
+      "subject": [
+        "mind",
+        "language"
+      ]
+    },
+    "turing-test": {
+      "label": "Turing test",
+      "type": "method",
+      "lens": [
+        "cognition",
+        "development"
+      ],
+      "subject": [
+        "mind",
+        "llm"
+      ]
+    },
+    "social-media": {
+      "label": "Social media",
+      "type": "technology",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "digital-isolation": {
+      "label": "Digital isolation",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "mind"
+      ]
+    },
+    "classical-rhetoric": {
+      "label": "Classical rhetoric",
+      "type": "discipline",
+      "lens": [
+        "rhetoric",
+        "linguistics"
+      ],
+      "subject": [
+        "writing",
+        "language"
+      ]
+    },
+    "science-fiction": {
+      "label": "Science fiction",
+      "type": "concept",
+      "lens": [
+        "culture"
+      ],
+      "subject": [
+        "mind"
+      ]
+    },
+    "nanotechnology": {
+      "label": "Nanotechnology",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "mind"
+      ]
     }
   },
   "associations": [
@@ -12914,6 +13213,188 @@
       "object": "concept-of-operations",
       "source": "masure-acentric-design-reading-notes",
       "collection": "field-notes"
+    },
+    {
+      "subject": "melanie-mitchell",
+      "predicate": "counters",
+      "object": "ai-hype",
+      "source": "artificial-intelligence-a-guide-for-thinking-humans",
+      "collection": "library"
+    },
+    {
+      "subject": "ai-hype",
+      "predicate": "counters",
+      "object": "machine-learning",
+      "source": "artificial-intelligence-a-guide-for-thinking-humans",
+      "collection": "library"
+    },
+    {
+      "subject": "machine-learning",
+      "predicate": "lacks",
+      "object": "machine-consciousness",
+      "source": "artificial-intelligence-a-guide-for-thinking-humans",
+      "collection": "library"
+    },
+    {
+      "subject": "douglas-hofstadter",
+      "predicate": "characterised-as",
+      "object": "machine-consciousness",
+      "source": "artificial-intelligence-a-guide-for-thinking-humans",
+      "collection": "library"
+    },
+    {
+      "subject": "caroline-criado-perez",
+      "predicate": "theorised-by",
+      "object": "gender-data-gap",
+      "source": "invisible-women",
+      "collection": "library"
+    },
+    {
+      "subject": "gender-data-gap",
+      "predicate": "leads-to",
+      "object": "design-bias",
+      "source": "invisible-women",
+      "collection": "library"
+    },
+    {
+      "subject": "design-bias",
+      "predicate": "exhibits",
+      "object": "gender-data-gap",
+      "source": "invisible-women",
+      "collection": "library"
+    },
+    {
+      "subject": "gretchen-mcculloch",
+      "predicate": "theorised-by",
+      "object": "internet-language",
+      "source": "because-internet",
+      "collection": "library"
+    },
+    {
+      "subject": "internet-language",
+      "predicate": "demonstrates",
+      "object": "language-change",
+      "source": "because-internet",
+      "collection": "library"
+    },
+    {
+      "subject": "sociolinguistics",
+      "predicate": "structured-as",
+      "object": "language-change",
+      "source": "because-internet",
+      "collection": "library"
+    },
+    {
+      "subject": "daniel-kahneman",
+      "predicate": "theorised-by",
+      "object": "dual-process-theory",
+      "source": "thinking-fast-and-slow",
+      "collection": "library"
+    },
+    {
+      "subject": "dual-process-theory",
+      "predicate": "leads-to",
+      "object": "cognitive-bias",
+      "source": "thinking-fast-and-slow",
+      "collection": "library"
+    },
+    {
+      "subject": "mental-model",
+      "predicate": "structured-as",
+      "object": "dual-process-theory",
+      "source": "thinking-fast-and-slow",
+      "collection": "library"
+    },
+    {
+      "subject": "robert-kirk",
+      "predicate": "theorised-by",
+      "object": "functionalism",
+      "source": "robots-zombies-and-us",
+      "collection": "library"
+    },
+    {
+      "subject": "functionalism",
+      "predicate": "characterised-as",
+      "object": "machine-consciousness",
+      "source": "robots-zombies-and-us",
+      "collection": "library"
+    },
+    {
+      "subject": "philosophical-zombie",
+      "predicate": "counters",
+      "object": "functionalism",
+      "source": "robots-zombies-and-us",
+      "collection": "library"
+    },
+    {
+      "subject": "chinese-room",
+      "predicate": "counters",
+      "object": "machine-consciousness",
+      "source": "robots-zombies-and-us",
+      "collection": "library"
+    },
+    {
+      "subject": "turing-test",
+      "predicate": "demonstrates",
+      "object": "machine-consciousness",
+      "source": "robots-zombies-and-us",
+      "collection": "library"
+    },
+    {
+      "subject": "sherry-turkle",
+      "predicate": "theorised-by",
+      "object": "digital-isolation",
+      "source": "alone-together",
+      "collection": "library"
+    },
+    {
+      "subject": "social-media",
+      "predicate": "leads-to",
+      "object": "digital-isolation",
+      "source": "alone-together",
+      "collection": "library"
+    },
+    {
+      "subject": "digital-isolation",
+      "predicate": "counters",
+      "object": "conversation",
+      "source": "alone-together",
+      "collection": "library"
+    },
+    {
+      "subject": "edward-corbett",
+      "predicate": "theorised-by",
+      "object": "classical-rhetoric",
+      "source": "classical-rhetoric-for-the-modern-student",
+      "collection": "library"
+    },
+    {
+      "subject": "classical-rhetoric",
+      "predicate": "structured-as",
+      "object": "argument",
+      "source": "classical-rhetoric-for-the-modern-student",
+      "collection": "library"
+    },
+    {
+      "subject": "classical-rhetoric",
+      "predicate": "instance-of",
+      "object": "rhetoric",
+      "source": "classical-rhetoric-for-the-modern-student",
+      "collection": "library"
+    },
+    {
+      "subject": "greg-bear",
+      "predicate": "theorised-by",
+      "object": "science-fiction",
+      "source": "slant",
+      "collection": "library"
+    },
+    {
+      "subject": "nanotechnology",
+      "predicate": "metaphor-for",
+      "object": "science-fiction",
+      "source": "slant",
+      "collection": "library"
     }
   ]
 }

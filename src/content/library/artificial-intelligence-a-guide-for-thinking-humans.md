@@ -7,12 +7,16 @@ date: 2026-03-12
 updated:
 status: to-read
 maturity: draft
-tags: []
-
+tags: [machine-learning, ai-hype]
 ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Melanie Mitchell cuts through the hype with clear-eyed analysis. I wanted a grounded perspective on AI that doesn't either panic or cheer.
+triples:
+- ["Melanie Mitchell", "counters", "AI hype"]
+- ["AI hype", "counters", "Machine learning"]
+- ["Machine learning", "lacks", "Machine consciousness"]
+- ["Douglas Hofstadter", "characterised-as", "Machine consciousness"]
 ---
 
 No recent scientific enterprise has proved as alluring, terrifying, and filled with extravagant promise and frustrating setbacks as artificial intelligence. An award-winning author and leading computer scientist reveals its turbulent history and the recent surge of successes, grand hopes, and emerging fears that surround AI.
