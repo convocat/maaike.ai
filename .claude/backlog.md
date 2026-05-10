@@ -4,7 +4,19 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** [READY] · [IN PROGRESS] · [PARKED] · [DONE]
 
-**Groomed:** 2026-05-08 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-05-10 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+
+---
+
+## [PARKED] Library + draft field-notes await enrichment
+*2026-05-10*
+
+Two leftover groups want enrichment when convenient: (a) 63 library stubs that have no triples yet, mostly fiction (fantasy, romance, literary fiction) and philosophy of mind / posthumanism books, where the existing controlled vocabulary doesn't cover their tags; (b) 6 draft field-notes (brain-dump-march-27, claude-labbook, conversational-patterns-for-human-machine-interaction, growing-the-digital-garden, how-i-tend-this-garden, karpathy-comparison) that were skipped because they're `draft: true` and filtered out of retrieval anyway. Two paths: extend the topic vocabulary (add `posthumanism`, `science-fiction-literature`, `philosophy-of-mind`, `behavioural-economics`, etc.) and re-run the metadata-only pass, or write your own short reading notes on the books and let the full TAO pass pick them up. No urgency.
+
+Key files: src/data/triples.json (topics, associations), src/content/library/, src/content/field-notes/, the auto-tag skill.
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: pick up library + draft field-note enrichment. The 63 unenriched library stubs are mostly fiction/philosophy with no current topic match. Either extend the topic vocabulary in src/data/triples.json (posthumanism, philosophy-of-mind, science-fiction-literature, behavioural-economics) and re-run a metadata pass, or add short reading notes to selected books for full TAO treatment. The 6 draft field-notes need to be published before re-tagging.
 
 ---
 
