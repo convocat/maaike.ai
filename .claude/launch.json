@@ -6,6 +6,12 @@
       "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
       "runtimeArgs": ["./node_modules/astro/astro.js", "dev"],
       "port": 4321
+    },
+    {
+      "name": "prep-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["tools/prep-dashboard/server.py"],
+      "port": 8901
     }
   ]
 }

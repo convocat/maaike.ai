@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prep dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #F5F4F0;
+    --card: #FFFFFF;
+    --border: #E0DDD4;
+    --ink: #2A2A2A;
+    --muted: #6E6A60;
+    --accent: #3E5638;
+    --accent-soft: #E8EFE3;
+    --bronze: #9C7A3E;
+    --danger: #A04A2C;
+    --slide: #FFFBF0;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 8px rgba(0,0,0,0.04);
+    --rail-w: 260px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: ui-sans-serif, system-ui, "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  header.topbar {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 14px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 10;
+  }
+  header.topbar h1 {
+    font-family: "Lora", Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+  header.topbar .project { color: var(--muted); font-size: 12px; }
+  header.topbar .project code {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  header.topbar .saved { margin-left: auto; font-size: 11px; color: var(--muted); }
+
+  main {
+    display: flex;
+    height: calc(100vh - 41px);
+    overflow: hidden;
+  }
+  .col {
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .col:last-child { border-right: none; }
+  .col-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+    background: var(--card);
+  }
+  .col-header h2 {
+    font-family: "Lora", Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .col-header .count {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .col-header .spacer { flex: 1; }
+  .col-body { flex: 1; overflow-y: auto; padding: 10px 12px; }
+
+  /* ── Rail ────────────────────────────────────────── */
+  .rail { width: var(--rail-w); flex-shrink: 0; background: var(--bg); }
+  .rail.collapsed { width: 32px; }
+  .rail-toggle {
+    width: 100%; padding: 6px;
+    border: none; background: transparent;
+    color: var(--muted); cursor: pointer; font-size: 14px;
+  }
+  .rail.collapsed .col-body, .rail.collapsed .rail-search { display: none; }
+  .rail-search {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rail-search input[type="search"] {
+    width: 100%; padding: 6px 8px;
+    border: 1px solid var(--border); border-radius: 5px;
+    font-size: 13px; font-family: inherit; background: white;
+  }
+  .rail-search input[type="search"]:focus {
+    outline: none; border-color: var(--accent); background: white;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 3px; }
+  .chip {
+    font-size: 10px; padding: 2px 6px; border-radius: 10px;
+    background: white; border: 1px solid var(--border);
+    cursor: pointer; color: var(--muted); user-select: none;
+  }
+  .chip.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .rail-section { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 12px 0 6px; padding: 0 2px; }
+
+  .rail-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1.35;
+    position: relative;
+  }
+  .rail-item:hover { border-color: var(--accent); }
+  .rail-item.active { background: var(--accent-soft); border-color: var(--accent); }
+  .rail-item .coll-tag {
+    display: block; font-size: 9px; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--bronze); margin-bottom: 1px;
+  }
+  .rail-item .title { font-weight: 500; color: var(--ink); display: block; word-wrap: break-word; }
+  .rail-item .rm-card {
+    position: absolute; top: 4px; right: 4px;
+    background: transparent; border: none; color: var(--muted);
+    cursor: pointer; font-size: 12px; padding: 0 4px; line-height: 1;
+    display: none;
+  }
+  .rail-item:hover .rm-card { display: block; }
+  .rail-item .rm-card:hover { color: var(--danger); }
+  .rail-item .has-note {
+    position: absolute; bottom: 3px; right: 5px;
+    font-size: 10px; color: var(--bronze);
+  }
+
+  /* ── Article column ──────────────────────────────── */
+  .col-article { flex: 1 1 0; min-width: 0; }
+  .article-meta { font-size: 11px; color: var(--muted); margin-left: 8px; }
+  .article-body { padding: 22px 28px; max-width: 720px; margin: 0 auto; }
+  .article-body h1 { font-family: "Lora", Georgia, serif; font-size: 24px; margin: 0 0 6px; }
+  .article-body h2 { font-family: "Lora", Georgia, serif; font-size: 18px; margin: 22px 0 8px; }
+  .article-body h3 { font-family: "Lora", Georgia, serif; font-size: 16px; margin: 18px 0 6px; }
+  .article-body p { margin: 0 0 12px; }
+  .article-body ul, .article-body ol { margin: 0 0 12px; padding-left: 22px; }
+  .article-body li { margin: 2px 0; }
+  .article-body blockquote {
+    margin: 0 0 12px; padding: 4px 12px;
+    border-left: 3px solid var(--accent);
+    color: var(--muted); background: var(--accent-soft);
+  }
+  .article-body code { background: var(--bg); padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+  .article-body pre { background: var(--bg); padding: 10px; border-radius: 6px; overflow-x: auto; font-size: 12px; }
+  .article-body pre code { background: none; padding: 0; }
+  .article-body hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+  .article-body a { color: var(--accent); }
+  .article-body .desc { color: var(--muted); font-style: italic; margin: 6px 0 14px; }
+  .article-body .meta { font-size: 11px; color: var(--muted); margin: 4px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .article-body .wikilink { color: var(--bronze); }
+  .article-body .coll-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--bronze); }
+
+  /* ── Annotations column (marginalia) ──────────────── */
+  .col-annot { flex: 0 0 30%; min-width: 240px; background: var(--slide); }
+  .annot-empty {
+    color: var(--muted); font-style: italic; padding: 18px 16px; font-size: 13px;
+  }
+  .margin-note {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--bronze);
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    position: relative;
+    cursor: grab;
+  }
+  .margin-note.dragging { opacity: 0.4; }
+  .margin-note.drop-target { border-color: var(--accent); border-style: dashed; }
+  .margin-note .num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; color: var(--muted);
+    display: block; margin-bottom: 2px;
+  }
+  .margin-note textarea {
+    width: 100%; border: none; background: transparent;
+    resize: none; font-family: inherit; font-size: 13px;
+    line-height: 1.5; color: var(--ink); padding: 0; min-height: 24px;
+  }
+  .margin-note textarea:focus { outline: none; }
+  .margin-note .rm-mn {
+    position: absolute; top: 4px; right: 4px;
+    background: transparent; border: none; color: var(--muted);
+    cursor: pointer; font-size: 12px; padding: 0 4px;
+    display: none;
+  }
+  .margin-note:hover .rm-mn { display: block; }
+  .margin-note .rm-mn:hover { color: var(--danger); }
+  .add-mn {
+    width: 100%; padding: 8px;
+    border: 1px dashed var(--border); border-radius: 6px;
+    background: transparent; cursor: pointer; color: var(--muted);
+    font-family: inherit; font-size: 12px;
+  }
+  .add-mn:hover { border-color: var(--accent); color: var(--accent); }
+  .promote-banner {
+    margin: 8px 12px;
+    padding: 8px 10px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+  .promote-banner button {
+    margin-top: 4px;
+    background: var(--accent); color: white;
+    border: none; border-radius: 4px;
+    padding: 4px 10px; font-size: 11px;
+    cursor: pointer;
+  }
+  .promote-banner button:hover { background: #2f4329; }
+
+  /* ── Slides column ───────────────────────────────── */
+  .col-slides { flex: 0 0 20%; min-width: 200px; background: var(--bg); }
+  .slide-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    position: relative;
+    cursor: grab;
+  }
+  .slide-card.dragging { opacity: 0.4; }
+  .slide-card.drop-target { border-color: var(--accent); border-style: dashed; }
+  .slide-card .num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; color: var(--muted);
+    display: block; margin-bottom: 2px;
+  }
+  .slide-card textarea {
+    width: 100%; border: none; background: transparent;
+    resize: none; font-family: inherit; font-size: 13px;
+    line-height: 1.4; color: var(--ink); padding: 0; min-height: 20px;
+  }
+  .slide-card textarea:focus { outline: none; }
+  .slide-card .rm-slide {
+    position: absolute; top: 4px; right: 4px;
+    background: transparent; border: none; color: var(--muted);
+    cursor: pointer; font-size: 12px; padding: 0 4px;
+    display: none;
+  }
+  .slide-card:hover .rm-slide { display: block; }
+  .slide-card .rm-slide:hover { color: var(--danger); }
+  .add-slide {
+    width: 100%; padding: 8px;
+    border: 1px dashed var(--border); border-radius: 6px;
+    background: transparent; cursor: pointer; color: var(--muted);
+    font-family: inherit; font-size: 12px;
+  }
+  .add-slide:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer; color: var(--ink); font-family: inherit;
+  }
+  .btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn.primary:hover { background: #2f4329; }
+  .btn.tiny { padding: 3px 7px; font-size: 11px; }
+  .btn[disabled] { opacity: 0.6; cursor: default; }
+
+  .empty {
+    color: var(--muted); font-style: italic;
+    text-align: center; padding: 30px 16px; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1>Prep dashboard</h1>
+  <span class="project">project <code id="project-slug">…</code></span>
+  <button class="btn tiny" id="export-md-btn" title="Download a markdown brief: outline + cards + annotations">Export brief</button>
+  <button class="btn tiny" id="export-txt-btn" title="Download a .txt outline you can import into PowerPoint or Keynote">Export outline</button>
+  <button class="btn tiny" id="sync-hub-btn" title="Write picks to the project hub post">Sync to hub</button>
+  <span class="saved" id="saved-status">Loaded</span>
+</header>
+<main>
+  <aside class="col rail" id="rail">
+    <button class="rail-toggle" id="rail-toggle" title="Toggle rail">‹</button>
+    <div class="rail-search">
+      <input type="search" id="search-input" placeholder="Search the garden" autocomplete="off" />
+      <div class="chips" id="collection-chips"></div>
+    </div>
+    <div id="promote-banner-wrap"></div>
+    <div class="col-body" id="rail-body">
+      <div class="rail-section">Selected cards <span id="cards-count" class="count"></span></div>
+      <div id="cards-list"></div>
+      <div class="rail-section">Search results <span id="search-count" class="count"></span></div>
+      <div id="search-results"></div>
+    </div>
+  </aside>
+
+  <section class="col col-article">
+    <div class="col-header">
+      <h2 id="article-title">Article</h2>
+      <span class="article-meta" id="article-meta"></span>
+      <span class="spacer"></span>
+      <button class="btn tiny" id="article-add" style="display:none;">+ add to cards</button>
+      <a class="btn tiny" id="article-open" target="_blank" style="display:none;">open ↗</a>
+    </div>
+    <div class="col-body" id="article-body-wrap">
+      <div class="article-body" id="article-body">
+        <div class="empty">Pick an article from the rail to start reading.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col col-annot">
+    <div class="col-header">
+      <h2>Marginalia</h2>
+      <span class="article-meta" id="annot-meta" title='Format: "quoted passage" your comment. The quote anchors the note in the post; the comment appears on hover.'>public · format: "quote" comment</span>
+    </div>
+    <div class="col-body" id="annot-list">
+      <div class="annot-empty">Open an article to annotate it.</div>
+    </div>
+  </section>
+
+  <section class="col col-slides">
+    <div class="col-header">
+      <h2>Slides</h2>
+      <span class="count" id="slides-count"></span>
+      <span class="spacer"></span>
+      <button class="btn tiny" id="add-slide-top">+</button>
+    </div>
+    <div class="col-body" id="slides-list"></div>
+  </section>
+</main>
+
+<script>
+const COLLECTIONS = ["articles","field-notes","seeds","weblinks","videos","library","experiments","jottings"];
+const params = new URLSearchParams(location.search);
+const PROJECT = params.get("project") || "conference-talk-guildford";
+document.getElementById("project-slug").textContent = PROJECT;
+document.title = `Prep · ${PROJECT}`;
+
+let state = { cards: [], notes: "", outline: [], slides: [], ui: {} };
+let activeCollection = "";
+let currentArticle = null; // { collection, slug, title }
+let restoringUI = false;
+let saveTimer = null;
+const savedEl = document.getElementById("saved-status");
+
+function uid() { return Math.random().toString(36).slice(2, 10); }
+function setSaved(t) { savedEl.textContent = t; }
+
+function escapeHTML(s) {
+  return String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+async function loadState() {
+  const r = await fetch(`/api/state?project=${encodeURIComponent(PROJECT)}`);
+  const data = await r.json();
+  state.cards   = data.cards   || [];
+  state.notes   = data.notes   || "";
+  state.outline = data.outline || [];
+  state.slides  = data.slides  || [];
+  state.ui      = data.ui      || {};
+
+  // One-time migration: seed slides from outline if slides empty
+  if (!state.slides.length && state.outline.length) {
+    state.slides = state.outline.map(o => {
+      if (o.type === "card") {
+        const c = state.cards.find(x => x.id === o.id);
+        return { id: uid(), title: c ? c.title : o.id };
+      }
+      return { id: o.id || uid(), title: o.text || "" };
+    });
+    scheduleSave();
+  }
+
+  renderCards();
+  renderSlides();
+}
+
+function saveUI(patch) {
+  if (restoringUI) return;
+  state.ui = { ...(state.ui||{}), ...patch };
+  scheduleSave();
+}
+
+async function restoreUI() {
+  restoringUI = true;
+  const ui = state.ui || {};
+  if (ui.activeCollection) {
+    activeCollection = ui.activeCollection;
+    renderChips();
+  }
+  if (ui.searchQuery) {
+    document.getElementById("search-input").value = ui.searchQuery;
+  }
+  if (ui.railCollapsed) {
+    const rail = document.getElementById("rail");
+    rail.classList.add("collapsed");
+    document.getElementById("rail-toggle").textContent = "›";
+  }
+  await doSearch();
+  if (ui.openArticle && ui.openArticle.collection && ui.openArticle.slug) {
+    await openArticle(ui.openArticle.collection, ui.openArticle.slug, ui.openArticle.title || ui.openArticle.slug);
+  }
+  restoringUI = false;
+}
+
+function scheduleSave() {
+  setSaved("Saving…");
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveNow, 600);
+}
+
+async function saveNow() {
+  clearTimeout(saveTimer);
+  const r = await fetch(`/api/state?project=${encodeURIComponent(PROJECT)}`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(state),
+  });
+  if (r.ok) {
+    const d = new Date();
+    setSaved(`Saved ${d.toLocaleTimeString()}`);
+  } else {
+    setSaved("Save failed");
+  }
+}
+
+/* ── Search ────────────────────────────────────────── */
+function renderChips() {
+  const wrap = document.getElementById("collection-chips");
+  const all = [{key: "", label: "all"}, ...COLLECTIONS.map(c => ({key: c, label: c}))];
+  wrap.innerHTML = all.map(c =>
+    `<span class="chip ${c.key===activeCollection?"active":""}" data-coll="${c.key}">${c.label}</span>`
+  ).join("");
+  wrap.querySelectorAll(".chip").forEach(el => {
+    el.onclick = () => { activeCollection = el.dataset.coll; renderChips(); runSearch(); saveUI({activeCollection}); };
+  });
+}
+
+let searchTimer = null;
+function runSearch() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(doSearch, 150);
+}
+
+async function doSearch() {
+  const q = document.getElementById("search-input").value;
+  const url = `/api/search?q=${encodeURIComponent(q)}&collection=${encodeURIComponent(activeCollection)}`;
+  const r = await fetch(url);
+  const data = await r.json();
+  const results = document.getElementById("search-results");
+  document.getElementById("search-count").textContent = `${data.items.length}/${data.total}`;
+  if (!data.items.length) {
+    results.innerHTML = `<div class="empty" style="padding:8px;font-size:11px;">No matches.</div>`;
+    return;
+  }
+  const inProject = new Set(state.cards.map(c => c.id));
+  results.innerHTML = data.items.slice(0, 50).map(it => `
+    <div class="rail-item ${currentArticle && currentArticle.slug===it.slug?"active":""}" data-slug="${it.slug}" data-coll="${it.collection}" data-title="${escapeHTML(it.title)}">
+      <span class="coll-tag">${it.collection}${inProject.has(it.slug)?" · added":""}</span>
+      <span class="title">${escapeHTML(it.title)}</span>
+    </div>
+  `).join("");
+  results.querySelectorAll(".rail-item").forEach(el => {
+    el.onclick = () => openArticle(el.dataset.coll, el.dataset.slug, el.dataset.title);
+  });
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+function addCard(c) {
+  if (state.cards.some(x => x.id === c.id)) return;
+  state.cards.push({...c, added: new Date().toISOString()});
+  renderCards();
+  doSearch();
+  scheduleSave();
+}
+
+function removeCard(id) {
+  state.cards = state.cards.filter(c => c.id !== id);
+  renderCards();
+  doSearch();
+  if (currentArticle && currentArticle.slug === id) updateArticleAddBtn();
+  scheduleSave();
+}
+
+function renderCards() {
+  renderPromoteBanner();
+  document.getElementById("cards-count").textContent = `(${state.cards.length})`;
+  const list = document.getElementById("cards-list");
+  if (!state.cards.length) {
+    list.innerHTML = `<div class="empty" style="padding:6px;font-size:11px;">No picks yet.</div>`;
+    return;
+  }
+  list.innerHTML = state.cards.map(c => `
+    <div class="rail-item ${currentArticle && currentArticle.slug===c.id?"active":""}" data-slug="${c.id}" data-coll="${c.collection}" data-title="${escapeHTML(c.title)}">
+      <span class="coll-tag">${c.collection||""}</span>
+      <span class="title">${escapeHTML(c.title)}</span>
+      ${c.note ? '<span class="has-note" title="Has annotations">●</span>' : ''}
+      <button class="rm-card" data-rm="${c.id}" title="Remove">×</button>
+    </div>
+  `).join("");
+  list.querySelectorAll("[data-rm]").forEach(b => {
+    b.onclick = (e) => { e.stopPropagation(); removeCard(b.dataset.rm); };
+  });
+  list.querySelectorAll(".rail-item").forEach(el => {
+    el.onclick = () => openArticle(el.dataset.coll, el.dataset.slug, el.dataset.title);
+  });
+}
+
+/* ── Article reader ────────────────────────────────── */
+function renderWikiLinks(html) {
+  return html.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, slug, label) => {
+    const text = (label || slug).trim();
+    return `<span class="wikilink" title="[[${escapeHTML(slug.trim())}]]">${escapeHTML(text)}</span>`;
+  });
+}
+
+async function openArticle(collection, slug, title) {
+  currentArticle = { collection, slug, title };
+  saveUI({ openArticle: { collection, slug, title } });
+  document.getElementById("article-title").textContent = title || slug;
+  document.getElementById("article-meta").textContent = collection;
+  document.getElementById("article-body").innerHTML = `<div class="empty">Loading…</div>`;
+  document.getElementById("annot-meta").textContent = title || slug;
+  renderCards(); doSearch();
+
+  const r = await fetch(`/api/article?collection=${encodeURIComponent(collection)}&slug=${encodeURIComponent(slug)}`);
+  if (!r.ok) {
+    document.getElementById("article-body").innerHTML = `<div class="empty">Could not load article.</div>`;
+    return;
+  }
+  const a = await r.json();
+  currentArticle = { collection: a.collection, slug: a.slug, title: a.title };
+
+  const bodyHTML = renderWikiLinks(marked.parse(a.body || ""));
+  const metaBits = [
+    a.maturity || null,
+    a.date ? a.date.slice(0,10) : null,
+    ...(a.tags || []).slice(0,8).map(t => "#" + t),
+  ].filter(Boolean).map(escapeHTML).join(" · ");
+
+  document.getElementById("article-body").innerHTML = `
+    <span class="coll-tag">${escapeHTML(a.collection)}</span>
+    <h1>${escapeHTML(a.title)}</h1>
+    ${a.description ? `<div class="desc">${escapeHTML(a.description)}</div>` : ""}
+    ${metaBits ? `<div class="meta">${metaBits}</div>` : ""}
+    ${bodyHTML}
+  `;
+  document.getElementById("article-title").textContent = a.title;
+  document.getElementById("article-open").href = a.url || `http://localhost:4321/${a.collection}/${a.slug}/`;
+  document.getElementById("article-open").style.display = "";
+
+  updateArticleAddBtn();
+  loadAnnotation();
+}
+
+function updateArticleAddBtn() {
+  const btn = document.getElementById("article-add");
+  if (!currentArticle) { btn.style.display = "none"; return; }
+  btn.style.display = "";
+  const inCards = state.cards.some(c => c.id === currentArticle.slug);
+  if (inCards) {
+    btn.textContent = "added";
+    btn.disabled = true;
+    btn.classList.remove("primary");
+  } else {
+    btn.textContent = "+ add to cards";
+    btn.disabled = false;
+    btn.classList.add("primary");
+  }
+}
+
+document.getElementById("article-add").onclick = () => {
+  if (!currentArticle) return;
+  addCard({...currentArticle, id: currentArticle.slug});
+  updateArticleAddBtn();
+};
+
+/* ── Marginalia (per-article, lives on the post) ──── */
+let marginalia = [];           // current article's marginalia (array of strings)
+let marginaliaSaveTimer = null;
+
+function articleKey() {
+  return currentArticle ? `${currentArticle.collection}/${currentArticle.slug}` : null;
+}
+
+async function loadAnnotation() {
+  const list = document.getElementById("annot-list");
+  if (!currentArticle) {
+    list.innerHTML = `<div class="annot-empty">Open an article to annotate it.</div>`;
+    marginalia = [];
+    return;
+  }
+  list.innerHTML = `<div class="annot-empty">Loading…</div>`;
+  const r = await fetch(`/api/marginalia?collection=${encodeURIComponent(currentArticle.collection)}&slug=${encodeURIComponent(currentArticle.slug)}`);
+  if (!r.ok) {
+    list.innerHTML = `<div class="annot-empty">Could not load marginalia.</div>`;
+    return;
+  }
+  const d = await r.json();
+  marginalia = d.marginalia || [];
+  renderMarginalia();
+}
+
+function renderMarginalia() {
+  const list = document.getElementById("annot-list");
+  const articleSlug = currentArticle?.slug;
+  list.innerHTML = marginalia.map((s, i) => `
+    <div class="margin-note" draggable="true" data-idx="${i}">
+      <span class="num">${i+1}</span>
+      <textarea data-mtext="${i}" rows="2" placeholder='"quoted passage from the post" your comment after'>${escapeHTML(s)}</textarea>
+      <button class="rm-mn" data-mrm="${i}" title="Remove">×</button>
+    </div>
+  `).join("") + `<button class="add-mn" id="add-mn-btn">+ marginal note</button>`;
+
+  list.querySelectorAll("[data-mtext]").forEach(t => {
+    autoGrow(t);
+    t.oninput = () => {
+      marginalia[parseInt(t.dataset.mtext,10)] = t.value;
+      autoGrow(t);
+      scheduleMarginaliaSave();
+    };
+  });
+  list.querySelectorAll("[data-mrm]").forEach(b => {
+    b.onclick = () => {
+      marginalia.splice(parseInt(b.dataset.mrm,10), 1);
+      renderMarginalia();
+      scheduleMarginaliaSave();
+    };
+  });
+  document.getElementById("add-mn-btn").onclick = () => {
+    marginalia.push("");
+    renderMarginalia();
+    setTimeout(() => {
+      const tas = document.querySelectorAll("#annot-list textarea");
+      if (tas.length) tas[tas.length-1].focus();
+    }, 0);
+  };
+  attachReorderDnD(list, ".margin-note", marginalia, () => { renderMarginalia(); scheduleMarginaliaSave(); });
+
+  // Update has-note indicator on rail items for this slug
+  if (articleSlug) {
+    const hasAny = marginalia.some(s => s.trim().length > 0);
+    document.querySelectorAll(`.rail-item[data-slug="${articleSlug}"]`).forEach(el => {
+      let dot = el.querySelector(".has-note");
+      if (hasAny && !dot) {
+        const span = document.createElement("span");
+        span.className = "has-note"; span.title = "Has marginalia"; span.textContent = "●";
+        el.appendChild(span);
+      } else if (!hasAny && dot) {
+        dot.remove();
+      }
+    });
+  }
+}
+
+function scheduleMarginaliaSave() {
+  setSaved("Saving marginalia…");
+  clearTimeout(marginaliaSaveTimer);
+  marginaliaSaveTimer = setTimeout(saveMarginalia, 700);
+}
+
+async function saveMarginalia() {
+  clearTimeout(marginaliaSaveTimer);
+  if (!currentArticle) return;
+  const items = marginalia.map(s => s.trim()).filter(s => s.length > 0);
+  const r = await fetch(`/api/marginalia?collection=${encodeURIComponent(currentArticle.collection)}&slug=${encodeURIComponent(currentArticle.slug)}`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({marginalia: items}),
+  });
+  if (r.ok) {
+    const d = new Date();
+    setSaved(`Saved marginalia ${d.toLocaleTimeString()}`);
+  } else {
+    setSaved("Marginalia save failed");
+  }
+}
+
+/* ── Promote card-notes banner ─────────────────────── */
+function renderPromoteBanner() {
+  const wrap = document.getElementById("promote-banner-wrap");
+  const candidates = (state.cards || []).filter(c => (c.note || "").trim().length > 0);
+  if (!candidates.length) { wrap.innerHTML = ""; return; }
+  wrap.innerHTML = `
+    <div class="promote-banner">
+      ${candidates.length} card note${candidates.length===1?"":"s"} can be promoted to public marginalia on the post.
+      <br><button id="promote-btn">Promote ${candidates.length}</button>
+    </div>`;
+  document.getElementById("promote-btn").onclick = async () => {
+    if (!confirm(`Write ${candidates.length} card note${candidates.length===1?"":"s"} to the corresponding posts as public marginalia?\n\nThis edits the .md files but does not commit.`)) return;
+    const r = await fetch(`/api/promote-card-notes?project=${encodeURIComponent(PROJECT)}`, {method: "POST"});
+    const d = await r.json();
+    if (!d || d.error) { alert("Failed: " + (d?.error || "unknown")); return; }
+    // Locally clear note fields on cards we just promoted
+    state.cards.forEach(c => { if ((c.note || "").trim()) delete c.note; });
+    scheduleSave();
+    renderCards();
+    renderPromoteBanner();
+    if (currentArticle) loadAnnotation();
+    alert(`Promoted ${d.promoted}, skipped ${d.skipped}.`);
+  };
+}
+
+/* ── Slides ────────────────────────────────────────── */
+function renderSlides() {
+  document.getElementById("slides-count").textContent = `(${state.slides.length})`;
+  const list = document.getElementById("slides-list");
+  list.innerHTML = state.slides.map((s, i) => `
+    <div class="slide-card" draggable="true" data-idx="${i}">
+      <span class="num">${String(i+1).padStart(2,"0")}</span>
+      <textarea data-stext="${i}" rows="2" placeholder="Slide title or beat">${escapeHTML(s.title||"")}</textarea>
+      <button class="rm-slide" data-srm="${i}" title="Remove">×</button>
+    </div>
+  `).join("") + `<button class="add-slide" id="add-slide-btn">+ slide</button>`;
+
+  list.querySelectorAll("[data-srm]").forEach(b => {
+    b.onclick = () => { state.slides.splice(parseInt(b.dataset.srm,10),1); renderSlides(); scheduleSave(); };
+  });
+  list.querySelectorAll("[data-stext]").forEach(t => {
+    autoGrow(t);
+    t.oninput = () => {
+      state.slides[parseInt(t.dataset.stext,10)].title = t.value;
+      autoGrow(t);
+      scheduleSave();
+    };
+  });
+  document.getElementById("add-slide-btn").onclick = addSlide;
+  attachReorderDnD(list, ".slide-card", state.slides, () => { renderSlides(); scheduleSave(); });
+}
+
+function addSlide() {
+  state.slides.push({ id: uid(), title: "" });
+  renderSlides();
+  scheduleSave();
+  setTimeout(() => {
+    const tas = document.querySelectorAll("#slides-list textarea");
+    if (tas.length) tas[tas.length-1].focus();
+  }, 0);
+}
+
+function autoGrow(el) {
+  el.style.height = "auto";
+  el.style.height = (el.scrollHeight) + "px";
+}
+
+document.getElementById("add-slide-top").onclick = addSlide;
+
+/* ── DnD reorder ───────────────────────────────────── */
+function attachReorderDnD(container, selector, arr, onChange) {
+  let dragIdx = null;
+  container.querySelectorAll(selector).forEach(el => {
+    el.addEventListener("dragstart", e => {
+      dragIdx = parseInt(el.dataset.idx,10);
+      el.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+    el.addEventListener("dragend", () => {
+      el.classList.remove("dragging");
+      container.querySelectorAll(".drop-target").forEach(x => x.classList.remove("drop-target"));
+    });
+    el.addEventListener("dragover", e => { e.preventDefault(); el.classList.add("drop-target"); });
+    el.addEventListener("dragleave", () => el.classList.remove("drop-target"));
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      const targetIdx = parseInt(el.dataset.idx,10);
+      if (dragIdx === null || dragIdx === targetIdx) return;
+      const [m] = arr.splice(dragIdx, 1);
+      arr.splice(targetIdx, 0, m);
+      onChange();
+    });
+  });
+}
+
+/* ── Sync to hub ───────────────────────────────────── */
+document.getElementById("sync-hub-btn").onclick = async () => {
+  if (!state.cards.length) { alert("No cards to sync."); return; }
+  if (!confirm(`Write ${state.cards.length} picks to field-notes/${PROJECT}.md?\n\nThis edits the file but does not commit.`)) return;
+  const r = await fetch(`/api/sync-to-hub?project=${encodeURIComponent(PROJECT)}`, {method:"POST"});
+  const d = await r.json();
+  if (d.ok) alert(`Wrote ${d.lines} picks to ${d.path}`);
+  else alert(`Failed: ${d.error || "unknown"}`);
+};
+
+/* ── Export ────────────────────────────────────────── */
+function downloadExport(format) {
+  // Force a save first so the export reflects current edits
+  saveNow().then(() => {
+    const url = `/api/export?project=${encodeURIComponent(PROJECT)}&format=${format}`;
+    const a = document.createElement("a");
+    a.href = url; a.download = "";
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+}
+document.getElementById("export-md-btn").onclick  = () => downloadExport("md");
+document.getElementById("export-txt-btn").onclick = () => downloadExport("txt");
+
+/* ── Rail toggle ───────────────────────────────────── */
+document.getElementById("rail-toggle").onclick = () => {
+  const rail = document.getElementById("rail");
+  rail.classList.toggle("collapsed");
+  const collapsed = rail.classList.contains("collapsed");
+  document.getElementById("rail-toggle").textContent = collapsed ? "›" : "‹";
+  saveUI({ railCollapsed: collapsed });
+};
+
+/* ── Search input ──────────────────────────────────── */
+document.getElementById("search-input").addEventListener("input", () => {
+  runSearch();
+  saveUI({ searchQuery: document.getElementById("search-input").value });
+});
+
+/* ── Init ──────────────────────────────────────────── */
+renderChips();
+loadState().then(restoreUI);
+</script>
+</body>
+</html>

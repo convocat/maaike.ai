@@ -15,6 +15,7 @@ const baseSchema = z.object({
   triples: z.array(z.tuple([z.string(), z.string(), z.string()])).optional(),
   themes: z.array(z.string()).optional(),
   open_questions: z.array(z.string()).optional(),
+  marginalia: z.array(z.string()).optional(),
   description: z.string().optional(),
   draft: z.boolean().default(false),
   ai: z.enum(['100% Maai', 'assisted', 'co-created', 'generated']).optional(),

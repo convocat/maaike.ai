@@ -16,6 +16,7 @@ interface Props {
   triples?: [string, string, string][];
   themes?: string[];
   open_questions?: string[];
+  marginalia?: string[];
   description?: string;
   collection: string;
   collectionOverride?: string;
@@ -33,7 +34,7 @@ interface Props {
 // Markdown layout pages pass all frontmatter under Astro.props.frontmatter;
 // content collection routes pass props directly.
 const source = Astro.props.frontmatter ?? Astro.props;
-const { title, updated, maturity, tags, triples, themes, open_questions, description, collection: collectionProp, collectionOverride, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream', postUrlOverride, ogImageOverride } = source;
+const { title, updated, maturity, tags, triples, themes, open_questions, marginalia, description, collection: collectionProp, collectionOverride, slug, url, ai, hub, develops, backHref = '/', backLabel = 'Stream', postUrlOverride, ogImageOverride } = source;
 const collection = collectionOverride ?? collectionProp;
 const date = source.date instanceof Date ? source.date : new Date(source.date);
 
@@ -90,6 +91,7 @@ const chatPageContext = {
 <PageLayout title={title} description={description} ogImage={ogImage} pageContext={chatPageContext}>
   <a href={backHref} class="back-to-stream">&larr; {backLabel}</a>
   <div class="post-with-sidebar">
+    <aside class="post-leftnotes" id="post-leftnotes" aria-label="Marginal notes"></aside>
     <article class="post">
       <header class="post-header">
         <div class="post-collection-label">
@@ -214,8 +216,12 @@ const chatPageContext = {
     </article>
 
     <aside class="post-sidebar">
+      <ol class="marginalia-fallback" id="marginalia-fallback" hidden></ol>
       <PostSidebar slug={slug} tags={tags} collection={collection} title={title} postUrl={postUrl} hub={hub} develops={develops} />
     </aside>
+    {marginalia && marginalia.length > 0 && (
+      <script type="application/json" id="marginalia-data" set:html={JSON.stringify(marginalia)} />
+    )}
   </div>
   <WikiLinkPreview />
 </PageLayout>
@@ -229,6 +235,172 @@ const chatPageContext = {
       link.setAttribute('rel', 'noopener noreferrer');
     }
   });
+
+  // Marginalia: anchor each note to its quoted passage; show comment on hover.
+  // Format expected: "quoted passage" comment text.
+  // If no quote can be located in the prose, fall back to a small list in the sidebar.
+  function setupMarginalia() {
+    const dataEl = document.getElementById('marginalia-data');
+    const fallback = document.getElementById('marginalia-fallback');
+    const leftCol = document.getElementById('post-leftnotes');
+    if (fallback) { fallback.innerHTML = ''; fallback.hidden = true; }
+    if (leftCol) leftCol.innerHTML = '';
+    document.querySelectorAll('.annotations-toggle').forEach((n) => n.remove());
+    if (!dataEl) return;
+    let entries: string[] = [];
+    try { entries = JSON.parse(dataEl.textContent || '[]'); } catch { return; }
+    const prose = document.querySelector('.prose');
+    if (!prose) return;
+
+    // Strip prior tooltip elements created on a previous render
+    document.querySelectorAll('.margin-tooltip').forEach((n) => n.remove());
+
+    const QUOTE_RE = /^\s*[\"“”]([^\"“”]+)[\"“”]\s*([\s\S]*)$/;
+    const fallbackItems: string[] = [];
+    const anchored: { num: number; comment: string; el: HTMLElement }[] = [];
+
+    for (let i = 0; i < entries.length; i++) {
+      const raw = entries[i] || '';
+      const m = raw.match(QUOTE_RE);
+      if (!m) { fallbackItems.push(raw); continue; }
+      const quote = m[1].trim();
+      const comment = m[2].trim();
+      if (!quote) { fallbackItems.push(raw); continue; }
+      const num = i + 1;
+      const span = wrapFirstMatch(prose as HTMLElement, quote, comment, num);
+      if (span) anchored.push({ num, comment, el: span });
+      else fallbackItems.push(raw);
+    }
+
+    if (fallbackItems.length && fallback) {
+      fallback.hidden = false;
+      fallback.innerHTML = fallbackItems
+        .map((s, i) => '<li class="margin-note"><span class="margin-note-num">' + (i + 1) + '</span><span class="margin-note-body">' + escapeHtml(s) + '</span></li>')
+        .join('');
+    }
+
+    // Place each anchored note in the left margin aligned to its anchor's vertical position.
+    if (leftCol && anchored.length) {
+      const article = document.querySelector('article.post') as HTMLElement | null;
+      if (article) {
+        const articleTop = article.getBoundingClientRect().top + window.scrollY;
+        const placed: { top: number; node: HTMLElement }[] = [];
+        for (const a of anchored) {
+          const r = a.el.getBoundingClientRect();
+          const top = r.top + window.scrollY - articleTop;
+          const note = document.createElement('div');
+          note.className = 'leftnote';
+          note.dataset.num = String(a.num);
+          note.innerHTML = '<span class="leftnote-num">' + a.num + '</span><span class="leftnote-body">' + escapeHtml(a.comment) + '</span>';
+          leftCol.appendChild(note);
+          placed.push({ top, node: note });
+        }
+        // Avoid overlap: bump notes down so they don't collide.
+        placed.sort((a, b) => a.top - b.top);
+        let cursor = 0;
+        for (const p of placed) {
+          const finalTop = Math.max(cursor, p.top);
+          p.node.style.top = finalTop + 'px';
+          cursor = finalTop + p.node.offsetHeight + 8;
+        }
+        // Hover dim: emphasize the matching pair.
+        for (const a of anchored) {
+          const note = leftCol.querySelector('.leftnote[data-num="' + a.num + '"]') as HTMLElement | null;
+          if (!note) continue;
+          const dim = (on: boolean) => {
+            const all = leftCol.querySelectorAll('.leftnote');
+            all.forEach((n) => { if (n !== note) n.classList.toggle('dim', on); });
+            const anchors = document.querySelectorAll('.margin-anchor');
+            anchors.forEach((n) => { if (n !== a.el) (n as HTMLElement).classList.toggle('dim', on); });
+          };
+          a.el.addEventListener('mouseenter', () => dim(true));
+          a.el.addEventListener('mouseleave', () => dim(false));
+          note.addEventListener('mouseenter', () => dim(true));
+          note.addEventListener('mouseleave', () => dim(false));
+          note.addEventListener('click', () => { a.el.scrollIntoView({behavior: 'smooth', block: 'center'}); });
+        }
+      }
+    }
+
+    // Toggle: show/hide annotations
+    if (anchored.length || fallbackItems.length) {
+      const toggle = document.createElement('button');
+      toggle.className = 'annotations-toggle';
+      toggle.type = 'button';
+      const totalCount = anchored.length + fallbackItems.length;
+      const stored = localStorage.getItem('annotations-hidden') === '1';
+      const article = document.querySelector('article.post') as HTMLElement | null;
+      const apply = (hidden: boolean) => {
+        if (article) article.classList.toggle('annotations-hidden', hidden);
+        document.body.classList.toggle('annotations-hidden', hidden);
+        toggle.innerHTML = '<span class="dot"></span>' + (hidden ? 'Show' : 'Hide') + ' annotations (' + totalCount + ')';
+        localStorage.setItem('annotations-hidden', hidden ? '1' : '0');
+      };
+      toggle.onclick = () => apply(!document.body.classList.contains('annotations-hidden'));
+      apply(stored);
+      const header = document.querySelector('.post-header') || document.querySelector('article.post');
+      header?.parentElement?.insertBefore(toggle, header);
+    }
+  }
+
+  function escapeHtml(s: string) {
+    return s.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c] as string));
+  }
+
+  function wrapFirstMatch(root: HTMLElement, needle: string, comment: string, num: number): HTMLElement | null {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (p.closest('pre, code, .margin-anchor')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+    let n: Text | null;
+    const needleLow = needle.toLowerCase();
+    while ((n = walker.nextNode() as Text | null)) {
+      const idx = n.data.toLowerCase().indexOf(needleLow);
+      if (idx === -1) continue;
+      const after = n.splitText(idx);
+      after.splitText(needle.length);
+      const span = document.createElement('span');
+      span.className = 'margin-anchor';
+      span.dataset.comment = comment;
+      span.dataset.num = String(num);
+      span.textContent = after.data;
+      after.parentNode?.replaceChild(span, after);
+      attachTooltip(span);
+      return span;
+    }
+    return null;
+  }
+
+  function attachTooltip(anchor: HTMLElement) {
+    let tip: HTMLDivElement | null = null;
+    const show = () => {
+      if (tip) return;
+      tip = document.createElement('div');
+      tip.className = 'margin-tooltip';
+      tip.textContent = anchor.dataset.comment || '';
+      document.body.appendChild(tip);
+      const r = anchor.getBoundingClientRect();
+      const tipW = Math.min(320, window.innerWidth - 24);
+      tip.style.width = tipW + 'px';
+      const x = Math.min(window.innerWidth - tipW - 12, Math.max(12, r.left));
+      const y = window.scrollY + r.bottom + 6;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    };
+    const hide = () => { if (tip) { tip.remove(); tip = null; } };
+    anchor.addEventListener('mouseenter', show);
+    anchor.addEventListener('mouseleave', hide);
+    anchor.addEventListener('focus', show);
+    anchor.addEventListener('blur', hide);
+    anchor.tabIndex = 0;
+  }
+
+  setupMarginalia();
+  document.addEventListener('astro:page-load', setupMarginalia);
 
   document.querySelectorAll('.share-generic').forEach((btn) => {
     btn.addEventListener('click', async () => {
@@ -270,6 +442,7 @@ const chatPageContext = {
     gap: var(--space-xl);
     max-width: var(--max-width);
     margin-inline: auto;
+    position: relative;
   }
 
   .post {
@@ -279,6 +452,135 @@ const chatPageContext = {
   .post-sidebar {
     padding-block-start: var(--space-3xl);
     opacity: 0.85;
+  }
+
+  /* Left margin notes column: only on wide viewports. */
+  .post-leftnotes {
+    display: none;
+    position: relative;
+  }
+  @media (min-width: 90rem) {
+    .post-with-sidebar {
+      grid-template-columns: 12rem minmax(0, 1fr) 14rem;
+      max-width: 82rem;
+    }
+    .post-leftnotes { display: block; padding-block-start: var(--space-3xl); }
+  }
+  :global(.leftnote) {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    font-style: italic;
+    border-left: 2px solid var(--color-accent-2);
+    padding: 0 0 0 0.6rem;
+    transition: opacity 150ms;
+  }
+  :global(.leftnote.dim) { opacity: 0.35; }
+  :global(.margin-anchor.dim) { background: none; border-bottom-color: rgba(156, 122, 62, 0.2); }
+  :global(.leftnote .leftnote-num) {
+    display: inline-block;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-style: normal;
+    font-size: 0.65rem;
+    color: var(--color-accent-2);
+    margin-right: 0.3rem;
+  }
+
+  /* Toggle pill */
+  :global(.annotations-toggle) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: var(--space-md);
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    font-family: inherit;
+    color: var(--color-text-muted);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 150ms, border-color 150ms;
+  }
+  :global(.annotations-toggle:hover) {
+    color: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+  }
+  :global(.annotations-toggle .dot) {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent-2);
+  }
+  :global(.annotations-hidden .margin-anchor) {
+    background: none !important;
+    border-bottom: none !important;
+    cursor: text;
+  }
+  :global(.annotations-hidden .post-leftnotes) {
+    visibility: hidden;
+  }
+  :global(.annotations-hidden .marginalia-fallback) {
+    display: none !important;
+  }
+  :global(.annotations-hidden .annotations-toggle .dot) { background: var(--color-border); }
+
+  .marginalia-fallback {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl) 0;
+    border-left: 2px solid var(--color-accent-2);
+    padding-left: 0.75rem;
+  }
+  .marginalia-fallback .margin-note {
+    margin-bottom: var(--space-md);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .marginalia-fallback .margin-note:last-child { margin-bottom: 0; }
+  .marginalia-fallback .margin-note-num {
+    display: inline-block;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-style: normal;
+    font-size: 0.7rem;
+    color: var(--color-accent-2);
+    margin-right: 0.4rem;
+    vertical-align: top;
+  }
+  .marginalia-fallback .margin-note-body { white-space: pre-wrap; }
+
+  :global(.margin-anchor) {
+    background: linear-gradient(transparent 70%, rgba(156, 122, 62, 0.12) 70%);
+    border-bottom: 1px dotted rgba(156, 122, 62, 0.55);
+    cursor: help;
+    transition: background 150ms;
+  }
+  :global(.margin-anchor:hover),
+  :global(.margin-anchor:focus) {
+    background: linear-gradient(transparent 60%, rgba(156, 122, 62, 0.22) 60%);
+    outline: none;
+  }
+  :global(.margin-tooltip) {
+    position: absolute;
+    z-index: 1000;
+    background: var(--color-bg-card);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent-2);
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    font-style: italic;
+    color: var(--color-text-muted);
+    white-space: pre-wrap;
+    pointer-events: none;
   }
 
   @media (max-width: 68rem) {

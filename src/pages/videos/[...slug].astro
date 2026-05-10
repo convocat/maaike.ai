@@ -42,6 +42,7 @@ const videoId = getYouTubeId(entry.data.url);
   slug={entry.id}
   url={entry.data.url}
   ai={entry.data.ai}
+  marginalia={entry.data.marginalia}
 >
   {videoId && (
     <div class="video-embed" id="video-container" data-video-id={videoId}>

@@ -43,3 +43,7 @@ tools/karpathy-wiki/.static-server.pid
 tools/karpathy-wiki/tools/__pycache__/
 # Topic-view cache is intentionally committed so Vercel ships it.
 eval-autobackup-*.json
+
+# Prep dashboard sidecar state
+tools/prep-dashboard/data/*.json
+tools/prep-dashboard/__pycache__/
