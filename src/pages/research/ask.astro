@@ -79,6 +79,12 @@ const suggestions = [
     ? 'http://localhost:8780'
     : 'https://maaike-ai.vercel.app';
 
+  // Stable session id for this page-load. Sent on every /api/ask call so
+  // Langfuse can group consecutive questions into one thread.
+  const ASK_SESSION_ID = (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : `s-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+
   const threadEl = document.getElementById('ask-thread')!;
   const suggestEl = document.getElementById('ask-suggest')!;
   const formEl = document.getElementById('ask-form') as HTMLFormElement;
@@ -276,7 +282,7 @@ const suggestions = [
       const r = await fetch(`${API}/api/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q }),
+        body: JSON.stringify({ question: q, session_id: ASK_SESSION_ID }),
         signal: AbortSignal.timeout(120000),
       });
       const reader = r.body!.getReader();

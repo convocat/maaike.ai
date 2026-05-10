@@ -188,7 +188,14 @@ class handler(BaseHTTPRequestHandler):
             # Pass conversation history through (server sanitizes it further). Strip
             # any client-supplied `key` — in public mode only the server's env var is trusted.
             history = data.get("history") if isinstance(data.get("history"), list) else []
-            sanitized = json.dumps({"question": question, "history": history}).encode("utf-8")
+            session_id = str(data.get("session_id") or "").strip()[:64]
+            user_id = hashlib.sha256(ip.encode()).hexdigest()[:12] if ip else ""
+            sanitized = json.dumps({
+                "question": question,
+                "history": history,
+                "session_id": session_id,
+                "user_id": user_id,
+            }).encode("utf-8")
 
             # Stream: headers first, then token-by-token JSON-lines.
             self.send_response(200)
@@ -245,10 +252,16 @@ class handler(BaseHTTPRequestHandler):
 
             history = data.get("history") if isinstance(data.get("history"), list) else []
             current = data.get("current") if isinstance(data.get("current"), dict) else {}
+            prompt_id = str(data.get("prompt_id") or "").strip()
+            session_id = str(data.get("session_id") or "").strip()[:64]
+            user_id = hashlib.sha256(ip.encode()).hexdigest()[:12] if ip else ""
             sanitized = json.dumps({
                 "message": message,
                 "history": history,
                 "current": current,
+                "prompt_id": prompt_id,
+                "session_id": session_id,
+                "user_id": user_id,
             }).encode("utf-8")
 
             self.send_response(200)

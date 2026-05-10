@@ -13,10 +13,24 @@
  */
 
 type ChatRole = 'user' | 'assistant';
+type ChatMode = 'chat' | 'ask';
+
+interface AskSource {
+  cid: string;
+  title: string;
+  slug?: string;
+  kind?: 'topic' | 'article';
+  type?: string;
+  section?: string;
+  url?: string;
+  date?: string;
+  href?: string;
+}
 
 interface ChatMessage {
   role: ChatRole;
   content: string;
+  sources?: AskSource[];  // ask-mode assistant messages keep their sources for re-render
 }
 
 interface PageContext {
@@ -37,7 +51,9 @@ interface PageContext {
 }
 
 interface PersistedConversation {
-  messages: ChatMessage[];
+  mode: ChatMode;
+  chat: { messages: ChatMessage[] };
+  ask: { messages: ChatMessage[] };
   open: boolean;
 }
 
@@ -46,7 +62,8 @@ interface PaneSettings {
   maximized: boolean;
 }
 
-const CONV_STORAGE_KEY = 'garden-chat-v1';
+const CONV_STORAGE_KEY = 'garden-chat-v2';
+const MODE_STORAGE_KEY = 'garden-chat-mode';
 const PANE_STORAGE_KEY = 'garden-chat-pane-v1';
 const PROMPT_STORAGE_KEY = 'garden-chat-prompt';
 const MIN_WIDTH = 320;
@@ -66,6 +83,15 @@ const API_BASE =
     ? 'http://localhost:8780'
     : 'https://maaike-ai.vercel.app';
 
+// Stable per-page-load session id. Sent on every /api/chat request so Langfuse
+// can group consecutive turns into one conversation thread.
+const CHAT_SESSION_ID = (() => {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return `s-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+})();
+
 // Avatars
 const GARDEN_AVATAR_HTML = `<img src="/images/watercolor-leaf-trimmed.png" alt="" loading="lazy" />`;
 
@@ -73,27 +99,46 @@ const USER_AVATAR_SVG = `<img src="/images/watercolor-acorn-trimmed.png" alt="" 
 
 const ASSISTANT_LABEL = 'The Garden';
 
+function _sanitizeMessages(arr: any): ChatMessage[] {
+  if (!Array.isArray(arr)) return [];
+  return arr
+    .filter((m: any) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+    .map((m: any) => {
+      const out: ChatMessage = { role: m.role, content: m.content };
+      if (Array.isArray(m.sources)) out.sources = m.sources;
+      return out;
+    });
+}
+
 function loadConversation(): PersistedConversation {
+  let savedMode: ChatMode = 'chat';
+  try {
+    const m = localStorage.getItem(MODE_STORAGE_KEY);
+    if (m === 'chat' || m === 'ask') savedMode = m;
+  } catch {}
   try {
     const raw = sessionStorage.getItem(CONV_STORAGE_KEY);
-    if (!raw) return { messages: [], open: false };
+    if (!raw) return { mode: savedMode, chat: { messages: [] }, ask: { messages: [] }, open: false };
     const parsed = JSON.parse(raw);
-    if (parsed && Array.isArray(parsed.messages)) {
-      return {
-        messages: parsed.messages.filter(
-          (m: any) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string',
-        ),
-        open: Boolean(parsed.open),
-      };
-    }
+    return {
+      mode: (parsed?.mode === 'ask' || parsed?.mode === 'chat') ? parsed.mode : savedMode,
+      chat: { messages: _sanitizeMessages(parsed?.chat?.messages) },
+      ask: { messages: _sanitizeMessages(parsed?.ask?.messages) },
+      open: Boolean(parsed?.open),
+    };
   } catch {}
-  return { messages: [], open: false };
+  return { mode: savedMode, chat: { messages: [] }, ask: { messages: [] }, open: false };
 }
 
 function saveConversation(state: PersistedConversation) {
   try {
     sessionStorage.setItem(CONV_STORAGE_KEY, JSON.stringify(state));
+    localStorage.setItem(MODE_STORAGE_KEY, state.mode);
   } catch {}
+}
+
+function activeMessages(conv: PersistedConversation): ChatMessage[] {
+  return conv[conv.mode].messages;
 }
 
 function loadPaneSettings(): PaneSettings {
@@ -571,6 +616,103 @@ function renderMarkdown(text: string): string {
   return out.join('\n');
 }
 
+// ── Ask-mode citation parsing ────────────────────────────────────────────────
+//
+// Ports the citation logic from /research/ask down to the chat panel scale.
+// Walks an assistant bubble's text nodes, swaps `[1]` / `[s1]` markers for
+// chips/links pointing at the sources the backend already streamed.
+const INTERNAL_SECTIONS = new Set(['articles', 'field-notes', 'seeds', 'jottings', 'experiments']);
+
+function _hrefForSource(src: AskSource | undefined): string {
+  if (!src) return '#';
+  if (src.kind === 'topic' && src.slug) return `/research/${src.slug}`;
+  if (src.kind === 'article' && src.section && src.slug) return `/${src.section}/${src.slug}`;
+  if (src.url) return src.url;
+  return '#';
+}
+
+function applyCitations(rootEl: HTMLElement, sources: AskSource[]): void {
+  const map: Record<string, AskSource> = {};
+  for (const s of sources) if (s && s.cid) map[s.cid] = s;
+  if (!Object.keys(map).length) return;
+  const pattern = /\[(s?\d+)\]/g;
+  const walk = (node: Node) => {
+    if (node.nodeType === 3) {
+      const text = node.textContent || '';
+      if (!pattern.test(text)) return;
+      pattern.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      let m: RegExpExecArray | null;
+      while ((m = pattern.exec(text))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const cid = m[1];
+        const src = map[cid];
+        const isTopic = !cid.startsWith('s');
+        const isInternal = !isTopic && src && src.section && INTERNAL_SECTIONS.has(src.section);
+        const href = _hrefForSource(src);
+        let el: HTMLAnchorElement;
+        if (isInternal && src) {
+          el = document.createElement('a');
+          el.className = 'ask-link-internal';
+          el.textContent = src.title;
+          el.href = href;
+          el.title = `${src.section}/${src.slug}`;
+        } else {
+          el = document.createElement('a');
+          el.className = 'ask-cite ' + (isTopic ? 'topic' : 'src');
+          el.textContent = cid.replace(/^s/, '');
+          el.title = src ? src.title : `Citation ${cid}`;
+          el.href = href;
+          if (src && src.url && !isInternal) el.target = '_blank';
+        }
+        frag.appendChild(el);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode!.replaceChild(frag, node);
+      return;
+    }
+    if (node.nodeType === 1 && (node as Element).tagName !== 'CODE' && (node as Element).tagName !== 'A') {
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  walk(rootEl);
+}
+
+function prependSourcesBlock(bubble: HTMLElement, sources: AskSource[]): void {
+  if (!sources || !sources.length) return;
+  // Remove any prior sources block (live re-render during streaming).
+  const prior = bubble.querySelector(':scope > .chat-sources');
+  if (prior) prior.remove();
+  const details = document.createElement('details');
+  details.className = 'chat-sources';
+  const articles = sources.filter(s => s.kind === 'article');
+  const topics = sources.filter(s => s.kind === 'topic');
+  const summary = document.createElement('summary');
+  const parts: string[] = [];
+  if (articles.length) parts.push(`${articles.length} source${articles.length === 1 ? '' : 's'}`);
+  if (topics.length) parts.push(`${topics.length} topic${topics.length === 1 ? '' : 's'}`);
+  summary.textContent = parts.join(' · ') || `${sources.length} sources`;
+  details.appendChild(summary);
+  const ul = document.createElement('ul');
+  for (const s of sources) {
+    const li = document.createElement('li');
+    const cidEl = document.createElement('span');
+    cidEl.className = 'src-cid ' + (s.kind === 'topic' ? 'topic' : 'src');
+    cidEl.textContent = (s.cid || '').replace(/^s/, '');
+    const a = document.createElement('a');
+    a.href = _hrefForSource(s);
+    a.textContent = s.title || s.slug || s.cid;
+    if (s.url && !(s.section && INTERNAL_SECTIONS.has(s.section))) a.target = '_blank';
+    li.appendChild(cidEl);
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+  details.appendChild(ul);
+  bubble.insertBefore(details, bubble.firstChild);
+}
+
 const SERENDIPITY_PROMPTS = [
   'Find a strange neighbour',
   'What would Maaike push back on?',
@@ -837,8 +979,8 @@ export function initChatPanel() {
     } else {
       selectedPromptId = promptSelect.value || null;
     }
-    // Only reveal the gear when there's a real choice to make
-    if (promptOptions.length > 1) {
+    // Only reveal the gear when there's a real choice to make AND we're in chat mode
+    if (promptOptions.length > 1 && conv.mode === 'chat') {
       settingsBtn.hidden = false;
     }
   };
@@ -879,6 +1021,51 @@ export function initChatPanel() {
   applyPaneWidth(pane.width);
   applyMaximized(pane.maximized);
 
+  // Mode toggle (This page / The garden). Each mode keeps its own thread.
+  const modeButtons = drawer.querySelectorAll<HTMLButtonElement>('.chat-mode-btn');
+  const titleEl = document.getElementById('chat-drawer-title') as HTMLElement | null;
+  const applyMode = (m: ChatMode, opts?: { rerender?: boolean }) => {
+    conv.mode = m;
+    saveConversation(conv);
+    drawer.dataset.mode = m;
+    modeButtons.forEach((b) => {
+      const on = b.dataset.mode === m;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    if (titleEl) {
+      titleEl.textContent = m === 'ask' ? 'Ask the garden' : 'Talk about this page';
+    }
+    if (input) {
+      input.placeholder = m === 'ask'
+        ? 'Ask anything in the garden…'
+        : 'Ask about this page, or anything in the garden…';
+    }
+    // Cogwheel only in chat mode AND only when there are choices.
+    if (settingsBtn) {
+      if (m === 'ask') {
+        settingsBtn.hidden = true;
+        settingsPanel.hidden = true;
+        settingsBtn.setAttribute('aria-expanded', 'false');
+      } else if (promptOptions.length > 1) {
+        settingsBtn.hidden = false;
+      }
+    }
+    if (opts?.rerender !== false) renderHistory();
+  };
+  modeButtons.forEach((b) => {
+    b.addEventListener('click', () => {
+      const m = (b.dataset.mode === 'ask' ? 'ask' : 'chat') as ChatMode;
+      if (m === conv.mode) return;
+      if (inFlight && abortController) {
+        abortController.abort();
+        inFlight = false;
+        abortController = null;
+      }
+      applyMode(m);
+    });
+  });
+
   const submitText = (q: string) => {
     input.value = q;
     sendBtn.disabled = false;
@@ -887,16 +1074,25 @@ export function initChatPanel() {
 
   const renderHistory = () => {
     history.innerHTML = '';
-    if (conv.messages.length === 0) {
+    const messages = activeMessages(conv);
+    if (messages.length === 0) {
       renderEmpty(history, ctx, submitText);
       return;
     }
-    for (const m of conv.messages) {
-      appendMessage(history, m.role, m.role === 'assistant' ? renderMarkdown(m.content) : escapeHtml(m.content));
+    for (const m of messages) {
+      const html = m.role === 'assistant' ? renderMarkdown(m.content) : escapeHtml(m.content);
+      const { bubble } = appendMessage(history, m.role, html);
+      if (m.role === 'assistant' && m.sources && m.sources.length) {
+        prependSourcesBlock(bubble, m.sources);
+        applyCitations(bubble, m.sources);
+      }
     }
-    const last = conv.messages[conv.messages.length - 1];
-    if (last && last.role === 'assistant') {
-      appendFollowups(history, submitText);
+    // Followups (chip suggestions) only make sense in chat mode.
+    if (conv.mode === 'chat') {
+      const last = messages[messages.length - 1];
+      if (last && last.role === 'assistant') {
+        appendFollowups(history, submitText);
+      }
     }
   };
 
@@ -933,7 +1129,7 @@ export function initChatPanel() {
       abortController.abort();
       inFlight = false;
     }
-    conv.messages = [];
+    conv[conv.mode].messages = [];
     saveConversation(conv);
     renderHistory();
     renderMyceliumIfWide();
@@ -964,7 +1160,7 @@ export function initChatPanel() {
   promptSelect.addEventListener('change', () => {
     const next = promptSelect.value;
     if (!next || next === selectedPromptId) return;
-    if (conv.messages.length > 0) {
+    if (conv.chat.messages.length > 0) {
       const ok = window.confirm(
         'Switching the system prompt will clear the current conversation. Continue?',
       );
@@ -975,8 +1171,8 @@ export function initChatPanel() {
     }
     selectedPromptId = next;
     persistPromptId(next);
-    if (conv.messages.length > 0) {
-      conv.messages = [];
+    if (conv.chat.messages.length > 0) {
+      conv.chat.messages = [];
       saveConversation(conv);
       renderHistory();
       renderMyceliumIfWide();
@@ -1064,12 +1260,15 @@ export function initChatPanel() {
 
     clearFollowups(history);
 
+    const mode = conv.mode;
+    const thread = conv[mode].messages;
+
     const userMsg: ChatMessage = { role: 'user', content: text };
-    conv.messages.push(userMsg);
+    thread.push(userMsg);
     saveConversation(conv);
     renderMyceliumIfWide();
 
-    if (conv.messages.length === 1) {
+    if (thread.length === 1) {
       renderHistory();
       clearFollowups(history);
     } else {
@@ -1083,19 +1282,30 @@ export function initChatPanel() {
     let errored: string | null = null;
     let firstToken = true;
     let chipItems: string[] | null = null;
+    let askSources: AskSource[] = [];
 
     try {
-      const historyToSend = conv.messages.slice(0, -1).map((m) => ({ role: m.role, content: m.content }));
+      const historyToSend = thread.slice(0, -1).map((m) => ({ role: m.role, content: m.content }));
 
-      const resp = await fetch(`${API_BASE}/api/chat`, {
+      const url = mode === 'ask' ? `${API_BASE}/api/ask` : `${API_BASE}/api/chat`;
+      const body: Record<string, unknown> = mode === 'ask'
+        ? {
+            question: text,
+            history: historyToSend,
+            session_id: CHAT_SESSION_ID,
+          }
+        : {
+            message: text,
+            history: historyToSend,
+            current: ctx,
+            prompt_id: selectedPromptId || undefined,
+            session_id: CHAT_SESSION_ID,
+          };
+
+      const resp = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: text,
-          history: historyToSend,
-          current: ctx,
-          prompt_id: selectedPromptId || undefined,
-        }),
+        body: JSON.stringify(body),
         signal: abortController.signal,
       });
 
@@ -1125,8 +1335,6 @@ export function initChatPanel() {
           let msg: any;
           try { msg = JSON.parse(line); } catch { continue; }
           if (msg.type === 'meta' && typeof msg.prompt_id === 'string') {
-            // Backend echoes the resolved prompt_id (after allowlist).
-            // Sync local state in case our request was rejected silently.
             if (msg.prompt_id !== selectedPromptId) {
               selectedPromptId = msg.prompt_id;
               persistPromptId(msg.prompt_id);
@@ -1136,19 +1344,29 @@ export function initChatPanel() {
             }
             continue;
           }
+          if (msg.type === 'sources' && Array.isArray(msg.sources)) {
+            // /api/ask: emit sources up-front. Save them and render the
+            // collapsible sources block above the bubble.
+            askSources = msg.sources as AskSource[];
+            prependSourcesBlock(bubble, askSources);
+            continue;
+          }
           if (msg.type === 'token' && typeof msg.text === 'string') {
             assistantText += msg.text;
-            if (firstToken) {
-              // Replace typing dots with the first content + cursor
-              firstToken = false;
-            }
+            if (firstToken) firstToken = false;
             bubble.innerHTML = renderMarkdown(assistantText) + '<span class="chat-cursor" aria-hidden="true"></span>';
+            // Re-attach the sources block (innerHTML wipe replaced it).
+            if (askSources.length) {
+              prependSourcesBlock(bubble, askSources);
+              applyCitations(bubble, askSources);
+            }
             scheduleScrollToBottom(history);
           } else if (msg.type === 'chips' && Array.isArray(msg.items)) {
             chipItems = msg.items.filter((s: any) => typeof s === 'string').slice(0, 3);
           } else if (msg.type === 'error') {
             errored = msg.error || 'backend error';
           }
+          // 'debug' (ask) and 'done' are intentionally ignored.
         }
       }
     } catch (e: any) {
@@ -1167,13 +1385,21 @@ export function initChatPanel() {
     if (errored) {
       bubble.classList.add('is-error');
       bubble.textContent = errored;
-      conv.messages.pop();
+      thread.pop();
       saveConversation(conv);
     } else if (assistantText.trim()) {
       bubble.innerHTML = renderMarkdown(assistantText);
-      conv.messages.push({ role: 'assistant', content: assistantText });
+      if (mode === 'ask' && askSources.length) {
+        prependSourcesBlock(bubble, askSources);
+        applyCitations(bubble, askSources);
+      }
+      const assistantMsg: ChatMessage = { role: 'assistant', content: assistantText };
+      if (mode === 'ask' && askSources.length) assistantMsg.sources = askSources;
+      thread.push(assistantMsg);
       saveConversation(conv);
-      appendFollowups(history, submitText, chipItems || undefined);
+      if (mode === 'chat') {
+        appendFollowups(history, submitText, chipItems || undefined);
+      }
       renderMyceliumIfWide();
     } else {
       typingNode.remove();
@@ -1188,6 +1414,7 @@ export function initChatPanel() {
     if (!pane.maximized) applyPaneWidth(pane.width);
   });
 
+  applyMode(conv.mode, { rerender: false });
   renderHistory();
   if (conv.open) {
     openDrawer();

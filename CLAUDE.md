@@ -246,3 +246,21 @@ Use these skills for all content work:
 **Cross-session enrichment check.** When resuming a session and reading a handover, check any recently published articles for missing `triples`. If `triples: []`, the post was never auto-tagged — run `/auto-tag` before doing anything else.
 
 **Inbox check.** At the start of every session (including `/backlog`), check `src/content/_inbox/` for `.md` and `.txt` files. The inbox contains a persistent running note with date-stamped entries (e.g. `2026-04-05:`). Read the entries, surface any that haven't been processed yet, and offer to turn them into posts or backlog items. Never delete the inbox file — it is permanent.
+
+## Langfuse integration
+
+The garden chatbot (`/api/ask` and `/api/chat`) is wired to Langfuse for trace analysis and prompt management. Code lives in [tools/karpathy-wiki/tools/langfuse_integration.py](tools/karpathy-wiki/tools/langfuse_integration.py).
+
+**Prompt source of truth: Langfuse.** System prompts (`ask-system-prompt-v1`, `garden-system-prompt-v0-2`, `wiki-system-prompt`) are pulled from Langfuse at runtime with a 60-second TTL cache. Edit prompts in the Langfuse UI; changes propagate live within a minute, no redeploy. The `.md` files in `tools/karpathy-wiki/SYSTEM_PROMPT.md` and `src/content/prompts/` remain only as a fallback when Langfuse is unreachable. To seed Langfuse from the repo (one-time, then on demand):
+
+```
+python tools/karpathy-wiki/tools/sync_prompts_to_langfuse.py --dry-run
+python tools/karpathy-wiki/tools/sync_prompts_to_langfuse.py
+```
+
+**Env vars** (set in `tools/karpathy-wiki/.env` locally and in Vercel project settings):
+- `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` (default `https://cloud.langfuse.com`).
+
+If env vars are missing, Langfuse silently no-ops and the bot keeps working.
+
+**Trace shape.** One trace per HTTP request. `bot:ask` traces include a `retrieval` span (matched topics, articles, fired triples) and a `generation` span linked to the Langfuse prompt version. `bot:chat` traces include the page metadata and prompt id. `user_id` is the same hashed IP used in the stderr logs; `session_id` is minted by the frontend per page-load.

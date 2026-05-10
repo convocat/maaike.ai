@@ -12,8 +12,14 @@ import re
 import subprocess
 import traceback
 import functools
+import time
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote
+
+try:
+    from . import langfuse_integration as lf  # type: ignore
+except Exception:
+    import langfuse_integration as lf  # type: ignore
 
 # Load .env from repo root if present (override empty env vars)
 _env_file = Path(__file__).parent.parent / ".env"
@@ -1176,7 +1182,18 @@ def _load_system_prompt():
         "on conversation design, generative AI, language, thinking, and technology."
     )
 
-_ASK_SYSTEM_PROMPT = _load_system_prompt()
+# File-based fallback. Runtime calls _get_ask_system_prompt() which prefers
+# Langfuse and falls back to this string.
+_ASK_SYSTEM_PROMPT_FALLBACK = _load_system_prompt()
+_ASK_SYSTEM_PROMPT = _ASK_SYSTEM_PROMPT_FALLBACK  # back-compat alias for any old reference
+_LANGFUSE_PROMPT_PREFIX = "garden/"
+_ASK_PROMPT_ID = "ask-system-prompt-v1"
+
+
+def _get_ask_system_prompt():
+    """Return (text, langfuse_prompt_object_or_None). Prefers Langfuse, falls
+    back to the .md file shipped in the repo."""
+    return lf.get_prompt(_LANGFUSE_PROMPT_PREFIX + _ASK_PROMPT_ID, _ASK_SYSTEM_PROMPT_FALLBACK)
 
 
 # ── Graph-based retrieval ─────────────────────────────────────────────────────
@@ -1378,6 +1395,10 @@ def _build_ask_request(body):
     if not question:
         raise ValueError("No question provided")
 
+    # Tracing identifiers (optional, threaded through from api/index.py).
+    session_id = str(data.get("session_id") or "").strip()
+    user_id = str(data.get("user_id") or "").strip()
+
     # Sanitize conversation history. Cap at last 10 messages to bound payload.
     raw_history = data.get("history", [])
     history = []
@@ -1417,6 +1438,8 @@ def _build_ask_request(body):
 
     client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
 
+    system_prompt_text, system_prompt_obj = _get_ask_system_prompt()
+
     messages = [
         {
             "role": "user",
@@ -1435,7 +1458,7 @@ def _build_ask_request(body):
     model_args = {
         "model": "claude-sonnet-4-6",
         "max_tokens": 1024,
-        "system": _ASK_SYSTEM_PROMPT,
+        "system": system_prompt_text,
         "messages": messages,
     }
     # Build a topic-cited list parallel to article_sources, using the same
@@ -1449,7 +1472,14 @@ def _build_ask_request(body):
             "kind": "topic",
             "type": t.get("type", ""),
         })
-    return client, model_args, topic_sources, article_sources, retrieval_debug, refused, refusal_reason
+    trace_ctx = {
+        "session_id": session_id,
+        "user_id": user_id,
+        "question": question,
+        "system_prompt_text": system_prompt_text,
+        "system_prompt_obj": system_prompt_obj,
+    }
+    return client, model_args, topic_sources, article_sources, retrieval_debug, refused, refusal_reason, trace_ctx
 
 
 def _pick_sources(answer_text, wiki_sources, article_sources):
@@ -1472,7 +1502,7 @@ def handle_ask_api_stream(body, writer):
       {"type":"error","error":"..."}  on failure
     """
     try:
-        client, model_args, wiki_sources, article_sources, retrieval_debug, refused, refusal_reason = _build_ask_request(body)
+        client, model_args, wiki_sources, article_sources, retrieval_debug, refused, refusal_reason, trace_ctx = _build_ask_request(body)
     except ValueError as e:
         writer(json.dumps({"type": "error", "error": str(e)}) + "\n")
         return
@@ -1480,40 +1510,73 @@ def handle_ask_api_stream(body, writer):
         writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
         return
 
-    # Defense A: short-circuit refusal. No Claude call. Saves tokens and
-    # prevents hallucination on topics not covered by the garden.
-    if refused:
-        refusal = (
-            "I don't have material on this in Maaike's garden.\n\n"
-            f"Reason: {refusal_reason}\n\n"
-            "Either the topic isn't covered, or the phrasing doesn't match the "
-            "taxonomy. Try rephrasing with different terms, or ask about a "
-            "specific concept you're curious about."
-        )
-        writer(json.dumps({"type": "token", "text": refusal}) + "\n")
-        writer(json.dumps({"type": "sources", "sources": []}) + "\n")
-        retrieval_debug["refused"] = True
-        retrieval_debug["refusal_reason"] = refusal_reason
-        writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
-        writer(json.dumps({"type": "done"}) + "\n")
-        return
-
+    tags = ["bot:ask"]
+    if retrieval_debug.get("fallback"):
+        tags.append("fallback:true")
+    trace = lf.start_trace(
+        name="ask",
+        user_id=trace_ctx.get("user_id", ""),
+        session_id=trace_ctx.get("session_id", ""),
+        input_text=trace_ctx.get("question", ""),
+        metadata={"retrieval": retrieval_debug, "model": model_args.get("model")},
+        tags=tags,
+    )
     try:
-        # Emit sources UP FRONT, before tokens, so the rail populates immediately.
-        # These are the retrieved candidates with their cids — same ids the LLM
-        # will use in citation markers.
-        upfront_sources = list(wiki_sources) + list(article_sources)
-        writer(json.dumps({"type": "sources", "sources": upfront_sources}) + "\n")
+        trace.record_retrieval(trace_ctx.get("question", ""), retrieval_debug)
 
-        full_text_parts = []
-        with client.messages.stream(**model_args) as stream:
-            for text in stream.text_stream:
-                full_text_parts.append(text)
-                writer(json.dumps({"type": "token", "text": text}) + "\n")
-        writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
-        writer(json.dumps({"type": "done"}) + "\n")
-    except Exception:
-        writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+        # Defense A: short-circuit refusal. No Claude call. Saves tokens and
+        # prevents hallucination on topics not covered by the garden.
+        if refused:
+            refusal = (
+                "I don't have material on this in Maaike's garden.\n\n"
+                f"Reason: {refusal_reason}\n\n"
+                "Either the topic isn't covered, or the phrasing doesn't match the "
+                "taxonomy. Try rephrasing with different terms, or ask about a "
+                "specific concept you're curious about."
+            )
+            writer(json.dumps({"type": "token", "text": refusal}) + "\n")
+            writer(json.dumps({"type": "sources", "sources": []}) + "\n")
+            retrieval_debug["refused"] = True
+            retrieval_debug["refusal_reason"] = refusal_reason
+            writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
+            writer(json.dumps({"type": "done"}) + "\n")
+            trace.add_tag("refused:true")
+            trace.set_output(refusal)
+            return
+
+        try:
+            upfront_sources = list(wiki_sources) + list(article_sources)
+            writer(json.dumps({"type": "sources", "sources": upfront_sources}) + "\n")
+
+            full_text_parts = []
+            final_message = None
+            with client.messages.stream(**model_args) as stream:
+                for text in stream.text_stream:
+                    full_text_parts.append(text)
+                    writer(json.dumps({"type": "token", "text": text}) + "\n")
+                try:
+                    final_message = stream.get_final_message()
+                except Exception:
+                    final_message = None
+            writer(json.dumps({"type": "debug", "retrieval": retrieval_debug}) + "\n")
+            writer(json.dumps({"type": "done"}) + "\n")
+
+            full_text = "".join(full_text_parts)
+            trace.set_output(full_text)
+            trace.record_generation(
+                model=model_args["model"],
+                messages=model_args["messages"],
+                system_prompt=trace_ctx.get("system_prompt_text", ""),
+                output_text=full_text,
+                usage=lf.extract_usage(final_message),
+                prompt_obj=trace_ctx.get("system_prompt_obj"),
+            )
+        except Exception:
+            writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+            trace.set_error("backend error")
+    finally:
+        lf.end_trace(trace)
+        lf.flush()
 
 
 # ── Claim verification (LLM-as-judge) ────────────────────────────────────────
@@ -1828,8 +1891,7 @@ def _read_post_body(collection, slug):
     return re.sub(r'^---\n.+?\n---\n', '', text, count=1, flags=re.DOTALL).strip()
 
 
-@functools.lru_cache(maxsize=8)
-def load_prompt(prompt_id: str) -> str:
+def _load_prompt_from_file(prompt_id: str) -> str:
     """Load a system prompt from src/content/prompts/<prompt_id>.md.
 
     Strips YAML frontmatter and HTML comments (design notes) before returning.
@@ -1840,6 +1902,20 @@ def load_prompt(prompt_id: str) -> str:
     body = re.sub(r'^---\n.+?\n---\n', '', text, count=1, flags=re.DOTALL)
     body = re.sub(r'<!--.*?-->', '', body, flags=re.DOTALL)
     return body.strip()
+
+
+def load_prompt(prompt_id: str) -> str:
+    """Back-compat: return prompt text only (Langfuse-aware, file fallback)."""
+    text, _ = load_prompt_with_obj(prompt_id)
+    return text
+
+
+def load_prompt_with_obj(prompt_id: str):
+    """Return (text, langfuse_prompt_object_or_None). Prefers Langfuse, falls
+    back to the local .md file. Used by the chat handler so the generation
+    span can be linked to the prompt version in Langfuse."""
+    fallback_text = _load_prompt_from_file(prompt_id)
+    return lf.get_prompt(_LANGFUSE_PROMPT_PREFIX + prompt_id, fallback_text)
 
 
 _DEFAULT_GARDEN_PROMPT_ID = "garden-system-prompt-v0-2"
@@ -1895,13 +1971,16 @@ def handle_prompts_api():
 def _build_chat_request(body):
     """Parse the chat body and build the Anthropic request.
 
-    Returns (client, model_args, resolved_prompt_id).
+    Returns (client, model_args, resolved_prompt_id, trace_ctx).
     """
     import anthropic
     data = json.loads(body)
     message = (data.get("message") or "").strip()
     if not message:
         raise ValueError("No message provided")
+
+    session_id = str(data.get("session_id") or "").strip()
+    user_id = str(data.get("user_id") or "").strip()
 
     requested_prompt_id = (data.get("prompt_id") or "").strip()
     if requested_prompt_id and requested_prompt_id in _allowed_prompt_ids():
@@ -2012,13 +2091,29 @@ def _build_chat_request(body):
     messages.extend(history)
     messages.append({"role": "user", "content": message})
 
+    system_prompt_text, system_prompt_obj = load_prompt_with_obj(prompt_id)
+
     model_args = {
         "model": "claude-sonnet-4-6",
         "max_tokens": 1400,
-        "system": load_prompt(prompt_id),
+        "system": system_prompt_text,
         "messages": messages,
     }
-    return client, model_args, prompt_id
+    trace_ctx = {
+        "session_id": session_id,
+        "user_id": user_id,
+        "message": message,
+        "system_prompt_text": system_prompt_text,
+        "system_prompt_obj": system_prompt_obj,
+        "current": {
+            "slug": cur_slug,
+            "collection": cur_collection,
+            "title": cur_title,
+            "url": cur_url,
+            "type": cur_type,
+        },
+    }
+    return client, model_args, prompt_id, trace_ctx
 
 
 def handle_chat_api_stream(body, writer):
@@ -2028,7 +2123,7 @@ def handle_chat_api_stream(body, writer):
            {"type":"done"}, {"type":"error","error":"..."}
     """
     try:
-        client, model_args, prompt_id = _build_chat_request(body)
+        client, model_args, prompt_id, trace_ctx = _build_chat_request(body)
     except ValueError as e:
         writer(json.dumps({"type": "error", "error": str(e)}) + "\n")
         return
@@ -2037,6 +2132,25 @@ def handle_chat_api_stream(body, writer):
         return
 
     writer(json.dumps({"type": "meta", "prompt_id": prompt_id}) + "\n")
+
+    cur = trace_ctx.get("current") or {}
+    page_tag = (
+        f"page:{cur.get('collection')}/{cur.get('slug')}"
+        if cur.get("collection") and cur.get("slug")
+        else "page:unknown"
+    )
+    trace = lf.start_trace(
+        name="chat",
+        user_id=trace_ctx.get("user_id", ""),
+        session_id=trace_ctx.get("session_id", ""),
+        input_text=trace_ctx.get("message", ""),
+        metadata={
+            "prompt_id": prompt_id,
+            "current": cur,
+            "model": model_args.get("model"),
+        },
+        tags=["bot:chat", f"prompt_id:{prompt_id}", page_tag],
+    )
 
     # Streaming with chip-marker extraction.
     # The model is instructed to append `<<CHIPS:[...]>>` at the very end.
@@ -2050,6 +2164,7 @@ def handle_chat_api_stream(body, writer):
     in_marker = False  # True once we've seen MARKER in buf
     chips_emitted = False
 
+    final_message = None
     try:
         with client.messages.stream(**model_args) as stream:
             for text in stream.text_stream:
@@ -2087,6 +2202,11 @@ def handle_chat_api_stream(body, writer):
                         except Exception:
                             pass
 
+            try:
+                final_message = stream.get_final_message()
+            except Exception:
+                final_message = None
+
         # Stream done. Emit any remaining visible text that wasn't held back.
         if not in_marker and emitted < len(buf):
             tail = buf[emitted:]
@@ -2094,8 +2214,27 @@ def handle_chat_api_stream(body, writer):
                 writer(json.dumps({"type": "token", "text": tail}) + "\n")
 
         writer(json.dumps({"type": "done"}) + "\n")
+
+        # Visible reply = everything before the chip marker.
+        if in_marker:
+            visible_text = buf[: buf.find(MARKER)]
+        else:
+            visible_text = buf
+        trace.set_output(visible_text)
+        trace.record_generation(
+            model=model_args["model"],
+            messages=model_args["messages"],
+            system_prompt=trace_ctx.get("system_prompt_text", ""),
+            output_text=visible_text,
+            usage=lf.extract_usage(final_message),
+            prompt_obj=trace_ctx.get("system_prompt_obj"),
+        )
     except Exception:
         writer(json.dumps({"type": "error", "error": "backend error"}) + "\n")
+        trace.set_error("backend error")
+    finally:
+        lf.end_trace(trace)
+        lf.flush()
 
 
 # ── Review: proposals ────────────────────────────────────────────────────────

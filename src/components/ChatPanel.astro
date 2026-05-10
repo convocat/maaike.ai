@@ -42,6 +42,10 @@
         <h2 id="chat-drawer-title" class="chat-header-title">Talk about this page</h2>
         <p class="chat-header-context" id="chat-context-pill">Loading…</p>
       </div>
+      <div class="chat-mode-toggle" role="tablist" aria-label="Chat mode">
+        <button type="button" class="chat-mode-btn is-active" data-mode="chat" role="tab" aria-selected="true" aria-controls="chat-history">This page</button>
+        <button type="button" class="chat-mode-btn" data-mode="ask" role="tab" aria-selected="false" aria-controls="chat-history">The garden</button>
+      </div>
       <div class="chat-header-actions">
         <button type="button" id="chat-settings-toggle" class="chat-icon-btn" aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="chat-settings-panel" hidden>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -274,6 +278,134 @@
     gap: 2px;
     flex: 0 0 auto;
   }
+
+  .chat-mode-toggle {
+    display: inline-flex;
+    align-self: center;
+    flex: 0 0 auto;
+    padding: 2px;
+    border-radius: 999px;
+    background: var(--chat-tag-bg);
+    border: 1px solid var(--chat-rule);
+    margin-right: var(--space-xs);
+  }
+
+  .chat-mode-btn {
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1.2;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .chat-mode-btn:hover { color: var(--color-text); }
+
+  .chat-mode-btn.is-active {
+    background: var(--color-bg);
+    color: var(--color-accent);
+    box-shadow: 0 1px 2px var(--color-shadow);
+  }
+
+  .chat-mode-btn:focus-visible {
+    outline: 2px solid var(--color-accent-2);
+    outline-offset: 2px;
+  }
+
+  /* Ask-mode citations: numbered chips inline in the assistant bubble. */
+  .chat-msg-bubble .ask-cite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.3em;
+    height: 1.3em;
+    padding: 0 0.35em;
+    margin: 0 0.12em;
+    border-radius: 999px;
+    font-size: 0.72em;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    vertical-align: 1px;
+  }
+  .chat-msg-bubble .ask-cite.src {
+    background: var(--color-accent-2);
+  }
+  .chat-msg-bubble .ask-cite:hover {
+    filter: brightness(1.1);
+    text-decoration: none;
+  }
+  .chat-msg-bubble .ask-link-internal {
+    color: var(--color-accent-2);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  /* Sources block above each ask reply. */
+  .chat-sources {
+    margin: 0 0 var(--space-sm) 0;
+    border: 1px solid var(--chat-rule);
+    border-radius: 0.5rem;
+    background: var(--chat-bg-card);
+    font-size: 0.78rem;
+  }
+  .chat-sources > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+    color: var(--color-text-muted);
+    user-select: none;
+  }
+  .chat-sources > summary::-webkit-details-marker { display: none; }
+  .chat-sources > summary::before {
+    content: '▸ ';
+    display: inline-block;
+    margin-right: 0.25rem;
+    transition: transform var(--transition-fast);
+  }
+  .chat-sources[open] > summary::before { content: '▾ '; }
+  .chat-sources ul {
+    list-style: none;
+    padding: 0 0.7rem 0.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .chat-sources li {
+    margin: 0;
+    line-height: 1.4;
+  }
+  .chat-sources a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .chat-sources a:hover {
+    text-decoration: underline;
+  }
+  .chat-sources .src-cid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.4em;
+    height: 1.4em;
+    padding: 0 0.3em;
+    margin-right: 0.4em;
+    border-radius: 999px;
+    background: var(--chat-tag-bg);
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .chat-sources .src-cid.topic { color: var(--color-accent); }
+  .chat-sources .src-cid.src { color: var(--color-accent-2); }
 
   .chat-icon-btn {
     display: inline-flex;
@@ -746,13 +878,23 @@
     30% { opacity: 1; transform: translateY(-2px); }
   }
 
-  /* The bottom textarea form is hidden: the input pebble (fourth chip in
-     the chips area) is the only typing surface. The form stays in the DOM
-     because chip clicks reuse its submit handler — they programmatically
-     fill chat-input and call form.requestSubmit(). */
-  .chat-form {
-    display: none;
+  /* In chat mode the bottom textarea form is hidden: the input pebble
+     (fourth chip in the chips area) is the typing surface. The form stays
+     in the DOM because chip clicks reuse its submit handler.
+     In ask mode there are no pebbles, so we surface the textarea form. */
+  .chat-form { display: none; }
+  .chat-drawer[data-mode='ask'] .chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid var(--chat-rule);
+    background: var(--chat-bg-card);
   }
+  /* Hide the chips and floating disclaimer in ask mode; the form provides them. */
+  .chat-drawer[data-mode='ask'] .chat-followups,
+  .chat-drawer[data-mode='ask'] .chat-disclaimer-floating { display: none; }
+
   /* Disclaimer moves to a small line under the chips. */
   .chat-disclaimer-floating {
     margin: 0 var(--space-lg) var(--space-md);
