@@ -13,6 +13,8 @@ description: "Argues that machines designed around planning models miss the inhe
 ai: co-created
 book_type: non-fiction
 genre: research-paper
+triples:
+- ["Lucy Suchman", "theorised-by", "Conversation design"]
 ---
 
 Machines designed on planning models miss the situated nature of human communication. Suchman's core argument: human action is not the execution of a plan but an improvised response to the circumstances at hand. Plans are resources for action, not its blueprints. An AI that treats conversation as plan-execution will perpetually misread what is actually happening between people.

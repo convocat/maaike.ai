@@ -13,6 +13,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2603.15863"
+triples:
+- ["Gabrielle Benabdallah", "theorised-by", "Conversation design"]
 ---
 
 Tangible interaction metaphors as alternatives to chat. Benabdallah draws on the tradition of tangible and embodied computing to argue that physical and spatial metaphors offer richer interpretative possibilities than the chat box: they allow for ambiguity, partial specification, and meaning that emerges from doing rather than saying.

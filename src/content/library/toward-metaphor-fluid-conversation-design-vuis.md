@@ -14,6 +14,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2502.11554"
+triples:
+- ["Smit Desai", "theorised-by", "Conversation design"]
 ---
 
 VUIs should dynamically shift metaphorical framing based on context. Rather than committing upfront to a single interaction model (assistant, tool, companion), Desai et al. argue for metaphor-fluid design: the interface adapts its framing to the nature of the task, the moment, and the user's apparent expectations. Relevant to any system where the interaction type varies across a session.

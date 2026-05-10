@@ -14,4 +14,6 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Moore and Arar approach conversation design from an IBM research background. One of the more rigorous books on the topic and a regular reference.
+triples:
+- ["Robert J. Moore", "theorised-by", "LLMs"]
 ---

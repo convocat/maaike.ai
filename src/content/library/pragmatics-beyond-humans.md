@@ -13,6 +13,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2508.06167"
+triples:
+- ["Vít Gvoždiak", "theorised-by", "LLMs"]
 ---
 
 Pragmatic meaning relies on communicative situatedness that LLMs lack. Gvoždiak examines what it means to communicate pragmatically: to intend something, to recognise that the other party intends it, and to act on that mutual recognition. LLMs can produce pragmatically plausible outputs without any of these conditions being met. Their pragmatics is structural mimicry, not situated meaning-making.

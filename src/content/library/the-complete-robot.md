@@ -14,6 +14,8 @@ genre: Science Fiction
 book_type: fiction
 purpose: professional
 reason: "I ocassionally read a story, but wasn't aware that this was on my ereader. Might be a nice on the side book. "
+triples:
+- ["Isaac Asimov", "theorised-by", "Science fiction"]
 ---
 
 ## Related

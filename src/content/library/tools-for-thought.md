@@ -12,6 +12,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2508.21036"
+triples:
+- ["Lev Tankelevitch", "theorised-by", "Conversational interface"]
 ---
 
 Synthesises research from 34 papers on how GenAI expands automation while simultaneously creating both risks and opportunities for human cognition: memory, creativity, and critical thinking. The synthesis resists both the optimist framing (AI augments us) and the pessimist framing (AI atrophies us) by showing that the effects depend heavily on how the tools are designed and how people use them.

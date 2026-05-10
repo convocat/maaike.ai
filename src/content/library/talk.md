@@ -14,6 +14,8 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Elizabeth Stokoe on conversation and how talk actually works in real interactions. Her CARM approach is fascinating and has practical implications for how I design dialogue.
+triples:
+- ["Elizabeth Stokoe", "theorised-by", "LLMs"]
 ---
 
 ## Related

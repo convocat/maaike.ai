@@ -13,6 +13,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2603.04613"
+triples:
+- ["Jianna So", "theorised-by", "Conversation design"]
 ---
 
 Proposes metaphors beyond the anthropomorphic default. So et al. map a spectrum from tool to oracle to collaborator to environment, arguing that the choice of metaphor shapes user expectations, error tolerance, and the kinds of interactions that feel appropriate. The anthropomorphic framing is one option, not a neutral default.

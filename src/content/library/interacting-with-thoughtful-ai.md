@@ -13,6 +13,8 @@ ai: co-created
 book_type: non-fiction
 genre: research-paper
 url: "https://arxiv.org/abs/2502.18676"
+triples:
+- ["Xingyu Bruce Liu", "theorised-by", "LLMs"]
 ---
 
 Proposes a paradigm where AI functions as a continuously thinking entity rather than a passive responder, enabling proactive collaboration through surfacing intermediate thoughts, full-duplex processing, and shared cognitive workspaces. Liu et al. argue that the turn-taking model of interaction constrains what AI can contribute. A continuously thinking AI can interject, raise concerns mid-task, and share the reasoning that leads to a response rather than just the response itself.

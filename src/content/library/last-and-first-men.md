@@ -14,4 +14,6 @@ genre: Science Fiction
 book_type: fiction
 purpose: personal
 reason: Scifi from the olden days always feels meh/masculine to me. Might be a bias
+triples:
+- ["Olaf Stapledon", "theorised-by", "Science fiction"]
 ---

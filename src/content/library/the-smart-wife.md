@@ -12,4 +12,6 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: "Strengers and Kennedy on the gendered design of smart home AI. Essential context for anyone designing voice assistants: who gets to be the default voice, and what that communicates."
+triples:
+- ["Yolande Strengers", "theorised-by", "Gender data gap"]
 ---

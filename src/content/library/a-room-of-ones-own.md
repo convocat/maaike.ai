@@ -17,4 +17,6 @@ book_type: "non-fiction"
 purpose: "professional"
 reason: "Just new"
 status: "to-read"
+triples:
+- ["Virginia Woolf", "theorised-by", "Gender data gap"]
 ---

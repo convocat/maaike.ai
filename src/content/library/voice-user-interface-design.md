@@ -16,4 +16,6 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Cohen, Giangola and Balogh wrote one of the earliest comprehensive guides to VUI design. Dated in some areas but still solid on the fundamentals.
+triples:
+- ["Michael H. Cohen", "theorised-by", "Conversation design"]
 ---

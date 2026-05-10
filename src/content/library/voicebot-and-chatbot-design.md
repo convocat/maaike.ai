@@ -18,4 +18,6 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Rachel Batish covers both voice and chat from a design perspective. A solid practical overview of the field that I read early in my conversation design work.
+triples:
+- ["Rachel Batish", "theorised-by", "LLMs"]
 ---

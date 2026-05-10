@@ -13,6 +13,8 @@ ai: assisted
 book_type: non-fiction
 purpose: professional
 reason: Tabitha Goldstaub on navigating the AI world, aimed at women and non-technical audiences. A useful reminder that access and legibility matter.
+triples:
+- ["Tabitha Goldstaub", "theorised-by", "LLMs"]
 ---
 
 ## Related
