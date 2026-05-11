@@ -303,47 +303,55 @@ const news = [
 
       /* ---------- Hero ---------- */
       .hero {
-        background: var(--paper);
+        background: var(--fuchsia);
         text-align: center;
         padding-block: clamp(3.5rem, 8vw, 6rem) clamp(3rem, 6vw, 4.5rem);
-        border-bottom: 1px solid var(--rule);
+        color: var(--paper);
       }
       .hero .logo {
-        width: clamp(72px, 9vw, 96px);
-        height: auto;
+        width: clamp(96px, 11vw, 124px);
+        height: clamp(96px, 11vw, 124px);
         margin-bottom: 1.75rem;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--paper);
+        border-radius: 50%;
+        padding: 14px;
       }
-      .hero .logo img { width: 100%; height: auto; display: block; }
+      .hero .logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
       .hero .logo-fallback { display: none; }
       .kicker {
         font-size: 0.8rem;
         font-weight: 700;
         letter-spacing: 0.32em;
         text-transform: uppercase;
-        color: var(--plum);
+        color: var(--paper);
+        opacity: 0.85;
         margin: 0 0 1.5rem;
       }
       .kicker span {
-        color: var(--fuchsia);
+        color: var(--paper);
+        opacity: 1;
       }
       .hero h1 {
         font-size: clamp(2.2rem, 5.5vw, 3.8rem);
         font-weight: 800;
         max-width: 16ch;
         margin: 0 auto 1.25rem;
-        color: var(--ink);
+        color: var(--paper);
       }
       .hero .lede {
         font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-        color: var(--ink-soft);
+        color: var(--paper);
+        opacity: 0.92;
         margin: 0 auto 2.5rem;
         max-width: 38ch;
       }
       a.cta {
         display: inline-block !important;
-        background: var(--fuchsia) !important;
-        color: var(--paper) !important;
+        background: var(--paper) !important;
+        color: var(--fuchsia-deep) !important;
         font-weight: 700 !important;
         font-size: clamp(1rem, 1.6vw, 1.1rem) !important;
         padding: 1rem 1.85rem !important;
@@ -352,10 +360,10 @@ const news = [
         text-decoration: none !important;
         line-height: 1.2 !important;
         letter-spacing: 0.01em !important;
-        transition: background-color 160ms ease, transform 160ms ease !important;
+        transition: background-color 160ms ease, color 160ms ease, transform 160ms ease !important;
       }
       a.cta:hover {
-        background: var(--fuchsia-deep) !important;
+        background: var(--ink) !important;
         color: var(--paper) !important;
         transform: translateY(-1px);
       }
@@ -365,7 +373,8 @@ const news = [
       .hero-note {
         margin: 1.25rem 0 0;
         font-size: 0.9rem;
-        color: var(--ink-soft);
+        color: var(--paper);
+        opacity: 0.85;
       }
 
       /* ---------- Intro + news sidebar grid ---------- */
