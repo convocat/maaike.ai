@@ -3,8 +3,8 @@ const eventUrl = 'https://luma.com/event/evt-6tpr1mAGIC6rtNj';
 const eventId = 'evt-6tpr1mAGIC6rtNj';
 const iframeSrc = `https://luma.com/embed/event/${eventId}/simple`;
 const humicUrl = 'https://store.surrey.ac.uk/conferences-and-events/fabss-faculty-of-arts-business-and-social-sciences/conferences-and-events/humic-humans-and-machines-in-conversation-linguistic-social-and-relational-perspectives';
-const title = 'Convoclub IRL · 17 June 2026 · University of Surrey';
-const description = "The very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves the way humans and machines talk. Guildford, 17 June 2026.";
+const title = 'Convoclub IRL · Wednesday 17 June 2026 · University of Surrey';
+const description = "The very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves the way humans and machines talk. Guildford, Wednesday 17 June 2026.";
 const ogImage = 'https://www.maaike.ai/images/og-convoclubirl.png';
 
 const news = [
@@ -80,7 +80,8 @@ const news = [
           </svg>
           <p class="kicker">Convoclub <span>IRL</span></p>
           <h1>Convoclub goes IRL</h1>
-          <p class="lede">17 June 2026 · University of Surrey · Guildford</p>
+          <p class="event-date">Wednesday 17 June 2026</p>
+          <p class="event-location">University of Surrey · Guildford</p>
           <a
             href={eventUrl}
             class="cta luma-checkout--button"
@@ -95,7 +96,7 @@ const news = [
         <div class="container intro-grid">
           <div class="intro-main">
             <h2>Dear Convofriends, I'm so happy to announce that Convoclub is going IRL!</h2>
-            <p>On 17 June 2026, the day after the HUMIC symposium at the University of Surrey, we're hosting the very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves language and the way humans (and machines) talk.</p>
+            <p>On Wednesday 17 June 2026, the day after the HUMIC symposium at the University of Surrey, we're hosting the very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves language and the way humans (and machines) talk.</p>
             <p>Think of it as the day where industry meets academia over coffee, biscuits and a walk around campus or the historical town of Guildford. No format, no full programme, just good conversations about conversation design, linguistics, AI and life.</p>
             <aside class="callout">
               <p class="callout-heading">Attending HUMIC the day before?</p>
@@ -121,6 +122,7 @@ const news = [
 
       <section class="schedule">
         <div class="container narrow">
+          <p class="schedule-eyebrow">Wednesday 17 June 2026</p>
           <h2>What to expect</h2>
           <p class="schedule-intro">I'm still dreaming up the exact shape of the day, but it might look something like this.</p>
 
@@ -305,7 +307,7 @@ const news = [
       .hero {
         background: var(--fuchsia);
         text-align: center;
-        padding-block: clamp(3.5rem, 8vw, 6rem) clamp(3rem, 6vw, 4.5rem);
+        padding-block: clamp(2.25rem, 5vw, 3.75rem) clamp(2rem, 4vw, 3rem);
         color: var(--paper);
       }
       .hero .logo {
@@ -341,12 +343,18 @@ const news = [
         margin: 0 auto 1.25rem;
         color: var(--paper);
       }
-      .hero .lede {
-        font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      .event-date {
+        font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+        font-weight: 800;
         color: var(--paper);
-        opacity: 0.92;
+        margin: 0 auto 0.4rem;
+        letter-spacing: -0.005em;
+      }
+      .event-location {
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        color: var(--paper);
+        opacity: 0.85;
         margin: 0 auto 2.5rem;
-        max-width: 38ch;
       }
       a.cta {
         display: inline-block !important;
@@ -464,6 +472,14 @@ const news = [
       .schedule {
         background: var(--paper);
         position: relative;
+      }
+      .schedule-eyebrow {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--plum);
+        margin: 0 0 0.6rem;
       }
       .schedule::before {
         content: "";
