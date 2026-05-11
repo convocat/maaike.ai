@@ -1,0 +1,631 @@
+---
+const eventUrl = 'https://luma.com/event/evt-6tpr1mAGIC6rtNj';
+const eventId = 'evt-6tpr1mAGIC6rtNj';
+const iframeSrc = `https://luma.com/embed/event/${eventId}/simple`;
+const humicUrl = 'https://store.surrey.ac.uk/conferences-and-events/fabss-faculty-of-arts-business-and-social-sciences/conferences-and-events/humic-humans-and-machines-in-conversation-linguistic-social-and-relational-perspectives';
+const title = 'Convoclub IRL · 17 June 2026 · University of Surrey';
+const description = "The very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves the way humans and machines talk. Guildford, 17 June 2026.";
+const ogImage = 'https://www.maaike.ai/images/og-convoclubirl.png';
+
+const news = [
+  {
+    date: '11 May 2026',
+    title: 'First speakers announced',
+    body: '<a href="https://www.linkedin.com/in/romina-pankoke" target="_blank" rel="noopener">Romina Pankoke</a> and Maaike Groenewege will host an in-person Convoclub session on UX design in times of GenAI. We\'re building more and more complex applications through prompting and conversation. How do you design for your users if half of the time you have no idea what your agentic platform is up to?',
+  },
+  {
+    date: '11 May 2026',
+    title: 'Co-design the programme with us',
+    body: 'Want to lead a session, do a portfolio review, or bring a topic? Let me know on the registration form.',
+  },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.lu.ma https://*.lu.ma; style-src 'self' 'unsafe-inline' https://embed.lu.ma https://*.lu.ma; img-src 'self' data: https:; frame-src https://luma.com https://*.lu.ma; connect-src 'self' https://*.lu.ma; font-src 'self' data: https://*.lu.ma;" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://embed.lu.ma" />
+
+    <title>{title}</title>
+
+    <meta property="og:type" content="event" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.maaike.ai/convoclubirl" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+
+  <body>
+    <main>
+      <header class="hero">
+        <div class="container">
+          <picture class="logo" id="convo-logo">
+            <img src="/images/convoclub-logo.png" alt="Convoclub" />
+          </picture>
+          <svg class="logo logo-fallback" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cat head and ears as a single silhouette: pear-shaped body, tall pointed ears -->
+            <path fill="#1A1A1A" d="
+              M 100 32
+              C 90 32 82 38 76 52
+              L 60 96
+              C 50 110 36 118 36 138
+              C 36 168 64 184 100 184
+              C 136 184 164 168 164 138
+              C 164 118 150 110 140 96
+              L 124 52
+              C 118 38 110 32 100 32 Z
+            "/>
+            <!-- Left ear inner notch (kept dark — same fill — purely silhouette) -->
+            <!-- Tall pointed ears via separate triangles to make them crisper -->
+            <path fill="#1A1A1A" d="M 56 110 L 44 30 L 92 84 Z"/>
+            <path fill="#1A1A1A" d="M 144 110 L 156 30 L 108 84 Z"/>
+            <!-- Kawaii crescent eyes: open at top, white crescent -->
+            <path fill="#FFFFFF" d="M 78 116 a 10 13 0 1 0 0.01 0 Z" />
+            <path fill="#1A1A1A" d="M 73 122 a 10 13 0 1 0 0.01 0 Z" />
+            <path fill="#FFFFFF" d="M 122 116 a 10 13 0 1 0 0.01 0 Z" />
+            <path fill="#1A1A1A" d="M 117 122 a 10 13 0 1 0 0.01 0 Z" />
+            <!-- Small nose: bell/triangle -->
+            <path fill="#FFFFFF" d="M 92 142 Q 100 138 108 142 L 100 154 Z"/>
+          </svg>
+          </svg>
+          <p class="kicker">Convoclub <span>IRL</span></p>
+          <h1>Convoclub goes IRL</h1>
+          <p class="lede">17 June 2026 · University of Surrey · Guildford</p>
+          <a
+            href={eventUrl}
+            class="cta luma-checkout--button"
+            data-luma-action="checkout"
+            data-luma-event-id={eventId}
+          >Registreren voor evenement</a>
+          <p class="hero-note">Free · limited spots · Luma waitlist if we fill up</p>
+        </div>
+      </header>
+
+      <section class="intro">
+        <div class="container intro-grid">
+          <div class="intro-main">
+            <h2>Dear Convofriends, I'm so happy to announce that Convoclub is going IRL!</h2>
+            <p>On 17 June 2026, the day after the HUMIC symposium at the University of Surrey, we're hosting the very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves language and the way humans (and machines) talk.</p>
+            <p>Think of it as the day where industry meets academia over coffee, biscuits and a walk around campus or the historical town of Guildford. No format, no full programme, just good conversations about conversation design, linguistics, AI and life.</p>
+            <aside class="callout">
+              <p class="callout-heading">Attending HUMIC the day before?</p>
+              <p>You can join us as a stand-alone event, or as an add-on to HUMIC the day before. Heads up: each event has its own registration page, so if you'd like to attend both, please register separately. You can register for HUMIC on <a href={humicUrl} target="_blank" rel="noopener">the University of Surrey website</a>.</p>
+            </aside>
+
+          </div>
+
+          <aside class="news-side" aria-label="Latest news">
+            <h2>Latest news</h2>
+            <ul class="news-list">
+              {news.map((item) => (
+                <li>
+                  <p class="news-date">{item.date}</p>
+                  <p class="news-title">{item.title}</p>
+                  <p class="news-body" set:html={item.body}></p>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="schedule">
+        <div class="container narrow">
+          <h2>What to expect</h2>
+          <p class="schedule-intro">I'm still dreaming up the exact shape of the day, but it might look something like this.</p>
+
+          <ol class="blocks">
+            <li>
+              <span class="time">09:30–10:00</span>
+              <div class="entry">
+                <p class="entry-title">Reception & coffee</p>
+                <p class="entry-body">Arrive, grab a coffee, and meet the faces behind the Zoom tiles (yes, we have feet!).</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">10:00–12:30</span>
+              <div class="entry">
+                <p class="entry-title">Short, informal talks from the community</p>
+                <p class="entry-body">Ask-me-anythings, practical advice for real-life design challenges, showcasing your work, or perhaps a panel? Let's see what we can make happen.</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">12:30–13:30</span>
+              <div class="entry">
+                <p class="entry-title">Lunch</p>
+                <p class="entry-body">Proper food, proper chat.</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">13:30–16:00</span>
+              <div class="entry">
+                <p class="entry-title">Choose your own afternoon</p>
+                <p class="entry-body">Workshops, "share your experience" sessions, or a walk & talk across Surrey's beautiful campus. Whatever helps you connect.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="schedule-outro">The full programme is still taking shape, and that's the point. If you'd like to lead a session, do a portfolio review, or bring a topic you've been dying to talk about, let me know on the registration form.</p>
+        </div>
+      </section>
+
+      <section class="practical">
+        <div class="container">
+          <h2>Practical info</h2>
+          <div class="cards">
+            <article class="card">
+              <p class="card-eyebrow">Location</p>
+              <p class="card-body"><a href="https://www.surrey.ac.uk/" target="_blank" rel="noopener">University of Surrey</a>, Guildford campus. 35 minutes from London Waterloo. Hosted with the generous support of the <a href="https://www.surrey.ac.uk/artificial-intelligence" target="_blank" rel="noopener">Surrey Institute for People-Centred AI (PAI)</a>.</p>
+              <p class="card-addr">Stag Hill, University Campus, Guildford GU2 7XH, United Kingdom</p>
+              <p class="card-link"><a href="https://www.google.com/maps/search/?api=1&query=University+of+Surrey+Stag+Hill+Guildford+GU2+7XH" target="_blank" rel="noopener">View on Google Maps →</a></p>
+            </article>
+            <article class="card">
+              <p class="card-eyebrow">Cost</p>
+              <p class="card-body">Free. Spots are limited, so register early. If we fill up, the Luma waitlist will open and I'll release spots as they free up.</p>
+            </article>
+            <article class="card">
+              <p class="card-eyebrow">Open to everyone</p>
+              <p class="card-body">Convoclub members and curious newcomers alike. Not a member yet? Come hang out with us at <a href="https://convo.club" target="_blank" rel="noopener">convo.club</a>.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="register">
+        <div class="container narrow">
+          <h2>Reserve your spot</h2>
+          <div class="embed-wrap">
+            <iframe
+              src={iframeSrc}
+              width="100%"
+              height="450"
+              frameborder="0"
+              allow="fullscreen; payment"
+              aria-hidden="false"
+              tabindex="0"
+              title="Convoclub IRL registration"
+            ></iframe>
+          </div>
+          <p class="register-fallback">
+            Embed not loading? <a href={eventUrl} target="_blank" rel="noopener">Open the event page on Luma</a>.
+          </p>
+        </div>
+      </section>
+
+      <footer class="signoff">
+        <div class="container narrow">
+          <p class="bye">Can't wait to meet you in real life again</p>
+          <p class="sig">Groetjes, Maaike 🌸</p>
+          <p class="links">
+            <a href="https://convo.club" target="_blank" rel="noopener">convo.club</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.maaike.ai">maaike.ai</a>
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        var pic = document.getElementById('convo-logo');
+        var img = pic && pic.querySelector('img');
+        var fb = document.querySelector('.logo-fallback');
+        if (!img || !fb) return;
+        function swap() {
+          if (img.naturalWidth === 0) {
+            pic.style.display = 'none';
+            fb.style.display = 'block';
+          }
+        }
+        if (img.complete) swap();
+        else { img.addEventListener('load', swap); img.addEventListener('error', swap); }
+      })();
+    </script>
+    <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
+
+    <style is:global>
+      /* v2 */
+      :root {
+        --fuchsia: #D6006C;
+        --fuchsia-deep: #8C0048;
+        --fuchsia-soft: #FFF0F6;
+        --plum: #5B2A86;
+        --plum-soft: #EFE6F6;
+        --ink: #1A1A1A;
+        --ink-soft: #4A4A4A;
+        --paper: #FFFFFF;
+        --rule: #EADCE3;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--fuchsia);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+      }
+      a:hover { color: var(--fuchsia-deep); }
+
+      h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
+
+      main { display: block; }
+
+      /* ---------- Layout containers ---------- */
+      .container {
+        max-width: 1080px;
+        margin-inline: auto;
+        padding-inline: clamp(1.25rem, 5vw, 3rem);
+        width: 100%;
+      }
+      .container.narrow { max-width: 720px; }
+
+      section, header.hero, footer.signoff {
+        padding-block: clamp(3rem, 7vw, 5.5rem);
+      }
+
+      section h2 {
+        font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+        font-weight: 800;
+        margin-bottom: 1.75rem;
+        color: var(--ink);
+      }
+      section h2::after {
+        content: "";
+        display: block;
+        width: 36px;
+        height: 3px;
+        background: var(--fuchsia);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        background: var(--paper);
+        text-align: center;
+        padding-block: clamp(3.5rem, 8vw, 6rem) clamp(3rem, 6vw, 4.5rem);
+        border-bottom: 1px solid var(--rule);
+      }
+      .hero .logo {
+        width: clamp(72px, 9vw, 96px);
+        height: auto;
+        margin-bottom: 1.75rem;
+        display: inline-block;
+      }
+      .hero .logo img { width: 100%; height: auto; display: block; }
+      .hero .logo-fallback { display: none; }
+      .kicker {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--plum);
+        margin: 0 0 1.5rem;
+      }
+      .kicker span {
+        color: var(--fuchsia);
+      }
+      .hero h1 {
+        font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+        font-weight: 800;
+        max-width: 16ch;
+        margin: 0 auto 1.25rem;
+        color: var(--ink);
+      }
+      .hero .lede {
+        font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+        color: var(--ink-soft);
+        margin: 0 auto 2.5rem;
+        max-width: 38ch;
+      }
+      a.cta {
+        display: inline-block !important;
+        background: var(--fuchsia) !important;
+        color: var(--paper) !important;
+        font-weight: 700 !important;
+        font-size: clamp(1rem, 1.6vw, 1.1rem) !important;
+        padding: 1rem 1.85rem !important;
+        border: 0 !important;
+        border-radius: 999px !important;
+        text-decoration: none !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.01em !important;
+        transition: background-color 160ms ease, transform 160ms ease !important;
+      }
+      a.cta:hover {
+        background: var(--fuchsia-deep) !important;
+        color: var(--paper) !important;
+        transform: translateY(-1px);
+      }
+      a.cta:active {
+        transform: translateY(0);
+      }
+      .hero-note {
+        margin: 1.25rem 0 0;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Intro + news sidebar grid ---------- */
+      .intro-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 6rem;
+        align-items: start;
+      }
+      .intro-main { max-width: 640px; }
+
+      .news-side {
+        background: var(--fuchsia-soft);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 1.5rem 1.4rem;
+      }
+      .news-side h2 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--plum);
+        margin: 0 0 1.25rem;
+      }
+      .news-side h2::after { display: none; }
+      .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .news-list li {
+        padding: 1rem 0;
+        border-top: 1px solid var(--rule);
+      }
+      .news-list li:first-child { border-top: 0; padding-top: 0; }
+      .news-list li:last-child { padding-bottom: 0; }
+      .news-date {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--plum);
+        margin: 0 0 0.35rem;
+      }
+      .news-title {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 0 0 0.3rem;
+        line-height: 1.3;
+      }
+      .news-body {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      /* ---------- Intro ---------- */
+      .intro { background: var(--paper); }
+      .intro .lead {
+        font-size: clamp(1.15rem, 2vw, 1.4rem);
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0 0 1.25rem;
+      }
+      .intro p { margin: 0 0 1.1rem; color: var(--ink); }
+      .callout {
+        background: var(--plum-soft);
+        border-left: 3px solid var(--plum);
+        padding: 1.1rem 1.5rem;
+        border-radius: 0 6px 6px 0;
+        margin-top: 2rem;
+      }
+      .callout p { margin: 0; color: var(--ink); font-size: 0.97rem; }
+      .callout .callout-heading {
+        font-weight: 700;
+        font-size: 1.02rem;
+        color: var(--plum);
+        margin: 0 0 0.5rem;
+      }
+      .callout a { color: var(--plum); }
+      .callout a:hover { color: #3F1C5E; }
+
+      /* ---------- Schedule ---------- */
+      .schedule {
+        background: var(--paper);
+        position: relative;
+      }
+      .schedule::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 64px;
+        height: 2px;
+        background: var(--fuchsia);
+        border-radius: 2px;
+        opacity: 0.5;
+      }
+      .schedule-intro,
+      .schedule-outro {
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+      .schedule-intro { margin: 0 0 1.25rem; }
+      .schedule-outro { margin: 1.5rem 0 0; }
+
+      .blocks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .blocks li {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 0.25rem 1.5rem;
+        align-items: baseline;
+        padding: 0.75rem 0;
+        border-top: 1px solid var(--rule);
+      }
+      .blocks li:last-child { border-bottom: 1px solid var(--rule); }
+
+      .blocks .time {
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        color: var(--plum);
+        white-space: nowrap;
+        line-height: 1.4;
+      }
+      .blocks .entry-title {
+        font-weight: 700;
+        font-size: 0.98rem;
+        color: var(--ink);
+        margin: 0 0 0.15rem;
+        line-height: 1.35;
+      }
+      .blocks .entry-body {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      /* ---------- Practical ---------- */
+      .practical { background: var(--fuchsia-soft); }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .card {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-top: 3px solid var(--fuchsia);
+        border-radius: 6px;
+        padding: 1.5rem 1.5rem 1.75rem;
+      }
+      .card-eyebrow {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--plum);
+        margin: 0 0 0.6rem;
+      }
+      .card-body {
+        margin: 0 0 0.85rem;
+        color: var(--ink);
+        font-size: 0.97rem;
+      }
+      .card-addr {
+        margin: 0 0 0.85rem;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+      .card-link {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .card-link a { text-decoration: none; }
+      .card-link a:hover { text-decoration: underline; }
+
+      /* ---------- Register ---------- */
+      .register {
+        background: var(--paper);
+        text-align: center;
+      }
+      .register h2 { display: inline-block; text-align: left; }
+      .embed-wrap {
+        margin: 0.5rem auto 0;
+        max-width: 600px;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 0.75rem;
+      }
+      .embed-wrap iframe {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border: 0 !important;
+        border-radius: 4px;
+      }
+      .register-fallback {
+        margin-top: 1.25rem;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Signoff ---------- */
+      .signoff {
+        text-align: center;
+        background: var(--paper);
+        border-top: 1px solid var(--rule);
+      }
+      .bye {
+        font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+        font-weight: 700;
+        margin: 0 0 0.45rem;
+        color: var(--ink);
+      }
+      .sig {
+        font-size: 1.05rem;
+        color: var(--ink-soft);
+        margin: 0 0 1.75rem;
+      }
+      .links {
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        margin: 0;
+      }
+      .links span {
+        margin: 0 0.55em;
+        color: var(--rule);
+      }
+      .links a { color: var(--plum); text-decoration: none; }
+      .links a:hover { color: var(--fuchsia-deep); text-decoration: underline; }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 800px) {
+        .cards { grid-template-columns: 1fr; }
+        .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      }
+      @media (max-width: 560px) {
+        .blocks li {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        a.cta { transition: none !important; }
+        a.cta:hover { transform: none; }
+      }
+    </style>
+  </body>
+</html>
