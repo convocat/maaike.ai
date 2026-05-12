@@ -5,7 +5,45 @@ const iframeSrc = `https://luma.com/embed/event/${eventId}/simple`;
 const humicUrl = 'https://store.surrey.ac.uk/conferences-and-events/fabss-faculty-of-arts-business-and-social-sciences/conferences-and-events/humic-humans-and-machines-in-conversation-linguistic-social-and-relational-perspectives';
 const title = 'Convoclub IRL · Wednesday 17 June 2026 · University of Surrey';
 const description = "The very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves the way humans and machines talk. Guildford, Wednesday 17 June 2026.";
+const canonical = 'https://www.maaike.ai/convoclubirl';
 const ogImage = 'https://www.maaike.ai/images/og-convoclubirl.png';
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Convoclub IRL',
+  description,
+  image: [ogImage],
+  startDate: '2026-06-17T09:30:00+01:00',
+  endDate: '2026-06-17T16:00:00+01:00',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  url: canonical,
+  location: {
+    '@type': 'Place',
+    name: 'University of Surrey, Guildford campus',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Stag Hill, University Campus',
+      addressLocality: 'Guildford',
+      postalCode: 'GU2 7XH',
+      addressCountry: 'GB',
+    },
+  },
+  organizer: {
+    '@type': 'Person',
+    name: 'Maaike Groenewege',
+    url: 'https://www.maaike.ai',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+    availability: 'https://schema.org/InStock',
+    validFrom: '2026-05-11T00:00:00+01:00',
+    url: eventUrl,
+  },
+};
 
 const news = [
   {
@@ -26,57 +64,61 @@ const news = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.lu.ma https://*.lu.ma; style-src 'self' 'unsafe-inline' https://embed.lu.ma https://*.lu.ma; img-src 'self' data: https:; frame-src https://luma.com https://*.lu.ma; connect-src 'self' https://*.lu.ma; font-src 'self' data: https://*.lu.ma;" />
+
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Maaike Groenewege" />
+    <meta name="theme-color" content="#B01778" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://embed.lu.ma" />
 
-    <title>{title}</title>
-
+    <!-- Open Graph -->
     <meta property="og:type" content="event" />
+    <meta property="og:site_name" content="Convoclub" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://www.maaike.ai/convoclubirl" />
+    <meta property="og:image:alt" content="Convoclub goes IRL — Wednesday 17 June 2026, University of Surrey, Guildford" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured data: schema.org Event -->
+    <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
   </head>
 
   <body>
-    <main>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main">
       <header class="hero">
         <div class="container">
-          <picture class="logo" id="convo-logo">
-            <img src="/images/convoclub-logo.png" alt="Convoclub" />
-          </picture>
+          <img
+            id="convo-logo"
+            class="logo"
+            src="/images/convoclub-logo.png"
+            alt="Convoclub"
+            width="124"
+            height="124"
+            decoding="async"
+          />
           <svg class="logo logo-fallback" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <!-- Cat head and ears as a single silhouette: pear-shaped body, tall pointed ears -->
-            <path fill="#1A1A1A" d="
-              M 100 32
-              C 90 32 82 38 76 52
-              L 60 96
-              C 50 110 36 118 36 138
-              C 36 168 64 184 100 184
-              C 136 184 164 168 164 138
-              C 164 118 150 110 140 96
-              L 124 52
-              C 118 38 110 32 100 32 Z
-            "/>
-            <!-- Left ear inner notch (kept dark — same fill — purely silhouette) -->
-            <!-- Tall pointed ears via separate triangles to make them crisper -->
+            <!-- Cat head: pear-shaped silhouette with tall pointed ears, kawaii crescent eyes, small nose -->
+            <path fill="#1A1A1A" d="M 100 32 C 90 32 82 38 76 52 L 60 96 C 50 110 36 118 36 138 C 36 168 64 184 100 184 C 136 184 164 168 164 138 C 164 118 150 110 140 96 L 124 52 C 118 38 110 32 100 32 Z"/>
             <path fill="#1A1A1A" d="M 56 110 L 44 30 L 92 84 Z"/>
             <path fill="#1A1A1A" d="M 144 110 L 156 30 L 108 84 Z"/>
-            <!-- Kawaii crescent eyes: open at top, white crescent -->
-            <path fill="#FFFFFF" d="M 78 116 a 10 13 0 1 0 0.01 0 Z" />
-            <path fill="#1A1A1A" d="M 73 122 a 10 13 0 1 0 0.01 0 Z" />
-            <path fill="#FFFFFF" d="M 122 116 a 10 13 0 1 0 0.01 0 Z" />
-            <path fill="#1A1A1A" d="M 117 122 a 10 13 0 1 0 0.01 0 Z" />
-            <!-- Small nose: bell/triangle -->
+            <path fill="#FFFFFF" d="M 78 116 a 10 13 0 1 0 0.01 0 Z"/>
+            <path fill="#1A1A1A" d="M 73 122 a 10 13 0 1 0 0.01 0 Z"/>
+            <path fill="#FFFFFF" d="M 122 116 a 10 13 0 1 0 0.01 0 Z"/>
+            <path fill="#1A1A1A" d="M 117 122 a 10 13 0 1 0 0.01 0 Z"/>
             <path fill="#FFFFFF" d="M 92 142 Q 100 138 108 142 L 100 154 Z"/>
-          </svg>
           </svg>
           <p class="kicker">Convoclub <span>IRL</span></p>
           <h1>Convoclub goes IRL</h1>
@@ -105,7 +147,7 @@ const news = [
 
           </div>
 
-          <aside class="news-side" aria-label="Latest news">
+          <aside class="news-side">
             <h2>Latest news</h2>
             <ul class="news-list">
               {news.map((item) => (
@@ -191,11 +233,10 @@ const news = [
               src={iframeSrc}
               width="100%"
               height="450"
+              loading="lazy"
               frameborder="0"
               allow="fullscreen; payment"
-              aria-hidden="false"
-              tabindex="0"
-              title="Convoclub IRL registration"
+              title="Convoclub IRL registration on Luma"
             ></iframe>
           </div>
           <p class="register-fallback">
@@ -219,13 +260,12 @@ const news = [
 
     <script>
       (function () {
-        var pic = document.getElementById('convo-logo');
-        var img = pic && pic.querySelector('img');
+        var img = document.getElementById('convo-logo');
         var fb = document.querySelector('.logo-fallback');
         if (!img || !fb) return;
         function swap() {
           if (img.naturalWidth === 0) {
-            pic.style.display = 'none';
+            img.style.display = 'none';
             fb.style.display = 'block';
           }
         }
@@ -236,7 +276,6 @@ const news = [
     <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 
     <style is:global>
-      /* v2 */
       :root {
         --fuchsia: #B01778;
         --fuchsia-deep: #7A0E55;
@@ -273,6 +312,24 @@ const news = [
       h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
 
       main { display: block; }
+
+      /* ---------- Skip link ---------- */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.6rem 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        z-index: 100;
+      }
+      .skip-link:focus {
+        left: 1rem;
+        top: 1rem;
+        outline: 3px solid var(--paper);
+      }
 
       /* ---------- Layout containers ---------- */
       .container {
@@ -314,14 +371,12 @@ const news = [
         width: clamp(96px, 11vw, 124px);
         height: clamp(96px, 11vw, 124px);
         margin-bottom: 1.75rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-block;
         background: var(--paper);
         border-radius: 50%;
         padding: 14px;
+        object-fit: contain;
       }
-      .hero .logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
       .hero .logo-fallback { display: none; }
       .kicker {
         font-size: 0.8rem;
