@@ -8,6 +8,33 @@ const description = "The very first Convoclub IRL: a casual, community-driven da
 const canonical = 'https://www.maaike.ai/convoclubirl';
 const ogImage = 'https://www.maaike.ai/images/og-convoclubirl.png';
 
+const faqs = [
+  {
+    q: 'When and where is Convoclub IRL?',
+    a: 'Wednesday 17 June 2026, from 09:30 to 16:00, at the University of Surrey, Guildford campus (Stag Hill, University Campus, Guildford GU2 7XH, United Kingdom). Around 35 minutes from London Waterloo by train.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'Free. Spots are limited, so register early. If we fill up, the Luma waitlist will open and Maaike will release spots as they free up.',
+  },
+  {
+    q: 'Who can attend?',
+    a: 'Convoclub members and curious newcomers alike. Conversation designers, linguists, AI folks, and anyone who loves language and the way humans and machines talk. Not a member yet? Come hang out at convo.club.',
+  },
+  {
+    q: 'Do I need to attend HUMIC too?',
+    a: 'No. Convoclub IRL is a stand-alone day. It runs the day after the HUMIC symposium at the same venue, so you can also treat it as an add-on. Each event has its own registration page.',
+  },
+  {
+    q: 'How do I propose a session or topic?',
+    a: 'There is space on the Luma registration form to suggest a session, ask-me-anything, portfolio review, or topic. The full programme is co-designed with the community.',
+  },
+  {
+    q: 'What language will the day be in?',
+    a: 'English.',
+  },
+];
+
 const eventSchema = {
   '@context': 'https://schema.org',
   '@type': 'Event',
@@ -43,6 +70,16 @@ const eventSchema = {
     validFrom: '2026-05-11T00:00:00+01:00',
     url: eventUrl,
   },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 const news = [
@@ -93,6 +130,8 @@ const news = [
 
     <!-- Structured data: schema.org Event -->
     <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+    <!-- Structured data: schema.org FAQPage -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </head>
 
   <body>
@@ -129,6 +168,7 @@ const news = [
             class="cta luma-checkout--button"
             data-luma-action="checkout"
             data-luma-event-id={eventId}
+            lang="nl"
           >Registreren voor evenement</a>
           <p class="hero-note">Free · limited spots · Luma waitlist if we fill up</p>
         </div>
@@ -225,6 +265,20 @@ const news = [
         </div>
       </section>
 
+      <section class="faq">
+        <div class="container narrow">
+          <h2>Questions</h2>
+          <div class="faq-list">
+            {faqs.map((f) => (
+              <details class="faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section class="register">
         <div class="container narrow">
           <h2>Reserve your spot</h2>
@@ -248,7 +302,7 @@ const news = [
       <footer class="signoff">
         <div class="container narrow">
           <p class="bye">Can't wait to meet you in real life again</p>
-          <p class="sig">Groetjes, Maaike 🌸</p>
+          <p class="sig" lang="nl">Groetjes, Maaike 🌸</p>
           <p class="links">
             <a href="https://convo.club" target="_blank" rel="noopener">convo.club</a>
             <span aria-hidden="true">·</span>
@@ -308,6 +362,21 @@ const news = [
         text-decoration-thickness: 1px;
       }
       a:hover { color: var(--fuchsia-deep); }
+
+      /* Visible focus for keyboard users (WCAG 2.4.7) */
+      :focus { outline: none; }
+      :focus-visible {
+        outline: 3px solid var(--fuchsia);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .hero :focus-visible {
+        outline-color: var(--paper);
+      }
+      a.cta:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 4px;
+      }
 
       h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
 
@@ -633,6 +702,53 @@ const news = [
       }
       .card-link a { text-decoration: none; }
       .card-link a:hover { text-decoration: underline; }
+
+      /* ---------- FAQ ---------- */
+      .faq { background: var(--paper); }
+      .faq-list {
+        display: grid;
+        gap: 0.5rem;
+      }
+      .faq-item {
+        border-top: 1px solid var(--rule);
+        padding: 0.25rem 0;
+      }
+      .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+      .faq-item summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--ink);
+        padding: 0.85rem 2rem 0.85rem 0;
+        position: relative;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--fuchsia);
+        line-height: 1;
+        transition: transform 160ms ease;
+      }
+      .faq-item[open] summary::after {
+        content: "−";
+      }
+      .faq-item p {
+        margin: 0 0 1rem;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 60ch;
+      }
 
       /* ---------- Register ---------- */
       .register {

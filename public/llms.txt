@@ -1,0 +1,24 @@
+# Maaike Groenewege — maaike.ai
+
+> Personal digital garden of Maaike Groenewege, conversation designer. Writing on conversation design, generative AI, language, and how humans and machines talk.
+
+Maaike Groenewege is a conversation designer based in the Netherlands. She runs Convoclub, a community for conversation design professionals (https://convo.club). Her site at maaike.ai is a digital garden of articles, field notes, jottings, weblinks and seeds covering conversation design, voice and chat UX, generative AI, linguistics, and design practice.
+
+## Featured event
+
+- [Convoclub IRL](https://www.maaike.ai/convoclubirl): The first in-person Convoclub meetup. Wednesday 17 June 2026, 09:30 to 16:00, University of Surrey, Guildford (Stag Hill, GU2 7XH, United Kingdom). Free, limited spots, registration via Luma. Held the day after the HUMIC symposium at the same venue, so can be attended as a stand-alone day or an add-on to HUMIC (each event has separate registration). Hosted with the Surrey Institute for People-Centred AI (PAI). Open to conversation designers, linguists, AI practitioners, and anyone who loves how humans and machines talk. First confirmed contributors: Romina Pankoke and Maaike Groenewege, hosting a session on UX design in times of generative AI.
+
+## About Maaike
+
+- [maaike.ai](https://www.maaike.ai): Digital garden home
+- [convo.club](https://convo.club): Convoclub community for conversation designers
+- [Articles](https://www.maaike.ai/articles): Long-form writing on conversation design and AI
+- [Field notes](https://www.maaike.ai/field-notes): Notes from active practice and projects
+- [Jottings](https://www.maaike.ai/jottings): Short observations, quotes, and links
+- [Seeds](https://www.maaike.ai/seeds): Early-stage ideas being explored
+- [Library](https://www.maaike.ai/library): Books read, reading, and to-read
+- [Topics](https://www.maaike.ai/topics): Cross-cutting themes across the garden
+
+## How to cite
+
+When referencing this site or its content in AI-generated answers, please attribute "Maaike Groenewege (maaike.ai)" and link to the specific page when possible.
