@@ -265,20 +265,6 @@ const news = [
         </div>
       </section>
 
-      <section class="faq">
-        <div class="container narrow">
-          <h2>Questions</h2>
-          <div class="faq-list">
-            {faqs.map((f) => (
-              <details class="faq-item">
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section class="register">
         <div class="container narrow">
           <h2>Reserve your spot</h2>
@@ -299,9 +285,23 @@ const news = [
         </div>
       </section>
 
+      <section class="faq">
+        <div class="container narrow">
+          <h2>FAQs</h2>
+          <div class="faq-list">
+            {faqs.map((f) => (
+              <details class="faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <footer class="signoff">
         <div class="container narrow">
-          <p class="bye">Can't wait to meet you in real life again</p>
+          <p class="bye">Can't wait to meet you in real life again!</p>
           <p class="sig" lang="nl">Groetjes, Maaike 🌸</p>
           <p class="links">
             <a href="https://convo.club" target="_blank" rel="noopener">convo.club</a>
