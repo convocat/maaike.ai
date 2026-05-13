@@ -12,6 +12,22 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["tools/prep-dashboard/server.py"],
       "port": 8901
+    },
+    {
+      "name": "mindstudio-rag-api",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "uvicorn", "serve:app", "--port", "8790", "--app-dir", "C:/Sharing/Maaike/genaidesign/mindstudio-rag"],
+      "port": 8790
+    },
+    {
+      "name": "mindstudio-rag-ui",
+      "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
+      "runtimeArgs": [
+        "C:/Sharing/Maaike/genaidesign/mindstudio-rag/ui/node_modules/vite/bin/vite.js",
+        "C:/Sharing/Maaike/genaidesign/mindstudio-rag/ui",
+        "--port", "5173"
+      ],
+      "port": 5173
     }
   ]
 }
