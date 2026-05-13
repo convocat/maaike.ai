@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-10
+updated: 2026-05-13
 maturity: solid
 tags:
 - about
@@ -456,6 +456,24 @@ Wired the chatbot up to Langfuse, merged the two bots into a single panel with a
 - **Ask bot reads the live garden**: retrieval no longer reads from the frozen `tools/karpathy-wiki/raw/` snapshot (3 weeks stale, 3 collections). It reads `src/content/<section>/` directly across 8 collections (articles, field-notes, seeds, jottings, weblinks, library, experiments, videos), filters drafts and compost. Corpus jumped from ~85 to 281 items.
 - **Auto-tagged 3 published field-notes**: `conference-talk-guildford` (project hub), `beyond-anthropomorphism-reading-notes`, `masure-acentric-design-reading-notes`. 14 new associations, 8 new topics (clifford-nass, interface-metaphor, acentric-design, hyper-anthropomorphism, etc.). Field-notes coverage 72% → 81%.
 - **Auto-tagged 45 library entries**: 8 with substantive bodies got full TAO (Mitchell, Criado Perez, McCulloch, Kahneman, Kirk, Turkle, Corbett, Bear), and 37 description-only stubs got a single `(author, theorised-by, topic)` association where their existing tags mapped to a known graph topic. Library coverage 4% → 44%. 58 new topics across both passes (authors + concepts like dual-process-theory, machine-consciousness, gender-data-gap, classical-rhetoric).
+
+### 11 May
+
+The first IRL Convoclub event got its own landing page at maaike.ai/convoclubirl, with the Convoclub cat front and centre.
+
+- **Convoclub IRL event page**: Standalone Astro page at `/convoclubirl` for the 17 June 2026 in-person meetup at the University of Surrey. Bypasses the garden's earth-tone chrome and ships its own fuchsia and plum palette and Convoclub branding. Two-column intro and news sidebar, condensed schedule, and Luma registration embed.
+- **Hero, palette, date prominence**: Started white, settled on a fuchsia hero with the Convoclub cat in a white circular badge. "Wednesday 17 June 2026" stacked prominently above the location. Hero height tuned down after the first pass.
+
+### 12 May
+
+A full HTML cleanup and SEO sweep on the event page, plus the first AI-friendly structured data on the garden.
+
+- **Deeper magenta palette**: Swapped the fluorescent fuchsia (`#D6006C`) for a deeper magenta (`#B01778`) to match the existing Convoclub assets. Regenerated the Open Graph social card in white and pink on fuchsia, no black.
+- **First structured data on the garden**: Added schema.org `Event` JSON-LD (start and end times, location, organizer, free `Offer`) and `FAQPage` JSON-LD with six visible Q&A pairs at the bottom of the page. Eligible for rich results in Google and AI Overviews.
+- **GEO with llms.txt**: Created `public/llms.txt` following the [llms.txt convention](https://llmstxt.org/): site summary, featured event block, list of garden collections, attribution guidance for LLM-generated answers. Picked up immediately by Claude, ChatGPT browsing mode, and Perplexity.
+- **Head metadata extras**: Canonical link, `og:site_name`, `og:locale`, `theme-color`, `og:image:alt`, `author` meta, plus a permissive per-page Content Security Policy scoped to allow only Luma on this page.
+- **Accessibility polish**: Skip-to-content link, `:focus-visible` outlines on every interactive element, `lang="nl"` tags on Dutch strings (CTA, signoff), 44px minimum tap target on every FAQ summary for mobile WCAG. Removed duplicate `</svg>`, simplified the logo wrapper, dropped redundant ARIA attributes on the iframe, added `loading="lazy"` and explicit dimensions on the logo to prevent layout shift.
+- **Google Search Console verification**: Verification file at both site root and under `/convoclubirl/` so URL-prefix and domain-level properties both verify with the same file. Page is now ready for indexing and rich-results testing.
 
 ## Related
 
