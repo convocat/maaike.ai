@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Tending the garden's HTML (SEO + GEO project)
+*2026-05-13*
+
+The full roadmap for cleaning up the garden's HTML and making it discoverable to search engines and LLMs is saved at C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md. Nine phases, framed as a think-aloud project in the garden with a project hub field-note and a capstone learning-guide article on GEO/LLM findability. Phase 1 is the kick-off: draft the hub post (title + opening paragraph + empty Log section), show Maaike, get approval, write it, run /auto-tag.
+
+Key files: C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md (the plan), src/content/field-notes/ (where the hub post lands).
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then kick off Phase 1 of the "tending the garden's HTML" project. Plan lives at C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md. Start by drafting the project hub field-note for my review.
+
+---
+
 ## 🟡 GraphRAG chatbot (course deliverable)
 *2026-05-11*
 
