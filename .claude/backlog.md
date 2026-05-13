@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 Worktree cleanup loose-ends
+*2026-05-13*
+
+Stashes are cleared from inside the hopeful-burnell-40ceeb worktree. Remaining from main: drop 8 stale `refs/original/` backup refs from an old filter-branch (Co-Authored-By removal, these are the only place pre-rewrite history still exists, confirm before deleting), gc, audit the three non-main worktrees (chatbot, hopeful-burnell-40ceeb, karpathy: karpathy probably stays, other two likely idle), and gitignore `__pycache__/` (closes one sub-task of the 2026-04-30 Working-tree housekeeping item). Bonus: update the 🔵 Return of the button backlog entry, its real last-touched is 2026-05-04, not 2026-03-28.
+
+Key files: `.gitignore`, `.claude/backlog.md`
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: finish the worktree cleanup. (1) Drop the 8 `refs/original/` filter-branch backups (confirm with me first since they're the only remaining pre-rewrite history), then `git reflog expire --expire=now --all && git gc --prune=now --aggressive`. (2) Run `git worktree list`, check each non-main worktree for unmerged commits with `git log <branch> --not main --oneline`, report which are safe to remove and wait for my go-ahead. (3) Add `__pycache__/` to `.gitignore`, commit, push. (4) Update the "Return of the button" backlog entry: real last-touched is 2026-05-04, not 2026-03-28. Stop after each numbered step.
+
+---
+
 ## 🟡 Tending the garden's HTML (SEO + GEO project)
 *2026-05-13*
 
