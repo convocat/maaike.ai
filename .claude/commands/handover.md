@@ -74,9 +74,21 @@ Run `/update-release-notes` to document what was shipped in this session. This k
 
 Briefly scan the Toolshed posts in `src/content/toolshed/` for any that describe features or workflows touched in this session. Flag any that are now outdated and need updating before closing out. Update them if the changes are small; add a backlog note if they need more work.
 
-### Step 7: Done
+### Step 7: Confirm kanban will pick it up
 
-Tell the user the handover is live at `https://www.maaike.ai/backlog` (the push in Step 4 triggers a rebuild). Remind them to copy the opening message text as the first message in the new thread.
+The toolshed kanban at `/toolshed` auto-derives from `.claude/backlog.md` at build time. The parser (`src/pages/toolshed/index.astro`) handles both `🟡` emoji and `[READY]` bracket status formats — either works. Before signing off, sanity-check:
+
+- The new entry's status emoji (or bracket label) matches one of the four recognised values: `🟡` / `[READY]`, `🔵` / `[IN PROGRESS]`, `🟠` / `[PARKED]`, `✅` / `[DONE]`.
+- The entry starts with a `## ` heading (h2). The parser looks for h2 headings.
+- Report a one-line kanban summary back to the user: "Kanban will show READY +1 / IN PROGRESS / PARKED / DONE counts" so they know what to expect after deploy.
+
+### Step 8: Done
+
+Tell the user the handover is live at two URLs (both rebuild automatically on the next GitHub Actions deploy):
+- `https://www.maaike.ai/backlog` — full list with details
+- `https://www.maaike.ai/toolshed` — visual kanban board
+
+Remind them to copy the opening message text as the first message in the new thread.
 
 ## Conventions
 
