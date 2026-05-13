@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🟡 GraphRAG chatbot (course deliverable)
+*2026-05-11*
+
+The MindStudio University bot is live at https://genai-design-tools.vercel.app/, repo at https://github.com/convocat/genai-design-tools. Four small follow-ups: (1) narrow CORS in `mindstudio-rag/serve.py` from `["*"]` to `["https://genai-design-tools.vercel.app", "https://mindstudio.maaike.ai"]`; (2) add `mindstudio.maaike.ai` as a custom domain in Vercel + add a CNAME record at the DNS provider; (3) ask one question on prod and confirm Langfuse shows a single `bot:mindstudio-ask` trace (the orphan-generation fix was pushed in commit `c39f125`); (4) manually delete `Digital-Garden/tools/mindstudio-rag/` once VS Code / antivirus releases the lock.
+
+Key files: `genai-design-tools/mindstudio-rag/serve.py`, `genai-design-tools/mindstudio-rag/vercel.json`, Vercel project settings.
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: tighten up the genai-design-tools deploy — lock CORS in mindstudio-rag/serve.py to the prod domains, add mindstudio.maaike.ai as a Vercel custom domain (CNAME on the DNS side), and check Langfuse to confirm conversations now produce a single trace per turn.
+
+---
+
 ## [PARKED] Library + draft field-notes await enrichment
 *2026-05-10*
 
