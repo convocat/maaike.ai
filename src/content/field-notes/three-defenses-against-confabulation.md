@@ -27,6 +27,8 @@ triples:
 description: "Three soft layers between a user and hallucination all fail silently. Three hard defenses make confabulation visible, measurable, and refusable without suppressing the answer."
 ai: "co-created"
 draft: false
+marginalia:
+  - "Use this as opening: confabulation defenses are layered, like an immune system."
 ---
 
 When a user asks the wiki a question, the server retrieves articles from the garden and sends them to Claude, which synthesises an answer. The natural question: how do we know the answer is true?

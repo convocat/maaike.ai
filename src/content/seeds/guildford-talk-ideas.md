@@ -7,6 +7,11 @@ description: "Running scratchpad for the Guildford conference talk. Ideas as the
 draft: false
 ai: "100% Maai"
 develops: conference-talk-guildford
+marginalia:
+  - |-
+    "a metaphor is handy because it helps us discover how an abstract concept works and how we should interact with it. It helps us build our mental model of something new. For instance, a desktop helps us understanding a computer by comparing it to a concept we already know."
+    
+    NOte: interesting for intro, compare author
 ---
 
 *Part of [[conference-talk-guildford]].*
