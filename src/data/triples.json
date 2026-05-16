@@ -8870,27 +8870,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "linkedin",
-      "predicate": "instance-of",
-      "object": "communication-medium",
-      "source": "linkedin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "linkedin",
-      "predicate": "characterised-as",
-      "object": "algorithmic-feed",
-      "source": "linkedin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "linkedin",
-      "predicate": "contrasted-with",
-      "object": "digital-garden",
-      "source": "linkedin",
-      "collection": "weblinks"
-    },
-    {
       "subject": "conversation-design",
       "predicate": "leads-to",
       "object": "llmops",
