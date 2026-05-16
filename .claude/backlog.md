@@ -194,14 +194,14 @@ Six approved deliverables to write: TOC, full chapter outline, user/task analysi
 ---
 
 ## [IN PROGRESS] Karpathy comparison project
-*2026-04-12 · bumped 2026-05-08 · partial draft moved to main*
+*2026-04-12 · bumped 2026-05-16 · Version B published*
 
-Hub at `src/content/field-notes/karpathy-comparison.md` (not yet on disk). Partial draft of Version B (technical side-by-side, "How we actually compare") moved out of worktree to `src/content/articles/how-we-actually-compare.md`, still `draft: true`. Worktree at `.claude/worktrees/karpathy` can be removed when ready.
+Hub at `src/content/field-notes/karpathy-comparison.md` (not yet on disk). Version B "How we actually compare" published 2026-05-16, maturity `developing`. Worktree at `.claude/worktrees/karpathy` already removed.
 
 Deliverables:
 
 - [ ] Version A: "The compiler and the gardener" (metaphor-forward, 600-900 words). Not started.
-- [partial] Version B: "How we actually compare" (technical side-by-side, 700-1000 words). Draft in main, finish in Typora.
+- [x] Version B: "How we actually compare" (technical side-by-side). Published 2026-05-16, commit 4f5e5bf.
 - [ ] LinkedIn post for Version A
 - [ ] LinkedIn post for Version B
 - [ ] Karpathy implementation on the garden's content

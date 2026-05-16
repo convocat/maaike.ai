@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wiki v4 — Grid + chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg: #FCFCFB;
+  --color-bg-card: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-heading: #111111;
+  --color-accent: #D6006C;
+  --color-accent-hover: #B0005A;
+  --color-accent-2: #0D7C66;
+  --color-border: #E5E5E5;
+  --color-tag-bg: #F5E6F0;
+  --color-tag-text: #5A2D4A;
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Roboto', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); height: 100vh; overflow: hidden; }
+button, input, textarea { font-family: inherit; }
+
+#app { display: flex; height: 100vh; }
+#main { flex: 1; padding: 2rem 2.5rem; overflow-y: auto; border-right: 1px solid var(--color-border); }
+#chat { width: 48%; max-width: 680px; min-width: 420px; display: flex; flex-direction: column; padding: 2rem; background: #FAFAFA; }
+
+/* Main pane */
+.hdr { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.hdr h1 { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: var(--color-heading); margin: 0; }
+.search-input { flex: 1; min-width: 200px; padding: 0.55rem 0.9rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: white; font-size: 0.92rem; color: var(--color-text); }
+.search-input:focus { outline: none; border-color: var(--color-accent); }
+
+.filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--color-border); }
+.chip { padding: 0.35rem 0.85rem; border: 1px solid var(--color-border); background: white; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; color: var(--color-text); cursor: pointer; transition: all 0.15s; }
+.chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.chip.active { background: var(--color-accent); border-color: var(--color-accent); color: white; }
+.chip .count { opacity: 0.6; margin-left: 0.3rem; font-size: 0.72rem; }
+.chip.active .count { opacity: 0.85; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+.card { padding: 0.9rem 1rem; background: white; border: 1px solid var(--color-border); border-radius: 0.5rem; cursor: pointer; transition: all 0.15s; display: flex; flex-direction: column; gap: 0.35rem; min-height: 110px; }
+.card:hover { border-color: var(--color-accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.card-cat { font-size: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); }
+.card h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--color-heading); margin: 0; line-height: 1.25; }
+.card p { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.4; margin: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.card[data-cat="people"] .card-cat, .card[data-cat="people"] h3 { color: #D6006C; }
+.card[data-cat="technology"] .card-cat { color: #0D7C66; }
+.card[data-cat="design"] .card-cat { color: #7A5A48; }
+.card[data-cat="philosophy"] .card-cat { color: #5A4E44; }
+.card[data-cat="linguistics"] .card-cat { color: #6E4E68; }
+.card[data-cat="culture"] .card-cat { color: #A07030; }
+
+.meta { margin-top: 1.25rem; font-size: 0.78rem; color: var(--color-text-muted); }
+
+/* Chat */
+.chat-hdr { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600; color: var(--color-heading); margin: 0 0 0.35rem; }
+.chat-hdr-sub { font-size: 0.82rem; color: var(--color-text-muted); margin: 0 0 1.25rem; }
+#chat-history { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.85rem; padding-right: 0.25rem; margin-bottom: 1rem; min-height: 0; }
+.empty-state { color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.6; padding: 1.5rem 0; }
+.empty-state p { margin: 0 0 0.75rem; }
+.empty-state ul { padding-left: 1.25rem; margin: 0; }
+.empty-state li { margin-bottom: 0.4rem; cursor: pointer; color: var(--color-accent); }
+.empty-state li:hover { text-decoration: underline; }
+
+.chat-q { align-self: flex-end; background: var(--color-accent); color: white; padding: 0.65rem 0.9rem; border-radius: 1rem 1rem 0.25rem 1rem; font-size: 0.9rem; line-height: 1.5; max-width: 85%; }
+.chat-a { align-self: flex-start; background: white; border: 1px solid var(--color-border); padding: 0.75rem 1rem; border-radius: 1rem 1rem 1rem 0.25rem; font-size: 0.9rem; line-height: 1.6; max-width: 92%; }
+.chat-a p { margin: 0 0 0.4rem; }
+.chat-a p:last-child { margin: 0; }
+.chat-a a { color: var(--color-accent-2); cursor: pointer; }
+.chat-loading { color: var(--color-text-muted); }
+
+.chat-input-wrap { border: 1px solid var(--color-border); border-radius: 0.75rem; background: white; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.chat-input-wrap:focus-within { border-color: var(--color-accent); }
+#chat-input { border: none; outline: none; resize: none; min-height: 70px; font-size: 0.9rem; color: var(--color-text); background: transparent; font-family: inherit; }
+.chat-send-row { display: flex; justify-content: space-between; align-items: center; }
+.chat-hint { font-size: 0.7rem; color: var(--color-text-muted); }
+.chat-send { background: var(--color-accent); color: white; border: none; padding: 0.4rem 1.1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.chat-send:hover { background: var(--color-accent-hover); }
+.chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinner { display: inline-block; width: 11px; height: 11px; border: 2px solid rgba(214,0,108,0.3); border-top-color: var(--color-accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Modal */
+#modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; z-index: 100; align-items: center; justify-content: center; padding: 2rem; }
+#modal.open { display: flex; }
+.modal-body { background: var(--color-bg); border-radius: 0.75rem; max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem 2.75rem; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+.modal-close { position: absolute; top: 1rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-text-muted); line-height: 1; padding: 0.3rem 0.5rem; }
+.modal-close:hover { color: var(--color-accent); }
+.mb-cat { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 0.5rem; }
+.mb-title { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.5rem; line-height: 1.15; }
+.mb-type { font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+.mb-section { margin-bottom: 1.5rem; }
+.mb-section-label { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); margin-bottom: 0.4rem; }
+.mb-section p { font-size: 0.95rem; line-height: 1.7; margin: 0; color: var(--color-text); }
+.mb-list { list-style: none; padding: 0; margin: 0; }
+.mb-list li { padding: 0.3rem 0; font-size: 0.9rem; line-height: 1.5; }
+.mb-list a { color: var(--color-accent); cursor: pointer; text-decoration: none; }
+.mb-list a:hover { text-decoration: underline; }
+
+/* Scrollbar */
+#main::-webkit-scrollbar, #chat-history::-webkit-scrollbar, .modal-body::-webkit-scrollbar { width: 8px; }
+#main::-webkit-scrollbar-thumb, #chat-history::-webkit-scrollbar-thumb, .modal-body::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <section id="main">
+    <div class="hdr">
+      <h1>Maaike's wiki</h1>
+      <input class="search-input" id="search" placeholder="Search topics…" oninput="renderGrid()">
+    </div>
+    <div class="filter-bar" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <div class="meta" id="meta"></div>
+  </section>
+
+  <aside id="chat">
+    <h2 class="chat-hdr">Ask the wiki</h2>
+    <p class="chat-hdr-sub">Ask anything about Maaike's writing, or browse topics on the left.</p>
+    <div id="chat-history">
+      <div class="empty-state">
+        <p>Some questions to try:</p>
+        <ul>
+          <li onclick="quickAsk('What does Maaike mean by bullshit?')">What does Maaike mean by bullshit?</li>
+          <li onclick="quickAsk('How does she connect conversation design to LLMs?')">How does she connect conversation design to LLMs?</li>
+          <li onclick="quickAsk('Why is anthropomorphism a design risk?')">Why is anthropomorphism a design risk?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-input-wrap">
+      <textarea id="chat-input" placeholder="Ask a question…"></textarea>
+      <div class="chat-send-row">
+        <span class="chat-hint">Enter to send · Shift+Enter for newline</span>
+        <button class="chat-send" id="chat-send" onclick="askQuestion()">Send</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div id="modal" onclick="if(event.target.id==='modal')closeModal()">
+  <div class="modal-body">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+// ── SHARED DATA (same as v1-v3) ──
+const CAT_LABELS = { all:'All', people:'People', technology:'Technology', design:'Design', linguistics:'Linguistics', philosophy:'Philosophy', culture:'Culture', other:'Other' };
+// Topics load from /api/topics on init — this is just a fallback
+let ITEMS = [
+  { title: 'Conversational AI', type: 'technology-category', date: '2022', category: 'technology', slug: 'conversational-ai', desc: 'AI systems that interact through natural language. Maaike\'s core domain and the lens through which she reads the field.' },
+  { title: 'LLM hallucinations', type: 'technical-phenomenon', date: '2023', category: 'technology', slug: 'llm-hallucinations', desc: 'Confident, fluent, factually false output. Maaike frames this as a structural consequence of probabilistic prediction, not a bug.' },
+  { title: 'Context engineering', type: 'technical-mechanism', date: '2023', category: 'technology', slug: 'context-engineering', desc: 'Shaping the context window to steer LLM output. Maaike argues this is conversation design under a new name.' },
+  { title: 'LLMs', type: 'technology-category', date: '2023', category: 'technology', slug: 'llms', desc: 'Transformer-based models trained to predict the next token. The technical substrate under contemporary conversational AI.' },
+  { title: 'Stochastic parrot', type: 'technical-phenomenon', date: '2023', category: 'technology', slug: 'stochastic-parrot', desc: 'Bender et al.\'s term for LLMs as statistical pattern-matchers that produce plausible text without understanding.' },
+  { title: 'Agentic AI', type: 'technology-category', date: '2024', category: 'technology', slug: 'agentic-ai', desc: 'LLM-based systems that plan and act in sequences. Raises the question of where a chatbot ends and an agent begins.' },
+  { title: 'Bullshit', type: 'philosophical-concept', date: '2023', category: 'philosophy', slug: 'bullshit', desc: 'Frankfurt\'s precise term: speech produced without concern for truth. Maaike applies it to LLMs with full conviction.' },
+  { title: 'Indifference to truth', type: 'epistemic-stance', date: '2024', category: 'philosophy', slug: 'indifference-to-truth', desc: 'The epistemic orientation that defines bullshit. Neither asserting nor denying truth, simply disregarding it.' },
+  { title: 'Designing for doubt', type: 'philosophical-concept', date: '2024', category: 'philosophy', slug: 'designing-for-doubt', desc: 'Maaike\'s design stance: make uncertainty legible, preserve the user\'s critical distance from AI output.' },
+  { title: 'Epistemic bias', type: 'epistemological-concept', date: '2024', category: 'philosophy', slug: 'epistemic-bias', desc: 'Systematic distortions in what a system claims to know. Relevant to LLM training data and retrieval bias.' },
+  { title: 'Harry G. Frankfurt', type: 'person', date: '2023', category: 'people', slug: 'harry-g-frankfurt', desc: 'American moral philosopher, author of On Bullshit. His lying-vs-bullshitting distinction is Maaike\'s analytical pivot.' },
+  { title: 'Andrej Karpathy', type: 'person', date: '2024', category: 'people', slug: 'andrej-karpathy', desc: 'AI researcher, formerly OpenAI and Tesla. Coined "vibe coding". Frequent reference point in Maaike\'s field notes.' },
+  { title: 'Herbert Clark', type: 'person', date: '2022', category: 'people', slug: 'herbert-clark', desc: 'Psycholinguist. His work on common ground and conversational grounding is foundational to Maaike\'s practice.' },
+  { title: 'Emily Bender', type: 'person', date: '2023', category: 'people', slug: 'emily-bender', desc: 'Computational linguist. Co-author of the stochastic parrots paper, a key reference for Maaike\'s LLM critique.' },
+  { title: 'Don Norman', type: 'person', date: '2021', category: 'people', slug: 'don-norman', desc: 'Design theorist. His work on affordances and user models informs Maaike\'s approach to conversational UX.' },
+  { title: 'Anthropomorphism', type: 'cultural-phenomenon', date: '2023', category: 'culture', slug: 'anthropomorphism', desc: 'Projecting human traits onto AI. Maaike treats this as a design risk that erodes critical distance.' },
+  { title: 'Cognitive laziness', type: 'cognitive-bias', date: '2023', category: 'culture', slug: 'cognitive-laziness', desc: 'Accepting fluent output as correct. Amplified by anthropomorphism in AI interactions.' },
+  { title: 'Conversation design', type: 'design-discipline', date: '2021', category: 'design', slug: 'conversation-design', desc: 'The discipline of shaping dialogue between humans and machines. Maaike\'s core practice.' },
+  { title: 'Context design', type: 'design-discipline', date: '2023', category: 'design', slug: 'context-design', desc: 'Deliberately shaping everything the model sees. Overlaps heavily with conversation design.' },
+  { title: 'Accordion editing', type: 'methodology', date: '2024', category: 'design', slug: 'accordion-editing', desc: 'An editing pattern for structured AI collaboration: expanding and compressing drafts iteratively.' },
+  { title: 'Common ground', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'common-ground', desc: 'Clark\'s concept of shared knowledge interlocutors maintain during conversation.' },
+  { title: 'Cooperative principle', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'cooperative-principle', desc: 'Grice\'s maxims: relevance, quality, quantity, manner. LLMs violate quality unconditionally.' },
+  { title: 'Grounding', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'grounding', desc: 'The process by which speakers establish mutual understanding. A core mechanism conversation design relies on.' },
+  { title: 'Probabilistic word prediction', type: 'technical-mechanism', date: '2023', category: 'technology', slug: 'probabilistic-word-prediction', desc: 'The core mechanism of LLMs. The statistical ground from which bullshit emerges.' }
+];
+
+// Topic full detail (subset — rest fall back to list description)
+const DATA = {
+  'bullshit': { summary: 'Harry Frankfurt\'s precise term for speech produced without concern for truth. Unlike lying, which requires knowing and inverting the truth, bullshit is indifferent to truth entirely.', usage: 'Maaike uses this definition as the analytical backbone of her critique of LLMs.', related: ['Harry G. Frankfurt','LLM hallucinations','Indifference to truth','Stochastic parrot'], openQuestions: ['Does this hold for retrieval-augmented models?'] },
+  'llm-hallucinations': { summary: 'Confident, fluent, factually false LLM output. The term is contested: it implies a perceptual system that went wrong rather than a process that was never truth-tracking.', usage: 'Maaike uses hallucinations as evidence for the bullshit thesis.', related: ['Bullshit','Confabulation','Stochastic parrot','Indifference to truth'], openQuestions: ['When does "hallucination" become misleading UX copy?'] },
+  'harry-g-frankfurt': { summary: 'American moral philosopher (1929-2023). Author of the 1986 essay "On Bullshit". His distinction between liar and bullshitter is the pivot of Maaike\'s AI critique.', usage: 'Cited by Maaike as the primary analytical authority for the claim that LLMs are constitutionally indifferent to truth.', related: ['Bullshit','Indifference to truth','LLM hallucinations'], openQuestions: ['Did Frankfurt ever comment on AI before his death?'] },
+  'anthropomorphism': { summary: 'Attributing human traits to non-human entities. In AI, this is how users project personality onto language models.', usage: 'Maaike treats this as a design risk: warmer systems lower critical scrutiny.', related: ['Conversational AI','Bullshit','Cognitive laziness','Designing for doubt'], openQuestions: ['Is some anthropomorphism unavoidable in conversation?'] },
+  'context-engineering': { summary: 'Shaping the full context window to steer output. Maaike\'s argument: this is conversation design under a different name.', usage: 'Used to bridge her field with engineering discourse about prompting.', related: ['Conversational AI','Conversation design','Context design','LLMs'], openQuestions: ['Where does context engineering end and fine-tuning begin?'] }
+};
+
+// ── State ──
+let activeFilter = 'all';
+
+// ── Filter chips ──
+function renderFilters() {
+  const counts = { all: ITEMS.length };
+  ITEMS.forEach(i => counts[i.category] = (counts[i.category]||0)+1);
+  document.getElementById('filters').innerHTML = Object.entries(CAT_LABELS).map(([key, label]) =>
+    `<button class="chip ${activeFilter===key?'active':''}" onclick="setFilter('${key}')">${label}<span class="count">${counts[key]||0}</span></button>`
+  ).join('');
+}
+function setFilter(cat) { activeFilter = cat; renderFilters(); renderGrid(); }
+
+// ── Grid ──
+function renderGrid() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const filtered = ITEMS.filter(i =>
+    (activeFilter === 'all' || i.category === activeFilter) &&
+    (!q || i.title.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q) || i.type.toLowerCase().includes(q))
+  );
+  document.getElementById('grid').innerHTML = filtered.map(item => `
+    <div class="card" data-cat="${item.category}" onclick="openDetail('${item.slug}')">
+      <span class="card-cat">${item.type.replace(/-/g,' ')}</span>
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+    </div>
+  `).join('') || '<p style="color:var(--color-text-muted);padding:2rem 0">No topics match.</p>';
+  document.getElementById('meta').textContent = `${filtered.length} of ${ITEMS.length} topics`;
+}
+
+// ── Modal detail ──
+function openDetail(slug) {
+  const item = ITEMS.find(i => i.slug === slug);
+  if (!item) return;
+  const data = DATA[slug] || {};
+  const summary = data.summary || item.desc;
+  const usage = data.usage || `${item.title} appears across Maaike's writing on ${item.category}.`;
+  const related = data.related || [];
+  const openQuestions = data.openQuestions || [];
+  document.getElementById('modal-content').innerHTML = `
+    <div class="mb-cat">${item.category}</div>
+    <h2 class="mb-title">${item.title}</h2>
+    <div class="mb-type">${item.type.replace(/-/g,' ')} · first seen ${item.date}</div>
+    <div class="mb-section"><span class="mb-section-label">Summary</span><p>${summary}</p></div>
+    <div class="mb-section"><span class="mb-section-label">How Maaike uses this</span><p>${usage}</p></div>
+    ${related.length ? `<div class="mb-section"><span class="mb-section-label">Related</span><ul class="mb-list">${related.map(r => `<li><a onclick="openDetail('${slugify(r)}')">${r}</a></li>`).join('')}</ul></div>` : ''}
+    ${openQuestions.length ? `<div class="mb-section"><span class="mb-section-label">Open questions</span><ul class="mb-list">${openQuestions.map(q => `<li>${q}</li>`).join('')}</ul></div>` : ''}
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+
+// ── Chat ──
+function quickAsk(q) { document.getElementById('chat-input').value = q; askQuestion(); }
+
+async function askQuestion() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  const history = document.getElementById('chat-history');
+  // Clear empty state on first message
+  history.querySelector('.empty-state')?.remove();
+
+  const qEl = document.createElement('div');
+  qEl.className = 'chat-q';
+  qEl.textContent = q;
+  history.appendChild(qEl);
+  input.value = '';
+
+  const loadEl = document.createElement('div');
+  loadEl.className = 'chat-a chat-loading';
+  loadEl.innerHTML = '<span class="spinner"></span>Thinking…';
+  history.appendChild(loadEl);
+  history.scrollTop = history.scrollHeight;
+
+  const btn = document.getElementById('chat-send');
+  btn.disabled = true;
+  try {
+    const r = await fetch('http://localhost:8780/api/ask', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q }), signal: AbortSignal.timeout(30000)
+    });
+    const d = await r.json();
+    loadEl.className = 'chat-a';
+    if (d.error) {
+      loadEl.innerHTML = `<em style="color:#c00">${d.error}</em>`;
+    } else {
+      const sourcesHtml = d.sources?.length ? `<div style="font-size:0.78rem;color:var(--color-text-muted);margin-top:0.6rem;border-top:1px solid var(--color-border);padding-top:0.5rem">${d.sources.slice(0,6).map(s =>
+        s.kind === 'article'
+          ? `<a href="${s.url}" target="_blank" rel="noopener" style="color:var(--color-accent);display:inline-block;margin-right:0.5rem">${s.title} ↗</a>`
+          : `<a onclick="openDetailBySlug('${(s.href||'').split('/').pop()}')" style="color:var(--color-accent-2);display:inline-block;margin-right:0.5rem">${s.title}</a>`
+      ).join('')}</div>` : '';
+      loadEl.innerHTML = `<p>${d.answer}</p>${sourcesHtml}`;
+    }
+  } catch(e) {
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = `<em style="color:#c00">Could not reach the backend: ${e.message}</em>`;
+  }
+  history.scrollTop = history.scrollHeight;
+  btn.disabled = false;
+}
+
+function openDetailBySlug(slug) {
+  if (ITEMS.find(i => i.slug === slug)) openDetail(slug);
+}
+
+// Enter to send, Shift+Enter for newline
+document.getElementById('chat-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askQuestion(); }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── Init: load real topics from API ──
+async function loadTopics() {
+  try {
+    const r = await fetch('http://localhost:8780/api/topics');
+    const d = await r.json();
+    if (d.topics?.length) ITEMS = d.topics;
+  } catch(e) { console.warn('Could not load topics:', e); }
+  renderFilters();
+  renderGrid();
+}
+loadTopics();
+</script>
+</body>
+</html>

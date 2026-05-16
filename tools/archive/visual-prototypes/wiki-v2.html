@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiki V2 — Library list style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg:           #FCFCFB;
+  --color-bg-card:      #F5F4F0;
+  --color-text:         #1A1A1A;
+  --color-text-muted:   #6B6B6B;
+  --color-heading:      #111111;
+  --color-accent:       #D6006C;
+  --color-accent-2:     #0D7C66;
+  --color-border:       #E5E5E5;
+  --color-tag-bg:       #F5E6F0;
+  --font-heading:       'Lora', Georgia, serif;
+  --font-body:          'Roboto', -apple-system, sans-serif;
+  --font-mono:          'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  min-height: 100vh;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Left nav — filter-panel tabs style ── */
+#nav {
+  width: 220px; min-width: 220px;
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  padding: 1.5rem 0 2rem;
+  position: sticky; top: 0; height: 100vh;
+  overflow-y: auto;
+}
+.nav-title {
+  font-family: var(--font-heading);
+  font-size: 1rem; font-weight: 700;
+  color: var(--color-heading);
+  padding: 0 1rem 1rem;
+  display: block; text-decoration: none;
+  border-bottom: 5px double var(--color-border);
+  margin-bottom: 1rem;
+}
+.nav-title span { color: var(--color-accent); }
+
+/* Folder-tab sections — exact stream filter-panel pattern */
+.nav-filter {
+  position: relative;
+  background: #EEF3EB;
+  border-radius: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.75rem;
+  margin: 1.5rem 1rem 0;
+}
+.nav-filter::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -1.35rem; left: 0;
+  padding: 0.22rem 0.75rem;
+  font-size: 0.65rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--color-text-muted);
+  background: #EEF3EB;
+  border-radius: 5px 5px 0 0;
+  white-space: nowrap;
+}
+.nav-link {
+  display: block;
+  padding: 0.18rem 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 150ms;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.nav-link:hover { background: rgba(255,255,255,0.6); color: var(--color-accent); }
+.nav-link.active { background: rgba(255,255,255,0.85); color: var(--color-accent); font-weight: 600; }
+
+.nav-actions {
+  padding: 1rem 1rem 0;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.nav-search {
+  width: 100%; padding: 0.35rem 0.6rem;
+  border: 1px solid var(--color-border); border-radius: 0.4rem;
+  font-size: 0.82rem; background: white; color: var(--color-text);
+  font-family: var(--font-body);
+}
+.nav-search:focus { outline: none; border-color: var(--color-accent-2); }
+.nav-review {
+  display: block; padding: 0.35rem 0.6rem;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--color-accent-2); text-decoration: none;
+  text-align: center; border: 1.5px solid var(--color-accent-2);
+  border-radius: 2rem;
+}
+.nav-review:hover { background: var(--color-accent-2); color: white; text-decoration: none; }
+
+/* ── Main ── */
+#main {
+  flex: 1; min-width: 0;
+  padding: 1.75rem 2rem 4rem;
+}
+.page-header {
+  display: flex; align-items: baseline; gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--color-heading);
+}
+.page-count {
+  font-size: 0.78rem; color: var(--color-text-muted);
+}
+
+/* Toolbar — like library's view toggle bar */
+.toolbar {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.toolbar-sort {
+  display: flex; gap: 2px;
+  background: var(--color-border);
+  border-radius: 0.5rem;
+  padding: 2px;
+}
+.sort-btn {
+  display: flex; gap: 0.3rem; align-items: center;
+  padding: 0.25rem 0.65rem;
+  border: none; border-radius: 0.35rem;
+  background: transparent; color: var(--color-text-muted);
+  font-size: 0.75rem; cursor: pointer;
+  font-family: var(--font-body); white-space: nowrap;
+}
+.sort-btn.active {
+  background: white; color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.sort-btn:hover:not(.active) { color: var(--color-text); }
+.toolbar-spacer { flex: 1; }
+.toolbar-count { font-size: 0.78rem; color: var(--color-text-muted); }
+
+/* Group heading */
+.group-heading {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.group-heading h2 {
+  font-family: var(--font-heading);
+  font-size: 0.88rem; font-weight: 600;
+  color: var(--color-heading);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.group-count {
+  font-size: 0.72rem; color: var(--color-text-muted);
+  margin-left: auto;
+}
+
+/* ── List rows — exact library list-view pattern ── */
+.list-group { border-top: 1px solid var(--color-border); }
+
+.list-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none; color: inherit;
+  transition: background 120ms;
+  cursor: pointer;
+}
+.list-row:hover { background: var(--color-bg-card); text-decoration: none; color: inherit; }
+
+/* Category color dot */
+.row-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; flex-shrink: 0;
+}
+.dot-people     { background: #6A9A5A; }
+.dot-technology { background: #3A7A70; }
+.dot-design     { background: #5A6A9A; }
+.dot-linguistics { background: #4A8A50; }
+.dot-philosophy { background: #5A7A50; }
+.dot-culture    { background: #8A7A40; }
+
+.row-title {
+  font-size: 0.87rem; font-weight: 600;
+  color: var(--color-heading);
+  flex: 2 1 0; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.row-type {
+  font-size: 0.73rem; color: var(--color-text-muted);
+  flex: 1 1 0; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.row-date {
+  font-size: 0.72rem; color: var(--color-text-muted);
+  flex-shrink: 0; white-space: nowrap;
+}
+
+/* ── Right panel ── */
+#panel {
+  width: 320px; min-width: 320px;
+  padding: 1.75rem 1.25rem;
+  position: sticky; top: 0; height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid var(--color-border);
+}
+
+/* Library recommender-card style — pink top border */
+.panel-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+.panel-card-strip {
+  height: 5px;
+  background: var(--color-accent-2);
+}
+.panel-card-strip.pink { background: var(--color-accent); }
+.panel-card-body {
+  padding: 0.75rem 1rem 1rem;
+}
+.panel-section-label {
+  font-size: 0.65rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--color-text-muted);
+  display: block; margin-bottom: 0.5rem;
+}
+.panel-list { list-style: none; padding: 0; }
+.panel-list li { margin-bottom: 0.2rem; }
+.panel-list a { font-size: 0.82rem; color: var(--color-accent); text-decoration: none; }
+.panel-list a:hover { text-decoration: underline; }
+
+.ask-textarea {
+  width: 100%; padding: 0.5rem 0.6rem;
+  border: 1px solid var(--color-border); border-radius: 0.4rem;
+  font-size: 0.83rem; font-family: var(--font-body);
+  background: white; color: var(--color-text);
+  resize: vertical; min-height: 72px;
+}
+.ask-textarea:focus { outline: none; border-color: var(--color-accent); }
+.ask-btn {
+  width: 100%; margin-top: 0.4rem; padding: 0.4rem;
+  background: var(--color-accent); color: white; border: none;
+  border-radius: 2rem; font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; font-family: var(--font-body);
+}
+.ask-btn:hover { opacity: 0.9; }
+.ask-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.chat-q {
+  align-self: flex-end; background: var(--color-accent); color: white;
+  padding: 0.5rem 0.75rem; border-radius: 1rem 1rem 0.2rem 1rem;
+  font-size: 0.82rem; line-height: 1.5; max-width: 85%;
+}
+.chat-a {
+  align-self: flex-start; background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem; border-radius: 1rem 1rem 1rem 0.2rem;
+  font-size: 0.82rem; line-height: 1.6; max-width: 90%;
+}
+.chat-a p { margin: 0 0 0.3rem; }
+.chat-a p:last-child { margin: 0; }
+.chat-a a { color: var(--color-accent-2); }
+.chat-loading { color: var(--color-text-muted); }
+.spinner {
+  display: inline-block; width: 12px; height: 12px;
+  border: 2px solid rgba(255,255,255,0.4); border-top-color: white;
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+  margin-right: 0.35rem; vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Detail view ── */
+.detail-back {
+  display: inline-block;
+  font-size: 0.82rem; color: var(--color-accent);
+  text-decoration: none; margin-bottom: 1.25rem;
+  cursor: pointer;
+}
+.detail-back:hover { text-decoration: underline; }
+.detail-h1 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 0.4rem;
+}
+.detail-meta {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.detail-type-badge {
+  font-size: 0.6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: white; background: var(--color-accent);
+  padding: 0.15rem 0.45rem; border-radius: 2rem;
+}
+.detail-seen { font-size: 0.78rem; color: var(--color-text-muted); }
+.detail-section { margin-bottom: 1.5rem; }
+.detail-section-label {
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--color-text-muted); margin-bottom: 0.4rem;
+  display: block;
+}
+.detail-section p { font-size: 0.88rem; line-height: 1.65; color: var(--color-text); }
+.detail-list { list-style: none; padding: 0; }
+.detail-list li { padding: 0.25rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.88rem; }
+.detail-list li:first-child { border-top: 1px solid var(--color-border); }
+.detail-list a { color: var(--color-accent); text-decoration: none; }
+.detail-list a:hover { text-decoration: underline; }
+/* ── Explore/Ask tabs ── */
+.panel-tabs { display:flex; border-bottom:1px solid var(--color-border); margin-bottom:0.75rem; flex-shrink:0; }
+.panel-tab { flex:1; padding:0.45rem 0; font-size:0.78rem; font-weight:600; font-family:var(--font-body); background:none; border:none; cursor:pointer; color:var(--color-text-muted); border-bottom:2px solid transparent; margin-bottom:-1px; transition:color 0.15s; }
+.panel-tab.active { color:var(--color-accent); border-bottom-color:var(--color-accent); }
+.tab-pane { display:none; }
+.tab-pane.active { display:flex; flex-direction:column; flex:1; min-height:0; }
+#tab-explore.active { overflow-y:auto; padding-bottom:1rem; }
+#tab-ask.active { overflow:hidden; }
+.explore-label { font-size:0.68rem; color:var(--color-text-muted); font-weight:700; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:0.65rem; }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-title" href="#" onclick="goIndex();return false;"><span>Karpathy</span> wiki</a>
+  <div class="nav-actions">
+    <input id="nav-search" type="text" class="nav-search" placeholder="Search…" oninput="onSearch(this.value)">
+    <a class="nav-review" href="#">Review (1 pending)</a>
+  </div>
+
+  <div class="nav-filter" data-label="People">
+    <a class="nav-link" href="#" data-section="people" onclick="navClick(this,'people');return false;">Andrej Karpathy</a>
+    <a class="nav-link" href="#" data-section="people" onclick="navClick(this,'people');return false;">Harry G. Frankfurt</a>
+    <a class="nav-link" href="#" data-section="people" onclick="navClick(this,'people');return false;">Herbert Clark</a>
+    <a class="nav-link" href="#" data-section="people" onclick="navClick(this,'people');return false;">Don Norman</a>
+    <a class="nav-link" href="#" data-section="people" onclick="navClick(this,'people');return false;">Emily Bender</a>
+  </div>
+
+  <div class="nav-filter" data-label="Technology">
+    <a class="nav-link" href="#" data-section="technology" onclick="navClick(this,'technology');return false;">LLMs</a>
+    <a class="nav-link" href="#" data-section="technology" onclick="navClick(this,'technology');return false;">ChatGPT</a>
+    <a class="nav-link" href="#" data-section="technology" onclick="navClick(this,'technology');return false;">Conversational AI</a>
+    <a class="nav-link" href="#" data-section="technology" onclick="navClick(this,'technology');return false;">Context engineering</a>
+  </div>
+
+  <div class="nav-filter" data-label="Design">
+    <a class="nav-link" href="#" data-section="design" onclick="navClick(this,'design');return false;">Conversation design</a>
+    <a class="nav-link" href="#" data-section="design" onclick="navClick(this,'design');return false;">Context design</a>
+    <a class="nav-link" href="#" data-section="design" onclick="navClick(this,'design');return false;">Accordion editing</a>
+  </div>
+
+  <div class="nav-filter" data-label="Linguistics">
+    <a class="nav-link" href="#" data-section="linguistics" onclick="navClick(this,'linguistics');return false;">Common ground</a>
+    <a class="nav-link" href="#" data-section="linguistics" onclick="navClick(this,'linguistics');return false;">Cooperative principle</a>
+  </div>
+
+  <div class="nav-filter" data-label="Philosophy">
+    <a class="nav-link" href="#" data-section="philosophy" onclick="navClick(this,'philosophy');return false;">Bullshit</a>
+    <a class="nav-link" href="#" data-section="philosophy" onclick="navClick(this,'philosophy');return false;">Epistemic bias</a>
+    <a class="nav-link" href="#" data-section="philosophy" onclick="navClick(this,'philosophy');return false;">Dialectical thinking</a>
+  </div>
+
+  <div class="nav-filter" data-label="Culture">
+    <a class="nav-link" href="#" data-section="culture" onclick="navClick(this,'culture');return false;">Anthropomorphism</a>
+    <a class="nav-link" href="#" data-section="culture" onclick="navClick(this,'culture');return false;">Cognitive laziness</a>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<aside id="panel" style="display:flex;flex-direction:column;">
+  <div class="panel-card" style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+    <div class="panel-card-strip pink"></div>
+    <div class="panel-card-body" style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+      <div class="panel-tabs">
+        <button class="panel-tab active" id="tab-btn-explore" onclick="switchTab('explore')">Explore</button>
+        <button class="panel-tab" id="tab-btn-ask" onclick="switchTab('ask')">Ask</button>
+      </div>
+      <div id="tab-explore" class="tab-pane active"></div>
+      <div id="tab-ask" class="tab-pane">
+        <div id="ask-history" style="flex:1;overflow-y:auto;margin-bottom:0.75rem;display:flex;flex-direction:column;gap:0.75rem;min-height:0;"></div>
+        <textarea id="ask-question" class="ask-textarea" style="min-height:96px;" placeholder="What connects Maaike's writing on bullshit and hallucinations?&#10;&#10;Ctrl+Enter to send"></textarea>
+        <button id="ask-btn" class="ask-btn" onclick="askQuestion()">Ask</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+// ── DATA ──
+const DATA = {
+  'bullshit': {
+    title: 'Bullshit',
+    type: 'philosophical-concept',
+    date: '2023',
+    summary: 'Harry Frankfurt\'s precise philosophical term for speech produced without concern for whether it is true or false. Unlike lying, which requires knowing the truth and deliberately inverting it, bullshit is indifferent to truth entirely. Maaike argues this makes bullshit the correct and rigorous term for LLM output, not a casual insult.',
+    usage: 'Maaike uses Frankfurt\'s definition as the analytical backbone of her critique of conversational AI. It lets her distinguish structural indifference to truth from accidental error.',
+    related: ['Harry G. Frankfurt', 'LLM hallucinations', 'Indifference to truth', 'Stochastic parrot'],
+    openQuestions: ['Does the bullshit framing hold for models with retrieval augmentation?', 'Is there a design response to constitutionally indifferent output?'],
+    panelPeople: ['Harry G. Frankfurt', 'Emily Bender'],
+    panelConcepts: ['Indifference to truth', 'Stochastic parrot', 'LLM hallucinations', 'Confabulation']
+  },
+  'llm-hallucinations': {
+    title: 'LLM hallucinations',
+    type: 'technical-phenomenon',
+    date: '2023',
+    summary: 'The tendency of large language models to generate confident, fluent output that is factually false. The term "hallucination" is contested: it implies a perceptual system that went wrong, rather than a statistical process that was never truth-tracking. Maaike prefers framing this as a structural consequence of next-token prediction rather than a failure mode.',
+    usage: 'She uses hallucinations as evidence for the bullshit thesis: the model cannot hallucinate in any meaningful sense because it was never oriented toward truth in the first place.',
+    related: ['Bullshit', 'Confabulation', 'Stochastic parrot', 'Indifference to truth'],
+    openQuestions: ['When does "hallucination" become a misleading metaphor in user communication?'],
+    panelPeople: ['Emily Bender', 'Timnit Gebru'],
+    panelConcepts: ['Confabulation', 'Stochastic parrot', 'Bullshit', 'Probabilistic word prediction']
+  },
+  'context-engineering': {
+    title: 'Context engineering',
+    type: 'technical-mechanism',
+    date: '2023',
+    summary: 'The deliberate practice of shaping everything in the context window — system prompt, conversation history, retrieved documents, examples — to steer LLM output toward a desired outcome. Maaike argues this is conversation design under a new technical name, and that conversation designers already have the professional vocabulary for it.',
+    usage: 'She uses the term to argue that conversation design expertise is directly applicable to LLM product work, bridging her field with the engineering discourse around prompting.',
+    related: ['Conversational AI', 'Conversation design', 'Context design', 'LLMs'],
+    openQuestions: ['Where does context engineering end and fine-tuning begin?', 'Is there a user-facing version of context engineering?'],
+    panelPeople: ['Andrej Karpathy'],
+    panelConcepts: ['Conversation design', 'Context design', 'LLMs', 'Accordion editing']
+  },
+  'harry-g-frankfurt': {
+    title: 'Harry G. Frankfurt',
+    type: 'person',
+    date: '2023',
+    summary: 'American moral philosopher (1929–2023), Professor Emeritus at Princeton. Author of the 1986 essay "On Bullshit", later expanded into a short book. His philosophical work on free will and practical reason established him as a major figure in analytic ethics. The bullshit essay became unexpectedly influential outside philosophy after the 2005 book publication.',
+    usage: 'Maaike cites Frankfurt as her primary analytical authority for the claim that LLMs are constitutionally indifferent to truth. His distinction between liar and bullshitter is the pivot of her AI critique.',
+    related: ['Bullshit', 'Indifference to truth', 'LLM hallucinations', 'Epistemic bias'],
+    openQuestions: ['Did Frankfurt ever comment on AI or automated text generation before his death?'],
+    panelPeople: ['Emily Bender', 'Herbert Clark'],
+    panelConcepts: ['Bullshit', 'Indifference to truth', 'Epistemic bias', 'Designing for doubt']
+  },
+  'conversational-ai': {
+    title: 'Conversational AI',
+    type: 'technology-category',
+    date: '2022',
+    summary: 'AI systems designed to interact with humans through natural language: chatbots, voice assistants, and increasingly LLM-powered interfaces. The category spans rule-based systems from the 2010s through transformer-based models. Maaike\'s professional practice is grounded in designing these systems and training others to do so.',
+    usage: 'This is Maaike\'s core domain. She uses it as the lens through which she reads most developments in AI, asking what they mean for the interaction layer between human and system.',
+    related: ['LLMs', 'Conversation design', 'Context engineering', 'Agentic AI'],
+    openQuestions: ['When does a conversational interface become an agent rather than a chatbot?'],
+    panelPeople: ['Andrej Karpathy', 'Don Norman'],
+    panelConcepts: ['Conversation design', 'Context design', 'LLMs', 'Context engineering']
+  },
+  'anthropomorphism': {
+    title: 'Anthropomorphism',
+    type: 'cultural-phenomenon',
+    date: '2023',
+    summary: 'The attribution of human characteristics, emotions, or intentions to non-human entities. In the context of AI, it describes how users (and designers) project personality, feeling, and intentionality onto language models. Maaike treats this as a design problem with real consequences: anthropomorphism shapes expectations, erodes critical distance, and makes users vulnerable to the bullshit problem.',
+    usage: 'She uses anthropomorphism to frame the UX risk in conversational AI: the warmer and more human a system feels, the less critically users evaluate its output.',
+    related: ['Conversational AI', 'Bullshit', 'Cognitive laziness', 'Designing for doubt'],
+    openQuestions: ['Is some anthropomorphism unavoidable in conversational interfaces?', 'Does anthropomorphism increase trust in ways that are sometimes beneficial?'],
+    panelPeople: ['Don Norman', 'Emily Bender'],
+    panelConcepts: ['Bullshit', 'Cognitive laziness', 'Designing for doubt', 'Indifference to truth']
+  }
+};
+
+// ── ITEMS ──
+const ITEMS = [
+  { title: 'Conversational AI',    type: 'technology-category',    date: '2022', category: 'technology', slug: 'conversational-ai',    dot: 'dot-technology' },
+  { title: 'Context engineering',  type: 'technical-mechanism',    date: '2024', category: 'technology', slug: 'context-engineering',  dot: 'dot-technology' },
+  { title: 'LLM hallucinations',   type: 'technical-phenomenon',   date: '2023', category: 'technology', slug: 'llm-hallucinations',   dot: 'dot-technology' },
+  { title: 'LLMs',                 type: 'technology-category',    date: '2023', category: 'technology', slug: 'llms',                 dot: 'dot-technology' },
+  { title: 'Stochastic parrot',    type: 'technical-phenomenon',   date: '2023', category: 'technology', slug: 'stochastic-parrot',    dot: 'dot-technology' },
+  { title: 'Bullshit',             type: 'philosophical-concept',  date: '2023', category: 'philosophy', slug: 'bullshit',             dot: 'dot-philosophy' },
+  { title: 'Designing for doubt',  type: 'philosophical-concept',  date: '2024', category: 'philosophy', slug: 'designing-for-doubt',  dot: 'dot-philosophy' },
+  { title: 'Epistemic bias',       type: 'epistemological-concept',date: '2024', category: 'philosophy', slug: 'epistemic-bias',       dot: 'dot-philosophy' },
+  { title: 'Indifference to truth',type: 'epistemic-stance',       date: '2023', category: 'philosophy', slug: 'indifference-to-truth',dot: 'dot-philosophy' },
+  { title: 'Andrej Karpathy',      type: 'person',                 date: '2024', category: 'people',    slug: 'andrej-karpathy',      dot: 'dot-people' },
+  { title: 'Harry G. Frankfurt',   type: 'person',                 date: '2023', category: 'people',    slug: 'harry-g-frankfurt',    dot: 'dot-people' },
+  { title: 'Herbert Clark',        type: 'person',                 date: '2022', category: 'people',    slug: 'herbert-clark',        dot: 'dot-people' },
+  { title: 'Anthropomorphism',     type: 'cultural-phenomenon',    date: '2023', category: 'culture',   slug: 'anthropomorphism',     dot: 'dot-culture' },
+  { title: 'Cognitive laziness',   type: 'cognitive-bias',         date: '2023', category: 'culture',   slug: 'cognitive-laziness',   dot: 'dot-culture' },
+  { title: 'Conversation design',  type: 'design-discipline',      date: '2021', category: 'design',    slug: 'conversation-design',  dot: 'dot-design' },
+  { title: 'Context design',       type: 'design-discipline',      date: '2024', category: 'design',    slug: 'context-design',       dot: 'dot-design' },
+  { title: 'Accordion editing',    type: 'interaction-pattern',    date: '2024', category: 'design',    slug: 'accordion-editing',    dot: 'dot-design' },
+  { title: 'Common ground',        type: 'linguistic-concept',     date: '2022', category: 'linguistics',slug: 'common-ground',        dot: 'dot-linguistics' },
+  { title: 'Cooperative principle',type: 'linguistic-concept',     date: '2022', category: 'linguistics',slug: 'cooperative-principle',dot: 'dot-linguistics' }
+];
+
+// ── State ──
+let currentView = 'index';
+let currentSort = 'az';
+let currentSearch = '';
+let currentSection = null;
+
+// ── Helpers ──
+function slugify(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+
+function sortItems(items, by) {
+  const copy = [...items];
+  if (by === 'az') return copy.sort((a,b) => a.title.localeCompare(b.title));
+  if (by === 'type') return copy.sort((a,b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
+  if (by === 'recent') return copy.sort((a,b) => parseInt(b.date) - parseInt(a.date) || a.title.localeCompare(b.title));
+  return copy;
+}
+
+function groupBy(items, key) {
+  return items.reduce((acc,item) => { const k=item[key]; if(!acc[k]) acc[k]=[]; acc[k].push(item); return acc; }, {});
+}
+
+// ── Render index ──
+function renderIndex(section, searchQ, sortBy) {
+  const main = document.getElementById('main');
+  const q = (searchQ||'').toLowerCase().trim();
+  const sort = sortBy || currentSort;
+
+  let filtered = ITEMS;
+  if (q) {
+    filtered = filtered.filter(item =>
+      item.title.toLowerCase().includes(q) || item.type.toLowerCase().includes(q)
+    );
+  }
+  if (section) {
+    filtered = filtered.filter(item => item.category === section);
+  }
+
+  const sorted = sortItems(filtered, sort);
+  const catOrder = ['technology','philosophy','people','culture','design','linguistics'];
+  const catLabels = {technology:'Technology',philosophy:'Philosophy',people:'People',culture:'Culture',design:'Design',linguistics:'Linguistics'};
+
+  let html = `<div class="page-header"><h1>Karpathy wiki</h1><span class="page-count">${sorted.length} pages</span></div>`;
+
+  html += `<div class="toolbar">
+    <div class="toolbar-sort">
+      <button class="sort-btn ${sort==='az'?'active':''}" onclick="setSort('az')">A–Z</button>
+      <button class="sort-btn ${sort==='type'?'active':''}" onclick="setSort('type')">Type</button>
+      <button class="sort-btn ${sort==='recent'?'active':''}" onclick="setSort('recent')">Recent</button>
+    </div>
+    <span class="toolbar-spacer"></span>
+    <span class="toolbar-count">showing ${sorted.length}${q?' results for "'+q+'"':''} · <a href="#" style="color:var(--color-accent-2);text-decoration:underline;font-size:0.78rem" onclick="clearSearch();return false;">clear</a></span>
+  </div>`;
+
+  if (sort === 'az' || sort === 'type') {
+    // Group by category
+    const grouped = groupBy(sorted, 'category');
+    const allCats = [...catOrder, ...Object.keys(grouped).filter(k=>!catOrder.includes(k))];
+    for (const cat of allCats) {
+      const items = grouped[cat];
+      if (!items || !items.length) continue;
+      html += `<div class="group-heading" id="section-${cat}"><h2>${catLabels[cat]||cat}</h2><span class="group-count">${items.length} pages</span></div>`;
+      html += `<div class="list-group">`;
+      for (const item of items) {
+        html += `<div class="list-row" data-slug="${item.slug}" onclick="showDetail('${item.slug}')">
+          <span class="row-dot ${item.dot}"></span>
+          <span class="row-title">${item.title}</span>
+          <span class="row-type">${item.type}</span>
+          <span class="row-date">${item.date}</span>
+        </div>`;
+      }
+      html += `</div>`;
+    }
+  } else {
+    // Flat sorted list for Recent
+    html += `<div class="list-group" style="margin-top:1.5rem">`;
+    for (const item of sorted) {
+      html += `<div class="list-row" data-slug="${item.slug}" onclick="showDetail('${item.slug}')">
+        <span class="row-dot ${item.dot}"></span>
+        <span class="row-title">${item.title}</span>
+        <span class="row-type">${item.type}</span>
+        <span class="row-date">${item.date}</span>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (sorted.length === 0) {
+    html += `<p style="color:var(--color-text-muted);font-size:0.88rem;margin-top:2rem;">No results found.</p>`;
+  }
+
+  main.innerHTML = html;
+  currentView = 'index';
+  renderExplore('index', null);
+
+  if (section) {
+    const el = document.getElementById('section-' + section);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// ── Sort ──
+function setSort(by) {
+  currentSort = by;
+  renderIndex(currentSection, currentSearch, by);
+}
+
+// ── Clear search ──
+function clearSearch() {
+  currentSearch = '';
+  currentSection = null;
+  document.getElementById('nav-search').value = '';
+  document.querySelectorAll('.nav-link').forEach(l => { l.classList.remove('active'); l.style.display = 'block'; });
+  renderIndex(null, null, currentSort);
+}
+
+// ── Show detail ──
+function showDetail(slug) {
+  const data = DATA[slug];
+  const item = ITEMS.find(i => i.slug === slug);
+  const title = data ? data.title : (item ? item.title : slug.replace(/-/g,' '));
+  const type = data ? data.type : (item ? item.type : 'concept');
+  const date = data ? data.date : (item ? item.date : '–');
+
+  let html = `<a class="detail-back" onclick="goIndex()">← Back</a>`;
+  html += `<h1 class="detail-h1">${title}</h1>`;
+  html += `<div class="detail-meta"><span class="detail-type-badge">${type}</span><span class="detail-seen">First seen ${date}</span></div>`;
+
+  if (data) {
+    html += `<div class="detail-section"><span class="detail-section-label">Summary</span><p>${data.summary}</p></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">How Maaike uses this</span><p>${data.usage}</p></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">Related concepts</span><ul class="detail-list">`;
+    for (const r of data.related) html += `<li><a href="#" onclick="showDetail('${slugify(r)}');return false;">${r}</a></li>`;
+    html += `</ul></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">Open questions</span><ul class="detail-list">`;
+    for (const q of data.openQuestions) html += `<li>${q}</li>`;
+    html += `</ul></div>`;
+  } else {
+    html += `<div class="detail-section"><span class="detail-section-label">Summary</span><p>${title} is a concept that appears across Maaike's writing on conversational AI and language. It connects her interests in how language models relate to truth, meaning, and interaction design. A full entry for this page has not yet been compiled.</p></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">How Maaike uses this</span><p>Maaike references ${title} in her broader argument about the design implications of probabilistic language generation.</p></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">Related concepts</span><ul class="detail-list"><li><a href="#" onclick="showDetail('bullshit');return false;">Bullshit</a></li><li><a href="#" onclick="showDetail('conversational-ai');return false;">Conversational AI</a></li><li><a href="#" onclick="showDetail('llm-hallucinations');return false;">LLM hallucinations</a></li></ul></div>`;
+    html += `<div class="detail-section"><span class="detail-section-label">Open questions</span><ul class="detail-list"><li>How does this concept interact with the bullshit framework?</li></ul></div>`;
+  }
+
+  document.getElementById('main').innerHTML = html;
+  currentView = 'detail';
+  renderExplore('detail', slug);
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+}
+
+// ── Tab switching ──
+function switchTab(name) {
+  document.querySelectorAll('.panel-tab').forEach(b => b.classList.toggle('active', b.id === 'tab-btn-' + name));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === 'tab-' + name));
+}
+
+// ── Explore pane ──
+const CAT_LABELS = { people:'People', technology:'Technology', design:'Design', linguistics:'Linguistics', philosophy:'Philosophy', culture:'Culture', other:'Other' };
+const CAT_COLORS = { people:'#D6006C', technology:'#0D7C66', design:'#7A5A48', linguistics:'#6E4E68', philosophy:'#5A4E44', culture:'#A07030', other:'#999' };
+
+function renderExplore(mode, slug) {
+  const pane = document.getElementById('tab-explore');
+  if (!pane) return;
+
+  if (mode === 'index') {
+    const counts = {};
+    ITEMS.forEach(i => { const c = i.cat||'other'; counts[c] = (counts[c]||0)+1; });
+    const cats = Object.keys(CAT_LABELS).filter(c => counts[c]);
+    const max = Math.max(...cats.map(c => counts[c]));
+    pane.innerHTML = `
+      <div class="explore-label">Category breakdown</div>
+      <div style="font-size:0.72rem;color:var(--color-text-muted);margin-bottom:1rem">${ITEMS.length} topics total</div>
+      ${cats.map(c => `
+        <div style="margin-bottom:0.7rem">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem">
+            <span style="font-size:0.8rem;color:var(--color-text)">${CAT_LABELS[c]}</span>
+            <span style="font-size:0.7rem;color:var(--color-text-muted)">${counts[c]}</span>
+          </div>
+          <div style="height:5px;background:var(--color-border);border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:${CAT_COLORS[c]};border-radius:3px;width:${Math.round((counts[c]/max)*100)}%"></div>
+          </div>
+        </div>
+      `).join('')}`;
+  } else {
+    const data = DATA[slug];
+    const item = ITEMS.find(i => i.slug === slug);
+    const title = data?.title || item?.title || slug;
+    const related = data?.related || [];
+    const n = related.length;
+    const W = 260, H = n > 0 ? 230 : 80;
+    const cx = W/2, cy = n > 0 ? H/2 + 5 : 40;
+    const rad = Math.min(80, (H-50)/2);
+    let lines = '', nodes = '';
+    nodes += `<circle cx="${cx}" cy="${cy}" r="24" fill="var(--color-accent)" opacity="0.9"/>
+      <text x="${cx}" y="${cy+4}" text-anchor="middle" font-size="8" fill="white" font-weight="600" font-family="sans-serif">${title.split(' ').slice(0,2).join(' ')}</text>`;
+    related.forEach((rName, i) => {
+      const angle = (i/n)*2*Math.PI - Math.PI/2;
+      const nx = cx + rad*Math.cos(angle);
+      const ny = cy + rad*Math.sin(angle);
+      const rslug = rName.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+      lines += `<line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="var(--color-border)" stroke-width="1.5"/>`;
+      nodes += `<g style="cursor:pointer" onclick="showDetail('${rslug}')">
+        <circle cx="${nx}" cy="${ny}" r="15" fill="#0D7C66" opacity="0.82"/>
+        <text x="${nx}" y="${ny+4}" text-anchor="middle" font-size="7" fill="white" font-family="sans-serif">${rName.split(' ')[0]}</text>
+      </g>`;
+    });
+    pane.innerHTML = `
+      <div class="explore-label">Connections</div>
+      ${n > 0
+        ? `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block;overflow:visible;margin:0 auto 0.75rem">${lines}${nodes}</svg>`
+        : '<p style="font-size:0.78rem;color:var(--color-text-muted)">No connections mapped yet.</p>'}
+      ${n > 0 ? `<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.25rem">
+        <span style="font-size:0.7rem;color:var(--color-text-muted);display:flex;align-items:center;gap:0.3rem"><span style="width:8px;height:8px;border-radius:50%;background:var(--color-accent);display:inline-block"></span>This topic</span>
+        <span style="font-size:0.7rem;color:var(--color-text-muted);display:flex;align-items:center;gap:0.3rem"><span style="width:8px;height:8px;border-radius:50%;background:#0D7C66;display:inline-block"></span>Related</span>
+      </div>` : ''}`;
+  }
+}
+
+// ── Go index ──
+function goIndex() {
+  currentSearch = '';
+  currentSection = null;
+  document.getElementById('nav-search').value = '';
+  document.querySelectorAll('.nav-link').forEach(l => { l.classList.remove('active'); l.style.display = 'block'; });
+  renderIndex(null, null, currentSort);
+}
+
+// ── Nav click ──
+function navClick(el, section) {
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  el.classList.add('active');
+  currentSection = section;
+  if (currentView === 'detail') {
+    renderIndex(section, currentSearch, currentSort);
+  } else {
+    const secEl = document.getElementById('section-' + section);
+    if (secEl) secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else renderIndex(section, currentSearch, currentSort);
+  }
+}
+
+// ── Search ──
+function onSearch(val) {
+  currentSearch = val;
+  const q = val.trim().toLowerCase();
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.style.display = !q || link.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+  });
+  currentSection = null;
+  renderIndex(null, val, currentSort);
+}
+
+// ── Ask ──
+async function askQuestion() {
+  const q = document.getElementById('ask-question').value.trim();
+  if (!q) return;
+  const btn = document.getElementById('ask-btn');
+  const history = document.getElementById('ask-history');
+
+  // Question bubble
+  const qEl = document.createElement('div');
+  qEl.className = 'chat-q';
+  qEl.textContent = q;
+  history.appendChild(qEl);
+
+  // Clear textarea
+  document.getElementById('ask-question').value = '';
+
+  // Loading bubble
+  const loadEl = document.createElement('div');
+  loadEl.className = 'chat-a chat-loading';
+  loadEl.innerHTML = '<span class="spinner"></span>Thinking…';
+  history.appendChild(loadEl);
+  history.scrollTop = history.scrollHeight;
+
+  btn.disabled = true;
+  try {
+    const r = await fetch('http://localhost:8780/api/ask', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({question:q}), signal:AbortSignal.timeout(15000)
+    });
+    if (!r.ok) throw new Error('non-ok');
+    const d = await r.json();
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = d.error ? '<em style="color:#c00">'+d.error+'</em>'
+      : '<p>'+d.answer+'</p>' + (d.sources?.length ? '<div class="ask-sources">Sources: '+d.sources.slice(0,4).map(s=>'<a href="'+s.href+'">'+s.title+'</a>').join(', ')+'</div>' : '');
+  } catch(e) {
+    const topic = q.split(' ').slice(0,3).join(' ');
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = `<p>Maaike connects <em>${topic}</em> to her broader argument about probabilistic language generation. See also: <a href="#" onclick="showDetail('bullshit');return false;">Bullshit</a>, <a href="#" onclick="showDetail('conversational-ai');return false;">Conversational AI</a>.</p>`;
+  }
+  history.scrollTop = history.scrollHeight;
+  btn.disabled = false;
+  btn.textContent = 'Ask';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key==='Enter' && e.target.id==='ask-question' && (e.ctrlKey||e.metaKey)) askQuestion();
+});
+
+// ── Init ──
+renderIndex(null, null, 'az');
+</script>
+</body>
+</html>

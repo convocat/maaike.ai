@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wiki v5 — Reading + graph</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg: #FCFCFB;
+  --color-bg-card: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-heading: #111111;
+  --color-accent: #D6006C;
+  --color-accent-hover: #B0005A;
+  --color-accent-2: #0D7C66;
+  --color-border: #E5E5E5;
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Roboto', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); height: 100vh; overflow: hidden; }
+button, input, textarea { font-family: inherit; }
+
+/* Topbar */
+#topbar { height: 56px; padding: 0 1.75rem; display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
+.brand { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--color-heading); margin-right: 0.5rem; cursor: pointer; }
+.brand:hover { color: var(--color-accent); }
+.pills { display: flex; gap: 0.3rem; overflow-x: auto; flex: 1; scrollbar-width: none; }
+.pills::-webkit-scrollbar { display: none; }
+.pill { padding: 0.3rem 0.75rem; border: 1px solid var(--color-border); background: white; border-radius: 1.5rem; font-size: 0.78rem; font-weight: 500; color: var(--color-text); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
+.pill:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.pill.active { background: var(--color-accent); border-color: var(--color-accent); color: white; }
+.search-input { width: 220px; padding: 0.4rem 0.7rem; border: 1px solid var(--color-border); border-radius: 0.4rem; background: white; font-size: 0.84rem; color: var(--color-text); }
+.search-input:focus { outline: none; border-color: var(--color-accent); }
+
+/* Main two-pane layout */
+#app { display: flex; height: calc(100vh - 56px); }
+#content { flex: 1; overflow-y: auto; padding: 2.5rem 2.5rem 4rem; }
+#content-inner { max-width: 680px; margin: 0 auto; }
+#graph-panel { width: 360px; border-left: 1px solid var(--color-border); background: var(--color-bg-card); display: flex; flex-direction: column; }
+.graph-hdr { padding: 0.85rem 1.1rem 0.65rem; border-bottom: 1px solid var(--color-border); }
+.graph-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; color: var(--color-heading); margin: 0 0 0.2rem; }
+.graph-sub { font-size: 0.72rem; color: var(--color-text-muted); }
+.graph-canvas { flex: 1; overflow: hidden; position: relative; }
+.graph-canvas svg { display: block; cursor: grab; }
+.graph-canvas svg:active { cursor: grabbing; }
+.graph-legend { padding: 0.5rem 1.1rem 0.85rem; font-size: 0.72rem; color: var(--color-text-muted); display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.graph-legend .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 0.3rem; vertical-align: middle; }
+.graph-node-label { font: 500 10px var(--font-body); fill: var(--color-heading); pointer-events: none; }
+.graph-node { cursor: pointer; transition: all 0.15s; }
+.graph-node:hover { filter: brightness(1.15); }
+.graph-node.focus { stroke: var(--color-accent); stroke-width: 3; }
+.graph-link { stroke: #D0D0D0; stroke-width: 1; }
+.graph-link.focus { stroke: var(--color-accent); stroke-width: 1.8; }
+
+/* Content (reading) */
+.hero-h { font-family: var(--font-heading); font-size: 2.25rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.4rem; line-height: 1.2; }
+.hero-sub { color: var(--color-text-muted); font-size: 1rem; margin: 0 0 2rem; line-height: 1.55; }
+.topic-row { padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); cursor: pointer; transition: padding-left 0.15s; }
+.topic-row:hover { padding-left: 0.5rem; }
+.topic-row:hover h3 { color: var(--color-accent); }
+.topic-row h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--color-heading); margin: 0 0 0.25rem; transition: color 0.15s; }
+.topic-row .tr-meta { font-size: 0.72rem; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: 0.4rem; text-transform: uppercase; }
+.topic-row p { font-size: 0.9rem; line-height: 1.5; color: var(--color-text-muted); margin: 0; }
+
+/* Detail view */
+.back { display: inline-block; font-size: 0.82rem; color: var(--color-accent); cursor: pointer; margin-bottom: 1.25rem; }
+.back:hover { text-decoration: underline; }
+.d-cat { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 0.5rem; }
+.d-title { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--color-heading); margin: 0 0 0.5rem; line-height: 1.1; }
+.d-type { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 2rem; }
+.d-section { margin-bottom: 2rem; }
+.d-section h4 { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-text-muted); margin: 0 0 0.5rem; }
+.d-section p { font-size: 1rem; line-height: 1.75; color: var(--color-text); margin: 0 0 0.6rem; }
+.d-section ul { margin: 0; padding-left: 1.2rem; }
+.d-section li { margin: 0.35rem 0; line-height: 1.55; }
+.d-section a { color: var(--color-accent); cursor: pointer; text-decoration: none; }
+.d-section a:hover { text-decoration: underline; }
+
+/* Floating chat button + overlay */
+#chat-fab { position: fixed; right: 1.75rem; bottom: 1.75rem; background: var(--color-accent); color: white; border: none; border-radius: 2rem; padding: 0.75rem 1.5rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(214,0,108,0.35); z-index: 50; display: flex; align-items: center; gap: 0.4rem; }
+#chat-fab:hover { background: var(--color-accent-hover); }
+#chat-fab .fab-dot { width: 7px; height: 7px; border-radius: 50%; background: #2DD4A8; display: inline-block; }
+
+#chat-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.35); display: none; z-index: 100; align-items: flex-end; justify-content: flex-end; padding: 2rem; }
+#chat-overlay.open { display: flex; }
+.chat-panel { background: white; width: 440px; height: calc(100vh - 4rem); max-height: 760px; border-radius: 0.85rem; box-shadow: 0 20px 60px rgba(0,0,0,0.25); display: flex; flex-direction: column; overflow: hidden; }
+.chat-panel-hdr { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-border); }
+.chat-panel-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; color: var(--color-heading); margin: 0; }
+.chat-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--color-text-muted); line-height: 1; }
+.chat-close:hover { color: var(--color-accent); }
+
+#chat-history { flex: 1; overflow-y: auto; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.7rem; min-height: 0; }
+.empty-state { color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.55; padding: 0.5rem 0; }
+.empty-state p { margin: 0 0 0.5rem; }
+.empty-state ul { padding-left: 0; list-style: none; margin: 0.5rem 0 0; }
+.empty-state li { margin-bottom: 0.35rem; padding: 0.4rem 0.6rem; border: 1px solid var(--color-border); border-radius: 0.4rem; cursor: pointer; color: var(--color-accent); }
+.empty-state li:hover { background: var(--color-bg-card); }
+
+.chat-q { align-self: flex-end; background: var(--color-accent); color: white; padding: 0.55rem 0.8rem; border-radius: 1rem 1rem 0.25rem 1rem; font-size: 0.88rem; line-height: 1.5; max-width: 85%; }
+.chat-a { align-self: flex-start; background: var(--color-bg-card); border: 1px solid var(--color-border); padding: 0.65rem 0.85rem; border-radius: 1rem 1rem 1rem 0.25rem; font-size: 0.88rem; line-height: 1.55; max-width: 92%; }
+.chat-a p { margin: 0 0 0.35rem; }
+.chat-a p:last-child { margin: 0; }
+.chat-a a { color: var(--color-accent-2); cursor: pointer; }
+.chat-loading { color: var(--color-text-muted); }
+
+.chat-footer { border-top: 1px solid var(--color-border); padding: 0.85rem 1rem; }
+.chat-input-wrap { display: flex; gap: 0.5rem; align-items: flex-end; }
+#chat-input { flex: 1; border: 1px solid var(--color-border); border-radius: 0.5rem; padding: 0.55rem 0.7rem; resize: none; min-height: 44px; max-height: 140px; font-size: 0.88rem; outline: none; }
+#chat-input:focus { border-color: var(--color-accent); }
+.chat-send { background: var(--color-accent); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.chat-send:hover { background: var(--color-accent-hover); }
+.chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinner { display: inline-block; width: 11px; height: 11px; border: 2px solid rgba(214,0,108,0.3); border-top-color: var(--color-accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#content::-webkit-scrollbar, #chat-history::-webkit-scrollbar { width: 8px; }
+#content::-webkit-scrollbar-thumb, #chat-history::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <span class="brand" onclick="goIndex()">Wiki</span>
+  <div class="pills" id="pills"></div>
+  <input class="search-input" id="search" placeholder="Search…" oninput="onSearch()">
+</div>
+
+<div id="app">
+  <main id="content"><div id="content-inner"></div></main>
+  <aside id="graph-panel">
+    <div class="graph-hdr">
+      <h3 class="graph-title">Topic network</h3>
+      <div class="graph-sub" id="graph-sub">24 topics · drag to pan</div>
+    </div>
+    <div class="graph-canvas" id="graph-canvas"></div>
+    <div class="graph-legend">
+      <span><span class="dot" style="background:#D6006C"></span>People</span>
+      <span><span class="dot" style="background:#0D7C66"></span>Tech</span>
+      <span><span class="dot" style="background:#7A5A48"></span>Design</span>
+      <span><span class="dot" style="background:#5A4E44"></span>Philosophy</span>
+      <span><span class="dot" style="background:#6E4E68"></span>Linguistics</span>
+      <span><span class="dot" style="background:#A07030"></span>Culture</span>
+    </div>
+  </aside>
+</div>
+
+<button id="chat-fab" onclick="openChat()">
+  <span class="fab-dot"></span>Ask
+</button>
+
+<div id="chat-overlay" onclick="if(event.target.id==='chat-overlay')closeChat()">
+  <div class="chat-panel">
+    <div class="chat-panel-hdr">
+      <h3 class="chat-panel-title">Ask the wiki</h3>
+      <button class="chat-close" onclick="closeChat()">×</button>
+    </div>
+    <div id="chat-history">
+      <div class="empty-state">
+        <p>Ask a question about Maaike's writing:</p>
+        <ul>
+          <li onclick="quickAsk('What does Maaike mean by bullshit?')">What does Maaike mean by bullshit?</li>
+          <li onclick="quickAsk('How does conversation design connect to LLMs?')">How does conversation design connect to LLMs?</li>
+          <li onclick="quickAsk('Who influences her thinking most?')">Who influences her thinking most?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-footer">
+      <div class="chat-input-wrap">
+        <textarea id="chat-input" placeholder="Ask a question…"></textarea>
+        <button class="chat-send" id="chat-send" onclick="askQuestion()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CAT_LABELS = { all:'All', people:'People', technology:'Technology', design:'Design', linguistics:'Linguistics', philosophy:'Philosophy', culture:'Culture' };
+const CAT_COLORS = { people:'#D6006C', technology:'#0D7C66', design:'#7A5A48', philosophy:'#5A4E44', linguistics:'#6E4E68', culture:'#A07030' };
+
+const ITEMS = [
+  { title: 'Conversational AI', type: 'technology-category', date: '2022', category: 'technology', slug: 'conversational-ai', desc: 'AI systems that interact through natural language. Maaike\'s core domain.' , links:['llms','conversation-design','context-engineering','agentic-ai','anthropomorphism']},
+  { title: 'LLM hallucinations', type: 'technical-phenomenon', date: '2023', category: 'technology', slug: 'llm-hallucinations', desc: 'Confident, fluent, factually false output. Structural, not a bug.', links:['bullshit','stochastic-parrot','indifference-to-truth','probabilistic-word-prediction','emily-bender']},
+  { title: 'Context engineering', type: 'technical-mechanism', date: '2023', category: 'technology', slug: 'context-engineering', desc: 'Shaping the context window to steer output. Conversation design under a new name.', links:['conversation-design','context-design','llms','andrej-karpathy']},
+  { title: 'LLMs', type: 'technology-category', date: '2023', category: 'technology', slug: 'llms', desc: 'Transformer-based models predicting the next token.', links:['conversational-ai','stochastic-parrot','probabilistic-word-prediction','context-engineering']},
+  { title: 'Stochastic parrot', type: 'technical-phenomenon', date: '2023', category: 'technology', slug: 'stochastic-parrot', desc: 'Bender et al.\'s term for LLMs as pattern-matchers.', links:['llms','bullshit','emily-bender','llm-hallucinations']},
+  { title: 'Agentic AI', type: 'technology-category', date: '2024', category: 'technology', slug: 'agentic-ai', desc: 'LLM-based systems that plan and act in sequences.', links:['conversational-ai','llms']},
+  { title: 'Probabilistic word prediction', type: 'technical-mechanism', date: '2023', category: 'technology', slug: 'probabilistic-word-prediction', desc: 'The core LLM mechanism. Ground from which bullshit emerges.', links:['llms','llm-hallucinations','bullshit']},
+  { title: 'Bullshit', type: 'philosophical-concept', date: '2023', category: 'philosophy', slug: 'bullshit', desc: 'Frankfurt\'s precise term: speech produced without concern for truth.', links:['harry-g-frankfurt','llm-hallucinations','indifference-to-truth','stochastic-parrot','anthropomorphism']},
+  { title: 'Indifference to truth', type: 'epistemic-stance', date: '2024', category: 'philosophy', slug: 'indifference-to-truth', desc: 'The epistemic orientation that defines bullshit.', links:['bullshit','llm-hallucinations','harry-g-frankfurt']},
+  { title: 'Designing for doubt', type: 'philosophical-concept', date: '2024', category: 'philosophy', slug: 'designing-for-doubt', desc: 'Make uncertainty legible, preserve critical distance.', links:['bullshit','anthropomorphism','conversation-design']},
+  { title: 'Epistemic bias', type: 'epistemological-concept', date: '2024', category: 'philosophy', slug: 'epistemic-bias', desc: 'Systematic distortions in what a system claims to know.', links:['bullshit','indifference-to-truth']},
+  { title: 'Harry G. Frankfurt', type: 'person', date: '2023', category: 'people', slug: 'harry-g-frankfurt', desc: 'Moral philosopher, author of On Bullshit.', links:['bullshit','indifference-to-truth','llm-hallucinations']},
+  { title: 'Andrej Karpathy', type: 'person', date: '2024', category: 'people', slug: 'andrej-karpathy', desc: 'AI researcher. Coined "vibe coding".', links:['context-engineering','llms','agentic-ai']},
+  { title: 'Herbert Clark', type: 'person', date: '2022', category: 'people', slug: 'herbert-clark', desc: 'Psycholinguist. Common ground and conversational grounding.', links:['common-ground','grounding','conversation-design']},
+  { title: 'Emily Bender', type: 'person', date: '2023', category: 'people', slug: 'emily-bender', desc: 'Co-author of the stochastic parrots paper.', links:['stochastic-parrot','llm-hallucinations','bullshit']},
+  { title: 'Don Norman', type: 'person', date: '2021', category: 'people', slug: 'don-norman', desc: 'Design theorist. Affordances and user models.', links:['conversation-design','anthropomorphism']},
+  { title: 'Anthropomorphism', type: 'cultural-phenomenon', date: '2023', category: 'culture', slug: 'anthropomorphism', desc: 'Projecting human traits onto AI.', links:['conversational-ai','bullshit','cognitive-laziness','designing-for-doubt','don-norman']},
+  { title: 'Cognitive laziness', type: 'cognitive-bias', date: '2023', category: 'culture', slug: 'cognitive-laziness', desc: 'Accepting fluent output as correct.', links:['anthropomorphism','bullshit']},
+  { title: 'Conversation design', type: 'design-discipline', date: '2021', category: 'design', slug: 'conversation-design', desc: 'Maaike\'s core practice.', links:['conversational-ai','context-engineering','herbert-clark','common-ground','don-norman','context-design']},
+  { title: 'Context design', type: 'design-discipline', date: '2023', category: 'design', slug: 'context-design', desc: 'Deliberately shaping what the model sees.', links:['context-engineering','conversation-design']},
+  { title: 'Accordion editing', type: 'methodology', date: '2024', category: 'design', slug: 'accordion-editing', desc: 'Expanding and compressing AI drafts iteratively.', links:['context-engineering']},
+  { title: 'Common ground', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'common-ground', desc: 'Shared knowledge interlocutors maintain.', links:['herbert-clark','grounding','conversation-design']},
+  { title: 'Cooperative principle', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'cooperative-principle', desc: 'Grice\'s maxims. LLMs violate quality.', links:['bullshit','common-ground']},
+  { title: 'Grounding', type: 'linguistic-concept', date: '2022', category: 'linguistics', slug: 'grounding', desc: 'Establishing mutual understanding.', links:['common-ground','herbert-clark','conversation-design']}
+];
+
+const DATA = {
+  'bullshit': { summary: 'Harry Frankfurt\'s precise term for speech produced without concern for truth. Unlike lying (which requires knowing and inverting truth), bullshit is indifferent to truth entirely.', usage: 'The analytical backbone of Maaike\'s critique of LLMs.', openQuestions: ['Does this framing hold for retrieval-augmented models?','Is there a design response to constitutional indifference to truth?'] },
+  'llm-hallucinations': { summary: 'Confident, fluent, factually false LLM output. The term is contested: it implies a perceptual system that went wrong, rather than a process that was never truth-tracking.', usage: 'Used as evidence for the bullshit thesis: the model cannot hallucinate because it was never oriented toward truth.', openQuestions: ['When does "hallucination" become misleading UX copy?'] },
+  'harry-g-frankfurt': { summary: 'American moral philosopher (1929-2023), Princeton emeritus. His 1986 essay "On Bullshit" became influential outside philosophy after the 2005 book.', usage: 'Cited by Maaike as her primary analytical authority. The liar-vs-bullshitter distinction is the pivot of her AI critique.', openQuestions: ['Did Frankfurt ever comment on AI before his death?'] },
+  'anthropomorphism': { summary: 'Attributing human characteristics to non-human entities. In AI, how users project personality onto language models.', usage: 'Treated as a design risk: warmer systems lower critical scrutiny.', openQuestions: ['Is some anthropomorphism unavoidable in conversational interfaces?'] },
+  'context-engineering': { summary: 'Shaping the context window to steer LLM output. Maaike argues this is conversation design under a new technical name.', usage: 'Used to bridge her conversation design practice with engineering discourse.', openQuestions: ['Where does context engineering end and fine-tuning begin?'] }
+};
+
+let activeFilter = 'all';
+let currentSlug = null;
+
+// ── Pills ──
+function renderPills() {
+  const counts = { all: ITEMS.length };
+  ITEMS.forEach(i => counts[i.category] = (counts[i.category]||0)+1);
+  document.getElementById('pills').innerHTML = Object.entries(CAT_LABELS).map(([k,l]) =>
+    `<button class="pill ${activeFilter===k?'active':''}" onclick="setFilter('${k}')">${l} <span style="opacity:0.6">${counts[k]||0}</span></button>`
+  ).join('');
+}
+function setFilter(k) { activeFilter = k; renderPills(); renderIndex(); drawGraph(); }
+
+// ── Index reading view ──
+function renderIndex() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const filtered = ITEMS.filter(i =>
+    (activeFilter === 'all' || i.category === activeFilter) &&
+    (!q || i.title.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q))
+  );
+  const inner = document.getElementById('content-inner');
+  inner.innerHTML = `
+    <h1 class="hero-h">Maaike's wiki</h1>
+    <p class="hero-sub">A living map of concepts, people, and ideas across her published writing. Click a topic to read, or use the graph to explore connections.</p>
+    ${filtered.map(item => `
+      <div class="topic-row" onclick="showDetail('${item.slug}')">
+        <div class="tr-meta" style="color:${CAT_COLORS[item.category]}">${item.type.replace(/-/g,' ')}</div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `).join('') || '<p style="color:var(--color-text-muted);padding:2rem 0">No topics match.</p>'}
+  `;
+  currentSlug = null;
+  document.getElementById('content').scrollTop = 0;
+  drawGraph();
+}
+
+// ── Detail view ──
+function showDetail(slug) {
+  const item = ITEMS.find(i => i.slug === slug);
+  if (!item) return;
+  const data = DATA[slug] || {};
+  const summary = data.summary || item.desc;
+  const usage = data.usage || `${item.title} appears across Maaike's writing on ${item.category}.`;
+  const linked = (item.links || []).map(s => ITEMS.find(i => i.slug === s)).filter(Boolean);
+  document.getElementById('content-inner').innerHTML = `
+    <span class="back" onclick="goIndex()">← Back</span>
+    <div class="d-cat" style="color:${CAT_COLORS[item.category]}">${item.category}</div>
+    <h1 class="d-title">${item.title}</h1>
+    <div class="d-type">${item.type.replace(/-/g,' ')} · first seen ${item.date}</div>
+    <div class="d-section"><h4>Summary</h4><p>${summary}</p></div>
+    <div class="d-section"><h4>How Maaike uses this</h4><p>${usage}</p></div>
+    ${linked.length ? `<div class="d-section"><h4>Connected topics</h4><ul>${linked.map(l => `<li><a onclick="showDetail('${l.slug}')">${l.title}</a> <span style="color:var(--color-text-muted)">— ${l.type.replace(/-/g,' ')}</span></li>`).join('')}</ul></div>` : ''}
+    ${data.openQuestions ? `<div class="d-section"><h4>Open questions</h4><ul>${data.openQuestions.map(q => `<li>${q}</li>`).join('')}</ul></div>` : ''}
+  `;
+  currentSlug = slug;
+  document.getElementById('content').scrollTop = 0;
+  drawGraph();
+}
+
+function goIndex() { activeFilter = 'all'; document.getElementById('search').value = ''; renderPills(); renderIndex(); }
+function onSearch() { if (currentSlug) renderIndex(); else renderIndex(); }
+
+// ── Force-directed graph ──
+let nodes = [], edges = [];
+function initGraph() {
+  const filtered = ITEMS.filter(i => activeFilter === 'all' || i.category === activeFilter);
+  const slugs = new Set(filtered.map(i => i.slug));
+  nodes = filtered.map((item, idx) => ({
+    slug: item.slug, title: item.title, category: item.category,
+    x: 180 + 100 * Math.cos((idx/filtered.length) * 2 * Math.PI),
+    y: 180 + 100 * Math.sin((idx/filtered.length) * 2 * Math.PI),
+    vx: 0, vy: 0
+  }));
+  edges = [];
+  filtered.forEach(item => {
+    (item.links || []).forEach(targetSlug => {
+      if (slugs.has(targetSlug) && item.slug < targetSlug) {
+        edges.push({ source: item.slug, target: targetSlug });
+      }
+    });
+  });
+}
+
+function runForces(iterations = 120) {
+  const W = 360, H = 420;
+  const cx = W/2, cy = H/2;
+  const nodeById = Object.fromEntries(nodes.map(n => [n.slug, n]));
+  for (let it = 0; it < iterations; it++) {
+    // Repulsion between all nodes
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i+1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist2 = dx*dx + dy*dy + 0.01;
+        const dist = Math.sqrt(dist2);
+        const force = 600 / dist2;
+        const fx = (dx/dist) * force, fy = (dy/dist) * force;
+        a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+      }
+    }
+    // Attraction along edges
+    edges.forEach(e => {
+      const a = nodeById[e.source], b = nodeById[e.target];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const dist = Math.sqrt(dx*dx + dy*dy) + 0.01;
+      const force = (dist - 60) * 0.05;
+      const fx = (dx/dist) * force, fy = (dy/dist) * force;
+      a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+    });
+    // Center gravity
+    nodes.forEach(n => {
+      n.vx += (cx - n.x) * 0.01;
+      n.vy += (cy - n.y) * 0.01;
+    });
+    // Apply with damping
+    nodes.forEach(n => {
+      n.vx *= 0.75; n.vy *= 0.75;
+      n.x += n.vx; n.y += n.vy;
+      n.x = Math.max(20, Math.min(W-20, n.x));
+      n.y = Math.max(20, Math.min(H-20, n.y));
+    });
+  }
+}
+
+function drawGraph() {
+  initGraph();
+  runForces();
+  const canvas = document.getElementById('graph-canvas');
+  const W = canvas.clientWidth || 360;
+  const H = canvas.clientHeight || 420;
+  const nodeById = Object.fromEntries(nodes.map(n => [n.slug, n]));
+
+  let svg = `<svg width="${W}" height="${H}" viewBox="0 0 360 ${Math.max(H, 420)}" preserveAspectRatio="xMidYMid meet">`;
+  const focusSlug = currentSlug;
+  const focusLinks = focusSlug ? new Set((ITEMS.find(i => i.slug === focusSlug)?.links) || []) : new Set();
+
+  // Edges first
+  edges.forEach(e => {
+    const a = nodeById[e.source], b = nodeById[e.target];
+    if (!a || !b) return;
+    const isFocus = focusSlug && (e.source === focusSlug || e.target === focusSlug);
+    svg += `<line class="graph-link ${isFocus ? 'focus' : ''}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+  });
+
+  // Nodes
+  nodes.forEach(n => {
+    const isFocus = n.slug === focusSlug;
+    const isConnected = focusLinks.has(n.slug);
+    const r = n.category === 'people' ? 7 : 6;
+    const opacity = focusSlug && !isFocus && !isConnected ? 0.35 : 1;
+    svg += `<circle class="graph-node ${isFocus ? 'focus' : ''}" cx="${n.x}" cy="${n.y}" r="${r}" fill="${CAT_COLORS[n.category] || '#999'}" opacity="${opacity}" onclick="showDetail('${n.slug}')"><title>${n.title}</title></circle>`;
+    if (isFocus || isConnected) {
+      const label = n.title.length > 16 ? n.title.slice(0,14) + '…' : n.title;
+      svg += `<text class="graph-node-label" x="${n.x + r + 3}" y="${n.y + 3}">${label}</text>`;
+    }
+  });
+
+  svg += '</svg>';
+  canvas.innerHTML = svg;
+  document.getElementById('graph-sub').textContent = `${nodes.length} topics · ${edges.length} connections${focusSlug ? ' · focusing ' + (ITEMS.find(i => i.slug === focusSlug)?.title || '') : ''}`;
+}
+
+// ── Chat ──
+function openChat() { document.getElementById('chat-overlay').classList.add('open'); setTimeout(() => document.getElementById('chat-input').focus(), 0); }
+function closeChat() { document.getElementById('chat-overlay').classList.remove('open'); }
+function quickAsk(q) { document.getElementById('chat-input').value = q; askQuestion(); }
+
+async function askQuestion() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  const history = document.getElementById('chat-history');
+  history.querySelector('.empty-state')?.remove();
+
+  const qEl = document.createElement('div');
+  qEl.className = 'chat-q';
+  qEl.textContent = q;
+  history.appendChild(qEl);
+  input.value = '';
+
+  const loadEl = document.createElement('div');
+  loadEl.className = 'chat-a chat-loading';
+  loadEl.innerHTML = '<span class="spinner"></span>Thinking…';
+  history.appendChild(loadEl);
+  history.scrollTop = history.scrollHeight;
+
+  const btn = document.getElementById('chat-send');
+  btn.disabled = true;
+  try {
+    const r = await fetch('http://localhost:8780/api/ask', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q }), signal: AbortSignal.timeout(30000)
+    });
+    const d = await r.json();
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = d.error ? `<em style="color:#c00">${d.error}</em>` :
+      `<p>${d.answer}</p>${d.sources?.length ? `<p style="font-size:0.78rem;color:var(--color-text-muted);margin-top:0.5rem">Sources: ${d.sources.slice(0,4).map(s => `<a onclick="closeChat();showDetail('${(s.href||'').split('/').pop()}')">${s.title}</a>`).join(', ')}</p>` : ''}`;
+  } catch(e) {
+    loadEl.className = 'chat-a';
+    loadEl.innerHTML = `<em style="color:#c00">Backend unreachable: ${e.message}</em>`;
+  }
+  history.scrollTop = history.scrollHeight;
+  btn.disabled = false;
+}
+
+document.getElementById('chat-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askQuestion(); }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeChat(); });
+
+// ── Init ──
+renderPills();
+renderIndex();
+</script>
+</body>
+</html>

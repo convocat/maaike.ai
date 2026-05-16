@@ -23,6 +23,9 @@ pnpm-debug.log*
 # Python bytecode caches
 __pycache__/
 
+# Handoff archives at repo root (kept locally, not tracked)
+/*.zip
+
 # Obsidian workspace config (device-specific, creates noise)
 src/content/.obsidian/
 
