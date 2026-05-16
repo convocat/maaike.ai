@@ -255,6 +255,16 @@ Memory rule already saved: `feedback_dashboard_pre_enriched.md`.
 
 ---
 
+## [PARKED] MindStudio CLI access
+*2026-05-16 · blocker: no concrete use case yet*
+
+Install via `irm https://msagent.ai/install.ps1 | iex` would give CLI + MCP-server toegang tot 850+ connectoren (Slack, Gmail, Airtable, image-gen, web scraping, etc.) en 200+ AI-modellen via één account. User-level install, geen admin. Free tier: 1 agent, 1.000 runs/maand. Pay-per-use zonder mark-up op model-tokens. Geparkeerd: nu geen concrete toepassing. Heroverwegen zodra er een specifieke use case opkomt waar één van die connectoren echt nodig is (bijv. Slack-integratie of bulk image-gen voor de garden). Onderzoeksnotitie met install-details, risico's en bronnen: `C:\Users\mgroe\.claude\plans\ik-wil-graag-dat-gentle-sky.md`.
+
+**Opening message:**
+> Heroverweeg MindStudio CLI install. Lees eerst de onderzoeksnotitie op `C:\Users\mgroe\.claude\plans\ik-wil-graag-dat-gentle-sky.md`. Bepaal samen of de huidige use case de install rechtvaardigt, en zo ja: optie A (inspect script), B (install only), of C (install + MCP-koppeling met Claude Code).
+
+---
+
 ## [PARKED] Claude LabBook project
 *2026-03-27*
 
