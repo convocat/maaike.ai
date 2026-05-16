@@ -13999,6 +13999,41 @@
       "object": "conscious-ai-use-frameworks",
       "source": "oh-my-nav",
       "collection": "weblinks"
+    },
+    {
+      "subject": "work-chart",
+      "predicate": "contrasted-with",
+      "object": "org-chart",
+      "source": "from-org-chart-to-work-chart-where-ai-value-really",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-transformation",
+      "predicate": "requires",
+      "object": "workflow-redesign",
+      "source": "from-org-chart-to-work-chart-where-ai-value-really",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "org-chart",
+      "predicate": "lacks",
+      "object": "workflow-visibility",
+      "source": "from-org-chart-to-work-chart-where-ai-value-really",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "enterprise-ai",
+      "predicate": "requires",
+      "object": "work-chart",
+      "source": "from-org-chart-to-work-chart-where-ai-value-really",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-value",
+      "predicate": "caused-by",
+      "object": "workflow-redesign",
+      "source": "from-org-chart-to-work-chart-where-ai-value-really",
+      "collection": "weblinks"
     }
   ]
 }
