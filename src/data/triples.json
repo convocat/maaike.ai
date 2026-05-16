@@ -13964,6 +13964,41 @@
       "object": "llms",
       "source": "voicebot-and-chatbot-design",
       "collection": "library"
+    },
+    {
+      "subject": "github-copilot",
+      "predicate": "requires",
+      "object": "context-engineering",
+      "source": "oh-my-nav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "custom-agents",
+      "predicate": "instance-of",
+      "object": "enterprise-ai-tooling",
+      "source": "oh-my-nav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "nav",
+      "predicate": "demonstrates",
+      "object": "ai-adoption",
+      "source": "oh-my-nav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-credits",
+      "predicate": "structured-as",
+      "object": "consumption-based-pricing-model",
+      "source": "oh-my-nav",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "competency-preservation",
+      "predicate": "requires",
+      "object": "conscious-ai-use-frameworks",
+      "source": "oh-my-nav",
+      "collection": "weblinks"
     }
   ]
 }

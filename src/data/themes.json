@@ -412,5 +412,11 @@
     "Building reliable agentic systems requires a paradigm shift from data science (probabilistic, prompt-based) to systems engineering (deterministic, architecture-based).",
     "The future of AI is about better distributed systems and orchestration layers, not just smarter language models.",
     "Moving from generative to agentic AI is an architectural leap requiring planning, tool execution, state management, and governance beyond what prompting can achieve."
+  ],
+  "oh-my-nav": [
+    "Organizations need structured internal resources to support AI development tool adoption across teams",
+    "Custom agents and enterprise tooling enable context-specific AI assistance for organizational workflows",
+    "Cost management and usage metrics become critical as AI coding assistants shift to consumption-based pricing",
+    "Conscious AI use requires frameworks that balance productivity gains with competency preservation"
   ]
 }
