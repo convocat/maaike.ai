@@ -424,5 +424,11 @@
     "Traditional organizational charts fail to capture how work actually flows across teams, creating invisible constraints when implementing AI",
     "Work charts that visualize outcomes, workflows, decisions, and accountability are necessary management tools for scaling AI value",
     "The gap between AI experimentation and enterprise value is caused by a lack of organizational redesign, not a lack of AI capability"
+  ],
+  "state-of-rag-genai": [
+    "RAG transforms GenAI from a liability into a strategic asset by grounding LLM outputs in verified, real-time enterprise data",
+    "Enterprise AI adoption hinges on solving the accuracy-compliance-cost trilemma that RAG directly addresses",
+    "The architecture of RAG (ingestion, preprocessing, chunking, vectorization, retrieval) creates a sustainable alternative to continuous model retraining",
+    "Trust and compliance requirements make RAG essential for regulated industries deploying generative AI"
   ]
 }

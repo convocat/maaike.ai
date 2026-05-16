@@ -14034,6 +14034,41 @@
       "object": "workflow-redesign",
       "source": "from-org-chart-to-work-chart-where-ai-value-really",
       "collection": "weblinks"
+    },
+    {
+      "subject": "rag",
+      "predicate": "counters",
+      "object": "llm-hallucinations",
+      "source": "state-of-rag-genai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "rag",
+      "predicate": "structured-as",
+      "object": "vectorization",
+      "source": "state-of-rag-genai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "genai",
+      "predicate": "exhibits",
+      "object": "llm-hallucinations",
+      "source": "state-of-rag-genai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "rag",
+      "predicate": "requires",
+      "object": "knowledge-base",
+      "source": "state-of-rag-genai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "requires",
+      "object": "rag",
+      "source": "state-of-rag-genai",
+      "collection": "weblinks"
     }
   ]
 }
