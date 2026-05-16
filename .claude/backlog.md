@@ -8,10 +8,10 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
-## 🟡 Worktree cleanup loose-ends
+## [READY] Worktree cleanup loose-ends
 *2026-05-13*
 
-Stashes are cleared from inside the hopeful-burnell-40ceeb worktree. Remaining from main: drop 8 stale `refs/original/` backup refs from an old filter-branch (Co-Authored-By removal, these are the only place pre-rewrite history still exists, confirm before deleting), gc, audit the three non-main worktrees (chatbot, hopeful-burnell-40ceeb, karpathy: karpathy probably stays, other two likely idle), and gitignore `__pycache__/` (closes one sub-task of the 2026-04-30 Working-tree housekeeping item). Bonus: update the 🔵 Return of the button backlog entry, its real last-touched is 2026-05-04, not 2026-03-28.
+Stashes are cleared from inside the hopeful-burnell-40ceeb worktree. Remaining from main: drop 8 stale `refs/original/` backup refs from an old filter-branch (Co-Authored-By removal, these are the only place pre-rewrite history still exists, confirm before deleting), gc, audit the three non-main worktrees (chatbot, hopeful-burnell-40ceeb, karpathy: karpathy probably stays, other two likely idle), and gitignore `__pycache__/` (closes one sub-task of the 2026-04-30 Working-tree housekeeping item). Bonus: update the [IN PROGRESS] Return of the button backlog entry, its real last-touched is 2026-05-04, not 2026-03-28.
 
 Key files: `.gitignore`, `.claude/backlog.md`
 
@@ -20,7 +20,7 @@ Key files: `.gitignore`, `.claude/backlog.md`
 
 ---
 
-## 🟡 Tending the garden's HTML (SEO + GEO project)
+## [READY] Tending the garden's HTML (SEO + GEO project)
 *2026-05-13*
 
 The full roadmap for cleaning up the garden's HTML and making it discoverable to search engines and LLMs is saved at C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md. Nine phases, framed as a think-aloud project in the garden with a project hub field-note and a capstone learning-guide article on GEO/LLM findability. Phase 1 is the kick-off: draft the hub post (title + opening paragraph + empty Log section), show Maaike, get approval, write it, run /auto-tag.
@@ -32,7 +32,7 @@ Key files: C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md
 
 ---
 
-## 🟡 GraphRAG chatbot (course deliverable)
+## [READY] GraphRAG chatbot (course deliverable)
 *2026-05-11*
 
 The MindStudio University bot is live at https://genai-design-tools.vercel.app/, repo at https://github.com/convocat/genai-design-tools. Four small follow-ups: (1) narrow CORS in `mindstudio-rag/serve.py` from `["*"]` to `["https://genai-design-tools.vercel.app", "https://mindstudio.maaike.ai"]`; (2) add `mindstudio.maaike.ai` as a custom domain in Vercel + add a CNAME record at the DNS provider; (3) ask one question on prod and confirm Langfuse shows a single `bot:mindstudio-ask` trace (the orphan-generation fix was pushed in commit `c39f125`); (4) manually delete `Digital-Garden/tools/mindstudio-rag/` once VS Code / antivirus releases the lock.

@@ -28,11 +28,11 @@ Analyse what you've read. Flag each of the following if present:
 
 **Stale items** (last-touched date is 14+ days ago from today): list them with their last-touched date.
 
-**In-progress items with no recent commits**: cross-reference 🔵 items with the git log. If no commit touches the item's key files in the last 14 days, flag it.
+**In-progress items with no recent commits**: cross-reference [IN PROGRESS] items with the git log. If no commit touches the item's key files in the last 14 days, flag it.
 
-**Parked items with a resolved blocker**: if a 🟠 item has a `blocker:` and the blocker no longer applies (e.g. a decision was made in a recent session), surface it for promotion to 🟡 ready.
+**Parked items with a resolved blocker**: if a [PARKED] item has a `blocker:` and the blocker no longer applies (e.g. a decision was made in a recent session), surface it for promotion to [READY].
 
-**Bundles**: if a 🟡 item contains more than one distinct deliverable, flag it for splitting.
+**Bundles**: if a [READY] item contains more than one distinct deliverable, flag it for splitting.
 
 **Open health issues**: list any items in the Garden health section that have been sitting unaddressed for more than 14 days.
 
@@ -53,7 +53,7 @@ Output a short session briefing in this format:
 [table: Item | Status | Last touched | Blocker]
 
 ---
-🟡 ready · 🔵 in progress · 🟠 parked · ✅ done · 🧊 stale
+Statuses: READY · IN PROGRESS · PARKED · DONE · STALE
 
 **What you can do:** name an item to work on it · say "park [item]" to move it to parked · say "done [item]" to archive it · say "add [description]" to queue something new · say "update backlog" to write decisions to the file
 ```
