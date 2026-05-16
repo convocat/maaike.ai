@@ -7950,6 +7950,44 @@
       "subject": [
         "mind"
       ]
+    },
+    "ai-creep": {
+      "label": "AI creep",
+      "type": "phenomenon",
+      "lens": [
+        "personal",
+        "culture"
+      ],
+      "subject": [
+        "writing",
+        "future-of-work"
+      ],
+      "role": "tendency"
+    },
+    "information-vs-knowledge": {
+      "label": "Information vs knowledge",
+      "type": "concept",
+      "lens": [
+        "epistemology",
+        "philosophy"
+      ],
+      "subject": [
+        "knowledge"
+      ],
+      "role": "framework"
+    },
+    "second-brain": {
+      "label": "Second brain",
+      "type": "metaphor",
+      "lens": [
+        "personal",
+        "cognition"
+      ],
+      "subject": [
+        "knowledge",
+        "digital-garden"
+      ],
+      "role": "framework"
     }
   },
   "associations": [
@@ -14048,6 +14086,62 @@
       "object": "systems-engineering-capabilities",
       "source": "from-generative-to-agentic-ai-a-roadmap-in-2026",
       "collection": "weblinks"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "attributed-to",
+      "object": "andrej-karpathy",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "contrasted-with",
+      "object": "digital-garden",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-wiki",
+      "predicate": "lacks",
+      "object": "writing-as-craft",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "presupposes",
+      "object": "writing-as-craft",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "better-fits",
+      "object": "serendipity",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "characterised-as",
+      "object": "second-brain",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "digital-garden",
+      "predicate": "exhibits",
+      "object": "thinking-in-public",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
+    },
+    {
+      "subject": "ai-creep",
+      "predicate": "risks",
+      "object": "writing-as-craft",
+      "source": "how-we-actually-compare",
+      "collection": "articles"
     }
   ]
 }

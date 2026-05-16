@@ -2,8 +2,36 @@
 title: "How we actually compare"
 date: 2026-04-12
 maturity: developing
-draft: true
-tags: []
+draft: false
+tags:
+  - digital-gardens
+  - writing
+  - thinking-in-public
+  - role-of-ai
+  - llm
+  - andrej-karpathy
+  - llm-wiki
+  - claude-md
+  - serendipity
+  - writing-as-craft
+  - ai-creep
+  - information-vs-knowledge
+  - second-brain
+themes:
+  - "Architectural comparison: LLM wiki vs digital garden"
+  - "Who holds the pen: LLM vs human authorship"
+  - "Information vs knowledge as an epistemic distinction"
+  - "Retrieval vs serendipity as system purpose"
+  - "AI as encroachment on the writing practice"
+triples:
+  - ["LLM wiki", "attributed-to", "Andrej Karpathy"]
+  - ["LLM wiki", "contrasted-with", "Digital garden"]
+  - ["LLM wiki", "lacks", "Writing as craft"]
+  - ["Digital garden", "presupposes", "Writing as craft"]
+  - ["Digital garden", "better-fits", "Serendipity"]
+  - ["Digital garden", "characterised-as", "Second brain"]
+  - ["Digital garden", "exhibits", "Thinking in public"]
+  - ["AI creep", "risks", "Writing as craft"]
 description: "A technical side-by-side of Andrej Karpathy's LLM wiki approach and how I work with AI on this garden. Same tools, different philosophy."
 ai: "100% Maai"
 develops: karpathy-comparison
@@ -11,7 +39,7 @@ develops: karpathy-comparison
 
 ## The surface similarity
 
-When Andrej Karpathy published his LLM knowledge base setup earlier this month, I recognised a lot of it. Markdown files. A CLAUDE.md that defines how the system works. Wiki-links and backlinks between related ideas. An evolving, compounding body of connected content. If you squint, his setup and mine look remarkably similar: we're both using the same tools, the same conventions, the same general instinct — build something that grows.
+When [[karpathy-comparison|Andrej Karpathy published his LLM knowledge base setup]] earlier this month, I recognised a lot of it. Markdown files. A CLAUDE.md that defines how the system works. Wiki-links and backlinks between related ideas. An evolving, compounding body of connected content. If you squint, his setup and mine look remarkably similar: we're both using the same tools, the same conventions, the same general instinct: build something that grows.
 
 But the similarity is surface-level. Underneath it, the two systems are built on different assumptions about what a knowledge system is for, who writes, and what gets to be called knowledge at all.
 
@@ -19,13 +47,13 @@ But the similarity is surface-level. Underneath it, the two systems are built on
 
 In Karpathy's setup, the LLM is the primary author of the wiki. It reads the raw sources, writes summaries, creates entity pages, maintains backlinks, and keeps everything consistent. The human collects sources, sets the schema, and asks questions. The wiki itself is the LLM's domain: "I rarely touch it directly," Karpathy says.
 
-My garden works differently, depending on what you're looking at. Articles and jottings — the core of the garden — are 100% mine. I write every word of them. Claude doesn't touch them. Where Claude does contribute is in the derivatives: summaries, metadata, project reports, semantic triples extracted from what I've written. The content is mine; the annotation layer is a collaboration.
+My garden works differently, depending on what you're looking at. Articles and jottings, the core of the garden, are 100% mine. I write every word of them. Claude doesn't touch them. Where Claude does contribute is in the derivatives: summaries, metadata, project reports, semantic triples extracted from what I've written. The content is mine; the annotation layer is a collaboration.
 
 The divide is about who holds the pen. In Karpathy's system, the LLM holds it. In mine, I do.
 
 ## Data, information, knowledge
 
-Karpathy calls what he's building a "knowledge base." It's a fair shorthand, but I'd push back on the word. Knowledge isn't a file you can write to disk. It becomes knowledge in human embodied experience: in the moment you connect two things you'd never connected before, or the morning you wake up and realise something has shifted. Until that moment, what you have is data, or information. Both useful, but not the same thing.
+[Karpathy](https://en.wikipedia.org/wiki/Andrej_Karpathy) calls what he's building a "knowledge base." It's a fair shorthand, but I'd push back on the word. Knowledge isn't a file you can write to disk. It becomes knowledge in human embodied experience: in the moment you connect two things you'd never connected before, or the morning you wake up and realise something has shifted. Until that moment, what you have is data, or information. Both useful, but not the same thing.
 
 Karpathy's wiki is a well-organised, deeply connected information base. Remarkable in scale and structure. But the knowledge it represents still lives in Karpathy's head, not in the files. The files are a very good externalisation of it.
 

@@ -7,8 +7,8 @@
       "maturity": "complete",
       "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
       "url": "/articles/2-years-and-700-members-insights-from-convoclub",
-      "x": 0.3235,
-      "y": 0.2051,
+      "x": 0.3215,
+      "y": 0.2025,
       "keyphrases": [],
       "connections": 0
     },
@@ -19,8 +19,8 @@
       "maturity": "complete",
       "description": "Looking to fill up your convo design toolbox? Here are 7 skills to take your conversational AI career to the next level.",
       "url": "/articles/7-new-skills-for-conversation-designers-2022",
-      "x": 0.2317,
-      "y": 0.198,
+      "x": 0.2301,
+      "y": 0.1978,
       "keyphrases": [],
       "connections": 6
     },
@@ -55,8 +55,8 @@
       "maturity": "complete",
       "description": "Let''s build that classic hello world of conversation design: the Pizza Bot! Can we get ChatGPT to play along?",
       "url": "/articles/an-evening-with-chatgpt-2",
-      "x": 0.1307,
-      "y": 0.2914,
+      "x": 0.1297,
+      "y": 0.2907,
       "keyphrases": [],
       "connections": 0
     },
@@ -79,8 +79,8 @@
       "maturity": "complete",
       "description": "Did I get this right? I can only use the ChatGPT browse feature when I let OpenAI collect my data?",
       "url": "/articles/an-evening-with-chatgpt-september-2023",
-      "x": 0.0668,
-      "y": 0.223,
+      "x": 0.0659,
+      "y": 0.2224,
       "keyphrases": [],
       "connections": 0
     },
@@ -91,8 +91,8 @@
       "maturity": "complete",
       "description": "Part 1: you can call me Al. A conversation designer''s first encounters with ChatGPT.",
       "url": "/articles/an-evening-with-chatgpt",
-      "x": 0.1077,
-      "y": 0.3867,
+      "x": 0.1087,
+      "y": 0.3938,
       "keyphrases": [],
       "connections": 0
     },
@@ -103,8 +103,8 @@
       "maturity": "complete",
       "description": "Both can access the internet and retrieve recent information. Let's take them for a test drive.",
       "url": "/articles/an-evening-with-youchat-and-chatsonic",
-      "x": 0.1064,
-      "y": 0.247,
+      "x": 0.1053,
+      "y": 0.2482,
       "keyphrases": [],
       "connections": 0
     },
@@ -115,8 +115,8 @@
       "maturity": "complete",
       "description": "Facebook's AI chatbot might just be saying what you want it to say…",
       "url": "/articles/blender-turned-rogue",
-      "x": 0.1854,
-      "y": 0.2046,
+      "x": 0.1849,
+      "y": 0.2023,
       "keyphrases": [],
       "connections": 0
     },
@@ -127,8 +127,8 @@
       "maturity": "complete",
       "description": "Wow, that went down fast!",
       "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "x": 0.3895,
-      "y": 0.3746,
+      "x": 0.3916,
+      "y": 0.3759,
       "keyphrases": [],
       "connections": 0
     },
@@ -139,8 +139,8 @@
       "maturity": "complete",
       "description": "Stress-free preparation...could it really work?",
       "url": "/articles/chatgpt-presentation-prep",
-      "x": 0.0765,
-      "y": 0.3418,
+      "x": 0.0748,
+      "y": 0.3408,
       "keyphrases": [],
       "connections": 3
     },
@@ -151,8 +151,8 @@
       "maturity": "complete",
       "description": "So...should we all go and explore context engineering? Yes, we should. And chances are that you've been doing it forever already.",
       "url": "/articles/context-engineering-lets-call-it-design",
-      "x": 0.1693,
-      "y": 0.3155,
+      "x": 0.1678,
+      "y": 0.3182,
       "keyphrases": [],
       "connections": 9
     },
@@ -163,8 +163,8 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.302,
-      "y": 0.3588,
+      "x": 0.2996,
+      "y": 0.3665,
       "keyphrases": [],
       "connections": 10
     },
@@ -175,8 +175,8 @@
       "maturity": "complete",
       "description": "As a conversation designer, should I know how to code? Some pros and cons.",
       "url": "/articles/convo-question-should-i-learn-programming",
-      "x": 0.1956,
-      "y": 0.2485,
+      "x": 0.1914,
+      "y": 0.2473,
       "keyphrases": [],
       "connections": 0
     },
@@ -187,8 +187,8 @@
       "maturity": "complete",
       "description": "From now on, conversation designers, linguists, bot builders and language lovers can discuss their favorite topics on Clubhouse!",
       "url": "/articles/convoclub-clubhouse",
-      "x": 0.2581,
-      "y": 0.161,
+      "x": 0.2577,
+      "y": 0.16,
       "keyphrases": [],
       "connections": 0
     },
@@ -212,7 +212,7 @@
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
       "x": 0.2936,
-      "y": 0.4037,
+      "y": 0.4119,
       "keyphrases": [],
       "connections": 0
     },
@@ -223,8 +223,8 @@
       "maturity": "complete",
       "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
       "url": "/articles/european-chatbot-conference-10-talks",
-      "x": 0.4209,
-      "y": 0.2304,
+      "x": 0.4261,
+      "y": 0.2284,
       "keyphrases": [],
       "connections": 0
     },
@@ -235,8 +235,8 @@
       "maturity": "complete",
       "description": "DALL-E 3 is still digitally challenged.",
       "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
-      "x": 0.2566,
-      "y": 0.3623,
+      "x": 0.2528,
+      "y": 0.3636,
       "keyphrases": [],
       "connections": 0
     },
@@ -271,8 +271,8 @@
       "maturity": "complete",
       "description": "The original woman in voice. On international women's day, a tribute to the first named composer in history.",
       "url": "/articles/hildegard-von-bingen",
-      "x": 0.4542,
-      "y": 0.1111,
+      "x": 0.4552,
+      "y": 0.1108,
       "keyphrases": [],
       "connections": 0
     },
@@ -283,7 +283,7 @@
       "maturity": "complete",
       "description": "Conversation design is een vak met toekomst! Maar wat doet een conversation designer precies? En welke skills heb je ervoor nodig?",
       "url": "/articles/hoe-word-ik-conversation-designer",
-      "x": 0.2766,
+      "x": 0.2756,
       "y": 0.2022,
       "keyphrases": [],
       "connections": 0
@@ -295,8 +295,8 @@
       "maturity": "complete",
       "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
       "url": "/articles/how-do-i-become-a-conversation-designer",
-      "x": 0.2383,
-      "y": 0.2678,
+      "x": 0.2343,
+      "y": 0.2665,
       "keyphrases": [],
       "connections": 0
     },
@@ -307,8 +307,8 @@
       "maturity": "complete",
       "description": "5 checks to keep your content on track, and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
-      "x": 0.4129,
-      "y": 0.2802,
+      "x": 0.4141,
+      "y": 0.28,
       "keyphrases": [],
       "connections": 0
     },
@@ -319,8 +319,8 @@
       "maturity": "developing",
       "description": "A collection of thoughts & ideas on alternative metaphors for human-GenAI-interaction.",
       "url": "/articles/is-conversation-still-a-useful-metaphor",
-      "x": 0.254,
-      "y": 0.2327,
+      "x": 0.2537,
+      "y": 0.2329,
       "keyphrases": [],
       "connections": 18
     },
@@ -331,8 +331,8 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.3367,
-      "y": 0.4225,
+      "x": 0.3384,
+      "y": 0.422,
       "keyphrases": [],
       "connections": 6
     },
@@ -355,8 +355,8 @@
       "maturity": "complete",
       "description": "You built a conversational interface and then expected people to use it just for search?",
       "url": "/articles/microsoft-youre-using-bing-wrong",
-      "x": 0.1507,
-      "y": 0.2346,
+      "x": 0.148,
+      "y": 0.2324,
       "keyphrases": [],
       "connections": 0
     },
@@ -367,8 +367,8 @@
       "maturity": "complete",
       "description": "Voor taalkundigen, conversation designers en iedereen die iets heeft met taal!",
       "url": "/articles/nieuwe-editie-voicelunch",
-      "x": 0.3051,
-      "y": 0.1586,
+      "x": 0.3041,
+      "y": 0.1584,
       "keyphrases": [],
       "connections": 0
     },
@@ -379,8 +379,8 @@
       "maturity": "complete",
       "description": "An onboarding checklist for conversation designers.",
       "url": "/articles/off-to-a-good-start",
-      "x": 0.3792,
-      "y": 0.2489,
+      "x": 0.3837,
+      "y": 0.2436,
       "keyphrases": [],
       "connections": 0
     },
@@ -391,8 +391,8 @@
       "maturity": "complete",
       "description": "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us.",
       "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
-      "x": 0.1977,
-      "y": 0.3942,
+      "x": 0.1966,
+      "y": 0.3941,
       "keyphrases": [],
       "connections": 0
     },
@@ -403,8 +403,8 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.3187,
-      "y": 0.3149,
+      "x": 0.317,
+      "y": 0.3229,
       "keyphrases": [],
       "connections": 0
     },
@@ -427,8 +427,8 @@
       "maturity": "complete",
       "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
       "url": "/articles/prompt-thought-summaries",
-      "x": 0.2556,
-      "y": 0.4288,
+      "x": 0.2522,
+      "y": 0.4306,
       "keyphrases": [],
       "connections": 0
     },
@@ -439,8 +439,8 @@
       "maturity": "complete",
       "description": "Blind prompting vs. prompt engineering, and what it means for conversation designers.",
       "url": "/articles/putting-the-design-in-prompt-design",
-      "x": 0.2012,
-      "y": 0.3484,
+      "x": 0.2004,
+      "y": 0.3492,
       "keyphrases": [],
       "connections": 0
     },
@@ -451,8 +451,8 @@
       "maturity": "complete",
       "description": "Designing for negative space",
       "url": "/articles/saturday-design-thoughts",
-      "x": 0.3517,
-      "y": 0.3485,
+      "x": 0.3523,
+      "y": 0.3519,
       "keyphrases": [],
       "connections": 0
     },
@@ -463,8 +463,8 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.2725,
-      "y": 0.3199,
+      "x": 0.2698,
+      "y": 0.3213,
       "keyphrases": [],
       "connections": 0
     },
@@ -487,8 +487,8 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.2833,
-      "y": 0.2749,
+      "x": 0.279,
+      "y": 0.2766,
       "keyphrases": [],
       "connections": 0
     },
@@ -499,8 +499,8 @@
       "maturity": "complete",
       "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
       "url": "/articles/the-long-and-winding-road",
-      "x": 0.3316,
-      "y": 0.2501,
+      "x": 0.3386,
+      "y": 0.2452,
       "keyphrases": [],
       "connections": 0
     },
@@ -511,8 +511,8 @@
       "maturity": "complete",
       "description": "A primer of voice and speech terms for conversation designers. Part 1 covers breath, prosody, pitch, tone and intonation.",
       "url": "/articles/understanding-speech-part-1",
-      "x": 0.3559,
-      "y": 0.122,
+      "x": 0.356,
+      "y": 0.121,
       "keyphrases": [],
       "connections": 0
     },
@@ -523,8 +523,8 @@
       "maturity": "complete",
       "description": "Want to know what you can do to make your voice action sound more speech-like? Part 2 covers backchannelling, discourse markers, and deixis.",
       "url": "/articles/understanding-speech-part-2",
-      "x": 0.4101,
-      "y": 0.124,
+      "x": 0.4099,
+      "y": 0.1233,
       "keyphrases": [],
       "connections": 0
     },
@@ -535,8 +535,8 @@
       "maturity": "complete",
       "description": "Sketchnotes of the Voicelunch session with Brian Roemmele, the best voicelunch I never attended.",
       "url": "/articles/visual-notes-brian-roemmele",
-      "x": 0.3494,
-      "y": 0.168,
+      "x": 0.3509,
+      "y": 0.1658,
       "keyphrases": [],
       "connections": 0
     },
@@ -571,8 +571,8 @@
       "maturity": "complete",
       "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
       "url": "/articles/youre-not-married-to-your-texts",
-      "x": 0.3561,
-      "y": 0.2888,
+      "x": 0.369,
+      "y": 0.287,
       "keyphrases": [],
       "connections": 0
     },
@@ -583,8 +583,8 @@
       "maturity": "draft",
       "description": "Annotation of So, Cheng & Krishna Murthy (2026). CHI EA '26. Proposes a spectrum of LLM interface metaphors from anti- to hyper-anthropomorphism to encourage critical engagement.",
       "url": "/field-notes/beyond-anthropomorphism-reading-notes",
-      "x": 0.3169,
-      "y": 0.2809,
+      "x": 0.3125,
+      "y": 0.2678,
       "keyphrases": [],
       "connections": 0
     },
@@ -619,8 +619,8 @@
       "maturity": "draft",
       "description": "Five short experiments validating new Claude features (March 2026 release) on the digital garden. Practical demos for conversation designers.",
       "url": "/field-notes/claude-code-whats-new-for-the-garden",
-      "x": 0.757,
-      "y": 0.6089,
+      "x": 0.7548,
+      "y": 0.6074,
       "keyphrases": [],
       "connections": 7
     },
@@ -670,7 +670,7 @@
       "x": 0.9363,
       "y": 0.5988,
       "keyphrases": [],
-      "connections": 7
+      "connections": 8
     },
     {
       "slug": "embedding-models-for-the-garden",
@@ -742,7 +742,7 @@
       "x": 0.5491,
       "y": 0.7497,
       "keyphrases": [],
-      "connections": 16
+      "connections": 17
     },
     {
       "slug": "garden-lifecycle-greenhouse-compost",
@@ -751,8 +751,8 @@
       "maturity": "draft",
       "description": "A lifecycle metaphor for how content enters, matures, decays, and recycles in the garden.",
       "url": "/field-notes/garden-lifecycle-greenhouse-compost",
-      "x": 0.7787,
-      "y": 0.6274,
+      "x": 0.7742,
+      "y": 0.6198,
       "keyphrases": [],
       "connections": 1
     },
@@ -778,7 +778,7 @@
       "x": 0.7102,
       "y": 0.7277,
       "keyphrases": [],
-      "connections": 16
+      "connections": 17
     },
     {
       "slug": "knowledge-graph-for-the-garden",
@@ -787,8 +787,8 @@
       "maturity": "developing",
       "description": "Research into making the garden smarter about its own connections, from automatic backlinks to a full world model.",
       "url": "/field-notes/knowledge-graph-for-the-garden",
-      "x": 0.7598,
-      "y": 0.7281,
+      "x": 0.7594,
+      "y": 0.7291,
       "keyphrases": [],
       "connections": 15
     },
@@ -886,7 +886,19 @@
       "x": 0.9029,
       "y": 0.5972,
       "keyphrases": [],
-      "connections": 5
+      "connections": 6
+    },
+    {
+      "slug": "three-defenses-against-confabulation",
+      "title": "Three defenses against confabulation",
+      "collection": "field-notes",
+      "maturity": "solid",
+      "description": "Three soft layers between a user and hallucination all fail silently. Three hard defenses make confabulation visible, measurable, and refusable without suppressing the answer.",
+      "url": "/field-notes/three-defenses-against-confabulation",
+      "x": 0.4609,
+      "y": 0.4613,
+      "keyphrases": [],
+      "connections": 2
     },
     {
       "slug": "tuning-the-similarity-threshold",
@@ -994,7 +1006,7 @@
       "x": 0.6837,
       "y": 0.7302,
       "keyphrases": [],
-      "connections": 20
+      "connections": 21
     },
     {
       "slug": "from-conversation-to-application-building-on-method-documents",
@@ -1015,10 +1027,10 @@
       "maturity": "compost",
       "description": "A living list of ideas and plans for this garden.",
       "url": "/seeds/garden-to-do-list",
-      "x": 0.7702,
-      "y": 0.7017,
+      "x": 0.768,
+      "y": 0.7035,
       "keyphrases": [],
-      "connections": 3
+      "connections": 4
     },
     {
       "slug": "guildford-talk-ideas",
@@ -1042,7 +1054,7 @@
       "x": 0.9425,
       "y": 0.6247,
       "keyphrases": [],
-      "connections": 5
+      "connections": 6
     },
     {
       "slug": "knowledge-gardens-and-serendipity",
@@ -1054,7 +1066,7 @@
       "x": 0.7102,
       "y": 0.7592,
       "keyphrases": [],
-      "connections": 10
+      "connections": 11
     },
     {
       "slug": "my-changing-role-in-an-ultrasmall-development-team",
@@ -1078,7 +1090,7 @@
       "x": 0.965,
       "y": 0.6296,
       "keyphrases": [],
-      "connections": 5
+      "connections": 6
     },
     {
       "slug": "reading-notes-bacteria-to-ai",
@@ -1135,8 +1147,8 @@
       "maturity": "draft",
       "description": "What if we modeled human-AI interaction on thematic analysis rather than conversation? And what if we used that same method to discover themes in a knowledge garden?",
       "url": "/seeds/thematic-analysis-as-interaction-model-and-research-method",
-      "x": 0.2268,
-      "y": 0.2334,
+      "x": 0.2265,
+      "y": 0.2323,
       "keyphrases": [],
       "connections": 3
     },
@@ -1161,6 +1173,18 @@
       "url": "/weblinks/ai-artificialintelligence-behavior-behaviour-behav",
       "x": 0.4242,
       "y": 0.6805,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "ai-metaphors-how-to-think-about-ai-jd-meier",
+      "title": "AI metaphors: how to think about AI",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Argues that the mental model you bring to AI determines how effectively you work with it. Catalogues thirteen metaphors (bionic mind, smart intern, word calculator, genie, sparring partner, and others), each surfacing different affordances and risks of LLMs. The framing is operational: pick the metaphor that fits the task, switch deliberately, avoid being trapped by one.",
+      "url": "/weblinks/ai-metaphors-how-to-think-about-ai-jd-meier",
+      "x": 0.6907,
+      "y": 0.3925,
       "keyphrases": [],
       "connections": 0
     },
@@ -1219,8 +1243,20 @@
       "maturity": "solid",
       "description": "A comprehensive overview of the digital garden concept and its evolution.",
       "url": "/weblinks/digital-garden-history",
-      "x": 0.8044,
-      "y": 0.6924,
+      "x": 0.8151,
+      "y": 0.7095,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "dive-in-tommi-space",
+      "title": "Dive in tommi.space",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Tommi's personal site, framed as 'a perpetual work in progress' — a digital garden built around identity rather than credentials, with explicit anti-surveillance and indie-web commitments. Links community workshops, decentralised internet practice, and a Leibniz-style acceptance of incompleteness as core to what the site is.",
+      "url": "/weblinks/dive-in-tommi-space",
+      "x": 0.6015,
+      "y": 0.1087,
       "keyphrases": [],
       "connections": 0
     },
@@ -1243,8 +1279,8 @@
       "maturity": "solid",
       "description": "Marek Tuszynski (Tactical Tech) argues that the synthetic intimacy people develop with generative AI tools (an 'ELIZA effect') makes critical conversation about AI almost impossible: dependency forecloses critique. The piece curates 30 resources mapping AI's labor exploitation, environmental costs, military use, and concentration of power, framing AI critique as a moral and political project rather than a technical one.",
       "url": "/weblinks/dont-show-me-your-ai",
-      "x": 0.2305,
-      "y": 0.3175,
+      "x": 0.2284,
+      "y": 0.3173,
       "keyphrases": [],
       "connections": 0
     },
@@ -1255,8 +1291,8 @@
       "maturity": "solid",
       "description": "Fieldwork for Future Ecologies (Onomatopee 225, 2022) argues art practice and art-based research can radically expand the concept of \"fieldwork\" beyond its conventional scientific framing, positioning creative and speculative methodologies as essential tools for environmental and climate inquiry. ",
       "url": "/weblinks/fieldwork-for-future-ecologies-onomatopee",
-      "x": 0.3143,
-      "y": 0.805,
+      "x": 0.3165,
+      "y": 0.8056,
       "keyphrases": [],
       "connections": 0
     },
@@ -1269,6 +1305,18 @@
       "url": "/weblinks/instagram",
       "x": 0.6642,
       "y": 0.5478,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "it-s-like-this-why-perceptions-are-our-realities",
+      "title": "It''s like this: why perceptions are our realities",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Argues that perception isn''t a window onto reality but the substrate of reality itself. Sheffield draws on phenomenology, neuroscience, and animal cognition to introduce ''somatic deixis'' (a two-step process of designation and adjudication) and ''execution states'' as alternative frames for what minds are. Opening line: minds do not create experience, experience creates minds.",
+      "url": "/weblinks/it-s-like-this-why-perceptions-are-our-realities",
+      "x": 0.2218,
+      "y": 0.5716,
       "keyphrases": [],
       "connections": 0
     },
@@ -1345,14 +1393,26 @@
       "connections": 17
     },
     {
+      "slug": "structured-prompt-driven-development-spdd",
+      "title": "Structured-prompt-driven development (SPDD)",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "Treats prompts as first-class delivery artefacts: version-controlled, reviewed, and refined alongside code. Introduces the REASONS Canvas — a seven-part template covering requirements, entities, approach, structure, operations, norms, and safeguards — and a six-step workflow that fixes the prompt before fixing the code when reality diverges.",
+      "url": "/weblinks/structured-prompt-driven-development-spdd",
+      "x": 0.7777,
+      "y": 0.7977,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "symbolic-ai-for-the-win-kurt-cagle",
       "title": "Symbolic AI for the win",
       "collection": "weblinks",
       "maturity": "solid",
       "description": "",
       "url": "/weblinks/symbolic-ai-for-the-win-kurt-cagle",
-      "x": 0.2033,
-      "y": 0.2908,
+      "x": 0.1999,
+      "y": 0.2917,
       "keyphrases": [],
       "connections": 5
     },
@@ -1375,8 +1435,8 @@
       "maturity": "solid",
       "description": "AI tools can accelerate research, but using them to avoid the hard work of learning undermines the development of independent thinking.",
       "url": "/weblinks/the-machines-are-fine-i-x27-m-worried-about-us",
-      "x": 0.2425,
-      "y": 0.7752,
+      "x": 0.2351,
+      "y": 0.7674,
       "keyphrases": [],
       "connections": 1
     },
@@ -1387,8 +1447,8 @@
       "maturity": "solid",
       "description": "A short Instagram reel by Lucio Arese visualises the song of a hemp bunting (Linaria cannabina) as a scatter plot, where pitch, amplitude, and timbre map directly to spatial position and density. The post argues that birdsong is not creativity but a tightly structured signal carrying territorial, genetic, and hormonal information: a 'biological blockchain' rather than a song.",
       "url": "/weblinks/visualising-birdsong-as-data",
-      "x": 0.7904,
-      "y": 0.6573,
+      "x": 0.7964,
+      "y": 0.6421,
       "keyphrases": [],
       "connections": 1
     },
@@ -1399,8 +1459,8 @@
       "maturity": "complete",
       "description": "A candid reflection on the challenges of course creation, AI tools, and the mismatch between linear workflows and my non-linear thinking style. I struggle with completing online courses due to procrastination, changing circumstances, and self-doubt about content value. AI writing tools like Jasper.ai can be counterproductive for non-linear thinkers, requiring extensive prompting that defeats the purpose of automation. Linear workflows imposed by course creation platforms and AI tools conflict with my chaotic, organic thinking process. System prompts have become invaluable personal tools for managing rumination and decision-making in my daily life. I am actively seeking to design custom system prompts that accommodate my unique thought patterns rather than conform to existing frameworks.",
       "url": "/videos/a-little-sunday-afternoon-rant",
-      "x": 0.2721,
-      "y": 0.8057,
+      "x": 0.2637,
+      "y": 0.7985,
       "keyphrases": [],
       "connections": 0
     },
@@ -1423,8 +1483,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.3267,
-      "y": 0.7655,
+      "x": 0.3276,
+      "y": 0.7651,
       "keyphrases": [],
       "connections": 0
     },
@@ -1543,8 +1603,8 @@
       "maturity": "complete",
       "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
       "url": "/videos/lunchbreak-with-claude-research-papers",
-      "x": 0.3082,
-      "y": 0.6787,
+      "x": 0.3075,
+      "y": 0.6774,
       "keyphrases": [],
       "connections": 0
     },
@@ -1555,8 +1615,8 @@
       "maturity": "complete",
       "description": "A comparative demonstration of how Claude, ChatGPT, and Gemini respond to a web app development request, showcasing Claude's superior capability to generate interactive prototypes and code. Claude outperforms ChatGPT and Gemini by directly generating interactive web app prototypes with a single prompt, rather than just providing plans or design suggestions. Claude creates functional React-based applications with visual mockups, progress bars, and interactive quiz elements in response to simple one-line prompts. The AI demonstrates impressive iterative capabilities, enhancing initial suggestions with more detailed content, interactive elements, and SVG graphics upon request. Claude seamlessly converts React components into static markdown files for alternative platforms, showing flexibility across different deployment methods. I am seriously considering switching from ChatGPT to Claude as my primary LLM due to Claude's superior practical implementation capabilities.",
       "url": "/videos/lunchbreak-with-claude",
-      "x": 0.283,
-      "y": 0.752,
+      "x": 0.2819,
+      "y": 0.7517,
       "keyphrases": [],
       "connections": 0
     },
@@ -1591,8 +1651,8 @@
       "maturity": "complete",
       "description": "A demonstration of Google's NotebookLM interactive podcast feature, where I participate as a guest in an AI-generated podcast discussion about the Coconut research paper on latent reasoning in large language models. NotebookLM now features an interactive podcast mode (beta) that allows users to join AI-generated podcast discussions about uploaded documents. The Coconut paper introduces a breakthrough method where AI can reason in continuous latent space rather than through explicit chain-of-thought language, potentially improving reasoning for complex problems. I raise philosophical questions about verification of hidden reasoning, and critical concerns about transparency, compliance, and explainability. Latent reasoning creates a black box problem: we see inputs and outputs but cannot observe the reasoning process. I also test the feature's limits by requesting humor, making Monty Python references, and asking the hosts to switch to Dutch, revealing important insights about inclusivity, turn-taking, and accessibility in AI-generated conversations. Despite current limitations where AI hosts can become condescending or defensive, the feature represents a significant step toward more natural, bidirectional conversations with documents and AI systems.",
       "url": "/videos/notebooklm-podcast-guest",
-      "x": 0.3684,
-      "y": 0.7479,
+      "x": 0.3696,
+      "y": 0.7474,
       "keyphrases": [],
       "connections": 0
     },
@@ -1687,8 +1747,8 @@
       "maturity": "complete",
       "description": "Building an interactive tutorial with Claude on a Sunday afternoon.",
       "url": "/videos/sunday-afternoon-with-claude-interactive-tutorial",
-      "x": 0.3277,
-      "y": 0.7195,
+      "x": 0.3284,
+      "y": 0.7181,
       "keyphrases": [],
       "connections": 0
     },
@@ -1726,7 +1786,7 @@
       "x": 0.7353,
       "y": 0.5084,
       "keyphrases": [],
-      "connections": 18
+      "connections": 19
     },
     {
       "slug": "video-welcome-to-my-digital-garden",
@@ -1735,10 +1795,10 @@
       "maturity": "draft",
       "description": "A chatty intro to my digital garden: how I use Claude Code to build an online space for thinking and writing in public.",
       "url": "/videos/video-welcome-to-my-digital-garden",
-      "x": 0.516,
-      "y": 0.4494,
+      "x": 0.5159,
+      "y": 0.4557,
       "keyphrases": [],
-      "connections": 6
+      "connections": 7
     },
     {
       "slug": "alone-together",
@@ -1750,7 +1810,7 @@
       "x": 0.7665,
       "y": 0.2735,
       "keyphrases": [],
-      "connections": 1
+      "connections": 0
     },
     {
       "slug": "artificial-intelligence-a-guide-for-thinking-humans",
@@ -1783,8 +1843,8 @@
       "maturity": "developing",
       "description": "Proposes a spectrum of interface metaphors for LLMs beyond the default anthropomorphic framing. Different metaphors (tool, oracle, collaborator, environment) carry different implications for user expectations and design.",
       "url": "/library/beyond-anthropomorphism-spectrum-interface-metaphors-llms",
-      "x": 0.1636,
-      "y": 0.2716,
+      "x": 0.1627,
+      "y": 0.2723,
       "keyphrases": [],
       "connections": 4
     },
@@ -1795,8 +1855,8 @@
       "maturity": "developing",
       "description": "Asks whether conversational agents should mimic human pragmatic cues or deploy them purposefully. Mimicry creates false impressions of understanding; purposeful use could be honest and useful.",
       "url": "/library/beyond-the-illusion-pragmatic-cues-in-conversation",
-      "x": 0.2362,
-      "y": 0.3947,
+      "x": 0.2346,
+      "y": 0.3971,
       "keyphrases": [],
       "connections": 10
     },
@@ -1879,8 +1939,8 @@
       "maturity": "complete",
       "description": "LLMs produce fewer grounding acts than humans and tend to presume common ground rather than actively establishing it, exposing a structural gap between human and machine conversation.",
       "url": "/library/grounding-gaps-in-language-model-generations",
-      "x": 0.5438,
-      "y": 0.4719,
+      "x": 0.5462,
+      "y": 0.4734,
       "keyphrases": [],
       "connections": 3
     },
@@ -1894,7 +1954,7 @@
       "x": 0.5421,
       "y": 0.166,
       "keyphrases": [],
-      "connections": 6
+      "connections": 5
     },
     {
       "slug": "hey-cyba",
@@ -1915,8 +1975,8 @@
       "maturity": "draft",
       "description": "Synthesises decades of learning science research to explain how people acquire, organise, and transfer knowledge, with implications for teaching and instructional design",
       "url": "/library/how-people-learn",
-      "x": 0.8756,
-      "y": 0.1235,
+      "x": 0.8726,
+      "y": 0.124,
       "keyphrases": [],
       "connections": 0
     },
@@ -2011,8 +2071,8 @@
       "maturity": "developing",
       "description": "Argues that machines designed around planning models miss the inherently situated nature of human communication. Actions emerge from context and interaction, not from pre-formed plans.",
       "url": "/library/plans-and-situated-actions",
-      "x": 0.3851,
-      "y": 0.1537,
+      "x": 0.3874,
+      "y": 0.1536,
       "keyphrases": [],
       "connections": 5
     },
@@ -2143,8 +2203,8 @@
       "maturity": "developing",
       "description": "VUIs should not commit to a single metaphor but dynamically shift their framing based on context: sometimes assistant, sometimes tool, sometimes ambient presence.",
       "url": "/library/toward-metaphor-fluid-conversation-design-vuis",
-      "x": 0.3632,
-      "y": 0.2127,
+      "x": 0.3621,
+      "y": 0.2108,
       "keyphrases": [],
       "connections": 12
     },
@@ -2323,8 +2383,8 @@
       "maturity": "developing",
       "description": "On the joy of finding a book that speaks to you",
       "url": "/jottings/on-the-joy-of-finding-a-good-book",
-      "x": 0.3542,
-      "y": 0.4713,
+      "x": 0.3463,
+      "y": 0.4665,
       "keyphrases": [],
       "connections": 0
     },
@@ -2335,10 +2395,10 @@
       "maturity": "draft",
       "description": "On the tension between cultivating a tidy digital garden and letting the chaos of ideas coexist. How AI-assisted growth pulls at the time and attention I'd rather spend writing.",
       "url": "/jottings/the-garden-so-far-how-do-i-keep-the-weeds-away-from-my-writing",
-      "x": 0.3624,
-      "y": 0.4455,
+      "x": 0.3653,
+      "y": 0.4456,
       "keyphrases": [],
-      "connections": 7
+      "connections": 8
     },
     {
       "slug": "thinking-in-action-precision-matters",
@@ -2359,68 +2419,92 @@
       "maturity": "complete",
       "description": "w00t!! 50 years and they still have it. ",
       "url": "/jottings/u2-easter-parade",
-      "x": 0.4268,
-      "y": 0.3454,
+      "x": 0.4323,
+      "y": 0.3486,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "three-defenses-against-confabulation",
-      "title": "Three defenses against confabulation",
-      "collection": "field-notes",
-      "maturity": "solid",
-      "description": "Three soft layers between a user and hallucination all fail silently. Three hard defenses make confabulation visible, measurable, and refusable without suppressing the answer.",
-      "url": "/field-notes/three-defenses-against-confabulation",
-      "x": 0.4609,
-      "y": 0.4613,
+      "slug": "how-we-actually-compare",
+      "title": "How we actually compare",
+      "collection": "articles",
+      "maturity": "developing",
+      "description": "A technical side-by-side of Andrej Karpathy's LLM wiki approach and how I work with AI on this garden. Same tools, different philosophy.",
+      "url": "/articles/how-we-actually-compare",
+      "x": 0.3311,
+      "y": 0.2881,
       "keyphrases": [],
-      "connections": 2
+      "connections": 12
     },
     {
-      "slug": "ai-metaphors-how-to-think-about-ai-jd-meier",
-      "title": "AI metaphors: how to think about AI",
+      "slug": "agentic-ai-design-patterns-2026-edition",
+      "title": "Agentic AI design patterns: 2026 edition",
       "collection": "weblinks",
       "maturity": "solid",
-      "description": "Argues that the mental model you bring to AI determines how effectively you work with it. Catalogues thirteen metaphors (bionic mind, smart intern, word calculator, genie, sparring partner, and others), each surfacing different affordances and risks of LLMs. The framing is operational: pick the metaphor that fits the task, switch deliberately, avoid being trapped by one.",
-      "url": "/weblinks/ai-metaphors-how-to-think-about-ai-jd-meier",
-      "x": 0.6907,
-      "y": 0.3925,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "dive-in-tommi-space",
-      "title": "Dive in tommi.space",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "Tommi's personal site, framed as 'a perpetual work in progress' — a digital garden built around identity rather than credentials, with explicit anti-surveillance and indie-web commitments. Links community workshops, decentralised internet practice, and a Leibniz-style acceptance of incompleteness as core to what the site is.",
-      "url": "/weblinks/dive-in-tommi-space",
-      "x": 0.6015,
-      "y": 0.1087,
+      "description": "This article presents a comprehensive architectural framework for agentic AI systems in 2026, arguing that most AI failures stem from architectural problems rather than model quality. The author defines four canonical design patterns (Reflection, Tool Use, Planning, and Multi-Agent) and emphasizes that agentic AI represents a paradigm shift from monolithic systems to distributed, observable, and bounded agent architectures.",
+      "url": "/weblinks/agentic-ai-design-patterns-2026-edition",
+      "x": 0.2342,
+      "y": 0.4689,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "it-s-like-this-why-perceptions-are-our-realities",
-      "title": "It''s like this: why perceptions are our realities",
+      "slug": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "title": "From generative to agentic AI: a roadmap in 2026",
       "collection": "weblinks",
       "maturity": "solid",
-      "description": "Argues that perception isn''t a window onto reality but the substrate of reality itself. Sheffield draws on phenomenology, neuroscience, and animal cognition to introduce ''somatic deixis'' (a two-step process of designation and adjudication) and ''execution states'' as alternative frames for what minds are. Opening line: minds do not create experience, experience creates minds.",
-      "url": "/weblinks/it-s-like-this-why-perceptions-are-our-realities",
-      "x": 0.2218,
-      "y": 0.5716,
+      "description": "This article argues that 2026 marks a fundamental shift from generative AI (passive, read-only text generation) to agentic AI (active, autonomous systems that plan and execute work). The author contends that AI engineers must move beyond prompt engineering and embrace systems engineering, treating AI as operational infrastructure that performs end-to-end tasks rather than conversational oracles that simply generate responses.",
+      "url": "/weblinks/from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "x": 0.7887,
+      "y": 0.6802,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "structured-prompt-driven-development-spdd",
-      "title": "Structured-prompt-driven development (SPDD)",
+      "slug": "from-org-chart-to-work-chart-where-ai-value-really",
+      "title": "From Org Chart to Work Chart: Where AI Value Really Comes From",
       "collection": "weblinks",
       "maturity": "solid",
-      "description": "Treats prompts as first-class delivery artefacts: version-controlled, reviewed, and refined alongside code. Introduces the REASONS Canvas — a seven-part template covering requirements, entities, approach, structure, operations, norms, and safeguards — and a six-step workflow that fixes the prompt before fixing the code when reality diverges.",
-      "url": "/weblinks/structured-prompt-driven-development-spdd",
-      "x": 0.7777,
-      "y": 0.7977,
+      "description": "This article argues that AI value comes from redesigning workflows rather than inserting AI tools into existing organizational structures. The author contends that traditional org charts show hierarchy but obscure how work actually flows, and proposes work charts as a management tool that makes workflows, decisions, handoffs, and accountability visible for effective AI transformation.",
+      "url": "/weblinks/from-org-chart-to-work-chart-where-ai-value-really",
+      "x": 0.3737,
+      "y": 0.4893,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "linkedin",
+      "title": "Deeplearning course on building interactive agents with generative UI ",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This is a course landing page for DeepLearning.AI's course on building interactive agents with generative UI. The page provides navigation, study tips, and technical instructions for learners taking the course, including how to access notebooks, reset workspaces, and engage with course materials effectively.",
+      "url": "/weblinks/linkedin",
+      "x": 0.1549,
+      "y": 0.625,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "oh-my-nav",
+      "title": "Oh-My-Nav",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This is a documentation hub for GitHub Copilot adoption and best practices at NAV (the Norwegian Labour and Welfare Administration). The site provides news updates, tools, guidelines, and usage statistics for AI-driven development, focusing on custom agents, skills, and organizational implementation of GitHub Copilot across teams.",
+      "url": "/weblinks/oh-my-nav",
+      "x": 0.9021,
+      "y": 0.094,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "state-of-rag-genai",
+      "title": "State of RAG & GenAI",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This article argues that Retrieval Augmented Generation (RAG) has become a strategic imperative for enterprises in 2026, addressing critical challenges like LLM hallucinations, outdated outputs, and high retraining costs. RAG bridges the gap between large language models and organizational knowledge by retrieving verified, real-time data at the moment of generation, ensuring outputs are accurate, compliant, and trustworthy without requiring constant model retraining.",
+      "url": "/weblinks/state-of-rag-genai",
+      "x": 0.5085,
+      "y": 0.4246,
       "keyphrases": [],
       "connections": 0
     }
@@ -2436,13 +2520,13 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 42
+      "itemCount": 45
     },
     {
       "label": "design",
       "centerX": 0.742,
       "centerY": 0.1073,
-      "itemCount": 33
+      "itemCount": 34
     },
     {
       "label": "digital-gardens",
@@ -2454,13 +2538,13 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 18
+      "itemCount": 20
     },
     {
       "label": "prompt-design",
       "centerX": 0.204,
       "centerY": 0.3004,
-      "itemCount": 40
+      "itemCount": 42
     },
     {
       "label": "knowledge-graph",
@@ -2472,13 +2556,13 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 26
+      "itemCount": 27
     },
     {
       "label": "developer-experience",
       "centerX": 0.73,
       "centerY": 0.7027,
-      "itemCount": 28
+      "itemCount": 29
     }
   ],
   "topography": {
@@ -2489,22 +2573,22 @@
           [
             [
               0,
-              0.148
+              0.149
             ],
             [
-              0.02,
+              0.021,
               0.129
             ],
             [
               0.032,
-              0.119
+              0.12
             ],
             [
               0.065,
-              0.097
+              0.098
             ],
             [
-              0.066,
+              0.067,
               0.097
             ],
             [
@@ -2516,28 +2600,28 @@
               0.065
             ],
             [
-              0.13,
+              0.131,
               0.065
             ],
             [
               0.161,
-              0.051
+              0.052
             ],
             [
               0.194,
-              0.04
+              0.041
             ],
             [
-              0.223,
+              0.225,
               0.032
             ],
             [
               0.226,
-              0.031
+              0.032
             ],
             [
               0.258,
-              0.022
+              0.023
             ],
             [
               0.29,
@@ -2545,112 +2629,108 @@
             ],
             [
               0.323,
-              0.01
+              0.011
             ],
             [
               0.355,
-              0.007
+              0.008
             ],
             [
               0.387,
-              0.005
+              0.006
             ],
             [
               0.419,
-              0.005
+              0.006
             ],
             [
               0.452,
-              0.005
+              0.006
             ],
             [
               0.484,
-              0.005
+              0.006
             ],
             [
               0.516,
-              0.005
+              0.006
             ],
             [
               0.548,
-              0.003
+              0.004
             ],
             [
               0.581,
+              0.003
+            ],
+            [
+              0.613,
               0.001
             ],
             [
-              0.606,
+              0.645,
+              0
+            ],
+            [
+              0.657,
               0
             ]
           ],
           [
             [
-              0.726,
+              0.813,
               0
             ],
             [
-              0.742,
-              0.001
-            ],
-            [
-              0.774,
-              0.002
-            ],
-            [
-              0.806,
-              0.006
-            ],
-            [
               0.839,
-              0.013
+              0.003
             ],
             [
               0.871,
-              0.025
-            ],
-            [
-              0.882,
-              0.032
+              0.011
             ],
             [
               0.903,
-              0.047
+              0.026
             ],
             [
-              0.922,
-              0.065
+              0.912,
+              0.032
             ],
             [
               0.935,
-              0.082
+              0.053
             ],
             [
               0.945,
+              0.065
+            ],
+            [
+              0.963,
               0.097
             ],
             [
-              0.96,
+              0.968,
+              0.11
+            ],
+            [
+              0.974,
               0.129
             ],
             [
-              0.968,
-              0.154
-            ],
-            [
-              0.97,
+              0.981,
               0.161
             ],
             [
-              0.976,
+              0.983,
               0.194
             ],
             [
-              0.978,
+              0.983,
               0.226
             ],
             [
-              0.978,
+              0.98,
               0.258
             ],
             [
@@ -2662,194 +2742,194 @@
               0.323
             ],
             [
-              0.971,
+              0.969,
               0.355
             ],
             [
-              0.98,
+              0.977,
               0.387
             ],
             [
-              0.997,
+              0.995,
               0.419
             ],
             [
               1,
-              0.423
+              0.425
             ]
           ],
           [
             [
               0,
-              0.442
+              0.445
             ],
             [
-              0.008,
+              0.005,
               0.452
             ],
             [
-              0.032,
-              0.481
-            ],
-            [
-              0.034,
+              0.028,
               0.484
             ],
             [
-              0.057,
+              0.032,
+              0.491
+            ],
+            [
+              0.046,
               0.516
             ],
             [
-              0.065,
-              0.532
-            ],
-            [
-              0.071,
+              0.058,
               0.548
             ],
             [
-              0.08,
+              0.065,
+              0.576
+            ],
+            [
+              0.065,
               0.581
             ],
             [
-              0.086,
+              0.071,
               0.613
             ],
             [
-              0.092,
+              0.076,
               0.645
             ],
             [
-              0.097,
-              0.672
-            ],
-            [
-              0.098,
+              0.083,
               0.677
             ],
             [
-              0.103,
+              0.092,
               0.71
             ],
             [
-              0.11,
+              0.097,
+              0.724
+            ],
+            [
+              0.102,
               0.742
             ],
             [
-              0.118,
+              0.112,
               0.774
             ],
             [
-              0.128,
+              0.125,
               0.806
             ],
             [
               0.129,
-              0.809
+              0.815
             ],
             [
-              0.142,
+              0.141,
               0.839
             ],
             [
               0.161,
-              0.866
+              0.865
             ],
             [
-              0.165,
+              0.167,
               0.871
             ],
             [
               0.194,
-              0.898
+              0.895
             ],
             [
-              0.201,
+              0.205,
               0.903
             ],
             [
               0.226,
-              0.919
+              0.916
             ],
             [
               0.258,
-              0.934
+              0.931
             ],
             [
-              0.263,
+              0.272,
               0.935
             ],
             [
               0.29,
-              0.946
+              0.943
             ],
             [
               0.323,
-              0.955
+              0.952
             ],
             [
               0.355,
-              0.962
-            ],
-            [
-              0.386,
-              0.968
+              0.96
             ],
             [
               0.387,
+              0.966
+            ],
+            [
+              0.4,
               0.968
             ],
             [
               0.419,
-              0.973
+              0.971
             ],
             [
               0.452,
-              0.976
+              0.974
             ],
             [
               0.484,
-              0.977
-            ],
-            [
-              0.516,
               0.976
             ],
             [
+              0.516,
+              0.974
+            ],
+            [
               0.548,
-              0.973
+              0.971
+            ],
+            [
+              0.571,
+              0.968
             ],
             [
               0.581,
-              0.968
-            ],
-            [
-              0.582,
-              0.968
+              0.967
             ],
             [
               0.613,
-              0.964
+              0.963
             ],
             [
               0.645,
-              0.959
+              0.957
             ],
             [
               0.677,
-              0.952
+              0.951
             ],
             [
               0.71,
-              0.943
+              0.942
             ],
             [
-              0.73,
+              0.728,
               0.935
             ],
             [
               0.742,
-              0.932
+              0.931
             ],
             [
               0.774,
@@ -2865,35 +2945,35 @@
             ],
             [
               0.839,
-              0.884
+              0.885
             ],
             [
-              0.858,
+              0.86,
               0.871
             ],
             [
               0.871,
-              0.863
+              0.864
             ],
             [
               0.903,
-              0.84
+              0.842
             ],
             [
-              0.905,
+              0.908,
               0.839
             ],
             [
               0.935,
-              0.818
+              0.82
             ],
             [
-              0.951,
+              0.953,
               0.806
             ],
             [
               0.968,
-              0.794
+              0.795
             ],
             [
               0.991,
@@ -2911,16 +2991,16 @@
         "polylines": [
           [
             [
-              0.239,
+              0.243,
               0.097
             ],
             [
               0.258,
-              0.092
+              0.093
             ],
             [
               0.29,
-              0.085
+              0.086
             ],
             [
               0.323,
@@ -2936,82 +3016,82 @@
             ],
             [
               0.419,
-              0.081
+              0.082
             ],
             [
               0.452,
-              0.084
+              0.085
             ],
             [
               0.484,
-              0.088
+              0.089
             ],
             [
               0.516,
-              0.09
+              0.092
             ],
             [
               0.548,
-              0.09
+              0.092
             ],
             [
               0.581,
-              0.089
+              0.092
             ],
             [
               0.613,
-              0.089
+              0.092
             ],
             [
               0.645,
-              0.09
+              0.092
             ],
             [
               0.677,
-              0.093
+              0.095
             ],
             [
-              0.71,
+              0.701,
               0.097
             ],
             [
               0.71,
-              0.097
+              0.098
             ],
             [
               0.742,
-              0.103
+              0.102
             ],
             [
               0.774,
-              0.111
+              0.107
             ],
             [
               0.806,
-              0.123
+              0.116
             ],
             [
-              0.816,
+              0.834,
               0.129
             ],
             [
               0.839,
-              0.147
+              0.133
             ],
             [
-              0.851,
+              0.862,
               0.161
             ],
             [
-              0.868,
-              0.194
-            ],
-            [
               0.871,
-              0.208
+              0.183
             ],
             [
               0.874,
+              0.194
+            ],
+            [
+              0.877,
               0.226
             ],
             [
@@ -3020,94 +3100,94 @@
             ],
             [
               0.871,
-              0.27
+              0.269
             ],
             [
-              0.865,
+              0.863,
               0.29
             ],
             [
-              0.85,
+              0.847,
               0.323
             ],
             [
               0.839,
-              0.342
+              0.336
             ],
             [
-              0.828,
+              0.822,
               0.355
             ],
             [
               0.806,
-              0.38
+              0.373
             ],
             [
-              0.797,
+              0.788,
               0.387
             ],
             [
               0.774,
-              0.414
+              0.405
             ],
             [
-              0.766,
+              0.757,
               0.419
             ],
             [
               0.774,
-              0.434
+              0.447
             ],
             [
-              0.796,
+              0.781,
               0.452
             ],
             [
               0.806,
-              0.453
+              0.455
             ],
             [
               0.839,
-              0.46
+              0.462
             ],
             [
               0.871,
-              0.467
+              0.469
             ],
             [
               0.903,
-              0.479
+              0.482
             ],
             [
-              0.911,
+              0.907,
               0.484
             ],
             [
               0.935,
-              0.497
+              0.5
             ],
             [
-              0.957,
+              0.954,
               0.516
             ],
             [
               0.968,
-              0.528
+              0.531
             ],
             [
-              0.981,
+              0.979,
               0.548
             ],
             [
-              0.993,
+              0.991,
               0.581
             ],
             [
-              0.996,
+              0.994,
               0.613
             ],
             [
-              0.99,
+              0.989,
               0.645
             ],
             [
@@ -3119,47 +3199,47 @@
               0.69
             ],
             [
-              0.952,
+              0.953,
               0.71
             ],
             [
               0.935,
-              0.726
+              0.728
             ],
             [
-              0.917,
+              0.92,
               0.742
             ],
             [
               0.903,
-              0.753
+              0.755
             ],
             [
-              0.873,
+              0.877,
               0.774
             ],
             [
               0.871,
-              0.776
+              0.779
             ],
             [
               0.839,
-              0.797
+              0.8
             ],
             [
-              0.824,
+              0.828,
               0.806
             ],
             [
               0.806,
-              0.817
+              0.819
             ],
             [
               0.774,
-              0.835
+              0.836
             ],
             [
-              0.766,
+              0.768,
               0.839
             ],
             [
@@ -3168,230 +3248,222 @@
             ],
             [
               0.71,
-              0.862
+              0.861
             ],
             [
               0.677,
-              0.871
+              0.869
             ],
             [
-              0.676,
+              0.67,
               0.871
             ],
             [
               0.645,
-              0.879
+              0.877
             ],
             [
               0.613,
-              0.886
+              0.884
             ],
             [
               0.581,
-              0.892
+              0.89
             ],
             [
               0.548,
-              0.897
-            ],
-            [
-              0.516,
-              0.901
-            ],
-            [
-              0.486,
-              0.903
-            ],
-            [
-              0.484,
-              0.903
-            ],
-            [
-              0.472,
-              0.903
-            ],
-            [
-              0.452,
-              0.903
-            ],
-            [
-              0.419,
-              0.9
-            ],
-            [
-              0.387,
               0.895
             ],
             [
+              0.516,
+              0.899
+            ],
+            [
+              0.484,
+              0.901
+            ],
+            [
+              0.452,
+              0.901
+            ],
+            [
+              0.419,
+              0.897
+            ],
+            [
+              0.387,
+              0.891
+            ],
+            [
               0.355,
-              0.886
+              0.883
             ],
             [
               0.323,
-              0.875
+              0.871
             ],
             [
-              0.313,
+              0.323,
               0.871
             ],
             [
               0.29,
-              0.86
+              0.855
             ],
             [
-              0.26,
+              0.265,
               0.839
             ],
             [
               0.258,
-              0.837
+              0.833
             ],
             [
-              0.23,
+              0.231,
               0.806
             ],
             [
               0.226,
-              0.8
+              0.799
             ],
             [
-              0.212,
+              0.21,
               0.774
             ],
             [
-              0.2,
+              0.196,
               0.742
             ],
             [
               0.194,
-              0.716
+              0.736
             ],
             [
-              0.192,
+              0.184,
               0.71
             ],
             [
-              0.185,
+              0.175,
               0.677
             ],
             [
-              0.181,
+              0.168,
               0.645
             ],
             [
-              0.179,
+              0.163,
               0.613
             ],
             [
-              0.177,
+              0.161,
+              0.597
+            ],
+            [
+              0.159,
               0.581
             ],
             [
-              0.174,
+              0.155,
               0.548
             ],
             [
-              0.166,
+              0.148,
               0.516
             ],
             [
-              0.161,
-              0.508
-            ],
-            [
-              0.148,
+              0.133,
               0.484
             ],
             [
               0.129,
-              0.461
+              0.478
             ],
             [
-              0.121,
+              0.111,
               0.452
             ],
             [
               0.097,
-              0.428
+              0.435
             ],
             [
-              0.088,
+              0.084,
               0.419
             ],
             [
               0.065,
-              0.394
+              0.396
             ],
             [
-              0.059,
+              0.058,
               0.387
             ],
             [
-              0.037,
+              0.038,
               0.355
             ],
             [
               0.032,
-              0.344
+              0.341
             ],
             [
-              0.024,
+              0.025,
               0.323
             ],
             [
-              0.019,
+              0.021,
               0.29
             ],
             [
-              0.023,
+              0.025,
               0.258
             ],
             [
               0.032,
-              0.236
+              0.241
             ],
             [
-              0.037,
+              0.038,
               0.226
             ],
             [
-              0.059,
+              0.061,
               0.194
             ],
             [
               0.065,
-              0.188
+              0.19
             ],
             [
-              0.095,
+              0.097,
               0.161
             ],
             [
               0.097,
-              0.16
+              0.161
             ],
             [
               0.129,
-              0.139
+              0.14
             ],
             [
-              0.149,
+              0.151,
               0.129
             ],
             [
               0.161,
-              0.123
+              0.124
             ],
             [
               0.194,
-              0.11
+              0.111
             ],
             [
               0.226,
-              0.1
+              0.101
             ],
             [
-              0.239,
+              0.243,
               0.097
             ]
           ]
