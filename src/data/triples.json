@@ -13322,48 +13322,6 @@
       "collection": "field-notes"
     },
     {
-      "subject": "reflection-pattern",
-      "predicate": "counters",
-      "object": "llm-hallucinations",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "agentic-ai",
-      "predicate": "requires",
-      "object": "agent-orchestration",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "planning-pattern",
-      "predicate": "counters",
-      "object": "cognitive-entropy",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "multi-agent-pattern",
-      "predicate": "counters",
-      "object": "blast-radius",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "tool-use-pattern",
-      "predicate": "characterised-as",
-      "object": "delegation-metaphor",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "agent-orchestration",
-      "predicate": "structured-as",
-      "object": "multi-agent-pattern",
-      "source": "agentic-ai-design-patterns-2026-edition",
-      "collection": "weblinks"
-    },
-    {
       "subject": "agentic-ai",
       "predicate": "requires",
       "object": "systems-engineering",
@@ -14047,6 +14005,48 @@
       "predicate": "requires",
       "object": "rag",
       "source": "state-of-rag-genai",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "reflection-pattern",
+      "predicate": "requires",
+      "object": "agentic-ai",
+      "source": "agentic-ai-design-patterns-2026-edition",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "structured-as",
+      "object": "multi-agent-pattern",
+      "source": "agentic-ai-design-patterns-2026-edition",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tool-use-pattern",
+      "predicate": "contrasted-with",
+      "object": "llms",
+      "source": "agentic-ai-design-patterns-2026-edition",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agent-orchestration",
+      "predicate": "requires",
+      "object": "observability",
+      "source": "agentic-ai-design-patterns-2026-edition",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "planning-pattern",
+      "predicate": "counters",
+      "object": "cognitive-load",
+      "source": "agentic-ai-design-patterns-2026-edition",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "risks",
+      "object": "llm-hallucinations",
+      "source": "agentic-ai-design-patterns-2026-edition",
       "collection": "weblinks"
     }
   ]

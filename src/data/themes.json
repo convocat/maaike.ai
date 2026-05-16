@@ -402,10 +402,10 @@
     "Transparency over suppression: surface a verdict per claim, let the reader judge"
   ],
   "agentic-ai-design-patterns-2026-edition": [
-    "Agentic AI succeeds or fails based on architecture, not model quality, requiring patterns for state control, failure recovery, and governance",
-    "The four canonical patterns (Reflection, Tool Use, Planning, Multi-Agent) each solve specific architectural risks like hallucinations, cognitive entropy, and blast radius",
-    "Production-ready agentic systems require treating LLMs as CPUs within larger operating systems, with explicit lifecycles, observability, and bounded autonomy",
-    "The shift from single-shot LLM responses to orchestrated agent systems mirrors the historical transition from monoliths to microservices"
+    "Agentic AI requires fundamental architectural thinking rather than feature-level implementation",
+    "Production AI failures are caused by unbounded autonomy, lack of state control, and missing observability rather than poor models",
+    "The four core patterns (Reflection, Tool Use, Planning, Multi-Agent) solve specific architectural risks and enable system-level thinking",
+    "Multi-agent systems with explicit supervisory patterns enable better debugging, governance, and scaling than monolithic approaches"
   ],
   "from-generative-to-agentic-ai-a-roadmap-in-2026": [
     "The era of conversational AI demos is over: enterprises now demand autonomous systems that perform complete workflows, not just generate text.",

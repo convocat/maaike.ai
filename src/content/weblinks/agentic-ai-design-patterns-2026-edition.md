@@ -6,23 +6,23 @@ updated: 2026-05-08
 maturity: solid
 tags:
 - agentic-ai
-- ai-architecture
+- architecture
 - design-patterns
-- llm-orchestration
-- production-ai
-description: This article argues that agentic AI represents an architectural paradigm shift requiring systematic design patterns rather than just better prompts or models. It presents four core patterns (Reflection, Tool Use, Planning, Multi-Agent) as architectural solutions to reduce risk, manage complexity, and enable production-scale deployment of autonomous AI systems.
+- ai-tools
+- observability
+description: This article presents a comprehensive architectural framework for agentic AI systems in 2026, arguing that most AI failures stem from architectural problems rather than model quality. The author defines four canonical design patterns (Reflection, Tool Use, Planning, and Multi-Agent) and emphasizes that agentic AI represents a paradigm shift from monolithic systems to distributed, observable, and bounded agent architectures.
 ai: 100% Maai
 draft: false
 themes:
-- Agentic AI succeeds or fails based on architecture, not model quality, requiring patterns for state control, failure recovery, and governance
-- The four canonical patterns (Reflection, Tool Use, Planning, Multi-Agent) each solve specific architectural risks like hallucinations, cognitive entropy, and blast radius
-- Production-ready agentic systems require treating LLMs as CPUs within larger operating systems, with explicit lifecycles, observability, and bounded autonomy
-- The shift from single-shot LLM responses to orchestrated agent systems mirrors the historical transition from monoliths to microservices
+- Agentic AI requires fundamental architectural thinking rather than feature-level implementation
+- Production AI failures are caused by unbounded autonomy, lack of state control, and missing observability rather than poor models
+- The four core patterns (Reflection, Tool Use, Planning, Multi-Agent) solve specific architectural risks and enable system-level thinking
+- Multi-agent systems with explicit supervisory patterns enable better debugging, governance, and scaling than monolithic approaches
 triples:
-- [Reflection pattern, counters, LLM hallucinations]
-- [Agentic AI, requires, Agent orchestration]
-- [Planning pattern, counters, Cognitive entropy]
-- [Multi-agent pattern, counters, Blast radius]
-- [Tool use pattern, characterised-as, Delegation metaphor]
-- [Agent orchestration, structured-as, Multi-agent pattern]
+- [Reflection pattern, requires, Agentic AI]
+- [Agentic AI, structured-as, Multi-agent pattern]
+- [Tool Use pattern, contrasted-with, LLMs]
+- [Agent orchestration, requires, Observability]
+- [Planning pattern, counters, Cognitive load]
+- [Agentic AI, risks, LLM hallucinations]
 ---
