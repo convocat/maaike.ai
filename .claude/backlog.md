@@ -62,7 +62,7 @@ Key files: src/data/triples.json (topics, associations), src/content/library/, s
 Lift chatbot runtime out of `tools/karpathy-wiki/` into `api/`, switch `_ASK_SYSTEM_PROMPT` and `_VERIFY_SYSTEM_PROMPT` to `load_prompt(...)`, delete dead Vercel files, `git mv tools/karpathy-wiki tools/wiki-eval`, rewrite the relevant CLAUDE.md section. Now also includes:
 
 - **Retire wiki v6** at maaike.ai/wiki (`public/wiki/index.html`). Homepage chat replaces it.
-- **Working-tree housekeeping**. Commit `vercel.json` + `api/` if prod-needed. Decide which `tools/admin/_*.py` and `tools/karpathy-wiki/tools/extract-batch.py` helpers ship. Gitignore `__pycache__/`. Delete the 5 handoff zips at repo root. Triage `public/wiki-v*.html` + `workflow-tool.html` + `preview-server.py`. Leave `public/user-manual.html` (Maaike WIP).
+- **Working-tree housekeeping**. Commit `vercel.json` + `api/` if prod-needed. Decide which `tools/admin/_*.py` and `tools/karpathy-wiki/tools/extract-batch.py` helpers ship. ~~Gitignore `__pycache__/`~~ (done 2026-05-16, commit 88345d0). Delete the 5 handoff zips at repo root. Triage `public/wiki-v*.html` + `workflow-tool.html` + `preview-server.py`. Leave `public/user-manual.html` (Maaike WIP).
 
 Plan: `~/.claude/plans/hi-claude-i-want-abundant-candle.md`. Risk: Vercel deploy break if `includeFiles` glob misses runtime files. Single-commit revert if broken.
 
