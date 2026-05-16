@@ -20,6 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Python bytecode caches
+__pycache__/
+
 # Obsidian workspace config (device-specific, creates noise)
 src/content/.obsidian/
 
