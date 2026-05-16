@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chip placement mockups</title>
+<style>
+  :root {
+    --bg: #FAF7F2;
+    --bg-card: #FFFFFF;
+    --rule: #E5DFD4;
+    --text: #2A2A2A;
+    --muted: #7A7268;
+    --accent: #4A7A50;
+    --tag-bg: #F0EBE0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #EFEAE0;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .lede { color: var(--muted); font-size: 13px; margin: 0 0 24px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 720px;
+  }
+  .card h2 {
+    font-size: 14px;
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .card .desc {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.5;
+  }
+  .panel {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    position: relative;
+    min-height: 0;
+  }
+  .header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-card);
+    position: relative;
+  }
+  .header-titles h3 { font-size: 15px; margin: 0; font-family: Georgia, serif; }
+  .header-titles p { font-size: 12px; color: var(--muted); margin: 2px 0 0; }
+  .header-actions { display: flex; gap: 2px; }
+  .icon-btn {
+    width: 30px; height: 30px;
+    border: none; border-radius: 50%;
+    background: transparent; color: var(--muted);
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { background: var(--tag-bg); color: var(--text); }
+  .wander-btn {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    margin-right: 4px;
+  }
+  .wander-btn:hover { color: var(--text); border-color: var(--accent); }
+  .history {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 16px;
+    font-size: 14px;
+  }
+  .msg { display: flex; gap: 10px; align-items: flex-start; }
+  .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--tag-bg);
+    flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .avatar.user { background: var(--muted); color: var(--bg); }
+  .body { flex: 1 1 auto; min-width: 0; }
+  .role {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+  .bubble { line-height: 1.6; }
+  .msg.user .bubble {
+    background: var(--tag-bg);
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: inline-block;
+  }
+  .form {
+    padding: 8px 18px 14px;
+    border-top: 1px solid var(--rule);
+    background: var(--bg-card);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .input {
+    width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 13px;
+    background: var(--bg);
+  }
+  .form-row {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 11px; color: var(--muted);
+  }
+  .send {
+    border: none; border-radius: 999px;
+    padding: 5px 14px;
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  /* Sketchy chips (like the live ones) */
+  .chip {
+    border: 1.5px solid rgba(0,0,0,0.12);
+    padding: 6px 14px 7px;
+    font: inherit;
+    font-size: 12px;
+    line-height: 1.25;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    background: #E8D9B8;
+  }
+  .chip:nth-child(3n+1) {
+    border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
+    background: #E8D9B8; transform: rotate(-1.5deg);
+  }
+  .chip:nth-child(3n+2) {
+    border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%;
+    background: #D9B89A; transform: rotate(1.2deg);
+  }
+  .chip:nth-child(3n+3) {
+    border-radius: 40% 60% 70% 30% / 40% 55% 45% 60%;
+    background: #C5D9C0; transform: rotate(-0.6deg);
+  }
+
+  /* === A: Wander button + popover === */
+  .wander-popover {
+    position: absolute;
+    top: calc(100% - 4px);
+    right: 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+    min-width: 240px;
+  }
+  .wander-popover .label {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .wander-popover .chips {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+
+  /* === B: Footer band === */
+  .wander-band {
+    border-top: 1px dashed var(--rule);
+    padding: 8px 18px;
+    background: var(--bg);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .wander-band .label-inline {
+    text-transform: uppercase; letter-spacing: 0.05em;
+    flex: 0 0 auto;
+  }
+  .wander-band .chips {
+    display: flex; flex: 1 1 auto; gap: 6px; flex-wrap: nowrap; overflow-x: auto;
+  }
+  .wander-band .chip { font-size: 11px; padding: 4px 10px; }
+  .wander-band .refresh {
+    flex: 0 0 auto;
+    border: none; background: transparent;
+    color: var(--muted); cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* === C: Side rail === */
+  .panel.with-rail .history { padding-right: 90px; }
+  .side-rail {
+    position: absolute;
+    top: 60px; right: 0; bottom: 110px;
+    width: 78px;
+    border-left: 1px solid var(--rule);
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 6px;
+    overflow-y: auto;
+  }
+  .side-rail .label-vertical {
+    font-size: 9px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-bottom: 4px;
+  }
+  .side-rail .chip {
+    font-size: 10px;
+    padding: 4px 8px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .side-rail .refresh {
+    border: none; background: transparent;
+    color: var(--muted); font-size: 14px;
+    cursor: pointer; margin-top: auto;
+  }
+
+  /* Current state for comparison */
+  .inline-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 4px 0 0 38px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Chip placement: three "out of the way" alternatives</h1>
+<p class="lede">For comparison only. The decision was: keep chips inline (current), drop the model handoff. This shows what would change if chips moved.</p>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="card">
+    <h2>A. Wander button + popover</h2>
+    <div class="desc">A small "Wander" button in the toolbar opens a popover with chips. Out of the message stream entirely. One click to access.</div>
+    <div class="panel">
+      <header class="header">
+        <div class="header-titles">
+          <h3>Talk about this page</h3>
+          <p>Talking about <strong style="color:var(--accent)">Maai &amp; AI</strong></p>
+        </div>
+        <div class="header-actions">
+          <button class="wander-btn">Wander…</button>
+          <button class="icon-btn">⚙</button>
+          <button class="icon-btn">↻</button>
+          <button class="icon-btn">✕</button>
+        </div>
+        <div class="wander-popover">
+          <div class="label">Wander into the garden</div>
+          <div class="chips">
+            <button class="chip">Find a strange neighbour to this idea</button>
+            <button class="chip">Where would Maaike push back on me?</button>
+            <button class="chip">Show me the contradiction</button>
+          </div>
+        </div>
+      </header>
+      <div class="history">
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's this page actually about?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Maai &amp; AI is the home of Maaike Groenewege's writing on conversation design and generative AI. The garden has articles she has carefully shaped, field notes from practice, and seeds she is still working out. The voice you are reading is not a chatbot in the usual sense; it is a way of talking through her writing.</div></div></div>
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's the most controversial thing she's written?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Her piece on chatbots without AI argues that most "AI conversation" products would be better off as well-designed forms. It cuts across the industry's default that more language model is always better.</div></div></div>
+      </div>
+      <form class="form">
+        <input class="input" placeholder="Ask about this page…" />
+        <div class="form-row"><span>The Garden can be wrong.</span><button class="send">Send</button></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="card">
+    <h2>B. Footer band above input</h2>
+    <div class="desc">A persistent thin strip just above the input. Always visible, small type, refreshable. Doesn't break the message flow but stays present.</div>
+    <div class="panel">
+      <header class="header">
+        <div class="header-titles">
+          <h3>Talk about this page</h3>
+          <p>Talking about <strong style="color:var(--accent)">Maai &amp; AI</strong></p>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn">⚙</button>
+          <button class="icon-btn">↻</button>
+          <button class="icon-btn">✕</button>
+        </div>
+      </header>
+      <div class="history">
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's this page actually about?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Maai &amp; AI is the home of Maaike Groenewege's writing on conversation design and generative AI. The garden has articles she has carefully shaped, field notes from practice, and seeds she is still working out.</div></div></div>
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's the most controversial thing she's written?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Her piece on chatbots without AI argues that most "AI conversation" products would be better off as well-designed forms. It cuts across the industry's default that more language model is always better.</div></div></div>
+      </div>
+      <div class="wander-band">
+        <span class="label-inline">Wander</span>
+        <div class="chips">
+          <button class="chip">Strange neighbour</button>
+          <button class="chip">Where she pushes back</button>
+          <button class="chip">Show contradiction</button>
+        </div>
+        <button class="refresh" title="Refresh">↻</button>
+      </div>
+      <form class="form">
+        <input class="input" placeholder="Ask about this page…" />
+        <div class="form-row"><span>The Garden can be wrong.</span><button class="send">Send</button></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="card">
+    <h2>C. Side rail</h2>
+    <div class="desc">A persistent vertical strip on the right. Always visible but spatially separate from the message stream. Most "ambient" of the three.</div>
+    <div class="panel with-rail">
+      <header class="header">
+        <div class="header-titles">
+          <h3>Talk about this page</h3>
+          <p>Talking about <strong style="color:var(--accent)">Maai &amp; AI</strong></p>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn">⚙</button>
+          <button class="icon-btn">↻</button>
+          <button class="icon-btn">✕</button>
+        </div>
+      </header>
+      <div class="history">
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's this page actually about?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Maai &amp; AI is the home of Maaike Groenewege's writing on conversation design and generative AI.</div></div></div>
+        <div class="msg user"><div class="avatar user">M</div>
+          <div class="body"><div class="role">You</div>
+            <div class="bubble">What's controversial?</div></div></div>
+        <div class="msg"><div class="avatar">G</div>
+          <div class="body"><div class="role">The Garden</div>
+            <div class="bubble">Her piece on chatbots without AI argues that most "AI conversation" products would be better off as forms.</div></div></div>
+      </div>
+      <aside class="side-rail">
+        <span class="label-vertical">Wander</span>
+        <button class="chip">Strange neighbour</button>
+        <button class="chip">Where she pushes back</button>
+        <button class="chip">The contradiction</button>
+        <button class="refresh" title="Refresh">↻</button>
+      </aside>
+      <form class="form">
+        <input class="input" placeholder="Ask about this page…" />
+        <div class="form-row"><span>The Garden can be wrong.</span><button class="send">Send</button></div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:32px; font-size:12px; color:var(--muted)">Mockup only. Chip text is illustrative — real chips would be contextually generated.</p>
+
+</body>
+</html>

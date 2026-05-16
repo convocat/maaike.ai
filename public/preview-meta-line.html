@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meta line preview v2</title>
+  <link rel="preload" href="/fonts/lora-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/roboto-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face {
+      font-family: 'Lora';
+      src: url('/fonts/lora-400-latin.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Roboto';
+      src: url('/fonts/roboto-400-latin.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    body {
+      font-family: 'Roboto', -apple-system, sans-serif;
+      padding: 3rem 2rem 6rem;
+      max-width: 820px;
+      margin: 0 auto;
+      background: #FCFCFB;
+      color: #1A1A1A;
+      line-height: 1.6;
+    }
+    h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+    }
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.15rem;
+      margin: 2.5rem 0 0.4rem;
+    }
+    .lede { color: #6B6B6B; font-size: 0.9rem; margin: 0 0 2rem; }
+    .note { color: #888; font-size: 0.78rem; margin: 0 0 0.6rem; font-style: italic; }
+    .post-stub {
+      border: 1px solid #E5E5E5;
+      border-radius: 0.5rem;
+      padding: 1.4rem 1.6rem;
+      margin: 0.4rem 0 0.8rem;
+      background: #FCFCFB;
+    }
+    .post-stub h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.4rem;
+      margin: 0 0 0.4rem;
+      line-height: 1.25;
+    }
+    .post-stub p.subtitle {
+      font-size: 0.95rem;
+      color: #6B6B6B;
+      margin: 0 0 0.85rem;
+    }
+
+    /* Shared meta-line scaffolding */
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.55rem;
+      font-size: 0.82rem;
+    }
+    .meta .sep { opacity: 0.35; color: #6B6B6B; }
+
+    /* ── OPTION A : ALL PILLS ────────────────────────────────────── */
+    .meta--pills .meta-pill {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      border: 1px solid #D9D5CB;
+      border-radius: 999px;
+      padding: 0.1rem 0.65rem;
+      background: #FCFCFB;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+    .meta--pills .meta-pill-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B7A52;
+    }
+    .meta--pills .meta-pill-value {
+      font-size: 0.78rem;
+      color: #1A1A1A;
+    }
+    .meta--pills .meta-desc {
+      font-size: 0.78rem;
+      color: #6B6B6B;
+      font-style: italic;
+      margin-left: 0.1rem;
+    }
+
+    /* ── OPTION B : NO PILLS, INLINE LABELS ──────────────────────── */
+    .meta--inline .meta-label {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B7A52;
+      margin-right: 0.3rem;
+    }
+    .meta--inline .meta-value {
+      font-size: 0.82rem;
+      color: #1A1A1A;
+    }
+    .meta--inline .meta-desc {
+      font-size: 0.78rem;
+      color: #6B6B6B;
+      font-style: italic;
+      margin-left: 0.15rem;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Meta line preview, v2</h1>
+  <p class="lede">Every metadata item has an explicit label. Two uniform options : all pills, or no pills. Same content in both so the difference is purely visual language.</p>
+
+  <h2>Option A : all pills</h2>
+  <p class="note">Each metadata pair sits inside its own outlined pill. Label inside the pill, in small caps, sage. Value in body text. The AI description (when present) follows after the pills as italic muted text.</p>
+
+  <div class="post-stub">
+    <h3>2 years and 700 members: insights from Convoclub</h3>
+    <p class="subtitle">The top 5 challenges that conversation designers face, based on 300 real answers.</p>
+    <div class="meta meta--pills">
+      <span class="meta-pill"><span class="meta-pill-label">Published</span><span class="meta-pill-value">16 August 2023</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Tended</span><span class="meta-pill-value">11 March 2026</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Maturity</span><span class="meta-pill-value">🌳 Tree</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">AI</span><span class="meta-pill-value">100% Maai</span></span>
+      <span class="meta-desc">Fully written by me.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>From conversation to application</h3>
+    <p class="subtitle">An early seed.</p>
+    <div class="meta meta--pills">
+      <span class="meta-pill"><span class="meta-pill-label">Published</span><span class="meta-pill-value">4 May 2026</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Maturity</span><span class="meta-pill-value">🌱 Seed</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">AI</span><span class="meta-pill-value">100% Maai</span></span>
+      <span class="meta-desc">Fully written by me.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>Building this garden</h3>
+    <p class="subtitle">A running field-note about the garden's design and engineering.</p>
+    <div class="meta meta--pills">
+      <span class="meta-pill"><span class="meta-pill-label">Published</span><span class="meta-pill-value">10 March 2026</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Tended</span><span class="meta-pill-value">4 May 2026</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Maturity</span><span class="meta-pill-value">🌿 Sapling</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">AI</span><span class="meta-pill-value">co-created</span></span>
+      <span class="meta-desc">Written by AI based on my ideas and direction.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>Why ChatGPT is bullshit (and why we should design for that)</h3>
+    <p class="subtitle">Frankfurt's bullshit, applied to LLMs.</p>
+    <div class="meta meta--pills">
+      <span class="meta-pill"><span class="meta-pill-label">Published</span><span class="meta-pill-value">10 December 2024</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Tended</span><span class="meta-pill-value">12 February 2026</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">Maturity</span><span class="meta-pill-value">🪴 Plant</span></span>
+      <span class="meta-pill"><span class="meta-pill-label">AI</span><span class="meta-pill-value">assisted</span></span>
+      <span class="meta-desc">My ideas and structure, AI helped refine.</span>
+    </div>
+  </div>
+
+  <h2>Option B : no pills, inline labels</h2>
+  <p class="note">Every metadata pair has a small caps sage label followed by its value. Single line, separators, no borders. AI description follows the value with a colon.</p>
+
+  <div class="post-stub">
+    <h3>2 years and 700 members: insights from Convoclub</h3>
+    <p class="subtitle">The top 5 challenges that conversation designers face, based on 300 real answers.</p>
+    <div class="meta meta--inline">
+      <span><span class="meta-label">Published</span><span class="meta-value">16 August 2023</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Tended</span><span class="meta-value">11 March 2026</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Maturity</span><span class="meta-value">🌳 Tree</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">AI</span><span class="meta-value">100% Maai</span></span>
+      <span class="meta-desc">: Fully written by me.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>From conversation to application</h3>
+    <p class="subtitle">An early seed.</p>
+    <div class="meta meta--inline">
+      <span><span class="meta-label">Published</span><span class="meta-value">4 May 2026</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Maturity</span><span class="meta-value">🌱 Seed</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">AI</span><span class="meta-value">100% Maai</span></span>
+      <span class="meta-desc">: Fully written by me.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>Building this garden</h3>
+    <p class="subtitle">A running field-note about the garden's design and engineering.</p>
+    <div class="meta meta--inline">
+      <span><span class="meta-label">Published</span><span class="meta-value">10 March 2026</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Tended</span><span class="meta-value">4 May 2026</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Maturity</span><span class="meta-value">🌿 Sapling</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">AI</span><span class="meta-value">co-created</span></span>
+      <span class="meta-desc">: Written by AI based on my ideas and direction.</span>
+    </div>
+  </div>
+
+  <div class="post-stub">
+    <h3>Why ChatGPT is bullshit (and why we should design for that)</h3>
+    <p class="subtitle">Frankfurt's bullshit, applied to LLMs.</p>
+    <div class="meta meta--inline">
+      <span><span class="meta-label">Published</span><span class="meta-value">10 December 2024</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Tended</span><span class="meta-value">12 February 2026</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">Maturity</span><span class="meta-value">🪴 Plant</span></span>
+      <span class="sep">·</span>
+      <span><span class="meta-label">AI</span><span class="meta-value">assisted</span></span>
+      <span class="meta-desc">: My ideas and structure, AI helped refine.</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -313,6 +313,18 @@
       "connections": 0
     },
     {
+      "slug": "how-we-actually-compare",
+      "title": "How we actually compare",
+      "collection": "articles",
+      "maturity": "developing",
+      "description": "A technical side-by-side of Andrej Karpathy's LLM wiki approach and how I work with AI on this garden. Same tools, different philosophy.",
+      "url": "/articles/how-we-actually-compare",
+      "x": 0.3311,
+      "y": 0.2881,
+      "keyphrases": [],
+      "connections": 12
+    },
+    {
       "slug": "is-conversation-still-a-useful-metaphor",
       "title": "Is conversation still a useful metaphor for human-machine interaction?",
       "collection": "articles",
@@ -1165,6 +1177,18 @@
       "connections": 2
     },
     {
+      "slug": "agentic-ai-design-patterns-2026-edition",
+      "title": "Agentic AI design patterns: 2026 edition",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This article presents a comprehensive architectural framework for agentic AI systems in 2026, arguing that most AI failures stem from architectural problems rather than model quality. The author defines four canonical design patterns (Reflection, Tool Use, Planning, and Multi-Agent) and emphasizes that agentic AI represents a paradigm shift from monolithic systems to distributed, observable, and bounded agent architectures.",
+      "url": "/weblinks/agentic-ai-design-patterns-2026-edition",
+      "x": 0.2342,
+      "y": 0.4689,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "ai-artificialintelligence-behavior-behaviour-behav",
       "title": "Tri-System Theory (Shaw & Nave, 2026)",
       "collection": "weblinks",
@@ -1297,6 +1321,30 @@
       "connections": 0
     },
     {
+      "slug": "from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "title": "From generative to agentic AI: a roadmap in 2026",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This article argues that 2026 marks a fundamental shift from generative AI (passive, read-only text generation) to agentic AI (active, autonomous systems that plan and execute work). The author contends that AI engineers must move beyond prompt engineering and embrace systems engineering, treating AI as operational infrastructure that performs end-to-end tasks rather than conversational oracles that simply generate responses.",
+      "url": "/weblinks/from-generative-to-agentic-ai-a-roadmap-in-2026",
+      "x": 0.7887,
+      "y": 0.6802,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "from-org-chart-to-work-chart-where-ai-value-really",
+      "title": "From Org Chart to Work Chart: Where AI Value Really Comes From",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This article argues that AI value comes from redesigning workflows rather than inserting AI tools into existing organizational structures. The author contends that traditional org charts show hierarchy but obscure how work actually flows, and proposes work charts as a management tool that makes workflows, decisions, handoffs, and accountability visible for effective AI transformation.",
+      "url": "/weblinks/from-org-chart-to-work-chart-where-ai-value-really",
+      "x": 0.3737,
+      "y": 0.4893,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "instagram",
       "title": "6 plugins that turn Claude Code into a full dev team",
       "collection": "weblinks",
@@ -1317,6 +1365,18 @@
       "url": "/weblinks/it-s-like-this-why-perceptions-are-our-realities",
       "x": 0.2218,
       "y": 0.5716,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "linkedin",
+      "title": "Deeplearning course on building interactive agents with generative UI ",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This is a course landing page for DeepLearning.AI's course on building interactive agents with generative UI. The page provides navigation, study tips, and technical instructions for learners taking the course, including how to access notebooks, reset workspaces, and engage with course materials effectively.",
+      "url": "/weblinks/linkedin",
+      "x": 0.1549,
+      "y": 0.625,
       "keyphrases": [],
       "connections": 0
     },
@@ -1369,6 +1429,18 @@
       "connections": 0
     },
     {
+      "slug": "oh-my-nav",
+      "title": "Oh-My-Nav",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This is a documentation hub for GitHub Copilot adoption and best practices at NAV (the Norwegian Labour and Welfare Administration). The site provides news updates, tools, guidelines, and usage statistics for AI-driven development, focusing on custom agents, skills, and organizational implementation of GitHub Copilot across teams.",
+      "url": "/weblinks/oh-my-nav",
+      "x": 0.9021,
+      "y": 0.094,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "robin-interactions-shared-manifolds",
       "title": "Recording robin interactions for visual models of shared manifolds",
       "collection": "weblinks",
@@ -1391,6 +1463,18 @@
       "y": 0.7455,
       "keyphrases": [],
       "connections": 17
+    },
+    {
+      "slug": "state-of-rag-genai",
+      "title": "State of RAG & GenAI",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This article argues that Retrieval Augmented Generation (RAG) has become a strategic imperative for enterprises in 2026, addressing critical challenges like LLM hallucinations, outdated outputs, and high retraining costs. RAG bridges the gap between large language models and organizational knowledge by retrieving verified, real-time data at the moment of generation, ensuring outputs are accurate, compliant, and trustworthy without requiring constant model retraining.",
+      "url": "/weblinks/state-of-rag-genai",
+      "x": 0.5085,
+      "y": 0.4246,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "structured-prompt-driven-development-spdd",
@@ -2421,90 +2505,6 @@
       "url": "/jottings/u2-easter-parade",
       "x": 0.4323,
       "y": 0.3486,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "how-we-actually-compare",
-      "title": "How we actually compare",
-      "collection": "articles",
-      "maturity": "developing",
-      "description": "A technical side-by-side of Andrej Karpathy's LLM wiki approach and how I work with AI on this garden. Same tools, different philosophy.",
-      "url": "/articles/how-we-actually-compare",
-      "x": 0.3311,
-      "y": 0.2881,
-      "keyphrases": [],
-      "connections": 12
-    },
-    {
-      "slug": "agentic-ai-design-patterns-2026-edition",
-      "title": "Agentic AI design patterns: 2026 edition",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This article presents a comprehensive architectural framework for agentic AI systems in 2026, arguing that most AI failures stem from architectural problems rather than model quality. The author defines four canonical design patterns (Reflection, Tool Use, Planning, and Multi-Agent) and emphasizes that agentic AI represents a paradigm shift from monolithic systems to distributed, observable, and bounded agent architectures.",
-      "url": "/weblinks/agentic-ai-design-patterns-2026-edition",
-      "x": 0.2342,
-      "y": 0.4689,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "from-generative-to-agentic-ai-a-roadmap-in-2026",
-      "title": "From generative to agentic AI: a roadmap in 2026",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This article argues that 2026 marks a fundamental shift from generative AI (passive, read-only text generation) to agentic AI (active, autonomous systems that plan and execute work). The author contends that AI engineers must move beyond prompt engineering and embrace systems engineering, treating AI as operational infrastructure that performs end-to-end tasks rather than conversational oracles that simply generate responses.",
-      "url": "/weblinks/from-generative-to-agentic-ai-a-roadmap-in-2026",
-      "x": 0.7887,
-      "y": 0.6802,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "from-org-chart-to-work-chart-where-ai-value-really",
-      "title": "From Org Chart to Work Chart: Where AI Value Really Comes From",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This article argues that AI value comes from redesigning workflows rather than inserting AI tools into existing organizational structures. The author contends that traditional org charts show hierarchy but obscure how work actually flows, and proposes work charts as a management tool that makes workflows, decisions, handoffs, and accountability visible for effective AI transformation.",
-      "url": "/weblinks/from-org-chart-to-work-chart-where-ai-value-really",
-      "x": 0.3737,
-      "y": 0.4893,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "linkedin",
-      "title": "Deeplearning course on building interactive agents with generative UI ",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This is a course landing page for DeepLearning.AI's course on building interactive agents with generative UI. The page provides navigation, study tips, and technical instructions for learners taking the course, including how to access notebooks, reset workspaces, and engage with course materials effectively.",
-      "url": "/weblinks/linkedin",
-      "x": 0.1549,
-      "y": 0.625,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "oh-my-nav",
-      "title": "Oh-My-Nav",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This is a documentation hub for GitHub Copilot adoption and best practices at NAV (the Norwegian Labour and Welfare Administration). The site provides news updates, tools, guidelines, and usage statistics for AI-driven development, focusing on custom agents, skills, and organizational implementation of GitHub Copilot across teams.",
-      "url": "/weblinks/oh-my-nav",
-      "x": 0.9021,
-      "y": 0.094,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "state-of-rag-genai",
-      "title": "State of RAG & GenAI",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This article argues that Retrieval Augmented Generation (RAG) has become a strategic imperative for enterprises in 2026, addressing critical challenges like LLM hallucinations, outdated outputs, and high retraining costs. RAG bridges the gap between large language models and organizational knowledge by retrieving verified, real-time data at the moment of generation, ensuring outputs are accurate, compliant, and trustworthy without requiring constant model retraining.",
-      "url": "/weblinks/state-of-rag-genai",
-      "x": 0.5085,
-      "y": 0.4246,
       "keyphrases": [],
       "connections": 0
     }

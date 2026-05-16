@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow analysis tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:       #6B7A52;
+  --accent-hover: #546040;
+  --accent-2:     #D6006C;
+  --accent-2-h:   #B0005A;
+  --bg:           #FCFCFB;
+  --bg-card:      #FAFAFA;
+  --ink:          #1A1A1A;
+  --ink-2:        #4A4A4A;
+  --ink-3:        #6B6B6B;
+  --rule:         #E5E5E5;
+  --rule-soft:    #EFEFEF;
+  --tag-bg:       #F5E6F0;
+  --tag-ink:      #5A2D4A;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --font-d: 'Lora', Georgia, serif;
+  --font-b: 'Roboto', sans-serif;
+  --c-claude: #6B7A52;
+  --c-maaike: #D6006C;
+  --c-both:   #8A8A8A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-b); background: var(--bg); color: var(--ink);
+  font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+input, textarea, select { font: inherit; color: inherit; }
+
+/* Top bar */
+#topbar {
+  display: flex; align-items: center; gap: 12px; padding: 10px 22px;
+  background: var(--bg-card); border-bottom: 1px solid var(--rule); flex-shrink: 0;
+}
+#topbar h1 {
+  font-family: var(--font-d); font-size: 17px; font-weight: 500;
+  font-style: italic; color: var(--accent); letter-spacing: -0.01em;
+}
+#topbar .spacer { flex: 1; }
+#workflow-name {
+  font-family: var(--font-d); font-size: 15px; font-style: italic;
+  border: none; background: transparent; color: var(--ink);
+  border-bottom: 1px solid var(--rule); padding: 2px 6px; min-width: 240px;
+  outline: none;
+}
+#workflow-name:focus { border-bottom-color: var(--accent); }
+
+/* Main layout */
+#main {
+  display: flex; flex: 1; gap: 0; overflow: hidden; height: calc(100vh - 49px);
+}
+
+/* Editor column */
+#editor {
+  width: 400px; flex-shrink: 0; border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+#editor-head {
+  padding: 14px 16px 10px; font-size: 12.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+  border-bottom: 1px solid var(--rule); flex-shrink: 0;
+}
+
+/* Feature request block */
+#request-block {
+  border-bottom: 1px solid var(--rule); flex-shrink: 0;
+}
+#request-head {
+  padding: 10px 16px 6px; font-size: 12.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+}
+#request-input {
+  width: 100%; padding: 4px 16px 12px; border: none; outline: none;
+  background: transparent; font-size: 14px; color: var(--ink-2);
+  resize: none; line-height: 1.55; min-height: 60px;
+}
+#request-input::placeholder { color: #bbb; }
+#steps-list {
+  flex: 1; overflow-y: auto; padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.step-row {
+  background: var(--bg-card); border: 1px solid var(--rule);
+  border-radius: var(--radius-md); padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.step-row:hover { border-color: #ccc; }
+.step-top {
+  display: flex; align-items: center; gap: 8px;
+}
+.step-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--rule); color: var(--ink-3);
+  font-size: 11px; font-weight: 600; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.step-name-input {
+  flex: 1; border: none; background: transparent; font-size: 14px;
+  font-weight: 500; outline: none; color: var(--ink);
+  border-bottom: 1px solid transparent; padding: 1px 2px;
+}
+.step-name-input:focus { border-bottom-color: var(--rule); }
+.step-name-input::placeholder { color: var(--ink-3); font-weight: 400; }
+.owner-select {
+  padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer;
+  outline: none; appearance: none;
+}
+.owner-select.claude  { background: #E8EDE0; color: var(--c-claude); }
+.owner-select.maaike  { background: #FCEAF4; color: var(--c-maaike); }
+.owner-select.both    { background: var(--rule-soft); color: var(--c-both); }
+.step-desc-input {
+  width: 100%; border: none; background: transparent; font-size: 13.5px;
+  color: var(--ink-2); outline: none; resize: none; overflow: hidden;
+  line-height: 1.45; border-bottom: 1px solid transparent; padding: 1px 2px;
+}
+.step-desc-input:focus { border-bottom-color: var(--rule); }
+.step-desc-input::placeholder { color: #bbb; }
+.step-actions {
+  display: flex; gap: 4px; margin-left: auto;
+}
+.step-btn {
+  width: 22px; height: 22px; border-radius: var(--radius-sm); font-size: 13px;
+  color: var(--ink-3); display: flex; align-items: center; justify-content: center;
+  transition: background 100ms, color 100ms;
+}
+.step-btn:hover { background: var(--rule-soft); color: var(--ink); }
+.step-btn.del:hover { color: var(--accent-2); }
+
+#add-step-btn {
+  margin: 0 12px 12px; padding: 8px; border: 1px dashed var(--rule);
+  border-radius: var(--radius-md); font-size: 13.5px; color: var(--ink-3);
+  transition: all 150ms; text-align: center;
+}
+#add-step-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--rule-soft); }
+
+/* Preview column */
+#preview {
+  flex: 1; overflow-y: auto; padding: 24px 28px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+
+/* Swim lane */
+#swim-lane {
+  border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden;
+}
+.lane-header {
+  display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid var(--rule);
+}
+.lane-label {
+  padding: 8px 14px; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  border-right: 1px solid var(--rule); display: flex; align-items: center;
+}
+.lane-label.claude { color: var(--c-claude); }
+.lane-label.maaike { color: var(--c-maaike); }
+.lane-steps {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px; padding: 10px 14px;
+}
+.lane-empty { color: var(--ink-3); font-size: 13px; font-style: italic; padding: 10px 14px; }
+
+.swim-step {
+  display: flex; align-items: center; gap: 6px;
+}
+.swim-bubble {
+  padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 500;
+  white-space: nowrap;
+}
+.swim-bubble.claude { background: #E8EDE0; color: var(--c-claude); }
+.swim-bubble.maaike { background: #FCEAF4; color: var(--c-maaike); }
+.swim-bubble.both   { background: var(--rule-soft); color: var(--c-both); }
+.swim-arrow { color: var(--rule); font-size: 14px; }
+
+/* Both-lane row */
+.both-lane-row {
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 120px 1fr;
+}
+.both-label {
+  padding: 8px 14px; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  border-right: 1px solid var(--rule); color: var(--c-both);
+  display: flex; align-items: center;
+}
+
+/* Markdown output */
+.section-head {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-2); margin-bottom: 10px;
+}
+#md-output {
+  font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.6;
+  background: var(--bg-card); border: 1px solid var(--rule);
+  border-radius: var(--radius-md); padding: 14px 16px;
+  white-space: pre; overflow-x: auto; color: var(--ink-2);
+}
+.copy-btn {
+  padding: 6px 16px; border-radius: var(--radius-md); font-size: 13.5px;
+  font-weight: 500; background: transparent; border: 1px solid var(--accent);
+  color: var(--accent); transition: all 150ms; align-self: flex-start;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; }
+.copy-btn.copied { background: var(--accent); color: #fff; }
+
+#preview-empty {
+  color: var(--ink-3); font-size: 14px; font-style: italic; padding: 8px 0;
+}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <h1>Workflow analysis</h1>
+  <div class="spacer"></div>
+  <input id="workflow-name" type="text" placeholder="Workflow name (e.g. Ingest dashboard)…">
+</div>
+
+<div id="main">
+
+  <!-- Editor -->
+  <div id="editor">
+    <div id="editor-head">Steps</div>
+    <div id="request-block">
+      <div id="request-head">Feature request</div>
+      <textarea id="request-input" placeholder="Describe the feature or problem in plain language…" oninput="autoResize(this);renderPreview()"></textarea>
+    </div>
+    <div id="steps-list"></div>
+    <button id="add-step-btn" onclick="addStep()">+ Add step</button>
+  </div>
+
+  <!-- Preview -->
+  <div id="preview">
+    <div id="preview-empty">Add steps on the left to see the workflow.</div>
+    <div id="swim-section" style="display:none">
+      <div class="section-head">Swim lane</div>
+      <div id="swim-lane"></div>
+    </div>
+    <div id="md-section" style="display:none; display:flex; flex-direction:column; gap:10px;">
+      <div class="section-head">Markdown table</div>
+      <pre id="md-output"></pre>
+      <button class="copy-btn" id="copy-btn" onclick="copyMarkdown()">Copy Markdown</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+let steps = [];
+let nextId = 1;
+
+// ── Step management ────────────────────────────────────────────────────────
+function addStep(name = '', owner = 'claude', desc = '') {
+  steps.push({id: nextId++, name, owner, desc});
+  renderEditor();
+  renderPreview();
+  // Focus the new step name input
+  const inputs = document.querySelectorAll('.step-name-input');
+  if (inputs.length) inputs[inputs.length - 1].focus();
+}
+
+function removeStep(id) {
+  steps = steps.filter(s => s.id !== id);
+  renderEditor();
+  renderPreview();
+}
+
+function moveStep(id, dir) {
+  const i = steps.findIndex(s => s.id === id);
+  const j = i + dir;
+  if (j < 0 || j >= steps.length) return;
+  [steps[i], steps[j]] = [steps[j], steps[i]];
+  renderEditor();
+  renderPreview();
+}
+
+function updateStep(id, field, value) {
+  const s = steps.find(s => s.id === id);
+  if (s) { s[field] = value; renderPreview(); }
+}
+
+function ownerClass(owner) {
+  return owner === 'maaike' ? 'maaike' : owner === 'both' ? 'both' : 'claude';
+}
+
+// ── Editor render ──────────────────────────────────────────────────────────
+function renderEditor() {
+  const list = document.getElementById('steps-list');
+  list.innerHTML = steps.map((s, i) => `
+    <div class="step-row" id="step-${s.id}">
+      <div class="step-top">
+        <span class="step-num">${i + 1}</span>
+        <input class="step-name-input" type="text" value="${escHtml(s.name)}"
+          placeholder="Step name…"
+          oninput="updateStep(${s.id},'name',this.value)"
+          onblur="renderPreview()">
+        <select class="owner-select ${ownerClass(s.owner)}"
+          onchange="updateStepOwner(${s.id}, this)">
+          <option value="claude" ${s.owner==='claude'?'selected':''}>Claude</option>
+          <option value="maaike" ${s.owner==='maaike'?'selected':''}>Maaike</option>
+          <option value="both"   ${s.owner==='both'  ?'selected':''}>Both</option>
+        </select>
+        <div class="step-actions">
+          <button class="step-btn" onclick="moveStep(${s.id},-1)" title="Move up" ${i===0?'disabled':''}>↑</button>
+          <button class="step-btn" onclick="moveStep(${s.id},1)" title="Move down" ${i===steps.length-1?'disabled':''}>↓</button>
+          <button class="step-btn del" onclick="removeStep(${s.id})" title="Remove">×</button>
+        </div>
+      </div>
+      <textarea class="step-desc-input" rows="1" placeholder="Description (optional)…"
+        oninput="updateStep(${s.id},'desc',this.value);autoResize(this)"
+        onblur="renderPreview()">${escHtml(s.desc)}</textarea>
+    </div>
+  `).join('');
+
+  // Auto-resize all textareas
+  list.querySelectorAll('.step-desc-input').forEach(autoResize);
+}
+
+function updateStepOwner(id, sel) {
+  const s = steps.find(s => s.id === id);
+  if (!s) return;
+  s.owner = sel.value;
+  sel.className = `owner-select ${ownerClass(s.owner)}`;
+  renderPreview();
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+
+// ── Preview render ─────────────────────────────────────────────────────────
+function renderPreview() {
+  const hasSteps = steps.some(s => s.name.trim());
+  document.getElementById('preview-empty').style.display = hasSteps ? 'none' : '';
+  document.getElementById('swim-section').style.display = hasSteps ? '' : 'none';
+  document.getElementById('md-section').style.display = hasSteps ? 'flex' : 'none';
+
+  if (!hasSteps) return;
+  renderSwimLane();
+  renderMarkdown();
+}
+
+function renderSwimLane() {
+  const claudeSteps = steps.filter(s => s.owner === 'claude' && s.name.trim());
+  const maaSteps    = steps.filter(s => s.owner === 'maaike' && s.name.trim());
+  const bothSteps   = steps.filter(s => s.owner === 'both'   && s.name.trim());
+
+  function bubblesHtml(list, cls) {
+    if (!list.length) return `<span class="lane-empty">—</span>`;
+    return list.map((s, i) => {
+      const num = steps.indexOf(s) + 1;
+      const arrow = i < list.length - 1 ? `<span class="swim-arrow">→</span>` : '';
+      return `<span class="swim-step"><span class="swim-bubble ${cls}">${num}. ${escHtml(s.name)}</span>${arrow}</span>`;
+    }).join('');
+  }
+
+  let html = `
+    <div class="lane-header">
+      <div class="lane-label claude">Claude</div>
+      <div class="lane-steps">${bubblesHtml(claudeSteps, 'claude')}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--rule)">
+      <div class="lane-label maaike" style="border-right:1px solid var(--rule)">Maaike</div>
+      <div class="lane-steps">${bubblesHtml(maaSteps, 'maaike')}</div>
+    </div>`;
+
+  if (bothSteps.length) {
+    html += `
+    <div style="display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--rule)">
+      <div class="lane-label" style="border-right:1px solid var(--rule);color:var(--c-both)">Both</div>
+      <div class="lane-steps">${bubblesHtml(bothSteps, 'both')}</div>
+    </div>`;
+  }
+
+  document.getElementById('swim-lane').innerHTML = html;
+}
+
+function renderMarkdown() {
+  const name = document.getElementById('workflow-name').value.trim() || 'Workflow';
+  const named = steps.filter(s => s.name.trim());
+  if (!named.length) return;
+
+  const req = document.getElementById('request-input').value.trim();
+  const reqBlock = req ? `> ${req.replace(/\n/g, '\n> ')}\n\n` : '';
+
+  const ownerLabel = o => o === 'maaike' ? 'Maaike' : o === 'both' ? 'Both' : 'Claude';
+  const rows = named.map((s, i) => {
+    const desc = s.desc.trim().replace(/\|/g, '\\|') || '';
+    const n = String(i + 1).padEnd(2);
+    const nm = s.name.padEnd(30);
+    const ow = ownerLabel(s.owner).padEnd(8);
+    return `| ${n} | ${nm} | ${ow} | ${desc} |`;
+  });
+
+  const md = `## Workflow: ${name}\n\n${reqBlock}| # | Step | Who | Description |\n|---|------|-----|-------------|\n${rows.join('\n')}`;
+  document.getElementById('md-output').textContent = md;
+}
+
+function copyMarkdown() {
+  const text = document.getElementById('md-output').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Markdown'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Listen for workflow name changes ───────────────────────────────────────
+document.getElementById('workflow-name').addEventListener('input', renderPreview);
+
+// ── Seed with current ingest workflow as example ───────────────────────────
+addStep('Scrape URL metadata', 'claude', 'Auto-fetch title + description on inbox load');
+addStep('Review metadata', 'maaike', 'Edit title, description, tags if needed');
+addStep('Extract topics + associations', 'claude', 'Claude API call: TAO extraction');
+addStep('Approve or dismiss', 'maaike', 'One click: writes weblink, updates triples.json, git commit');
+document.getElementById('workflow-name').value = 'Ingest dashboard';
+renderPreview();
+</script>
+
+</body>
+</html>

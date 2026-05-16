@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-16T08:28:03.651Z",
+  "generated": "2026-05-16T08:40:48.879Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -105,6 +105,10 @@
     "articles/how-to-create-your-own-content-quality-audit": {
       "x": 0.4141,
       "y": 0.28
+    },
+    "articles/how-we-actually-compare": {
+      "x": 0.3311,
+      "y": 0.2881
     },
     "articles/is-conversation-still-a-useful-metaphor": {
       "x": 0.2537,
@@ -390,6 +394,10 @@
       "x": 0.5242,
       "y": 0.3839
     },
+    "weblinks/agentic-ai-design-patterns-2026-edition": {
+      "x": 0.2342,
+      "y": 0.4689
+    },
     "weblinks/ai-artificialintelligence-behavior-behaviour-behav": {
       "x": 0.4242,
       "y": 0.6805
@@ -434,6 +442,14 @@
       "x": 0.3165,
       "y": 0.8056
     },
+    "weblinks/from-generative-to-agentic-ai-a-roadmap-in-2026": {
+      "x": 0.7887,
+      "y": 0.6802
+    },
+    "weblinks/from-org-chart-to-work-chart-where-ai-value-really": {
+      "x": 0.3737,
+      "y": 0.4893
+    },
     "weblinks/instagram": {
       "x": 0.6642,
       "y": 0.5478
@@ -441,6 +457,10 @@
     "weblinks/it-s-like-this-why-perceptions-are-our-realities": {
       "x": 0.2218,
       "y": 0.5716
+    },
+    "weblinks/linkedin": {
+      "x": 0.1549,
+      "y": 0.625
     },
     "weblinks/masure-manifesto-acentric-design": {
       "x": 0.6557,
@@ -458,6 +478,10 @@
       "x": 0.4488,
       "y": 0.3099
     },
+    "weblinks/oh-my-nav": {
+      "x": 0.9021,
+      "y": 0.094
+    },
     "weblinks/robin-interactions-shared-manifolds": {
       "x": 0.6965,
       "y": 0.2186
@@ -465,6 +489,10 @@
     "weblinks/saga-knowledge-platform": {
       "x": 0.6174,
       "y": 0.7455
+    },
+    "weblinks/state-of-rag-genai": {
+      "x": 0.5085,
+      "y": 0.4246
     },
     "weblinks/structured-prompt-driven-development-spdd": {
       "x": 0.7777,
@@ -606,6 +634,10 @@
       "x": 0.4512,
       "y": 0.8814
     },
+    "library/2605-10310-positive-alignment-artificial-intelligence-for-hu": {
+      "x": 0.1052,
+      "y": 0.3595
+    },
     "library/a-court-of-thorns-and-roses": {
       "x": 0.4257,
       "y": 0.943
@@ -657,6 +689,10 @@
     "library/chatbot-marketing-mastery": {
       "x": 0.5247,
       "y": 0.209
+    },
+    "library/chatbots-are-not-people-designed-in-dangers-of-human-like-a-": {
+      "x": 0.2906,
+      "y": 0.8219
     },
     "library/classical-rhetoric-for-the-modern-student": {
       "x": 0.6703,
@@ -990,6 +1026,10 @@
       "x": 0.6748,
       "y": 0.6375
     },
+    "library/the-prompt-is-not-an-interface": {
+      "x": 0.857,
+      "y": 0.1699
+    },
     "library/the-sense-of-style": {
       "x": 0.7286,
       "y": 0.0749
@@ -1121,46 +1161,6 @@
     "jottings/u2-easter-parade": {
       "x": 0.4323,
       "y": 0.3486
-    },
-    "articles/how-we-actually-compare": {
-      "x": 0.3311,
-      "y": 0.2881
-    },
-    "weblinks/agentic-ai-design-patterns-2026-edition": {
-      "x": 0.2342,
-      "y": 0.4689
-    },
-    "weblinks/from-generative-to-agentic-ai-a-roadmap-in-2026": {
-      "x": 0.7887,
-      "y": 0.6802
-    },
-    "weblinks/from-org-chart-to-work-chart-where-ai-value-really": {
-      "x": 0.3737,
-      "y": 0.4893
-    },
-    "weblinks/linkedin": {
-      "x": 0.1549,
-      "y": 0.625
-    },
-    "weblinks/oh-my-nav": {
-      "x": 0.9021,
-      "y": 0.094
-    },
-    "weblinks/state-of-rag-genai": {
-      "x": 0.5085,
-      "y": 0.4246
-    },
-    "library/2605-10310-positive-alignment-artificial-intelligence-for-hu": {
-      "x": 0.1052,
-      "y": 0.3595
-    },
-    "library/chatbots-are-not-people-designed-in-dangers-of-human-like-a-": {
-      "x": 0.2906,
-      "y": 0.8219
-    },
-    "library/the-prompt-is-not-an-interface": {
-      "x": 0.857,
-      "y": 0.1699
     }
   },
   "territories": [

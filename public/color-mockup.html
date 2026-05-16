@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Earth tone accent — variants</title>
+<style>
+  /* ── Palette: terracotta accent ─────────────────────────── */
+  .pal-terracotta {
+    --bg: #FFFFFF;
+    --bg-card: #FAF7F2;
+    --text: #2A2A2A;
+    --muted: #7A7268;
+    --border: #E5DFD4;
+    --heading: #1A1A1A;
+    --accent: #A85A3C;          /* terracotta */
+    --accent-hover: #874228;
+    --accent-2: #6B7A52;         /* sage-olive (existing) */
+    --tag-bg: #ECE2CE;           /* warm sand */
+    --maturity-draft: #E8DCC0;
+    --maturity-developing: #C5D9C0;
+    --maturity-solid: #6B7A52;
+    --maturity-complete: #4A6038; /* deep moss */
+  }
+  .pal-terracotta[data-mode="dark"] {
+    --bg: #111111;
+    --bg-card: #1C1C1C;
+    --text: #E5DFD4;
+    --muted: #A89E92;
+    --border: #2A2A2A;
+    --heading: #F5EFE6;
+    --accent: #D88A6A;          /* terracotta light */
+    --accent-hover: #E8A488;
+    --accent-2: #A8B87E;
+    --tag-bg: #352E25;          /* warm earth */
+    --maturity-draft: #352E25;
+    --maturity-developing: #3E5A48;
+    --maturity-solid: #A8B87E;
+    --maturity-complete: #7A9968;
+  }
+
+  /* ── Palette: earth-green accent ────────────────────────── */
+  .pal-green {
+    --bg: #FFFFFF;
+    --bg-card: #FAF7F2;
+    --text: #2A2A2A;
+    --muted: #7A7268;
+    --border: #E5DFD4;
+    --heading: #1A1A1A;
+    --accent: #3E5638;          /* deep forest-moss */
+    --accent-hover: #2A3D26;
+    --accent-2: #9C7A3E;         /* warm bronze (was sage; shifted to give contrast) */
+    --tag-bg: #DDE6D0;           /* very pale moss / sage tint */
+    --maturity-draft: #E8DCC0;
+    --maturity-developing: #C5D9C0;
+    --maturity-solid: #6B7A52;
+    --maturity-complete: #A04A2C; /* warm rust — "ripe", differentiated from accent */
+  }
+  .pal-green[data-mode="dark"] {
+    --bg: #111111;
+    --bg-card: #1C1C1C;
+    --text: #E5DFD4;
+    --muted: #A89E92;
+    --border: #2A2A2A;
+    --heading: #F5EFE6;
+    --accent: #94B582;          /* pale moss */
+    --accent-hover: #B0CB9D;
+    --accent-2: #D6B07A;          /* warm bronze light */
+    --tag-bg: #2A332A;            /* deep moss-shadow */
+    --maturity-draft: #352E25;
+    --maturity-developing: #3E5A48;
+    --maturity-solid: #A8B87E;
+    --maturity-complete: #D88A6A; /* terracotta light */
+  }
+
+  /* ── Page chrome (minimal, white) ───────────────────────── */
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    color: #2A2A2A;
+    line-height: 1.5;
+  }
+  h1.page-h1 { font-size: 18px; margin: 0 0 4px; font-family: Georgia, serif; }
+  .lede { color: #7A7268; font-size: 13px; margin: 0 0 24px; max-width: 600px; }
+  .group-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #7A7268; margin: 28px 0 10px;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  /* ── Article surface ────────────────────────────────────── */
+  .article {
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 36px 36px;
+    border-radius: 6px;
+    font-family: Georgia, 'Lora', serif;
+    line-height: 1.7;
+    font-size: 15px;
+    border: 1px solid var(--border);
+  }
+  .article-meta {
+    display: flex; gap: 10px; align-items: center;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin: 0 0 12px;
+  }
+  .article-meta .dot { color: var(--border); }
+  .article-collection { color: var(--accent-2); font-weight: 600; }
+
+  .article h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--heading);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .article-desc {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 16px;
+    font-style: italic;
+  }
+
+  .tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 0 0 18px;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    color: var(--text);
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .tag:hover, .tag.is-hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Maturity track */
+  .maturity {
+    display: flex; align-items: center; gap: 0;
+    margin: 0 0 4px;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  }
+  .maturity-stage {
+    flex: 1 1 0;
+    height: 6px;
+    background: var(--border);
+    position: relative;
+  }
+  .maturity-stage:first-child { border-radius: 3px 0 0 3px; }
+  .maturity-stage:last-child  { border-radius: 0 3px 3px 0; }
+  .maturity-stage.is-active.s1 { background: var(--maturity-draft); }
+  .maturity-stage.is-active.s2 { background: var(--maturity-developing); }
+  .maturity-stage.is-active.s3 { background: var(--maturity-solid); }
+  .maturity-stage.is-active.s4 { background: var(--maturity-complete); }
+  .maturity-icon {
+    position: absolute; right: -6px; top: -8px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--maturity-complete);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+  .maturity-label {
+    margin: 6px 0 22px;
+    font-size: 11px; color: var(--muted);
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  }
+  .maturity-label strong { color: var(--maturity-complete); font-weight: 600; }
+
+  /* Article body */
+  .article-body p { margin: 0 0 14px; }
+  .article-body p:last-child { margin-bottom: 0; }
+  .article-body a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+  .article-body a:hover {
+    color: var(--accent-hover);
+    text-decoration-thickness: 2px;
+  }
+  .article-body strong { color: var(--heading); }
+  .article-body em { color: var(--text); }
+  .article-body code {
+    background: var(--tag-bg);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.85em;
+    color: var(--accent);
+  }
+  .article-body blockquote {
+    margin: 16px 0;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid var(--accent-2);
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Footer (CTAs) */
+  .article-footer {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    display: flex; gap: 8px; flex-wrap: wrap;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  }
+  .btn {
+    font-size: 13px;
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .btn-ghost:hover { background: var(--tag-bg); }
+
+  .label-pill {
+    position: absolute; top: 14px; right: 14px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em;
+    background: var(--bg-card);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .demo-wrap {
+    position: relative;
+  }
+
+  .swatch-row {
+    display: flex; gap: 8px; align-items: center;
+    margin: 6px 0 16px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 11px;
+    color: #555;
+  }
+  .swatch {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 1px solid #00000018;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-h1">Earth tone accent: two variants</h1>
+<p class="lede">Each is a representative article surface. Same content, different palette. Top row light mode, bottom dark.</p>
+
+<div class="swatch-row">
+  <span><strong>A. Terracotta</strong> accent →</span>
+  <span class="swatch" style="background:#A85A3C"></span> #A85A3C light
+  <span class="swatch" style="background:#D88A6A"></span> #D88A6A dark
+  <span style="margin-left:18px"><strong>B. Earth-green</strong> accent →</span>
+  <span class="swatch" style="background:#3E5638"></span> #3E5638 light
+  <span class="swatch" style="background:#94B582"></span> #94B582 dark
+</div>
+
+<div class="group-title">Light mode</div>
+<div class="grid">
+
+  <!-- A light -->
+  <div class="pal-terracotta demo-wrap">
+    <span class="label-pill">A · Terracotta</span>
+    <article class="article">
+      <p class="article-meta">
+        <span class="article-collection">Field note</span>
+        <span class="dot">·</span>
+        <span>Published 12 Mar 2026</span>
+        <span class="dot">·</span>
+        <span>Tended 2 Apr 2026</span>
+      </p>
+      <h1>Why most chatbots should be forms</h1>
+      <p class="article-desc">A short field note on the productisation gap between conversation and language models.</p>
+
+      <div class="tags">
+        <span class="tag">conversation design</span>
+        <span class="tag is-hover">generative AI</span>
+        <span class="tag">chatbots</span>
+        <span class="tag">language</span>
+      </div>
+
+      <div class="maturity">
+        <div class="maturity-stage is-active s1"></div>
+        <div class="maturity-stage is-active s2"></div>
+        <div class="maturity-stage is-active s3"></div>
+        <div class="maturity-stage is-active s4"><div class="maturity-icon">🌳</div></div>
+      </div>
+      <p class="maturity-label"><strong>Complete</strong> · the piece has settled</p>
+
+      <div class="article-body">
+        <p>Most products labelled "AI conversation" would be better served by a <strong>well-designed form</strong>. The reason is not that chat is wrong; it is that the cost of <em>open input</em> is rarely worth the marginal value over a few well-placed fields.</p>
+        <p>For a deeper take, see <a href="#">the related article on conversational interfaces</a>, or browse the <code>/articles</code> archive.</p>
+        <blockquote>The interface should match the shape of the question, not the shape of the model behind it.</blockquote>
+        <p>This connects to several other pieces in the garden: notes on <a href="#">imposter syndrome in conversation design</a>, and the <a href="#">Convoclub experiments</a>.</p>
+      </div>
+
+      <div class="article-footer">
+        <button class="btn btn-primary">Subscribe to updates</button>
+        <button class="btn btn-ghost">View tag: chatbots</button>
+      </div>
+    </article>
+  </div>
+
+  <!-- B light -->
+  <div class="pal-green demo-wrap">
+    <span class="label-pill">B · Earth-green</span>
+    <article class="article">
+      <p class="article-meta">
+        <span class="article-collection">Field note</span>
+        <span class="dot">·</span>
+        <span>Published 12 Mar 2026</span>
+        <span class="dot">·</span>
+        <span>Tended 2 Apr 2026</span>
+      </p>
+      <h1>Why most chatbots should be forms</h1>
+      <p class="article-desc">A short field note on the productisation gap between conversation and language models.</p>
+
+      <div class="tags">
+        <span class="tag">conversation design</span>
+        <span class="tag is-hover">generative AI</span>
+        <span class="tag">chatbots</span>
+        <span class="tag">language</span>
+      </div>
+
+      <div class="maturity">
+        <div class="maturity-stage is-active s1"></div>
+        <div class="maturity-stage is-active s2"></div>
+        <div class="maturity-stage is-active s3"></div>
+        <div class="maturity-stage is-active s4"><div class="maturity-icon">🌳</div></div>
+      </div>
+      <p class="maturity-label"><strong>Complete</strong> · the piece has settled</p>
+
+      <div class="article-body">
+        <p>Most products labelled "AI conversation" would be better served by a <strong>well-designed form</strong>. The reason is not that chat is wrong; it is that the cost of <em>open input</em> is rarely worth the marginal value over a few well-placed fields.</p>
+        <p>For a deeper take, see <a href="#">the related article on conversational interfaces</a>, or browse the <code>/articles</code> archive.</p>
+        <blockquote>The interface should match the shape of the question, not the shape of the model behind it.</blockquote>
+        <p>This connects to several other pieces in the garden: notes on <a href="#">imposter syndrome in conversation design</a>, and the <a href="#">Convoclub experiments</a>.</p>
+      </div>
+
+      <div class="article-footer">
+        <button class="btn btn-primary">Subscribe to updates</button>
+        <button class="btn btn-ghost">View tag: chatbots</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="group-title">Dark mode</div>
+<div class="grid">
+
+  <!-- A dark -->
+  <div class="pal-terracotta demo-wrap" data-mode="dark">
+    <span class="label-pill">A · Terracotta</span>
+    <article class="article">
+      <p class="article-meta">
+        <span class="article-collection">Field note</span>
+        <span class="dot">·</span>
+        <span>Published 12 Mar 2026</span>
+        <span class="dot">·</span>
+        <span>Tended 2 Apr 2026</span>
+      </p>
+      <h1>Why most chatbots should be forms</h1>
+      <p class="article-desc">A short field note on the productisation gap between conversation and language models.</p>
+      <div class="tags">
+        <span class="tag">conversation design</span>
+        <span class="tag is-hover">generative AI</span>
+        <span class="tag">chatbots</span>
+        <span class="tag">language</span>
+      </div>
+      <div class="maturity">
+        <div class="maturity-stage is-active s1"></div>
+        <div class="maturity-stage is-active s2"></div>
+        <div class="maturity-stage is-active s3"></div>
+        <div class="maturity-stage is-active s4"><div class="maturity-icon">🌳</div></div>
+      </div>
+      <p class="maturity-label"><strong>Complete</strong> · the piece has settled</p>
+      <div class="article-body">
+        <p>Most products labelled "AI conversation" would be better served by a <strong>well-designed form</strong>. The reason is not that chat is wrong; it is that the cost of <em>open input</em> is rarely worth the marginal value over a few well-placed fields.</p>
+        <p>For a deeper take, see <a href="#">the related article on conversational interfaces</a>, or browse the <code>/articles</code> archive.</p>
+        <blockquote>The interface should match the shape of the question, not the shape of the model behind it.</blockquote>
+        <p>This connects to several other pieces in the garden: notes on <a href="#">imposter syndrome in conversation design</a>, and the <a href="#">Convoclub experiments</a>.</p>
+      </div>
+      <div class="article-footer">
+        <button class="btn btn-primary">Subscribe to updates</button>
+        <button class="btn btn-ghost">View tag: chatbots</button>
+      </div>
+    </article>
+  </div>
+
+  <!-- B dark -->
+  <div class="pal-green demo-wrap" data-mode="dark">
+    <span class="label-pill">B · Earth-green</span>
+    <article class="article">
+      <p class="article-meta">
+        <span class="article-collection">Field note</span>
+        <span class="dot">·</span>
+        <span>Published 12 Mar 2026</span>
+        <span class="dot">·</span>
+        <span>Tended 2 Apr 2026</span>
+      </p>
+      <h1>Why most chatbots should be forms</h1>
+      <p class="article-desc">A short field note on the productisation gap between conversation and language models.</p>
+      <div class="tags">
+        <span class="tag">conversation design</span>
+        <span class="tag is-hover">generative AI</span>
+        <span class="tag">chatbots</span>
+        <span class="tag">language</span>
+      </div>
+      <div class="maturity">
+        <div class="maturity-stage is-active s1"></div>
+        <div class="maturity-stage is-active s2"></div>
+        <div class="maturity-stage is-active s3"></div>
+        <div class="maturity-stage is-active s4"><div class="maturity-icon">🌳</div></div>
+      </div>
+      <p class="maturity-label"><strong>Complete</strong> · the piece has settled</p>
+      <div class="article-body">
+        <p>Most products labelled "AI conversation" would be better served by a <strong>well-designed form</strong>. The reason is not that chat is wrong; it is that the cost of <em>open input</em> is rarely worth the marginal value over a few well-placed fields.</p>
+        <p>For a deeper take, see <a href="#">the related article on conversational interfaces</a>, or browse the <code>/articles</code> archive.</p>
+        <blockquote>The interface should match the shape of the question, not the shape of the model behind it.</blockquote>
+        <p>This connects to several other pieces in the garden: notes on <a href="#">imposter syndrome in conversation design</a>, and the <a href="#">Convoclub experiments</a>.</p>
+      </div>
+      <div class="article-footer">
+        <button class="btn btn-primary">Subscribe to updates</button>
+        <button class="btn btn-ghost">View tag: chatbots</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<p style="margin-top:32px; font-size:12px; color:#7A7268">In the green palette, accent-2 has been shifted from sage (#6B7A52) to warm bronze (#9C7A3E) so the secondary still contrasts the primary. Maturity-complete also flips: terracotta in the green palette, moss in the terracotta palette — so "complete" stays visually distinct from accent in either case.</p>
+
+</body>
+</html>

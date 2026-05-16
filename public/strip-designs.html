@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strip design options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #F5F4F1; color: #1A1A1A;
+    display: flex; gap: 32px; padding: 40px; min-height: 100vh; }
+
+  .col { width: 240px; display: flex; flex-direction: column; gap: 4px; }
+  .col h2 { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #888; margin-bottom: 12px; }
+
+  /* Shared card base */
+  .card {
+    background: #FAFAF8; border-radius: 4px; cursor: pointer;
+    transition: background 120ms;
+    display: flex; align-items: stretch;
+  }
+  .card:hover { background: #F0EDE8; }
+
+  .card-body {
+    flex: 1; padding: 7px 10px 7px 0;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .card-title {
+    font-size: 13px; font-weight: 400; color: #1A1A1A; line-height: 1.4;
+    height: calc(2 * 1.4 * 13px); overflow: hidden;
+  }
+  .card-preview {
+    font-size: 11px; color: #888; line-height: 1.35;
+    height: calc(2 * 1.35 * 11px); overflow: hidden;
+  }
+  .card-badge {
+    font-size: 9.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 1px 5px; border-radius: 2px; align-self: flex-start; margin-top: 2px;
+  }
+  .badge-pending  { background: #C87D2F; color: #fff; }
+  .badge-done     { background: #2A8C6E; color: #fff; }
+  .badge-skipped  { background: #C8C4BB; color: #555; }
+
+  /* ── A: Thick flush stripe ── */
+  .a-card { border-left: 6px solid #C8C4BB; padding-left: 10px; border-radius: 0 4px 4px 0; }
+  .a-card .card-body { padding-left: 0; }
+  .a-card.pending { border-left-color: #C87D2F; }
+  .a-card.done    { border-left-color: #2A8C6E; }
+  .a-card.skipped { border-left-color: #C8C4BB; opacity: 0.55; }
+
+  /* ── B: Tinted background + thin stripe ── */
+  .b-card { border-radius: 4px; overflow: hidden; }
+  .b-strip { width: 3px; flex-shrink: 0; }
+  .b-card.pending { background: #FEF4EA; }
+  .b-card.pending .b-strip { background: #C87D2F; }
+  .b-card.done    { background: #EAF6F1; }
+  .b-card.done    .b-strip { background: #2A8C6E; }
+  .b-card.skipped { background: #F5F4F1; opacity: 0.55; }
+  .b-card.skipped .b-strip { background: #C8C4BB; }
+  .b-card .card-body { padding-left: 10px; }
+
+  /* ── C: Dot before title, no strip ── */
+  .c-card { padding: 7px 10px; border-radius: 4px; }
+  .c-card.skipped { opacity: 0.55; }
+  .c-dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    margin-right: 6px; flex-shrink: 0; margin-top: 3px;
+  }
+  .c-card.pending .c-dot { background: #C87D2F; }
+  .c-card.done    .c-dot { background: #2A8C6E; }
+  .c-card.skipped .c-dot { background: #C8C4BB; }
+  .c-title-row { display: flex; align-items: flex-start; }
+  .c-title-row .card-title { flex: 1; }
+  .c-card .card-body { padding: 0; gap: 3px; }
+</style>
+</head>
+<body>
+
+<!-- Option A -->
+<div class="col">
+  <h2>A — thick left border</h2>
+
+  <div class="card a-card pending">
+    <div class="card-body">
+      <div class="card-title">Fieldwork for Future Ecologies | Onomatopee</div>
+      <div class="card-preview">An exhibition exploring fieldwork as a mode of engaging with ecological futures.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card a-card pending">
+    <div class="card-body">
+      <div class="card-title">The AI Draft: A Process Essay Nobody Asked For</div>
+      <div class="card-preview">On writing with AI and what that changes about the process itself.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card a-card done">
+    <div class="card-body">
+      <div class="card-title">China's Approach to AI Anthropomorphism</div>
+      <div class="card-preview">How Chinese design culture frames AI personality differently.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card a-card done">
+    <div class="card-body">
+      <div class="card-title">Metaphors for Designers Working with AI</div>
+      <div class="card-preview">Which metaphors help, which mislead, which stick.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card a-card skipped">
+    <div class="card-body">
+      <div class="card-title">Symbolic AI for the win</div>
+      <div class="card-preview">The case for symbolic approaches in an LLM-dominated landscape.</div>
+      <span class="card-badge badge-skipped">Skipped</span>
+    </div>
+  </div>
+</div>
+
+<!-- Option B -->
+<div class="col">
+  <h2>B — tinted background</h2>
+
+  <div class="card b-card pending">
+    <div class="b-strip"></div>
+    <div class="card-body">
+      <div class="card-title">Fieldwork for Future Ecologies | Onomatopee</div>
+      <div class="card-preview">An exhibition exploring fieldwork as a mode of engaging with ecological futures.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card b-card pending">
+    <div class="b-strip"></div>
+    <div class="card-body">
+      <div class="card-title">The AI Draft: A Process Essay Nobody Asked For</div>
+      <div class="card-preview">On writing with AI and what that changes about the process itself.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card b-card done">
+    <div class="b-strip"></div>
+    <div class="card-body">
+      <div class="card-title">China's Approach to AI Anthropomorphism</div>
+      <div class="card-preview">How Chinese design culture frames AI personality differently.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card b-card done">
+    <div class="b-strip"></div>
+    <div class="card-body">
+      <div class="card-title">Metaphors for Designers Working with AI</div>
+      <div class="card-preview">Which metaphors help, which mislead, which stick.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card b-card skipped">
+    <div class="b-strip"></div>
+    <div class="card-body">
+      <div class="card-title">Symbolic AI for the win</div>
+      <div class="card-preview">The case for symbolic approaches in an LLM-dominated landscape.</div>
+      <span class="card-badge badge-skipped">Skipped</span>
+    </div>
+  </div>
+</div>
+
+<!-- Option C -->
+<div class="col">
+  <h2>C — status dot</h2>
+
+  <div class="card c-card pending">
+    <div class="card-body">
+      <div class="c-title-row">
+        <span class="c-dot"></span>
+        <div class="card-title">Fieldwork for Future Ecologies | Onomatopee</div>
+      </div>
+      <div class="card-preview">An exhibition exploring fieldwork as a mode of engaging with ecological futures.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card c-card pending">
+    <div class="card-body">
+      <div class="c-title-row">
+        <span class="c-dot"></span>
+        <div class="card-title">The AI Draft: A Process Essay Nobody Asked For</div>
+      </div>
+      <div class="card-preview">On writing with AI and what that changes about the process itself.</div>
+      <span class="card-badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <div class="card c-card done">
+    <div class="card-body">
+      <div class="c-title-row">
+        <span class="c-dot"></span>
+        <div class="card-title">China's Approach to AI Anthropomorphism</div>
+      </div>
+      <div class="card-preview">How Chinese design culture frames AI personality differently.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card c-card done">
+    <div class="card-body">
+      <div class="c-title-row">
+        <span class="c-dot"></span>
+        <div class="card-title">Metaphors for Designers Working with AI</div>
+      </div>
+      <div class="card-preview">Which metaphors help, which mislead, which stick.</div>
+      <span class="card-badge badge-done">Applied</span>
+    </div>
+  </div>
+
+  <div class="card c-card skipped">
+    <div class="card-body">
+      <div class="c-title-row">
+        <span class="c-dot"></span>
+        <div class="card-title">Symbolic AI for the win</div>
+      </div>
+      <div class="card-preview">The case for symbolic approaches in an LLM-dominated landscape.</div>
+      <span class="card-badge badge-skipped">Skipped</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
