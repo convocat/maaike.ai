@@ -7988,6 +7988,143 @@
         "digital-garden"
       ],
       "role": "framework"
+    },
+    "douglas-engelbart": {
+      "label": "Douglas Engelbart",
+      "type": "person",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "mother-of-all-demos": {
+      "label": "Mother of all demos",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "nls-augment": {
+      "label": "NLS / Augment",
+      "type": "technology",
+      "lens": [
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling"
+      ],
+      "role": "instrument"
+    },
+    "augmenting-human-intellect": {
+      "label": "Augmenting human intellect",
+      "type": "concept",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "h-lam-t": {
+      "label": "H-LAM/T framework",
+      "type": "method",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "interaction-design",
+        "content-design"
+      ],
+      "role": "framework"
+    },
+    "networked-improvement-community": {
+      "label": "Networked Improvement Community",
+      "type": "concept",
+      "lens": [
+        "design",
+        "culture"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "position"
+    },
+    "bootstrapping-engelbart": {
+      "label": "Bootstrapping (Engelbart)",
+      "type": "method",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling"
+      ],
+      "role": "instrument"
+    },
+    "ben-shneiderman": {
+      "label": "Ben Shneiderman",
+      "type": "person",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "framework"
+    },
+    "chevruta": {
+      "label": "Chevruta",
+      "type": "metaphor",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "user-user-machine-interface": {
+      "label": "User-user-machine interface",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "conversation-design"
+      ],
+      "role": "position"
+    },
+    "desktop-metaphor": {
+      "label": "Desktop metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "counter-position"
     }
   },
   "associations": [
@@ -14177,6 +14314,62 @@
       "object": "doug-engelbart",
       "source": "firsts-the-demo-doug-engelbart-institute",
       "collection": "weblinks"
+    },
+    {
+      "subject": "augmenting-human-intellect",
+      "predicate": "theorised-by",
+      "object": "douglas-engelbart",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "nls-augment",
+      "predicate": "demonstrates",
+      "object": "augmenting-human-intellect",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "mother-of-all-demos",
+      "predicate": "demonstrates",
+      "object": "nls-augment",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "h-lam-t",
+      "predicate": "structured-as",
+      "object": "augmenting-human-intellect",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "networked-improvement-community",
+      "predicate": "presupposes",
+      "object": "h-lam-t",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "user-user-machine-interface",
+      "predicate": "better-fits",
+      "object": "networked-improvement-community",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "bootstrapping-engelbart",
+      "predicate": "coined-by",
+      "object": "douglas-engelbart",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "desktop-metaphor",
+      "predicate": "breaks-down-for",
+      "object": "human-llm-collaboration",
+      "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
     }
   ]
 }
