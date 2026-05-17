@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-17T10:11:02.689Z",
+  "generated": "2026-05-17T10:12:34.944Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -186,6 +186,10 @@
       "x": 0.3509,
       "y": 0.1658
     },
+    "articles/watch-notes-doug-engelbart-accelerating-change-2004": {
+      "x": 0.5087,
+      "y": 0.5316
+    },
     "articles/watch-notes-on-the-mother-of-all-demos": {
       "x": 0.2953,
       "y": 0.8042
@@ -334,6 +338,10 @@
       "x": 0.4697,
       "y": 0.6181
     },
+    "seeds/collective-iq": {
+      "x": 0.4826,
+      "y": 0.3856
+    },
     "seeds/crew-resource-management": {
       "x": 0.4572,
       "y": 0.4278
@@ -382,6 +390,10 @@
       "x": 0.5823,
       "y": 0.8866
     },
+    "seeds/scaling-laws-for-augmentation": {
+      "x": 0.29,
+      "y": 0.6497
+    },
     "seeds/style-guide-for-ai": {
       "x": 0.4887,
       "y": 0.6779
@@ -389,6 +401,10 @@
     "seeds/the-disappearance-of-authentic-voice-online": {
       "x": 0.6308,
       "y": 0.319
+    },
+    "seeds/the-proof-layer-llms-are-missing": {
+      "x": 0.2965,
+      "y": 0.3393
     },
     "seeds/the-return-of-the-button": {
       "x": 0.8872,
@@ -499,8 +515,8 @@
       "y": 0.094
     },
     "weblinks/robin-interactions-shared-manifolds": {
-      "x": 0.6965,
-      "y": 0.2186
+      "x": 0.6986,
+      "y": 0.2153
     },
     "weblinks/saga-knowledge-platform": {
       "x": 0.6174,
@@ -719,8 +735,8 @@
       "y": 0.0757
     },
     "library/consciousness-and-robot-sentience": {
-      "x": 0.7059,
-      "y": 0.2702
+      "x": 0.707,
+      "y": 0.2704
     },
     "library/content-strategy-at-work": {
       "x": 0.77,
@@ -847,8 +863,8 @@
       "y": 0.1533
     },
     "library/i-robot": {
-      "x": 0.6834,
-      "y": 0.2801
+      "x": 0.6835,
+      "y": 0.2886
     },
     "library/id-blush-if-i-could": {
       "x": 0.8115,
@@ -1015,8 +1031,8 @@
       "y": 0.5432
     },
     "library/the-big-con": {
-      "x": 0.7084,
-      "y": 0.1889
+      "x": 0.7093,
+      "y": 0.1866
     },
     "library/the-bowery-boys": {
       "x": 0.3308,
@@ -1027,8 +1043,8 @@
       "y": 0.9312
     },
     "library/the-complete-robot": {
-      "x": 0.6846,
-      "y": 0.2511
+      "x": 0.6822,
+      "y": 0.2427
     },
     "library/the-design-of-everyday-things": {
       "x": 0.8693,
@@ -1182,21 +1198,9 @@
       "x": 0.4323,
       "y": 0.3486
     },
-    "articles/watch-notes-doug-engelbart-accelerating-change-2004": {
-      "x": 0.5087,
-      "y": 0.5316
-    },
-    "seeds/collective-iq": {
-      "x": 0.4826,
-      "y": 0.3856
-    },
-    "seeds/scaling-laws-for-augmentation": {
-      "x": 0.29,
-      "y": 0.6497
-    },
-    "seeds/the-proof-layer-llms-are-missing": {
-      "x": 0.2965,
-      "y": 0.3393
+    "seeds/bootstrapping-engelbart-sense": {
+      "x": 0.6823,
+      "y": 0.266
     }
   },
   "territories": [
@@ -1246,7 +1250,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 28
+      "itemCount": 29
     },
     {
       "label": "developer-experience",

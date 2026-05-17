@@ -553,6 +553,18 @@
       "connections": 0
     },
     {
+      "slug": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "title": "Watch notes: Doug Engelbart at Accelerating Change 2004",
+      "collection": "articles",
+      "maturity": "draft",
+      "description": "Watching Doug Engelbart's 2004 Accelerating Change keynote, 36 years after the demo. Running notes with Claude on tool systems vs human systems, collective capability, dimensional scaling, and what a post-conversation augmentation field could look like.",
+      "url": "/articles/watch-notes-doug-engelbart-accelerating-change-2004",
+      "x": 0.5087,
+      "y": 0.5316,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "watch-notes-on-the-mother-of-all-demos",
       "title": "Watch notes on the Mother of all demos",
       "collection": "articles",
@@ -997,6 +1009,18 @@
       "connections": 0
     },
     {
+      "slug": "collective-iq",
+      "title": "Collective IQ",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Engelbart's central concept: the capacity of a group, organization, or society to address complex urgent problems. The thing he kept naming, and the thing the industry kept losing.",
+      "url": "/seeds/collective-iq",
+      "x": 0.4826,
+      "y": 0.3856,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "crew-resource-management",
       "title": "Crew Resource Management",
       "collection": "seeds",
@@ -1141,6 +1165,18 @@
       "connections": 0
     },
     {
+      "slug": "scaling-laws-for-augmentation",
+      "title": "Scaling laws for augmentation",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Engelbart said scaling is a science. Dimensional scaling applies to organisations, to human-plus-agent collectives, and to the problems we are trying to solve. Each regime needs the form redesigned.",
+      "url": "/seeds/scaling-laws-for-augmentation",
+      "x": 0.29,
+      "y": 0.6497,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "style-guide-for-ai",
       "title": "Style guide for AI",
       "collection": "seeds",
@@ -1163,6 +1199,18 @@
       "y": 0.319,
       "keyphrases": [],
       "connections": 3
+    },
+    {
+      "slug": "the-proof-layer-llms-are-missing",
+      "title": "The proof layer LLMs are missing",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "LLMs solved the language-translation half of knowledge interop. The verification half is largely unbuilt: provenance, claim attribution, signed assertions, grounding evals, shared verification standards.",
+      "url": "/seeds/the-proof-layer-llms-are-missing",
+      "x": 0.2965,
+      "y": 0.3393,
+      "keyphrases": [],
+      "connections": 0
     },
     {
       "slug": "the-return-of-the-button",
@@ -1495,8 +1543,8 @@
       "maturity": "solid",
       "description": "A process post by Lucio Arese: he is recording many interactions between robins and using the material to build visual models of 'shared manifolds' between multiple individuals, alongside reading the literature on territorial interactions. The work continues his project of treating birdsong as data; the new dimension is multi-individual rather than single-bird.",
       "url": "/weblinks/robin-interactions-shared-manifolds",
-      "x": 0.6965,
-      "y": 0.2186,
+      "x": 0.6986,
+      "y": 0.2153,
       "keyphrases": [],
       "connections": 1
     },
@@ -2299,8 +2347,8 @@
       "maturity": "draft",
       "description": "Thirty-one stories spanning Asimov's entire robot series, from the earliest positronic experiments to the philosophical implications of machine minds",
       "url": "/library/the-complete-robot",
-      "x": 0.6846,
-      "y": 0.2511,
+      "x": 0.6822,
+      "y": 0.2427,
       "keyphrases": [],
       "connections": 0
     },
@@ -2557,50 +2605,14 @@
       "connections": 0
     },
     {
-      "slug": "watch-notes-doug-engelbart-accelerating-change-2004",
-      "title": "Watch notes: Doug Engelbart at Accelerating Change 2004",
-      "collection": "articles",
-      "maturity": "draft",
-      "description": "Watching Doug Engelbart's 2004 Accelerating Change keynote, 36 years after the demo. Running notes with Claude on tool systems vs human systems, collective capability, dimensional scaling, and what a post-conversation augmentation field could look like.",
-      "url": "/articles/watch-notes-doug-engelbart-accelerating-change-2004",
-      "x": 0.5087,
-      "y": 0.5316,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "collective-iq",
-      "title": "Collective IQ",
+      "slug": "bootstrapping-engelbart-sense",
+      "title": "Bootstrapping in the strict, Engelbart sense",
       "collection": "seeds",
       "maturity": "draft",
-      "description": "Engelbart's central concept: the capacity of a group, organization, or society to address complex urgent problems. The thing he kept naming, and the thing the industry kept losing.",
-      "url": "/seeds/collective-iq",
-      "x": 0.4826,
-      "y": 0.3856,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "scaling-laws-for-augmentation",
-      "title": "Scaling laws for augmentation",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Engelbart said scaling is a science. Dimensional scaling applies to organisations, to human-plus-agent collectives, and to the problems we are trying to solve. Each regime needs the form redesigned.",
-      "url": "/seeds/scaling-laws-for-augmentation",
-      "x": 0.29,
-      "y": 0.6497,
-      "keyphrases": [],
-      "connections": 0
-    },
-    {
-      "slug": "the-proof-layer-llms-are-missing",
-      "title": "The proof layer LLMs are missing",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "LLMs solved the language-translation half of knowledge interop. The verification half is largely unbuilt: provenance, claim attribution, signed assertions, grounding evals, shared verification standards.",
-      "url": "/seeds/the-proof-layer-llms-are-missing",
-      "x": 0.2965,
-      "y": 0.3393,
+      "description": "Not the idiom. A recursive engineering discipline: A-activity does the work, B-activity improves how A is done, C-activity improves how B is done. The leverage is at C, and almost nobody runs it.",
+      "url": "/seeds/bootstrapping-engelbart-sense",
+      "x": 0.6823,
+      "y": 0.266,
       "keyphrases": [],
       "connections": 0
     }
@@ -2652,7 +2664,7 @@
       "label": "philosophy",
       "centerX": 0.7835,
       "centerY": 0.2447,
-      "itemCount": 28
+      "itemCount": 29
     },
     {
       "label": "developer-experience",
@@ -2761,11 +2773,11 @@
             ],
             [
               0.613,
-              0.003
+              0.002
             ],
             [
               0.645,
-              0.002
+              0.001
             ],
             [
               0.677,
@@ -2773,15 +2785,21 @@
             ],
             [
               0.71,
-              0.001
+              0
             ],
             [
               0.742,
-              0.001
+              0
             ],
             [
-              0.774,
-              0.001
+              0.767,
+              0
+            ]
+          ],
+          [
+            [
+              0.776,
+              0
             ],
             [
               0.806,
@@ -2800,7 +2818,7 @@
               0.029
             ],
             [
-              0.907,
+              0.908,
               0.032
             ],
             [
@@ -2836,7 +2854,7 @@
               0.226
             ],
             [
-              0.979,
+              0.98,
               0.258
             ],
             [
@@ -2844,7 +2862,7 @@
               0.29
             ],
             [
-              0.972,
+              0.973,
               0.323
             ],
             [
@@ -3134,115 +3152,115 @@
             ],
             [
               0.516,
-              0.095
+              0.094
             ],
             [
               0.548,
-              0.096
+              0.094
             ],
             [
               0.581,
-              0.095
+              0.093
             ],
             [
               0.613,
-              0.095
+              0.092
             ],
             [
               0.645,
-              0.096
-            ],
-            [
-              0.657,
-              0.097
+              0.092
             ],
             [
               0.677,
-              0.098
+              0.094
+            ],
+            [
+              0.707,
+              0.097
             ],
             [
               0.71,
-              0.101
+              0.097
             ],
             [
               0.742,
-              0.106
+              0.101
             ],
             [
               0.774,
-              0.111
+              0.107
             ],
             [
               0.806,
-              0.12
+              0.116
             ],
             [
-              0.826,
+              0.832,
               0.129
             ],
             [
               0.839,
-              0.138
+              0.134
             ],
             [
-              0.859,
+              0.862,
               0.161
             ],
             [
               0.871,
-              0.187
+              0.181
             ],
             [
-              0.873,
+              0.875,
               0.194
             ],
             [
-              0.878,
+              0.88,
               0.226
             ],
             [
-              0.877,
+              0.88,
               0.258
             ],
             [
-              0.871,
+              0.874,
               0.29
             ],
             [
               0.871,
-              0.292
+              0.3
             ],
             [
-              0.861,
+              0.863,
               0.323
             ],
             [
-              0.847,
+              0.85,
               0.355
             ],
             [
               0.839,
-              0.375
+              0.382
             ],
             [
-              0.832,
+              0.835,
               0.387
             ],
             [
-              0.824,
+              0.828,
               0.419
             ],
             [
               0.839,
-              0.441
+              0.438
             ],
             [
-              0.847,
+              0.849,
               0.452
             ],
             [
               0.871,
-              0.463
+              0.462
             ],
             [
               0.903,
@@ -3635,13 +3653,14 @@
         "guildford-talk-ideas",
         "beyond-the-chat-box",
         "how-to-design-when-concept-of-operations-is-opaque",
-        "watch-notes-on-the-mother-of-all-demos",
-        "h-lam-t-framework",
-        "user-user-machine-interfaces",
         "watch-notes-doug-engelbart-accelerating-change-2004",
+        "watch-notes-on-the-mother-of-all-demos",
         "collective-iq",
+        "h-lam-t-framework",
         "scaling-laws-for-augmentation",
-        "the-proof-layer-llms-are-missing"
+        "the-proof-layer-llms-are-missing",
+        "user-user-machine-interfaces",
+        "bootstrapping-engelbart-sense"
       ],
       "type": "project"
     },

@@ -40,3 +40,4 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-17**: Added seed [[collective-iq|Collective IQ]]
 - **2026-05-17**: Added seed [[scaling-laws-for-augmentation|Scaling laws for augmentation]]
 - **2026-05-17**: Added seed [[the-proof-layer-llms-are-missing|The proof layer LLMs are missing]]
+- **2026-05-17**: Added seed [[bootstrapping-engelbart-sense|Bootstrapping in the strict, Engelbart sense]]
