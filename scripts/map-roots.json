@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-17T10:23:26.824Z",
+  "generated": "2026-05-17T15:25:50.420Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -855,8 +855,8 @@
       "y": 0.124
     },
     "library/how-to-talk-to-robots": {
-      "x": 0.5829,
-      "y": 0.2134
+      "x": 0.5822,
+      "y": 0.2121
     },
     "library/how-we-became-posthuman": {
       "x": 0.3407,
@@ -1201,6 +1201,10 @@
     "jottings/u2-easter-parade": {
       "x": 0.4323,
       "y": 0.3486
+    },
+    "seeds/conversational-patterns-for-human-machine-interaction": {
+      "x": 0.5938,
+      "y": 0.2337
     }
   },
   "territories": [
@@ -1208,7 +1212,7 @@
       "label": "conversation-design",
       "centerX": 0.458,
       "centerY": 0.1815,
-      "itemCount": 28
+      "itemCount": 29
     },
     {
       "label": "ai",

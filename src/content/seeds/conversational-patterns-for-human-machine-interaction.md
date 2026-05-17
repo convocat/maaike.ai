@@ -3,10 +3,10 @@ title: "Conversational patterns for human-machine interaction"
 description: "Schegloff mapped conversational patterns for human-human interaction. We need new ones for human-machine interaction, and conflating the two harms both."
 date: 2026-03-27
 maturity: draft
-draft: true
+draft: false
 tags: []
-ai: "assisted"
-develops: conversational-patterns-for-human-machine-interaction
+ai: assisted
+develops: conference-talk-guildford
 ---
 
 Human conversation has conversational patterns: Schegloff ([Sacks, Schegloff & Jefferson, 1974](https://psycnet.apa.org/record/2006-13301-000)). But those are for human-human conversation.

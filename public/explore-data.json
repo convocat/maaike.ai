@@ -2179,8 +2179,8 @@
       "maturity": "draft",
       "description": "A practical guide for women and non-technical audiences to understand and shape the AI industry, rather than be shaped by it",
       "url": "/library/how-to-talk-to-robots",
-      "x": 0.5829,
-      "y": 0.2134,
+      "x": 0.5822,
+      "y": 0.2121,
       "keyphrases": [],
       "connections": 0
     },
@@ -2615,6 +2615,18 @@
       "y": 0.3486,
       "keyphrases": [],
       "connections": 0
+    },
+    {
+      "slug": "conversational-patterns-for-human-machine-interaction",
+      "title": "Conversational patterns for human-machine interaction",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Schegloff mapped conversational patterns for human-human interaction. We need new ones for human-machine interaction, and conflating the two harms both.",
+      "url": "/seeds/conversational-patterns-for-human-machine-interaction",
+      "x": 0.5938,
+      "y": 0.2337,
+      "keyphrases": [],
+      "connections": 0
     }
   ],
   "territories": [
@@ -2622,7 +2634,7 @@
       "label": "conversation-design",
       "centerX": 0.458,
       "centerY": 0.1815,
-      "itemCount": 28
+      "itemCount": 29
     },
     {
       "label": "ai",
@@ -2757,48 +2769,36 @@
             ],
             [
               0.484,
-              0.008
-            ],
-            [
-              0.516,
               0.007
             ],
             [
-              0.548,
+              0.516,
               0.006
             ],
             [
-              0.581,
+              0.548,
               0.004
             ],
             [
+              0.581,
+              0.003
+            ],
+            [
               0.613,
-              0.002
+              0.001
             ],
             [
               0.645,
-              0.001
-            ],
-            [
-              0.677,
-              0.001
-            ],
-            [
-              0.71,
               0
             ],
             [
-              0.742,
-              0
-            ],
-            [
-              0.767,
+              0.667,
               0
             ]
           ],
           [
             [
-              0.776,
+              0.782,
               0
             ],
             [
@@ -3136,71 +3136,71 @@
             ],
             [
               0.387,
-              0.082
+              0.081
             ],
             [
               0.419,
-              0.084
+              0.083
             ],
             [
               0.452,
-              0.088
+              0.086
             ],
             [
               0.484,
-              0.092
+              0.089
             ],
             [
               0.516,
-              0.094
+              0.09
             ],
             [
               0.548,
-              0.094
+              0.09
             ],
             [
               0.581,
-              0.093
+              0.089
             ],
             [
               0.613,
-              0.092
+              0.088
             ],
             [
               0.645,
-              0.092
+              0.088
             ],
             [
               0.677,
-              0.094
-            ],
-            [
-              0.707,
-              0.097
+              0.091
             ],
             [
               0.71,
+              0.094
+            ],
+            [
+              0.727,
               0.097
             ],
             [
               0.742,
-              0.101
+              0.099
             ],
             [
               0.774,
-              0.107
+              0.105
             ],
             [
               0.806,
-              0.116
+              0.115
             ],
             [
-              0.832,
+              0.833,
               0.129
             ],
             [
               0.839,
-              0.134
+              0.133
             ],
             [
               0.862,
@@ -3208,14 +3208,14 @@
             ],
             [
               0.871,
-              0.181
+              0.18
             ],
             [
-              0.875,
+              0.876,
               0.194
             ],
             [
-              0.88,
+              0.881,
               0.226
             ],
             [
@@ -3228,10 +3228,10 @@
             ],
             [
               0.871,
-              0.3
+              0.301
             ],
             [
-              0.863,
+              0.864,
               0.323
             ],
             [
@@ -3243,7 +3243,7 @@
               0.382
             ],
             [
-              0.835,
+              0.836,
               0.387
             ],
             [
@@ -3648,6 +3648,8 @@
       "description": "Capturing ideas from the Guildford session and shaping them into a talk.",
       "items": [
         "conference-talk-guildford",
+        "conversational-patterns-for-human-machine-interaction",
+        "from-conversation-to-application-building-on-method-documents",
         "beyond-anthropomorphism-reading-notes",
         "masure-acentric-design-reading-notes",
         "guildford-talk-ideas",
