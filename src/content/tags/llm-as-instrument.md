@@ -1,0 +1,3 @@
+---
+title: LLM as instrument
+---

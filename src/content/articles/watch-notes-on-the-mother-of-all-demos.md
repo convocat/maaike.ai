@@ -2,6 +2,7 @@
 title: "Watch notes on the Mother of all demos"
 description: "Watching Engelbart's 1968 'Mother of all demos' live, in 2026. Running notes, with Claude as an asymmetric chevruta partner fetching references while I think aloud."
 date: 2026-05-17
+updated: 2026-05-17
 maturity: draft
 draft: false
 ai: co-created
@@ -115,6 +116,16 @@ Program structure
 In written files of 2 to 3 pages long >> LLM skills
 
 eg: MNCTRL main control: file with descriptions, much like a schema
+
+## Final notes and follow-ups
+
+In his final notes and foloowups, he mentions 'this ARPA network, which is an experimental network of 20 computers which may enable us to even connect with machines somewhere else' 
+
+What's the product we're providing in this research? 
+
+Augment computer system development
+Design principles for augmentation systems
+Transferrable things
 
 ## Messages and user-user interaction
 

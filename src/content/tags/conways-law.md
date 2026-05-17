@@ -1,0 +1,3 @@
+---
+title: Conway's Law
+---

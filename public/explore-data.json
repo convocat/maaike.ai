@@ -7,8 +7,8 @@
       "maturity": "complete",
       "description": "The top 5 challenges that conversation designers face, based on 300 real answers.",
       "url": "/articles/2-years-and-700-members-insights-from-convoclub",
-      "x": 0.3215,
-      "y": 0.2025,
+      "x": 0.3211,
+      "y": 0.2014,
       "keyphrases": [],
       "connections": 0
     },
@@ -127,8 +127,8 @@
       "maturity": "complete",
       "description": "Wow, that went down fast!",
       "url": "/articles/bye-bye-alpaca-knowledge-as-the-missing-fundamental",
-      "x": 0.3916,
-      "y": 0.3759,
+      "x": 0.3935,
+      "y": 0.377,
       "keyphrases": [],
       "connections": 0
     },
@@ -163,8 +163,8 @@
       "maturity": "complete",
       "description": "Usability challenges of writing with AI: let people write!",
       "url": "/articles/conversational-interfaces-are-not-easy",
-      "x": 0.2996,
-      "y": 0.3665,
+      "x": 0.3006,
+      "y": 0.3748,
       "keyphrases": [],
       "connections": 10
     },
@@ -211,8 +211,8 @@
       "maturity": "complete",
       "description": "Do we really want US moderators to rewrite Dall-e's prompts?",
       "url": "/articles/de-biassing-dall-e",
-      "x": 0.2936,
-      "y": 0.4119,
+      "x": 0.2947,
+      "y": 0.4196,
       "keyphrases": [],
       "connections": 0
     },
@@ -223,8 +223,8 @@
       "maturity": "complete",
       "description": "My personal highlights from the European Chatbot and Conversational AI summit.",
       "url": "/articles/european-chatbot-conference-10-talks",
-      "x": 0.4261,
-      "y": 0.2284,
+      "x": 0.4275,
+      "y": 0.2279,
       "keyphrases": [],
       "connections": 0
     },
@@ -235,8 +235,8 @@
       "maturity": "complete",
       "description": "DALL-E 3 is still digitally challenged.",
       "url": "/articles/fingers-crossed-is-a-figure-of-speech-dall-e",
-      "x": 0.2528,
-      "y": 0.3636,
+      "x": 0.253,
+      "y": 0.3637,
       "keyphrases": [],
       "connections": 0
     },
@@ -295,8 +295,8 @@
       "maturity": "complete",
       "description": "Conversation design is a career on the rise! Do you want to know how to become a chatbot or voice designer? Read on!",
       "url": "/articles/how-do-i-become-a-conversation-designer",
-      "x": 0.2343,
-      "y": 0.2665,
+      "x": 0.2333,
+      "y": 0.2663,
       "keyphrases": [],
       "connections": 0
     },
@@ -307,8 +307,8 @@
       "maturity": "complete",
       "description": "5 checks to keep your content on track, and your clients happy.",
       "url": "/articles/how-to-create-your-own-content-quality-audit",
-      "x": 0.4141,
-      "y": 0.28,
+      "x": 0.4155,
+      "y": 0.2798,
       "keyphrases": [],
       "connections": 0
     },
@@ -319,8 +319,8 @@
       "maturity": "developing",
       "description": "A technical side-by-side of Andrej Karpathy's LLM wiki approach and how I work with AI on this garden. Same tools, different philosophy.",
       "url": "/articles/how-we-actually-compare",
-      "x": 0.3311,
-      "y": 0.2881,
+      "x": 0.3333,
+      "y": 0.2817,
       "keyphrases": [],
       "connections": 12
     },
@@ -343,8 +343,8 @@
       "maturity": "complete",
       "description": "Will we ever solve hallucinations in LLMs?",
       "url": "/articles/llm-hallucinations-knowledge-as-missing-fundamental",
-      "x": 0.3384,
-      "y": 0.422,
+      "x": 0.34,
+      "y": 0.4222,
       "keyphrases": [],
       "connections": 6
     },
@@ -391,8 +391,8 @@
       "maturity": "complete",
       "description": "An onboarding checklist for conversation designers.",
       "url": "/articles/off-to-a-good-start",
-      "x": 0.3837,
-      "y": 0.2436,
+      "x": 0.3848,
+      "y": 0.2441,
       "keyphrases": [],
       "connections": 0
     },
@@ -403,7 +403,7 @@
       "maturity": "complete",
       "description": "Join me in a fun and interactive prompt session! We'll de-bias Dall-e, and create images that are more like us.",
       "url": "/articles/online-prompt-workshop-de-biasing-dall-e",
-      "x": 0.1965,
+      "x": 0.1953,
       "y": 0.3954,
       "keyphrases": [],
       "connections": 0
@@ -415,8 +415,8 @@
       "maturity": "complete",
       "description": "Zuigt Zoom je leeg? Zo blijf je overeind en wakker in een online vergadering.",
       "url": "/articles/online-uitgeput-pak-een-kruk",
-      "x": 0.317,
-      "y": 0.3229,
+      "x": 0.3235,
+      "y": 0.3181,
       "keyphrases": [],
       "connections": 0
     },
@@ -439,8 +439,8 @@
       "maturity": "complete",
       "description": "Our human-centered way of thinking about the writing process might not necessarily be the most logical for prompting LLMs.",
       "url": "/articles/prompt-thought-summaries",
-      "x": 0.2522,
-      "y": 0.4306,
+      "x": 0.25,
+      "y": 0.4318,
       "keyphrases": [],
       "connections": 0
     },
@@ -451,8 +451,8 @@
       "maturity": "complete",
       "description": "Blind prompting vs. prompt engineering, and what it means for conversation designers.",
       "url": "/articles/putting-the-design-in-prompt-design",
-      "x": 0.2013,
-      "y": 0.3486,
+      "x": 0.2003,
+      "y": 0.3497,
       "keyphrases": [],
       "connections": 0
     },
@@ -463,8 +463,8 @@
       "maturity": "complete",
       "description": "Designing for negative space",
       "url": "/articles/saturday-design-thoughts",
-      "x": 0.3523,
-      "y": 0.3519,
+      "x": 0.3529,
+      "y": 0.3534,
       "keyphrases": [],
       "connections": 0
     },
@@ -475,8 +475,8 @@
       "maturity": "complete",
       "description": "Adopting Agile methods? Avoid the pitfall of copying IT scrum to content teams.",
       "url": "/articles/scrum-for-conversational-teams",
-      "x": 0.2698,
-      "y": 0.3213,
+      "x": 0.2682,
+      "y": 0.3196,
       "keyphrases": [],
       "connections": 0
     },
@@ -499,8 +499,8 @@
       "maturity": "complete",
       "description": "Just started as a conversation designer? Doubting whether you're doing things right? No worries, you're not alone!",
       "url": "/articles/the-lone-convo-designer",
-      "x": 0.279,
-      "y": 0.2766,
+      "x": 0.2786,
+      "y": 0.2748,
       "keyphrases": [],
       "connections": 0
     },
@@ -511,8 +511,8 @@
       "maturity": "complete",
       "description": "Looking back at 2 years of freelance work as a conversation designer and community builder.",
       "url": "/articles/the-long-and-winding-road",
-      "x": 0.3386,
-      "y": 0.2452,
+      "x": 0.3378,
+      "y": 0.2432,
       "keyphrases": [],
       "connections": 0
     },
@@ -553,6 +553,18 @@
       "connections": 0
     },
     {
+      "slug": "watch-notes-on-the-mother-of-all-demos",
+      "title": "Watch notes on the Mother of all demos",
+      "collection": "articles",
+      "maturity": "draft",
+      "description": "Watching Engelbart's 1968 'Mother of all demos' live, in 2026. Running notes, with Claude as an asymmetric chevruta partner fetching references while I think aloud.",
+      "url": "/articles/watch-notes-on-the-mother-of-all-demos",
+      "x": 0.2953,
+      "y": 0.8042,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "what-happens-when-ai-has-read-everything",
       "title": "What happens when AI has read everything?",
       "collection": "articles",
@@ -583,8 +595,8 @@
       "maturity": "complete",
       "description": "Relax, it's not about you :-) How to handle feedback on your content without losing your mind.",
       "url": "/articles/youre-not-married-to-your-texts",
-      "x": 0.369,
-      "y": 0.287,
+      "x": 0.3708,
+      "y": 0.2876,
       "keyphrases": [],
       "connections": 0
     },
@@ -595,8 +607,8 @@
       "maturity": "draft",
       "description": "Annotation of So, Cheng & Krishna Murthy (2026). CHI EA '26. Proposes a spectrum of LLM interface metaphors from anti- to hyper-anthropomorphism to encourage critical engagement.",
       "url": "/field-notes/beyond-anthropomorphism-reading-notes",
-      "x": 0.3125,
-      "y": 0.2678,
+      "x": 0.3114,
+      "y": 0.2657,
       "keyphrases": [],
       "connections": 0
     },
@@ -1057,6 +1069,18 @@
       "connections": 0
     },
     {
+      "slug": "h-lam-t-framework",
+      "title": "H-LAM/T: the augmentation system is more than the tool",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Engelbart's 1962 framework. Augmentation isn't the tool alone, it is Human + Language + Artifacts + Methodology + Training, co-evolving. UX has spent forty years polishing the Artifact and ignoring the other three.",
+      "url": "/seeds/h-lam-t-framework",
+      "x": 0.7125,
+      "y": 0.4266,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "how-to-build-a-digital-garden",
       "title": "How to build a digital garden",
       "collection": "seeds",
@@ -1165,6 +1189,18 @@
       "connections": 3
     },
     {
+      "slug": "user-user-machine-interfaces",
+      "title": "User-user-machine interfaces",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Engelbart designed for groups, not individuals. H-LAM/T and the Networked Improvement Community suggest the unit of design isn't user plus machine but user plus user plus machine. A reminder for the Guildford talk.",
+      "url": "/seeds/user-user-machine-interfaces",
+      "x": 0.658,
+      "y": 0.6713,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "writing-as-a-conversation-with-yourself",
       "title": "Writing as a conversation with yourself",
       "collection": "seeds",
@@ -1183,8 +1219,8 @@
       "maturity": "solid",
       "description": "This article presents a comprehensive architectural framework for agentic AI systems in 2026, arguing that most AI failures stem from architectural problems rather than model quality. The author defines four canonical design patterns (Reflection, Tool Use, Planning, and Multi-Agent) and emphasizes that agentic AI represents a paradigm shift from monolithic systems to distributed, observable, and bounded agent architectures.",
       "url": "/weblinks/agentic-ai-design-patterns-2026-edition",
-      "x": 0.2342,
-      "y": 0.4689,
+      "x": 0.2338,
+      "y": 0.4699,
       "keyphrases": [],
       "connections": 0
     },
@@ -1303,8 +1339,8 @@
       "maturity": "solid",
       "description": "Marek Tuszynski (Tactical Tech) argues that the synthetic intimacy people develop with generative AI tools (an 'ELIZA effect') makes critical conversation about AI almost impossible: dependency forecloses critique. The piece curates 30 resources mapping AI's labor exploitation, environmental costs, military use, and concentration of power, framing AI critique as a moral and political project rather than a technical one.",
       "url": "/weblinks/dont-show-me-your-ai",
-      "x": 0.2284,
-      "y": 0.3173,
+      "x": 0.2266,
+      "y": 0.3167,
       "keyphrases": [],
       "connections": 0
     },
@@ -1315,8 +1351,20 @@
       "maturity": "solid",
       "description": "Fieldwork for Future Ecologies (Onomatopee 225, 2022) argues art practice and art-based research can radically expand the concept of \"fieldwork\" beyond its conventional scientific framing, positioning creative and speculative methodologies as essential tools for environmental and climate inquiry. ",
       "url": "/weblinks/fieldwork-for-future-ecologies-onomatopee",
-      "x": 0.3273,
-      "y": 0.8035,
+      "x": 0.3262,
+      "y": 0.8058,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
+      "slug": "firsts-the-demo-doug-engelbart-institute",
+      "title": "Firsts: The Demo - Doug Engelbart Institute",
+      "collection": "weblinks",
+      "maturity": "solid",
+      "description": "This webpage documents Doug Engelbart's legendary 1968 demonstration at the Fall Joint Computer Conference, where he and his team showcased revolutionary interactive computing technologies including the mouse, video conferencing, and collaborative editing. The page serves as a portal to archived footage, retrospectives, and historical materials commemorating what became known as \"The Mother of All Demos,\" emphasizing both the technical innovations presented and the ambitious vision of augmenting human intellect that motivated the work.",
+      "url": "/weblinks/firsts-the-demo-doug-engelbart-institute",
+      "x": 0.7823,
+      "y": 0.3485,
       "keyphrases": [],
       "connections": 0
     },
@@ -1495,8 +1543,8 @@
       "maturity": "solid",
       "description": "",
       "url": "/weblinks/symbolic-ai-for-the-win-kurt-cagle",
-      "x": 0.1999,
-      "y": 0.2917,
+      "x": 0.1989,
+      "y": 0.2908,
       "keyphrases": [],
       "connections": 5
     },
@@ -1567,8 +1615,8 @@
       "maturity": "complete",
       "description": "A comprehensive walkthrough of Perplexity AI, a generative AI search platform that combines web search capabilities with language models to provide verified sources and contextual follow-up queries. I explore the clean, minimal interface, the two distinct modes (Knowledge Retrieval for answering questions and Co-pilot Mode for task execution), semantic search facets (Academic, Wolfram Alpha, YouTube, Reddit, Wikipedia), and the AI Profile personalization feature. The platform maintains transparency by consistently referring to itself as Perplexity rather than using first-person pronouns. Integration with Wolfram Alpha provides computational power that traditional language models lack. I use this daily across multiple devices and it is quickly becoming my favorite generative AI search tool.",
       "url": "/videos/an-evening-with-perplexity-ai",
-      "x": 0.3264,
-      "y": 0.7613,
+      "x": 0.3255,
+      "y": 0.7637,
       "keyphrases": [],
       "connections": 0
     },
@@ -1687,8 +1735,8 @@
       "maturity": "complete",
       "description": "Exploring research papers with Claude artefacts during a lunchbreak.",
       "url": "/videos/lunchbreak-with-claude-research-papers",
-      "x": 0.307,
-      "y": 0.6764,
+      "x": 0.3089,
+      "y": 0.6786,
       "keyphrases": [],
       "connections": 0
     },
@@ -1831,8 +1879,8 @@
       "maturity": "complete",
       "description": "Building an interactive tutorial with Claude on a Sunday afternoon.",
       "url": "/videos/sunday-afternoon-with-claude-interactive-tutorial",
-      "x": 0.3291,
-      "y": 0.7161,
+      "x": 0.3338,
+      "y": 0.7174,
       "keyphrases": [],
       "connections": 0
     },
@@ -1939,8 +1987,8 @@
       "maturity": "developing",
       "description": "Asks whether conversational agents should mimic human pragmatic cues or deploy them purposefully. Mimicry creates false impressions of understanding; purposeful use could be honest and useful.",
       "url": "/library/beyond-the-illusion-pragmatic-cues-in-conversation",
-      "x": 0.2346,
-      "y": 0.3971,
+      "x": 0.2347,
+      "y": 0.3969,
       "keyphrases": [],
       "connections": 10
     },
@@ -2275,8 +2323,8 @@
       "maturity": "developing",
       "description": "Synthesises findings from 34 papers on how generative AI expands automation while simultaneously creating risks and opportunities for human cognition. Covers memory, creativity, and critical thinking as the three main domains affected.",
       "url": "/library/tools-for-thought",
-      "x": 0.2889,
-      "y": 0.4506,
+      "x": 0.2878,
+      "y": 0.4569,
       "keyphrases": [],
       "connections": 0
     },
@@ -2509,50 +2557,50 @@
       "connections": 0
     },
     {
-      "slug": "watch-notes-on-the-mother-of-all-demos",
-      "title": "Watch notes on the Mother of all demos",
+      "slug": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "title": "Watch notes: Doug Engelbart at Accelerating Change 2004",
       "collection": "articles",
       "maturity": "draft",
-      "description": "Watching Engelbart's 1968 'Mother of all demos' live, in 2026. Running notes, with Claude as an asymmetric chevruta partner fetching references while I think aloud.",
-      "url": "/articles/watch-notes-on-the-mother-of-all-demos",
-      "x": 0.2953,
-      "y": 0.8042,
+      "description": "Watching Doug Engelbart's 2004 Accelerating Change keynote, 36 years after the demo. Running notes with Claude on tool systems vs human systems, collective capability, dimensional scaling, and what a post-conversation augmentation field could look like.",
+      "url": "/articles/watch-notes-doug-engelbart-accelerating-change-2004",
+      "x": 0.5087,
+      "y": 0.5316,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "h-lam-t-framework",
-      "title": "H-LAM/T: the augmentation system is more than the tool",
+      "slug": "collective-iq",
+      "title": "Collective IQ",
       "collection": "seeds",
       "maturity": "draft",
-      "description": "Engelbart's 1962 framework. Augmentation isn't the tool alone, it is Human + Language + Artifacts + Methodology + Training, co-evolving. UX has spent forty years polishing the Artifact and ignoring the other three.",
-      "url": "/seeds/h-lam-t-framework",
-      "x": 0.7125,
-      "y": 0.4266,
+      "description": "Engelbart's central concept: the capacity of a group, organization, or society to address complex urgent problems. The thing he kept naming, and the thing the industry kept losing.",
+      "url": "/seeds/collective-iq",
+      "x": 0.4826,
+      "y": 0.3856,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "user-user-machine-interfaces",
-      "title": "User-user-machine interfaces",
+      "slug": "scaling-laws-for-augmentation",
+      "title": "Scaling laws for augmentation",
       "collection": "seeds",
       "maturity": "draft",
-      "description": "Engelbart designed for groups, not individuals. H-LAM/T and the Networked Improvement Community suggest the unit of design isn't user plus machine but user plus user plus machine. A reminder for the Guildford talk.",
-      "url": "/seeds/user-user-machine-interfaces",
-      "x": 0.658,
-      "y": 0.6713,
+      "description": "Engelbart said scaling is a science. Dimensional scaling applies to organisations, to human-plus-agent collectives, and to the problems we are trying to solve. Each regime needs the form redesigned.",
+      "url": "/seeds/scaling-laws-for-augmentation",
+      "x": 0.29,
+      "y": 0.6497,
       "keyphrases": [],
       "connections": 0
     },
     {
-      "slug": "firsts-the-demo-doug-engelbart-institute",
-      "title": "Firsts: The Demo - Doug Engelbart Institute",
-      "collection": "weblinks",
-      "maturity": "solid",
-      "description": "This webpage documents Doug Engelbart's legendary 1968 demonstration at the Fall Joint Computer Conference, where he and his team showcased revolutionary interactive computing technologies including the mouse, video conferencing, and collaborative editing. The page serves as a portal to archived footage, retrospectives, and historical materials commemorating what became known as \"The Mother of All Demos,\" emphasizing both the technical innovations presented and the ambitious vision of augmenting human intellect that motivated the work.",
-      "url": "/weblinks/firsts-the-demo-doug-engelbart-institute",
-      "x": 0.7823,
-      "y": 0.3485,
+      "slug": "the-proof-layer-llms-are-missing",
+      "title": "The proof layer LLMs are missing",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "LLMs solved the language-translation half of knowledge interop. The verification half is largely unbuilt: provenance, claim attribution, signed assertions, grounding evals, shared verification standards.",
+      "url": "/seeds/the-proof-layer-llms-are-missing",
+      "x": 0.2965,
+      "y": 0.3393,
       "keyphrases": [],
       "connections": 0
     }
@@ -2568,7 +2616,7 @@
       "label": "ai",
       "centerX": 0.3246,
       "centerY": 0.6444,
-      "itemCount": 46
+      "itemCount": 47
     },
     {
       "label": "design",
@@ -2586,13 +2634,13 @@
       "label": "ai-ethics",
       "centerX": 0.5364,
       "centerY": 0.3764,
-      "itemCount": 21
+      "itemCount": 23
     },
     {
       "label": "prompt-design",
       "centerX": 0.204,
       "centerY": 0.3004,
-      "itemCount": 42
+      "itemCount": 43
     },
     {
       "label": "knowledge-graph",
@@ -2621,226 +2669,236 @@
           [
             [
               0,
-              0.149
+              0.151
             ],
             [
-              0.021,
+              0.024,
               0.129
             ],
             [
               0.032,
-              0.12
+              0.122
             ],
             [
               0.065,
-              0.098
+              0.1
             ],
             [
-              0.067,
+              0.07,
               0.097
             ],
             [
               0.097,
-              0.079
+              0.081
             ],
             [
               0.129,
-              0.065
+              0.067
             ],
             [
-              0.131,
+              0.135,
               0.065
             ],
             [
               0.161,
-              0.052
+              0.053
             ],
             [
               0.194,
-              0.041
-            ],
-            [
-              0.225,
-              0.032
+              0.042
             ],
             [
               0.226,
+              0.033
+            ],
+            [
+              0.231,
               0.032
             ],
             [
               0.258,
-              0.023
+              0.024
             ],
             [
               0.29,
-              0.016
+              0.017
             ],
             [
               0.323,
-              0.011
+              0.012
             ],
             [
               0.355,
-              0.008
+              0.009
             ],
             [
               0.387,
-              0.006
+              0.007
             ],
             [
               0.419,
-              0.006
+              0.007
             ],
             [
               0.452,
-              0.006
+              0.007
             ],
             [
               0.484,
-              0.006
+              0.008
             ],
             [
               0.516,
-              0.006
+              0.007
             ],
             [
               0.548,
-              0.004
+              0.006
             ],
             [
               0.581,
-              0.003
+              0.004
             ],
             [
               0.613,
-              0.001
-            ],
-            [
-              0.645,
-              0
-            ],
-            [
-              0.657,
-              0
-            ]
-          ],
-          [
-            [
-              0.813,
-              0
-            ],
-            [
-              0.839,
               0.003
             ],
             [
+              0.645,
+              0.002
+            ],
+            [
+              0.677,
+              0.001
+            ],
+            [
+              0.71,
+              0.001
+            ],
+            [
+              0.742,
+              0.001
+            ],
+            [
+              0.774,
+              0.001
+            ],
+            [
+              0.806,
+              0.001
+            ],
+            [
+              0.839,
+              0.005
+            ],
+            [
               0.871,
-              0.011
+              0.013
             ],
             [
               0.903,
-              0.026
+              0.029
             ],
             [
-              0.912,
+              0.907,
               0.032
             ],
             [
               0.935,
-              0.053
+              0.057
             ],
             [
-              0.945,
+              0.942,
               0.065
             ],
             [
-              0.963,
+              0.961,
               0.097
             ],
             [
               0.968,
-              0.109
+              0.116
             ],
             [
-              0.975,
+              0.972,
               0.129
             ],
             [
-              0.981,
+              0.979,
               0.161
             ],
             [
-              0.984,
+              0.982,
               0.194
             ],
             [
-              0.984,
+              0.982,
               0.226
             ],
             [
-              0.982,
+              0.979,
               0.258
             ],
             [
-              0.978,
+              0.976,
               0.29
             ],
             [
-              0.975,
+              0.972,
               0.323
             ],
             [
-              0.974,
+              0.972,
               0.355
             ],
             [
-              0.982,
+              0.979,
               0.387
             ],
             [
-              0.998,
+              0.996,
               0.419
             ],
             [
               1,
-              0.422
+              0.425
             ]
           ],
           [
             [
               0,
-              0.445
+              0.442
             ],
             [
-              0.005,
+              0.007,
               0.452
             ],
             [
-              0.028,
+              0.03,
               0.484
             ],
             [
               0.032,
-              0.491
+              0.487
             ],
             [
-              0.046,
+              0.047,
               0.516
             ],
             [
-              0.058,
+              0.059,
               0.548
             ],
             [
               0.065,
-              0.576
+              0.572
             ],
             [
-              0.065,
+              0.066,
               0.581
             ],
             [
-              0.07,
+              0.071,
               0.613
             ],
             [
@@ -2857,7 +2915,7 @@
             ],
             [
               0.097,
-              0.731
+              0.73
             ],
             [
               0.1,
@@ -2868,168 +2926,168 @@
               0.774
             ],
             [
-              0.12,
+              0.121,
               0.806
             ],
             [
               0.129,
-              0.825
+              0.823
             ],
             [
-              0.136,
+              0.137,
               0.839
             ],
             [
-              0.159,
+              0.161,
               0.871
             ],
             [
               0.161,
-              0.873
+              0.871
             ],
             [
               0.194,
-              0.903
+              0.901
             ],
             [
-              0.194,
+              0.197,
               0.903
             ],
             [
               0.226,
-              0.923
-            ],
-            [
-              0.255,
-              0.935
+              0.922
             ],
             [
               0.258,
-              0.937
+              0.935
+            ],
+            [
+              0.259,
+              0.935
             ],
             [
               0.29,
-              0.949
+              0.947
             ],
             [
               0.323,
-              0.957
+              0.956
             ],
             [
               0.355,
-              0.963
-            ],
-            [
-              0.384,
-              0.968
+              0.962
             ],
             [
               0.387,
+              0.967
+            ],
+            [
+              0.394,
               0.968
             ],
             [
               0.419,
-              0.973
-            ],
-            [
-              0.452,
-              0.976
-            ],
-            [
-              0.484,
-              0.976
-            ],
-            [
-              0.516,
-              0.975
-            ],
-            [
-              0.548,
               0.971
             ],
             [
-              0.571,
+              0.452,
+              0.974
+            ],
+            [
+              0.484,
+              0.974
+            ],
+            [
+              0.516,
+              0.973
+            ],
+            [
+              0.548,
+              0.969
+            ],
+            [
+              0.558,
               0.968
             ],
             [
               0.581,
-              0.967
+              0.965
             ],
             [
               0.613,
-              0.963
+              0.961
             ],
             [
               0.645,
-              0.958
+              0.956
             ],
             [
               0.677,
-              0.951
+              0.949
             ],
             [
               0.71,
-              0.943
+              0.94
             ],
             [
-              0.729,
+              0.723,
               0.935
             ],
             [
               0.742,
-              0.932
+              0.93
             ],
             [
               0.774,
-              0.919
+              0.917
             ],
             [
-              0.804,
+              0.801,
               0.903
             ],
             [
               0.806,
-              0.902
+              0.9
             ],
             [
               0.839,
-              0.885
+              0.883
             ],
             [
-              0.861,
+              0.858,
               0.871
             ],
             [
               0.871,
-              0.865
+              0.863
             ],
             [
               0.903,
-              0.842
+              0.84
             ],
             [
-              0.908,
+              0.905,
               0.839
             ],
             [
               0.935,
-              0.82
+              0.818
             ],
             [
-              0.954,
+              0.951,
               0.806
             ],
             [
               0.968,
-              0.796
+              0.794
             ],
             [
-              0.992,
+              0.99,
               0.774
             ],
             [
               1,
-              0.767
+              0.764
             ]
           ]
         ]
@@ -3039,320 +3097,320 @@
         "polylines": [
           [
             [
-              0.243,
+              0.25,
               0.097
             ],
             [
               0.258,
-              0.093
-            ],
-            [
-              0.29,
-              0.086
-            ],
-            [
-              0.323,
-              0.081
-            ],
-            [
-              0.355,
-              0.079
-            ],
-            [
-              0.387,
-              0.079
-            ],
-            [
-              0.419,
-              0.082
-            ],
-            [
-              0.452,
-              0.085
-            ],
-            [
-              0.484,
-              0.089
-            ],
-            [
-              0.516,
-              0.092
-            ],
-            [
-              0.548,
-              0.092
-            ],
-            [
-              0.581,
-              0.092
-            ],
-            [
-              0.613,
-              0.092
-            ],
-            [
-              0.645,
-              0.092
-            ],
-            [
-              0.677,
               0.094
             ],
             [
-              0.706,
+              0.29,
+              0.088
+            ],
+            [
+              0.323,
+              0.083
+            ],
+            [
+              0.355,
+              0.081
+            ],
+            [
+              0.387,
+              0.082
+            ],
+            [
+              0.419,
+              0.084
+            ],
+            [
+              0.452,
+              0.088
+            ],
+            [
+              0.484,
+              0.092
+            ],
+            [
+              0.516,
+              0.095
+            ],
+            [
+              0.548,
+              0.096
+            ],
+            [
+              0.581,
+              0.095
+            ],
+            [
+              0.613,
+              0.095
+            ],
+            [
+              0.645,
+              0.096
+            ],
+            [
+              0.657,
               0.097
+            ],
+            [
+              0.677,
+              0.098
             ],
             [
               0.71,
-              0.097
-            ],
-            [
-              0.742,
               0.101
             ],
             [
-              0.774,
+              0.742,
               0.106
             ],
             [
-              0.806,
-              0.114
+              0.774,
+              0.111
             ],
             [
-              0.837,
+              0.806,
+              0.12
+            ],
+            [
+              0.826,
               0.129
             ],
             [
               0.839,
-              0.13
+              0.138
             ],
             [
-              0.865,
+              0.859,
               0.161
             ],
             [
               0.871,
-              0.174
+              0.187
             ],
             [
-              0.878,
+              0.873,
               0.194
             ],
             [
-              0.883,
+              0.878,
               0.226
             ],
             [
-              0.882,
+              0.877,
               0.258
             ],
             [
-              0.876,
+              0.871,
               0.29
             ],
             [
               0.871,
-              0.307
+              0.292
             ],
             [
-              0.866,
+              0.861,
               0.323
             ],
             [
-              0.853,
+              0.847,
               0.355
             ],
             [
-              0.84,
+              0.839,
+              0.375
+            ],
+            [
+              0.832,
               0.387
             ],
             [
-              0.839,
-              0.395
-            ],
-            [
-              0.834,
+              0.824,
               0.419
             ],
             [
               0.839,
-              0.426
+              0.441
             ],
             [
-              0.859,
+              0.847,
               0.452
             ],
             [
               0.871,
-              0.457
+              0.463
             ],
             [
               0.903,
-              0.475
+              0.48
             ],
             [
-              0.916,
+              0.908,
               0.484
             ],
             [
               0.935,
-              0.496
+              0.501
             ],
             [
-              0.957,
+              0.952,
               0.516
             ],
             [
               0.968,
-              0.529
+              0.534
             ],
             [
-              0.98,
+              0.977,
               0.548
             ],
             [
-              0.992,
+              0.989,
               0.581
             ],
             [
-              0.995,
+              0.992,
               0.613
             ],
             [
-              0.99,
+              0.987,
               0.645
             ],
             [
-              0.976,
+              0.973,
               0.677
             ],
             [
               0.968,
-              0.69
+              0.685
             ],
             [
-              0.953,
+              0.95,
               0.71
             ],
             [
               0.935,
-              0.728
+              0.724
             ],
             [
-              0.92,
+              0.916,
               0.742
             ],
             [
               0.903,
-              0.755
+              0.752
             ],
             [
-              0.878,
+              0.873,
               0.774
             ],
             [
               0.871,
-              0.779
+              0.776
             ],
             [
               0.839,
-              0.801
+              0.797
             ],
             [
-              0.829,
+              0.824,
               0.806
             ],
             [
               0.806,
-              0.82
+              0.817
             ],
             [
               0.774,
-              0.837
+              0.835
             ],
             [
-              0.771,
+              0.765,
               0.839
             ],
             [
               0.742,
-              0.852
+              0.849
             ],
             [
               0.71,
-              0.862
+              0.86
             ],
             [
               0.677,
-              0.871
+              0.868
             ],
             [
-              0.677,
+              0.664,
               0.871
             ],
             [
               0.645,
-              0.878
+              0.875
             ],
             [
               0.613,
-              0.885
+              0.882
             ],
             [
               0.581,
-              0.89
-            ],
-            [
-              0.548,
-              0.896
-            ],
-            [
-              0.516,
-              0.9
-            ],
-            [
-              0.484,
-              0.902
-            ],
-            [
-              0.452,
-              0.902
-            ],
-            [
-              0.419,
-              0.9
-            ],
-            [
-              0.387,
-              0.895
-            ],
-            [
-              0.355,
               0.888
             ],
             [
-              0.323,
-              0.878
+              0.548,
+              0.893
             ],
             [
-              0.305,
+              0.516,
+              0.897
+            ],
+            [
+              0.484,
+              0.9
+            ],
+            [
+              0.452,
+              0.9
+            ],
+            [
+              0.419,
+              0.898
+            ],
+            [
+              0.387,
+              0.893
+            ],
+            [
+              0.355,
+              0.886
+            ],
+            [
+              0.323,
+              0.877
+            ],
+            [
+              0.309,
               0.871
             ],
             [
               0.29,
-              0.864
+              0.863
             ],
             [
               0.258,
-              0.844
+              0.843
             ],
             [
-              0.251,
+              0.253,
               0.839
             ],
             [
               0.226,
-              0.813
+              0.812
             ],
             [
               0.221,
@@ -3364,34 +3422,34 @@
             ],
             [
               0.194,
-              0.751
+              0.753
             ],
             [
-              0.19,
+              0.189,
               0.742
             ],
             [
-              0.18,
+              0.178,
               0.71
             ],
             [
-              0.172,
+              0.17,
               0.677
             ],
             [
-              0.166,
+              0.164,
               0.645
             ],
             [
-              0.162,
+              0.161,
+              0.622
+            ],
+            [
+              0.16,
               0.613
             ],
             [
-              0.161,
-              0.606
-            ],
-            [
-              0.159,
+              0.157,
               0.581
             ],
             [
@@ -3399,103 +3457,103 @@
               0.548
             ],
             [
-              0.147,
+              0.148,
               0.516
             ],
             [
-              0.133,
+              0.134,
               0.484
             ],
             [
               0.129,
-              0.478
+              0.476
             ],
             [
-              0.111,
+              0.113,
               0.452
             ],
             [
               0.097,
-              0.435
+              0.432
             ],
             [
-              0.084,
+              0.086,
               0.419
             ],
             [
               0.065,
-              0.396
+              0.392
             ],
             [
-              0.058,
+              0.06,
               0.387
             ],
             [
-              0.038,
+              0.04,
               0.355
             ],
             [
               0.032,
-              0.341
+              0.334
             ],
             [
-              0.025,
+              0.028,
               0.323
             ],
             [
-              0.021,
+              0.024,
               0.29
             ],
             [
-              0.025,
+              0.028,
               0.258
             ],
             [
               0.032,
-              0.241
+              0.247
             ],
             [
-              0.038,
+              0.041,
               0.226
             ],
             [
-              0.061,
+              0.064,
               0.194
             ],
             [
               0.065,
-              0.19
+              0.193
             ],
             [
               0.097,
-              0.161
+              0.164
             ],
             [
-              0.097,
+              0.1,
               0.161
             ],
             [
               0.129,
-              0.14
+              0.143
             ],
             [
-              0.151,
+              0.155,
               0.129
             ],
             [
               0.161,
-              0.124
+              0.126
             ],
             [
               0.194,
-              0.111
+              0.113
             ],
             [
               0.226,
-              0.101
+              0.103
             ],
             [
-              0.243,
+              0.25,
               0.097
             ]
           ]
@@ -3579,7 +3637,11 @@
         "how-to-design-when-concept-of-operations-is-opaque",
         "watch-notes-on-the-mother-of-all-demos",
         "h-lam-t-framework",
-        "user-user-machine-interfaces"
+        "user-user-machine-interfaces",
+        "watch-notes-doug-engelbart-accelerating-change-2004",
+        "collective-iq",
+        "scaling-laws-for-augmentation",
+        "the-proof-layer-llms-are-missing"
       ],
       "type": "project"
     },

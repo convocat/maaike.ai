@@ -37,3 +37,6 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-17**: Added watch notes [[watch-notes-on-the-mother-of-all-demos|Watch notes on the Mother of all demos]] (Engelbart 1968 demo)
 - **2026-05-17**: Added seed [[user-user-machine-interfaces|User-user-machine interfaces]]
 - **2026-05-17**: Added seed [[h-lam-t-framework|H-LAM/T: the augmentation system is more than the tool]]
+- **2026-05-17**: Added seed [[collective-iq|Collective IQ]]
+- **2026-05-17**: Added seed [[scaling-laws-for-augmentation|Scaling laws for augmentation]]
+- **2026-05-17**: Added seed [[the-proof-layer-llms-are-missing|The proof layer LLMs are missing]]

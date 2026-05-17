@@ -8125,6 +8125,190 @@
         "interaction-design"
       ],
       "role": "counter-position"
+    },
+    "accelerating-change-2004": {
+      "label": "Accelerating Change 2004 keynote",
+      "type": "phenomenon",
+      "lens": [
+        "culture",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "collective-iq": {
+      "label": "Collective IQ",
+      "type": "concept",
+      "lens": [
+        "design",
+        "cognition"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "collective-capability": {
+      "label": "Collective capability",
+      "type": "concept",
+      "lens": [
+        "design",
+        "cognition",
+        "philosophy"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "capability-approach": {
+      "label": "Capability approach",
+      "type": "concept",
+      "lens": [
+        "philosophy"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "amartya-sen": {
+      "label": "Amartya Sen",
+      "type": "person",
+      "lens": [
+        "philosophy"
+      ],
+      "subject": [
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "abc-activity-levels": {
+      "label": "ABC activity levels",
+      "type": "method",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "tool-systems-human-systems": {
+      "label": "Tool systems and human systems",
+      "type": "concept",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "framework"
+    },
+    "language-as-substrate": {
+      "label": "Language as substrate",
+      "type": "concept",
+      "lens": [
+        "design",
+        "linguistics"
+      ],
+      "subject": [
+        "conversation-design",
+        "llm"
+      ],
+      "role": "framework"
+    },
+    "llm-as-instrument": {
+      "label": "LLM as instrument",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design",
+        "conversation-design"
+      ],
+      "role": "position"
+    },
+    "conversation-as-metaphor": {
+      "label": "Conversation as metaphor",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction",
+        "linguistics"
+      ],
+      "subject": [
+        "conversation-design"
+      ],
+      "role": "counter-position"
+    },
+    "dimensional-scaling": {
+      "label": "Dimensional scaling",
+      "type": "principle",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "c-activity": {
+      "label": "C-activity",
+      "type": "method",
+      "lens": [
+        "design"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "method"
+    },
+    "proof-layer": {
+      "label": "Proof layer",
+      "type": "concept",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "knowledge",
+        "llm"
+      ],
+      "role": "position"
+    },
+    "conways-law": {
+      "label": "Conway's Law",
+      "type": "principle",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design"
+      ],
+      "role": "principle"
+    },
+    "dunbars-number": {
+      "label": "Dunbar's number",
+      "type": "principle",
+      "lens": [
+        "cognition",
+        "culture"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
     }
   },
   "associations": [
@@ -14369,6 +14553,62 @@
       "predicate": "breaks-down-for",
       "object": "human-llm-collaboration",
       "source": "watch-notes-on-the-mother-of-all-demos",
+      "collection": "articles"
+    },
+    {
+      "subject": "collective-capability",
+      "predicate": "better-fits",
+      "object": "collective-iq",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "abc-activity-levels",
+      "predicate": "theorised-by",
+      "object": "douglas-engelbart",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "tool-systems-human-systems",
+      "predicate": "structured-as",
+      "object": "h-lam-t",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "conversation-as-metaphor",
+      "predicate": "breaks-down-for",
+      "object": "language-as-substrate",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "llm-as-instrument",
+      "predicate": "better-fits",
+      "object": "language-as-substrate",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "dimensional-scaling",
+      "predicate": "characterised-as",
+      "object": "c-activity",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "proof-layer",
+      "predicate": "presupposes",
+      "object": "networked-improvement-community",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "capability-approach",
+      "predicate": "theorised-by",
+      "object": "amartya-sen",
+      "source": "watch-notes-doug-engelbart-accelerating-change-2004",
       "collection": "articles"
     }
   ]
