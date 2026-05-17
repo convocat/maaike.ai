@@ -39,6 +39,7 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-05** — Added jotting [[how-to-design-when-concept-of-operations-is-opaque|How to design when the concept of operations is opaque?]]
 - **2026-05-05** — Added reader [[beyond-the-chat-box|Beyond the Chat Box]]
 - **2026-05-17**: Added watch notes [[watch-notes-on-the-mother-of-all-demos|Watch notes on the Mother of all demos]] (Engelbart 1968 demo)
+- **2026-05-17**: Added watch notes [[watch-notes-doug-engelbart-accelerating-change-2004|Watch notes: Doug Engelbart at Accelerating Change 2004]] (2004 keynote)
 - **2026-05-17**: Added seed [[user-user-machine-interfaces|User-user-machine interfaces]]
 - **2026-05-17**: Added seed [[h-lam-t-framework|H-LAM/T: the augmentation system is more than the tool]]
 - **2026-05-17**: Added seed [[collective-iq|Collective IQ]]
