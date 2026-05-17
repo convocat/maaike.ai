@@ -2,7 +2,7 @@
 reviewed: 2026-04-27
 title: 'Building this garden: change log'
 date: 2026-03-12
-updated: 2026-05-13
+updated: 2026-05-17
 maturity: solid
 tags:
 - about
@@ -474,6 +474,14 @@ A full HTML cleanup and SEO sweep on the event page, plus the first AI-friendly 
 - **Head metadata extras**: Canonical link, `og:site_name`, `og:locale`, `theme-color`, `og:image:alt`, `author` meta, plus a permissive per-page Content Security Policy scoped to allow only Luma on this page.
 - **Accessibility polish**: Skip-to-content link, `:focus-visible` outlines on every interactive element, `lang="nl"` tags on Dutch strings (CTA, signoff), 44px minimum tap target on every FAQ summary for mobile WCAG. Removed duplicate `</svg>`, simplified the logo wrapper, dropped redundant ARIA attributes on the iframe, added `loading="lazy"` and explicit dimensions on the logo to prevent layout shift.
 - **Google Search Console verification**: Verification file at both site root and under `/convoclubirl/` so URL-prefix and domain-level properties both verify with the same file. Page is now ready for indexing and rich-results testing.
+
+### 16 May
+
+Cleanup day: a new article live, the toolshed gains seven design artefacts, and the repo gets a serious tidy.
+
+- **New article**: "How we actually compare", a technical side-by-side of Andrej Karpathy's LLM wiki approach and the garden's TAO architecture. Version B of the Karpathy comparison project.
+- **Seven toolshed mockups published**: acorn watercolor test, card excerpt preview, chip placement, earth-tone palette variants, meta-line preview, status-strip designs, workflow analysis tool. 2026-05-13 prototypes that were sitting untracked in `public/`, now documented as design artefacts.
+- **Repo hygiene**: Gitignored `__pycache__/` and `/*.zip` at repo root, archived five wiki prototype iterations plus the local preview server to `tools/archive/visual-prototypes/`, deleted two self-labelled throwaway scripts, purged eight stale `refs/original/` backup refs from an old filter-branch rewrite, removed the `chatbot` worktree plus five fully-merged `claude/*` branches.
 
 ## Related
 
