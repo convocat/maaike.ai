@@ -20,7 +20,7 @@ Not everything makes it into the stream. The feed excludes:
 | `hub: true` | Project hub posts (they live on `/projects`) |
 | `ai: 'generated'` | Fully AI-generated posts |
 | `collection === 'library'` | Books (they have their own `/library` page) |
-| `develops: <slug>` | Project sub-files (they're too contextual without the hub) |
+| `develops: <slug>` (experiments and field-notes only) | Project sub-files in implementation-detail collections (build notes, methodology drafts). Articles, seeds, and jottings with `develops:` *do* appear on mainstream so substantive project output stays visible. |
 | field-notes with tag `about` | Meta-posts about the garden itself |
 | jottings with `type: 'quote'` | Raw quotes (noise without context) |
 
@@ -28,11 +28,12 @@ The result is a curated stream of articles, seeds, field notes (non-meta), webli
 
 ## Pinned article
 
-The most recent article is pulled out of the feed order and rendered as a **hero card** at the top, visually larger, with ruled lines and a "FEATURED" rubber stamp. The rest of the feed follows in date-descending order.
+The most recent **100% Maai** article is pulled out of the feed order and rendered as a **hero card** at the top, visually larger, with ruled lines and a "FEATURED" rubber stamp. Co-created and assisted articles still appear in the stream but never get pinned, so the featured slot always reflects Maaike's full-voice writing. The rest of the feed follows in date-descending order.
 
 ```js
-const latestArticle = mainFeedEligible.find((e) => e.collection === 'articles');
-const feedItems = mainFeedEligible.filter((e) => e !== latestArticle);
+const pinnedArticles = mainFeedEligible
+  .filter((e) => e.collection === 'articles' && (e.data as any).ai === '100% Maai')
+  .slice(0, 1);
 ```
 
 ## Pagination
