@@ -14142,6 +14142,41 @@
       "object": "writing-as-craft",
       "source": "how-we-actually-compare",
       "collection": "articles"
+    },
+    {
+      "subject": "the-mother-of-all-demos",
+      "predicate": "demonstrates",
+      "object": "interactive-computing",
+      "source": "firsts-the-demo-doug-engelbart-institute",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "nls",
+      "predicate": "attributed-to",
+      "object": "doug-engelbart",
+      "source": "firsts-the-demo-doug-engelbart-institute",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "computer-mouse",
+      "predicate": "demonstrates",
+      "object": "direct-manipulation",
+      "source": "firsts-the-demo-doug-engelbart-institute",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interactive-computing",
+      "predicate": "structured-as",
+      "object": "augmenting-human-intellect",
+      "source": "firsts-the-demo-doug-engelbart-institute",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "the-mother-of-all-demos",
+      "predicate": "attributed-to",
+      "object": "doug-engelbart",
+      "source": "firsts-the-demo-doug-engelbart-institute",
+      "collection": "weblinks"
     }
   ]
 }

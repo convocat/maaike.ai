@@ -430,5 +430,11 @@
     "Enterprise AI adoption hinges on solving the accuracy-compliance-cost trilemma that RAG directly addresses",
     "The architecture of RAG (ingestion, preprocessing, chunking, vectorization, retrieval) creates a sustainable alternative to continuous model retraining",
     "Trust and compliance requirements make RAG essential for regulated industries deploying generative AI"
+  ],
+  "firsts-the-demo-doug-engelbart-institute": [
+    "The 1968 demo represented a watershed moment in computing history by demonstrating live interactive features that would shape decades of interface design",
+    "Engelbart's work was driven by a larger philosophical vision of augmenting human intellect, not just building novel technologies",
+    "The demo's impact extended beyond the technology itself to include innovative presentation methods, remote collaboration, and theatrical staging that made complex technical concepts accessible",
+    "Historical documentation and retrospective analysis help preserve and contextualize foundational moments in the evolution of human-computer interaction"
   ]
 }
