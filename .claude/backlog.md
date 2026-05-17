@@ -4,7 +4,7 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 **Status:** [READY] · [IN PROGRESS] · [PARKED] · [DONE]
 
-**Groomed:** 2026-05-10 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
+**Groomed:** 2026-05-17 · Items marked with `blocker:` are waiting on a decision or input before they can move forward.
 
 ---
 
@@ -109,16 +109,6 @@ Files: `src/content.config.ts`, `src/components/MosaicCard.astro`.
 
 **Opening message:**
 > Add photo preview to jotting stream cards. Add optional `image: /path/to/img.jpg` field to the jottings content schema in `src/content.config.ts`, update `MosaicCard.astro` to display it below the body text for `type: post` jottings. Test with `src/content/jottings/latest-addition-to-my-thinking-tools-a-tiny-e-reader.md`.
-
----
-
-## [IN PROGRESS] Verify nightly-inbox-enrichment
-*re-registered 2026-05-08, next run 2026-05-09 05:04*
-
-Task `nightly-inbox-enrichment` registered today at cron `0 5 * * *`. Earlier registration was lost (scheduled-tasks MCP doesn't persist across restarts, see memory `reference_scheduled_tasks_persistence.md`). Tomorrow morning: scan `tools/admin/nightly-enrichment-log.md` for the first real entry, spot-check one in the dashboard at `localhost:8900`. If missing or failed, debug.
-
-**Opening message:**
-> Check `tools/admin/nightly-enrichment-log.md` for last night's nightly-inbox-enrichment run. Confirm enriched drafts pushed cleanly, spot-check one in the dashboard at localhost:8900. If skipped or failed, debug. Verify task is still in `mcp__scheduled-tasks__list_scheduled_tasks` first.
 
 ---
 
@@ -273,6 +263,9 @@ System for logging code changes as scientific trials. Want to work on it but too
 ---
 
 ## Archive
+
+### [DONE] Verify nightly-inbox-enrichment
+*2026-05-17* — verified working by Maaike. Scheduled task running, enriched drafts arriving in the dashboard cleanly.
 
 ### [DONE] Three defenses against confabulation (field note)
 *2026-05-08* — generated from `tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md`, published to `src/content/field-notes/three-defenses-against-confabulation.md`.
