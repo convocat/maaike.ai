@@ -25,6 +25,10 @@ Capture ideas from the Guildford session and shape them into a talk.
 - [ ] Article / essay — a written piece for the garden
 - [ ] Slide deck — presentation structure
 
+## Latest
+
+*2026-05-17:* watched both of Engelbart's demos (1968 Mother of all demos and 2004 Accelerating Change keynote). Captured the deep frame underneath: H-LAM/T, Networked Improvement Community, collective capability, dimensional scaling, bootstrapping in his strict sense, and the proof layer LLMs are missing. Emerging thesis: stop designing conversations, start designing the augmentation system.
+
 ## Log
 
 *Project started 2026-05-05.*
