@@ -27,7 +27,7 @@ Capture ideas from the Guildford session and shape them into a talk.
 
 ## Latest
 
-*2026-05-17:* watched both of Engelbart's demos (1968 Mother of all demos and 2004 Accelerating Change keynote). Captured the deep frame underneath: H-LAM/T, Networked Improvement Community, collective capability, dimensional scaling, bootstrapping in his strict sense, and the proof layer LLMs are missing. Emerging thesis: stop designing conversations, start designing the augmentation system.
+*2026-05-17:* watched both of Engelbart's demos (1968 Mother of all demos, 2004 Accelerating Change keynote) plus Maggie Appleton's GitHub Universe talk on agent collaboration. Captured the deep frame underneath: H-LAM/T, Networked Improvement Community, collective capability, dimensional scaling, bootstrapping in the strict sense, the proof layer LLMs are missing, and alignment as the new bottleneck (ACE as Engelbart's NIC with agents added). Emerging thesis: stop designing conversations, start designing the augmentation system.
 
 ## Log
 
@@ -49,3 +49,4 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-17**: Linked existing seed [[conversational-patterns-for-human-machine-interaction|Conversational patterns for human-machine interaction]] (published from draft, fixed develops link)
 - **2026-05-17**: Linked existing seed [[from-conversation-to-application-building-on-method-documents|From conversation to application: building on method documents]]
 - **2026-05-17**: Linked existing seed [[the-return-of-the-button|The return of the button]] (original button thread, IVR / structured input)
+- **2026-05-17**: Added watch notes [[watch-notes-alignment-is-the-bottleneck-maggie-appleton|Watch notes: Alignment is the bottleneck (Maggie Appleton)]]

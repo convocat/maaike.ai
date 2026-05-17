@@ -897,11 +897,13 @@
       "type": "person",
       "lens": [
         "design",
-        "personal"
+        "interaction"
       ],
       "subject": [
+        "interaction-design",
         "digital-garden"
-      ]
+      ],
+      "role": "framework"
     },
     "common-ground": {
       "label": "Common ground",
@@ -8309,6 +8311,71 @@
       "subject": [
         "interaction-design"
       ]
+    },
+    "ace-agent-collaboration-environment": {
+      "label": "ACE (Agent Collaboration Environment)",
+      "type": "technology",
+      "lens": [
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling",
+        "agent"
+      ],
+      "role": "instrument"
+    },
+    "alignment-bottleneck": {
+      "label": "Alignment bottleneck",
+      "type": "phenomenon",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "agent",
+        "future-of-work"
+      ],
+      "role": "position"
+    },
+    "coordination-debt": {
+      "label": "Coordination debt",
+      "type": "phenomenon",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "future-of-work",
+        "agent"
+      ]
+    },
+    "multi-agent-collaboration": {
+      "label": "Multi-agent collaboration",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "agent",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "living-intelligent-environment": {
+      "label": "Living, intelligent environment",
+      "type": "metaphor",
+      "lens": [
+        "design",
+        "interaction"
+      ],
+      "subject": [
+        "agent",
+        "interaction-design"
+      ],
+      "role": "position"
     }
   },
   "associations": [
@@ -14609,6 +14676,55 @@
       "predicate": "theorised-by",
       "object": "amartya-sen",
       "source": "watch-notes-doug-engelbart-accelerating-change-2004",
+      "collection": "articles"
+    },
+    {
+      "subject": "alignment-bottleneck",
+      "predicate": "theorised-by",
+      "object": "maggie-appleton",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "multi-agent-collaboration",
+      "predicate": "leads-to",
+      "object": "alignment-bottleneck",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "demonstrates",
+      "object": "alignment-bottleneck",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "structured-as",
+      "object": "networked-improvement-community",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "coordination-debt",
+      "predicate": "caused-by",
+      "object": "alignment-bottleneck",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "proof-layer",
+      "predicate": "requires",
+      "object": "ace-agent-collaboration-environment",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
+      "collection": "articles"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "characterised-as",
+      "object": "living-intelligent-environment",
+      "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
       "collection": "articles"
     }
   ]
