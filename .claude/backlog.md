@@ -231,20 +231,6 @@ Working file: `src/content/seeds/the-return-of-the-button.md` (53 lines, draft).
 
 ---
 
-## [READY] Skill fix: suppress /ingest-source per-item review in batch flows
-*added 2026-05-08*
-
-`/check-inbox` runs `/ingest-source` per draft, but `/ingest-source` Step 8 presents a chat review block. That's the wrong surface for batch backfill. The dashboard is. Update either:
-(a) drop `/ingest-source` from `/check-inbox` (let the dashboard Enrich button handle), or
-(b) keep it but suppress Step 8 inside batch flows.
-
-Memory rule already saved: `feedback_dashboard_pre_enriched.md`.
-
-**Opening message:**
-> Pick (a) or (b) for the `/check-inbox` + `/ingest-source` interaction. Read memory `feedback_dashboard_pre_enriched.md`. Update the relevant skill file under `.claude/commands/`. Verify: a fresh `/check-inbox` run no longer floods chat with per-draft review blocks.
-
----
-
 ## [PARKED] MindStudio CLI access
 *2026-05-16 · blocker: no concrete use case yet*
 
@@ -266,6 +252,9 @@ System for logging code changes as scientific trials. Want to work on it but too
 
 ### [DONE] Verify nightly-inbox-enrichment
 *2026-05-17* — verified working by Maaike. Scheduled task running, enriched drafts arriving in the dashboard cleanly.
+
+### [DONE] Skill fix: suppress /ingest-source per-item review in batch flows
+*2026-05-17* — option (b) applied. `/ingest-source` Step 8 now bypasses the chat review block when invoked from `/check-inbox`, `/telegram-sync`, or any batch loop. Dashboard remains the review surface for batch-enriched drafts.
 
 ### [DONE] Three defenses against confabulation (field note)
 *2026-05-08* — generated from `tools/karpathy-wiki/TRUTH-AND-VERIFICATION.md`, published to `src/content/field-notes/three-defenses-against-confabulation.md`.

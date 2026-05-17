@@ -160,6 +160,14 @@ Check if a weblink with this slug already exists at `src/content/weblinks/<slug>
 
 ## Step 8: Present everything for approval (canonical review block)
 
+**Batch-mode bypass.** If this skill is being invoked as part of a batch flow (e.g. from `/check-inbox`, `/telegram-sync`, or any loop processing multiple drafts), **skip this step entirely** and proceed straight to Step 9. The dashboard at `http://localhost:8900/` is the proper review surface for batch-enriched drafts. Presenting a per-draft review block in chat during a batch flood the chat and duplicates the dashboard's job. See memory `feedback_dashboard_pre_enriched.md` and `feedback_no_per_item_gates_in_batch.md`.
+
+You are in batch mode when:
+- The skill was invoked from another skill's loop (caller is `/check-inbox`, `/telegram-sync`, or similar), or
+- You are processing multiple drafts in sequence in the current session without explicit per-draft confirmation from Maaike.
+
+For interactive single-draft use (Maaike invokes `/ingest-source <url>` directly), continue with the review block below.
+
 Use this exact block shape — same field order and labels as `/auto-tag`. Fields that don't apply are shown as `n/a` but never reordered or removed.
 
 ```
