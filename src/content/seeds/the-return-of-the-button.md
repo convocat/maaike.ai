@@ -19,6 +19,7 @@ triples:
   - ["IVR", "metaphor-for", "Structured input"]
   - ["Structured input", "contrasted-with", "Conversational interface"]
 ai: "100% Maai"
+develops: conference-talk-guildford
 ---
 
 > Seed planted: March 27th, 2026 Claude Code is moving away from the unstructured conversation paradigm toward structured input: limited user input that you can simply select. It even has numbers for quick selection: THIS IS ACTUALLY IVR!! :-) )

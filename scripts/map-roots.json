@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-17T15:25:50.420Z",
+  "generated": "2026-05-17T15:34:33.195Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -345,6 +345,10 @@
     "seeds/collective-iq": {
       "x": 0.4826,
       "y": 0.3856
+    },
+    "seeds/conversational-patterns-for-human-machine-interaction": {
+      "x": 0.5938,
+      "y": 0.2337
     },
     "seeds/crew-resource-management": {
       "x": 0.4572,
@@ -1201,10 +1205,6 @@
     "jottings/u2-easter-parade": {
       "x": 0.4323,
       "y": 0.3486
-    },
-    "seeds/conversational-patterns-for-human-machine-interaction": {
-      "x": 0.5938,
-      "y": 0.2337
     }
   },
   "territories": [

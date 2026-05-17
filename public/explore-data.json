@@ -1033,6 +1033,18 @@
       "connections": 0
     },
     {
+      "slug": "conversational-patterns-for-human-machine-interaction",
+      "title": "Conversational patterns for human-machine interaction",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Schegloff mapped conversational patterns for human-human interaction. We need new ones for human-machine interaction, and conflating the two harms both.",
+      "url": "/seeds/conversational-patterns-for-human-machine-interaction",
+      "x": 0.5938,
+      "y": 0.2337,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "crew-resource-management",
       "title": "Crew Resource Management",
       "collection": "seeds",
@@ -2615,18 +2627,6 @@
       "y": 0.3486,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "conversational-patterns-for-human-machine-interaction",
-      "title": "Conversational patterns for human-machine interaction",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Schegloff mapped conversational patterns for human-human interaction. We need new ones for human-machine interaction, and conflating the two harms both.",
-      "url": "/seeds/conversational-patterns-for-human-machine-interaction",
-      "x": 0.5938,
-      "y": 0.2337,
-      "keyphrases": [],
-      "connections": 0
     }
   ],
   "territories": [
@@ -3649,6 +3649,7 @@
       "items": [
         "conference-talk-guildford",
         "conversational-patterns-for-human-machine-interaction",
+        "the-return-of-the-button",
         "from-conversation-to-application-building-on-method-documents",
         "beyond-anthropomorphism-reading-notes",
         "masure-acentric-design-reading-notes",

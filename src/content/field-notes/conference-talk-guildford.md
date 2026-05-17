@@ -48,3 +48,4 @@ Capture ideas from the Guildford session and shape them into a talk.
 - **2026-05-17**: Added seed [[bootstrapping-engelbart-sense|Bootstrapping in the strict, Engelbart sense]]
 - **2026-05-17**: Linked existing seed [[conversational-patterns-for-human-machine-interaction|Conversational patterns for human-machine interaction]] (published from draft, fixed develops link)
 - **2026-05-17**: Linked existing seed [[from-conversation-to-application-building-on-method-documents|From conversation to application: building on method documents]]
+- **2026-05-17**: Linked existing seed [[the-return-of-the-button|The return of the button]] (original button thread, IVR / structured input)
