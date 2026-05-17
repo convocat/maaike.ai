@@ -8,6 +8,18 @@ What's queued up. Each entry is a ready-to-paste opening message for a new threa
 
 ---
 
+## 🔵 Engelbart watch notes + Guildford seeds
+*2026-05-17*
+
+Today's Engelbart + Appleton watching landed 3 articles and 9 linked seeds in the Guildford project. Three things to do next session: (1) write LinkedIn copy for the 3 watch-notes articles (currently placeholder text in the linkedin block) and share via `/share-linkedin`; (2) review and enrich the 4 weblink drafts sitting in the dashboard (Shneiderman, Wattenberger, uxdesign.cc, Hypothesis case study), uxdesign.cc still needs description filled; (3) start outlining the actual Guildford talk from the Latest-section thesis: "stop designing conversations, start designing the augmentation system".
+
+Key files: `src/content/articles/watch-notes-*.md` (3 articles), `src/content/seeds/*.md` (recent Guildford seeds), `src/content/field-notes/conference-talk-guildford.md` (hub)
+
+**Opening message for next session:**
+> Run `/telegram-sync` first, then: review the 4 weblink drafts in the dashboard at localhost:8900 (one needs a description filled), then write LinkedIn copy for the 3 published watch-notes articles (Mother of all demos, AC2004, Appleton on alignment) and share via `/share-linkedin`. After that: start drafting the Guildford talk outline from the Latest-section thesis on the `conference-talk-guildford` hub.
+
+---
+
 ## [READY] Worktree cleanup loose-ends
 *2026-05-13*
 
