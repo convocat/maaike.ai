@@ -8376,6 +8376,91 @@
         "interaction-design"
       ],
       "role": "position"
+    },
+    "generative-ui": {
+      "label": "Generative UI",
+      "type": "concept",
+      "lens": [
+        "design",
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "llm",
+        "agent"
+      ]
+    },
+    "copilotkit": {
+      "label": "CopilotKit",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "agent",
+        "tooling"
+      ]
+    },
+    "langchain": {
+      "label": "LangChain",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "agent",
+        "llm",
+        "tooling"
+      ]
+    },
+    "a2ui-framework": {
+      "label": "A2UI framework",
+      "type": "technology",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "agent"
+      ]
+    },
+    "atai-barkai": {
+      "label": "Atai Barkai",
+      "type": "person",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "agent",
+        "interaction-design"
+      ]
+    },
+    "deeplearning-ai": {
+      "label": "DeepLearning.AI",
+      "type": "technology",
+      "lens": [
+        "culture",
+        "development"
+      ],
+      "subject": [
+        "future-of-work",
+        "llm"
+      ]
+    },
+    "model-context-protocol": {
+      "label": "Model Context Protocol (MCP)",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "agent",
+        "tooling",
+        "llm"
+      ]
     }
   },
   "associations": [
@@ -14726,6 +14811,48 @@
       "object": "living-intelligent-environment",
       "source": "watch-notes-alignment-is-the-bottleneck-maggie-appleton",
       "collection": "articles"
+    },
+    {
+      "subject": "generative-ui",
+      "predicate": "contrasted-with",
+      "object": "chat-interface",
+      "source": "just-a-moment",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "generative-ui",
+      "predicate": "structured-as",
+      "object": "interactive-components",
+      "source": "just-a-moment",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "copilotkit",
+      "predicate": "instance-of",
+      "object": "generative-ui",
+      "source": "just-a-moment",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "a2ui-framework",
+      "predicate": "instance-of",
+      "object": "generative-ui",
+      "source": "just-a-moment",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "model-context-protocol",
+      "predicate": "generates",
+      "object": "generative-ui",
+      "source": "just-a-moment",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "atai-barkai",
+      "predicate": "attributed-to",
+      "object": "copilotkit",
+      "source": "just-a-moment",
+      "collection": "weblinks"
     }
   ]
 }

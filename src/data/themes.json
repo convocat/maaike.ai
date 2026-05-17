@@ -436,5 +436,9 @@
     "Engelbart's work was driven by a larger philosophical vision of augmenting human intellect, not just building novel technologies",
     "The demo's impact extended beyond the technology itself to include innovative presentation methods, remote collaboration, and theatrical staging that made complex technical concepts accessible",
     "Historical documentation and retrospective analysis help preserve and contextualize foundational moments in the evolution of human-computer interaction"
+  ],
+  "just-a-moment": [
+    "Generative UI as alternative to chat",
+    "Three architectural approaches to agent UIs"
   ]
 }
