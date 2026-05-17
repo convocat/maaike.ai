@@ -22,7 +22,7 @@ const mainFeedEligible = allContent.filter((e) => {
 });
 
 // Hero: most recent article floated to top as featured
-const pinnedArticles = mainFeedEligible.filter((e) => e.collection === 'articles').slice(0, 1);
+const pinnedArticles = mainFeedEligible.filter((e) => e.collection === 'articles' && (e.data as any).ai === '100% Maai').slice(0, 1);
 const pinnedSet = new Set(pinnedArticles.map((e) => e.id));
 const feedItems = mainFeedEligible.filter((e) => !pinnedSet.has(e.id) && e.collection !== 'weblinks');
 const weblinks = mainFeedEligible.filter((e) => e.collection === 'weblinks');
