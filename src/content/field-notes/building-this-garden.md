@@ -483,6 +483,18 @@ Cleanup day: a new article live, the toolshed gains seven design artefacts, and 
 - **Seven toolshed mockups published**: acorn watercolor test, card excerpt preview, chip placement, earth-tone palette variants, meta-line preview, status-strip designs, workflow analysis tool. 2026-05-13 prototypes that were sitting untracked in `public/`, now documented as design artefacts.
 - **Repo hygiene**: Gitignored `__pycache__/` and `/*.zip` at repo root, archived five wiki prototype iterations plus the local preview server to `tools/archive/visual-prototypes/`, deleted two self-labelled throwaway scripts, purged eight stale `refs/original/` backup refs from an old filter-branch rewrite, removed the `chatbot` worktree plus five fully-merged `claude/*` branches.
 
+### 17 May
+
+A day of watching: Engelbart's 1968 demo, his 2004 keynote, and Maggie Appleton on alignment, all feeding a single Guildford talk thesis.
+
+- **Three watch-notes articles**: Mother of all demos (Engelbart 1968), Doug Engelbart at Accelerating Change 2004, Alignment is the bottleneck (Maggie Appleton, GitHub Universe). All linked to the Guildford talk project.
+- **Seven new seeds for the Guildford talk**: user-user-machine interfaces, H-LAM/T framework, collective IQ, scaling laws for augmentation, the proof layer LLMs are missing, bootstrapping in the strict Engelbart sense, conversational patterns for human-machine interaction. Two existing seeds (return of the button, from conversation to application) also linked into the project.
+- **Library entry**: Engelbart and English 1968 paper "A Research Center for Augmenting Human Intellect" added with PDF.
+- **Guildford hub "Latest" section**: 3-line thematic rollup of recent work now sits above the Log on every project hub. Memory rule saved so future sessions refresh it automatically.
+- **Homepage filter rework**: Articles, seeds, and jottings with `develops:` now appear on mainstream; experiments and field-notes still hidden as project-files. Hero card pinned to 100% Maai articles only.
+- **Knowledge graph growth**: ~30 new topics and ~25 associations.
+- **Skill fix**: `/ingest-source` bypasses the chat review block when invoked in batch flows (from `/check-inbox`, `/telegram-sync`, etc.). Dashboard remains the review surface.
+
 ## Related
 
 - [[digital-garden-history|The History of Digital Gardens]]
