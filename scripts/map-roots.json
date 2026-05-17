@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-17T10:12:34.944Z",
+  "generated": "2026-05-17T10:23:26.824Z",
   "overrides": {},
   "positions": {
     "articles/2-years-and-700-members-insights-from-convoclub": {
@@ -333,6 +333,10 @@
     "seeds/ai-transparency-in-content": {
       "x": 0.4695,
       "y": 0.3553
+    },
+    "seeds/bootstrapping-engelbart-sense": {
+      "x": 0.6823,
+      "y": 0.266
     },
     "seeds/chatbots-without-ai": {
       "x": 0.4697,
@@ -1197,10 +1201,6 @@
     "jottings/u2-easter-parade": {
       "x": 0.4323,
       "y": 0.3486
-    },
-    "seeds/bootstrapping-engelbart-sense": {
-      "x": 0.6823,
-      "y": 0.266
     }
   },
   "territories": [

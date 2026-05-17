@@ -2,6 +2,7 @@
 title: "Watch notes: Doug Engelbart at Accelerating Change 2004"
 description: "Watching Doug Engelbart's 2004 Accelerating Change keynote, 36 years after the demo. Running notes with Claude on tool systems vs human systems, collective capability, dimensional scaling, and what a post-conversation augmentation field could look like."
 date: 2026-05-17
+updated: 2026-05-17
 maturity: draft
 draft: false
 ai: co-created
@@ -189,6 +190,21 @@ Is this solvable with LLMs now? I think it could be, but how?
 
 We need a paradigm shift, even though there's no business case for this. Because it's critical
 We need to think of getting more effectively collectively really soon.
+
+Different user interfaces should be able to plug in.
+
+different interfaces
+doesn't have to be easy to learn stuff. Progressoin from tricycles to bicycles. Nobody understands how you really ride a bicycle.
+
+You steer a bicycle, you don't know how to keep your wheels under you, you steer and trust your reflexes
+
+So did he say anything about this?
+
+> Co-created with AI
+>
+> Honestly: he supported the *pluggable* idea (the "different user interfaces should be able to plug in" note above), and NLS itself supported multiple input modes composed together: keyboard, mouse, chord keyset, view specifications that reshaped the same document. The augmentation system was always deeper than any one interface.
+>
+> But the specific claim that "different metaphors should fit different kinds of work" is an extension past his text. He did not say that explicitly. His point is the technical/architectural one (the system underneath, not the interface on top). The metaphor-mapping is mine, not his.
 
 ## From conversation to instrument: language as substrate
 

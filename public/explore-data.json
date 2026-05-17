@@ -997,6 +997,18 @@
       "connections": 1
     },
     {
+      "slug": "bootstrapping-engelbart-sense",
+      "title": "Bootstrapping in the strict, Engelbart sense",
+      "collection": "seeds",
+      "maturity": "draft",
+      "description": "Not the idiom. A recursive engineering discipline: A-activity does the work, B-activity improves how A is done, C-activity improves how B is done. The leverage is at C, and almost nobody runs it.",
+      "url": "/seeds/bootstrapping-engelbart-sense",
+      "x": 0.6823,
+      "y": 0.266,
+      "keyphrases": [],
+      "connections": 0
+    },
+    {
       "slug": "chatbots-without-ai",
       "title": "Chatbots without AI",
       "collection": "seeds",
@@ -2603,18 +2615,6 @@
       "y": 0.3486,
       "keyphrases": [],
       "connections": 0
-    },
-    {
-      "slug": "bootstrapping-engelbart-sense",
-      "title": "Bootstrapping in the strict, Engelbart sense",
-      "collection": "seeds",
-      "maturity": "draft",
-      "description": "Not the idiom. A recursive engineering discipline: A-activity does the work, B-activity improves how A is done, C-activity improves how B is done. The leverage is at C, and almost nobody runs it.",
-      "url": "/seeds/bootstrapping-engelbart-sense",
-      "x": 0.6823,
-      "y": 0.266,
-      "keyphrases": [],
-      "connections": 0
     }
   ],
   "territories": [
@@ -3655,12 +3655,12 @@
         "how-to-design-when-concept-of-operations-is-opaque",
         "watch-notes-doug-engelbart-accelerating-change-2004",
         "watch-notes-on-the-mother-of-all-demos",
+        "bootstrapping-engelbart-sense",
         "collective-iq",
         "h-lam-t-framework",
         "scaling-laws-for-augmentation",
         "the-proof-layer-llms-are-missing",
-        "user-user-machine-interfaces",
-        "bootstrapping-engelbart-sense"
+        "user-user-machine-interfaces"
       ],
       "type": "project"
     },
