@@ -16,7 +16,7 @@ const mainFeedEligible = allContent.filter((e) => {
   if (data.ai === 'generated') return false;
   if (e.collection === 'library') return false;
   if (e.collection === 'field-notes') return !data.tags?.includes('about');
-  if (data.develops) return false;
+  if (data.develops && (e.collection === 'experiments' || e.collection === 'field-notes')) return false;
   if (e.collection === 'jottings' && data.type === 'quote') return false;
   return true;
 });
