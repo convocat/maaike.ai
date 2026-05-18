@@ -8461,6 +8461,19 @@
         "tooling",
         "llm"
       ]
+    },
+    "github-next": {
+      "label": "GitHub Next",
+      "type": "technology",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "agent",
+        "tooling",
+        "future-of-work"
+      ]
     }
   },
   "associations": [
@@ -14816,43 +14829,78 @@
       "subject": "generative-ui",
       "predicate": "contrasted-with",
       "object": "chat-interface",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     },
     {
       "subject": "generative-ui",
       "predicate": "structured-as",
       "object": "interactive-components",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     },
     {
       "subject": "copilotkit",
       "predicate": "instance-of",
       "object": "generative-ui",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     },
     {
       "subject": "a2ui-framework",
       "predicate": "instance-of",
       "object": "generative-ui",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     },
     {
       "subject": "model-context-protocol",
       "predicate": "generates",
       "object": "generative-ui",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     },
     {
       "subject": "atai-barkai",
       "predicate": "attributed-to",
       "object": "copilotkit",
-      "source": "just-a-moment",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "attributed-to",
+      "object": "maggie-appleton",
+      "source": "collaborative-ai-engineering-maggie-appleton",
+      "collection": "videos"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "counters",
+      "object": "alignment-bottleneck",
+      "source": "collaborative-ai-engineering-maggie-appleton",
+      "collection": "videos"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "instance-of",
+      "object": "multi-agent-collaboration",
+      "source": "collaborative-ai-engineering-maggie-appleton",
+      "collection": "videos"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "exhibits",
+      "object": "alignment-bottleneck",
+      "source": "collaborative-ai-engineering-maggie-appleton",
+      "collection": "videos"
+    },
+    {
+      "subject": "ace-agent-collaboration-environment",
+      "predicate": "attributed-to",
+      "object": "github-next",
+      "source": "collaborative-ai-engineering-maggie-appleton",
+      "collection": "videos"
     }
   ]
 }

@@ -165,6 +165,13 @@ def _slugify(text: str) -> str:
     return text.strip("-")[:60]
 
 
+def _slugify_full(text: str) -> str:
+    """Slugify without the 60-char cap (for weblink/video filenames)."""
+    text = (text or "").lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-")
+
+
 class _FlowList(list):
     """Marker type: render as flow-style YAML (inline `[a, b, c]`)."""
 
@@ -385,6 +392,143 @@ def api_dismiss():
 @app.route("/api/delete", methods=["POST"])
 def api_delete():
     return api_dismiss()
+
+
+@app.route("/api/save-edits", methods=["POST"])
+def api_save_edits():
+    """Persist edits (title, tags, description, body, triples, themes) to the
+    weblink frontmatter WITHOUT flipping draft and WITHOUT committing.
+    Lets the reviewer edit a draft over multiple sessions before publishing."""
+    data = request.json or {}
+    slug = data.get("slug")
+    if not slug:
+        return jsonify({"error": "slug required"}), 400
+    path = WEBLINKS_DIR / f"{slug}.md"
+    if not path.exists():
+        return jsonify({"error": f"not found: {slug}"}), 404
+    try:
+        apply_edits(
+            path,
+            data.get("tags"),
+            data.get("description"),
+            data.get("triples"),
+            title=data.get("title"),
+            themes=data.get("themes") or None,
+            body=data.get("body"),
+        )
+        if "triples" in data:
+            sync_triples_json(slug, "weblinks", data["triples"])
+        if data.get("themes"):
+            _update_themes_json(slug, data["themes"])
+        return jsonify({"ok": True, "slug": slug})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+_VIDEO_HOST_RE = re.compile(
+    r"^https?://(?:www\.|m\.)?(?:youtube\.com/(?:watch|shorts|embed|live)|youtu\.be/|vimeo\.com/)",
+    re.IGNORECASE,
+)
+
+
+@app.route("/api/convert-to-video", methods=["POST"])
+def api_convert_to_video():
+    """Move a draft weblink into the videos collection.
+
+    Renames the file based on the current title (slugified, no cap), updates
+    the `source` slug + `collection` on its associations in triples.json,
+    renames its themes.json key, and commits the move. Keeps draft: true so
+    the reviewer still controls when the post goes live (publish via Approve
+    after the convert, which now operates on the videos file).
+    """
+    data = request.json or {}
+    slug = data.get("slug")
+    if not slug:
+        return jsonify({"error": "slug required"}), 400
+    src = WEBLINKS_DIR / f"{slug}.md"
+    if not src.exists():
+        return jsonify({"error": f"not found: {slug}"}), 404
+
+    fm = parse_weblink(src) or {}
+    url = (fm.get("url") or "").strip()
+    if not _VIDEO_HOST_RE.match(url):
+        return jsonify({"error": f"URL does not look like a video host: {url!r}"}), 400
+
+    # Pick the new slug: prefer caller's slug override, else slugify title.
+    title = (data.get("title") or fm.get("title") or "").strip()
+    new_slug = (data.get("new_slug") or _slugify_full(title) or slug).strip("-")
+    if not new_slug:
+        return jsonify({"error": "could not derive a slug from the title"}), 400
+
+    videos_dir = CONTENT_DIR / "videos"
+    videos_dir.mkdir(parents=True, exist_ok=True)
+    dst = videos_dir / f"{new_slug}.md"
+    if dst.exists() and dst.resolve() != src.resolve():
+        return jsonify({"error": f"target already exists: videos/{new_slug}.md"}), 409
+
+    cwd = str(GARDEN_ROOT)
+    try:
+        # Use git mv when possible so history follows the rename
+        rel_src = str(src.relative_to(GARDEN_ROOT))
+        rel_dst = str(dst.relative_to(GARDEN_ROOT))
+        mv = subprocess.run(
+            ["git", "mv", rel_src, rel_dst], cwd=cwd, capture_output=True, text=True
+        )
+        if mv.returncode != 0:
+            # Fall back to a plain rename if git mv complained (e.g. untracked)
+            src.rename(dst)
+    except Exception as e:
+        return jsonify({"error": f"move failed: {e}"}), 500
+
+    # Optional title rewrite (in case the reviewer edited it client-side and
+    # passed it along — same code path apply_edits uses elsewhere).
+    if title and title != fm.get("title"):
+        try:
+            apply_edits(dst, None, None, None, title=title)
+        except Exception:
+            pass
+
+    # Rewrite triples.json: change source slug + collection for matching rows
+    try:
+        if TRIPLES_PATH.exists():
+            tdata = json.loads(TRIPLES_PATH.read_text(encoding="utf-8"))
+            changed = 0
+            for a in tdata.get("associations", []):
+                if a.get("source") == slug and a.get("collection") in (None, "weblinks"):
+                    a["source"] = new_slug
+                    a["collection"] = "videos"
+                    changed += 1
+            if changed:
+                TRIPLES_PATH.write_text(
+                    json.dumps(tdata, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+    except Exception as e:
+        print(f"[admin] triples.json rewrite failed: {e}")
+
+    # Rename themes.json key if present
+    try:
+        if THEMES_PATH.exists():
+            th = json.loads(THEMES_PATH.read_text(encoding="utf-8"))
+            if slug in th:
+                th[new_slug] = th.pop(slug)
+                THEMES_PATH.write_text(
+                    json.dumps(th, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+    except Exception as e:
+        print(f"[admin] themes.json rewrite failed: {e}")
+
+    git_commit_push(
+        [dst, src, TRIPLES_PATH, THEMES_PATH],
+        f"Convert weblink to video: {slug} -> {new_slug}",
+    )
+    return jsonify({
+        "ok": True,
+        "old_slug": slug,
+        "new_slug": new_slug,
+        "new_path": str(dst.relative_to(GARDEN_ROOT)).replace("\\", "/"),
+    })
 
 
 @app.route("/api/telegram-sync-status")

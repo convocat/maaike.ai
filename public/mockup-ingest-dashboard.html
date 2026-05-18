@@ -374,6 +374,22 @@ input, textarea { font: inherit; color: inherit; }
   transition: all 150ms ease;
 }
 .btn-book:hover { border-color: #7A5A48; color: #7A5A48; }
+.btn-save-edits {
+  padding: 4px 10px; border-radius: var(--radius-md); font-size: 12px;
+  font-weight: 500; cursor: pointer; font-family: var(--font-b);
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-2);
+  text-transform: none; letter-spacing: 0;
+  transition: all 150ms ease;
+}
+.btn-save-edits:hover { border-color: var(--accent); color: var(--accent); }
+.btn-save-edits:disabled { opacity: 0.6; cursor: default; }
+.video-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 14px; margin-bottom: 12px;
+  background: var(--bg-card); border: 1px dashed var(--accent);
+  border-radius: var(--radius-md); font-size: 13.5px; color: var(--ink-2);
+}
+.video-banner .btn-approve { padding: 5px 14px; font-size: 13px; }
 /* Book form — replaces action strip */
 #book-form {
   display: none; flex-direction: column; gap: 10px;
@@ -949,7 +965,15 @@ function renderReviewPanel(item) {
       </p>
     </div>`;
 
+  const isVideo = item.url && /^https?:\/\/(?:www\.|m\.)?(?:youtube\.com\/(?:watch|shorts|embed|live)|youtu\.be\/|vimeo\.com\/)/i.test(item.url);
+  const videoBanner = isVideo ? `
+    <div class="video-banner" id="video-banner">
+      <span>This URL looks like a video. Move it to the videos collection?</span>
+      <button class="btn-approve" onclick="convertToVideo()">Convert to video</button>
+    </div>` : '';
+
   el.innerHTML = `
+    ${videoBanner}
     <div>
       <div class="section-head">Source</div>
       <div class="inbox-line">
@@ -960,7 +984,10 @@ function renderReviewPanel(item) {
       </div>
     </div>
     <div class="meta-card">
-      <div class="section-head">Metadata</div>
+      <div class="section-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+        <span>Metadata</span>
+        <button class="btn-save-edits" onclick="saveEdits()" title="Save edits without publishing (keeps draft: true)">Save edits</button>
+      </div>
       <div class="meta-row">
         <label class="meta-label">Title</label>
         <input id="meta-title" class="meta-input" type="text" value="${escHtml(item.title)}">
@@ -1203,6 +1230,78 @@ async function applyProposal() {
     if (next >= 0) setTimeout(() => showItem(next), 500);
   } catch (e) {
     toast('Apply failed: ' + e.message, true);
+  }
+  setBusy(false);
+}
+
+// ── Save edits (no publish) ────────────────────────────────────────────────
+function _collectEditsForCurrentItem() {
+  const item = queueItems[currentIdx];
+  if (!item) return null;
+  const title = document.getElementById('meta-title')?.value ?? item.title ?? '';
+  const tagsRaw = document.getElementById('meta-tags')?.value || '';
+  const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+  const description = document.getElementById('meta-desc')?.value ?? item.description ?? '';
+  const notesBody = document.getElementById('meta-body')?.value ?? item.body ?? '';
+  const triples = (item.associations || []).map(a => [a.subject, a.predicate, a.object]);
+  const themes = item.themes && item.themes.length ? item.themes : undefined;
+  return { item, body: {slug: item.slug, title, tags, description, body: notesBody, triples, themes} };
+}
+
+async function saveEdits() {
+  const pack = _collectEditsForCurrentItem();
+  if (!pack) return;
+  const btn = document.querySelector('.btn-save-edits');
+  const orig = btn ? btn.textContent : 'Save edits';
+  if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+  try {
+    const res = await fetch('/api/save-edits', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(pack.body),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || `HTTP ${res.status}`);
+    // Reflect saved values on the cached item so panel re-renders are consistent
+    Object.assign(pack.item, {
+      title: pack.body.title,
+      tags: pack.body.tags,
+      description: pack.body.description,
+      body: pack.body.body,
+    });
+    if (btn) { btn.textContent = 'Saved'; setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 1200); }
+    renderQueue();
+  } catch (e) {
+    toast('Save failed: ' + e.message, true);
+    if (btn) { btn.textContent = orig; btn.disabled = false; }
+  }
+}
+
+// ── Convert weblink to video ──────────────────────────────────────────────
+async function convertToVideo() {
+  const item = queueItems[currentIdx];
+  if (!item) return;
+  // Use whatever title is currently in the input so a typed-but-unsaved title gets used for slug
+  const liveTitle = document.getElementById('meta-title')?.value ?? item.title ?? '';
+  if (!confirm(`Convert to videos collection and rename file based on title?\n\nTitle: "${liveTitle}"`)) return;
+  setBusy(true);
+  try {
+    const res = await fetch('/api/convert-to-video', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({slug: item.slug, title: liveTitle}),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || `HTTP ${res.status}`);
+    toast(`Moved to videos: ${data.new_slug}`);
+    // The item is no longer in the weblinks queue — drop it and advance
+    queueItems.splice(currentIdx, 1);
+    currentIdx = -1;
+    renderQueue();
+    updateQueueCount();
+    setTimeout(advanceQueue, 300);
+  } catch (e) {
+    toast('Convert failed: ' + e.message, true);
   }
   setBusy(false);
 }
