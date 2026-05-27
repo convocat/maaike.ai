@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hypotheek pre-approval assistant — working prototype</title>
+<style>
+  :root {
+    --bank-blue: #003a6c;
+    --bank-blue-soft: #e8f0f7;
+    --bank-accent: #ff9d2e;
+    --bronze: #9C7A3E;
+    --terracotta: #A04A2C;
+    --moss: #3E5638;
+    --moss-light: #94B582;
+    --sand: #F5F4F0;
+    --paper: #FFFFFF;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e3e1da;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,58,108,.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, var(--bank-blue-soft) 0%, var(--sand) 60%);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  h1, h2, h3 {
+    font-family: "Lora", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 .4em;
+  }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  header.top {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  header.top h1 {
+    color: var(--bank-blue);
+    font-size: 1.6rem;
+  }
+  header.top p {
+    color: var(--muted);
+    margin: 0;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* timeline scrubber */
+  .scrubber {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .scrubber h3 {
+    margin: 0 0 .8rem;
+    font-size: .95rem;
+    color: var(--bank-blue);
+  }
+  .scenes {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  .scene-btn {
+    flex: 1;
+    min-width: 130px;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: .6rem .8rem;
+    text-align: left;
+    font: inherit;
+    font-size: .82rem;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .scene-btn:hover { border-color: var(--bank-blue); }
+  .scene-btn.on {
+    background: var(--bank-blue);
+    color: var(--paper);
+    border-color: var(--bank-blue);
+  }
+  .scene-btn .time {
+    display: block;
+    font-size: .7rem;
+    opacity: .7;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: .15rem;
+  }
+  .scene-btn .name {
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .scene-note {
+    margin-top: .9rem;
+    padding: .7rem .9rem;
+    background: #fff8ea;
+    border-left: 3px solid var(--bronze);
+    border-radius: 4px;
+    font-size: .85rem;
+    color: var(--ink);
+  }
+  .scene-note strong {
+    color: var(--bronze);
+    text-transform: uppercase;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    display: block;
+    margin-bottom: .25rem;
+  }
+
+  /* phone-ish frame */
+  .stage {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0 0;
+  }
+  .frame {
+    background: var(--paper);
+    border-radius: 18px;
+    overflow: hidden;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 12px 40px rgba(0,58,108,.18);
+    font-family: "Roboto", sans-serif;
+  }
+  .frame-bar {
+    background: var(--bank-blue);
+    color: var(--paper);
+    padding: .9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .9rem;
+  }
+  .frame-bar .logo {
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  .frame-body {
+    padding: 1.3rem 1.5rem 1.6rem;
+  }
+  .frame-body h3 {
+    color: var(--bank-blue);
+    margin: 0 0 .3rem;
+    font-size: 1.1rem;
+  }
+  .frame-body .greeting {
+    font-size: .88rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .tracker { margin: 1rem 0; }
+  .tracker-row {
+    display: flex;
+    gap: .8rem;
+    align-items: flex-start;
+    padding: .75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tracker-row:last-child { border-bottom: none; }
+  .tracker-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--sand);
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: .9rem;
+    font-weight: 600;
+    border: 1px solid var(--line);
+  }
+  .tracker-row.done .tracker-icon {
+    background: var(--moss);
+    color: var(--paper);
+    border-color: var(--moss);
+  }
+  .tracker-row.active .tracker-icon {
+    background: var(--bank-accent);
+    color: var(--paper);
+    border-color: var(--bank-accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .tracker-row.attention .tracker-icon {
+    background: var(--terracotta);
+    color: var(--paper);
+    border-color: var(--terracotta);
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,157,46,.5); }
+    50% { box-shadow: 0 0 0 10px rgba(255,157,46,0); }
+  }
+  .tracker-body { flex: 1; }
+  .tracker-body .label {
+    font-weight: 500;
+    font-size: .95rem;
+  }
+  .tracker-body .sub {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-top: .15rem;
+  }
+  .tracker-row.attention .tracker-body .sub {
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+  .tracker-row.active .tracker-body .sub {
+    color: var(--bronze);
+  }
+
+  /* email card */
+  .email-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 1.2rem;
+  }
+  .email-head {
+    background: var(--sand);
+    padding: .7rem 1rem;
+    font-size: .78rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+  }
+  .email-head .from { color: var(--ink); font-weight: 500; }
+  .email-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+  }
+  .email-body h3 {
+    color: var(--bank-blue);
+    margin-bottom: .6rem;
+    font-size: 1.05rem;
+  }
+  .email-body p { margin: 0 0 .8em; }
+
+  .btn {
+    display: inline-block;
+    background: var(--bank-blue);
+    color: var(--paper);
+    padding: .6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .9rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn:hover { background: #004a86; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--bank-blue);
+    border: 1px solid var(--bank-blue);
+  }
+  .btn-ghost:hover { background: var(--bank-blue-soft); }
+
+  /* handoff card */
+  .handoff-card {
+    background: linear-gradient(135deg, #fff8ea 0%, #fdecd2 100%);
+    border: 1px solid #e7c98a;
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    margin-top: 1rem;
+  }
+  .handoff-card h3 { color: var(--bronze); margin-bottom: .4rem; }
+  .person {
+    display: flex;
+    gap: .9rem;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--bronze);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: "Lora", serif;
+    font-size: 1.05rem;
+  }
+  .person .name { font-weight: 600; }
+  .person .role { font-size: .82rem; color: var(--muted); }
+
+  .handoff-card p { font-size: .9rem; margin: 0 0 .6em; }
+  .handoff-card .meta-row {
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+  }
+
+  /* SMS bubble (mini) */
+  .sms-bubble {
+    background: var(--bank-blue-soft);
+    border-radius: 14px;
+    padding: .8rem 1rem;
+    font-size: .9rem;
+    margin: 1rem 0;
+    max-width: 80%;
+  }
+  .sms-bubble .sms-label {
+    display: block;
+    font-size: .7rem;
+    color: var(--muted);
+    margin-bottom: .25rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  /* upload mini */
+  .upload-form {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--sand);
+    border-radius: 8px;
+  }
+  .upload-form label {
+    font-size: .85rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  .radio-row {
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    margin-bottom: .8rem;
+  }
+  .radio-row label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem .8rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0;
+  }
+  .radio-row label:hover { border-color: var(--bank-blue); }
+
+  .nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .nav-bottom button {
+    padding: .55rem 1.1rem;
+    border-radius: 8px;
+    border: 1px solid var(--bank-blue);
+    background: var(--paper);
+    color: var(--bank-blue);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .nav-bottom button.primary {
+    background: var(--bank-blue);
+    color: var(--paper);
+  }
+  .nav-bottom button:disabled { opacity: .4; cursor: not-allowed; }
+
+  footer.bot {
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: .8rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <h1>Hypotheek pre-approval assistant</h1>
+    <p>A working prototype. Sanne just had a bid accepted on a house. She submitted her pre-approval 20 minutes ago. Click through what she experiences over the next 3 hours.</p>
+  </header>
+
+  <div class="scrubber">
+    <h3>Sanne's timeline</h3>
+    <div class="scenes" id="scenes">
+      <button class="scene-btn on" data-scene="submit">
+        <span class="time">T+0</span>
+        <span class="name">Just submitted</span>
+      </button>
+      <button class="scene-btn" data-scene="checking">
+        <span class="time">T+15 min</span>
+        <span class="name">Documents being read</span>
+      </button>
+      <button class="scene-btn" data-scene="nudge">
+        <span class="time">T+45 min</span>
+        <span class="name">Email & SMS nudge</span>
+      </button>
+      <button class="scene-btn" data-scene="resolved">
+        <span class="time">T+1 hour</span>
+        <span class="name">One-question reply</span>
+      </button>
+      <button class="scene-btn" data-scene="handoff">
+        <span class="time">T+3 hours</span>
+        <span class="name">Human handoff</span>
+      </button>
+    </div>
+    <div class="scene-note" id="sceneNote"></div>
+  </div>
+
+  <div class="stage" id="stage"></div>
+
+  <div class="nav-bottom">
+    <button id="prevBtn">← Previous</button>
+    <button class="primary" id="nextBtn">Next →</button>
+  </div>
+
+  <footer class="bot">
+    Working prototype · designed by Maaike Groenewege · May 2026
+  </footer>
+
+</div>
+
+<script>
+  const order = ['submit', 'checking', 'nudge', 'resolved', 'handoff'];
+
+  const scenes = {
+    submit: {
+      note: 'Sanne just submitted her application. No conversation has happened. The system is a tracker, not a chat. She can close this tab.',
+      html: `
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="logo">DELTABANK</span>
+            <span>Mortgage</span>
+          </div>
+          <div class="frame-body">
+            <h3>Application received</h3>
+            <p class="greeting">Thanks, Sanne. We've got your application and we're getting started.</p>
+            <div class="tracker">
+              <div class="tracker-row active">
+                <span class="tracker-icon">●</span>
+                <div class="tracker-body">
+                  <div class="label">Application received</div>
+                  <div class="sub">Just now, 14:02</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Reading your documents</div>
+                  <div class="sub">Up next</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Verifying income and liabilities</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Adviser review</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Indicative pre-approval</div>
+                </div>
+              </div>
+            </div>
+            <p style="font-size:.82rem;color:var(--muted);margin-top:1rem">We'll let you know if we need anything. You can close this page.</p>
+          </div>
+        </div>`
+    },
+    checking: {
+      note: 'The system is reading her documents. The status summariser turns pipeline state ("OCR pass on T1-equivalent") into something Sanne can read ("checking your 2024 tax summary"). Sanne is at her desk and refreshes the page out of habit.',
+      html: `
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="logo">DELTABANK</span>
+            <span>Mortgage</span>
+          </div>
+          <div class="frame-body">
+            <h3>We're working on it</h3>
+            <p class="greeting">Last update: 14:17</p>
+            <div class="tracker">
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body">
+                  <div class="label">Application received</div>
+                  <div class="sub">14:02</div>
+                </div>
+              </div>
+              <div class="tracker-row active">
+                <span class="tracker-icon">●</span>
+                <div class="tracker-body">
+                  <div class="label">Reading your documents</div>
+                  <div class="sub">Checking your 2024 tax summary right now.</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Verifying income and liabilities</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Adviser review</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body">
+                  <div class="label">Indicative pre-approval</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`
+    },
+    nudge: {
+      note: 'The system found an inconsistency it cannot resolve on its own. The missing-info composer wrote one specific question, grounded in two specific documents. Email arrives with an upload button. SMS pings her phone in parallel. No chat opens.',
+      html: `
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="logo">DELTABANK</span>
+            <span>Mortgage</span>
+          </div>
+          <div class="frame-body">
+            <h3>One quick check</h3>
+            <p class="greeting">We're making progress, but two of your documents disagree.</p>
+            <div class="tracker">
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body"><div class="label">Application received</div></div>
+              </div>
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body"><div class="label">Documents read</div></div>
+              </div>
+              <div class="tracker-row attention">
+                <span class="tracker-icon">!</span>
+                <div class="tracker-body">
+                  <div class="label">Verifying income</div>
+                  <div class="sub">We need one confirmation from you.</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body"><div class="label">Adviser review</div></div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body"><div class="label">Indicative pre-approval</div></div>
+              </div>
+            </div>
+
+            <div class="sms-bubble">
+              <span class="sms-label">SMS · 14:47</span>
+              Hi Sanne, your mortgage application needs one quick confirmation about your salary. Takes 30 seconds: deltabank.nl/m/sanne-7q3
+            </div>
+
+            <div class="email-card">
+              <div class="email-head">
+                <div><span class="from">Deltabank Mortgage</span> &lt;mortgage@deltabank.nl&gt;</div>
+                <div>To: sanne.vermeer@example.nl &nbsp; · &nbsp; 14:47</div>
+              </div>
+              <div class="email-body">
+                <h3>One number to confirm</h3>
+                <p>Hi Sanne, to keep your pre-approval moving, we need to confirm one figure. Your 2024 tax summary shows <strong>€58,400</strong>. Your employer's statement shows <strong>€61,200</strong>. Which one reflects your current salary?</p>
+                <p style="color:var(--muted);font-size:.85rem">Takes about 30 seconds.</p>
+                <button class="btn">Confirm in 30 seconds →</button>
+              </div>
+            </div>
+          </div>
+        </div>`
+    },
+    resolved: {
+      note: 'Sanne tapped the SMS link from the bus. One question, two radio buttons, done. No chat, no thread, no follow-up. The case is back on its rails.',
+      html: `
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="logo">DELTABANK</span>
+            <span>Mortgage</span>
+          </div>
+          <div class="frame-body">
+            <h3>Thanks, we're moving</h3>
+            <p class="greeting">Your confirmation came in at 14:52. Picking it back up.</p>
+
+            <div class="upload-form" style="opacity:.55">
+              <label>Which figure is your current salary?</label>
+              <div class="radio-row">
+                <label><input type="radio" name="ans" disabled> €58,400 (from your 2024 tax summary)</label>
+                <label><input type="radio" name="ans" checked disabled> €61,200 (from your employer's statement)</label>
+              </div>
+              <p style="font-size:.78rem;color:var(--muted);margin:0">Submitted 14:52. You can close this page.</p>
+            </div>
+
+            <div class="tracker">
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body"><div class="label">Application received</div></div>
+              </div>
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body"><div class="label">Documents read</div></div>
+              </div>
+              <div class="tracker-row done">
+                <span class="tracker-icon">✓</span>
+                <div class="tracker-body">
+                  <div class="label">Income verified</div>
+                  <div class="sub">Confirmed: €61,200</div>
+                </div>
+              </div>
+              <div class="tracker-row active">
+                <span class="tracker-icon">●</span>
+                <div class="tracker-body">
+                  <div class="label">Adviser review</div>
+                  <div class="sub">Marieke is looking at your file tomorrow.</div>
+                </div>
+              </div>
+              <div class="tracker-row">
+                <span class="tracker-icon">○</span>
+                <div class="tracker-body"><div class="label">Indicative pre-approval</div></div>
+              </div>
+            </div>
+          </div>
+        </div>`
+    },
+    handoff: {
+      note: 'The case is ready for a human. The handoff brief was generated for both Marieke and Sanne — same document, two readers. Sanne doesn\'t get a surprise call; she gets a calendar invite and knows what will be discussed.',
+      html: `
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="logo">DELTABANK</span>
+            <span>Mortgage</span>
+          </div>
+          <div class="frame-body">
+            <h3>Your adviser is ready</h3>
+            <p class="greeting">We've got everything we need. Marieke takes it from here.</p>
+
+            <div class="handoff-card">
+              <h3>Thursday 14:00 · call with Marieke</h3>
+              <div class="person">
+                <div class="avatar">MdV</div>
+                <div>
+                  <div class="name">Marieke de Vries</div>
+                  <div class="role">Mortgage adviser · Deltabank Utrecht</div>
+                </div>
+              </div>
+              <p><strong>What we know:</strong> property in Utrecht (€425,000), confirmed income (€61,200), no open loans.</p>
+              <p><strong>What we'll discuss:</strong> NHG mortgage guarantee, fixed vs variable rate, term length.</p>
+              <p><strong>Duration:</strong> 20 minutes. You'll get the full summary in advance, so you don't have to re-explain anything.</p>
+              <div class="meta-row">
+                <button class="btn">Add to calendar</button>
+                <button class="btn btn-ghost">Read the summary</button>
+              </div>
+            </div>
+
+            <p style="font-size:.82rem;color:var(--muted);margin-top:1.2rem;text-align:center">Not a 'sorry, AI couldn't help' moment. A 'we've done the prep work, now you get a person' moment.</p>
+          </div>
+        </div>`
+    }
+  };
+
+  let current = 0;
+  const stage = document.getElementById('stage');
+  const noteEl = document.getElementById('sceneNote');
+  const sceneButtons = document.querySelectorAll('.scene-btn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function render() {
+    const name = order[current];
+    const s = scenes[name];
+    stage.innerHTML = s.html;
+    noteEl.innerHTML = '<strong>Designer note</strong>' + s.note;
+    sceneButtons.forEach(b => b.classList.toggle('on', b.dataset.scene === name));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === order.length - 1;
+  }
+
+  sceneButtons.forEach(b => b.addEventListener('click', () => {
+    current = order.indexOf(b.dataset.scene);
+    render();
+    window.scrollTo({ top: stage.offsetTop - 20, behavior: 'smooth' });
+  }));
+  prevBtn.addEventListener('click', () => { if (current > 0) { current--; render(); } });
+  nextBtn.addEventListener('click', () => { if (current < order.length - 1) { current++; render(); } });
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' && current < order.length - 1) { current++; render(); }
+    if (e.key === 'ArrowLeft' && current > 0) { current--; render(); }
+  });
+
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Design walkthrough — GenAI mortgage assistant brief</title>
+<style>
+  :root {
+    --moss: #3E5638;
+    --moss-light: #94B582;
+    --bronze: #9C7A3E;
+    --terracotta: #A04A2C;
+    --sand: #F5F4F0;
+    --paper: #FFFFFF;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e3e1da;
+    --highlight: #FFF4B8;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--sand);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: "Lora", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 .4em;
+  }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; color: var(--moss); }
+  h3 { font-size: 1.05rem; color: var(--moss); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: 100vh;
+  }
+
+  aside.steps {
+    background: var(--paper);
+    border-right: 1px solid var(--line);
+    padding: 1.4rem 1.3rem 1.4rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  aside.steps .brand {
+    font-family: "Lora", serif;
+    font-size: 1rem;
+    color: var(--moss);
+    line-height: 1.3;
+    margin-bottom: .25rem;
+  }
+  aside.steps .sub {
+    font-size: .72rem;
+    color: var(--muted);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+  .sidebar-brief {
+    margin-top: 1.2rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+  .sidebar-brief h2 {
+    font-size: .72rem;
+    color: var(--bronze);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    margin-bottom: .8rem;
+  }
+  .sidebar-brief .brief-body {
+    font-size: .82rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .sidebar-brief .brief-body p { margin: 0 0 .7em; }
+  .sidebar-brief .brief-body h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: .75rem;
+    color: var(--moss);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    margin: 1rem 0 .4rem;
+  }
+  .sidebar-brief .brief-body ul {
+    padding-left: 1.05rem;
+    margin: 0 0 .5em;
+  }
+  .sidebar-brief .brief-body li { margin-bottom: .35rem; }
+  .sidebar-brief .brief-body strong { color: var(--moss); }
+  ol.step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+  }
+  ol.step-list li {
+    counter-increment: step;
+    margin-bottom: .4rem;
+  }
+  ol.step-list button {
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    width: 100%;
+    padding: .65rem .8rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    color: var(--ink);
+    transition: background .15s, border-color .15s;
+  }
+  ol.step-list button:hover { background: var(--sand); }
+  ol.step-list button.active {
+    background: var(--sand);
+    border-color: var(--moss);
+  }
+  ol.step-list button::before {
+    content: counter(step, decimal);
+    background: var(--moss);
+    color: var(--paper);
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  ol.step-list button.has-content::after {
+    content: "●";
+    color: var(--moss-light);
+    margin-left: auto;
+    font-size: .7rem;
+    margin-top: 4px;
+  }
+  ol.step-list .step-label { font-weight: 500; line-height: 1.3; font-size: .95rem; }
+  ol.step-list .step-sub {
+    font-size: .76rem;
+    color: var(--muted);
+    margin-top: .15rem;
+    line-height: 1.3;
+  }
+
+  .sidebar-tools {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+  .sidebar-tools button {
+    padding: .45rem .7rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-size: .82rem;
+    cursor: pointer;
+    text-align: left;
+    color: var(--moss);
+  }
+  .sidebar-tools button:hover { background: var(--sand); border-color: var(--moss); }
+  .sidebar-tools button.danger:hover { background: #fbeee8; border-color: var(--terracotta); color: var(--terracotta); }
+
+  main {
+    padding: 2rem 2.5rem 6rem;
+    max-width: 920px;
+  }
+  .step { display: none; }
+  .step.active { display: block; }
+
+  .step-header {
+    margin-bottom: 1.5rem;
+  }
+  .step-header .eyebrow {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--bronze);
+    font-weight: 600;
+  }
+  .step-header h1 { margin-top: .25rem; }
+  .step-header .lede {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+
+  /* brief block (step 0) */
+  .brief {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  .brief h3 { color: var(--ink); }
+  .brief p { margin: 0 0 .9em; }
+  .brief ul { padding-left: 1.2rem; }
+  .brief li { margin-bottom: .3rem; }
+
+  /* questions block */
+  .questions {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .questions h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: var(--bronze);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+  }
+  .question-block {
+    margin-bottom: 1.4rem;
+  }
+  .question-block:last-child { margin-bottom: 0; }
+  .question-block label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: .4rem;
+    color: var(--ink);
+    font-size: .98rem;
+  }
+  .question-block .hint {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-bottom: .5rem;
+    font-style: italic;
+  }
+  .question-block textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: .7rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: .95rem;
+    line-height: 1.5;
+    resize: vertical;
+    background: #fdfcfa;
+    transition: border-color .15s, background .15s;
+  }
+  .question-block textarea:focus {
+    outline: none;
+    border-color: var(--moss);
+    background: var(--paper);
+  }
+  .question-block textarea.has-content {
+    border-color: var(--moss-light);
+    background: var(--paper);
+  }
+  .word-count {
+    font-size: .72rem;
+    color: var(--muted);
+    text-align: right;
+    margin-top: .15rem;
+  }
+
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .step-nav button {
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--moss);
+    background: var(--paper);
+    color: var(--moss);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .step-nav button.primary {
+    background: var(--moss);
+    color: var(--paper);
+  }
+  .step-nav button:disabled { opacity: .4; cursor: not-allowed; }
+
+  .save-indicator {
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    background: var(--moss);
+    color: var(--paper);
+    padding: .4rem .8rem;
+    border-radius: 6px;
+    font-size: .8rem;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+  .save-indicator.show { opacity: 1; }
+
+  /* summary view (final step) */
+  .summary-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+  }
+  .summary-card h3 { color: var(--moss); margin-bottom: .8rem; }
+  .summary-card .q-summary {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-card .q-summary:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .summary-card .q-summary .q {
+    font-weight: 500;
+    margin-bottom: .35rem;
+  }
+  .summary-card .q-summary .a {
+    color: var(--muted);
+    white-space: pre-wrap;
+    font-size: .92rem;
+  }
+  .summary-card .q-summary .a.empty {
+    font-style: italic;
+    color: #bbb;
+  }
+
+  .actions {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+  .actions button {
+    padding: .55rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--moss);
+    background: var(--paper);
+    color: var(--moss);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: .9rem;
+  }
+  .actions button.primary {
+    background: var(--moss);
+    color: var(--paper);
+  }
+  .actions button:hover { background: var(--sand); }
+  .actions button.primary:hover { background: #2f4429; }
+
+  .brief-output {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2rem 2.4rem;
+    box-shadow: var(--shadow);
+    font-family: "Lora", Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .brief-output h2 {
+    font-family: "Lora", serif;
+    font-size: 1.4rem;
+    color: var(--moss);
+    margin: 1.5rem 0 .5rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: .3rem;
+  }
+  .brief-output h2:first-child { margin-top: 0; }
+  .brief-output h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: .82rem;
+    color: var(--bronze);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    margin: 1.1rem 0 .35rem;
+  }
+  .brief-output p {
+    font-family: "Roboto", sans-serif;
+    font-size: .95rem;
+    margin: 0 0 .9em;
+    white-space: pre-wrap;
+  }
+  .brief-output .gap {
+    font-style: italic;
+    color: #b4b4b4;
+    font-family: "Roboto", sans-serif;
+    font-size: .85rem;
+  }
+  .brief-output blockquote {
+    margin: .5rem 0 1rem;
+    padding: .8rem 1rem;
+    background: var(--sand);
+    border-left: 3px solid var(--moss-light);
+    font-family: "JetBrains Mono", Consolas, monospace;
+    font-size: .8rem;
+    white-space: pre-wrap;
+    line-height: 1.55;
+    border-radius: 0 4px 4px 0;
+  }
+  .brief-output .meta {
+    font-family: "Roboto", sans-serif;
+    font-size: .75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 1.4rem;
+  }
+
+  .toast {
+    position: fixed;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: var(--moss);
+    color: var(--paper);
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; }
+    aside.steps { position: static; height: auto; }
+    main { padding: 1.2rem 1rem 4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="steps">
+    <div class="brand">Design walkthrough</div>
+    <div class="sub">GenAI mortgage assistant brief</div>
+    <ol class="step-list" id="stepList">
+      <li><button data-step="0" class="active">
+        <span>
+          <span class="step-label">Define problem</span>
+        </span>
+      </button></li>
+      <li><button data-step="1">
+        <span>
+          <span class="step-label">Map current process</span>
+        </span>
+      </button></li>
+      <li><button data-step="2">
+        <span>
+          <span class="step-label">Identify AI potential</span>
+        </span>
+      </button></li>
+      <li><button data-step="3">
+        <span>
+          <span class="step-label">Design workflow</span>
+        </span>
+      </button></li>
+      <li><button data-step="4">
+        <span>
+          <span class="step-label">Design prompt</span>
+        </span>
+      </button></li>
+      <li><button data-step="5">
+        <span>
+          <span class="step-label">Your worksheet</span>
+        </span>
+      </button></li>
+      <li><button data-step="6">
+        <span>
+          <span class="step-label">Synthesised brief</span>
+        </span>
+      </button></li>
+    </ol>
+    <div class="sidebar-tools">
+      <button id="exportBtn">Export as markdown</button>
+      <button id="printBtn">Print / save as PDF</button>
+      <button id="resetBtn" class="danger">Clear all answers</button>
+    </div>
+
+    <div class="sidebar-brief">
+      <h2>The brief · always visible</h2>
+      <div class="brief-body">
+        <p>A major Canadian bank is piloting a GenAI-powered mortgage pre-approval assistant. Unlike a chatbot, this system works largely in the background. It pulls the applicant's financial documents, cross-references income, liabilities, and credit data, and progressively builds a pre-approval picture without requiring the user to sit in a conversation.</p>
+        <p>The system only surfaces to the user when it hits something it cannot resolve autonomously: a data inconsistency, a missing document, or a decision point that needs human confirmation.</p>
+        <p><strong>The design challenge: the moments the system surfaces to the user.</strong></p>
+
+        <h3>Constraints that matter</h3>
+        <ul>
+          <li>The user hasn't been in an active conversation. They submitted an application 20 minutes ago and got on with their day. The AI interrupting them is an intrusion.</li>
+          <li>Low-to-moderate AI literacy. They don't know what the system has been doing.</li>
+          <li>Enormous stakes. Likely the largest financial decision of their life.</li>
+          <li>The system cannot make commitments or say "you're approved."</li>
+          <li>Regulatory context limits certain language.</li>
+          <li>There's a human handoff somewhere. Where and how is part of the problem.</li>
+        </ul>
+
+        <h3>What I'd love to see</h3>
+        <p>Not a finished flow, but your thinking process:</p>
+        <ul>
+          <li>How do you frame what this system is to a user who didn't sign up for a chatbot?</li>
+          <li>What does the interruption moment look and sound like across channels?</li>
+          <li>How do you design for trust when the user has no visibility into what the AI has been doing?</li>
+          <li>Where is the human handoff, and how do you design that transition without it feeling like failure?</li>
+          <li>And the question I'm most curious about: is "conversation" even the right interaction model here, and if not, what is?</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- STEP 1: DEFINE PROBLEM -->
+    <section class="step active" data-step="0">
+      <header class="step-header">
+        <div class="eyebrow">Step 1 of 5</div>
+        <h1>Define problem</h1>
+        <p class="lede">The brief tells us what the client thinks the problem is. Our first job is to figure out what the problem actually is.</p>
+      </header>
+
+      <div class="questions">
+        <h3>Your questions</h3>
+
+        <div class="question-block">
+          <label>What problem are we actually trying to solve here?</label>
+          <div class="hint">Not what the brief says. What's underneath it?</div>
+          <textarea data-key="define-problem"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What are the business goals and objectives behind this?</label>
+          <div class="hint">Saving time? Saving money? Reducing risk? Reputation? All of the above?</div>
+          <textarea data-key="define-business-goals"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Why did the client come to me?</label>
+          <div class="hint">Why a conversation designer, and not a rules-engine vendor or a UX agency?</div>
+          <textarea data-key="define-why-me"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What's the most assumption-loaded word in this brief?</label>
+          <div class="hint">Pick one. Argue with it.</div>
+          <textarea data-key="define-assumption"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>Next: Map current process →</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: MAP CURRENT PROCESS -->
+    <section class="step" data-step="1">
+      <header class="step-header">
+        <div class="eyebrow">Step 2 of 5</div>
+        <h1>Map current process</h1>
+        <p class="lede">Before we put GenAI anywhere, we map how a mortgage pre-approval works today. Without this map, we'll automate the wrong steps.</p>
+      </header>
+
+      <div class="questions">
+        <h3>Your questions</h3>
+
+        <div class="question-block">
+          <label>Who is typically doing this task today?</label>
+          <div class="hint">From the user side and from the bank side. Both matter.</div>
+          <textarea data-key="map-who"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What's their starting point? What triggers the task?</label>
+          <div class="hint">A house bid? A budget question? A life event?</div>
+          <textarea data-key="map-trigger"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What kind of input or source documents do they use?</label>
+          <textarea data-key="map-inputs"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What specific steps do they take to get from A to B?</label>
+          <div class="hint">Sketch the flow. Bullets are fine.</div>
+          <textarea data-key="map-steps" style="min-height:120px"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What's the end result?</label>
+          <textarea data-key="map-result"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Where does the current process hurt? What's slow, opaque, or scary?</label>
+          <textarea data-key="map-pain"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>Next: Identify AI potential →</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: IDENTIFY AI POTENTIAL -->
+    <section class="step" data-step="2">
+      <header class="step-header">
+        <div class="eyebrow">Step 3 of 5</div>
+        <h1>Identify AI potential</h1>
+        <p class="lede">Now the honest question. Where in this flow does GenAI earn its place? And where would we be better off with rules, humans, or nothing at all?</p>
+      </header>
+
+      <div class="questions">
+        <h3>Your questions</h3>
+
+        <div class="question-block">
+          <label>Where in the flow is the real bottleneck?</label>
+          <div class="hint">The thing that takes the longest or breaks the most.</div>
+          <textarea data-key="ai-bottleneck"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What does GenAI do well that nothing else can?</label>
+          <textarea data-key="ai-strengths"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Where would GenAI add risk we cannot accept?</label>
+          <div class="hint">Stakes, regulation, opacity, hallucination, reputation.</div>
+          <textarea data-key="ai-risks"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Do we even need GenAI for this use case? If yes, why?</label>
+          <div class="hint">The most important question in the whole walkthrough.</div>
+          <textarea data-key="ai-needed"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Is "conversation" the right interaction model here? If not, what is?</label>
+          <textarea data-key="ai-model"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>Next: Design workflow →</button>
+      </div>
+    </section>
+
+    <!-- STEP 4: DESIGN WORKFLOW -->
+    <section class="step" data-step="3">
+      <header class="step-header">
+        <div class="eyebrow">Step 4 of 5</div>
+        <h1>Design workflow</h1>
+        <p class="lede">Now you can sketch. What does the user actually see, hear, feel, and do? Be specific.</p>
+      </header>
+
+      <div class="questions">
+        <h3>Your questions</h3>
+
+        <div class="question-block">
+          <label>What is the persistent surface? Where does the user go to know what's happening?</label>
+          <div class="hint">Status page? Email thread? App screen? Phone call back?</div>
+          <textarea data-key="flow-surface"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>How does the system surface to the user when it needs them?</label>
+          <div class="hint">Which channels for which kinds of moments? Why?</div>
+          <textarea data-key="flow-nudge" style="min-height:120px"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>How do you frame this system to a user who didn't sign up for a chatbot?</label>
+          <div class="hint">The name, the metaphor, the first line of copy.</div>
+          <textarea data-key="flow-frame"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>How do you design for trust when the user can't see what the AI is doing?</label>
+          <textarea data-key="flow-trust"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Where is the human handoff? How do you make it feel like an upgrade, not a failure?</label>
+          <textarea data-key="flow-handoff" style="min-height:120px"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>Next: Design prompt →</button>
+      </div>
+    </section>
+
+    <!-- STEP 5: DESIGN PROMPT -->
+    <section class="step" data-step="4">
+      <header class="step-header">
+        <div class="eyebrow">Step 5 of 5</div>
+        <h1>Design prompt</h1>
+        <p class="lede">The AI placements you identified each need a prompt. Sketch the system prompt for the most important one.</p>
+      </header>
+
+      <div class="questions">
+        <h3>Your questions</h3>
+
+        <div class="question-block">
+          <label>Which AI moment are you designing the prompt for?</label>
+          <div class="hint">Pick one specific moment from your workflow.</div>
+          <textarea data-key="prompt-which"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What is the AI's job in that moment? In one sentence.</label>
+          <textarea data-key="prompt-job"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What constraints must the AI obey? (length, forbidden words, tone, grounding rules)</label>
+          <textarea data-key="prompt-constraints" style="min-height:120px"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>Draft the system prompt.</label>
+          <div class="hint">You can be sketchy. The shape matters more than polish.</div>
+          <textarea data-key="prompt-draft" style="min-height:200px;font-family:'JetBrains Mono',Consolas,monospace;font-size:.85rem"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+
+        <div class="question-block">
+          <label>What's an example of the output you'd want from this prompt?</label>
+          <textarea data-key="prompt-example"></textarea>
+          <div class="word-count" data-counter></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>See your worksheet →</button>
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="step" data-step="5">
+      <header class="step-header">
+        <div class="eyebrow">Worksheet</div>
+        <h1>Everything you wrote</h1>
+        <p class="lede">Your answers, all in one place. Export to markdown or print to PDF to take home.</p>
+      </header>
+
+      <div class="actions">
+        <button class="primary" id="exportBtnBottom">Export as markdown</button>
+        <button id="printBtnBottom">Print / save as PDF</button>
+      </div>
+
+      <div id="summaryContainer"></div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button class="primary" data-next>Next: Synthesised brief →</button>
+      </div>
+    </section>
+
+    <!-- SYNTHESISED BRIEF -->
+    <section class="step" data-step="6">
+      <header class="step-header">
+        <div class="eyebrow">Synthesis</div>
+        <h1>Your design brief</h1>
+        <p class="lede">Your answers, restructured into a one-page design brief you could hand to a team. Generated locally from your worksheet, no AI call.</p>
+      </header>
+
+      <div class="actions">
+        <button class="primary" id="copyBriefBtn">Copy as markdown</button>
+        <button id="downloadBriefBtn">Download .md</button>
+        <button id="copyPromptBtn">Copy as Claude prompt</button>
+      </div>
+      <p style="font-size:.82rem;color:var(--muted);margin:-.5rem 0 1rem">"Copy as Claude prompt" wraps your notes in a refinement prompt you can paste into Claude (or any LLM) for a real synthesis pass.</p>
+
+      <div id="briefOutput" class="brief-output"></div>
+
+      <div class="step-nav">
+        <button data-prev>← Previous</button>
+        <button disabled>End</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="save-indicator" id="saveIndicator">Saved</div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+  const STORAGE_KEY = 'mortgage-walkthrough-v1';
+  const stepButtons = document.querySelectorAll('#stepList button');
+  const stepSections = document.querySelectorAll('section.step');
+  let currentStep = 0;
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch { return {}; }
+  }
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    showSaved();
+  }
+  let saveTimer;
+  function showSaved() {
+    const el = document.getElementById('saveIndicator');
+    el.classList.add('show');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => el.classList.remove('show'), 1000);
+  }
+
+  const state = loadState();
+
+  // hydrate textareas
+  document.querySelectorAll('textarea[data-key]').forEach(ta => {
+    const key = ta.dataset.key;
+    if (state[key]) ta.value = state[key];
+    if (ta.value.trim()) ta.classList.add('has-content');
+    updateWordCount(ta);
+    ta.addEventListener('input', () => {
+      state[key] = ta.value;
+      saveState(state);
+      ta.classList.toggle('has-content', ta.value.trim().length > 0);
+      updateWordCount(ta);
+      updateSidebarMarkers();
+    });
+  });
+
+  function updateWordCount(ta) {
+    const counter = ta.nextElementSibling;
+    if (!counter || !counter.classList.contains('word-count')) return;
+    const words = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    counter.textContent = words ? words + ' words' : '';
+  }
+
+  function updateSidebarMarkers() {
+    stepSections.forEach((sec, i) => {
+      const tas = sec.querySelectorAll('textarea[data-key]');
+      let any = false;
+      tas.forEach(t => { if (t.value.trim()) any = true; });
+      const btn = stepButtons[i];
+      if (btn) btn.classList.toggle('has-content', any);
+    });
+  }
+  updateSidebarMarkers();
+
+  function goToStep(n) {
+    n = Math.max(0, Math.min(stepSections.length - 1, n));
+    currentStep = n;
+    stepButtons.forEach((b, i) => b.classList.toggle('active', i === n));
+    stepSections.forEach((s, i) => s.classList.toggle('active', i === n));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (n === 5) renderSummary();
+    if (n === 6) renderBrief();
+  }
+  stepButtons.forEach(b => b.addEventListener('click', () => goToStep(+b.dataset.step)));
+  document.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => goToStep(currentStep + 1)));
+  document.querySelectorAll('[data-prev]').forEach(b => b.addEventListener('click', () => goToStep(currentStep - 1)));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowRight') goToStep(currentStep + 1);
+    if (e.key === 'ArrowLeft') goToStep(currentStep - 1);
+  });
+
+  // labels per step for summary + export
+  const stepMeta = [
+    { title: 'Step 1: Define problem' },
+    { title: 'Step 2: Map current process' },
+    { title: 'Step 3: Identify AI potential' },
+    { title: 'Step 4: Design workflow' },
+    { title: 'Step 5: Design prompt' },
+  ];
+
+  function renderSummary() {
+    const container = document.getElementById('summaryContainer');
+    let html = '';
+    for (let i = 0; i < 5; i++) {
+      const section = stepSections[i];
+      const tas = section.querySelectorAll('textarea[data-key]');
+      html += '<div class="summary-card"><h3>' + stepMeta[i].title + '</h3>';
+      tas.forEach(ta => {
+        const label = ta.closest('.question-block').querySelector('label').textContent;
+        const val = ta.value.trim();
+        html += '<div class="q-summary"><div class="q">' + escape(label) + '</div>';
+        if (val) {
+          html += '<div class="a">' + escape(val) + '</div>';
+        } else {
+          html += '<div class="a empty">(no answer yet)</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+    container.innerHTML = html;
+  }
+  function escape(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // export
+  function exportMarkdown() {
+    let md = '# Design walkthrough — GenAI mortgage assistant brief\n\n';
+    md += '_Exported: ' + new Date().toLocaleString() + '_\n\n';
+    for (let i = 0; i < 5; i++) {
+      const section = stepSections[i];
+      const tas = section.querySelectorAll('textarea[data-key]');
+      md += '## ' + stepMeta[i].title + '\n\n';
+      tas.forEach(ta => {
+        const label = ta.closest('.question-block').querySelector('label').textContent;
+        md += '### ' + label + '\n\n';
+        md += (ta.value.trim() || '_(no answer yet)_') + '\n\n';
+      });
+    }
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'mortgage-walkthrough-' + new Date().toISOString().slice(0,10) + '.md';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+  document.getElementById('exportBtn').addEventListener('click', exportMarkdown);
+  document.getElementById('exportBtnBottom').addEventListener('click', exportMarkdown);
+  document.getElementById('printBtn').addEventListener('click', () => { goToStep(5); setTimeout(() => window.print(), 200); });
+  document.getElementById('printBtnBottom').addEventListener('click', () => window.print());
+
+  // ---- Synthesised brief ----
+  function val(key) { return (state[key] || '').trim(); }
+  function gap() { return '<span class="gap">(left blank: fill this in for a stronger brief)</span>'; }
+  function paraOrGap(key) {
+    const v = val(key);
+    return v ? '<p>' + escape(v) + '</p>' : '<p>' + gap() + '</p>';
+  }
+
+  function renderBrief() {
+    const out = document.getElementById('briefOutput');
+    const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    let html = '';
+    html += '<div class="meta">Design brief · drafted ' + today + '</div>';
+
+    html += '<h2>The problem</h2>';
+    html += '<h3>What we are actually solving</h3>';
+    html += paraOrGap('define-problem');
+    html += '<h3>Why this matters to the business</h3>';
+    html += paraOrGap('define-business-goals');
+    if (val('define-why-me')) {
+      html += '<h3>Why a conversation designer</h3>';
+      html += paraOrGap('define-why-me');
+    }
+    if (val('define-assumption')) {
+      html += '<h3>The assumption we are pushing back on</h3>';
+      html += paraOrGap('define-assumption');
+    }
+
+    html += '<h2>Current state</h2>';
+    if (val('map-who')) { html += '<h3>Who does this today</h3>'; html += paraOrGap('map-who'); }
+    if (val('map-trigger')) { html += '<h3>What triggers it</h3>'; html += paraOrGap('map-trigger'); }
+    if (val('map-inputs')) { html += '<h3>Inputs and source documents</h3>'; html += paraOrGap('map-inputs'); }
+    if (val('map-steps')) { html += '<h3>Steps from A to B</h3>'; html += paraOrGap('map-steps'); }
+    if (val('map-result')) { html += '<h3>End result</h3>'; html += paraOrGap('map-result'); }
+    if (val('map-pain')) { html += '<h3>Where it hurts</h3>'; html += paraOrGap('map-pain'); }
+    if (!val('map-who') && !val('map-trigger') && !val('map-inputs') && !val('map-steps') && !val('map-result') && !val('map-pain')) {
+      html += '<p>' + gap() + '</p>';
+    }
+
+    html += '<h2>Design direction</h2>';
+    html += '<h3>Where the real bottleneck is</h3>';
+    html += paraOrGap('ai-bottleneck');
+    html += '<h3>What GenAI is genuinely good for here</h3>';
+    html += paraOrGap('ai-strengths');
+    html += '<h3>Where GenAI must stay out</h3>';
+    html += paraOrGap('ai-risks');
+    html += '<h3>Do we even need GenAI for this</h3>';
+    html += paraOrGap('ai-needed');
+    html += '<h3>The right interaction model</h3>';
+    html += paraOrGap('ai-model');
+
+    html += '<h2>The workflow</h2>';
+    html += '<h3>The persistent surface</h3>';
+    html += paraOrGap('flow-surface');
+    html += '<h3>How the system surfaces to the user</h3>';
+    html += paraOrGap('flow-nudge');
+    html += '<h3>How we frame it</h3>';
+    html += paraOrGap('flow-frame');
+    html += '<h3>How we earn trust</h3>';
+    html += paraOrGap('flow-trust');
+    html += '<h3>Human handoff</h3>';
+    html += paraOrGap('flow-handoff');
+
+    html += '<h2>The prompt</h2>';
+    if (val('prompt-which')) { html += '<h3>The AI moment we are designing for</h3>'; html += paraOrGap('prompt-which'); }
+    if (val('prompt-job')) { html += '<h3>The AI\'s one-sentence job</h3>'; html += paraOrGap('prompt-job'); }
+    if (val('prompt-constraints')) { html += '<h3>Constraints</h3>'; html += paraOrGap('prompt-constraints'); }
+    if (val('prompt-draft')) {
+      html += '<h3>System prompt</h3>';
+      html += '<blockquote>' + escape(val('prompt-draft')) + '</blockquote>';
+    }
+    if (val('prompt-example')) {
+      html += '<h3>Expected output</h3>';
+      html += paraOrGap('prompt-example');
+    }
+    if (!val('prompt-which') && !val('prompt-job') && !val('prompt-constraints') && !val('prompt-draft') && !val('prompt-example')) {
+      html += '<p>' + gap() + '</p>';
+    }
+
+    out.innerHTML = html;
+  }
+
+  function briefAsMarkdown() {
+    const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    let md = '# Design brief: GenAI mortgage pre-approval assistant\n';
+    md += '_Drafted ' + today + '_\n\n';
+
+    md += '## The problem\n\n';
+    md += '### What we are actually solving\n' + (val('define-problem') || '_(left blank)_') + '\n\n';
+    md += '### Why this matters to the business\n' + (val('define-business-goals') || '_(left blank)_') + '\n\n';
+    if (val('define-why-me')) md += '### Why a conversation designer\n' + val('define-why-me') + '\n\n';
+    if (val('define-assumption')) md += '### The assumption we are pushing back on\n' + val('define-assumption') + '\n\n';
+
+    md += '## Current state\n\n';
+    [['map-who','Who does this today'],['map-trigger','What triggers it'],['map-inputs','Inputs and source documents'],['map-steps','Steps from A to B'],['map-result','End result'],['map-pain','Where it hurts']].forEach(([k,t]) => {
+      if (val(k)) md += '### ' + t + '\n' + val(k) + '\n\n';
+    });
+
+    md += '## Design direction\n\n';
+    [['ai-bottleneck','Where the real bottleneck is'],['ai-strengths','What GenAI is genuinely good for here'],['ai-risks','Where GenAI must stay out'],['ai-needed','Do we even need GenAI for this'],['ai-model','The right interaction model']].forEach(([k,t]) => {
+      md += '### ' + t + '\n' + (val(k) || '_(left blank)_') + '\n\n';
+    });
+
+    md += '## The workflow\n\n';
+    [['flow-surface','The persistent surface'],['flow-nudge','How the system surfaces to the user'],['flow-frame','How we frame it'],['flow-trust','How we earn trust'],['flow-handoff','Human handoff']].forEach(([k,t]) => {
+      md += '### ' + t + '\n' + (val(k) || '_(left blank)_') + '\n\n';
+    });
+
+    md += '## The prompt\n\n';
+    if (val('prompt-which')) md += '### The AI moment we are designing for\n' + val('prompt-which') + '\n\n';
+    if (val('prompt-job')) md += "### The AI's one-sentence job\n" + val('prompt-job') + '\n\n';
+    if (val('prompt-constraints')) md += '### Constraints\n' + val('prompt-constraints') + '\n\n';
+    if (val('prompt-draft')) md += '### System prompt\n```\n' + val('prompt-draft') + '\n```\n\n';
+    if (val('prompt-example')) md += '### Expected output\n' + val('prompt-example') + '\n\n';
+
+    return md;
+  }
+
+  function claudePrompt() {
+    return `You are helping a conversation designer turn their working notes into a polished one-page design brief for a project team.
+
+The notes below come from a structured 5-step methodology: define problem, map current process, identify AI potential, design workflow, design prompt. The brief is for a GenAI-powered mortgage pre-approval assistant.
+
+Your job:
+- Rewrite the notes into a coherent design brief, not a list of answers.
+- Preserve the designer's voice and opinions. Do not soften or generalise.
+- Where a note is sparse or empty, flag it as a gap to fill, do not invent.
+- Use plain language, second-person for the team reading it.
+- One page max. Use these sections: Context, The user, What the system does, What the system does not do, Interaction model, Channels and moments, Human handoff, Open questions.
+- Never use em-dashes.
+
+The notes:
+
+${briefAsMarkdown()}`;
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1600);
+  }
+
+  function copyText(text, label) {
+    navigator.clipboard.writeText(text).then(() => showToast(label + ' copied'));
+  }
+
+  document.getElementById('copyBriefBtn').addEventListener('click', () => copyText(briefAsMarkdown(), 'Brief'));
+  document.getElementById('downloadBriefBtn').addEventListener('click', () => {
+    const blob = new Blob([briefAsMarkdown()], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'design-brief-' + new Date().toISOString().slice(0,10) + '.md';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+  document.getElementById('copyPromptBtn').addEventListener('click', () => copyText(claudePrompt(), 'Claude prompt'));
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (!confirm('Clear all your answers? This cannot be undone.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('textarea[data-key]').forEach(ta => {
+      ta.value = '';
+      ta.classList.remove('has-content');
+      updateWordCount(ta);
+    });
+    Object.keys(state).forEach(k => delete state[k]);
+    updateSidebarMarkers();
+  });
+</script>
+</body>
+</html>
