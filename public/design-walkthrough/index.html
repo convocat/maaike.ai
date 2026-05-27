@@ -37,72 +37,164 @@
   h2 { font-size: 1.3rem; color: var(--moss); }
   h3 { font-size: 1.05rem; color: var(--moss); }
 
-  .layout {
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    min-height: 100vh;
-  }
-
-  aside.steps {
+  /* top bar with step nav */
+  header.topbar {
     background: var(--paper);
-    border-right: 1px solid var(--line);
-    padding: 1.4rem 1.3rem 1.4rem;
+    border-bottom: 1px solid var(--line);
+    padding: .55rem 1rem;
     position: sticky;
     top: 0;
-    height: 100vh;
-    overflow-y: auto;
+    z-index: 10;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
   }
-  aside.steps .brand {
+  header.topbar .brand {
     font-family: "Lora", serif;
-    font-size: 1rem;
+    font-size: .9rem;
     color: var(--moss);
-    line-height: 1.3;
-    margin-bottom: .25rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+    max-width: 180px;
   }
-  aside.steps .sub {
-    font-size: .72rem;
+  header.topbar .brand small {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-size: .66rem;
     color: var(--muted);
     letter-spacing: .04em;
     text-transform: uppercase;
-    margin-bottom: 1.1rem;
+    margin-top: .1rem;
   }
-  .sidebar-brief {
-    margin-top: 1.2rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--line);
+  ol.step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+    display: flex;
+    gap: .25rem;
+    flex-wrap: nowrap;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: thin;
   }
-  .sidebar-brief h2 {
+  ol.step-list li {
+    counter-increment: step;
+  }
+  ol.step-list button {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .4rem .7rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: .82rem;
+    color: var(--ink);
+    transition: background .15s, border-color .15s;
+    white-space: nowrap;
+  }
+  ol.step-list button:hover { background: var(--sand); }
+  ol.step-list button.active {
+    background: var(--moss);
+    color: var(--paper);
+    border-color: var(--moss);
+  }
+  ol.step-list button::before {
+    content: counter(step);
+    background: var(--sand);
+    color: var(--moss);
+    width: 1.3rem; height: 1.3rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: .72rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+  }
+  ol.step-list button.active::before {
+    background: var(--paper);
+    color: var(--moss);
+    border-color: var(--paper);
+  }
+  ol.step-list button.has-content::after {
+    content: "●";
+    color: var(--moss-light);
+    font-size: .65rem;
+    margin-left: .1rem;
+  }
+  ol.step-list button.active.has-content::after { color: #c8e0b9; }
+  .topbar-tools {
+    display: flex;
+    gap: .35rem;
+    flex-shrink: 0;
+  }
+  .topbar-tools button {
+    padding: .35rem .7rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-size: .78rem;
+    cursor: pointer;
+    color: var(--moss);
+  }
+  .topbar-tools button:hover { background: var(--sand); border-color: var(--moss); }
+  .topbar-tools button.danger:hover { background: #fbeee8; border-color: var(--terracotta); color: var(--terracotta); }
+
+  /* body: brief left, work right */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) minmax(0, 1.4fr);
+    min-height: calc(100vh - 65px);
+  }
+
+  aside.brief-pane {
+    background: var(--paper);
+    border-right: 1px solid var(--line);
+    padding: 1.6rem 1.8rem;
+    position: sticky;
+    top: 65px;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+  }
+  aside.brief-pane h2 {
+    font-size: .8rem;
     color: var(--bronze);
     letter-spacing: .08em;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
     font-weight: 600;
-    margin-bottom: .8rem;
+    margin: 0 0 1rem;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid var(--line);
   }
-  .sidebar-brief .brief-body {
-    font-size: .82rem;
-    line-height: 1.55;
+  aside.brief-pane .brief-body {
+    font-size: .92rem;
+    line-height: 1.6;
     color: var(--ink);
   }
-  .sidebar-brief .brief-body p { margin: 0 0 .7em; }
-  .sidebar-brief .brief-body h3 {
+  aside.brief-pane .brief-body p { margin: 0 0 .8em; }
+  aside.brief-pane .brief-body h3 {
     font-family: "Roboto", sans-serif;
-    font-size: .75rem;
+    font-size: .78rem;
     color: var(--moss);
     text-transform: uppercase;
     letter-spacing: .06em;
     font-weight: 600;
-    margin: 1rem 0 .4rem;
+    margin: 1.2rem 0 .5rem;
   }
-  .sidebar-brief .brief-body ul {
-    padding-left: 1.05rem;
+  aside.brief-pane .brief-body ul {
+    padding-left: 1.1rem;
     margin: 0 0 .5em;
   }
-  .sidebar-brief .brief-body li { margin-bottom: .35rem; }
-  .sidebar-brief .brief-body strong { color: var(--moss); }
+  aside.brief-pane .brief-body li { margin-bottom: .4rem; }
+  aside.brief-pane .brief-body strong { color: var(--moss); }
   ol.step-list {
     list-style: none;
     padding: 0;
@@ -186,7 +278,8 @@
 
   main {
     padding: 2rem 2.5rem 6rem;
-    max-width: 920px;
+    max-width: 720px;
+    width: 100%;
   }
   .step { display: none; }
   .step.active { display: block; }
@@ -467,12 +560,12 @@
 </style>
 </head>
 <body>
-<div class="layout">
-
-  <aside class="steps">
-    <div class="brand">Design walkthrough</div>
-    <div class="sub">GenAI mortgage assistant brief</div>
-    <ol class="step-list" id="stepList">
+<header class="topbar">
+  <div class="brand">
+    Design walkthrough
+    <small>GenAI mortgage assistant brief</small>
+  </div>
+  <ol class="step-list" id="stepList">
       <li><button data-step="0" class="active">
         <span>
           <span class="step-label">Define problem</span>
@@ -509,15 +602,18 @@
         </span>
       </button></li>
     </ol>
-    <div class="sidebar-tools">
-      <button id="exportBtn">Export as markdown</button>
-      <button id="printBtn">Print / save as PDF</button>
-      <button id="resetBtn" class="danger">Clear all answers</button>
+    <div class="topbar-tools">
+      <button id="exportBtn">Export .md</button>
+      <button id="printBtn">Print</button>
+      <button id="resetBtn" class="danger">Clear</button>
     </div>
+</header>
 
-    <div class="sidebar-brief">
-      <h2>The brief · always visible</h2>
-      <div class="brief-body">
+<div class="layout">
+
+  <aside class="brief-pane">
+    <h2>The brief</h2>
+    <div class="brief-body">
         <p>A major Canadian bank is piloting a GenAI-powered mortgage pre-approval assistant. Unlike a chatbot, this system works largely in the background. It pulls the applicant's financial documents, cross-references income, liabilities, and credit data, and progressively builds a pre-approval picture without requiring the user to sit in a conversation.</p>
         <p>The system only surfaces to the user when it hits something it cannot resolve autonomously: a data inconsistency, a missing document, or a decision point that needs human confirmation.</p>
         <p><strong>The design challenge: the moments the system surfaces to the user.</strong></p>
@@ -542,7 +638,6 @@
           <li>And the question I'm most curious about: is "conversation" even the right interaction model here, and if not, what is?</li>
         </ul>
       </div>
-    </div>
   </aside>
 
   <main>
