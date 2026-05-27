@@ -146,6 +146,17 @@
   }
   .topbar-tools button:hover { background: var(--sand); border-color: var(--moss); }
   .topbar-tools button.danger:hover { background: #fbeee8; border-color: var(--terracotta); color: var(--terracotta); }
+  .topbar-tools a.proto-link {
+    padding: .4rem .8rem;
+    background: var(--bronze);
+    color: var(--paper);
+    border-radius: 6px;
+    font-size: .78rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: .3rem;
+  }
+  .topbar-tools a.proto-link:hover { background: #8a6a35; }
 
   /* body: brief left, work right */
   .layout {
@@ -475,6 +486,173 @@
   .actions button:hover { background: var(--sand); }
   .actions button.primary:hover { background: #2f4429; }
 
+  /* workflow node cards */
+  .node-card {
+    background: #fafaf6;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: .9rem;
+    position: relative;
+  }
+  .node-card.type-ai { border-left: 4px solid var(--moss); }
+  .node-card.type-code { border-left: 4px solid var(--bronze); }
+  .node-card.type-human { border-left: 4px solid var(--terracotta); }
+  .node-card.type-channel { border-left: 4px solid #6E4E68; }
+  .node-card .node-header {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-bottom: .7rem;
+  }
+  .node-card .node-num {
+    background: var(--moss);
+    color: var(--paper);
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .node-card input.node-name {
+    flex: 1;
+    padding: .4rem .6rem;
+    font: inherit;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .node-card input.node-name:focus { outline: none; border-color: var(--moss); }
+  .node-card select.node-type {
+    padding: .4rem .5rem;
+    font: inherit;
+    font-size: .82rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+    cursor: pointer;
+  }
+  .node-card .node-delete {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    padding: .3rem .5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+    font-size: .85rem;
+  }
+  .node-card .node-delete:hover { background: #fbeee8; color: var(--terracotta); border-color: var(--terracotta); }
+  .node-card .node-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .6rem;
+  }
+  .node-card .node-fields .full { grid-column: 1 / -1; }
+  .node-card .node-fields label {
+    display: block;
+    font-size: .72rem;
+    color: var(--bronze);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-weight: 600;
+    margin-bottom: .2rem;
+  }
+  .node-card .node-fields textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: .5rem .65rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-size: .88rem;
+    line-height: 1.45;
+    resize: vertical;
+    background: var(--paper);
+  }
+  .node-card .node-fields textarea:focus { outline: none; border-color: var(--moss); }
+
+  .add-node-btn {
+    width: 100%;
+    padding: .7rem;
+    background: var(--paper);
+    border: 2px dashed var(--line);
+    color: var(--moss);
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: .4rem;
+  }
+  .add-node-btn:hover { border-color: var(--moss); background: var(--sand); }
+
+  .node-prompt-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--moss);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: .9rem;
+  }
+  .node-prompt-card .label-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .6rem;
+  }
+  .node-prompt-card .label-row .node-num {
+    background: var(--moss);
+    color: var(--paper);
+    width: 1.4rem; height: 1.4rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .72rem;
+    font-weight: 600;
+  }
+  .node-prompt-card .label-row .name {
+    font-weight: 500;
+    font-size: .95rem;
+  }
+  .node-prompt-card .label-row .desc {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .node-prompt-card textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: .6rem .8rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-family: "JetBrains Mono", Consolas, monospace;
+    font-size: .82rem;
+    line-height: 1.5;
+    resize: vertical;
+    background: #fafaf6;
+  }
+  .node-prompt-card textarea:focus { outline: none; border-color: var(--moss); background: var(--paper); }
+
+  .empty-state {
+    padding: 1.4rem;
+    text-align: center;
+    color: var(--muted);
+    background: var(--sand);
+    border-radius: 8px;
+    font-size: .9rem;
+  }
+  .empty-state a {
+    color: var(--moss);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   .brief-output {
     background: var(--paper);
     border: 1px solid var(--line);
@@ -603,6 +781,7 @@
       </button></li>
     </ol>
     <div class="topbar-tools">
+      <a class="proto-link" href="/mortgage-prototype/" target="_blank" rel="noopener">See the prototype →</a>
       <button id="exportBtn">Export .md</button>
       <button id="printBtn">Print</button>
       <button id="resetBtn" class="danger">Clear</button>
@@ -801,49 +980,46 @@
       <header class="step-header">
         <div class="eyebrow">Step 4 of 5</div>
         <h1>Design workflow</h1>
-        <p class="lede">Now you can sketch. What does the user actually see, hear, feel, and do? Be specific.</p>
+        <p class="lede">Sketch the workflow as a chain of nodes. Each node has a clear input, a clear job, and a clear output. AI nodes will get prompts in the next step.</p>
       </header>
 
       <div class="questions">
-        <h3>Your questions</h3>
+        <h3>Workflow overview</h3>
 
         <div class="question-block">
-          <label>What is the persistent surface? Where does the user go to know what's happening?</label>
-          <div class="hint">Status page? Email thread? App screen? Phone call back?</div>
-          <textarea data-key="flow-surface"></textarea>
+          <label>What triggers this workflow, and what's the final output?</label>
+          <div class="hint">Input → Process → Output. In one or two lines.</div>
+          <textarea data-key="workflow-overview"></textarea>
           <div class="word-count" data-counter></div>
         </div>
 
         <div class="question-block">
-          <label>How does the system surface to the user when it needs them?</label>
-          <div class="hint">Which channels for which kinds of moments? Why?</div>
-          <textarea data-key="flow-nudge" style="min-height:120px"></textarea>
+          <label>What user-facing surface does the workflow drive?</label>
+          <div class="hint">Status page, email, SMS, scheduled call. The output channel of the chain.</div>
+          <textarea data-key="workflow-surface"></textarea>
           <div class="word-count" data-counter></div>
         </div>
 
         <div class="question-block">
-          <label>How do you frame this system to a user who didn't sign up for a chatbot?</label>
-          <div class="hint">The name, the metaphor, the first line of copy.</div>
-          <textarea data-key="flow-frame"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
-
-        <div class="question-block">
-          <label>How do you design for trust when the user can't see what the AI is doing?</label>
-          <textarea data-key="flow-trust"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
-
-        <div class="question-block">
-          <label>Where is the human handoff? How do you make it feel like an upgrade, not a failure?</label>
-          <textarea data-key="flow-handoff" style="min-height:120px"></textarea>
+          <label>What branches or loops are in this workflow?</label>
+          <div class="hint">When does it skip a node, retry, escalate to a human, or stop?</div>
+          <textarea data-key="workflow-routing" style="min-height:100px"></textarea>
           <div class="word-count" data-counter></div>
         </div>
       </div>
 
+      <div class="questions">
+        <h3>The chain · one node per step</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:-.4rem 0 1rem">Each node does one thing. Define its input, what it does, what it outputs, and which node it passes to next. Mark which nodes call AI: those get prompts in step 5.</p>
+
+        <div id="nodeList"></div>
+
+        <button id="addNodeBtn" class="add-node-btn">+ Add node</button>
+      </div>
+
       <div class="step-nav">
         <button data-prev>← Previous</button>
-        <button class="primary" data-next>Next: Design prompt →</button>
+        <button class="primary" data-next>Next: Design prompts →</button>
       </div>
     </section>
 
@@ -851,44 +1027,26 @@
     <section class="step" data-step="4">
       <header class="step-header">
         <div class="eyebrow">Step 5 of 5</div>
-        <h1>Design prompt</h1>
-        <p class="lede">The AI placements you identified each need a prompt. Sketch the system prompt for the most important one.</p>
+        <h1>Design prompts</h1>
+        <p class="lede">One system prompt that governs every AI node, plus one node prompt per AI node you defined in step 4.</p>
       </header>
 
       <div class="questions">
-        <h3>Your questions</h3>
+        <h3>The shared system prompt</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:-.4rem 0 1rem">Sets the persona, the hard constraints, and the rules every AI node in the chain must obey. Forbidden words, tone, grounding rules, length limits live here.</p>
 
         <div class="question-block">
-          <label>Which AI moment are you designing the prompt for?</label>
-          <div class="hint">Pick one specific moment from your workflow.</div>
-          <textarea data-key="prompt-which"></textarea>
+          <label>System prompt (applies to all AI nodes)</label>
+          <textarea data-key="system-prompt" style="min-height:240px;font-family:'JetBrains Mono',Consolas,monospace;font-size:.85rem" placeholder="You are a [role] for [audience].&#10;&#10;Rules:&#10;- Never use [forbidden words]&#10;- Always ground in [source]&#10;- Maximum [length]&#10;- Tone: [tone]"></textarea>
           <div class="word-count" data-counter></div>
         </div>
+      </div>
 
-        <div class="question-block">
-          <label>What is the AI's job in that moment? In one sentence.</label>
-          <textarea data-key="prompt-job"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
+      <div class="questions">
+        <h3>Node prompts</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:-.4rem 0 1rem">One per AI node from step 4. Each tells the AI what to do with the input from the previous node and what to pass to the next.</p>
 
-        <div class="question-block">
-          <label>What constraints must the AI obey? (length, forbidden words, tone, grounding rules)</label>
-          <textarea data-key="prompt-constraints" style="min-height:120px"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
-
-        <div class="question-block">
-          <label>Draft the system prompt.</label>
-          <div class="hint">You can be sketchy. The shape matters more than polish.</div>
-          <textarea data-key="prompt-draft" style="min-height:200px;font-family:'JetBrains Mono',Consolas,monospace;font-size:.85rem"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
-
-        <div class="question-block">
-          <label>What's an example of the output you'd want from this prompt?</label>
-          <textarea data-key="prompt-example"></textarea>
-          <div class="word-count" data-counter></div>
-        </div>
+        <div id="nodePromptList"></div>
       </div>
 
       <div class="step-nav">
@@ -998,11 +1156,151 @@
       const tas = sec.querySelectorAll('textarea[data-key]');
       let any = false;
       tas.forEach(t => { if (t.value.trim()) any = true; });
+      // step 4 also counts if any nodes are defined
+      if (i === 3 && (state.nodes || []).length > 0) any = true;
+      // step 5 also counts if any node prompts have content
+      if (i === 4 && state.nodePrompts && Object.values(state.nodePrompts).some(v => (v || '').trim())) any = true;
       const btn = stepButtons[i];
       if (btn) btn.classList.toggle('has-content', any);
     });
   }
   updateSidebarMarkers();
+
+  // ---- Workflow nodes ----
+  if (!state.nodes) state.nodes = [];
+  if (!state.nodePrompts) state.nodePrompts = {};
+
+  const NODE_TYPES = [
+    { value: 'ai', label: 'AI call' },
+    { value: 'code', label: 'Deterministic / code' },
+    { value: 'human', label: 'Human in the loop' },
+    { value: 'channel', label: 'User-facing channel' }
+  ];
+
+  function newNodeId() {
+    return 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+  }
+
+  function renderNodes() {
+    const list = document.getElementById('nodeList');
+    if (!list) return;
+    if (!state.nodes.length) {
+      list.innerHTML = '<div class="empty-state">No nodes yet. Click <strong>+ Add node</strong> below to start the chain.</div>';
+      return;
+    }
+    list.innerHTML = state.nodes.map((node, i) => `
+      <div class="node-card type-${node.type || 'ai'}" data-node-id="${node.id}">
+        <div class="node-header">
+          <span class="node-num">${i + 1}</span>
+          <input class="node-name" data-field="name" value="${escape(node.name || '')}" placeholder="Node name (e.g. read documents)" />
+          <select class="node-type" data-field="type">
+            ${NODE_TYPES.map(t => `<option value="${t.value}"${node.type === t.value ? ' selected' : ''}>${t.label}</option>`).join('')}
+          </select>
+          <button class="node-delete" data-action="delete" title="Remove this node">×</button>
+        </div>
+        <div class="node-fields">
+          <div class="full">
+            <label>What this node does</label>
+            <textarea data-field="description" placeholder="One sentence. What's the job of this node?">${escape(node.description || '')}</textarea>
+          </div>
+          <div>
+            <label>Input</label>
+            <textarea data-field="input" placeholder="What comes in? From which node or source?">${escape(node.input || '')}</textarea>
+          </div>
+          <div>
+            <label>Output</label>
+            <textarea data-field="output" placeholder="What goes out? In what shape?">${escape(node.output || '')}</textarea>
+          </div>
+          <div class="full">
+            <label>Next node / routing</label>
+            <textarea data-field="next" placeholder="Which node next? Any conditions (if X then Y, else Z)?">${escape(node.next || '')}</textarea>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // wire up inputs
+    list.querySelectorAll('.node-card').forEach(card => {
+      const id = card.dataset.nodeId;
+      card.querySelectorAll('[data-field]').forEach(input => {
+        input.addEventListener('input', () => {
+          const node = state.nodes.find(n => n.id === id);
+          if (!node) return;
+          node[input.dataset.field] = input.value;
+          if (input.dataset.field === 'type') {
+            card.className = 'node-card type-' + input.value;
+          }
+          saveState(state);
+          if (input.dataset.field === 'name' || input.dataset.field === 'type') {
+            // refresh node-prompt step if user is there or about to be
+            renderNodePrompts();
+          }
+          updateSidebarMarkers();
+        });
+      });
+      card.querySelector('[data-action="delete"]').addEventListener('click', () => {
+        if (!confirm('Delete this node?')) return;
+        state.nodes = state.nodes.filter(n => n.id !== id);
+        if (state.nodePrompts[id]) delete state.nodePrompts[id];
+        saveState(state);
+        renderNodes();
+        renderNodePrompts();
+        updateSidebarMarkers();
+      });
+    });
+  }
+
+  function addNode() {
+    state.nodes.push({
+      id: newNodeId(),
+      name: '',
+      type: 'ai',
+      description: '',
+      input: '',
+      output: '',
+      next: ''
+    });
+    saveState(state);
+    renderNodes();
+    updateSidebarMarkers();
+  }
+
+  const addNodeBtn = document.getElementById('addNodeBtn');
+  if (addNodeBtn) addNodeBtn.addEventListener('click', addNode);
+  renderNodes();
+
+  function renderNodePrompts() {
+    const list = document.getElementById('nodePromptList');
+    if (!list) return;
+    const aiNodes = (state.nodes || []).filter(n => n.type === 'ai');
+    if (!aiNodes.length) {
+      list.innerHTML = '<div class="empty-state">No AI nodes yet. Go back to <a data-jump-to-step="3">step 4</a> and add at least one node with type "AI call".</div>';
+      list.querySelectorAll('[data-jump-to-step]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); goToStep(+a.dataset.jumpToStep); }));
+      return;
+    }
+    list.innerHTML = aiNodes.map((node, i) => {
+      const idx = state.nodes.findIndex(n => n.id === node.id) + 1;
+      const val = state.nodePrompts[node.id] || '';
+      return `
+        <div class="node-prompt-card" data-node-id="${node.id}">
+          <div class="label-row">
+            <span class="node-num">${idx}</span>
+            <span class="name">${escape(node.name || 'Untitled node')}</span>
+            <span class="desc">${escape((node.description || '').slice(0,60))}${(node.description||'').length > 60 ? '...' : ''}</span>
+          </div>
+          <textarea data-node-prompt-id="${node.id}" placeholder="Prompt for this node.&#10;&#10;The system prompt above is already in effect. Here you tell the AI what to do with the input from the previous node, what to output to the next node, and any node-specific rules.">${escape(val)}</textarea>
+        </div>
+      `;
+    }).join('');
+    list.querySelectorAll('textarea[data-node-prompt-id]').forEach(ta => {
+      ta.addEventListener('input', () => {
+        state.nodePrompts[ta.dataset.nodePromptId] = ta.value;
+        saveState(state);
+        updateSidebarMarkers();
+      });
+    });
+  }
+  renderNodePrompts();
 
   function goToStep(n) {
     n = Math.max(0, Math.min(stepSections.length - 1, n));
@@ -1010,6 +1308,7 @@
     stepButtons.forEach((b, i) => b.classList.toggle('active', i === n));
     stepSections.forEach((s, i) => s.classList.toggle('active', i === n));
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (n === 4) renderNodePrompts();
     if (n === 5) renderSummary();
     if (n === 6) renderBrief();
   }
@@ -1040,7 +1339,9 @@
       const tas = section.querySelectorAll('textarea[data-key]');
       html += '<div class="summary-card"><h3>' + stepMeta[i].title + '</h3>';
       tas.forEach(ta => {
-        const label = ta.closest('.question-block').querySelector('label').textContent;
+        const block = ta.closest('.question-block');
+        if (!block) return;
+        const label = block.querySelector('label').textContent;
         const val = ta.value.trim();
         html += '<div class="q-summary"><div class="q">' + escape(label) + '</div>';
         if (val) {
@@ -1050,6 +1351,25 @@
         }
         html += '</div>';
       });
+      // step 4: append node chain
+      if (i === 3 && (state.nodes || []).length) {
+        html += '<div class="q-summary"><div class="q">Workflow chain</div><div class="a">';
+        html += state.nodes.map((n, idx) => {
+          const typeLabel = (NODE_TYPES.find(t => t.value === n.type) || {}).label || n.type;
+          return (idx + 1) + '. ' + escape(n.name || '(unnamed)') + ' [' + escape(typeLabel) + ']' + (n.description ? ' — ' + escape(n.description) : '');
+        }).join('\n');
+        html += '</div></div>';
+      }
+      // step 5: append node prompts
+      if (i === 4) {
+        const aiNodes = (state.nodes || []).filter(n => n.type === 'ai');
+        aiNodes.forEach(n => {
+          const val = (state.nodePrompts[n.id] || '').trim();
+          html += '<div class="q-summary"><div class="q">Node prompt: ' + escape(n.name || '(unnamed)') + '</div>';
+          html += val ? '<div class="a">' + escape(val) + '</div>' : '<div class="a empty">(no prompt yet)</div>';
+          html += '</div>';
+        });
+      }
       html += '</div>';
     }
     container.innerHTML = html;
@@ -1138,31 +1458,48 @@
     html += paraOrGap('ai-model');
 
     html += '<h2>The workflow</h2>';
-    html += '<h3>The persistent surface</h3>';
-    html += paraOrGap('flow-surface');
-    html += '<h3>How the system surfaces to the user</h3>';
-    html += paraOrGap('flow-nudge');
-    html += '<h3>How we frame it</h3>';
-    html += paraOrGap('flow-frame');
-    html += '<h3>How we earn trust</h3>';
-    html += paraOrGap('flow-trust');
-    html += '<h3>Human handoff</h3>';
-    html += paraOrGap('flow-handoff');
+    html += '<h3>Overview</h3>';
+    html += paraOrGap('workflow-overview');
+    html += '<h3>User-facing surface</h3>';
+    html += paraOrGap('workflow-surface');
+    html += '<h3>Branches and routing</h3>';
+    html += paraOrGap('workflow-routing');
 
-    html += '<h2>The prompt</h2>';
-    if (val('prompt-which')) { html += '<h3>The AI moment we are designing for</h3>'; html += paraOrGap('prompt-which'); }
-    if (val('prompt-job')) { html += '<h3>The AI\'s one-sentence job</h3>'; html += paraOrGap('prompt-job'); }
-    if (val('prompt-constraints')) { html += '<h3>Constraints</h3>'; html += paraOrGap('prompt-constraints'); }
-    if (val('prompt-draft')) {
-      html += '<h3>System prompt</h3>';
-      html += '<blockquote>' + escape(val('prompt-draft')) + '</blockquote>';
+    if ((state.nodes || []).length) {
+      html += '<h3>The chain (node by node)</h3>';
+      html += '<blockquote>';
+      html += state.nodes.map((n, idx) => {
+        const typeLabel = (NODE_TYPES.find(t => t.value === n.type) || {}).label || n.type;
+        let s = (idx + 1) + '. ' + (n.name || '(unnamed)') + '  [' + typeLabel + ']';
+        if (n.description) s += '\n   does: ' + n.description;
+        if (n.input) s += '\n   in:   ' + n.input;
+        if (n.output) s += '\n   out:  ' + n.output;
+        if (n.next) s += '\n   next: ' + n.next;
+        return s;
+      }).join('\n\n');
+      html += '</blockquote>';
+    } else {
+      html += '<h3>The chain</h3><p>' + gap() + '</p>';
     }
-    if (val('prompt-example')) {
-      html += '<h3>Expected output</h3>';
-      html += paraOrGap('prompt-example');
+
+    html += '<h2>The prompts</h2>';
+    if (val('system-prompt')) {
+      html += '<h3>System prompt (applies to every AI node)</h3>';
+      html += '<blockquote>' + escape(val('system-prompt')) + '</blockquote>';
+    } else {
+      html += '<h3>System prompt</h3><p>' + gap() + '</p>';
     }
-    if (!val('prompt-which') && !val('prompt-job') && !val('prompt-constraints') && !val('prompt-draft') && !val('prompt-example')) {
-      html += '<p>' + gap() + '</p>';
+
+    const aiNodes = (state.nodes || []).filter(n => n.type === 'ai');
+    if (aiNodes.length) {
+      aiNodes.forEach(n => {
+        const p = (state.nodePrompts[n.id] || '').trim();
+        html += '<h3>Node prompt: ' + escape(n.name || '(unnamed)') + '</h3>';
+        if (p) html += '<blockquote>' + escape(p) + '</blockquote>';
+        else html += '<p>' + gap() + '</p>';
+      });
+    } else {
+      html += '<h3>Node prompts</h3><p>' + gap() + '</p>';
     }
 
     out.innerHTML = html;
@@ -1190,16 +1527,35 @@
     });
 
     md += '## The workflow\n\n';
-    [['flow-surface','The persistent surface'],['flow-nudge','How the system surfaces to the user'],['flow-frame','How we frame it'],['flow-trust','How we earn trust'],['flow-handoff','Human handoff']].forEach(([k,t]) => {
-      md += '### ' + t + '\n' + (val(k) || '_(left blank)_') + '\n\n';
-    });
+    md += '### Overview\n' + (val('workflow-overview') || '_(left blank)_') + '\n\n';
+    md += '### User-facing surface\n' + (val('workflow-surface') || '_(left blank)_') + '\n\n';
+    md += '### Branches and routing\n' + (val('workflow-routing') || '_(left blank)_') + '\n\n';
 
-    md += '## The prompt\n\n';
-    if (val('prompt-which')) md += '### The AI moment we are designing for\n' + val('prompt-which') + '\n\n';
-    if (val('prompt-job')) md += "### The AI's one-sentence job\n" + val('prompt-job') + '\n\n';
-    if (val('prompt-constraints')) md += '### Constraints\n' + val('prompt-constraints') + '\n\n';
-    if (val('prompt-draft')) md += '### System prompt\n```\n' + val('prompt-draft') + '\n```\n\n';
-    if (val('prompt-example')) md += '### Expected output\n' + val('prompt-example') + '\n\n';
+    if ((state.nodes || []).length) {
+      md += '### The chain (node by node)\n\n';
+      md += '```\n';
+      md += state.nodes.map((n, idx) => {
+        const typeLabel = (NODE_TYPES.find(t => t.value === n.type) || {}).label || n.type;
+        let s = (idx + 1) + '. ' + (n.name || '(unnamed)') + '  [' + typeLabel + ']';
+        if (n.description) s += '\n   does: ' + n.description;
+        if (n.input) s += '\n   in:   ' + n.input;
+        if (n.output) s += '\n   out:  ' + n.output;
+        if (n.next) s += '\n   next: ' + n.next;
+        return s;
+      }).join('\n\n');
+      md += '\n```\n\n';
+    }
+
+    md += '## The prompts\n\n';
+    md += '### System prompt (applies to every AI node)\n';
+    md += val('system-prompt') ? '```\n' + val('system-prompt') + '\n```\n\n' : '_(left blank)_\n\n';
+
+    const aiNodes = (state.nodes || []).filter(n => n.type === 'ai');
+    aiNodes.forEach(n => {
+      md += '### Node prompt: ' + (n.name || '(unnamed)') + '\n';
+      const p = (state.nodePrompts[n.id] || '').trim();
+      md += p ? '```\n' + p + '\n```\n\n' : '_(no prompt yet)_\n\n';
+    });
 
     return md;
   }
