@@ -84,6 +84,16 @@ const faqSchema = {
 
 const news = [
   {
+    date: '27 May 2026',
+    title: 'Marly Pierre-Louis joins the programme',
+    body: '<a href="https://www.linkedin.com/in/marlypierrelouis" target="_blank" rel="noopener">Marly Pierre-Louis</a> will facilitate <em>Who gets to dream the machine?</em>: a flash book club exploring what speculative fiction can teach us about language, power, and the assumptions baked into the systems we design.',
+  },
+  {
+    date: '22 May 2026',
+    title: 'Linguist for a day announced',
+    body: 'Two parallel tutorials by <a href="https://www.surrey.ac.uk/people/doris-dippold" target="_blank" rel="noopener">Doris Dippold</a> and <a href="https://www.ncl.ac.uk/elll/staff/profile/adambrandt.html" target="_blank" rel="noopener">Adam Brandt</a>. Group A applies rapport theory to user research and conversation design; Group B brings third position from conversation analysis to prompt design.',
+  },
+  {
     date: '11 May 2026',
     title: 'First contributors announced',
     body: '<a href="https://www.linkedin.com/in/romina-pankoke" target="_blank" rel="noopener">Romina Pankoke</a> and Maaike Groenewege will host an in-person Convoclub session on UX design in times of GenAI. We\'re building more and more complex applications through prompting and conversation. How do you design for your users if half of the time you have no idea what your agentic platform is up to?',
@@ -168,8 +178,7 @@ const news = [
             class="cta luma-checkout--button"
             data-luma-action="checkout"
             data-luma-event-id={eventId}
-            lang="nl"
-          >Registreren voor evenement</a>
+          >Register for this event</a>
           <p class="hero-note">Free · limited spots · Luma waitlist if we fill up</p>
         </div>
       </header>
@@ -179,7 +188,7 @@ const news = [
           <div class="intro-main">
             <h2>Dear Convofriends, I'm so happy to announce that Convoclub is going IRL!</h2>
             <p>On Wednesday 17 June 2026, the day after the HUMIC symposium at the University of Surrey, we're hosting the very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves language and the way humans (and machines) talk.</p>
-            <p>Think of it as the day where industry meets academia over coffee, biscuits and a walk around campus or the historical town of Guildford. No format, no full programme, just good conversations about conversation design, linguistics, AI and life.</p>
+            <p>This will be a day full of all the stuff that you always wish you could do at a conference, but never have time for: catching up with friends, getting to meet new people, spend time outside in a casual conversation and going beyond the hype & pitches to do some real learning.</p>
             <aside class="callout">
               <p class="callout-heading">Attending HUMIC the day before?</p>
               <p>You can join us as a stand-alone event, or as an add-on to HUMIC the day before. Heads up: each event has its own registration page, so if you'd like to attend both, please register separately. You can register for HUMIC on <a href={humicUrl} target="_blank" rel="noopener">the University of Surrey website</a>.</p>
@@ -205,41 +214,111 @@ const news = [
       <section class="schedule">
         <div class="container narrow">
           <p class="schedule-eyebrow">Wednesday 17 June 2026</p>
-          <h2>What to expect</h2>
-          <p class="schedule-intro">I'm still dreaming up the exact shape of the day, but it might look something like this.</p>
+          <h2>Programme</h2>
+          <p class="schedule-intro">Here's the shape of the day. A few talks are still TBA.</p>
 
           <ol class="blocks">
             <li>
               <span class="time">09:30–10:00</span>
               <div class="entry">
                 <p class="entry-title">Reception & coffee</p>
-                <p class="entry-body">Arrive, grab a coffee, and meet the faces behind the Zoom tiles (yes, we have feet!).</p>
               </div>
             </li>
             <li>
-              <span class="time">10:00–12:30</span>
+              <span class="time">10:00–10:20</span>
               <div class="entry">
-                <p class="entry-title">Short, informal talks from the community</p>
-                <p class="entry-body">Ask-me-anythings, practical advice for real-life design challenges, showcasing your work, or perhaps a panel? Let's see what we can make happen.</p>
+                <p class="entry-title">Welcome</p>
+                <p class="entry-who">Maaike Groenewege & Doris Dippold</p>
               </div>
             </li>
             <li>
-              <span class="time">12:30–13:30</span>
+              <span class="time">10:20–10:50</span>
+              <div class="entry">
+                <p class="entry-title">Talk (speaker & topic TBA)</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">10:50–12:20</span>
+              <div class="entry">
+                <p class="entry-title">Linguist for a day</p>
+                <p class="entry-who">Doris Dippold & Adam Brandt</p>
+                <details class="entry-group entry-expand">
+                  <summary>
+                    <span class="group-label"><strong>Group A:</strong> applying rapport theory to user research and conversation design (Doris Dippold)</span>
+                    <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                  </summary>
+                  <div class="entry-details">
+                    <h4>About the session</h4>
+                    <p>What does it take to build conversational products that are empathetic to users' needs? In this interactive workshop, Doris Dippold will introduce her recently published taxonomy of human-machine rapport, benefiting conversation designers and their teams in user research, message design and user-led evaluation. Through hands-on exercises, you will learn to apply this taxonomy to interviews and survey responses of chatbot users and consider how you will apply the insights gained to prompt and fine-tune your system for rapport driven, empathetic responses. The workshop will end by discussing the opportunities and challenges of implementing rapport considerations in the conversation design workflow.</p>
+                    <h4>About Doris</h4>
+                    <p>Doris is an applied linguist passionate about the power of language and culture to shape how we think, speak, write and communicate with machines and one another. Her work spans research, teaching, and consultancy at the intersection of human AI interaction and intercultural communication. As part of her applied research, she works with public and private sector partners to bring insights from sociolinguistics and pragmatics insights into conversational AI. Doris is a Principal Fellow of the Surrey Institute for People Centred AI and a co-chair of the BAAL HUMALA Special Interest Group.</p>
+                  </div>
+                </details>
+                <details class="entry-group entry-expand">
+                  <summary>
+                    <span class="group-label"><strong>Group B:</strong> third position in conversation analysis and prompt design (Adam Brandt)</span>
+                    <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                  </summary>
+                  <div class="entry-details">
+                    <h4>About the session</h4>
+                    <p>In this interactive workshop, Adam Brandt will introduce the conversation analytic concept of 'third position': the turn in which an agent responds to a user's answer, and show how Conversation Analysis research on this can inform prompt design for chatbots and voice agents.</p>
+                    <p>Through hands-on exercises, we will apply these insights to evaluate and improve agent responses, with a focus on making interactions more naturalistic and reducing unnecessary verbosity. We will end by discussing how third position thinking can be embedded practically in conversation design workflows.</p>
+                  </div>
+                </details>
+              </div>
+            </li>
+            <li>
+              <span class="time">12:20–13:20</span>
               <div class="entry">
                 <p class="entry-title">Lunch</p>
-                <p class="entry-body">Proper food, proper chat.</p>
               </div>
             </li>
             <li>
-              <span class="time">13:30–16:00</span>
+              <span class="time">13:20–13:50</span>
               <div class="entry">
-                <p class="entry-title">Choose your own afternoon</p>
-                <p class="entry-body">Workshops, "share your experience" sessions, or a walk & talk across Surrey's beautiful campus. Whatever helps you connect.</p>
+                <p class="entry-title">Talk (speaker & topic TBA)</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">13:50–14:50</span>
+              <details class="entry entry-expand">
+                <summary>
+                  <p class="entry-title">Who gets to dream the machine?</p>
+                  <p class="entry-who">Marly Pierre-Louis</p>
+                  <p class="entry-body">A flash book club.</p>
+                  <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                </summary>
+                <div class="entry-details">
+                  <h4>About the session</h4>
+                  <p>We design from assumption. What a 'natural' voice sounds like, what makes a chatbot feel helpful, whose language gets to be the default: these aren't neutral choices. They reflect who builds the systems and whose world gets treated as normative.</p>
+                  <p>Speculative fiction writers have been sitting with hard questions about language, power, and non-human intelligence for decades. What can they teach us? And what might we design differently if we let their questions in?</p>
+                  <h4>About Marly</h4>
+                  <p>Marly Pierre-Louis is a UX Consultant based in Amsterdam. With 10+ years across e-commerce, fintech, and fem tech, her work spans experimentation, content operations, and LLM training. She helps teams practice good governance, judgment, craft, and care as AI reshapes how products are built. Alongside her consulting work, she is a speculative writer and community cultivator whose creative practice explores inner worlds, survival strategies, and spaces of possibility.</p>
+                </div>
+              </details>
+            </li>
+            <li>
+              <span class="time">14:50–15:10</span>
+              <div class="entry">
+                <p class="entry-title">Coffee break</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">15:10–16:10</span>
+              <div class="entry">
+                <p class="entry-title">Convoclub IRL session: UX design in times of GenAI (walk & talk)</p>
+                <p class="entry-body">How do you design for your users if half of the time you have no idea what your agentic platform is up to?</p>
+                <p class="entry-who">Maaike Groenewege & Romina Pankoke</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">16:10–16:30</span>
+              <div class="entry">
+                <p class="entry-title">Wrap-up & close</p>
+                <p class="entry-who">Maaike Groenewege</p>
               </div>
             </li>
           </ol>
-
-          <p class="schedule-outro">The full programme is still taking shape, and that's the point. If you'd like to lead a session, do a portfolio review, or bring a topic you've been dying to talk about, let me know on the registration form.</p>
         </div>
       </section>
 
@@ -661,6 +740,78 @@ const news = [
         font-size: 0.9rem;
         line-height: 1.45;
       }
+      .blocks .entry-who {
+        margin: 0.15rem 0 0;
+        color: var(--fuchsia);
+        font-size: 0.88rem;
+        font-style: italic;
+        line-height: 1.4;
+      }
+      .blocks .entry-group {
+        margin-top: 0.5rem;
+        padding: 0.45rem 0;
+        border-top: 1px dashed var(--rule);
+      }
+      .blocks .entry-group:first-of-type { border-top: 0; padding-top: 0.25rem; }
+      .blocks .entry-group .group-label {
+        display: block;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+      .blocks details.entry-expand {
+        padding: 0;
+      }
+      .blocks details.entry-expand summary {
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-right: 7rem;
+      }
+      .blocks details.entry-expand summary::-webkit-details-marker { display: none; }
+      .blocks .entry-more {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        padding: 0.18rem 0.6rem;
+        background: #F1ECEF;
+        color: var(--ink-soft);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+      .blocks .entry-more-hide { display: none; }
+      .blocks details.entry-expand[open] .entry-more-show { display: none; }
+      .blocks details.entry-expand[open] .entry-more-hide { display: inline; }
+      .blocks details.entry-expand summary:hover .entry-more {
+        background: var(--fuchsia-soft);
+        color: var(--fuchsia-deep);
+      }
+      .blocks .entry-details {
+        margin-top: 0.85rem;
+        padding-top: 0.85rem;
+        border-top: 1px dashed var(--rule);
+      }
+      .blocks .entry-details h4 {
+        margin: 0.75rem 0 0.35rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--plum);
+      }
+      .blocks .entry-details h4:first-child { margin-top: 0; }
+      .blocks .entry-details p {
+        margin: 0 0 0.7rem;
+        color: var(--ink);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+      .blocks .entry-details p:last-child { margin-bottom: 0; }
 
       /* ---------- Practical ---------- */
       .practical { background: var(--fuchsia-soft); }
