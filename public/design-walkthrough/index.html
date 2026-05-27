@@ -782,6 +782,7 @@
     </ol>
     <div class="topbar-tools">
       <a class="proto-link" href="/mortgage-prototype/" target="_blank" rel="noopener">See the prototype →</a>
+      <button id="loadExampleBtn">Load example</button>
       <button id="exportBtn">Export .md</button>
       <button id="printBtn">Print</button>
       <button id="resetBtn" class="danger">Clear</button>
@@ -1601,6 +1602,107 @@ ${briefAsMarkdown()}`;
   });
   document.getElementById('copyPromptBtn').addEventListener('click', () => copyText(claudePrompt(), 'Claude prompt'));
 
+  // ---- Example payload (Maaike's worked example for this brief) ----
+  const EXAMPLE = {
+    'define-problem': "The brief calls this a chatbot problem. It is not. It is a status-and-handoff problem: a user has handed a high-stakes task to an invisible worker and walked away. The real problem is: how does she know it is still working, when to look, and what to do when something needs her? The interruption moments are a symptom, not the design centre.",
+    'define-business-goals': "Speed (fewer adviseur hours per case), accuracy (fewer false approvals and fewer dropped applicants), and trust (the bank cannot afford a single 'AI told me I was approved' story). All three at once, which is why this is hard.",
+    'define-why-me': "Because the failure mode here is linguistic, not technical. The rules engine works. The model can read documents. What kills the project is the moment the AI talks to the user in the wrong tone, in the wrong channel, at the wrong time, about the wrong thing. That is a conversation design problem even when there is no chatbot.",
+    'define-assumption': "'Surfaces'. The brief says the system 'surfaces to the user' when it needs them, which assumes the system is normally underwater. The user is present the whole time, refreshing the page, hoping for news. Designing only for the interruption moments misses that fact.",
+
+    'map-who': "User side: the applicant (call her Sanne). She just bid on a house. Bank side: a rules engine, an underwriter, and a mortgage adviseur called Marieke who only enters at the end.",
+    'map-trigger': "House bid accepted, or a budget question before viewings. In either case there is a real-world clock and Sanne knows it.",
+    'map-inputs': "Jaaropgaaf, werkgeversverklaring, ID, recent bank statements, sometimes IB60 or proof of own funds. Most of this is already on her laptop.",
+    'map-steps': "1. House bid accepted\n2. Log in to the bank portal (DigiD)\n3. Fill the income/liabilities form\n4. Upload supporting documents\n5. Wait (hours to days, opaque)\n6. Adviseur calls if something is off\n7. Indicative pre-approval letter arrives by email",
+    'map-result': "An indicatieve hypotheekofferte that lets Sanne confirm the bid with confidence.",
+    'map-pain': "Stage 5 is the killer: opaque waiting while she has to confirm a bid. Stage 6 is dreaded: an unscheduled phone call about her largest financial decision. Stage 4 is where most errors hide: the same income shows up differently across two documents and nobody notices until day three.",
+
+    'ai-bottleneck': "Document reading and reconciliation. Adviseurs spend hours doing OCR-and-eyeball work that a model can do in seconds.",
+    'ai-strengths': "Reading messy PDFs into structured fields. Spotting numeric inconsistencies across documents. Composing one precise plain-language question when a human is needed. Summarising a case into a one-page brief.",
+    'ai-risks': "Approval decisions. Tone in user-facing messages (chipper AI in a high-stakes context is a disaster). Anywhere a hallucination could become a commitment. Anywhere the user could mistake the AI for a person.",
+    'ai-needed': "Yes, but only for document reading, nudge composition, and case summarisation. Not for talking to the user as a chatbot, not for deciding to lend, not for anything that sounds like an opinion. If we cannot draw that line cleanly, we should not ship GenAI in this product.",
+    'ai-model': "Conversation is the wrong model. The right model is logistics tracking with a concierge escalation path. Persistent status surface, asynchronous nudges when input is needed, named human for the high-stakes moments. Chat shows up only for tiny, mechanical questions like 'which address is current?'.",
+
+    'workflow-overview': "Sanne submits her application. A background chain reads her documents, reconciles fields, and updates a tracker she can return to. When something needs her, the chain composes one targeted nudge and pushes it to her preferred channel. When the case is ready, the chain generates a handoff brief and schedules a call with a named adviseur.",
+    'workflow-surface': "Primary: status tracker page in the bank portal. Secondary: email and SMS for nudges (channel chosen by user at submission). Tertiary: calendar invite + shared brief for the human handoff.",
+    'workflow-routing': "If document extraction succeeds and reconciliation passes, the chain skips the nudge nodes and goes straight to handoff. If reconciliation flags an inconsistency, branch to the nudge composer. If the user does not respond to a nudge within 24h, escalate by switching channels (email to SMS, SMS to a scheduled call). If the AI is uncertain in any node, route to a human reviewer instead of guessing.",
+
+    'system-prompt': "You are part of a background chain that processes Dutch hypotheek pre-approval applications for Deltabank. You are not a chatbot. The user is not talking to you. You are generating text that will be read by either an applicant or a mortgage adviseur.\n\nGlobal rules (apply to every node):\n- Never use the words 'approval', 'qualified', 'guaranteed', or any language that suggests a lending decision has been made. The bank cannot commit and neither can you.\n- Always ground every claim in a specific document or field. If you do not have the source, say 'we still need to confirm'.\n- Plain language. No banking jargon. No marketing tone. No exclamation marks. No emoji.\n- Never apologise for being AI. The user does not know there is an AI in this chain. Do not introduce yourself.\n- If you are uncertain, escalate by emitting a HANDOFF signal instead of guessing.\n- Never use em-dashes. Use colons, commas, or periods.\n- Output language: Dutch by default, unless the input specifies English.",
+
+    'prompt-which': "The handoff brief node. It is the highest-stakes piece of generated text in the chain because both the user and the adviseur read it.",
+    'prompt-job': "Given a case summary and any open questions, write a one-page brief that prepares both the adviseur for the call and the user for what to expect.",
+    'prompt-constraints': "Three sections only: What we know, What we still need to discuss, What to expect on the call. Max 250 words total. Plain Dutch. Second person for the user-facing sections. Surface any AI uncertainties before the adviseur has to raise them."
+  };
+
+  const EXAMPLE_NODES = [
+    { id: 'ex-1', name: 'Receive application', type: 'code',
+      description: 'Accept the submission from the bank portal, queue it for processing, write the initial tracker state.',
+      input: 'Form fields + uploaded documents from Sanne',
+      output: 'Case record with status: received',
+      next: 'Always continues to node 2 (Extract fields).' },
+    { id: 'ex-2', name: 'Extract fields from documents', type: 'ai',
+      description: 'Read each uploaded document and extract the structured fields the rules engine needs.',
+      input: 'Case record + PDF files (jaaropgaaf, werkgeversverklaring, ID, bank statements)',
+      output: 'Structured JSON: { income_jaaropgaaf, income_werkgeversverklaring, household_size, liabilities, ... } with a confidence score per field.',
+      next: 'If all fields extracted with high confidence, continue to node 3. If any field is low-confidence or missing, route to node 4 (compose nudge for missing doc).' },
+    { id: 'ex-3', name: 'Reconcile fields', type: 'code',
+      description: 'Deterministic rules check: do the numbers across documents agree? Are there gaps?',
+      input: 'Structured JSON from node 2',
+      output: 'Reconciliation result: pass / mismatch_found / missing_field, with details.',
+      next: 'If pass, go to node 6 (compose handoff brief). If mismatch or missing, go to node 4 (compose nudge).' },
+    { id: 'ex-4', name: 'Compose nudge', type: 'ai',
+      description: 'When the reconciliation flags an issue, generate one specific plain-language question for Sanne that grounds in the exact documents involved.',
+      input: 'Reconciliation result (mismatch or missing field) + the specific source documents.',
+      output: 'Two versions of the same message: EMAIL (max 4 sentences with an upload button) and SMS (max 160 chars with a deep link).',
+      next: 'Continue to node 5 (deliver nudge).' },
+    { id: 'ex-5', name: 'Deliver nudge', type: 'channel',
+      description: 'Push the composed message to the user via the channels she opted into at submission.',
+      input: 'EMAIL and SMS payloads from node 4 + user channel preferences.',
+      output: 'Delivery confirmations; user response (if any) within 24h.',
+      next: 'If user responds, loop back to node 3 (reconcile with new data). If no response in 24h, escalate by switching channel. If still nothing after second nudge, route to a human reviewer.' },
+    { id: 'ex-6', name: 'Compose handoff brief', type: 'ai',
+      description: 'Generate a one-page brief that both the adviseur and Sanne will read. Three sections: what we know, what we still need to discuss, what to expect on the call.',
+      input: 'Full case record + reconciliation result + any user responses from nudges.',
+      output: 'A 250-word brief in Dutch, plus a structured metadata blob for the calendar invite.',
+      next: 'Always continues to node 7 (schedule call).' },
+    { id: 'ex-7', name: 'Schedule adviseur call', type: 'human',
+      description: 'Pick the next available slot in Marieke’s calendar, send a calendar invite to Sanne with the brief attached, surface the case in Marieke’s queue.',
+      input: 'Handoff brief from node 6 + adviseur calendar availability.',
+      output: 'Calendar invite sent, tracker updated to "Adviser ready".',
+      next: 'End of chain. The human takes over.' }
+  ];
+
+  const EXAMPLE_NODE_PROMPTS = {
+    'ex-2': "You read scanned or PDF financial documents from a Dutch homebuyer's hypotheek application.\n\nYour job: extract these fields and return them as JSON with a confidence score per field (0.0 to 1.0).\n\nFields to extract:\n- income_gross_annual\n- employer_name\n- employment_type (permanent / temporary / self-employed)\n- contract_end_date (if temporary)\n- household_size\n- existing_loans (array of { lender, monthly_payment, end_date })\n\nRules:\n- If a field is not present, return null with confidence 0.\n- If you can guess but are unsure, return your guess with the actual confidence (do not inflate).\n- Tag the source document for every field so reconciliation can check.\n- Never invent a value to fill a gap. Null is a valid answer.\n\nInput document type: {doc_type}\nInput document content: {ocr_text}\n\nOutput: JSON only, no commentary.",
+
+    'ex-4': "You compose short, polite messages to a Dutch homebuyer when the bank needs one piece of information to keep their hypotheek pre-approval moving.\n\nGlobal rules apply (see system prompt). Plus:\n- One specific ask per message. Never two.\n- Ground the ask in a specific document or field. Show the conflicting numbers verbatim so the user can recognise them.\n- Always include the next step (a link or an upload button).\n- EMAIL version: max 4 sentences. SMS version: max 160 characters. Both link to the same one-question form.\n- Tone: calm, neutral, slightly warm. Not chipper. Not apologetic.\n- Do not name the AI. Do not say 'our system noticed'. Just say 'we noticed'.\n\nInput:\n- inconsistency_type: {type}  // missing_field | mismatch_found\n- source_documents: {sources}\n- conflicting_values: {values}\n- user_first_name: {name}\n\nOutput two blocks, separated by ---:\nEMAIL:\n[email body]\n---\nSMS:\n[sms body with short link placeholder]",
+
+    'ex-6': "You write a one-page handoff brief for a hypotheek case that is moving from background processing to a human adviseur.\n\nTwo readers see the SAME brief: the adviseur preparing for the call, and the customer who is about to be called. Write for both at once.\n\nStructure (in this order, in Dutch by default):\n1. **Wat we weten** - the established facts of the case, in plain language, with property location, confirmed income, existing obligations.\n2. **Wat we nog bespreken** - any open items, including anything the AI was uncertain about. Surface uncertainties here so the customer sees them before the adviseur raises them.\n3. **Wat te verwachten op het gesprek** - duration, name of the adviseur, agenda topics (NHG, rate type, term).\n\nGlobal rules apply (see system prompt). Plus:\n- 250 words maximum total.\n- Second person for sections 1 and 3. Third person (or no person) for section 2.\n- Never use 'approved', 'qualified', or any commitment language.\n- If a number was confirmed by the user via a nudge, say so explicitly ('je hebt bevestigd: €61.200').\n\nInput:\n- case_summary: {summary}\n- open_questions: {questions}\n- adviseur_name: {name}\n- call_duration_minutes: {duration}\n\nOutput: the brief, ready to send."
+  };
+
+  function loadExample() {
+    if (Object.keys(state).filter(k => k !== 'nodes' && k !== 'nodePrompts').length > 0
+        || (state.nodes || []).length > 0
+        || Object.keys(state.nodePrompts || {}).length > 0) {
+      if (!confirm('Replace all current answers with the example? Your existing work will be lost.')) return;
+    }
+    Object.keys(EXAMPLE).forEach(k => { state[k] = EXAMPLE[k]; });
+    state.nodes = JSON.parse(JSON.stringify(EXAMPLE_NODES));
+    state.nodePrompts = Object.assign({}, EXAMPLE_NODE_PROMPTS);
+    saveState(state);
+    // refresh all textareas
+    document.querySelectorAll('textarea[data-key]').forEach(ta => {
+      const k = ta.dataset.key;
+      ta.value = state[k] || '';
+      ta.classList.toggle('has-content', ta.value.trim().length > 0);
+      updateWordCount(ta);
+    });
+    renderNodes();
+    renderNodePrompts();
+    updateSidebarMarkers();
+    showToast('Example loaded');
+  }
+  document.getElementById('loadExampleBtn').addEventListener('click', loadExample);
+
   document.getElementById('resetBtn').addEventListener('click', () => {
     if (!confirm('Clear all your answers? This cannot be undone.')) return;
     localStorage.removeItem(STORAGE_KEY);
@@ -1610,6 +1712,10 @@ ${briefAsMarkdown()}`;
       updateWordCount(ta);
     });
     Object.keys(state).forEach(k => delete state[k]);
+    state.nodes = [];
+    state.nodePrompts = {};
+    renderNodes();
+    renderNodePrompts();
     updateSidebarMarkers();
   });
 </script>
