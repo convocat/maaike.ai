@@ -11,7 +11,7 @@ const ogImage = 'https://www.maaike.ai/images/og-convoclubirl.png';
 const faqs = [
   {
     q: 'When and where is Convoclub IRL?',
-    a: 'Wednesday 17 June 2026, from 09:30 to 16:00, at the University of Surrey, Guildford campus (Stag Hill, University Campus, Guildford GU2 7XH, United Kingdom). Around 35 minutes from London Waterloo by train.',
+    a: 'Wednesday 17 June 2026, from 09:30 to 16:30, at the University of Surrey, Guildford campus (Stag Hill, University Campus, Guildford GU2 7XH, United Kingdom). Around 35 minutes from London Waterloo by train.',
   },
   {
     q: 'How much does it cost?',
@@ -42,7 +42,7 @@ const eventSchema = {
   description,
   image: [ogImage],
   startDate: '2026-06-17T09:30:00+01:00',
-  endDate: '2026-06-17T16:00:00+01:00',
+  endDate: '2026-06-17T16:30:00+01:00',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   eventStatus: 'https://schema.org/EventScheduled',
   url: canonical,
@@ -83,6 +83,11 @@ const faqSchema = {
 };
 
 const news = [
+  {
+    date: '30 May 2026',
+    title: 'Oluwabusayo Omolabi on enterprise RAG',
+    body: '<a href="https://www.linkedin.com/in/oluwabusayo-omolabi" target="_blank" rel="noopener">Oluwabusayo Omolabi</a> (AI Conversation Designer at Lloyds Banking Group) will open the day with a talk on behavioural guardrails, tone of voice, and response reliability when building RAG systems in regulated enterprise environments.',
+  },
   {
     date: '27 May 2026',
     title: 'Marly Pierre-Louis joins the programme',
@@ -189,6 +194,7 @@ const news = [
             <h2>Dear Convofriends, I'm so happy to announce that Convoclub is going IRL!</h2>
             <p>On Wednesday 17 June 2026, the day after the HUMIC symposium at the University of Surrey, we're hosting the very first Convoclub IRL: a casual, community-driven day for conversation designers, linguists, AI folks and anyone who loves language and the way humans (and machines) talk.</p>
             <p>This will be a day full of all the stuff that you always wish you could do at a conference, but never have time for: catching up with friends, getting to meet new people, spend time outside in a casual conversation and going beyond the hype & pitches to do some real learning.</p>
+            <p class="pai-thanks">A massive thank you to the <a href="https://www.surrey.ac.uk/artificial-intelligence" target="_blank" rel="noopener">Surrey Institute for People-Centred AI (PAI)</a> for sponsoring this meetup and hosting us on the University of Surrey campus. Convoclub IRL would not be happening without them.</p>
             <aside class="callout">
               <p class="callout-heading">Attending HUMIC the day before?</p>
               <p>You can join us as a stand-alone event, or as an add-on to HUMIC the day before. Heads up: each event has its own registration page, so if you'd like to attend both, please register separately. You can register for HUMIC on <a href={humicUrl} target="_blank" rel="noopener">the University of Surrey website</a>.</p>
@@ -225,20 +231,39 @@ const news = [
               </div>
             </li>
             <li>
-              <span class="time">10:00–10:20</span>
+              <span class="time">10:00–10:15</span>
               <div class="entry">
                 <p class="entry-title">Welcome</p>
                 <p class="entry-who">Maaike Groenewege & Doris Dippold</p>
               </div>
             </li>
             <li>
-              <span class="time">10:20–10:50</span>
+              <span class="time">10:15–10:30</span>
               <div class="entry">
-                <p class="entry-title">Talk (speaker & topic TBA)</p>
+                <p class="entry-title">Welcome from the Surrey Institute for People-Centred AI (PAI)</p>
               </div>
             </li>
             <li>
-              <span class="time">10:50–12:20</span>
+              <span class="time">10:30–11:00</span>
+              <details class="entry entry-expand">
+                <summary>
+                  <p class="entry-title">The realities of enterprise RAG</p>
+                  <p class="entry-who">Oluwabusayo Omolabi</p>
+                  <p class="entry-body">What it takes to ship RAG that behaves itself inside a regulated bank.</p>
+                  <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                </summary>
+                <div class="entry-details">
+                  <h4>About the session</h4>
+                  <p>This session will explore the realities of building Retrieval-Augmented Generation (RAG) systems in enterprise environments, with a focus on behavioural guardrails, tone of voice adherence, and response reliability.</p>
+                  <p>Busayo will discuss how teams define acceptable AI behaviour, manage retrieval quality, and design systems that remain trustworthy, compliant, and aligned with business expectations, drawing on practical challenges, approaches, and lessons learned from real-world conversational AI implementations.</p>
+                  <h4>About Oluwabusayo</h4>
+                  <p>Oluwabusayo Omolabi is an AI Conversation Designer at Lloyds Banking Group, where she architects large-scale, generative AI-powered conversational systems within one of the UK's most regulated industries. With over five years of experience in conversational AI, she specialises in designing intelligent, human-centred systems powered by LLMs, machine learning, and data-driven insight.</p>
+                  <p>Beyond her corporate career, Busayo is a tech entrepreneur and ecosystem builder. A member of G100 mission million for Robotics, Automation and STEM and is the Co-founder and Director of iT8 Academy Ltd, a UK-registered tech academy, where she has trained and mentored aspiring professionals to successfully transition into technology careers.</p>
+                </div>
+              </details>
+            </li>
+            <li>
+              <span class="time">11:00–12:30</span>
               <div class="entry">
                 <p class="entry-title">Linguist for a day</p>
                 <p class="entry-who">Doris Dippold & Adam Brandt</p>
@@ -268,19 +293,19 @@ const news = [
               </div>
             </li>
             <li>
-              <span class="time">12:20–13:20</span>
+              <span class="time">12:30–13:15</span>
               <div class="entry">
                 <p class="entry-title">Lunch</p>
               </div>
             </li>
             <li>
-              <span class="time">13:20–13:50</span>
+              <span class="time">13:15–13:45</span>
               <div class="entry">
                 <p class="entry-title">Talk (speaker & topic TBA)</p>
               </div>
             </li>
             <li>
-              <span class="time">13:50–14:50</span>
+              <span class="time">13:45–14:45</span>
               <details class="entry entry-expand">
                 <summary>
                   <p class="entry-title">Who gets to dream the machine?</p>
@@ -298,13 +323,19 @@ const news = [
               </details>
             </li>
             <li>
-              <span class="time">14:50–15:10</span>
+              <span class="time">14:45–15:00</span>
               <div class="entry">
                 <p class="entry-title">Coffee break</p>
               </div>
             </li>
             <li>
-              <span class="time">15:10–16:10</span>
+              <span class="time">15:00–15:15</span>
+              <div class="entry">
+                <p class="entry-title">Talk (speaker & topic TBA)</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">15:15–16:15</span>
               <div class="entry">
                 <p class="entry-title">Convoclub IRL session: UX design in times of GenAI (walk & talk)</p>
                 <p class="entry-body">How do you design for your users if half of the time you have no idea what your agentic platform is up to?</p>
@@ -312,10 +343,10 @@ const news = [
               </div>
             </li>
             <li>
-              <span class="time">16:10–16:30</span>
+              <span class="time">16:15–16:30</span>
               <div class="entry">
                 <p class="entry-title">Wrap-up & close</p>
-                <p class="entry-who">Maaike Groenewege</p>
+                <p class="entry-who">Maaike Groenewege & Doris Dippold</p>
               </div>
             </li>
           </ol>
@@ -654,6 +685,14 @@ const news = [
         margin: 0 0 1.25rem;
       }
       .intro p { margin: 0 0 1.1rem; color: var(--ink); }
+      .intro .pai-thanks {
+        margin-top: 1.5rem;
+        padding: 1rem 1.25rem;
+        background: var(--fuchsia-soft);
+        border-radius: 6px;
+        font-size: 0.97rem;
+        line-height: 1.55;
+      }
       .callout {
         background: var(--plum-soft);
         border-left: 3px solid var(--plum);
