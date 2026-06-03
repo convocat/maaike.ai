@@ -1,16 +1,17 @@
 ---
-title: 'After the Interface: Relocating Human Agency in the Age of Conversational AI'
+title: Just a moment...
 url: https://arxiv.org/html/2605.15064v1#:~:text=Conversational%20AI%20systems%20have%20not,is%20not%20merely%20a%20theoretical
 date: 2026-06-03
 updated: 2026-06-03
 maturity: solid
 tags:
-- agentic-ai
 - conversational-interface
-- human-agency
-- ai-transparency
-- interaction-paradigms
-description: 'This paper argues that human agency in AI systems has not eroded but relocated. As interaction shifts from command-based to conversational AI paradigms, agency migrates from interface affordances to communicative interaction itself: articulating goals, evaluating outputs, and negotiating outcomes. The authors distinguish process control from outcome control to show that apparent agency loss is actually redistribution.'
+- ai-tools
+- delegation-metaphor
+- conversation-metaphor
+- anthropomorphism
+- common-ground
+description: This article examines the friction that arises when users shift from exploratory conversation with AI tools to precise task delegation. Through direct observation of seven people working with AI, the author identifies three interaction styles (collaborative, commanding, over-explainers) and reveals how conversational fluency in AI interfaces creates false expectations of shared understanding, leading users to accept suggestions that drift from their original intent.
 ai: 100% Maai
 draft: false
 themes:
