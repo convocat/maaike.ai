@@ -444,5 +444,11 @@
   "collaborative-ai-engineering-maggie-appleton": [
     "Multiplayer agentic environments",
     "Coordination as the bottleneck in solo-agent engineering"
+  ],
+  "after-the-interface-relocating-human-agency-in-the": [
+    "The anxiety about losing human agency in AI systems reflects a framing problem rather than empirical reality",
+    "Agency has migrated from interface affordances to communicative interaction as AI systems become more conversational and autonomous",
+    "Traditional HCI metrics that equate agency with visible interface controls fail to capture how users actually exercise agency in contemporary AI interaction",
+    "The distinction between process control and outcome control reveals that agency redistribution demands new approaches to measurement, design, and responsibility"
   ]
 }

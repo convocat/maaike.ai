@@ -14901,6 +14901,48 @@
       "object": "github-next",
       "source": "collaborative-ai-engineering-maggie-appleton",
       "collection": "videos"
+    },
+    {
+      "subject": "human-agency",
+      "predicate": "relocated-from",
+      "object": "interface-affordances",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "human-agency",
+      "predicate": "relocated-to",
+      "object": "communicative-interaction",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "process-control",
+      "predicate": "contrasted-with",
+      "object": "outcome-control",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "requires",
+      "object": "outcome-control",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "enables",
+      "object": "goal-articulation",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "traditional-hci-metrics",
+      "predicate": "fails-to-capture",
+      "object": "relocated-agency",
+      "source": "after-the-interface-relocating-human-agency-in-the",
+      "collection": "weblinks"
     }
   ]
 }
