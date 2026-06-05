@@ -438,6 +438,26 @@ const news = [
       })();
     </script>
     <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
+    <script>
+      (function () {
+        var main = document.querySelector('.intro-main');
+        var side = document.querySelector('.news-side');
+        if (!main || !side) return;
+        function sync() {
+          // Only cap on desktop where the two sit side-by-side
+          if (window.matchMedia('(max-width: 800px)').matches) {
+            side.style.maxHeight = '';
+            return;
+          }
+          side.style.maxHeight = main.offsetHeight + 'px';
+        }
+        sync();
+        window.addEventListener('resize', sync);
+        if (typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(sync).observe(main);
+        }
+      })();
+    </script>
 
     <style is:global>
       :root {
@@ -633,6 +653,10 @@ const news = [
         border: 1px solid var(--rule);
         border-radius: 8px;
         padding: 1.5rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        max-height: 100%;
       }
       .news-side h2 {
         font-size: 0.85rem;
@@ -645,8 +669,18 @@ const news = [
       .news-side h2::after { display: none; }
       .news-list {
         list-style: none;
-        padding: 0;
+        padding: 0 0.5rem 0 0;
         margin: 0;
+        overflow-y: auto;
+        min-height: 0;
+        flex: 1;
+        scrollbar-width: thin;
+        scrollbar-color: var(--fuchsia) transparent;
+      }
+      .news-list::-webkit-scrollbar { width: 6px; }
+      .news-list::-webkit-scrollbar-thumb {
+        background: var(--fuchsia);
+        border-radius: 3px;
       }
       .news-list li {
         padding: 1rem 0;
