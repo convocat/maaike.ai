@@ -8474,6 +8474,72 @@
         "tooling",
         "future-of-work"
       ]
+    },
+    "institutional-talk": {
+      "label": "Institutional talk",
+      "type": "concept",
+      "lens": [
+        "linguistics",
+        "interaction"
+      ],
+      "subject": [
+        "conversation",
+        "conversation-design"
+      ],
+      "role": "framework"
+    },
+    "paul-drew": {
+      "label": "Paul Drew",
+      "type": "person",
+      "lens": [
+        "linguistics"
+      ],
+      "subject": [
+        "conversation"
+      ]
+    },
+    "john-heritage": {
+      "label": "John Heritage",
+      "type": "person",
+      "lens": [
+        "linguistics"
+      ],
+      "subject": [
+        "conversation"
+      ]
+    },
+    "workplace-studies": {
+      "label": "Workplace studies",
+      "type": "discipline",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "interaction-design",
+        "future-of-work"
+      ],
+      "role": "framework"
+    },
+    "christian-heath": {
+      "label": "Christian Heath",
+      "type": "person",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "paul-luff": {
+      "label": "Paul Luff",
+      "type": "person",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
     }
   },
   "associations": [
@@ -14943,6 +15009,48 @@
       "object": "relocated-agency",
       "source": "after-the-interface-relocating-human-agency-in-the",
       "collection": "weblinks"
+    },
+    {
+      "subject": "institutional-talk",
+      "predicate": "theorised-by",
+      "object": "paul-drew",
+      "source": "talk-at-work",
+      "collection": "library"
+    },
+    {
+      "subject": "institutional-talk",
+      "predicate": "theorised-by",
+      "object": "john-heritage",
+      "source": "talk-at-work",
+      "collection": "library"
+    },
+    {
+      "subject": "institutional-talk",
+      "predicate": "contrasted-with",
+      "object": "turn-taking",
+      "source": "talk-at-work",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "theorised-by",
+      "object": "christian-heath",
+      "source": "technology-in-action",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "theorised-by",
+      "object": "paul-luff",
+      "source": "technology-in-action",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "presupposes",
+      "object": "situated-action",
+      "source": "technology-in-action",
+      "collection": "library"
     }
   ]
 }

@@ -13,6 +13,7 @@ description: "Argues that machines designed around planning models miss the inhe
 ai: co-created
 book_type: non-fiction
 genre: research-paper
+url: "https://archive.org/details/planssituatedact0000such"
 triples:
 - ["Lucy Suchman", "theorised-by", "Conversation design"]
 ---
