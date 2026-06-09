@@ -84,6 +84,16 @@ const faqSchema = {
 
 const news = [
   {
+    date: '9 June 2026',
+    title: 'Nikoletta Ventoura on AI in design systems',
+    body: '<a href="https://www.linkedin.com/in/nikoletta-ventoura" target="_blank" rel="noopener">Nikoletta Ventoura</a> (Senior Conversation Designer at Tesco, Top 10 Conversational AI practitioner in the UK this year) joins the programme with a talk on the emerging landscape of AI design standards: the progress, the pitfalls, and where Tesco is in the process.',
+  },
+  {
+    date: '9 June 2026',
+    title: 'Anna Greilich on brand voice and the EU AI Act',
+    body: '<a href="https://www.linkedin.com/in/anna-greilich" target="_blank" rel="noopener">Anna Greilich</a> (PhD candidate at Münster, Conversational AI Experience Designer at Ideabay.ai) joins the afternoon line-up. Her talk looks at how to fit a voice to a brand, and how to handle EU AI Act disclosure for synthetic voices that sound increasingly human.',
+  },
+  {
     date: '30 May 2026',
     title: 'Oluwabusayo Omolabi on enterprise RAG',
     body: '<a href="https://www.linkedin.com/in/oluwabusayo-omolabi" target="_blank" rel="noopener">Oluwabusayo Omolabi</a> (AI Conversation Designer at Lloyds Banking Group) will open the day with a talk on behavioural guardrails, tone of voice, and response reliability when building RAG systems in regulated enterprise environments.',
@@ -263,7 +273,7 @@ const news = [
               </details>
             </li>
             <li>
-              <span class="time">11:00–12:30</span>
+              <span class="time">11:00–12:15</span>
               <div class="entry">
                 <p class="entry-title">Linguist for a day</p>
                 <p class="entry-who">Doris Dippold & Adam Brandt</p>
@@ -293,19 +303,30 @@ const news = [
               </div>
             </li>
             <li>
-              <span class="time">12:30–13:15</span>
+              <span class="time">12:15–13:00</span>
               <div class="entry">
                 <p class="entry-title">Lunch</p>
               </div>
             </li>
             <li>
-              <span class="time">13:15–13:45</span>
-              <div class="entry">
-                <p class="entry-title">Talk (speaker & topic TBA)</p>
-              </div>
+              <span class="time">13:00–13:30</span>
+              <details class="entry entry-expand">
+                <summary>
+                  <p class="entry-title">Selecting and fitting a voice that truly represents your brand</p>
+                  <p class="entry-who">Anna Greilich</p>
+                  <p class="entry-body">Brand-aligned voice design, and the EU AI Act disclosure question for human-sounding bots.</p>
+                  <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                </summary>
+                <div class="entry-details">
+                  <h4>About the session</h4>
+                  <p>The plan for the session is to discuss how teams can ensure a newly adopted voice aligns seamlessly with existing conversational flows and brand identity, covering the technical and strategic considerations that determine whether a voice bot feels like a natural extension of a brand. The session will also address a critical transparency challenge introduced by the EU AI Act: as synthetic voices grow increasingly human-like, how should dialogue openings be designed to meet disclosure requirements without undermining the user experience?</p>
+                  <h4>About Anna</h4>
+                  <p>Anna Greilich is a PhD candidate at the Graduate School of Empirical and Applied Linguistics at the University of Münster, Germany, where her research focuses on multi-turn, voice-based human-machine interaction from the perspective of information structure. Since 2022, she has also worked as a Conversational AI Experience Designer at Ideabay.ai, where she applies her user-oriented design and research expertise to real-world conversational AI implementations.</p>
+                </div>
+              </details>
             </li>
             <li>
-              <span class="time">13:45–14:45</span>
+              <span class="time">13:30–14:30</span>
               <details class="entry entry-expand">
                 <summary>
                   <p class="entry-title">Who gets to dream the machine?</p>
@@ -323,16 +344,27 @@ const news = [
               </details>
             </li>
             <li>
-              <span class="time">14:45–15:00</span>
+              <span class="time">14:30–14:45</span>
               <div class="entry">
                 <p class="entry-title">Coffee break</p>
               </div>
             </li>
             <li>
-              <span class="time">15:00–15:15</span>
-              <div class="entry">
-                <p class="entry-title">Talk (speaker & topic TBA)</p>
-              </div>
+              <span class="time">14:45–15:15</span>
+              <details class="entry entry-expand">
+                <summary>
+                  <p class="entry-title">AI in design systems: progress, pitfalls, and where Tesco is</p>
+                  <p class="entry-who">Nikoletta Ventoura</p>
+                  <p class="entry-body">A look at the messy frontier of AI design standards. Come ready to discuss.</p>
+                  <span class="entry-more"><span class="entry-more-show">Session details</span><span class="entry-more-hide">Hide details</span></span>
+                </summary>
+                <div class="entry-details">
+                  <h4>About the session</h4>
+                  <p>Companies are starting to formalise how AI fits into their design systems. But it's early, messy, and full of unanswered questions. In this talk, we'll explore the landscape of AI design standards emerging across the industry, look at both the progress and the pitfalls, and share where Tesco is in the process. Come ready to discuss.</p>
+                  <h4>About Nikoletta</h4>
+                  <p>Nikoletta Ventoura is an award-winning Conversation Designer, named one of the Top 10 Conversational AI practitioners in the UK this year. With a background in Computational Linguistics, she's been designing, developing and evaluating AI agents for the past 6 years. Now she's working as a Senior Conversation Designer at Tesco.</p>
+                </div>
+              </details>
             </li>
             <li>
               <span class="time">15:15–16:15</span>
@@ -357,11 +389,24 @@ const news = [
         <div class="container">
           <h2>Practical info</h2>
           <div class="cards">
-            <article class="card">
+            <article class="card card-with-image">
+              <img class="card-image" src="/images/arthurcclarke.png" alt="The Arthur C Clarke Building entrance at the University of Surrey" loading="lazy" />
               <p class="card-eyebrow">Location</p>
-              <p class="card-body"><a href="https://www.surrey.ac.uk/" target="_blank" rel="noopener">University of Surrey</a>, Guildford campus. 35 minutes from London Waterloo. Hosted with the generous support of the <a href="https://www.surrey.ac.uk/artificial-intelligence" target="_blank" rel="noopener">Surrey Institute for People-Centred AI (PAI)</a>.</p>
+              <p class="card-body"><a href="https://www.surrey.ac.uk/" target="_blank" rel="noopener">University of Surrey</a>, Guildford campus. The workshop is in the <strong>Arthur C Clarke Building</strong> (E2 on the campus map, Building 2). Please use this entrance, the other one leads to restricted areas. Look out for posters inside directing you to the room.</p>
               <p class="card-addr">Stag Hill, University Campus, Guildford GU2 7XH, United Kingdom</p>
-              <p class="card-link"><a href="https://www.google.com/maps/search/?api=1&query=University+of+Surrey+Stag+Hill+Guildford+GU2+7XH" target="_blank" rel="noopener">View on Google Maps →</a></p>
+              <p class="card-link"><a href="https://w3w.co/radar.pools.modest" target="_blank" rel="noopener">what3words: ///radar.pools.modest</a></p>
+              <p class="card-link"><a href="https://www.google.com/maps/search/?api=1&query=Arthur+C+Clarke+Building+University+of+Surrey+Guildford+GU2+7XH" target="_blank" rel="noopener">View on Google Maps →</a></p>
+            </article>
+            <article class="card">
+              <p class="card-eyebrow">Getting there</p>
+              <p class="card-body">The campus is walking distance from Guildford mainline railway station and the town centre (around 35 minutes from London Waterloo by train).</p>
+              <p class="card-body">By coach: <a href="https://www.nationalexpress.com/en" target="_blank" rel="noopener">National Express</a> route SH030 stops at Egerton Road / Tesco, a short walk from campus. By local bus: <a href="https://www.stagecoachbus.com/" target="_blank" rel="noopener">Stagecoach</a> routes stop at various University locations.</p>
+              <p class="card-link"><a href="https://www.surrey.ac.uk/visit-university/how-get-here" target="_blank" rel="noopener">Full directions →</a></p>
+            </article>
+            <article class="card">
+              <p class="card-eyebrow">Parking</p>
+              <p class="card-body">Free parking is available on campus, but you must pre-register your vehicle. If you'd like to drive, please email me and I'll send the registration link.</p>
+              <p class="card-body">The car parks use ANPR, so if you have not pre-arranged parking please use the Visitors pay-and-display car park only.</p>
             </article>
             <article class="card">
               <p class="card-eyebrow">Cost</p>
@@ -370,6 +415,10 @@ const news = [
             <article class="card">
               <p class="card-eyebrow">Open to everyone</p>
               <p class="card-body">Convoclub members and curious newcomers alike. Not a member yet? Come hang out with us at <a href="https://convo.club" target="_blank" rel="noopener">convo.club</a>.</p>
+            </article>
+            <article class="card">
+              <p class="card-eyebrow">Health & safety</p>
+              <p class="card-body">Please take a moment to read the University's <a href="https://www.surrey.ac.uk/sites/default/files/Health_and_Safety_Visitors.pdf" target="_blank" rel="noopener">Health and Safety guide for visitors</a> (PDF) before your visit. Any queries, just let me know.</p>
             </article>
           </div>
         </div>
@@ -900,6 +949,14 @@ const news = [
         border-top: 3px solid var(--fuchsia);
         border-radius: 6px;
         padding: 1.5rem 1.5rem 1.75rem;
+      }
+      .card-with-image { padding-top: 0; overflow: hidden; }
+      .card-image {
+        display: block;
+        width: calc(100% + 3rem);
+        margin: 0 -1.5rem 1.25rem;
+        height: 160px;
+        object-fit: cover;
       }
       .card-eyebrow {
         font-size: 0.78rem;
