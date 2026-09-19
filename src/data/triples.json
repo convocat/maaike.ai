@@ -15049,48 +15049,6 @@
       "collection": "library"
     },
     {
-      "subject": "work-restructuring-through-automation",
-      "predicate": "exhibits",
-      "object": "emotional-labor",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-powered-customer-service-automation",
-      "predicate": "generates",
-      "object": "quality-assurance-for-ai-outputs",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "knowledge-management-in-ai-systems",
-      "predicate": "leads-to",
-      "object": "ai-governance",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "organizations",
-      "predicate": "lacks",
-      "object": "ai-governance",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "chatbots",
-      "predicate": "breaks-down-for",
-      "object": "complex-customer-interactions-requiring-context-and-empathy",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-literacy",
-      "predicate": "requires",
-      "object": "quality-assurance-for-ai-outputs",
-      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
-      "collection": "weblinks"
-    },
-    {
       "subject": "chatgpt",
       "predicate": "risks",
       "object": "pedagogical-authenticity",
@@ -16222,6 +16180,48 @@
       "predicate": "requires",
       "object": "closed-loop-evaluation",
       "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "work-restructuring-through-automation",
+      "predicate": "exhibits",
+      "object": "emotional-labor",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-powered-customer-service-automation",
+      "predicate": "generates",
+      "object": "quality-assurance-for-ai-outputs",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "knowledge-management-in-ai-systems",
+      "predicate": "leads-to",
+      "object": "ai-governance",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "organizations",
+      "predicate": "lacks",
+      "object": "ai-governance",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatbots",
+      "predicate": "breaks-down-for",
+      "object": "complex-customer-interactions-requiring-context-and-empathy",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-literacy",
+      "predicate": "requires",
+      "object": "quality-assurance-for-ai-outputs",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
       "collection": "weblinks"
     }
   ]
