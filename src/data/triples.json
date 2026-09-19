@@ -15091,48 +15091,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "closed-loop-evaluation",
-      "predicate": "requires",
-      "object": "ground-truth",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cross-modal-faithfulness",
-      "predicate": "demonstrates",
-      "object": "semantic-faithfulness",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "qa-gates",
-      "predicate": "generates",
-      "object": "production-drift",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "multimodal-ai-agents",
-      "predicate": "risks",
-      "object": "cross-modal-faithfulness",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "closed-loop-evaluation",
-      "predicate": "counteracts",
-      "object": "production-drift",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "observability-in-ai-systems",
-      "predicate": "requires",
-      "object": "closed-loop-evaluation",
-      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
-      "collection": "weblinks"
-    },
-    {
       "subject": "chatgpt",
       "predicate": "risks",
       "object": "pedagogical-authenticity",
@@ -16222,6 +16180,48 @@
       "predicate": "contrasted-with",
       "object": "technical-ai-capabilities",
       "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "closed-loop-evaluation",
+      "predicate": "requires",
+      "object": "ground-truth",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cross-modal-faithfulness",
+      "predicate": "demonstrates",
+      "object": "semantic-faithfulness",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "qa-gates",
+      "predicate": "generates",
+      "object": "production-drift",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multimodal-ai-agents",
+      "predicate": "risks",
+      "object": "cross-modal-faithfulness",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "closed-loop-evaluation",
+      "predicate": "counteracts",
+      "object": "production-drift",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "observability-in-ai-systems",
+      "predicate": "requires",
+      "object": "closed-loop-evaluation",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
       "collection": "weblinks"
     }
   ]
