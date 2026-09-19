@@ -15455,48 +15455,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "ai-writing",
-      "predicate": "lacks",
-      "object": "cognitive-struggle",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cognitive-struggle",
-      "predicate": "generates",
-      "object": "meaningful-thought",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "frictionlessness",
-      "predicate": "characterised-as",
-      "object": "the-distinctive-tell-of-ai-writing",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "writing-efficiency",
-      "predicate": "risks",
-      "object": "reader-distrust",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "content-competition-pressure",
-      "predicate": "leads-to",
-      "object": "ai-writing-adoption",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-writing",
-      "predicate": "violates",
-      "object": "the-connection-between-writing-and-thinking",
-      "source": "the-biggest-tell-that-something-was-written-by-ai-",
-      "collection": "weblinks"
-    },
-    {
       "subject": "ai-assistance",
       "predicate": "leads-to",
       "object": "reduced-persistence",
@@ -16222,6 +16180,48 @@
       "predicate": "demonstrates",
       "object": "genai",
       "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-writing",
+      "predicate": "lacks",
+      "object": "cognitive-struggle",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-struggle",
+      "predicate": "generates",
+      "object": "meaningful-thought",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "frictionlessness",
+      "predicate": "characterised-as",
+      "object": "the-distinctive-tell-of-ai-writing",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "writing-efficiency",
+      "predicate": "risks",
+      "object": "reader-distrust",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "content-competition-pressure",
+      "predicate": "leads-to",
+      "object": "ai-writing-adoption",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-writing",
+      "predicate": "violates",
+      "object": "the-connection-between-writing-and-thinking",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
       "collection": "weblinks"
     }
   ]
