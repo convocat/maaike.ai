@@ -15980,48 +15980,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "ben-shneiderman",
-      "predicate": "attributed-to",
-      "object": "eight-golden-rules-of-interface-design",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cognitive-load",
-      "predicate": "demonstrates",
-      "object": "short-term-memory-limitations-constrain-interface-design",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "error-prevention",
-      "predicate": "reinforces",
-      "object": "user-control-and-confidence",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "consistency",
-      "predicate": "requires",
-      "object": "unified-terminology-color-layout-and-capitalization-across-s",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "universal-usability",
-      "predicate": "requires",
-      "object": "features-for-both-novices-and-experts",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "feedback-loops",
-      "predicate": "leads-to",
-      "object": "user-sense-of-accomplishment-and-control",
-      "source": "shneiderman-eight-golden-rules",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16180,48 @@
       "predicate": "counters",
       "object": "cognitive-laziness",
       "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ben-shneiderman",
+      "predicate": "attributed-to",
+      "object": "eight-golden-rules-of-interface-design",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-load",
+      "predicate": "demonstrates",
+      "object": "short-term-memory-limitations-constrain-interface-design",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "error-prevention",
+      "predicate": "reinforces",
+      "object": "user-control-and-confidence",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "consistency",
+      "predicate": "requires",
+      "object": "unified-terminology-color-layout-and-capitalization-across-s",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "universal-usability",
+      "predicate": "requires",
+      "object": "features-for-both-novices-and-experts",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "feedback-loops",
+      "predicate": "leads-to",
+      "object": "user-sense-of-accomplishment-and-control",
+      "source": "shneiderman-eight-golden-rules",
       "collection": "weblinks"
     }
   ]
