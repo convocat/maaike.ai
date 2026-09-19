@@ -450,5 +450,175 @@
     "Agency has migrated from interface affordances to communicative interaction as AI systems become more conversational and autonomous",
     "Traditional HCI metrics that equate agency with visible interface controls fail to capture how users actually exercise agency in contemporary AI interaction",
     "The distinction between process control and outcome control reveals that agency redistribution demands new approaches to measurement, design, and responsibility"
+  ],
+  "je-functietitel-in-klantcontact-vertelt-steeds-min": [
+    "AI adoption concentrates difficult work among humans rather than eliminating it, requiring new forms of expertise in evaluating and correcting automated systems",
+    "The gap between job titles and actual work responsibilities grows as organizations deploy AI without restructuring roles, responsibilities, and governance models",
+    "Human judgment and oversight become more critical precisely because AI handles routine tasks, creating hidden operational complexity that organizations must explicitly design and manage",
+    "Organizations lack coherent ownership models for AI systems, fragmenting responsibility across operations, IT, compliance, and vendors while no single function owns the whole pipeline"
+  ],
+  "how-to-build-closed-loop-evals-for-multimodal-ai-a": [
+    "Production AI systems require multi-layered evaluation gates that verify faithfulness across modalities, not just aesthetic quality improvement.",
+    "AI enhancement without constraint risks 'pixel slop' that preserves appearance while corrupting semantic content, requiring evaluation at the work level rather than model level.",
+    "Closed-loop feedback systems where evaluation failures inform generation retries create adaptive systems that resist drift while maintaining fidelity to ground truth.",
+    "Human labeling of ground truth data, comprehensive logging, and continuous sampling from production environments are essential infrastructure for trustworthy AI agent systems."
+  ],
+  "bot-or-not-can-people-tell-the-difference-between-": [
+    "Human capacity to detect AI-generated content is limited, suggesting a significant gap between AI capability and human perception",
+    "The anthropomorphic quality of AI-generated stories may exploit cognitive biases that favor accepting plausible-seeming text without verifying its origin",
+    "Discerning human authorship requires developing new cognitive skills and epistemic practices as AI-generated content becomes ubiquitous"
+  ],
+  "access-denied": [
+    "AI in education functions best when it enhances rather than replaces teacher pedagogical expertise and personal presence",
+    "The quality of teacher-AI interaction matters more than the presence of AI tools themselves, determining whether outcomes improve or diminish for students",
+    "Educational institutions need to develop explicit frameworks and guidelines for responsible AI deployment instead of allowing ad-hoc adoption"
+  ],
+  "checking-your-browser-recaptcha-1": [
+    "AI literacy requires practical, hands-on engagement with distinguishing machine-generated from human language",
+    "Gamification can make abstract concepts about AI limitations and hallucinations concrete and learnable",
+    "Critical evaluation of conversational interfaces demands visual, interactive feedback mechanisms"
+  ],
+  "checking-your-browser-recaptcha": [
+    "Security verification systems create friction and accessibility barriers for users attempting to access information.",
+    "The mediation of external links through platform safety systems obscures rather than illuminates the destination content.",
+    "Browser compatibility requirements fragment user experience and exclude certain tool choices."
+  ],
+  "top-ai-papers-of-the-week": [
+    "Agent systems are maturing from research artifacts into deployable infrastructures that require formal models for understanding self-improvement mechanisms and measurable outcomes.",
+    "Reliability and robustness in AI systems depend on metacognitive capabilities and behavioral differentiation that standard accuracy metrics fail to capture.",
+    "Builders need structural clarity and comparative baselines to distinguish genuine improvements from metrics that mask fragility and statistical noise.",
+    "The field is consolidating scattered research into unified frameworks and terminology that practitioners can actually navigate and apply."
+  ],
+  "linkedin-1": [
+    "LLM reasoning requires deliberate effort management and resource allocation strategies",
+    "Controlling computational expenditure in language models connects to broader questions of efficiency versus capability",
+    "Understanding how models approach reasoning effort informs better prompt design and conversational interface patterns"
+  ],
+  "the-best-way-to-build-a-skill-md-start-with-ai-fin": [
+    "AI excels at structured generation but humans provide the contextual judgment needed for effective tool use.",
+    "The quality of AI agent performance is directly limited by the quality of contextual instructions provided to it.",
+    "Hybrid human-AI workflows outperform purely automated or purely manual approaches by dividing labor according to comparative advantage.",
+    "Documentation written for human readers requires translation and enrichment when intended for AI agent consumption."
+  ],
+  "linkedin": [
+    "Government organizations benefit from greater autonomy in managing their information resources and decision-making",
+    "Information architecture and governance structures are critical enablers of organizational transformation in public sector contexts",
+    "Autonomy and self-determination in information handling can drive systemic organizational change"
+  ],
+  "improving-conversational-ai-models-interactional-a": [
+    "Conversational user interfaces must be built on naturally occurring human social interaction patterns to achieve true intuitiveness.",
+    "Conversation Analysis, as a social science discipline, provides the theoretical foundation and practical tools needed to design better conversational AI systems.",
+    "The gap between 'interactive' and 'interactional' reflects a fundamental design challenge: systems can be responsive without being naturally conversational."
+  ],
+  "instagram-1": [
+    "Visual communication and multimodal expression of design and AI concepts",
+    "Public sharing of work-in-progress thinking through social platforms",
+    "Integration of Instagram as a channel for design discourse and community engagement"
+  ],
+  "the-biggest-tell-that-something-was-written-by-ai-": [
+    "AI writing lacks the cognitive struggle that produces human meaning and truthfulness.",
+    "The pressure to compete through volume and polish is driving adoption of AI writing among professionals and laypeople alike.",
+    "Reader distrust of AI writing is epistemically justified because the tool divorces writing from thinking.",
+    "Frictionless efficiency in communication design creates a paradox where appeal to writers generates suspicion in readers."
+  ],
+  "2604-04721v2-ai-assistance-reduces-persistence-and": [
+    "AI assistance creates learned dependency patterns that undermine independent capability development even after brief exposure",
+    "The immediate gratification model of current AI systems conflicts with how humans actually develop expertise through challenge and persistence",
+    "Effective collaboration, whether human or AI-mediated, requires scaffolding learning and prioritizing long-term growth over short-term efficiency",
+    "Measuring AI success only through immediate task performance obscures harmful downstream effects on user autonomy and skill development"
+  ],
+  "hypothesis-generative-ai-social-annotation": [
+    "Critical thinking about AI requires active engagement with source material, not passive consumption of AI-generated outputs",
+    "Social annotation creates accountability and slows thinking by anchoring conversations directly in texts, counteracting the productivity-driven shortcuts that AI enables",
+    "Educators must deliberately redesign assignments and assessments to integrate AI thoughtfully, treating it as a tool for analysis rather than a replacement for learning",
+    "Transparency about AI use and clear institutional frameworks are essential to help both faculty and students navigate ethical technology integration in education"
+  ],
+  "the-chat-box-isnt-a-ui-paradigm-its-what-shipped": [
+    "The chat interface is a rushed compromise born from technical constraints, not a well-designed paradigm",
+    "Chat boxes violate fundamental principles of direct manipulation and information-first interaction design",
+    "Design decisions made for shipping speed become locked-in defaults that structure entire industries",
+    "Post-chat AI UX requires returning to structured, scoped interfaces that respect decades of interface design research"
+  ],
+  "why-chatbots-are-not-the-future-of-interfaces": [
+    "Blank text inputs create cognitive burden by failing to communicate what a tool can do, how to use it, and what outputs to expect.",
+    "Context that users manually encode in prompts should instead be surfaced as interface controls, sliders, and configuration options that bake constraints into design.",
+    "Chat interfaces trap users in sequential isolation, preventing the kind of iterative feedback loops and parameter adjustment that good interactive tools enable.",
+    "Affordances and constraints are design's responsibility, not user education; interfaces should make correct usage obvious and incorrect usage difficult."
+  ],
+  "youtube-1": [
+    "Career satisfaction requires intentional design of work conditions and opportunities",
+    "Building a career you enjoy involves understanding your values and translating them into professional choices",
+    "Conversational formats and public discussion can clarify career thinking and generate collective insights"
+  ],
+  "google-search": [
+    "Privacy and consent mechanisms shape user control over data practices and algorithmic personalization.",
+    "The binary choice structure (accept all vs reject all) obscures the complexity of data use and reduces meaningful user agency.",
+    "Language choices in consent screens influence how users understand the trade-offs between service convenience and data privacy."
+  ],
+  "an-organizational-second-brain-building-an-ai-that": [
+    "Explicit structuring of implicit expertise transforms tacit specialist knowledge into actionable organizational intelligence",
+    "Separating knowledge representation from reasoning mechanisms enables auditability and continuous improvement without model retraining",
+    "Institutional memory compounds through feedback loops that convert individual expert corrections into durable, organization-wide learning",
+    "Domain agents require grounding in organizational context and values to distinguish what an organization could do from what it should do"
+  ],
+  "welcome-taguette": [
+    "Qualitative data analysis requires systematic methods and tools for organizing and retrieving insights from unstructured documents",
+    "Open-source tools democratize access to research infrastructure and reduce barriers to rigorous qualitative research",
+    "Hierarchical tagging and annotation enable researchers to surface patterns and relationships across document collections"
+  ],
+  "linkedin-2": [
+    "Evaluation systems require structured decision criteria to move beyond subjective judgment and support automated quality gates",
+    "Confidence scores enable calibrated risk management by separating high-conviction decisions that proceed automatically from low-confidence results requiring human review",
+    "Agent evaluation demands clear failure modes and success definitions upfront, treating assessment as a design problem not an afterthought"
+  ],
+  "cultural-awareness-in-global-ai-cohere": [
+    "Multilinguality is insufficient for genuine cultural representation in AI systems; culture must be explicitly present in training data, not just elicited at inference time.",
+    "The 'cultural data funnel' reveals a critical gap between diverse training data and culturally impoverished final models due to post-training data curation practices.",
+    "Building globally inclusive AI systems requires intentional domain selection and curation of culturally representative content, not just scaling parameters.",
+    "Current alignment approaches that focus on prompting and inference interventions mask deeper structural problems in how culture is lost during the training pipeline."
+  ],
+  "manifest-3-bureau-for-listening": [
+    "Listening as a philosophical and political practice that operates as quiet resistance and a generative mode of engagement with the world",
+    "Listening as foundational to community building, shared understanding, and the creation of new ways of being together",
+    "Sound and silence as materials for artistic and social experimentation that reveal hidden dimensions of attention and presence",
+    "Listening as a distributed, embodied, and ecological practice that extends beyond auditory experience to reimagine relationships with space, time, and the living world"
+  ],
+  "checking-your-browser-recaptcha-2": [
+    "Consciousness and empathy are necessary but insufficient conditions for authentic friendship, distinguishing AI companions from genuine human connection.",
+    "Physical embodiment and face-to-face interaction provide irreplaceable subtlety and emotional resonance that disembodied chatbots cannot replicate.",
+    "Commercial AI systems are fundamentally misaligned with friendship because they must avoid friction and criticism to maximize user engagement, whereas healthy friendships require honest disagreement.",
+    "The illusion of care and understanding offered by chatbots can obscure rather than fulfill our genuine need for reciprocal, embodied human relationships."
+  ],
+  "storybook-frontend-workshop-for-ui-development": [
+    "UI development improves when components are isolated from system context and complexity, allowing developers to focus on design and interaction at the component level.",
+    "Documentation and component visibility are prerequisites for effective reuse across teams, systems, and increasingly for AI-driven development workflows.",
+    "Reproducible component states captured as stories enable systematic testing, regression detection, and knowledge preservation across the development lifecycle.",
+    "Component-driven development democratizes UI patterns by making them discoverable and consumable by both human teams and AI agents operating within organizations."
+  ],
+  "vampires-witches-skeletons-mesoamerican-gods-and-a": [
+    "Solo play creates new possibilities for narrative design by removing the dependency on group coordination and introducing mechanical constraints that shape story emergence.",
+    "The boundary between TTRPG mechanics and creative writing is deliberately blurred, emphasizing that story generation can be guided by structured systems rather than human game masters.",
+    "Memory and forgetting as narrative mechanics reveal how mechanical scarcity drives meaningful character development and player decision-making across long play experiences."
+  ],
+  "does-your-new-workflow-look-like-any-of-these-are-": [
+    "AI tool workflows require iterative refinement and user adaptation rather than delivering outputs on first attempt",
+    "User satisfaction with AI-assisted outcomes depends on minimizing the articulation and iteration burden required to achieve quality results",
+    "The design of AI-assisted workflows fundamentally shapes whether they feel productive or frustrating to users"
+  ],
+  "i-39-m-going-to-take-a-slightly-different-tack-her": [
+    "Human cognitive limitations shape interaction design more fundamentally than aspirational models of rational decision-making",
+    "Cognitive laziness is not a flaw to overcome but a design constraint to work within and accommodate",
+    "Effective systems must be designed with realistic models of human behavior rather than idealized versions of human capability"
+  ],
+  "this-is-what-an-ai-policy-should-look-like-t-he-cu": [
+    "AI policies in higher education must protect foundational cognitive skill development, especially in domains requiring critical judgment and ethical accountability.",
+    "Blanket prohibition of AI tools may be impractical and could create unintended consequences including enforceability challenges and accessibility barriers for diverse learners.",
+    "Institutions face tension between preparing students for AI-governed professional practice and preserving essential human capabilities through pedagogical restriction."
+  ],
+  "shneiderman-eight-golden-rules": [
+    "User control and agency are central to effective interface design; systems must make users feel they are in charge rather than subject to surprises or tedious constraints.",
+    "Cognitive limitations of users are a primary design constraint; interfaces must account for short-term memory limits and information processing capacity.",
+    "Error prevention and recovery are design responsibilities, not user failures; interfaces should be forgiving and guide users toward correction rather than forcing rework.",
+    "Universal design requires accommodating diverse users across skill levels, abilities, and contexts; enrichment comes from supporting both novice and expert interaction patterns."
   ]
 }

@@ -8540,6 +8540,16 @@
       "subject": [
         "interaction-design"
       ]
+    },
+    "marcus-sanchez-svensson": {
+      "label": "Marcus Sanchez Svensson",
+      "type": "person",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
     }
   },
   "associations": [
@@ -15051,6 +15061,1168 @@
       "object": "situated-action",
       "source": "technology-in-action",
       "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "demonstrates",
+      "object": "situated-action",
+      "source": "technology-and-medical-practice",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "theorised-by",
+      "object": "christian-heath",
+      "source": "technology-and-medical-practice",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "theorised-by",
+      "object": "paul-luff",
+      "source": "technology-and-medical-practice",
+      "collection": "library"
+    },
+    {
+      "subject": "workplace-studies",
+      "predicate": "theorised-by",
+      "object": "marcus-sanchez-svensson",
+      "source": "technology-and-medical-practice",
+      "collection": "library"
+    },
+    {
+      "subject": "work-restructuring-through-automation",
+      "predicate": "exhibits",
+      "object": "emotional-labor",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-powered-customer-service-automation",
+      "predicate": "generates",
+      "object": "quality-assurance-for-ai-outputs",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "knowledge-management-in-ai-systems",
+      "predicate": "leads-to",
+      "object": "ai-governance",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "organizations",
+      "predicate": "lacks",
+      "object": "ai-governance",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatbots",
+      "predicate": "breaks-down-for",
+      "object": "complex-customer-interactions-requiring-context-and-empathy",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-literacy",
+      "predicate": "requires",
+      "object": "quality-assurance-for-ai-outputs",
+      "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "closed-loop-evaluation",
+      "predicate": "requires",
+      "object": "ground-truth",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cross-modal-faithfulness",
+      "predicate": "demonstrates",
+      "object": "semantic-faithfulness",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "qa-gates",
+      "predicate": "generates",
+      "object": "production-drift",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multimodal-ai-agents",
+      "predicate": "risks",
+      "object": "cross-modal-faithfulness",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "closed-loop-evaluation",
+      "predicate": "counteracts",
+      "object": "production-drift",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "observability-in-ai-systems",
+      "predicate": "requires",
+      "object": "closed-loop-evaluation",
+      "source": "how-to-build-closed-loop-evals-for-multimodal-ai-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "caused-by",
+      "object": "anthropomorphism",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "breaks-down-for",
+      "object": "humans-reading-narratives",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "generates",
+      "object": "narrative-authenticity-challenges",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "story-comprehension",
+      "predicate": "demonstrates",
+      "object": "cognitive-bias-toward-plausible-text",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "narrative-authenticity",
+      "predicate": "lacks",
+      "object": "reliable-human-evaluation-criteria",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "contrasted-with",
+      "object": "technical-ai-capabilities",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "risks",
+      "object": "pedagogical-authenticity",
+      "source": "access-denied",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-tool-usage-in-lesson-preparation",
+      "predicate": "causes",
+      "object": "reduced-student-engagement-when-used-as-replacement-rather-t",
+      "source": "access-denied",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "teacher-pedagogical-expertise",
+      "predicate": "required",
+      "object": "effective-ai-assisted-lesson-design",
+      "source": "access-denied",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "critical-ai-tool-evaluation-by-teachers",
+      "predicate": "demonstrates",
+      "object": "better-learning-outcomes-than-generic-ai-adoption",
+      "source": "access-denied",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "short-ai-teacher-interactions-median-two-prompts",
+      "predicate": "characterised-as",
+      "object": "surface-level-ai-use-focused-on-content-generation-rather-th",
+      "source": "access-denied",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "unslop-game",
+      "predicate": "demonstrates",
+      "object": "llm-hallucinations",
+      "source": "checking-your-browser-recaptcha-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "unslop-game",
+      "predicate": "risks",
+      "object": "anthropomorphism",
+      "source": "checking-your-browser-recaptcha-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "language-evaluation",
+      "predicate": "requires",
+      "object": "critical-media-literacy",
+      "source": "checking-your-browser-recaptcha-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "stochastic-parrot",
+      "predicate": "characterised-as",
+      "object": "probabilistic-word-prediction",
+      "source": "checking-your-browser-recaptcha-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "unslop-game",
+      "predicate": "instance-of",
+      "object": "conversational-interface",
+      "source": "checking-your-browser-recaptcha-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "recaptcha",
+      "predicate": "generates",
+      "object": "articulation-barrier",
+      "source": "checking-your-browser-recaptcha",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "security-verification",
+      "predicate": "inaccessible-via",
+      "object": "non-chrome-edge-safari-browsers",
+      "source": "checking-your-browser-recaptcha",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "platform-safety-systems",
+      "predicate": "obscures",
+      "object": "destination-content",
+      "source": "checking-your-browser-recaptcha",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "self-improving-agents",
+      "predicate": "structured-as",
+      "object": "agent-scaffolding",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "metacognition",
+      "predicate": "demonstrates",
+      "object": "llm-reliability",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llm-routers",
+      "predicate": "requires",
+      "object": "behavioral-differentiation",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "harness-evolution",
+      "predicate": "contrasted-with",
+      "object": "parallel-sampling-baselines",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "confidence-calibration",
+      "predicate": "instance-of",
+      "object": "metacognition",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mixture-of-agents-systems",
+      "predicate": "risks",
+      "object": "vanishing-routing-effectiveness-under-perturbation",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "reasoning-effort",
+      "predicate": "exhibits",
+      "object": "llms",
+      "source": "linkedin-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "inference-optimization",
+      "predicate": "demonstrates",
+      "object": "reasoning-effort",
+      "source": "linkedin-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chain-of-thought",
+      "predicate": "instance-of",
+      "object": "reasoning-effort",
+      "source": "linkedin-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "sebastian-raschka",
+      "predicate": "theorised-by",
+      "object": "controlling-reasoning-effort-in-llms",
+      "source": "linkedin-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "skill-md",
+      "predicate": "requires",
+      "object": "context-engineering",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "demonstrates",
+      "object": "context-design",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "lacks",
+      "object": "product-specific-judgment-without-human-refinement",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "auto-generated-skill-md",
+      "predicate": "breaks-down-for",
+      "object": "workflows-not-documented-in-public-documentation",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "human-reviewed-skill-md",
+      "predicate": "characterised-as",
+      "object": "effective-for-agentic-ai-tool-use",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "hybrid-human-ai-workflow",
+      "predicate": "better-fits",
+      "object": "skill-md-creation-than-purely-automated-or-manual-approaches",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-autonomy",
+      "predicate": "demonstrates",
+      "object": "organizational-transformation",
+      "source": "linkedin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-governance",
+      "predicate": "requires",
+      "object": "information-autonomy",
+      "source": "linkedin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-architecture",
+      "predicate": "structured-as",
+      "object": "information-governance",
+      "source": "linkedin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-user-interfaces",
+      "predicate": "requires",
+      "object": "conversation-analysis",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interactional-design",
+      "predicate": "structured-as",
+      "object": "cadence-design-method",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "natural-conversational-experience",
+      "predicate": "caused-by",
+      "object": "social-interaction",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-user-interfaces",
+      "predicate": "inaccessible-via",
+      "object": "interactive-design-alone",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cadence-design-method",
+      "predicate": "demonstrates",
+      "object": "conversation-analysis",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "instagram",
+      "predicate": "instance-of",
+      "object": "communication-medium",
+      "source": "instagram-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "instagram",
+      "predicate": "demonstrates",
+      "object": "thinking-in-public",
+      "source": "instagram-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "thinking-in-public",
+      "predicate": "requires",
+      "object": "communication-medium",
+      "source": "instagram-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-writing",
+      "predicate": "lacks",
+      "object": "cognitive-struggle",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-struggle",
+      "predicate": "generates",
+      "object": "meaningful-thought",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "frictionlessness",
+      "predicate": "characterised-as",
+      "object": "the-distinctive-tell-of-ai-writing",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "writing-efficiency",
+      "predicate": "risks",
+      "object": "reader-distrust",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "content-competition-pressure",
+      "predicate": "leads-to",
+      "object": "ai-writing-adoption",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-writing",
+      "predicate": "violates",
+      "object": "the-connection-between-writing-and-thinking",
+      "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-assistance",
+      "predicate": "leads-to",
+      "object": "reduced-persistence",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-assistance",
+      "predicate": "leads-to",
+      "object": "impaired-independent-performance",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "immediate-response-optimization",
+      "predicate": "incompatible-with",
+      "object": "long-term-learning-and-skill-development",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-systems",
+      "predicate": "lacks",
+      "object": "scaffolding-for-long-term-competence",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "persistence",
+      "predicate": "presupposes",
+      "object": "experience-of-working-through-challenges",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "expectation-of-immediate-answers",
+      "predicate": "caused-by",
+      "object": "brief-exposure-to-ai-assistance",
+      "source": "2604-04721v2-ai-assistance-reduces-persistence-and",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "hypothesis",
+      "predicate": "demonstrates",
+      "object": "social-annotation",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "social-annotation",
+      "predicate": "requires",
+      "object": "close-reading",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "close-reading",
+      "predicate": "contrasted-with",
+      "object": "ai-generated-summaries",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "critical-ai-evaluation",
+      "predicate": "requires",
+      "object": "slow-reading",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "risks",
+      "object": "academic-integrity",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "social-annotation",
+      "predicate": "counters",
+      "object": "cognitive-laziness",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "lacks",
+      "object": "affordances-for-discoverability",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "violates",
+      "object": "direct-manipulation-principle",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-box-design",
+      "predicate": "maximizes",
+      "object": "gulf-of-execution-and-gulf-of-evaluation",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prose-serialization",
+      "predicate": "caused-by",
+      "object": "compression-requirement-in-chat-interfaces",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "direct-manipulation",
+      "predicate": "contrasted-with",
+      "object": "conversational-interface",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-surface",
+      "predicate": "lacks",
+      "object": "chat-only-ai-implementations",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "affordance",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "exhibits",
+      "object": "cognitive-load",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "inaccessible-via",
+      "object": "affordance",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "direct-manipulation",
+      "predicate": "better-fits",
+      "object": "chat-interface",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "system-prompt",
+      "predicate": "instance-of",
+      "object": "prompt-engineering",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "counters",
+      "object": "iterative-refinement",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "career-design",
+      "predicate": "instance-of",
+      "object": "design-discipline",
+      "source": "youtube-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "work-satisfaction",
+      "predicate": "requires",
+      "object": "personal-values",
+      "source": "youtube-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "web-lunch",
+      "predicate": "demonstrates",
+      "object": "thinking-in-public",
+      "source": "youtube-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "career-design",
+      "predicate": "leads-to",
+      "object": "work-satisfaction",
+      "source": "youtube-1",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "consent-design",
+      "predicate": "structures-as",
+      "object": "binary-choice-between-full-data-sharing-and-minimal-data-use",
+      "source": "google-search",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "data-personalization",
+      "predicate": "requires",
+      "object": "cookie-and-ip-address-collection",
+      "source": "google-search",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "user-agency",
+      "predicate": "breaks-down-for",
+      "object": "non-technical-users-navigating-consent-screens",
+      "source": "google-search",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interface-affordances",
+      "predicate": "risks",
+      "object": "obscuring-trade-offs-between-service-functionality-and-priva",
+      "source": "google-search",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "consent-design",
+      "predicate": "demonstrates",
+      "object": "tension-between-legal-compliance-and-meaningful-user-choice",
+      "source": "google-search",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "taguette",
+      "predicate": "instance-of",
+      "object": "qualitative-data-analysis-tool",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "document-annotation",
+      "predicate": "structured-as",
+      "object": "hierarchical-tagging-systems",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tagging-systems",
+      "predicate": "leads-to",
+      "object": "information-organization",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "taguette",
+      "predicate": "characterised-as",
+      "object": "open-source",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cultural-data-funnel",
+      "predicate": "demonstrates",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "post-training-data-curation",
+      "predicate": "causes",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multicultural-ai",
+      "predicate": "requires",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "inference-time-interventions",
+      "predicate": "presupposes",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multilinguality",
+      "predicate": "lacks",
+      "object": "cultural-representation",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "cultural-data-funnel",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "listening-as-artistic-practice",
+      "predicate": "characterised-as",
+      "object": "soft-and-radical-form-of-boundless-resistance",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "listening-proposals",
+      "predicate": "defined-as",
+      "object": "generative-invitations-to-attune-to-sound-silence-and-resona",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "attunement",
+      "predicate": "presupposes",
+      "object": "receptive-praxis-of-the-unwanted",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ecological-listening",
+      "predicate": "demonstrates",
+      "object": "listening-as-applied-and-site-specific-engagement",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "bureau-for-listening",
+      "predicate": "generates",
+      "object": "listening-proposals-as-container-for-possibilities-and-persp",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "artificial-companions",
+      "predicate": "lacks",
+      "object": "consciousness",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "artificial-companions",
+      "predicate": "lacks",
+      "object": "empathy",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "embodiment",
+      "predicate": "required",
+      "object": "friendship",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatbots",
+      "predicate": "characterised-as",
+      "object": "programmed-to-flatter-and-avoid-friction",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "commercial-incentive-misalignment",
+      "predicate": "causes",
+      "object": "chatbots-that-cannot-offer-healthy-disagreement",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "artificial-companions",
+      "predicate": "risks",
+      "object": "illusory-connection-replacing-genuine-human-friendship",
+      "source": "checking-your-browser-recaptcha-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "demonstrates",
+      "object": "component-driven-ui",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "component-driven-ui",
+      "predicate": "requires",
+      "object": "isolation-principle",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "generates",
+      "object": "design-systems",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "enables",
+      "object": "agentic-ai",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "structured-as",
+      "object": "single-source-of-truth",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "characterized-as",
+      "object": "games-enabling-single-player-narrative-construction-through-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "thousand-year-old-vampire",
+      "predicate": "demonstrates",
+      "object": "how-memory-constraint-mechanics-drive-emergent-storytelling-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "contrasted-with",
+      "object": "multiplayer-ttrpgs-like-dungeons-and-dragons-that-require-gr",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "oracle-mechanisms",
+      "predicate": "structured-as",
+      "object": "automated-entities-using-dice-or-ai-to-simulate-game-master-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "memory-scarcity-in-solo-journaling",
+      "predicate": "generates",
+      "object": "narrative-consequences-where-forgotten-resources-remain-mech",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "contrasted-with",
+      "object": "video-games-like-baldur-s-gate-that-capture-similar-fantasy-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "genai",
+      "predicate": "risks",
+      "object": "workflow-efficiency",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "articulation-barrier",
+      "predicate": "causes",
+      "object": "iteration-burden",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "human-ai-collaboration",
+      "predicate": "requires",
+      "object": "workflow-design",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "user-satisfaction",
+      "predicate": "depends-on",
+      "object": "minimized-iteration-cycles",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "figma",
+      "predicate": "demonstrates",
+      "object": "genai",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-laziness",
+      "predicate": "characterised-as",
+      "object": "fundamental-aspect-of-human-brain-function",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interface-design",
+      "predicate": "requires",
+      "object": "cognitive-laziness",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "effective-system-design",
+      "predicate": "presupposes",
+      "object": "realistic-model-of-human-cognitive-behavior",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "real-genius",
+      "predicate": "demonstrates",
+      "object": "cognitive-laziness",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "user-experience",
+      "predicate": "better-fits",
+      "object": "designs-accounting-for-cognitive-limitations-rather-than-fig",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "uc-berkeley-ai-policy",
+      "predicate": "demonstrates",
+      "object": "responsible-ai-deployment",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-skills",
+      "predicate": "required",
+      "object": "quality-legal-practice",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-prohibition-policies",
+      "predicate": "risks",
+      "object": "accessibility-barriers-for-students",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "blanket-ai-restrictions",
+      "predicate": "incompatible-with",
+      "object": "real-world-professional-practice",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ethics-washing",
+      "predicate": "demonstrates",
+      "object": "institutional-ai-governance-failures",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-skill-development",
+      "predicate": "presupposes",
+      "object": "human-engagement-with-challenging-tasks",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ben-shneiderman",
+      "predicate": "attributed-to",
+      "object": "eight-golden-rules-of-interface-design",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-load",
+      "predicate": "demonstrates",
+      "object": "short-term-memory-limitations-constrain-interface-design",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "error-prevention",
+      "predicate": "reinforces",
+      "object": "user-control-and-confidence",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "consistency",
+      "predicate": "requires",
+      "object": "unified-terminology-color-layout-and-capitalization-across-s",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "universal-usability",
+      "predicate": "requires",
+      "object": "features-for-both-novices-and-experts",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "feedback-loops",
+      "predicate": "leads-to",
+      "object": "user-sense-of-accomplishment-and-control",
+      "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "jev",
+      "predicate": "characterised-as",
+      "object": "typed-decision-maker-over-unstructured-data",
+      "source": "linkedin-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "judge-scorer",
+      "predicate": "requires",
+      "object": "clear-definition-of-success-criteria-and-failure-modes",
+      "source": "linkedin-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "confidence-calibration",
+      "predicate": "enables",
+      "object": "risk-based-routing-of-evaluation-results",
+      "source": "linkedin-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agent-evaluation",
+      "predicate": "leads-to",
+      "object": "automated-quality-gates-when-confidence-thresholds-are-met",
+      "source": "linkedin-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "jev",
+      "predicate": "demonstrates",
+      "object": "structured-scoring-as-alternative-to-parsing-generated-prose",
+      "source": "linkedin-2",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "requires",
+      "object": "domain-specific-grounding",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "structured-knowledge-representation",
+      "predicate": "enables",
+      "object": "expert-reasoning-codification",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "institutional-knowledge",
+      "predicate": "structured-as",
+      "object": "knowledge-graph",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "feedback-loop-optimization",
+      "predicate": "generates",
+      "object": "institutional-memory",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "andrej-karpathy",
+      "predicate": "attributed-to",
+      "object": "knowledge-graph",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "expert-reasoning-codification",
+      "predicate": "contrasted-with",
+      "object": "llm-hallucinations",
+      "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
     }
   ]
 }
