@@ -15560,41 +15560,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "storybook",
-      "predicate": "demonstrates",
-      "object": "component-driven-ui",
-      "source": "storybook-frontend-workshop-for-ui-development",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "component-driven-ui",
-      "predicate": "requires",
-      "object": "isolation-principle",
-      "source": "storybook-frontend-workshop-for-ui-development",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "storybook",
-      "predicate": "generates",
-      "object": "design-systems",
-      "source": "storybook-frontend-workshop-for-ui-development",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "storybook",
-      "predicate": "enables",
-      "object": "agentic-ai",
-      "source": "storybook-frontend-workshop-for-ui-development",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "storybook",
-      "predicate": "structured-as",
-      "object": "single-source-of-truth",
-      "source": "storybook-frontend-workshop-for-ui-development",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16187,41 @@
       "predicate": "contrasted-with",
       "object": "video-games-like-baldur-s-gate-that-capture-similar-fantasy-",
       "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "demonstrates",
+      "object": "component-driven-ui",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "component-driven-ui",
+      "predicate": "requires",
+      "object": "isolation-principle",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "generates",
+      "object": "design-systems",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "enables",
+      "object": "agentic-ai",
+      "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "storybook",
+      "predicate": "structured-as",
+      "object": "single-source-of-truth",
+      "source": "storybook-frontend-workshop-for-ui-development",
       "collection": "weblinks"
     }
   ]
