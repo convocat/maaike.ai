@@ -15595,48 +15595,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "solo-journaling-rpgs",
-      "predicate": "characterized-as",
-      "object": "games-enabling-single-player-narrative-construction-through-",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "thousand-year-old-vampire",
-      "predicate": "demonstrates",
-      "object": "how-memory-constraint-mechanics-drive-emergent-storytelling-",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "solo-journaling-rpgs",
-      "predicate": "contrasted-with",
-      "object": "multiplayer-ttrpgs-like-dungeons-and-dragons-that-require-gr",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "oracle-mechanisms",
-      "predicate": "structured-as",
-      "object": "automated-entities-using-dice-or-ai-to-simulate-game-master-",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "memory-scarcity-in-solo-journaling",
-      "predicate": "generates",
-      "object": "narrative-consequences-where-forgotten-resources-remain-mech",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "solo-journaling-rpgs",
-      "predicate": "contrasted-with",
-      "object": "video-games-like-baldur-s-gate-that-capture-similar-fantasy-",
-      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16180,48 @@
       "predicate": "better-fits",
       "object": "skill-md-creation-than-purely-automated-or-manual-approaches",
       "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "characterized-as",
+      "object": "games-enabling-single-player-narrative-construction-through-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "thousand-year-old-vampire",
+      "predicate": "demonstrates",
+      "object": "how-memory-constraint-mechanics-drive-emergent-storytelling-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "contrasted-with",
+      "object": "multiplayer-ttrpgs-like-dungeons-and-dragons-that-require-gr",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "oracle-mechanisms",
+      "predicate": "structured-as",
+      "object": "automated-entities-using-dice-or-ai-to-simulate-game-master-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "memory-scarcity-in-solo-journaling",
+      "predicate": "generates",
+      "object": "narrative-consequences-where-forgotten-resources-remain-mech",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "solo-journaling-rpgs",
+      "predicate": "contrasted-with",
+      "object": "video-games-like-baldur-s-gate-that-capture-similar-fantasy-",
+      "source": "vampires-witches-skeletons-mesoamerican-gods-and-a",
       "collection": "weblinks"
     }
   ]
