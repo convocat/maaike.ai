@@ -15756,41 +15756,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "genai",
-      "predicate": "risks",
-      "object": "workflow-efficiency",
-      "source": "does-your-new-workflow-look-like-any-of-these-are-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "articulation-barrier",
-      "predicate": "causes",
-      "object": "iteration-burden",
-      "source": "does-your-new-workflow-look-like-any-of-these-are-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "human-ai-collaboration",
-      "predicate": "requires",
-      "object": "workflow-design",
-      "source": "does-your-new-workflow-look-like-any-of-these-are-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "user-satisfaction",
-      "predicate": "depends-on",
-      "object": "minimized-iteration-cycles",
-      "source": "does-your-new-workflow-look-like-any-of-these-are-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "figma",
-      "predicate": "demonstrates",
-      "object": "genai",
-      "source": "does-your-new-workflow-look-like-any-of-these-are-",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16187,41 @@
       "predicate": "characterised-as",
       "object": "open-source",
       "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "genai",
+      "predicate": "risks",
+      "object": "workflow-efficiency",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "articulation-barrier",
+      "predicate": "causes",
+      "object": "iteration-burden",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "human-ai-collaboration",
+      "predicate": "requires",
+      "object": "workflow-design",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "user-satisfaction",
+      "predicate": "depends-on",
+      "object": "minimized-iteration-cycles",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "figma",
+      "predicate": "demonstrates",
+      "object": "genai",
+      "source": "does-your-new-workflow-look-like-any-of-these-are-",
       "collection": "weblinks"
     }
   ]
