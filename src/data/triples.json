@@ -15854,48 +15854,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "uc-berkeley-ai-policy",
-      "predicate": "demonstrates",
-      "object": "responsible-ai-deployment",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cognitive-skills",
-      "predicate": "required",
-      "object": "quality-legal-practice",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-prohibition-policies",
-      "predicate": "risks",
-      "object": "accessibility-barriers-for-students",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "blanket-ai-restrictions",
-      "predicate": "incompatible-with",
-      "object": "real-world-professional-practice",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ethics-washing",
-      "predicate": "demonstrates",
-      "object": "institutional-ai-governance-failures",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cognitive-skill-development",
-      "predicate": "presupposes",
-      "object": "human-engagement-with-challenging-tasks",
-      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16180,48 @@
       "predicate": "counters",
       "object": "iterative-refinement",
       "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "uc-berkeley-ai-policy",
+      "predicate": "demonstrates",
+      "object": "responsible-ai-deployment",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-skills",
+      "predicate": "required",
+      "object": "quality-legal-practice",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-prohibition-policies",
+      "predicate": "risks",
+      "object": "accessibility-barriers-for-students",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "blanket-ai-restrictions",
+      "predicate": "incompatible-with",
+      "object": "real-world-professional-practice",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ethics-washing",
+      "predicate": "demonstrates",
+      "object": "institutional-ai-governance-failures",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-skill-development",
+      "predicate": "presupposes",
+      "object": "human-engagement-with-challenging-tasks",
+      "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
       "collection": "weblinks"
     }
   ]
