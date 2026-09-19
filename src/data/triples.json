@@ -15539,48 +15539,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "hypothesis",
-      "predicate": "demonstrates",
-      "object": "social-annotation",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "social-annotation",
-      "predicate": "requires",
-      "object": "close-reading",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "close-reading",
-      "predicate": "contrasted-with",
-      "object": "ai-generated-summaries",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "critical-ai-evaluation",
-      "predicate": "requires",
-      "object": "slow-reading",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "chatgpt",
-      "predicate": "risks",
-      "object": "academic-integrity",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "social-annotation",
-      "predicate": "counters",
-      "object": "cognitive-laziness",
-      "source": "hypothesis-generative-ai-social-annotation",
-      "collection": "weblinks"
-    },
-    {
       "subject": "chat-interface",
       "predicate": "lacks",
       "object": "affordances-for-discoverability",
@@ -16222,6 +16180,48 @@
       "predicate": "attributed-to",
       "object": "copilotkit",
       "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "hypothesis",
+      "predicate": "demonstrates",
+      "object": "social-annotation",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "social-annotation",
+      "predicate": "requires",
+      "object": "close-reading",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "close-reading",
+      "predicate": "contrasted-with",
+      "object": "ai-generated-summaries",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "critical-ai-evaluation",
+      "predicate": "requires",
+      "object": "slow-reading",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "risks",
+      "object": "academic-integrity",
+      "source": "hypothesis-generative-ai-social-annotation",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "social-annotation",
+      "predicate": "counters",
+      "object": "cognitive-laziness",
+      "source": "hypothesis-generative-ai-social-annotation",
       "collection": "weblinks"
     }
   ]
