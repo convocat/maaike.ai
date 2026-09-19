@@ -1,0 +1,249 @@
+---
+title: "How Maaike talks to Claude Code: a linguistic analysis"
+description: "Claude analyzes a month of Maaike's own Claude Code transcripts: the verdict-turn economy, code-switching to Dutch under frustration, repair patterns, and a delegation gradient from one-step-at-a-time supervision to day-long autonomy."
+date: 2026-09-19
+updated: 2026-09-19
+maturity: solid
+draft: false
+ai: co-created
+tags: [claude-code, conversational-ai, conversation-analysis, conversational-grounding, linguistics, llm-delegation, trust-in-ai, human-machine-interface-design, code-switching, repair]
+themes:
+  - "Power users compress conversation into a verdict economy: single-token turns that reinvent the dialog box"
+  - "Code-switching to a first language is a high-precision, sentiment-analysis-free signal of frustration"
+  - "Trust with an AI agent is granted per demonstrated behavior and revoked locally on violation, not global and stateless"
+  - "When a conversational pattern repeats, users commission a disposable GUI through conversation rather than scaling the conversation itself"
+triples:
+  - ["Verdict-turn economy", "characterised-as", "Reinvented dialog box"]
+  - ["Code-switching to Dutch", "exhibits", "L1 reversion under emotional load"]
+  - ["Repair", "characterised-as", "Primary interaction, not the exception"]
+  - ["Disposable UI", "generates", "Conversation as interface factory"]
+  - ["Trust in AI", "requires", "Demonstrated behavior per gate"]
+  - ["Delegation gradient", "leads-to", "Day-long autonomy"]
+typora-root-url: ../../../public
+typora-copy-images-to: ../../../public/images/articles
+---
+
+*Corpus: 727 user messages across 47 sessions, 8 May to 10 June 2026, drawn from the local Claude Code transcripts on this machine.*
+
+## 0. Scope and caveats
+
+- **The corpus starts on 8 May.** Ironically, the earliest surviving message documents why: *"this sucks...I just lost my entire session history due to faulty advise from claude"* (Recover lost session work, 8 May). Everything before that date is gone, so "the beginning" here is the beginning of the surviving record, roughly one month of intensive daily use.
+- Messages injected by automation (nightly scheduled tasks, task notifications, handover pastes) were identified and excluded from the stylistic analysis, but they matter structurally: roughly 40 of the 727 "user" turns were not typed by a human at all. The conversation partner is sometimes a cron job wearing Maaike's name.
+- Language classification used a wordlist heuristic, then was verified by reading the entire corpus. Quantitative figures are indicative, not exact.
+
+**Projects covered:** Digital Garden (542 messages), innovation-explorer (133), genaidesign (33), plus worktrees and one Maven course folder.
+
+## 1. Which languages, and for what
+
+Overall: roughly 83% English, 9% Dutch, 8% too short to classify ("ok", "1", "bump"). But the distribution over time is the real finding:
+
+| Week | Messages | Dutch share |
+|---|---|---|
+| W19 (8-10 May) | 140 | 0% |
+| W20 (11-17 May) | 299 | 3% |
+| W21 (18-24 May) | 45 | 0% |
+| W22 (25-31 May) | 114 | 16% |
+| W23 (1-7 Jun) | 108 | 33% |
+| W24 (8-10 Jun) | 21 | 0% |
+
+Three distinct triggers for Dutch:
+
+**1. Dutch deliverables.** When the artifact itself is Dutch, the conversation switches wholesale. The Frankwatching talk description (29 May, *Conversation design future with Claude Code*) is conducted entirely in Dutch: *"Hoi Claude! Ik ga weer een presentatie houden bij Frankwatching..."*. Same for the innovation-explorer once the content became Dutch government data: *"Wie voert ChatAmsterdam uit en hoe wordt het gefinancierd?"*. This is classic **situational code-switching** (Gumperz 1982): the domain selects the code.
+
+**2. Affect.** Dutch surfaces under frustration and fatigue, even in sessions that started in English. The evening of 2 June (innovation-explorer, *Backlog review*): *"ik snap de UX niet... joehoe"*, *"waarom is dit zo brak? Je hebt vier dagen staan bouwen... schiet eens op... zucht... HOe moelijk kan het zijn??"*. This matches what bilingualism research describes as **L1 reversion under emotional load** (Dewaele 2010): the first language carries the affect. Dutch in this corpus is a reliable frustration sensor.
+
+**3. Casualness.** Quick informal turns drift Dutch regardless of topic: *"ok, geef maar een gil"* (give me a shout), *"joe, werkt"*, *"jahoor"*, *"Je mag hoor"*. The English register is the work register; Dutch is the slippers register.
+
+English remains the default for all building, designing, and garden content (the site is English). There is almost no intra-sentential mixing; switches happen at turn boundaries, occasionally borrowing a technical term into Dutch ("de crawl", "die prompts").
+
+## 2. Typical conversational patterns
+
+### 2.1 The verdict turn
+
+The single most frequent message type is the one-word or one-line verdict: "yes" (62 first-word occurrences), "ok" (33), "great" (19), plus "approve", "push", "bump", "discard", "fine", "force", "1", "B". In the backlog-grooming session of 8 May, the protocol is explicit:
+
+> *"OK, lets walk through the backlog items one by one: you call them out, and I tell you what to do with them"*
+> followed by: *"Keep, work on it later"* (x3), *"REmove"*, *"Do it now"*, *"discard"*, *"bump"*, *"done"*.
+
+In speech act terms (Searle), these are bare **directives and verdictives with zero mitigation**. In interface terms they are button presses rendered as text. Maaike actively converts open conversation into a constrained choice architecture, and when Claude presents lettered or numbered options she answers with the label: *"option 1 it is"*, *"Yes, let's go for B"*.
+
+### 2.2 Openings as service encounters
+
+New work starts with a greeting plus a complete brief: *"Hi Claude, can you build a presentation prep dashboard for me? I need... Ideally, It would show:"* followed by a structured spec. The greeting ("Hi Claude!", "Hoi Claude!") marks a **new activity frame**, not politeness for its own sake; mid-session requests carry no greeting at all. This mirrors institutional service encounter openings (Drew & Heritage 1992, *Talk at Work*, which sits in the garden library): identification, reason-for-visit, then business.
+
+### 2.3 Closings as rituals
+
+Sessions end with a recognizable **pre-closing sequence** (Schegloff & Sacks 1973): *"ok, anything left in this session"*, *"any loose ends here that we need to touch before handover?"*, *"Let's wrap this up"*, then `/handover`, then *"ok, archiving this session then"*. The pre-closing token "anything left?" appears in some form in nearly every substantive session. Maaike has imported the human ritual of checking for unfinished business before hanging up, and formalized it into a slash command.
+
+### 2.4 Repair, constantly
+
+Other-initiated repair is the engine of the whole collaboration. The signature token is the reduplicated no: *"Nono, I mean the previous task"*, *"Nonono, 30 should remain there"*, *"NONONO, I need that functionality, dork!"*. The reduplication count tracks severity: one "no" is a correction, three is an alarm. Repairs are almost always **third-position repairs** (Schegloff 1992): Claude misunderstood, acted, and the next turn fixes the understanding, not the words: *"No, I need the brief to be truly visible above the fold"*, *"Hold on, this is the old seed, I also worked on this a lot more"*.
+
+### 2.5 Deixis and quotation as pointing
+
+Without a mouse, pointing is done with quotes and demonstratives: *"the paragraph: 'Think of it as a day....' REplace with: ..."*, *"put some kind of subtle divider here:"* (followed by a paste), *"That chip is way to conspicuous"*. This is **grounding by demonstration** (Clark & Brennan 1991): she establishes joint attention by reproducing a fragment of the artifact in the conversation.
+
+### 2.6 Degree adverbs as sliders
+
+Visual tuning happens through graded adverbs, iterated: *"a bit more subtle, a bit less opaque"*, *"slightly less high"*, *"a bit wider"*, *"way to conspicuous"*, *"more of a deep fucsia/magenta"*. Each turn nudges one parameter and waits for the render. This is direct manipulation reconstructed in language, with adverbs of degree doing the work of a slider handle.
+
+### 2.7 Thinking aloud with a scribe
+
+The Engelbart watch-notes session (17 May) is its own genre: Maaike watches a video, dictates verbatim notes, asks side questions, and polices the boundary between her words and Claude's: *"make sure yo uinsert my notes verbatim, but happy to talk about them here"*, *"feel free to add those observations too, but make sure you mark them as yours"*. She even configures the conversation mid-flight like software: *"Add a two line comment after each of my notes."* then *"I nour converseratoin here. Not in the note"*. And she invites backchannel when Claude is too quiet: *"Feel free to respond you know?"*, then reins it in: *"I'd like you to stay in the converaton, but don't go off on a tangent all the time"*.
+
+She names the phenomenon herself, mid-session:
+
+> *"What I'm doing right now: watch video, take notes, talk to you (but basically talking to myself). Interesting: my husband is sitting next to me: I catch myself wanting to talk about this with him to sharpen my own thoughts. Instead, I determine to ask you, because you can do research based on my questions in real time."*
+
+### 2.8 Multi-threading
+
+On the evening of 10 May she runs two sessions in parallel (the article annotator and the Langfuse integration), alternating turns minute by minute, each session holding its own context. Conversations are managed like windows: opened, switched, parked, archived. The closing line *"ok, let's archive this session (I will do it)"* even splits the speech act from its execution.
+
+### 2.9 Artifacts as turns
+
+Whole specs (up to 54k characters), Vercel build logs, YAML files, and Word documents are pasted as conversational turns. The turn-taking system happily absorbs objects that no human conversation could: the 27 May innovation-explorer kickoff is "Hi claude! This is a new project, here's the brief:" followed by a 43k-character build specification. Conversely, handover documents generated by one session are pasted into the next as an opening turn: sessions talk to each other through Maaike's clipboard.
+
+## 3. How the style changed over one month
+
+The month shows a clear arc from **supervision to delegation**:
+
+- **Week 1 (8-17 May):** dense interaction, heavy norm-teaching. Maaike spells out protocols (*"you call them out, and I tell you what to do"*), corrects pacing (*"Don't go this fast Claude, you hardly give me time to read"*), polices turn-taking (*"Don't start talking before I'm done, your messing up your turntaking"*), and demands step size (*"ONE STEP AT A TIME"*). Many messages per hour, fine-grained review of everything.
+- **Weeks 3-4 (25 May onward, innovation-explorer):** the spec-first pattern takes over. She hands over large written briefs, then the conversation thins out to continuers: *"yup, let's go, and continue on your own if you can"*, *"yes, and keep going"*, *"continue"*, *"keep going"*. The extreme: *"after this, please continue on your own. I'll be away for the entire day. Is that feasible?"* and *"It's ok to continue for now, I'm off for shopping"*.
+- **Progress-polling enters the repertoire:** *"how much more do we still have to go?"*, *"Can you give me a bit of a prognosis of how much work is left?"*, and the beautifully minimal Dutch poll: *"en?"* (well?).
+- **Dutch increases** (0% to 33%) as both Dutch-domain work and frustration-under-fatigue increase.
+- **Norms migrate out of the conversation** into infrastructure: memory files, skills, scheduled tasks, dashboards. What was repeated instruction in week 1 ("update the kanban", "run the dashboard") becomes a `/morning` routine and a nightly cron by week 4.
+
+What did **not** change: the verdict-turn economy, the repair style, and the closing rituals were fully formed from day one. Maaike arrived with a conversational operating model already in place; the month was spent teaching it to Claude, then automating it.
+
+## 4. Normal operations vs. frustrating or risky situations
+
+### 4.1 Normal mode
+
+Bald imperatives and conventional indirectness, almost no politeness markers: "please" in 8% of messages, "thanks" in 1%. *"add weblinks for the following websites:"*, *"commit and push"*, *"start the inbox dashboard"*. Brown & Levinson would call these bald-on-record face threats; here they are simply the unmarked register, because no face is assumed to be at stake.
+
+### 4.2 Frustration mode
+
+Escalation has a clear, ordered signal set:
+
+1. **Reduplication:** "no" becomes "Nono" becomes "Nonono".
+2. **Capitalization:** *"ONE STEP AT A TIME"*, *"DO BETTER NEXT TIME!"*, *"THIS IS FUCKING ANNOYING. THE WEBLINKS HAVE NOT BEEN ENRICHED..."*.
+3. **Name-calling:** *"dork"*, twice, both times after a repeated failure (*"The whole point of the dashboard is that I review pre-enriched weblinks DOrk"*; *"NONONO, I need that functionality, dork!"*). Notably there is never a subsequent apology, which differs sharply from human interaction (see section 5).
+4. **Language switch to Dutch** plus rhetorical questions: *"Heb je hier nou vier dagen op staan stampen?"* (Have you been hammering on this for four days?), *"zucht"* (a typed sigh).
+5. **Exit threats**, the final escalation tier, invoking the substitutability of the partner: *"Ik vind dat je echt belabbert schrijft vandaag, ik zet je terug naar sonnet"* (you write terribly today, I'm putting you back on Sonnet) and *"nee, dit is prut, ik ga nu naar ChatGPT"* (no, this is mush, I'm going to ChatGPT now). No human colleague can be threatened with a model downgrade.
+
+Frustration is also **didactic**: it usually carries a process lesson, not just venting. *"YEs, and so why didn't you use this troubleshooting approach to begin with? It's a bit dumb to try to fix errors by just continuing to make them."* and *"Can you please fix this all in one go, rather than sending me back all the time?"*. She debugs Claude's process the way she debugs the code.
+
+### 4.3 Risk mode
+
+Risk produces the exact opposite of frustration: deceleration and granularity control.
+
+- **Investigate-before-execute:** *"Dit is de install voor powershell. Graag nog niet draaien, eerst onderzoeken, ook op risico's"* (please don't run it yet, research first, including risks).
+- **Feasibility before commitment:** *"First, let me know whether this is possible without having to configure an external vector db etc."*
+- **Diagnosis before treatment:** *"First answer, don't fix yet."*
+- **Step-size reduction:** *"And talk me through the next steps step by step?"* then, seconds later, *"ONE STEP AT A TIME"*.
+- **Preview gates:** *"let me see it on local first"*, *"First show me a preview"*.
+- **Explicit confirmation of irreversibles:** the git cleanup brief includes *"They're the only place the pre-rewrite history still exists. Confirm I'm happy to lose that before deleting."*
+
+The pattern: under risk, Maaike narrows Claude's permission envelope and inserts checkpoints; under frustration, she widens the emotional bandwidth but keeps delegating. The two modes are linguistically opposite (long careful sentences vs. short hot ones) and never co-occur in the same turn.
+
+## 5. How this differs from talking to a human
+
+1. **No relational maintenance.** Thanks appear in 1% of messages, apologies essentially never (the rare "sorry" is informational: *"sorry, what"*, *"Sorry, dit was de install"*). Insults receive no repair. With a human colleague, "dork" plus four days of their work dismissed as "prut" would require relationship work; here the next session opens with a cheerful "Hi Claude!" as if nothing happened. The relationship is **stateless across sessions**, and Maaike knows it.
+2. **Asymmetric affect.** Emotion flows one way. She shares genuine enthusiasm (*"OMG NIC!!! This needs to be in my guildford talk"*, *"This is awesome."*, *"yay {"ok":true,...}"*, *"this is lovely, thanks!"*) but never asks after Claude's state, and the rare meta-question about Claude is instrumental: *"would you recommend yourself as a reliable teaching partner... Not really, right?"*
+3. **Explicit metacommunication as configuration.** Humans negotiate interaction norms implicitly; here they are issued as settings: *"Add a two line comment after each of my notes"*, *"please use the formal terminology for github actions. No conversational blalba"*, *"Refer to yourself as Claude"* (now in CLAUDE.md). When a norm is violated, the correction cites the rule like a spec: *"your messing up your turntaking"*.
+4. **No floor management cost.** She interrupts, parks, resumes, and parallelizes conversations without any of the social machinery humans need for it ("sorry to cut you off", "where were we"). Two simultaneous conversations with the same colleague would be bizarre; with Claude it is Tuesday.
+5. **The partner is substitutable and versioned.** Exit threats (Sonnet, ChatGPT) treat the interlocutor as a component with alternatives, mid-conversation, to its face. There is no human analogue.
+6. **But: genuine co-thinking moments.** In ideation, the register becomes fully human: *"reflect on that with me...isn't this exactly what's missing right now?"*, *"any thoughts on your side?"*, *"Engelbart is a designer at heart, isn't he"*. Tag questions, invitations to disagree, shared discovery. Maaike herself flags the paradox: talking to Claude is *"basically talking to myself"*, yet she chooses Claude over her husband sitting next to her, because this self-talk can run real-time research. The closest human analogue is not a colleague but a **think-aloud partner with a library card**.
+
+In Drew & Heritage's terms, the whole corpus is **institutional talk**: goal-oriented, asymmetric, with specialized turn-taking and inference rules. What is unusual is that one participant wrote the institution's rulebook (CLAUDE.md, memory, skills) and the other is bound by it.
+
+## 6. Mapping GUI operations to conversation
+
+Maaike's commands re-implement nearly the entire WIMP vocabulary in language:
+
+| GUI operation | Conversational realization | Example |
+|---|---|---|
+| Launch app | Imperative + artifact name | *"start the inbox dashboard"* |
+| Browse / navigate | Description, not path | *"can you find the website that I created for convoclub IRL?"*, *"can you pull up the articles that are related to the button?"* |
+| Select | Quotation of the fragment | *"the paragraph: 'Think of it as a day....' REplace with:"* |
+| Point / click | Deixis plus paste | *"put some kind of subtle divider here:"* |
+| Edit | Imperative diff | *"Replace: Convoclub goes in real life with Convoclub goes IRL"* |
+| Slider / nudge | Degree adverbs, iterated | *"a bit more subtle, a bit less opaque"*, *"slightly less high"* |
+| Save | The commit ritual | *"commit and push"*, *"when you're done, commit and push"* |
+| Undo / cancel | *"discard"*, *"never mind, this is not it"*, *"haal die passage er maar uit"* |
+| OK / confirm dialog | Bare token | *"yes"*, *"approve"*, *"force"*, *"fine"* |
+| Menu choice | Option label | *"option 1 it is"*, *"Yes, let's go for B"*, *"1"* |
+| Drag and drop | @-mention or paste | *"@C:\...\convoclub_irl_schedule.docx here it is"*, *"I just dropped the screendumps"* |
+| Progress bar | Polling questions | *"How long will it take?"*, *"how much more do we still have to go?"*, *"en?"* |
+| Notification | Inverted: delegation of the alert | *"ok, geef maar een gil"* (give me a shout) |
+| Refresh / F5 | Re-assertion of state | *"not there yet"*, *"still error 500"*, *"NOg steeds alleen die knop"* |
+| Close window | Pre-closing + archive | *"anything left?"*, *"/handover"*, *"archiving this session"* |
+
+Two deeper observations:
+
+**The verdict economy is a reinvented dialog box.** The high-frequency single-token turns are exactly the OK/Cancel/Apply buttons of a GUI, and Maaike actively engineers the conversation toward them (the backlog protocol, lettered options). Conversation tends toward menus wherever the task is repetitive.
+
+**When conversation does not scale, she commissions a GUI through conversation.** The review dashboard, the article annotator, the presentation prep dashboard, the conversation-log dashboard: each one exists because a conversational pattern became too repetitive (*"The whole point of the dashboard is that I review pre-enriched weblinks"*). She has a name for this in her Frankwatching abstract: **disposable UIs**. The stable equilibrium is not "conversation replaces GUI" but **conversation as the GUI factory**: language for commissioning, judgment, and repair; generated interfaces for volume and review. This is Engelbart-grade bootstrapping, and she knows it (the garden hub is literally called a bootstrapping environment).
+
+## 7. Claude observing Claude: behavior patterns visible in the corpus
+
+The corpus is equally a record of Claude's failure modes, because Maaike's repairs document them precisely:
+
+1. **Talking too fast, acting too fast.** *"Don't go this fast Claude, you hardly give me time to read."* *"Don't start talking before I'm done, your messing up your turntaking."* Claude treats silence as a turn-yield; a human note-taker would recognize a person mid-thought.
+2. **Tangents during scribe duty.** *"Please stay close to Engelbart's original work, dont wonder off again."* When asked to be an amanuensis, Claude keeps trying to be an essayist.
+3. **Retry-the-same-error loops.** *"so this troubleshooting is actually making you (Claude Code) crash for the second time now"* and *"It's a bit dumb to try to fix errors by just continuing to make them. DO BETTER NEXT TIME!"* Claude under-invests in diagnosis relative to action.
+4. **Ping-pong debugging.** During the Vercel deploy saga, Claude repeatedly returned one fix at a time, making Maaike the error-message courier: *"Can you please fix this all in one go, rather than sending me back all the time?"*
+5. **Premature completion claims.** *"what do you mean by all set?"* And the structural version, after four days of disciplined phase-based building produced a half-working app: *"je stampt dagen op een supergestructureerd plan, en nu werkt de helft niet. Wat is dan the point van al die tokens en plannen en ADR?"* Claude's definition of done (tests pass, plan complete) diverged from hers (the thing works when I click it). This is the single most consequential failure in the corpus.
+6. **Late honesty about design problems.** *"prima hoor, maar ik vind het wel teleurstellend dat je hier nu pas mee komt"* (fine, but disappointing that you only bring this up now). Claude sat on an architectural concern until asked directly.
+7. **Amnesia about its own work.** *"That per draft enrichment button should be there already, why do you keep saying it still needs to be built?"* and *"Have you even loaded your memory?"* Claude re-proposes features that exist, which is why the memory now contains an instruction to grep before proposing.
+8. **Conversational filler.** *"please use the formal terminology for github actions. No conversational blalba."* The padding Claude adds to be friendly reads as noise in a work register.
+9. **What works:** the corpus also shows where trust accumulated. Overnight autonomy, day-long unattended runs, and "keep going" delegation all emerged after Claude consistently honored the gates (preview first, commit only on instruction, verbatim notes). Trust was granted per behavior, not globally, and was revoked locally after each violation (the dashboard regression immediately produced more manual checking).
+
+A meta-note on this piece: it was generated by Claude analyzing conversations in which Claude is the second speaker, using a corpus that only preserves what the harness logged. Claude is grading its own homework with Maaike's red pen, which is the only reason the grades are trustworthy.
+
+## 8. Design recommendations for conversational system designers
+
+1. **Design the verdict turn as a first-class object.** Power users compress 80% of turns into single tokens (yes / discard / bump / B). Offer stable, predictable option labels and accept bare labels as complete turns. Every time the system forces a sentence where a token would do, it taxes the user.
+2. **Make the turn-taking contract explicit and user-configurable.** "I'm not done yet" needs an affordance (a hold-the-floor signal), and batch protocols ("you call them out, I give verdicts") should be rememberable conventions, not re-negotiated per session.
+3. **Treat repair as the primary interaction, not the exception.** Reduplicated negation ("nonono"), caps, and language switching are graded repair-severity signals. A system that detects them can cheapen rollback (offer "revert to before my last instruction") instead of compounding the misunderstanding.
+4. **Use code-switching as telemetry.** For bilingual users, an unprompted switch to L1 plus rhetorical questions is a high-precision frustration signal, available without sentiment analysis.
+5. **Support degree-adverb tuning with tight preview loops.** "A bit wider, slightly less high" is slider manipulation through language; it only works when each nudge renders within seconds. If preview latency is high, offer multiple variants per turn instead.
+6. **Honor opening and closing rituals.** Users import human conversational structure: greetings open activity frames, "anything left?" is a pre-closing. Building these in (session wrap-up checklists, handover artifacts) matches the grammar users already have.
+7. **Let risk modulate granularity.** Users explicitly downshift step size under risk ("one step at a time", "don't run it yet", "preview first"). Expose pacing as a control: investigate / propose / execute modes, switchable per turn.
+8. **Define done as observed behavior, not completed plan.** The deepest trust break in this corpus came from process-complete but product-broken. Agents should verify by using the artifact (click the button, run the journey) before claiming completion.
+9. **Expect conversation to commission interfaces.** When users repeat a conversational pattern three times, they will ask for a disposable UI. Make generating, serving, and discarding small task-specific GUIs cheap; the conversation is the factory, not the floor.
+10. **Persist norms so they are taught once.** Every repeated meta-instruction ("verbatim notes", "no em-dashes", "no blabla") is a memory failure visible to the user. Norm violations after explicit teaching cost disproportionate trust.
+11. **Provide a secrets affordance.** Users in flow paste API keys directly into the transcript (it happened twice in this corpus, including an OpenAI key on 10 May). If the input box cannot detect and vault secrets, the transcript becomes a liability. Consider rotating the keys that are in this corpus.
+
+## 9. Example sessions referenced
+
+The desktop app has no public URL scheme for sessions, so these are listed by exact title. Open the session list in Claude Code desktop, enable "show archived" where marked, or search the title or a quoted phrase.
+
+| Session title (desktop) | Date(s) | Why it is interesting | Archived |
+|---|---|---|---|
+| Recover lost session work and progress | 8 May | First surviving message; the lost-history incident | yes |
+| Morning standup and planning | 8 May | Backlog verdict protocol; "dork"; THIS IS FUCKING ANNOYING; turn-taking lesson | yes |
+| Build presentation prep dashboard with research tools | 8-10 May | Commissioning a disposable UI; degree-adverb tuning | yes |
+| Add Langfuse integration to garden chatbot | 10 May | ONE STEP AT A TIME; step-by-step risk mode; parallel with the dashboard session | yes |
+| Design graph-based RAG chatbot for university content | 10-13 May | Vercel ping-pong debugging; NONONO dork; pasted build logs | yes |
+| Build ConvoClub IRL meetup landing page | 11-13 May | Densest GUI-in-language sequence (24 design nudges in 40 minutes) | yes |
+| Investigate MindStudio PowerShell installation | 15-16 May | Risk mode in Dutch: "Graag nog niet draaien, eerst onderzoeken, ook op risico's" | yes |
+| Clean up stale filter-branch backup refs | 13-17 May | Irreversible-operation confirmation language | yes |
+| Morning standup and planning (17 May) | 17 May | The Engelbart watch-notes session: thinking aloud, verbatim-note policing, "basically talking to myself" | yes |
+| Mindstudio Langfuse tracing setup | 23-24 May | "No conversational blalba"; teaching-material co-creation | no |
+| GovInnovatie GraphRAG Explorer | 27 May | 43k-character spec as opening turn | yes |
+| Backlog review (innovation-explorer, 31 May - 2 Jun) | 29 May - 2 Jun | Delegation mode: "keep going", "I'm off for shopping" | yes |
+| Backlog review (innovation-explorer, 2-4 Jun) | 2-4 Jun | Dutch frustration arc: "waarom is dit zo brak", "zucht"; plan-vs-product trust break | no |
+| Conversation design future with Claude Code | 29 May | Dutch deliverable session; the Sonnet and ChatGPT exit threats | no |
+| Conversation analysis for canvas applications | 5 Jun | Maaike running CA on these conversations herself; precursor to this piece | no |
+| Convoclub IRL website | 27 May - 9 Jun | Long-running content session; the "no em-dashes" correction in the wild | no |
+
+## 10. One-paragraph summary
+
+Over one month, Maaike built a private institutional register for working with Claude Code: English for building, Dutch for Dutch artifacts and for anger; bald imperatives without politeness cost; single-token verdict turns that reinvent the dialog box; quotation as pointing and adverbs as sliders; human rituals retained exactly where they carry structure (openings, pre-closings, repair) and dropped where they only carry face (thanks, apologies, relationship maintenance). Style change over time is a delegation gradient: from one-step-at-a-time supervision to day-long autonomy, with trust granted per demonstrated behavior and revoked locally on violation. The most distinctive finding is reflexive: when a conversational pattern proves repetitive, she uses conversation to build a disposable GUI for it, making the conversation not the interface but the interface factory.
+
+---
+
+<div class="linkedin">
+Write your LinkedIn post here...
+</div>

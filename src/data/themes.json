@@ -620,5 +620,11 @@
     "Cognitive limitations of users are a primary design constraint; interfaces must account for short-term memory limits and information processing capacity.",
     "Error prevention and recovery are design responsibilities, not user failures; interfaces should be forgiving and guide users toward correction rather than forcing rework.",
     "Universal design requires accommodating diverse users across skill levels, abilities, and contexts; enrichment comes from supporting both novice and expert interaction patterns."
+  ],
+  "how-maaike-talks-to-claude-code-a-linguistic-analysis": [
+    "Power users compress conversation into a verdict economy: single-token turns that reinvent the dialog box",
+    "Code-switching to a first language is a high-precision, sentiment-analysis-free signal of frustration",
+    "Trust with an AI agent is granted per demonstrated behavior and revoked locally on violation, not global and stateless",
+    "When a conversational pattern repeats, users commission a disposable GUI through conversation rather than scaling the conversation itself"
   ]
 }

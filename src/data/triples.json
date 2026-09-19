@@ -8550,6 +8550,130 @@
       "subject": [
         "interaction-design"
       ]
+    },
+    "verdict-turn-economy": {
+      "label": "Verdict-turn economy",
+      "type": "phenomenon",
+      "lens": [
+        "interaction",
+        "linguistics"
+      ],
+      "subject": [
+        "conversation-design",
+        "interaction-design"
+      ]
+    },
+    "reinvented-dialog-box": {
+      "label": "Reinvented dialog box",
+      "type": "metaphor",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "interaction-design"
+      ]
+    },
+    "code-switching-to-dutch": {
+      "label": "Code-switching to Dutch",
+      "type": "phenomenon",
+      "lens": [
+        "linguistics",
+        "personal"
+      ],
+      "subject": [
+        "language",
+        "linguistics"
+      ]
+    },
+    "l1-reversion-under-emotional-load": {
+      "label": "L1 reversion under emotional load",
+      "type": "phenomenon",
+      "lens": [
+        "linguistics",
+        "cognition"
+      ],
+      "subject": [
+        "language"
+      ]
+    },
+    "repair-ca": {
+      "label": "Repair",
+      "type": "concept",
+      "lens": [
+        "linguistics",
+        "interaction"
+      ],
+      "subject": [
+        "conversation",
+        "pragmatics"
+      ]
+    },
+    "primary-interaction-not-exception": {
+      "label": "Primary interaction, not the exception",
+      "type": "principle",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "conversation-design"
+      ]
+    },
+    "disposable-ui": {
+      "label": "Disposable UI",
+      "type": "concept",
+      "lens": [
+        "design",
+        "development"
+      ],
+      "subject": [
+        "interaction-design",
+        "tooling"
+      ]
+    },
+    "conversation-as-interface-factory": {
+      "label": "Conversation as interface factory",
+      "type": "metaphor",
+      "lens": [
+        "interaction",
+        "design"
+      ],
+      "subject": [
+        "conversation-design",
+        "interaction-design"
+      ]
+    },
+    "demonstrated-behavior-per-gate": {
+      "label": "Demonstrated behavior per gate",
+      "type": "principle",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "agent"
+      ]
+    },
+    "delegation-gradient": {
+      "label": "Delegation gradient",
+      "type": "phenomenon",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "agent",
+        "future-of-work"
+      ]
+    },
+    "day-long-autonomy": {
+      "label": "Day-long autonomy",
+      "type": "phenomenon",
+      "lens": [
+        "interaction"
+      ],
+      "subject": [
+        "agent",
+        "future-of-work"
+      ]
     }
   },
   "associations": [
@@ -16223,6 +16347,48 @@
       "object": "quality-assurance-for-ai-outputs",
       "source": "je-functietitel-in-klantcontact-vertelt-steeds-min",
       "collection": "weblinks"
+    },
+    {
+      "subject": "verdict-turn-economy",
+      "predicate": "characterised-as",
+      "object": "reinvented-dialog-box",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
+    },
+    {
+      "subject": "code-switching-to-dutch",
+      "predicate": "exhibits",
+      "object": "l1-reversion-under-emotional-load",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
+    },
+    {
+      "subject": "repair-ca",
+      "predicate": "characterised-as",
+      "object": "primary-interaction-not-exception",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
+    },
+    {
+      "subject": "disposable-ui",
+      "predicate": "generates",
+      "object": "conversation-as-interface-factory",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
+    },
+    {
+      "subject": "trust-in-ai",
+      "predicate": "requires",
+      "object": "demonstrated-behavior-per-gate",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
+    },
+    {
+      "subject": "delegation-gradient",
+      "predicate": "leads-to",
+      "object": "day-long-autonomy",
+      "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
+      "collection": "articles"
     }
   ]
 }
