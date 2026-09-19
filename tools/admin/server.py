@@ -12,16 +12,35 @@ import json
 import os
 import re
 import subprocess
+import sys
 import threading
+import time
+import urllib.parse
 from pathlib import Path
 
 import requests
 import yaml
 from flask import Flask, jsonify, request, send_file
 
+# Line-buffer stdout: the background sync-and-enrich thread's progress prints
+# were sitting in Python's default block-buffer and never appearing in the
+# console log until the process exited, making a stalled or crashed run
+# indistinguishable from a slow one.
+sys.stdout.reconfigure(line_buffering=True)
+
 # ── Paths ──────────────────────────────────────────────────────────────────────
 ADMIN_DIR      = Path(__file__).parent
 GARDEN_ROOT    = ADMIN_DIR.parent.parent
+
+# Load GITHUB_TOKEN / GITHUB_REPO / etc. from the repo-root .env — the server is
+# launched as a plain `python` process (no shell profile sourcing it), so without
+# this, GITHUB_TOKEN is never actually visible to os.environ and Sync Telegram
+# fails silently server-side (500 "GITHUB_TOKEN not set", easy to miss as a toast).
+try:
+    from dotenv import load_dotenv
+    load_dotenv(GARDEN_ROOT / ".env")
+except ImportError:
+    print("[admin] python-dotenv not installed; GITHUB_TOKEN must be set some other way")
 CONTENT_DIR    = GARDEN_ROOT / "src/content"
 WEBLINKS_DIR   = CONTENT_DIR / "weblinks"
 DASHBOARD_HTML = GARDEN_ROOT / "public/mockup-ingest-dashboard.html"
@@ -183,7 +202,28 @@ def _represent_flow_list(dumper, data):
 yaml.SafeDumper.add_representer(_FlowList, _represent_flow_list)
 
 
-def apply_edits(path: Path, tags, description, triples, title=None, themes=None, open_questions=None, body=None):
+def _require_str_list(field_name, value):
+    """Guard against a malformed AI tool-call response silently corrupting a file.
+
+    Seen in practice: a batch enrichment run returned `themes` as a single raw
+    string (leaked tool-call formatting like '<parameter name="themes">...')
+    instead of a JSON array. Nothing downstream checked the type, so
+    `list(a_string)` quietly exploded it into one YAML list item per
+    character across a dozen files before anyone noticed. Fail loudly instead.
+    """
+    if not isinstance(value, list) or not all(isinstance(v, str) for v in value):
+        raise ValueError(f"{field_name} must be a list of strings, got {type(value).__name__}: {value!r:.200}")
+
+
+def _require_triple_list(triples):
+    if not isinstance(triples, list) or not all(
+        isinstance(t, (list, tuple)) and len(t) == 3 and all(isinstance(x, str) for x in t)
+        for t in triples
+    ):
+        raise ValueError(f"triples must be a list of [subject, predicate, object] string triples, got: {triples!r:.200}")
+
+
+def apply_edits(path: Path, tags, description, triples, title=None, themes=None, open_questions=None, body=None, url=None):
     """Parse the frontmatter, update fields, write it back via pyyaml.
 
     Preserves existing fields (and their order, since dict iteration is ordered).
@@ -199,15 +239,21 @@ def apply_edits(path: Path, tags, description, triples, title=None, themes=None,
 
     if title is not None:
         fm["title"] = title
+    if url is not None:
+        fm["url"] = url
     if tags is not None:
+        _require_str_list("tags", tags)
         fm["tags"] = list(tags)
     if description is not None:
         fm["description"] = description
     if themes is not None:
+        _require_str_list("themes", themes)
         fm["themes"] = list(themes)
     if open_questions is not None:
+        _require_str_list("open_questions", open_questions)
         fm["open_questions"] = list(open_questions)
     if triples is not None:
+        _require_triple_list(triples)
         fm["triples"] = [_FlowList(list(t)) for t in triples]
     elif "triples" in fm and isinstance(fm["triples"], list):
         # Preserve flow-style for existing triples on rewrite
@@ -346,8 +392,8 @@ def api_approve():
     if not path.exists():
         return jsonify({"error": f"not found: {slug}"}), 404
     try:
-        # Optional edits: tags, description, body, triples, themes
-        if any(k in data for k in ("tags", "description", "triples", "body", "themes")):
+        # Optional edits: tags, description, body, triples, themes, url
+        if any(k in data for k in ("tags", "description", "triples", "body", "themes", "url")):
             apply_edits(
                 path,
                 data.get("tags"),
@@ -356,6 +402,7 @@ def api_approve():
                 title=data.get("title"),
                 themes=data.get("themes") or None,
                 body=data.get("body"),
+                url=data.get("url"),
             )
             if "triples" in data:
                 sync_triples_json(slug, "weblinks", data["triples"])
@@ -559,13 +606,13 @@ def api_telegram_sync_status():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/sync-telegram", methods=["POST"])
-def api_sync_telegram():
-    """Trigger the telegram-sync workflow."""
+def _dispatch_telegram_sync():
+    """Trigger the telegram-sync GitHub Actions workflow. Returns a dict with
+    either {"ok": True} or {"error": "..."} — never raises."""
     token = os.environ.get("GITHUB_TOKEN", "")
     repo = os.environ.get("GITHUB_REPO", "convocat/maaike.ai")
     if not token:
-        return jsonify({"error": "GITHUB_TOKEN not set"}), 500
+        return {"error": "GITHUB_TOKEN not set"}
     try:
         r = requests.post(
             f"https://api.github.com/repos/{repo}/actions/workflows/telegram-sync.yml/dispatches",
@@ -574,10 +621,75 @@ def api_sync_telegram():
             timeout=10,
         )
         if r.status_code == 204:
-            return jsonify({"ok": True, "message": "Telegram sync triggered"})
-        return jsonify({"error": f"GitHub API returned {r.status_code}: {r.text}"}), 500
+            return {"ok": True}
+        return {"error": f"GitHub API returned {r.status_code}: {r.text}"}
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return {"error": str(e)}
+
+
+@app.route("/api/sync-telegram", methods=["POST"])
+def api_sync_telegram():
+    """Trigger the telegram-sync workflow (button-triggered; polling + enrich
+    loop happens client-side in the dashboard JS)."""
+    result = _dispatch_telegram_sync()
+    if result.get("error"):
+        return jsonify(result), 500
+    return jsonify({"ok": True, "message": "Telegram sync triggered"})
+
+
+def _run_telegram_sync_and_enrich(source="manual"):
+    """Dispatch telegram-sync, wait for it to finish, pull, then auto-enrich
+    every draft that isn't enriched yet. Blocking — call from a background
+    thread for startup use, or synchronously for a request that should wait.
+
+    This is the server-side twin of the dashboard's "Sync Telegram" button
+    (which does the same steps client-side via polling). Having it here lets
+    it run automatically when the server starts, not just on a button click.
+    """
+    print(f"[sync] starting ({source})")
+    dispatch = _dispatch_telegram_sync()
+    if dispatch.get("error"):
+        print(f"[sync] dispatch failed: {dispatch['error']}")
+        return dispatch
+
+    token = os.environ.get("GITHUB_TOKEN", "")
+    repo = os.environ.get("GITHUB_REPO", "convocat/maaike.ai")
+    conclusion = None
+    for _ in range(90):  # poll for up to ~6 minutes, matching the dashboard's own timeout
+        time.sleep(4)
+        try:
+            r = requests.get(
+                f"https://api.github.com/repos/{repo}/actions/workflows/telegram-sync.yml/runs",
+                headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"},
+                params={"per_page": 1},
+                timeout=10,
+            )
+            runs = r.json().get("workflow_runs", [])
+            if runs and runs[0]["status"] == "completed":
+                conclusion = runs[0].get("conclusion")
+                break
+        except Exception as e:
+            print(f"[sync] poll error: {e}")
+
+    if conclusion != "success":
+        print(f"[sync] workflow did not finish successfully (conclusion={conclusion})")
+        return {"error": f"workflow conclusion: {conclusion}"}
+
+    try:
+        git_pull()
+    except Exception as e:
+        print(f"[sync] git pull failed: {e}")
+        return {"error": f"git pull failed: {e}"}
+
+    items = [weblink_to_item(fm) for fm in list_drafts()]
+    unenriched = [it for it in items if not it["processed"] and not it["enriched"]]
+    print(f"[sync] {len(unenriched)} draft(s) to enrich")
+    for it in unenriched:
+        err = _enrich_and_save_slug(it["slug"])
+        if err:
+            print(f"[sync] enrich failed for {it['slug']}: {err}")
+    print(f"[sync] done ({source}), {len(unenriched)} draft(s) enriched")
+    return {"ok": True, "enriched": len(unenriched)}
 
 
 @app.route("/api/content-review")
@@ -723,6 +835,7 @@ def _update_themes_json(slug, themes):
     """Set themes for a post slug in themes.json."""
     data = json.loads(THEMES_PATH.read_text(encoding="utf-8")) if THEMES_PATH.exists() else {}
     if themes:
+        _require_str_list("themes", themes)
         data[slug] = themes
     THEMES_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -956,18 +1069,67 @@ WEBLINK_EXTRACTION_TOOL = {
 }
 
 
-def _fetch_page_text(url: str, max_chars: int = 6000) -> str:
-    """Fetch a URL and return stripped plain text."""
-    import html as html_lib
+def _resolve_linkedin_redirect(url: str) -> str:
+    """LinkedIn share links (lnkd.in shortlinks, linkedin.com/redir/redirect interstitials)
+    don't HTTP-redirect to the real target — they serve a small React shell (200 OK,
+    title "LinkedIn", meta description "This link will take you to a page that's not on
+    LinkedIn") whose only real-world outbound link is an <a href> to the actual
+    destination. Follow it (and one more hop, since that destination is sometimes itself
+    a tracking shortlink) so enrichment describes the actual source."""
+    host = urllib.parse.urlsplit(url).netloc.lower()
+    if not (host == "lnkd.in" or host.endswith(".lnkd.in") or "linkedin.com" in host):
+        return url
     headers = {"User-Agent": "Mozilla/5.0 (compatible; GardenBot/1.0)"}
-    r = requests.get(url, timeout=15, headers=headers, allow_redirects=True)
+    try:
+        r = requests.get(url, timeout=10, headers=headers, allow_redirects=True)
+        final_host = urllib.parse.urlsplit(r.url).netloc.lower()
+        if "linkedin.com" not in final_host and final_host != host:
+            return r.url  # a plain HTTP redirect already took us off LinkedIn
+
+        def _off_linkedin(href: str) -> bool:
+            h = urllib.parse.urlsplit(href).netloc.lower()
+            return bool(h) and "linkedin.com" not in h and "licdn.com" not in h
+
+        for href in re.findall(r'href="(https?://[^"]+)"', r.text):
+            if _off_linkedin(href):
+                try:
+                    r2 = requests.get(href, timeout=10, headers=headers, allow_redirects=True)
+                    return r2.url
+                except Exception:
+                    return href
+        return url
+    except Exception:
+        return url
+
+
+# Generic platform titles left over from a stub that only ever captured the
+# LinkedIn/social interstitial's own <title> — same list the pre-commit
+# validator (scripts/validate-content.mjs) rejects weblinks for. Keep in sync.
+GENERIC_TITLES = {"linkedin", "youtube", "- youtube", "twitter", "instagram", "facebook", "x"}
+
+
+def _fetch_page_text(url: str, max_chars: int = 6000) -> tuple[str, str, str]:
+    """Fetch a URL and return (stripped plain text, resolved url, page title).
+
+    Resolved url differs from the input only when the input was a LinkedIn
+    redirect/shortlink that pointed somewhere else. page_title is the resolved
+    page's own <title>, empty string if none found — used to replace a stub
+    title like "LinkedIn" that was scraped off the wrapper page, not the
+    actual source (the validator rejects those generic titles on approve).
+    """
+    import html as html_lib
+    resolved_url = _resolve_linkedin_redirect(url)
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; GardenBot/1.0)"}
+    r = requests.get(resolved_url, timeout=15, headers=headers, allow_redirects=True)
     r.raise_for_status()
-    content = r.text
-    content = re.sub(r"<(script|style)[^>]*>.*?</(script|style)>", " ", content, flags=re.DOTALL | re.IGNORECASE)
+    raw = r.text
+    title_match = re.search(r"<title[^>]*>(.*?)</title>", raw, re.DOTALL | re.IGNORECASE)
+    page_title = html_lib.unescape(re.sub(r"\s+", " ", title_match.group(1))).strip() if title_match else ""
+    content = re.sub(r"<(script|style)[^>]*>.*?</(script|style)>", " ", raw, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r"<[^>]+>", " ", content)
     content = html_lib.unescape(content)
     content = re.sub(r"\s+", " ", content).strip()
-    return content[:max_chars]
+    return content[:max_chars], resolved_url, page_title
 
 
 def _load_topics_for_prompt() -> str:
@@ -1061,12 +1223,12 @@ def api_enrich_weblink():
         return jsonify({"error": "no URL in weblink frontmatter"}), 400
 
     try:
-        page_text = _fetch_page_text(url)
+        page_text, resolved_url, page_title = _fetch_page_text(url)
     except Exception as e:
         return jsonify({"error": f"fetch failed: {e}"}), 500
 
     prompt = _build_weblink_prompt(
-        title, url, page_text,
+        title, resolved_url, page_text,
         _load_topics_for_prompt(),
         _load_tags_for_prompt(),
     )
@@ -1085,45 +1247,48 @@ def api_enrich_weblink():
 
     for block in response.content:
         if block.type == "tool_use" and block.name == "save_weblink_enrichment":
-            return jsonify({"ok": True, "slug": slug, "proposal": block.input})
+            result = {"ok": True, "slug": slug, "proposal": block.input}
+            if resolved_url != url:
+                result["resolved_url"] = resolved_url
+            if title.strip().lower() in GENERIC_TITLES and page_title:
+                result["resolved_title"] = page_title
+            return jsonify(result)
 
     return jsonify({"error": "no tool_use block in API response"}), 500
 
 
-@app.route("/api/enrich-and-save", methods=["POST"])
-def api_enrich_and_save():
-    """Enrich a draft weblink and write result directly to frontmatter.
-    User-triggered only (called by syncTelegram after pull). Does not publish."""
+def _enrich_and_save_slug(slug: str):
+    """Enrich one draft weblink and write the result directly to its frontmatter.
+    User-triggered only (button click, or the sync-and-enrich flow that a button
+    click or server startup kicks off) — never called from CI. Does not publish.
+
+    Returns None on success, or an error string on failure. Never raises.
+    """
     try:
         import anthropic
     except ImportError:
-        return jsonify({"error": "anthropic package not installed"}), 500
-
-    data = request.json or {}
-    slug = data.get("slug", "").strip()
-    if not slug:
-        return jsonify({"error": "slug required"}), 400
+        return "anthropic package not installed"
 
     path = WEBLINKS_DIR / f"{slug}.md"
     if not path.exists():
-        return jsonify({"error": f"not found: {slug}"}), 404
+        return f"not found: {slug}"
 
     fm = parse_weblink(path)
     if not fm:
-        return jsonify({"error": "could not parse frontmatter"}), 500
+        return "could not parse frontmatter"
 
     url = fm.get("url", "")
     title = fm.get("title", slug)
     if not url:
-        return jsonify({"error": "no URL in weblink frontmatter"}), 400
+        return "no URL in weblink frontmatter"
 
     try:
-        page_text = _fetch_page_text(url)
+        page_text, resolved_url, page_title = _fetch_page_text(url)
     except Exception as e:
-        return jsonify({"error": f"fetch failed: {e}"}), 500
+        return f"fetch failed: {e}"
 
     prompt = _build_weblink_prompt(
-        title, url, page_text,
+        title, resolved_url, page_text,
         _load_topics_for_prompt(),
         _load_tags_for_prompt(),
     )
@@ -1138,26 +1303,60 @@ def api_enrich_and_save():
             messages=[{"role": "user", "content": prompt}],
         )
     except Exception as e:
-        return jsonify({"error": f"API call failed: {e}"}), 500
+        return f"API call failed: {e}"
 
     for block in response.content:
         if block.type == "tool_use" and block.name == "save_weblink_enrichment":
-            p = block.input
-            tags = p.get("tags") or []
-            description = p.get("description") or None
-            themes = p.get("themes") or None
-            assocs = p.get("associations") or []
-            triples = [[a["subject"], a["predicate"], a["object"]] for a in assocs]
-            apply_edits(path, tags or None, description, triples or None, themes=themes or None)
-            if triples:
-                sync_triples_json(slug, "weblinks", triples)
-            if themes:
-                _update_themes_json(slug, themes)
-            return jsonify({"ok": True, "slug": slug})
+            # A malformed tool-call response (seen in practice: `themes` coming back
+            # as a raw string of leaked tool-call formatting instead of a JSON array)
+            # must not corrupt this file or the shared JSON stores. Validate everything
+            # before writing anything, and never let an exception here escape to the
+            # caller — a batch run must treat this as "this one item failed", not crash.
+            try:
+                p = block.input
+                tags = p.get("tags") or []
+                description = p.get("description") or None
+                themes = p.get("themes") or None
+                assocs = p.get("associations") or []
+                if not isinstance(assocs, list):
+                    return f"malformed API response: associations was {type(assocs).__name__}, not a list"
+                triples = [[a["subject"], a["predicate"], a["object"]] for a in assocs]
+                new_title = page_title if (title.strip().lower() in GENERIC_TITLES and page_title) else None
+                apply_edits(
+                    path, tags or None, description, triples or None, themes=themes or None,
+                    url=resolved_url if resolved_url != url else None,
+                    title=new_title,
+                )
+                if triples:
+                    sync_triples_json(slug, "weblinks", triples)
+                if themes:
+                    _update_themes_json(slug, themes)
+                return None
+            except Exception as e:
+                return f"malformed API response, nothing written: {e}"
 
-    return jsonify({"error": "no tool_use block in API response"}), 500
+    return "no tool_use block in API response"
+
+
+@app.route("/api/enrich-and-save", methods=["POST"])
+def api_enrich_and_save():
+    """Enrich a draft weblink and write result directly to frontmatter.
+    User-triggered only (called by syncTelegram after pull). Does not publish."""
+    data = request.json or {}
+    slug = data.get("slug", "").strip()
+    if not slug:
+        return jsonify({"error": "slug required"}), 400
+    err = _enrich_and_save_slug(slug)
+    if err:
+        return jsonify({"error": err}), 500
+    return jsonify({"ok": True, "slug": slug})
 
 
 if __name__ == "__main__":
     print(f"Garden admin dashboard: http://localhost:{PORT}")
+    # Auto-trigger a Telegram sync + enrich pass every time the dashboard starts,
+    # so drafts are enriched before you ever open the queue instead of waiting on
+    # a button click or the nightly task. Runs in a background thread so it
+    # doesn't delay the server coming up; progress prints to this console.
+    threading.Thread(target=_run_telegram_sync_and_enrich, args=("startup",), daemon=True).start()
     app.run(port=PORT, debug=False)

@@ -21,9 +21,28 @@ If any exist, show the list (title + URL) and ask (AskUserQuestion):
 If a draft weblink is selected, read its frontmatter to get the `url` field.
 Remember the file path for Step 9.
 
-## Step 2: Fetch and read the page
+## Step 2: Resolve LinkedIn redirects, then fetch and read the page
 
-Use WebFetch to retrieve the page content at the URL. Extract:
+**LinkedIn redirect check first.** If the URL's host is `lnkd.in` or contains `linkedin.com`,
+it does not point at real content: it's a link-shortener or outbound-link warning page.
+WebFetching it directly returns a thin page titled "LinkedIn" with the description "This
+link will take you to a page that's not on LinkedIn" — that page has no destination in its
+own URL (no query param to decode), but its HTML has exactly one `<a href>` pointing off
+`linkedin.com`/`licdn.com`, which is the actual destination link. Resolve it before fetching:
+
+1. WebFetch the original URL.
+2. If the result is that "leaving LinkedIn" interstitial, find the `href` in its HTML that
+   does not point to `linkedin.com` or `licdn.com` (LinkedIn's own asset CDN) — that's the
+   real destination.
+3. That destination is sometimes itself a tracking shortlink (e.g. `braintrustdata.link/...`)
+   that redirects again. WebFetch it; if it 30x-redirects further, follow to the final URL.
+4. Treat that final URL as the actual source for everything below: fetch it, describe it,
+   and use it as the weblink's `url` field in Step 10 (not the `lnkd.in`/LinkedIn wrapper).
+5. If no off-LinkedIn `href` can be found in the interstitial, fall back to treating the
+   LinkedIn page as the source, but flag this explicitly when presenting results
+   ("could not resolve to the real target").
+
+**Then fetch and read the (resolved) page.** Use WebFetch. Extract:
 - Page title
 - Main body text (the article/post content)
 - Author name (if available)
@@ -242,6 +261,10 @@ Default: publish a weblink file so the source appears in the stream with full kn
 **Slug:** same convention as Step 7 but without the 60-char truncation cap (weblink filenames can be longer). Slugify the page title: lowercase, non-alphanumeric to hyphens, collapse/trim hyphens.
 
 **Tags:** use the extracted topics as tags. Skip person-type topics (they are in triples.json but not useful as tag filters). Check `src/content/tags/` for each tag and create a stub tag file (`---\ntitle: <tag>\n---`) for any that don't exist yet.
+
+**On `url`:** use the resolved destination URL from Step 2, never a `lnkd.in`/LinkedIn
+redirect wrapper. If a draft weblink already has a wrapper URL, overwrite it with the
+resolved one.
 
 **Frontmatter template:**
 

@@ -1322,7 +1322,7 @@ async function approveItem() {
 
   const endpoint = '/api/approve';
   const themes = item.themes && item.themes.length ? item.themes : undefined;
-  const body = {slug: item.slug, title, tags, description, body: notesBody, triples, themes};
+  const body = {slug: item.slug, title, tags, description, body: notesBody, triples, themes, url: item.url};
 
   setBusy(true);
   try {
@@ -1512,8 +1512,10 @@ async function enrichSelected() {
       }));
       item.enriched = true;
     }
+    if (data.resolved_url) item.url = data.resolved_url;
+    if (data.resolved_title) item.title = data.resolved_title;
     renderReviewPanel(item);
-    toast('Enriched: review and approve');
+    toast(data.resolved_url ? 'Enriched: resolved LinkedIn link, review and approve' : 'Enriched: review and approve');
   } catch (e) {
     toast('Enrichment failed: ' + e.message, true);
   }
