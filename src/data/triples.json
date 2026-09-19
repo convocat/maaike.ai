@@ -15266,48 +15266,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "self-improving-agents",
-      "predicate": "structured-as",
-      "object": "agent-scaffolding",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "metacognition",
-      "predicate": "demonstrates",
-      "object": "llm-reliability",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "llm-routers",
-      "predicate": "requires",
-      "object": "behavioral-differentiation",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "harness-evolution",
-      "predicate": "contrasted-with",
-      "object": "parallel-sampling-baselines",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "confidence-calibration",
-      "predicate": "instance-of",
-      "object": "metacognition",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "mixture-of-agents-systems",
-      "predicate": "risks",
-      "object": "vanishing-routing-effectiveness-under-perturbation",
-      "source": "top-ai-papers-of-the-week",
-      "collection": "weblinks"
-    },
-    {
       "subject": "reasoning-effort",
       "predicate": "exhibits",
       "object": "llms",
@@ -16222,6 +16180,48 @@
       "predicate": "structured-as",
       "object": "single-source-of-truth",
       "source": "storybook-frontend-workshop-for-ui-development",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "self-improving-agents",
+      "predicate": "structured-as",
+      "object": "agent-scaffolding",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "metacognition",
+      "predicate": "demonstrates",
+      "object": "llm-reliability",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llm-routers",
+      "predicate": "requires",
+      "object": "behavioral-differentiation",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "harness-evolution",
+      "predicate": "contrasted-with",
+      "object": "parallel-sampling-baselines",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "confidence-calibration",
+      "predicate": "instance-of",
+      "object": "metacognition",
+      "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mixture-of-agents-systems",
+      "predicate": "risks",
+      "object": "vanishing-routing-effectiveness-under-perturbation",
+      "source": "top-ai-papers-of-the-week",
       "collection": "weblinks"
     }
   ]
