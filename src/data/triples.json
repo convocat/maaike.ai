@@ -15819,41 +15819,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "cognitive-laziness",
-      "predicate": "characterised-as",
-      "object": "fundamental-aspect-of-human-brain-function",
-      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "interface-design",
-      "predicate": "requires",
-      "object": "cognitive-laziness",
-      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "effective-system-design",
-      "predicate": "presupposes",
-      "object": "realistic-model-of-human-cognitive-behavior",
-      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "real-genius",
-      "predicate": "demonstrates",
-      "object": "cognitive-laziness",
-      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "user-experience",
-      "predicate": "better-fits",
-      "object": "designs-accounting-for-cognitive-limitations-rather-than-fig",
-      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
-      "collection": "weblinks"
-    },
-    {
       "subject": "jev",
       "predicate": "characterised-as",
       "object": "typed-decision-maker-over-unstructured-data",
@@ -16222,6 +16187,41 @@
       "predicate": "presupposes",
       "object": "human-engagement-with-challenging-tasks",
       "source": "this-is-what-an-ai-policy-should-look-like-t-he-cu",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cognitive-laziness",
+      "predicate": "characterised-as",
+      "object": "fundamental-aspect-of-human-brain-function",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interface-design",
+      "predicate": "requires",
+      "object": "cognitive-laziness",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "effective-system-design",
+      "predicate": "presupposes",
+      "object": "realistic-model-of-human-cognitive-behavior",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "real-genius",
+      "predicate": "demonstrates",
+      "object": "cognitive-laziness",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "user-experience",
+      "predicate": "better-fits",
+      "object": "designs-accounting-for-cognitive-limitations-rather-than-fig",
+      "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
       "collection": "weblinks"
     }
   ]
