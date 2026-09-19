@@ -15798,48 +15798,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "cultural-data-funnel",
-      "predicate": "demonstrates",
-      "object": "cultural-diversity-in-training-data",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "post-training-data-curation",
-      "predicate": "causes",
-      "object": "cultural-diversity-in-training-data",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "multicultural-ai",
-      "predicate": "requires",
-      "object": "cultural-diversity-in-training-data",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "inference-time-interventions",
-      "predicate": "presupposes",
-      "object": "cultural-diversity-in-training-data",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "multilinguality",
-      "predicate": "lacks",
-      "object": "cultural-representation",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "llms",
-      "predicate": "exhibits",
-      "object": "cultural-data-funnel",
-      "source": "cultural-awareness-in-global-ai-cohere",
-      "collection": "weblinks"
-    },
-    {
       "subject": "listening-as-artistic-practice",
       "predicate": "characterised-as",
       "object": "soft-and-radical-form-of-boundless-resistance",
@@ -16222,6 +16180,48 @@
       "predicate": "contrasted-with",
       "object": "llm-hallucinations",
       "source": "an-organizational-second-brain-building-an-ai-that",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cultural-data-funnel",
+      "predicate": "demonstrates",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "post-training-data-curation",
+      "predicate": "causes",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multicultural-ai",
+      "predicate": "requires",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "inference-time-interventions",
+      "predicate": "presupposes",
+      "object": "cultural-diversity-in-training-data",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "multilinguality",
+      "predicate": "lacks",
+      "object": "cultural-representation",
+      "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "exhibits",
+      "object": "cultural-data-funnel",
+      "source": "cultural-awareness-in-global-ai-cohere",
       "collection": "weblinks"
     }
   ]
