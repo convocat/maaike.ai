@@ -15133,48 +15133,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "ai-generated-text-detection",
-      "predicate": "caused-by",
-      "object": "anthropomorphism",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-generated-text-detection",
-      "predicate": "breaks-down-for",
-      "object": "humans-reading-narratives",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "llms",
-      "predicate": "generates",
-      "object": "narrative-authenticity-challenges",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "story-comprehension",
-      "predicate": "demonstrates",
-      "object": "cognitive-bias-toward-plausible-text",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "narrative-authenticity",
-      "predicate": "lacks",
-      "object": "reliable-human-evaluation-criteria",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ai-generated-text-detection",
-      "predicate": "contrasted-with",
-      "object": "technical-ai-capabilities",
-      "source": "bot-or-not-can-people-tell-the-difference-between-",
-      "collection": "weblinks"
-    },
-    {
       "subject": "chatgpt",
       "predicate": "risks",
       "object": "pedagogical-authenticity",
@@ -16222,6 +16180,48 @@
       "predicate": "generates",
       "object": "listening-proposals-as-container-for-possibilities-and-persp",
       "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "caused-by",
+      "object": "anthropomorphism",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "breaks-down-for",
+      "object": "humans-reading-narratives",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "llms",
+      "predicate": "generates",
+      "object": "narrative-authenticity-challenges",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "story-comprehension",
+      "predicate": "demonstrates",
+      "object": "cognitive-bias-toward-plausible-text",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "narrative-authenticity",
+      "predicate": "lacks",
+      "object": "reliable-human-evaluation-criteria",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ai-generated-text-detection",
+      "predicate": "contrasted-with",
+      "object": "technical-ai-capabilities",
+      "source": "bot-or-not-can-people-tell-the-difference-between-",
       "collection": "weblinks"
     }
   ]
