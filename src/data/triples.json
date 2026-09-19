@@ -15336,48 +15336,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "skill-md",
-      "predicate": "requires",
-      "object": "context-engineering",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "agentic-ai",
-      "predicate": "demonstrates",
-      "object": "context-design",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "agentic-ai",
-      "predicate": "lacks",
-      "object": "product-specific-judgment-without-human-refinement",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "auto-generated-skill-md",
-      "predicate": "breaks-down-for",
-      "object": "workflows-not-documented-in-public-documentation",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "human-reviewed-skill-md",
-      "predicate": "characterised-as",
-      "object": "effective-for-agentic-ai-tool-use",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "hybrid-human-ai-workflow",
-      "predicate": "better-fits",
-      "object": "skill-md-creation-than-purely-automated-or-manual-approaches",
-      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
-      "collection": "weblinks"
-    },
-    {
       "subject": "information-autonomy",
       "predicate": "demonstrates",
       "object": "organizational-transformation",
@@ -16222,6 +16180,48 @@
       "predicate": "demonstrates",
       "object": "conversation-analysis",
       "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "skill-md",
+      "predicate": "requires",
+      "object": "context-engineering",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "demonstrates",
+      "object": "context-design",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "agentic-ai",
+      "predicate": "lacks",
+      "object": "product-specific-judgment-without-human-refinement",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "auto-generated-skill-md",
+      "predicate": "breaks-down-for",
+      "object": "workflows-not-documented-in-public-documentation",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "human-reviewed-skill-md",
+      "predicate": "characterised-as",
+      "object": "effective-for-agentic-ai-tool-use",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "hybrid-human-ai-workflow",
+      "predicate": "better-fits",
+      "object": "skill-md-creation-than-purely-automated-or-manual-approaches",
+      "source": "the-best-way-to-build-a-skill-md-start-with-ai-fin",
       "collection": "weblinks"
     }
   ]
