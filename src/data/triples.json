@@ -14902,48 +14902,6 @@
       "collection": "articles"
     },
     {
-      "subject": "generative-ui",
-      "predicate": "contrasted-with",
-      "object": "chat-interface",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "generative-ui",
-      "predicate": "structured-as",
-      "object": "interactive-components",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "copilotkit",
-      "predicate": "instance-of",
-      "object": "generative-ui",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "a2ui-framework",
-      "predicate": "instance-of",
-      "object": "generative-ui",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "model-context-protocol",
-      "predicate": "generates",
-      "object": "generative-ui",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "atai-barkai",
-      "predicate": "attributed-to",
-      "object": "copilotkit",
-      "source": "build-interactive-agents-with-generative-ui",
-      "collection": "weblinks"
-    },
-    {
       "subject": "ace-agent-collaboration-environment",
       "predicate": "attributed-to",
       "object": "maggie-appleton",
@@ -16222,6 +16180,48 @@
       "predicate": "exhibits",
       "object": "cultural-data-funnel",
       "source": "cultural-awareness-in-global-ai-cohere",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "generative-ui",
+      "predicate": "contrasted-with",
+      "object": "chat-interface",
+      "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "generative-ui",
+      "predicate": "structured-as",
+      "object": "interactive-components",
+      "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "copilotkit",
+      "predicate": "instance-of",
+      "object": "generative-ui",
+      "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "a2ui-framework",
+      "predicate": "instance-of",
+      "object": "generative-ui",
+      "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "model-context-protocol-mcp",
+      "predicate": "generates",
+      "object": "generative-ui",
+      "source": "build-interactive-agents-with-generative-ui",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "atai-barkai",
+      "predicate": "attributed-to",
+      "object": "copilotkit",
+      "source": "build-interactive-agents-with-generative-ui",
       "collection": "weblinks"
     }
   ]
