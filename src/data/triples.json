@@ -15602,34 +15602,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "taguette",
-      "predicate": "instance-of",
-      "object": "qualitative-data-analysis-tool",
-      "source": "welcome-taguette",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "document-annotation",
-      "predicate": "structured-as",
-      "object": "hierarchical-tagging-systems",
-      "source": "welcome-taguette",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "tagging-systems",
-      "predicate": "leads-to",
-      "object": "information-organization",
-      "source": "welcome-taguette",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "taguette",
-      "predicate": "characterised-as",
-      "object": "open-source",
-      "source": "welcome-taguette",
-      "collection": "weblinks"
-    },
-    {
       "subject": "listening-as-artistic-practice",
       "predicate": "characterised-as",
       "object": "soft-and-radical-form-of-boundless-resistance",
@@ -16222,6 +16194,34 @@
       "predicate": "better-fits",
       "object": "designs-accounting-for-cognitive-limitations-rather-than-fig",
       "source": "i-39-m-going-to-take-a-slightly-different-tack-her",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "taguette",
+      "predicate": "instance-of",
+      "object": "qualitative-data-analysis-tool",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "document-annotation",
+      "predicate": "structured-as",
+      "object": "hierarchical-tagging-systems",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "tagging-systems",
+      "predicate": "leads-to",
+      "object": "information-organization",
+      "source": "welcome-taguette",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "taguette",
+      "predicate": "characterised-as",
+      "object": "open-source",
+      "source": "welcome-taguette",
       "collection": "weblinks"
     }
   ]
