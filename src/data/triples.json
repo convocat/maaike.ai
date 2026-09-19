@@ -15539,48 +15539,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "chatgpt",
-      "predicate": "lacks",
-      "object": "affordance",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "chat-interface",
-      "predicate": "exhibits",
-      "object": "cognitive-load",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "prompt-engineering",
-      "predicate": "inaccessible-via",
-      "object": "affordance",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "direct-manipulation",
-      "predicate": "better-fits",
-      "object": "chat-interface",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "system-prompt",
-      "predicate": "instance-of",
-      "object": "prompt-engineering",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "chat-interface",
-      "predicate": "counters",
-      "object": "iterative-refinement",
-      "source": "why-chatbots-are-not-the-future-of-interfaces",
-      "collection": "weblinks"
-    },
-    {
       "subject": "career-design",
       "predicate": "instance-of",
       "object": "design-discipline",
@@ -16222,6 +16180,48 @@
       "predicate": "lacks",
       "object": "chat-only-ai-implementations",
       "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chatgpt",
+      "predicate": "lacks",
+      "object": "affordance",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "exhibits",
+      "object": "cognitive-load",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prompt-engineering",
+      "predicate": "inaccessible-via",
+      "object": "affordance",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "direct-manipulation",
+      "predicate": "better-fits",
+      "object": "chat-interface",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "system-prompt",
+      "predicate": "instance-of",
+      "object": "prompt-engineering",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "counters",
+      "object": "iterative-refinement",
+      "source": "why-chatbots-are-not-the-future-of-interfaces",
       "collection": "weblinks"
     }
   ]
