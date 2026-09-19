@@ -15539,48 +15539,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "chat-interface",
-      "predicate": "lacks",
-      "object": "affordances-for-discoverability",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "conversational-interface",
-      "predicate": "violates",
-      "object": "direct-manipulation-principle",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "chat-box-design",
-      "predicate": "maximizes",
-      "object": "gulf-of-execution-and-gulf-of-evaluation",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "prose-serialization",
-      "predicate": "caused-by",
-      "object": "compression-requirement-in-chat-interfaces",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "direct-manipulation",
-      "predicate": "contrasted-with",
-      "object": "conversational-interface",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "information-surface",
-      "predicate": "lacks",
-      "object": "chat-only-ai-implementations",
-      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
-      "collection": "weblinks"
-    },
-    {
       "subject": "chatgpt",
       "predicate": "lacks",
       "object": "affordance",
@@ -16222,6 +16180,48 @@
       "predicate": "leads-to",
       "object": "user-sense-of-accomplishment-and-control",
       "source": "shneiderman-eight-golden-rules",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-interface",
+      "predicate": "lacks",
+      "object": "affordances-for-discoverability",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-interface",
+      "predicate": "violates",
+      "object": "direct-manipulation-principle",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "chat-box-design",
+      "predicate": "maximizes",
+      "object": "gulf-of-execution-and-gulf-of-evaluation",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "prose-serialization",
+      "predicate": "caused-by",
+      "object": "compression-requirement-in-chat-interfaces",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "direct-manipulation",
+      "predicate": "contrasted-with",
+      "object": "conversational-interface",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "information-surface",
+      "predicate": "lacks",
+      "object": "chat-only-ai-implementations",
+      "source": "the-chat-box-isnt-a-ui-paradigm-its-what-shipped",
       "collection": "weblinks"
     }
   ]
