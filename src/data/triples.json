@@ -15441,41 +15441,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "listening-as-artistic-practice",
-      "predicate": "characterised-as",
-      "object": "soft-and-radical-form-of-boundless-resistance",
-      "source": "manifest-3-bureau-for-listening",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "listening-proposals",
-      "predicate": "defined-as",
-      "object": "generative-invitations-to-attune-to-sound-silence-and-resona",
-      "source": "manifest-3-bureau-for-listening",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "attunement",
-      "predicate": "presupposes",
-      "object": "receptive-praxis-of-the-unwanted",
-      "source": "manifest-3-bureau-for-listening",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "ecological-listening",
-      "predicate": "demonstrates",
-      "object": "listening-as-applied-and-site-specific-engagement",
-      "source": "manifest-3-bureau-for-listening",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "bureau-for-listening",
-      "predicate": "generates",
-      "object": "listening-proposals-as-container-for-possibilities-and-persp",
-      "source": "manifest-3-bureau-for-listening",
-      "collection": "weblinks"
-    },
-    {
       "subject": "artificial-companions",
       "predicate": "lacks",
       "object": "consciousness",
@@ -16222,6 +16187,41 @@
       "predicate": "risks",
       "object": "vanishing-routing-effectiveness-under-perturbation",
       "source": "top-ai-papers-of-the-week",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "listening-as-artistic-practice",
+      "predicate": "characterised-as",
+      "object": "soft-and-radical-form-of-boundless-resistance",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "listening-proposals",
+      "predicate": "defined-as",
+      "object": "generative-invitations-to-attune-to-sound-silence-and-resona",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "attunement",
+      "predicate": "presupposes",
+      "object": "receptive-praxis-of-the-unwanted",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "ecological-listening",
+      "predicate": "demonstrates",
+      "object": "listening-as-applied-and-site-specific-engagement",
+      "source": "manifest-3-bureau-for-listening",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "bureau-for-listening",
+      "predicate": "generates",
+      "object": "listening-proposals-as-container-for-possibilities-and-persp",
+      "source": "manifest-3-bureau-for-listening",
       "collection": "weblinks"
     }
   ]
