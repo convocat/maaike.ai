@@ -15399,41 +15399,6 @@
       "collection": "weblinks"
     },
     {
-      "subject": "conversational-user-interfaces",
-      "predicate": "requires",
-      "object": "conversation-analysis",
-      "source": "improving-conversational-ai-models-interactional-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "interactional-design",
-      "predicate": "structured-as",
-      "object": "cadence-design-method",
-      "source": "improving-conversational-ai-models-interactional-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "natural-conversational-experience",
-      "predicate": "caused-by",
-      "object": "social-interaction",
-      "source": "improving-conversational-ai-models-interactional-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "conversational-user-interfaces",
-      "predicate": "inaccessible-via",
-      "object": "interactive-design-alone",
-      "source": "improving-conversational-ai-models-interactional-a",
-      "collection": "weblinks"
-    },
-    {
-      "subject": "cadence-design-method",
-      "predicate": "demonstrates",
-      "object": "conversation-analysis",
-      "source": "improving-conversational-ai-models-interactional-a",
-      "collection": "weblinks"
-    },
-    {
       "subject": "instagram",
       "predicate": "instance-of",
       "object": "communication-medium",
@@ -16222,6 +16187,41 @@
       "predicate": "violates",
       "object": "the-connection-between-writing-and-thinking",
       "source": "the-biggest-tell-that-something-was-written-by-ai-",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-user-interfaces",
+      "predicate": "requires",
+      "object": "conversation-analysis",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "interactional-design",
+      "predicate": "structured-as",
+      "object": "cadence-design-method",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "natural-conversational-experience",
+      "predicate": "caused-by",
+      "object": "social-interaction",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-user-interfaces",
+      "predicate": "inaccessible-via",
+      "object": "interactive-design-alone",
+      "source": "improving-conversational-ai-models-interactional-a",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "cadence-design-method",
+      "predicate": "demonstrates",
+      "object": "conversation-analysis",
+      "source": "improving-conversational-ai-models-interactional-a",
       "collection": "weblinks"
     }
   ]
