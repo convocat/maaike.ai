@@ -44,6 +44,9 @@ const VALID_PURPOSE          = ['personal', 'professional'];
 const VALID_RATING           = ['loved it', 'liked it', 'meh', 'disappointing'];
 const VALID_TOOLSHED_CATEGORY = ['design', 'technical'];
 
+// Collections scripts/generate-og-images.cjs generates images for — keep in sync.
+const OG_COLLECTIONS = ['articles', 'field-notes', 'seeds', 'jottings'];
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function walkDir(dir) {
@@ -205,6 +208,19 @@ for (const file of files) {
   }
   if (data.updated && isNaN(new Date(data.updated).getTime())) {
     fileWarnings.push(`  invalid updated date: "${data.updated}"`);
+  }
+
+  // 8. OG image must exist for published posts in OG-covered collections.
+  // Catches content committed with raw git commands instead of /publish
+  // (which runs scripts/generate-og-images.cjs as part of its housekeeping) —
+  // the symptom is the "Copy card" button on the live post having nothing to
+  // fetch. Run `node scripts/generate-og-images.cjs` or `/publish`, not a raw commit.
+  if (OG_COLLECTIONS.includes(collection) && data.draft !== true) {
+    const slug = rel.split('/')[1]?.replace(/\.md$/, '');
+    const ogPath = join(ROOT, 'public', 'images', 'og', collection, `${slug}.png`);
+    if (slug && !existsSync(ogPath)) {
+      fileErrors.push(`  missing OG image: public/images/og/${collection}/${slug}.png — run node scripts/generate-og-images.cjs (or /publish, never a raw commit)`);
+    }
   }
 
   if (fileErrors.length) {
