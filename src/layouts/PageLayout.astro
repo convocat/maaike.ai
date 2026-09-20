@@ -9,14 +9,15 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  publishedTime?: Date | string;
   narrow?: boolean;
   pageContext?: PageContext;
 }
 
-const { title, description, ogImage, narrow, pageContext } = Astro.props;
+const { title, description, ogImage, publishedTime, narrow, pageContext } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} pageContext={pageContext}>
+<BaseLayout title={title} description={description} ogImage={ogImage} publishedTime={publishedTime} pageContext={pageContext}>
   <SketchyFilter />
   <Header />
   <main id="main-content" class="container">
