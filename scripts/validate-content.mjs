@@ -49,13 +49,14 @@ const OG_COLLECTIONS = ['articles', 'field-notes', 'seeds', 'jottings'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function walkDir(dir) {
+function walkDir(dir, exts = ['.md']) {
   const results = [];
+  if (!existsSync(dir)) return results;
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) {
-      results.push(...walkDir(full));
-    } else if (extname(entry) === '.md') {
+      results.push(...walkDir(full, exts));
+    } else if (exts.includes(extname(entry))) {
       results.push(full);
     }
   }
@@ -258,6 +259,46 @@ if (existsSync(TRIPLES_PATH)) {
       }
     }
   }
+}
+
+// ── Local absolute path check ─────────────────────────────────────────────────
+// The site is built from the files on Maaike's own machine, so a Windows path
+// pasted into a note or a component ships straight to maaike.ai. /backlog and
+// /toolshed did exactly that: both are rendered from .claude/backlog.md, which
+// carried absolute home-directory paths, username and all, into the public HTML.
+//
+// Everything that can reach a rendered page is scanned. Scripts that only ever
+// run locally (the .bat launchers, which legitimately point at the Git install
+// directory) are not, because nothing they contain is published.
+//
+// The pattern needs a drive letter, a separator, and a real first path segment,
+// so a deliberately elided quote such as "C:\...\schedule.docx" is left alone.
+const LOCAL_PATH = /(?<![A-Za-z0-9])[A-Za-z]:[\\/][A-Za-z0-9_$][^\s'"`)\]]*/;
+
+const RENDERED_SOURCES = [
+  ...files,
+  ...walkDir(join(ROOT, 'src', 'pages'), ['.astro', '.ts', '.js', '.mjs', '.md']),
+  ...walkDir(join(ROOT, 'src', 'components'), ['.astro', '.ts', '.js', '.mjs']),
+  ...walkDir(join(ROOT, 'src', 'layouts'), ['.astro', '.ts', '.js', '.mjs']),
+  ...walkDir(join(ROOT, 'src', 'data'), ['.json']),
+  join(ROOT, '.claude', 'backlog.md'),
+  join(ROOT, '.claude', 'health-report.md'),
+];
+
+const seenSources = new Set();
+for (const file of RENDERED_SOURCES) {
+  if (seenSources.has(file) || !existsSync(file)) continue;
+  seenSources.add(file);
+
+  const rel = relative(ROOT, file).replace(/\\/g, '/');
+  const lines = readFileSync(file, 'utf8').split(/\r?\n/);
+  lines.forEach((line, i) => {
+    const hit = line.match(LOCAL_PATH);
+    if (!hit) return;
+    console.error(`✗ ${rel}:${i + 1}: local absolute path would be published: ${hit[0].slice(0, 100)}`);
+    console.error(`  Use a repo-relative path (scripts/foo.mjs) or a home-relative one (~/.claude/plans/foo.md).`);
+    errors++;
+  });
 }
 
 console.log(`\n─────────────────────────────────────────`);

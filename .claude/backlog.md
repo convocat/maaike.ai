@@ -35,12 +35,12 @@ Key files: `.gitignore`, `.claude/backlog.md`
 ## [READY] Tending the garden's HTML (SEO + GEO project)
 *2026-05-13*
 
-The full roadmap for cleaning up the garden's HTML and making it discoverable to search engines and LLMs is saved at C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md. Nine phases, framed as a think-aloud project in the garden with a project hub field-note and a capstone learning-guide article on GEO/LLM findability. Phase 1 is the kick-off: draft the hub post (title + opening paragraph + empty Log section), show Maaike, get approval, write it, run /auto-tag.
+The full roadmap for cleaning up the garden's HTML and making it discoverable to search engines and LLMs is saved at ~/.claude/plans/hey-claude-can-you-quizzical-mccarthy.md. Nine phases, framed as a think-aloud project in the garden with a project hub field-note and a capstone learning-guide article on GEO/LLM findability. Phase 1 is the kick-off: draft the hub post (title + opening paragraph + empty Log section), show Maaike, get approval, write it, run /auto-tag.
 
-Key files: C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md (the plan), src/content/field-notes/ (where the hub post lands).
+Key files: ~/.claude/plans/hey-claude-can-you-quizzical-mccarthy.md (the plan), src/content/field-notes/ (where the hub post lands).
 
 **Opening message for next session:**
-> Run `/telegram-sync` first, then kick off Phase 1 of the "tending the garden's HTML" project. Plan lives at C:\Users\mgroe\.claude\plans\hey-claude-can-you-quizzical-mccarthy.md. Start by drafting the project hub field-note for my review.
+> Run `/telegram-sync` first, then kick off Phase 1 of the "tending the garden's HTML" project. Plan lives at ~/.claude/plans/hey-claude-can-you-quizzical-mccarthy.md. Start by drafting the project hub field-note for my review.
 
 ---
 
@@ -246,10 +246,10 @@ Working file: `src/content/seeds/the-return-of-the-button.md` (53 lines, draft).
 ## [PARKED] MindStudio CLI access
 *2026-05-16 · blocker: no concrete use case yet*
 
-Install via `irm https://msagent.ai/install.ps1 | iex` would give CLI + MCP-server toegang tot 850+ connectoren (Slack, Gmail, Airtable, image-gen, web scraping, etc.) en 200+ AI-modellen via één account. User-level install, geen admin. Free tier: 1 agent, 1.000 runs/maand. Pay-per-use zonder mark-up op model-tokens. Geparkeerd: nu geen concrete toepassing. Heroverwegen zodra er een specifieke use case opkomt waar één van die connectoren echt nodig is (bijv. Slack-integratie of bulk image-gen voor de garden). Onderzoeksnotitie met install-details, risico's en bronnen: `C:\Users\mgroe\.claude\plans\ik-wil-graag-dat-gentle-sky.md`.
+Install via `irm https://msagent.ai/install.ps1 | iex` would give CLI + MCP-server toegang tot 850+ connectoren (Slack, Gmail, Airtable, image-gen, web scraping, etc.) en 200+ AI-modellen via één account. User-level install, geen admin. Free tier: 1 agent, 1.000 runs/maand. Pay-per-use zonder mark-up op model-tokens. Geparkeerd: nu geen concrete toepassing. Heroverwegen zodra er een specifieke use case opkomt waar één van die connectoren echt nodig is (bijv. Slack-integratie of bulk image-gen voor de garden). Onderzoeksnotitie met install-details, risico's en bronnen: `~/.claude/plans/ik-wil-graag-dat-gentle-sky.md`.
 
 **Opening message:**
-> Heroverweeg MindStudio CLI install. Lees eerst de onderzoeksnotitie op `C:\Users\mgroe\.claude\plans\ik-wil-graag-dat-gentle-sky.md`. Bepaal samen of de huidige use case de install rechtvaardigt, en zo ja: optie A (inspect script), B (install only), of C (install + MCP-koppeling met Claude Code).
+> Heroverweeg MindStudio CLI install. Lees eerst de onderzoeksnotitie op `~/.claude/plans/ik-wil-graag-dat-gentle-sky.md`. Bepaal samen of de huidige use case de install rechtvaardigt, en zo ja: optie A (inspect script), B (install only), of C (install + MCP-koppeling met Claude Code).
 
 ---
 
