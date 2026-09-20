@@ -626,5 +626,11 @@
     "Code-switching to a first language is a high-precision, sentiment-analysis-free signal of frustration",
     "Trust with an AI agent is granted per demonstrated behavior and revoked locally on violation, not global and stateless",
     "When a conversational pattern repeats, users commission a disposable GUI through conversation rather than scaling the conversation itself"
+  ],
+  "waterr-delegate-meetings-to-ai-agents-creator-stud": [
+    "Voice agents fail on what reaches the model and when, not on model capacity",
+    "Deliberation moved off-band into the gaps between turns buys reasoning without latency",
+    "Typed slots for memory, constraints and trajectory beat unstructured summaries",
+    "Coherence and instruction retention are engineerable separately from the voice backbone"
   ]
 }

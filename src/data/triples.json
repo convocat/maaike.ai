@@ -8674,6 +8674,121 @@
         "agent",
         "future-of-work"
       ]
+    },
+    "monologue-waterr": {
+      "label": "Monologue (Waterr)",
+      "type": "technology",
+      "lens": [
+        "development",
+        "interaction"
+      ],
+      "subject": [
+        "conversation",
+        "voice",
+        "agent"
+      ],
+      "role": "instrument"
+    },
+    "off-band-reasoning": {
+      "label": "Off-band reasoning",
+      "type": "mechanism",
+      "lens": [
+        "development",
+        "interaction"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "slot-typed-briefing": {
+      "label": "Slot-typed briefing",
+      "type": "method",
+      "lens": [
+        "development",
+        "design"
+      ],
+      "subject": [
+        "structured-authoring",
+        "conversation"
+      ],
+      "role": "instrument"
+    },
+    "mid-turn-injection": {
+      "label": "Mid-turn injection",
+      "type": "mechanism",
+      "lens": [
+        "development",
+        "interaction"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ],
+      "role": "instrument"
+    },
+    "conversational-latency-budget": {
+      "label": "Conversational latency budget",
+      "type": "concept",
+      "lens": [
+        "interaction",
+        "development"
+      ],
+      "subject": [
+        "conversation",
+        "voice"
+      ],
+      "role": "framework"
+    },
+    "self-coherence": {
+      "label": "Self-coherence",
+      "type": "phenomenon",
+      "lens": [
+        "linguistics",
+        "cognition"
+      ],
+      "subject": [
+        "conversation",
+        "llm"
+      ]
+    },
+    "instruction-retention": {
+      "label": "Instruction retention",
+      "type": "phenomenon",
+      "lens": [
+        "development",
+        "cognition"
+      ],
+      "subject": [
+        "llm",
+        "conversation"
+      ]
+    },
+    "audio-multichallenge": {
+      "label": "Audio MultiChallenge",
+      "type": "method",
+      "lens": [
+        "observability",
+        "analytics"
+      ],
+      "subject": [
+        "llm",
+        "voice"
+      ],
+      "role": "instrument"
+    },
+    "gemini-live": {
+      "label": "Gemini Live",
+      "type": "technology",
+      "lens": [
+        "development"
+      ],
+      "subject": [
+        "llm",
+        "voice"
+      ],
+      "role": "instrument"
     }
   },
   "associations": [
@@ -16389,6 +16504,55 @@
       "object": "day-long-autonomy",
       "source": "how-maaike-talks-to-claude-code-a-linguistic-analysis",
       "collection": "articles"
+    },
+    {
+      "subject": "monologue-waterr",
+      "predicate": "structured-as",
+      "object": "slot-typed-briefing",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "off-band-reasoning",
+      "predicate": "counters",
+      "object": "conversational-latency-budget",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "conversational-latency-budget",
+      "predicate": "breaks-down-for",
+      "object": "context-tracking",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "slot-typed-briefing",
+      "predicate": "leads-to",
+      "object": "instruction-retention",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "mid-turn-injection",
+      "predicate": "requires",
+      "object": "transcription",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "gemini-live",
+      "predicate": "lacks",
+      "object": "self-coherence",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
+    },
+    {
+      "subject": "monologue-waterr",
+      "predicate": "instance-of",
+      "object": "context-engineering",
+      "source": "waterr-delegate-meetings-to-ai-agents-creator-stud",
+      "collection": "weblinks"
     }
   ]
 }
