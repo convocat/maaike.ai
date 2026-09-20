@@ -10,8 +10,14 @@ Reads messages sent to @MaaikGardenBot:
 Run manually or via GitHub Actions on a schedule.
 Requires TELEGRAM_BOT_TOKEN environment variable, or a line for it in .env.
 
-Voice notes are only taken on a local run. The scheduled run leaves them where
-they are, because the runner's disk is thrown away and this repository is public.
+Two readers share one bot, and acknowledging in Telegram is cumulative and
+destructive, so each takes only its own kind and stops at the first of the other's:
+
+- The scheduled run takes links, text and PDFs, and stops at a voice note. The
+  runner's disk is thrown away and this repository is public, so it must not
+  download audio.
+- A local run takes voice notes and stops at anything else, leaving links to be
+  committed by the scheduled run. Pass --all to make a local run take everything.
 """
 
 import os
@@ -46,6 +52,9 @@ if not BOT_TOKEN:
 
 # True inside GitHub Actions, false at her desk.
 ON_RUNNER = bool(os.environ.get('GITHUB_ACTIONS'))
+
+# A local run takes voice notes only, unless told otherwise.
+VOICE_ONLY = not ON_RUNNER and '--all' not in sys.argv
 
 BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
 INBOX_FILE = REPO_ROOT / 'src/content/_inbox/telegram.md'
@@ -335,9 +344,10 @@ def main():
         date = datetime.fromtimestamp(msg['date'], tz=timezone.utc)
 
         voice = msg.get('voice')
-        if voice and ON_RUNNER:
-            # Acknowledging is cumulative, so everything from here on waits too.
-            # Telegram holds them for 24 hours.
+
+        # Each reader stops at the first message of the other's kind. Acknowledging
+        # is cumulative, so everything behind it waits too, for up to 24 hours.
+        if (voice and ON_RUNNER) or (not voice and VOICE_ONLY):
             deferred = len(updates) - acked
             break
 
@@ -381,8 +391,23 @@ def main():
         acknowledge(last_acked)
     print(f'Done. Processed {count} message(s), acknowledged {acked} update(s).')
     if deferred:
-        print(f'Left {deferred} update(s) waiting: a voice note needs a run at your desk.')
+        waiting_for = 'a run at your desk' if ON_RUNNER else 'the scheduled run'
+        print(f'Left {deferred} update(s) waiting for {waiting_for}.')
+
+
+def log_failure(error):
+    """A hidden scheduled run has no window, so a failure has to land somewhere."""
+    VOICE_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+    with open(VOICE_DIR / 'bot.log', 'a', encoding='utf-8') as f:
+        f.write(f'{stamp}  {type(error).__name__}: {error}\n')
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        if ON_RUNNER:
+            raise
+        log_failure(e)
+        sys.exit(1)
