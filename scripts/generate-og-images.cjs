@@ -24,6 +24,14 @@ const COLLECTIONS = ['articles', 'field-notes', 'seeds', 'jottings'];
 const WIDTH = 1200;
 const HEIGHT = 627;
 
+// Truecolor RGB PNG, NOT palette-indexed.
+// sharp's png({ quality }) implicitly turns on palette quantization, which
+// produced PNG-8 indexed images. LinkedIn's scraper fetches those fine (200 OK)
+// but silently drops them from the preview card, leaving a text-only link.
+// palette: false keeps 24-bit RGB, which LinkedIn accepts. Do not reintroduce
+// `quality` here: on PNG it is a palette switch, not a compression dial.
+const PNG_OPTS = { palette: false, compressionLevel: 9 };
+
 // Colors
 const DARK = '#1c1917';
 const MUTED = '#57534e';
@@ -234,7 +242,9 @@ async function generateSplitImage(title, description, imagePath, fonts, outPath)
       { input: textPng, left: 0,      top: 0 },
       { input: photoPng, left: TEXT_W, top: 0 },
     ])
-    .png({ quality: 90 })
+    .flatten({ background: '#ffffff' })
+    .removeAlpha()
+    .png(PNG_OPTS)
     .toFile(outPath);
 }
 
@@ -299,7 +309,9 @@ async function main() {
 
       await sharp(bgBuffer)
         .composite([{ input: textPng, left: 0, top: 0 }])
-        .png({ quality: 90 })
+        .flatten({ background: '#ffffff' })
+        .removeAlpha()
+        .png(PNG_OPTS)
         .toFile(outPath);
 
       generated++;
