@@ -26,6 +26,9 @@ __pycache__/
 # Handoff archives at repo root (kept locally, not tracked)
 /*.zip
 
+# Voice notes. This repository is public, so the audio stays on your machine.
+/voice/
+
 # Obsidian workspace config (device-specific, creates noise)
 src/content/.obsidian/
 

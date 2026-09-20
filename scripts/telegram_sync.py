@@ -5,9 +5,13 @@ Telegram → garden inbox sync.
 Reads messages sent to @MaaikGardenBot:
 - URLs   → new draft entry in src/content/weblinks/
 - Text   → appended to src/content/_inbox/telegram.md
+- Voice  → the audio kept in voice/, and a reply naming its length
 
 Run manually or via GitHub Actions on a schedule.
-Requires TELEGRAM_BOT_TOKEN environment variable.
+Requires TELEGRAM_BOT_TOKEN environment variable, or a line for it in .env.
+
+Voice notes are only taken on a local run. The scheduled run leaves them where
+they are, because the runner's disk is thrown away and this repository is public.
 """
 
 import os
@@ -18,16 +22,37 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote
 
+REPO_ROOT = Path(__file__).parent.parent
+
+
+def load_dotenv():
+    """Read KEY=value lines from .env, without overwriting the real environment."""
+    env_file = REPO_ROOT / '.env'
+    if not env_file.exists():
+        return
+    for line in env_file.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, value = line.split('=', 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+load_dotenv()
+
 BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 if not BOT_TOKEN:
     sys.exit('TELEGRAM_BOT_TOKEN not set.')
 
+# True inside GitHub Actions, false at her desk.
+ON_RUNNER = bool(os.environ.get('GITHUB_ACTIONS'))
+
 BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
-REPO_ROOT = Path(__file__).parent.parent
 INBOX_FILE = REPO_ROOT / 'src/content/_inbox/telegram.md'
 WEBLINKS_DIR = REPO_ROOT / 'src/content/weblinks'
 FILES_DIR = REPO_ROOT / 'src/content/files'
 PDFS_DIR = REPO_ROOT / 'public/pdfs'
+VOICE_DIR = REPO_ROOT / 'voice'
 
 URL_RE = re.compile(r'^https?://\S+', re.IGNORECASE)
 
@@ -218,6 +243,50 @@ def download_pdf(file_id, filename, date):
     print(f'PDF: {pdf_dest.name} -> {md_path.name}')
 
 
+def send_reply(chat_id, text, reply_to_message_id):
+    r = requests.post(
+        f'{BASE_URL}/sendMessage',
+        data={
+            'chat_id': chat_id,
+            'text': text,
+            'reply_to_message_id': reply_to_message_id,
+        },
+        timeout=30,
+    )
+    if not r.ok:
+        print(f'Reply failed: {r.text[:200]}')
+
+
+def format_duration(seconds):
+    minutes, secs = divmod(int(seconds), 60)
+    return f'{minutes}:{secs:02d}'
+
+
+def save_voice(voice, msg, date):
+    """Download a voice note, keep the audio, and reply with how long it is."""
+    r = requests.get(f'{BASE_URL}/getFile', params={'file_id': voice['file_id']}, timeout=30)
+    r.raise_for_status()
+    file_path = r.json()['result']['file_path']
+
+    audio_url = f'https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}'
+    r = requests.get(audio_url, timeout=120)
+    r.raise_for_status()
+
+    VOICE_DIR.mkdir(parents=True, exist_ok=True)
+    stem = date.strftime('%Y-%m-%d-%H%M%S')
+    suffix = Path(file_path).suffix or '.oga'
+    dest = VOICE_DIR / f'{stem}{suffix}'
+    counter = 1
+    while dest.exists():
+        dest = VOICE_DIR / f'{stem}-{counter}{suffix}'
+        counter += 1
+    dest.write_bytes(r.content)
+
+    length = format_duration(voice.get('duration', 0))
+    send_reply(msg['chat']['id'], f'Kept. {length}.', msg['message_id'])
+    print(f'Voice: {dest.name} ({length})')
+
+
 def append_to_inbox(text, date):
     date_str = date.strftime('%Y-%m-%d')
     entry = f'\n{date_str}: {text}\n'
@@ -257,16 +326,39 @@ def main():
         return
 
     count = 0
+    acked = 0
+    last_acked = None
+    deferred = 0
+
     for update in updates:
         msg = update.get('message', {})
         date = datetime.fromtimestamp(msg['date'], tz=timezone.utc)
+
+        voice = msg.get('voice')
+        if voice and ON_RUNNER:
+            # Acknowledging is cumulative, so everything from here on waits too.
+            # Telegram holds them for 24 hours.
+            deferred = len(updates) - acked
+            break
+
+        if voice:
+            save_voice(voice, msg, date)
+            count += 1
+            last_acked = update['update_id']
+            acked += 1
+            continue
 
         doc = msg.get('document')
         if doc and doc.get('mime_type') == 'application/pdf':
             filename = doc.get('file_name', f'document-{date.strftime("%Y%m%d%H%M%S")}.pdf')
             download_pdf(doc['file_id'], filename, date)
             count += 1
+            last_acked = update['update_id']
+            acked += 1
             continue
+
+        last_acked = update['update_id']
+        acked += 1
 
         text = (msg.get('text') or '').strip()
         if not text:
@@ -285,8 +377,11 @@ def main():
 
         count += 1
 
-    acknowledge(updates[-1]['update_id'])
-    print(f'Done. Processed {count} message(s), acknowledged {len(updates)} update(s).')
+    if last_acked is not None:
+        acknowledge(last_acked)
+    print(f'Done. Processed {count} message(s), acknowledged {acked} update(s).')
+    if deferred:
+        print(f'Left {deferred} update(s) waiting: a voice note needs a run at your desk.')
 
 
 if __name__ == '__main__':
