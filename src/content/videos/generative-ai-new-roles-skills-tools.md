@@ -13,5 +13,4 @@ ai: "100% Maai"
 
 ## Related
 
-- [[tech-skills-for-conversation-designers|Tech skills for conversation designers]]
 - [[my-robot-gets-me|My Robot Gets Me: How Social Design Can Make New Products More Human]]

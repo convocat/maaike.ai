@@ -241,9 +241,3 @@ The desktop app has no public URL scheme for sessions, so these are listed by ex
 ## 10. One-paragraph summary
 
 Over one month, Maaike built a private institutional register for working with Claude Code: English for building, Dutch for Dutch artifacts and for anger; bald imperatives without politeness cost; single-token verdict turns that reinvent the dialog box; quotation as pointing and adverbs as sliders; human rituals retained exactly where they carry structure (openings, pre-closings, repair) and dropped where they only carry face (thanks, apologies, relationship maintenance). Style change over time is a delegation gradient: from one-step-at-a-time supervision to day-long autonomy, with trust granted per demonstrated behavior and revoked locally on violation. The most distinctive finding is reflexive: when a conversational pattern proves repetitive, she uses conversation to build a disposable GUI for it, making the conversation not the interface but the interface factory.
-
----
-
-<div class="linkedin">
-Write your LinkedIn post here...
-</div>

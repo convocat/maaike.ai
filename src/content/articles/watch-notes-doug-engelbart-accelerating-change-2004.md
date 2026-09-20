@@ -290,9 +290,3 @@ Would you say that conversation was a better metaphor before LLMs were introduce
 ## What I want to work on
 
 how do we collectively get better? This is the essence of what I want to address. Need to move away from personal computing. I'd love to work on this.
-
----
-
-<div class="linkedin">
-Write your LinkedIn post here...
-</div>

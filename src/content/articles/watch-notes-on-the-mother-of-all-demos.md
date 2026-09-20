@@ -260,9 +260,3 @@ A few threads worth pulling on while watching the demo:
 - **Norman's seven-stage model of action.** Gulf of execution, gulf of evaluation. Treats interaction as goal-directed, turn-based dialogue between user intention and system response. Direct ancestor of how we now reason about LLM chat affordances. (Introduced in the book below.)
 - **[Norman & Draper, *User Centered System Design* (1986)](https://dl.acm.org/doi/book/10.5555/576915).** The book that institutionalised "the user's mental model is part of the system." Bridges Engelbart's whole-system framing to modern HCI.
 - **Direct manipulation vs. conversation.** [Shneiderman's *Direct Manipulation: A Step Beyond Programming Languages* (1983)](https://doi.org/10.1109/MC.1983.1654471) was framed as the alternative to dialogue-based command languages like NLS's. The pendulum is swinging back: LLM chat is conversation again, and Engelbart's metalanguage idea suddenly feels current (skills, tool use, prompts as grammar).
-
----
-
-<div class="linkedin">
-Write your LinkedIn post here...
-</div>

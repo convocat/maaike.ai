@@ -83,9 +83,3 @@ living, intelligent environment
 quality is the new differentiator
 
 environments where teams can thinkg rigorously about increasingly complex problems
-
----
-
-<div class="linkedin">
-Write your LinkedIn post here...
-</div>
