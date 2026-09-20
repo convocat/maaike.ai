@@ -26,10 +26,12 @@ taken_by_the_link_path = []
 class FakeTelegram:
     """Stands in for the Telegram API and remembers what was asked of it."""
 
-    def __init__(self, updates):
+    def __init__(self, updates, refuse_quoted_replies=False):
         self.pending = list(updates)
         self.replies = []
         self.acked_offsets = []
+        self.refuse_quoted_replies = refuse_quoted_replies
+        self.refusals = 0
 
     def get(self, url, **kwargs):
         params = kwargs.get('params') or {}
@@ -48,14 +50,21 @@ class FakeTelegram:
     def post(self, url, **kwargs):
         data = kwargs.get('data') or {}
         if 'sendMessage' in url:
+            if self.refuse_quoted_replies and 'reply_to_message_id' in data:
+                self.refusals += 1
+                return self._response(
+                    {'ok': False, 'description': 'Bad Request: message to be replied not found'},
+                    ok=False, status_code=400,
+                )
             self.replies.append(data['text'])
         return self._response({'ok': True})
 
     @staticmethod
-    def _response(payload, content=b''):
+    def _response(payload, content=b'', ok=True, status_code=200):
         r = types.SimpleNamespace()
-        r.ok = True
-        r.text = '{}'
+        r.ok = ok
+        r.status_code = status_code
+        r.text = str(payload)
         r.content = content
         r.json = lambda: payload
         r.raise_for_status = lambda: None
@@ -183,6 +192,29 @@ def test_a_mixed_queue_drains_with_nothing_lost(monkeypatch, tmp_path):
     assert taken_by_the_link_path == ['https://example.com/a', 'https://example.com/b']
     assert telegram.replies == ['Kept. 1:24.', 'Kept. 0:21.']
     assert len(list(module.VOICE_DIR.glob('*.oga'))) == 2
+
+
+def test_the_length_still_comes_back_if_quoting_the_note_fails(monkeypatch, tmp_path):
+    """Quoting the original is a nicety. Silence is not acceptable, so it must fall back."""
+    telegram = FakeTelegram([voice(1, duration=84)], refuse_quoted_replies=True)
+    module = load(telegram, monkeypatch, tmp_path, on_runner=False)
+
+    module.main()
+
+    assert telegram.refusals == 1, 'the quoted reply was attempted first'
+    assert telegram.replies == ['Kept. 1:24.'], 'and a plain message carried the length instead'
+
+
+def test_a_hidden_run_leaves_a_trail(monkeypatch, tmp_path):
+    """Under pythonw there is no console, so anything worth knowing goes to bot.log."""
+    telegram = FakeTelegram([voice(1, duration=84)], refuse_quoted_replies=True)
+    module = load(telegram, monkeypatch, tmp_path, on_runner=False)
+
+    module.main()
+
+    log = (module.VOICE_DIR / 'bot.log').read_text(encoding='utf-8')
+    assert '.oga (1:24)' in log, 'the kept note is recorded'
+    assert 'Reply as a reply failed (400)' in log, 'and so is the failure'
 
 
 def test_the_voice_folder_is_never_committed():

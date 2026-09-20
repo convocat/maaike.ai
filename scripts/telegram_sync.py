@@ -252,18 +252,36 @@ def download_pdf(file_id, filename, date):
     print(f'PDF: {pdf_dest.name} -> {md_path.name}')
 
 
+def note(line):
+    """Print, and on a local run also write to voice/bot.log.
+
+    The scheduled task runs under pythonw with no console, so print() is a no-op
+    there. Anything that needs to survive a hidden run has to go through here.
+    """
+    print(line)
+    if ON_RUNNER:
+        return
+    try:
+        VOICE_DIR.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now(tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+        with open(VOICE_DIR / 'bot.log', 'a', encoding='utf-8') as f:
+            f.write(f'{stamp}  {line}\n')
+    except Exception:
+        pass
+
+
 def send_reply(chat_id, text, reply_to_message_id):
-    r = requests.post(
-        f'{BASE_URL}/sendMessage',
-        data={
-            'chat_id': chat_id,
-            'text': text,
-            'reply_to_message_id': reply_to_message_id,
-        },
-        timeout=30,
-    )
+    payload = {'chat_id': chat_id, 'text': text}
+    r = requests.post(f'{BASE_URL}/sendMessage', data={**payload, 'reply_to_message_id': reply_to_message_id}, timeout=30)
+    if r.ok:
+        return
+    note(f'Reply as a reply failed ({r.status_code}): {r.text[:300]}')
+
+    # Quoting the original is a nicety. Getting the length back is not, so fall
+    # back to a plain message rather than staying silent.
+    r = requests.post(f'{BASE_URL}/sendMessage', data=payload, timeout=30)
     if not r.ok:
-        print(f'Reply failed: {r.text[:200]}')
+        note(f'Reply failed entirely ({r.status_code}): {r.text[:300]}')
 
 
 def format_duration(seconds):
@@ -292,8 +310,8 @@ def save_voice(voice, msg, date):
     dest.write_bytes(r.content)
 
     length = format_duration(voice.get('duration', 0))
+    note(f'Voice: {dest.name} ({length})')
     send_reply(msg['chat']['id'], f'Kept. {length}.', msg['message_id'])
-    print(f'Voice: {dest.name} ({length})')
 
 
 def append_to_inbox(text, date):
