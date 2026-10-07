@@ -1,0 +1,135 @@
+{
+  "name": "Generic choice tasks",
+  "description": "Everyday classification tasks with a defensible gold label: sentiment, news topic, language identification, support routing and factual multiple choice. Items are marked clear or ambiguous so order effects can be compared between easy and borderline cases.",
+  "questions": {
+    "sentiment": {
+      "instructions": "What is the overall sentiment of this text?",
+      "options": [
+        {"value": "positive", "description": "Mainly favourable, happy or approving"},
+        {"value": "negative", "description": "Mainly unfavourable, unhappy or critical"},
+        {"value": "neutral", "description": "Factual or without a clear emotional stance"},
+        {"value": "mixed", "description": "Clearly contains both positive and negative judgements"}
+      ]
+    },
+    "news_topic": {
+      "instructions": "Which section of a news site does this text belong in?",
+      "options": [
+        {"value": "politics", "description": "Government, elections, legislation, diplomacy"},
+        {"value": "sports", "description": "Matches, athletes, competitions"},
+        {"value": "science", "description": "Research, discoveries, space, health research"},
+        {"value": "business", "description": "Companies, markets, the economy"},
+        {"value": "culture", "description": "Film, music, books, art, entertainment"}
+      ]
+    },
+    "language": {
+      "instructions": "In which language is this text written?",
+      "options": [
+        {"value": "english", "description": "English"},
+        {"value": "dutch", "description": "Dutch"},
+        {"value": "german", "description": "German"},
+        {"value": "french", "description": "French"},
+        {"value": "spanish", "description": "Spanish"}
+      ]
+    },
+    "support_routing": {
+      "instructions": "Which team should handle this customer message?",
+      "options": [
+        {"value": "billing", "description": "Payments, invoices, refunds, charges"},
+        {"value": "technical", "description": "Bugs, errors, the product not working"},
+        {"value": "shipping", "description": "Delivery, tracking, parcels, returns in transit"},
+        {"value": "account", "description": "Login, password, profile, account settings"},
+        {"value": "other", "description": "Anything that fits none of the teams above"}
+      ]
+    },
+    "factual": {
+      "instructions": "Which option correctly answers the question in the text?",
+      "options": [
+        {"value": "A", "description": "The first answer listed in the text"},
+        {"value": "B", "description": "The second answer listed in the text"},
+        {"value": "C", "description": "The third answer listed in the text"},
+        {"value": "D", "description": "The fourth answer listed in the text"}
+      ]
+    },
+    "factual_named": {
+      "instructions": "What is the capital city of the country mentioned in the text?",
+      "options": [
+        {"value": "Sydney"},
+        {"value": "Canberra"},
+        {"value": "Melbourne"},
+        {"value": "Toronto"},
+        {"value": "Ottawa"},
+        {"value": "Bern"},
+        {"value": "Zurich"}
+      ]
+    }
+  },
+  "items": [
+    {"id": "sent-01", "question": "sentiment", "difficulty": "clear", "gold": "positive",
+     "input": "Absolutely loved the workshop. Clear examples, great energy, and I left with a plan I can use on Monday."},
+    {"id": "sent-02", "question": "sentiment", "difficulty": "clear", "gold": "negative",
+     "input": "The app crashed three times during checkout and support never replied. Deleting it."},
+    {"id": "sent-03", "question": "sentiment", "difficulty": "clear", "gold": "neutral",
+     "input": "The library is open from 9:00 to 17:00 on weekdays and closed on public holidays."},
+    {"id": "sent-04", "question": "sentiment", "difficulty": "clear", "gold": "mixed",
+     "input": "The food was excellent, but we waited fifty minutes for it and the staff were rude."},
+    {"id": "sent-05", "question": "sentiment", "difficulty": "ambiguous", "gold": "negative", "acceptable": ["mixed"],
+     "input": "Oh great, another update that moves every button I just learned to find. Love that for me.",
+     "note": "Sarcasm: surface words are positive."},
+    {"id": "sent-06", "question": "sentiment", "difficulty": "ambiguous", "gold": "neutral", "acceptable": ["mixed"],
+     "input": "It does what it says. Nothing more, nothing less."},
+
+    {"id": "news-01", "question": "news_topic", "difficulty": "clear", "gold": "sports",
+     "input": "The home side came back from two goals down to win 3-2 in stoppage time, keeping their title hopes alive."},
+    {"id": "news-02", "question": "news_topic", "difficulty": "clear", "gold": "science",
+     "input": "Astronomers have detected water vapour in the atmosphere of an exoplanet roughly 120 light years from Earth."},
+    {"id": "news-03", "question": "news_topic", "difficulty": "clear", "gold": "politics",
+     "input": "Parliament voted late on Tuesday to delay the new housing bill after the coalition failed to agree on rent caps."},
+    {"id": "news-04", "question": "news_topic", "difficulty": "clear", "gold": "culture",
+     "input": "The director's new film premiered to a standing ovation at the festival and is tipped for several awards."},
+    {"id": "news-05", "question": "news_topic", "difficulty": "ambiguous", "gold": "business", "acceptable": ["sports"],
+     "input": "The football club's shares fell 12 percent after it reported a record loss and announced a new bond issue."},
+    {"id": "news-06", "question": "news_topic", "difficulty": "ambiguous", "gold": "politics", "acceptable": ["science"],
+     "input": "The health minister cited a new vaccine trial when announcing next year's research budget cuts."},
+
+    {"id": "lang-01", "question": "language", "difficulty": "clear", "gold": "dutch",
+     "input": "Ik ben vanochtend met de fiets naar het station gegaan, maar de trein had vertraging."},
+    {"id": "lang-02", "question": "language", "difficulty": "clear", "gold": "german",
+     "input": "Wir treffen uns morgen um acht Uhr vor dem Bahnhof."},
+    {"id": "lang-03", "question": "language", "difficulty": "clear", "gold": "french",
+     "input": "Nous avons visité le musée avant de déjeuner près de la rivière."},
+    {"id": "lang-04", "question": "language", "difficulty": "clear", "gold": "spanish",
+     "input": "Mañana vamos a la playa si no llueve."},
+    {"id": "lang-05", "question": "language", "difficulty": "ambiguous", "gold": "dutch",
+     "input": "Hallo, de meeting is verplaatst naar dinsdag. Kun je de slides vooraf sharen?",
+     "note": "Dutch with English loanwords."},
+
+    {"id": "route-01", "question": "support_routing", "difficulty": "clear", "gold": "billing",
+     "input": "I was charged twice for my subscription this month. Please refund the duplicate payment."},
+    {"id": "route-02", "question": "support_routing", "difficulty": "clear", "gold": "technical",
+     "input": "Every time I upload a PDF the editor freezes and shows error code 500."},
+    {"id": "route-03", "question": "support_routing", "difficulty": "clear", "gold": "shipping",
+     "input": "My parcel has said 'out for delivery' for four days. Where is it?"},
+    {"id": "route-04", "question": "support_routing", "difficulty": "clear", "gold": "account",
+     "input": "I can't log in. The password reset email never arrives."},
+    {"id": "route-05", "question": "support_routing", "difficulty": "clear", "gold": "other",
+     "input": "Do you have any job openings for a content designer?"},
+    {"id": "route-06", "question": "support_routing", "difficulty": "ambiguous", "gold": "billing", "acceptable": ["account"],
+     "input": "I cancelled my account last month but you still took money from my card."},
+
+    {"id": "fact-01", "question": "factual", "difficulty": "clear", "gold": "B",
+     "input": "Question: Which planet is the largest in our solar system? A) Saturn B) Jupiter C) Neptune D) Earth"},
+    {"id": "fact-02", "question": "factual", "difficulty": "clear", "gold": "D",
+     "input": "Question: What is the chemical symbol for gold? A) Ag B) Go C) Gd D) Au"},
+    {"id": "fact-03", "question": "factual", "difficulty": "clear", "gold": "A",
+     "input": "Question: Who wrote 'Pride and Prejudice'? A) Jane Austen B) Charlotte Brontë C) George Eliot D) Mary Shelley"},
+    {"id": "fact-04", "question": "factual", "difficulty": "clear", "gold": "C",
+     "input": "Question: At sea level, at what temperature does pure water boil? A) 90 °C B) 95 °C C) 100 °C D) 110 °C"},
+
+    {"id": "cap-01", "question": "factual_named", "difficulty": "clear", "gold": "Canberra",
+     "input": "I'm planning a trip to Australia next spring."},
+    {"id": "cap-02", "question": "factual_named", "difficulty": "clear", "gold": "Ottawa",
+     "input": "We are relocating to Canada for my partner's job."},
+    {"id": "cap-03", "question": "factual_named", "difficulty": "clear", "gold": "Bern",
+     "input": "Our conference this year is somewhere in Switzerland."}
+  ]
+}

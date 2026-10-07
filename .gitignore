@@ -57,3 +57,6 @@ eval-autobackup-*.json
 # Prep dashboard sidecar state
 tools/prep-dashboard/data/*.json
 tools/prep-dashboard/__pycache__/
+
+# Decision eval run output (regenerable, can contain API responses)
+tools/decision-eval/results/

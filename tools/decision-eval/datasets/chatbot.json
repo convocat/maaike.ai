@@ -1,0 +1,154 @@
+{
+  "name": "Chatbots and conversation design",
+  "description": "Decisions a conversational system or a conversation designer makes at runtime or during review: intent routing, the dialogue act of the last user turn, the next repair move, the user's emotional state, the main flaw in a bot reply, and the outcome of a whole conversation. Some user turns are in Dutch, as they would be in a Dutch-language bot.",
+  "questions": {
+    "intent": {
+      "instructions": "Which intent best matches the user's last message to this banking assistant?",
+      "options": [
+        {"value": "check_balance", "description": "Wants to know how much money is in an account"},
+        {"value": "lost_or_stolen_card", "description": "Card is lost, stolen or must be blocked"},
+        {"value": "transfer_money", "description": "Wants to send money or make a payment"},
+        {"value": "dispute_transaction", "description": "Does not recognise or disagrees with a charge"},
+        {"value": "talk_to_human", "description": "Explicitly asks for a person or an employee"},
+        {"value": "out_of_scope", "description": "Not something a banking assistant handles"}
+      ]
+    },
+    "dialogue_act": {
+      "instructions": "What is the main dialogue act of the user's last turn in this conversation?",
+      "options": [
+        {"value": "inform", "description": "Gives information the bot asked for or needs"},
+        {"value": "request", "description": "Asks the bot to do something or to provide information"},
+        {"value": "affirm", "description": "Says yes or agrees with what the bot proposed"},
+        {"value": "negate", "description": "Says no or rejects what the bot proposed"},
+        {"value": "thank_or_close", "description": "Thanks the bot or ends the conversation"},
+        {"value": "complain", "description": "Expresses dissatisfaction with the bot or the service"}
+      ]
+    },
+    "next_move": {
+      "instructions": "What should the assistant do next in this conversation?",
+      "options": [
+        {"value": "answer", "description": "The request is clear and in scope: give the answer or perform the action"},
+        {"value": "ask_clarifying_question", "description": "The request is ambiguous or missing a required detail"},
+        {"value": "confirm_before_acting", "description": "The request is clear but the action is consequential or irreversible"},
+        {"value": "hand_off_to_human", "description": "The user needs a person: explicit request, repeated failure, or a sensitive case"},
+        {"value": "reprompt_with_examples", "description": "The user does not know what to say or what the bot can do"}
+      ]
+    },
+    "user_state": {
+      "instructions": "What is the emotional state of the user at the end of this conversation?",
+      "options": [
+        {"value": "calm", "description": "Neutral and cooperative"},
+        {"value": "confused", "description": "Unsure what is happening or what to do"},
+        {"value": "frustrated", "description": "Annoyed or impatient, but still engaging"},
+        {"value": "angry", "description": "Hostile, threatening to leave, or using strong language"},
+        {"value": "satisfied", "description": "Pleased or relieved"}
+      ]
+    },
+    "reply_flaw": {
+      "instructions": "Look at the bot's last reply. What is its main problem from a conversation design point of view?",
+      "options": [
+        {"value": "no_issue", "description": "The reply is appropriate"},
+        {"value": "ignores_the_question", "description": "Does not address what the user actually asked"},
+        {"value": "wrong_tone", "description": "Tone does not fit the user's situation or emotion"},
+        {"value": "too_long_or_dense", "description": "Far more text or options than the user can process in a chat"},
+        {"value": "unsupported_promise", "description": "Promises or states something the bot cannot know or guarantee"}
+      ]
+    },
+    "outcome": {
+      "instructions": "What is the outcome of this conversation?",
+      "options": [
+        {"value": "resolved", "description": "The user's goal was achieved by the bot"},
+        {"value": "escalated", "description": "The conversation was handed to a person"},
+        {"value": "abandoned", "description": "The user gave up or left without their goal being met"},
+        {"value": "in_progress", "description": "The conversation is still ongoing and the goal is open"}
+      ]
+    }
+  },
+  "items": [
+    {"id": "int-01", "question": "intent", "difficulty": "clear", "gold": "check_balance",
+     "input": "User: how much do I have left on my savings account?"},
+    {"id": "int-02", "question": "intent", "difficulty": "clear", "gold": "lost_or_stolen_card",
+     "input": "User: My wallet was stolen on the tram, please block my debit card"},
+    {"id": "int-03", "question": "intent", "difficulty": "clear", "gold": "transfer_money", "lang": "nl",
+     "input": "User: Ik wil 50 euro overmaken naar mijn zus."},
+    {"id": "int-04", "question": "intent", "difficulty": "clear", "gold": "dispute_transaction",
+     "input": "User: There's a charge of 89.99 from a company I've never heard of"},
+    {"id": "int-05", "question": "intent", "difficulty": "clear", "gold": "talk_to_human", "lang": "nl",
+     "input": "User: Kan ik gewoon even een medewerker spreken?"},
+    {"id": "int-06", "question": "intent", "difficulty": "clear", "gold": "out_of_scope",
+     "input": "User: what's the weather going to be like in Utrecht tomorrow"},
+    {"id": "int-07", "question": "intent", "difficulty": "ambiguous", "gold": "lost_or_stolen_card", "acceptable": ["dispute_transaction"],
+     "input": "User: I can't find my card and I see a payment I didn't make",
+     "note": "Two intents in one turn. Blocking the card is the urgent one."},
+    {"id": "int-08", "question": "intent", "difficulty": "ambiguous", "gold": "check_balance", "acceptable": ["transfer_money"],
+     "input": "Bot: Hi! What can I help you with?\nUser: can I afford to pay my rent this month",
+     "note": "Indirect request: the answer depends on the balance."},
+
+    {"id": "act-01", "question": "dialogue_act", "difficulty": "clear", "gold": "inform",
+     "input": "Bot: What's your postcode?\nUser: 3511 AB"},
+    {"id": "act-02", "question": "dialogue_act", "difficulty": "clear", "gold": "affirm",
+     "input": "Bot: Shall I send the new card to your home address on Oudegracht?\nUser: yes please"},
+    {"id": "act-03", "question": "dialogue_act", "difficulty": "clear", "gold": "negate", "lang": "nl",
+     "input": "Bot: Wil je de afspraak verzetten naar donderdag?\nUser: Nee, liever niet."},
+    {"id": "act-04", "question": "dialogue_act", "difficulty": "clear", "gold": "thank_or_close",
+     "input": "Bot: Your card has been blocked and a new one is on its way.\nUser: thanks, that's all"},
+    {"id": "act-05", "question": "dialogue_act", "difficulty": "clear", "gold": "complain",
+     "input": "Bot: Sorry, I didn't get that. Could you rephrase?\nUser: this is the third time you say that, this bot is useless"},
+    {"id": "act-06", "question": "dialogue_act", "difficulty": "ambiguous", "gold": "negate", "acceptable": ["inform"],
+     "input": "Bot: Is the delivery address still Kerkstraat 12?\nUser: we moved last month, it's Lindelaan 4 now",
+     "note": "Implicit no, plus new information."},
+    {"id": "act-07", "question": "dialogue_act", "difficulty": "ambiguous", "gold": "request", "acceptable": ["complain"],
+     "input": "Bot: Your order will arrive between 8:00 and 22:00.\nUser: can't you be a bit more precise than a fourteen hour window?"},
+
+    {"id": "move-01", "question": "next_move", "difficulty": "clear", "gold": "answer",
+     "input": "User: What are your opening hours on Saturday?"},
+    {"id": "move-02", "question": "next_move", "difficulty": "clear", "gold": "ask_clarifying_question",
+     "input": "[Context: the user has three upcoming appointments.]\nUser: I want to change my appointment"},
+    {"id": "move-03", "question": "next_move", "difficulty": "clear", "gold": "confirm_before_acting",
+     "input": "User: close my savings account and move everything to my checking account"},
+    {"id": "move-04", "question": "next_move", "difficulty": "clear", "gold": "hand_off_to_human", "lang": "nl",
+     "input": "User: Mijn man is vorige week overleden en ik weet niet wat ik met zijn rekening moet doen."},
+    {"id": "move-05", "question": "next_move", "difficulty": "clear", "gold": "reprompt_with_examples",
+     "input": "Bot: Hi, I'm the assistant of the city library. How can I help?\nUser: uh what can you do"},
+    {"id": "move-06", "question": "next_move", "difficulty": "clear", "gold": "hand_off_to_human",
+     "input": "User: I need to cancel my order\nBot: Sorry, I didn't understand. Could you rephrase?\nUser: CANCEL. MY. ORDER.\nBot: Sorry, I didn't understand. Could you rephrase?\nUser: unbelievable"},
+    {"id": "move-07", "question": "next_move", "difficulty": "ambiguous", "gold": "ask_clarifying_question", "acceptable": ["answer"],
+     "input": "User: how much does it cost",
+     "note": "No product mentioned and no earlier context."},
+
+    {"id": "state-01", "question": "user_state", "difficulty": "clear", "gold": "satisfied",
+     "input": "Bot: Done! Your refund of 24.95 will be in your account within two working days.\nUser: perfect, that was quick, thank you!"},
+    {"id": "state-02", "question": "user_state", "difficulty": "clear", "gold": "confused",
+     "input": "Bot: To continue, please verify with your app or select an alternative method.\nUser: which app? I only have the website. I don't get what I'm supposed to do now"},
+    {"id": "state-03", "question": "user_state", "difficulty": "clear", "gold": "angry",
+     "input": "User: This is the fourth time I'm explaining this. If this isn't fixed today I'm cancelling everything and posting about it everywhere."},
+    {"id": "state-04", "question": "user_state", "difficulty": "clear", "gold": "calm", "lang": "nl",
+     "input": "Bot: Wat is je klantnummer?\nUser: 48213990"},
+    {"id": "state-05", "question": "user_state", "difficulty": "ambiguous", "gold": "frustrated", "acceptable": ["angry"],
+     "input": "Bot: Sorry, I can't help with that. Is there anything else?\nUser: seriously? that's the only thing I came here for"},
+
+    {"id": "flaw-01", "question": "reply_flaw", "difficulty": "clear", "gold": "no_issue",
+     "input": "User: when does my contract end?\nBot: Your contract runs until 31 March 2027. Would you like to see the renewal options?"},
+    {"id": "flaw-02", "question": "reply_flaw", "difficulty": "clear", "gold": "ignores_the_question",
+     "input": "User: can I bring my dog on the train?\nBot: Great question! Did you know you can buy your tickets in our app and save 10%?"},
+    {"id": "flaw-03", "question": "reply_flaw", "difficulty": "clear", "gold": "wrong_tone",
+     "input": "User: my flight got cancelled and I'm stuck at the airport with two kids\nBot: Oopsie! 🙈 Looks like your plans took off without you! ✈️😂 Want to rebook?"},
+    {"id": "flaw-04", "question": "reply_flaw", "difficulty": "clear", "gold": "too_long_or_dense",
+     "input": "User: how do I reset my password\nBot: There are several ways to reset your password depending on your account type, device, region and the security level you selected when you signed up. Option 1: if you have a personal account on desktop, go to Settings, then Security, then Credentials, then Password, then Reset, then confirm via email, SMS or authenticator. Option 2: if you have a business account, contact your administrator, who can reset it from the admin console under Users, Manage, Security, Credentials. Option 3: on mobile, open the app, tap the menu, tap Profile, tap Security, tap Password, tap Reset. Option 4: if you have lost access to your email address you need to verify your identity with a passport or ID card, which takes 5 to 10 working days. Option 5: if two-factor authentication is enabled, you also need your backup codes. Please also note our password requirements: at least 12 characters, one capital letter, one number, one special character, and it cannot be one of your last 10 passwords."},
+    {"id": "flaw-05", "question": "reply_flaw", "difficulty": "clear", "gold": "unsupported_promise",
+     "input": "User: will my refund be approved?\nBot: Yes, your refund will definitely be approved and will be in your account tomorrow morning!"},
+    {"id": "flaw-06", "question": "reply_flaw", "difficulty": "ambiguous", "gold": "wrong_tone", "acceptable": ["ignores_the_question"], "lang": "nl",
+     "input": "User: Mijn pakket is al een week te laat, dit is echt belachelijk.\nBot: Wat leuk dat je contact opneemt! Wat kan ik vandaag voor je doen? 😊"},
+
+    {"id": "out-01", "question": "outcome", "difficulty": "clear", "gold": "resolved",
+     "input": "User: block my card please\nBot: Your card ending in 4421 is now blocked. A new card will arrive within 5 working days.\nUser: great thanks"},
+    {"id": "out-02", "question": "outcome", "difficulty": "clear", "gold": "escalated",
+     "input": "User: I want to talk to someone about my mortgage\nBot: I'm connecting you with a mortgage advisor now. The expected waiting time is 3 minutes."},
+    {"id": "out-03", "question": "outcome", "difficulty": "clear", "gold": "abandoned",
+     "input": "User: how do I change my delivery address\nBot: Sorry, I didn't understand. Could you rephrase?\nUser: delivery address change\nBot: Sorry, I didn't understand. Could you rephrase?\nUser: forget it"},
+    {"id": "out-04", "question": "outcome", "difficulty": "clear", "gold": "in_progress", "lang": "nl",
+     "input": "User: Ik wil een afspraak maken bij de huisarts.\nBot: Natuurlijk. Op welke dag komt het je het beste uit?"},
+    {"id": "out-05", "question": "outcome", "difficulty": "ambiguous", "gold": "abandoned", "acceptable": ["in_progress"],
+     "input": "User: what are the fees for international transfers\nBot: Fees depend on the destination country. Which country are you sending money to?\n[no reply from the user for 30 minutes, session timed out]"}
+  ]
+}
