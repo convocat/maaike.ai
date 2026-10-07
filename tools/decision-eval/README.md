@@ -35,6 +35,17 @@ Cost: with the defaults (cyclic shifts + reversed + 3 repeats) the generic set i
 
 Every item has a `gold` label and a `difficulty` (`clear` or `ambiguous`). Ambiguous items may list `acceptable` alternatives. A few chatbot items are in Dutch (`"lang": "nl"`). To add items, append to `items`; the loader checks that every label exists as an option.
 
+## Langfuse
+
+The test sets can be uploaded as Langfuse datasets (`decision-eval-generic`, `decision-eval-chatbot`):
+
+```bash
+python tools/decision-eval/sync_datasets_to_langfuse.py --dry-run
+python tools/decision-eval/sync_datasets_to_langfuse.py
+```
+
+Uses `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY` and `LANGFUSE_HOST` from the environment, `tools/decision-eval/.env` or `tools/karpathy-wiki/.env`. Each item keeps a fixed id, so running it again after editing the JSON updates items in place; items removed from the JSON are archived. The JSON files stay the source of truth: edit there, then sync.
+
 ## How order is varied
 
 For each item the same question is asked with the options in several orders:
