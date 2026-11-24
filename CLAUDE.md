@@ -2,6 +2,10 @@
 
 Personal digital garden for Maaike, deployed at **maaike.ai**. Built with Astro 5, static output, GitHub Pages.
 
+## Where everything else lives
+
+The map of all of Maaike's work is `convocat/convocat-ops`, `README.md`. Rules for voice, visuals and conversation design: `convocat/convocat-design-system`. Global to-do list: the Google Sheet "Backlog" (skill `global-backlog`); this repo's own items stay in `.claude/backlog.md`.
+
 ## Quick start
 
 ```
